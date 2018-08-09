@@ -29,7 +29,7 @@ namespace cs_save_editor
             gameSave.ReadSaveFromFile(textBoxSavePath.Text);
 
             //General tab
-            textBoxCPName.Text = gameSave.Data["CheckpointName"].Value;
+            comboBoxCPName.SelectedItem = gameSave.Data["CheckpointName"].Value;
             textBoxMapName.Text = gameSave.Data["MapName"].Value;
             textBoxSubContextID.Text = gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
             textBoxSubContextPath.Text = gameSave.Data["CurrentSubContextPathName"].Value;
@@ -46,6 +46,7 @@ namespace cs_save_editor
             tabControlMain.Enabled = true;
             buttonSaveEdits.Enabled = true;
             labelChangesWarning.Visible = false;
+            gameSave.SaveChangesSaved = true;
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace cs_save_editor
         private void buttonSaveEdits_Click(object sender, EventArgs e)
         {
             gameSave.WriteSaveToFile(textBoxSavePath.Text);
-            MessageBox.Show("Saved successfully!");
+            MessageBox.Show(Resources.EditsSuccessfullySavedMessage, "Savegame Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
             labelChangesWarning.Visible = false;
         }
 
@@ -416,11 +417,11 @@ namespace cs_save_editor
                 }
             }
         }
-        
+
         #region Edit functions
-        private void textBoxCPName_TextChanged(object sender, EventArgs e)
+        private void comboBoxCPName_SelectedValueChanged(object sender, EventArgs e)
         {
-            gameSave.Data["CheckpointName"].Value = textBoxCPName.Text;
+            gameSave.Data["CheckpointName"].Value = comboBoxCPName.SelectedItem.ToString();
             ShowChangesWarning();
         }
 
@@ -853,6 +854,7 @@ namespace cs_save_editor
 
         private void ShowChangesWarning()
         {
+            gameSave.SaveChangesSaved = false;
             labelChangesWarning.Text = "Press 'Save' to write changes to the save file.";
             labelChangesWarning.Visible = true;
         }

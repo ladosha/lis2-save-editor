@@ -2,11 +2,6 @@
 {
     public class Settings
     {
-        public Settings()
-        {
-
-        }
-
         public string SavePath { get; set; }
     }
 }

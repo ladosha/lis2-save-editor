@@ -50,7 +50,6 @@
             this.textBoxSubContextID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxMapName = new System.Windows.Forms.TextBox();
-            this.textBoxCPName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageInventory = new System.Windows.Forms.TabPage();
@@ -69,17 +68,13 @@
             this.dataGridViewFacts = new System.Windows.Forms.DataGridView();
             this.tabPageWorld = new System.Windows.Forms.TabPage();
             this.dataGridViewWorld = new System.Windows.Forms.DataGridView();
-            this.tabPageLevels = new System.Windows.Forms.TabPage();
             this.tabPageMetrics = new System.Windows.Forms.TabPage();
             this.tabPageSeenPics = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenPics = new System.Windows.Forms.DataGridView();
-            this.tabPagePhone = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tabPageOutfits = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelChangesWarning = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.comboBoxCPName = new System.Windows.Forms.ComboBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,8 +96,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorld)).BeginInit();
             this.tabPageSeenPics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).BeginInit();
-            this.tabPagePhone.SuspendLayout();
-            this.tabPageOutfits.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,11 +172,8 @@
             this.tabControlMain.Controls.Add(this.tabPageSeenTutos);
             this.tabControlMain.Controls.Add(this.tabPageFacts);
             this.tabControlMain.Controls.Add(this.tabPageWorld);
-            this.tabControlMain.Controls.Add(this.tabPageLevels);
             this.tabControlMain.Controls.Add(this.tabPageMetrics);
             this.tabControlMain.Controls.Add(this.tabPageSeenPics);
-            this.tabControlMain.Controls.Add(this.tabPagePhone);
-            this.tabControlMain.Controls.Add(this.tabPageOutfits);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Enabled = false;
             this.tabControlMain.ItemSize = new System.Drawing.Size(49, 20);
@@ -195,6 +185,7 @@
             // 
             // tabPageGeneral
             // 
+            this.tabPageGeneral.Controls.Add(this.comboBoxCPName);
             this.tabPageGeneral.Controls.Add(this.dateTimePickerSaveTime);
             this.tabPageGeneral.Controls.Add(this.label8);
             this.tabPageGeneral.Controls.Add(this.textBoxSubContextPath);
@@ -203,7 +194,6 @@
             this.tabPageGeneral.Controls.Add(this.textBoxSubContextID);
             this.tabPageGeneral.Controls.Add(this.label5);
             this.tabPageGeneral.Controls.Add(this.textBoxMapName);
-            this.tabPageGeneral.Controls.Add(this.textBoxCPName);
             this.tabPageGeneral.Controls.Add(this.label4);
             this.tabPageGeneral.Controls.Add(this.label3);
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
@@ -331,14 +321,6 @@
             this.textBoxMapName.Size = new System.Drawing.Size(203, 20);
             this.textBoxMapName.TabIndex = 4;
             this.textBoxMapName.TextChanged += new System.EventHandler(this.textBoxMapName_TextChanged);
-            // 
-            // textBoxCPName
-            // 
-            this.textBoxCPName.Location = new System.Drawing.Point(382, 18);
-            this.textBoxCPName.Name = "textBoxCPName";
-            this.textBoxCPName.Size = new System.Drawing.Size(203, 20);
-            this.textBoxCPName.TabIndex = 3;
-            this.textBoxCPName.TextChanged += new System.EventHandler(this.textBoxCPName_TextChanged);
             // 
             // label4
             // 
@@ -522,6 +504,7 @@
             this.tabPageFacts.Controls.Add(this.dataGridViewFacts);
             this.tabPageFacts.Location = new System.Drawing.Point(4, 24);
             this.tabPageFacts.Name = "tabPageFacts";
+            this.tabPageFacts.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageFacts.Size = new System.Drawing.Size(640, 453);
             this.tabPageFacts.TabIndex = 3;
             this.tabPageFacts.Text = "Facts";
@@ -534,9 +517,9 @@
             this.dataGridViewFacts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFacts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewFacts.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewFacts.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewFacts.Name = "dataGridViewFacts";
-            this.dataGridViewFacts.Size = new System.Drawing.Size(640, 453);
+            this.dataGridViewFacts.Size = new System.Drawing.Size(634, 447);
             this.dataGridViewFacts.TabIndex = 0;
             this.dataGridViewFacts.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewFacts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFacts_CellContentClick);
@@ -547,6 +530,7 @@
             this.tabPageWorld.Controls.Add(this.dataGridViewWorld);
             this.tabPageWorld.Location = new System.Drawing.Point(4, 24);
             this.tabPageWorld.Name = "tabPageWorld";
+            this.tabPageWorld.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageWorld.Size = new System.Drawing.Size(640, 453);
             this.tabPageWorld.TabIndex = 4;
             this.tabPageWorld.Text = "Packages";
@@ -560,27 +544,19 @@
             this.dataGridViewWorld.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewWorld.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWorld.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewWorld.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewWorld.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewWorld.Name = "dataGridViewWorld";
-            this.dataGridViewWorld.Size = new System.Drawing.Size(640, 453);
+            this.dataGridViewWorld.Size = new System.Drawing.Size(634, 447);
             this.dataGridViewWorld.TabIndex = 0;
             this.dataGridViewWorld.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewWorld.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorld_CellEndEdit);
-            // 
-            // tabPageLevels
-            // 
-            this.tabPageLevels.Location = new System.Drawing.Point(4, 24);
-            this.tabPageLevels.Name = "tabPageLevels";
-            this.tabPageLevels.Size = new System.Drawing.Size(640, 453);
-            this.tabPageLevels.TabIndex = 6;
-            this.tabPageLevels.Text = "Levels";
-            this.tabPageLevels.UseVisualStyleBackColor = true;
             // 
             // tabPageMetrics
             // 
             this.tabPageMetrics.AutoScroll = true;
             this.tabPageMetrics.Location = new System.Drawing.Point(4, 24);
             this.tabPageMetrics.Name = "tabPageMetrics";
+            this.tabPageMetrics.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageMetrics.Size = new System.Drawing.Size(640, 453);
             this.tabPageMetrics.TabIndex = 7;
             this.tabPageMetrics.Text = "Metrics";
@@ -591,6 +567,7 @@
             this.tabPageSeenPics.Controls.Add(this.dataGridViewSeenPics);
             this.tabPageSeenPics.Location = new System.Drawing.Point(4, 24);
             this.tabPageSeenPics.Name = "tabPageSeenPics";
+            this.tabPageSeenPics.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageSeenPics.Size = new System.Drawing.Size(640, 453);
             this.tabPageSeenPics.TabIndex = 8;
             this.tabPageSeenPics.Text = "Seen pictures";
@@ -602,53 +579,15 @@
             this.dataGridViewSeenPics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSeenPics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSeenPics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSeenPics.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSeenPics.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenPics.Name = "dataGridViewSeenPics";
-            this.dataGridViewSeenPics.Size = new System.Drawing.Size(640, 453);
+            this.dataGridViewSeenPics.Size = new System.Drawing.Size(634, 447);
             this.dataGridViewSeenPics.TabIndex = 1;
             this.dataGridViewSeenPics.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenPics.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowValidated);
             this.dataGridViewSeenPics.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_RowValidating);
             this.dataGridViewSeenPics.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_UserAddedRow);
             this.dataGridViewSeenPics.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
-            // 
-            // tabPagePhone
-            // 
-            this.tabPagePhone.Controls.Add(this.label9);
-            this.tabPagePhone.Location = new System.Drawing.Point(4, 24);
-            this.tabPagePhone.Name = "tabPagePhone";
-            this.tabPagePhone.Size = new System.Drawing.Size(640, 453);
-            this.tabPagePhone.TabIndex = 9;
-            this.tabPagePhone.Text = "Phone";
-            this.tabPagePhone.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 11);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "(LIS2 Only)";
-            // 
-            // tabPageOutfits
-            // 
-            this.tabPageOutfits.Controls.Add(this.label10);
-            this.tabPageOutfits.Location = new System.Drawing.Point(4, 24);
-            this.tabPageOutfits.Name = "tabPageOutfits";
-            this.tabPageOutfits.Size = new System.Drawing.Size(640, 453);
-            this.tabPageOutfits.TabIndex = 10;
-            this.tabPageOutfits.Text = "Outfits";
-            this.tabPageOutfits.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "(LIS2 Only)";
             // 
             // tableLayoutPanel1
             // 
@@ -691,6 +630,64 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
+            // comboBoxCPName
+            // 
+            this.comboBoxCPName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCPName.FormattingEnabled = true;
+            this.comboBoxCPName.Items.AddRange(new object[] {
+            "PT_CP00_TestSave",
+            "PT_CP01_Insertion",
+            "PT_CP02_DrawingFinished",
+            "PT_CP03_BreakfastFinished",
+            "PT_CP04_LeaveHouse",
+            "PT_CP05_EnterHouse",
+            "PT_CP06_DadWakeUp",
+            "PT_CP10_HelmetEquiped",
+            "PT_CP11_MaskEquiped",
+            "PT_CP12_LightArmorEquiped",
+            "PT_CP13_HeavyArmorEquiped",
+            "PT_CP14_WaterEaterDefeated",
+            "PT_CP15_GolemCemeteryComplete",
+            "PT_CP16_CostumePainted",
+            "PT_CP17_MantroidPlanetVisited",
+            "PT_CP18_SnowmanBlownUp",
+            "PT_CP19_PlayedSnowball",
+            "PT_CP20_CaptainSpiritQuestComplete",
+            "PT_CP21_PlayedHotDogManGame",
+            "PT_CP22_CloakEquiped",
+            "PT_CP23_TrexChecked",
+            "PT_CP24_VikingChecked",
+            "PT_CP25_ActionFigureChecked",
+            "PT_CP26_SharkChecked",
+            "PT_CP27_SkyPirateChecked",
+            "PT_CP28_SnowmancerChecked",
+            "PT_CP29_FirecrackerCollected",
+            "PT_CP30_GarageKeyCollected",
+            "PT_CP31_MapCollected",
+            "PT_CP32_CarkeyFloorCollected",
+            "PT_CP33_CarkeyBowlCollected",
+            "PT_CP34_CarkeyBowlDeposited",
+            "PT_CP35_TrousersCollected",
+            "PT_CP36_CigaretteCollected",
+            "PT_CP37_MapDeposited",
+            "PT_CP38_CigaretteConsumed",
+            "PT_CP39_TrousersDeposited",
+            "PT_CP40_EnterGarage1stTime",
+            "PT_CP41_EnterGarage",
+            "PT_CP42_ExitGarage",
+            "PT_CP43_EnterTreeHouse",
+            "PT_CP44_ExitTreeHouse",
+            "PT_CP45_EnteringGolemCemetery",
+            "PT_CP46_EnteringWaterEater",
+            "PT_CP47_BeforeMantroidPlanet",
+            "PT_CP48_WardrobeKeyCollected",
+            "PT_CP49_WardrobeKeyUsed"});
+            this.comboBoxCPName.Location = new System.Drawing.Point(382, 18);
+            this.comboBoxCPName.Name = "comboBoxCPName";
+            this.comboBoxCPName.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxCPName.TabIndex = 15;
+            this.comboBoxCPName.SelectedValueChanged += new System.EventHandler(this.comboBoxCPName_SelectedValueChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,10 +723,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWorld)).EndInit();
             this.tabPageSeenPics.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).EndInit();
-            this.tabPagePhone.ResumeLayout(false);
-            this.tabPagePhone.PerformLayout();
-            this.tabPageOutfits.ResumeLayout(false);
-            this.tabPageOutfits.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -751,7 +744,6 @@
         private System.Windows.Forms.TextBox textBoxSubContextID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxMapName;
-        private System.Windows.Forms.TextBox textBoxCPName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPageSeenNotifs;
@@ -772,11 +764,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridViewFacts;
         private System.Windows.Forms.DataGridView dataGridViewWorld;
-        private System.Windows.Forms.TabPage tabPageLevels;
         private System.Windows.Forms.TabPage tabPageMetrics;
         private System.Windows.Forms.TabPage tabPageSeenPics;
-        private System.Windows.Forms.TabPage tabPagePhone;
-        private System.Windows.Forms.TabPage tabPageOutfits;
         private System.Windows.Forms.TabControl tabControlInventory;
         private System.Windows.Forms.TabPage tabPageInv;
         private System.Windows.Forms.DataGridView dataGridViewInventory1;
@@ -787,8 +776,7 @@
         private System.Windows.Forms.DataGridView dataGridViewSeenPics;
         private System.Windows.Forms.Label labelChangesWarning;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBoxCPName;
     }
 }
 
