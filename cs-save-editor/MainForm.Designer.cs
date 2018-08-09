@@ -635,6 +635,7 @@
             this.comboBoxCPName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCPName.FormattingEnabled = true;
             this.comboBoxCPName.Items.AddRange(new object[] {
+            "None",
             "PT_CP00_TestSave",
             "PT_CP01_Insertion",
             "PT_CP02_DrawingFinished",
