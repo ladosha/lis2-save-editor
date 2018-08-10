@@ -37,7 +37,10 @@
             this.buttonAbout = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.panelSaveTime = new System.Windows.Forms.Panel();
             this.dateTimePickerSaveTime = new System.Windows.Forms.DateTimePicker();
+            this.panelCPName = new System.Windows.Forms.Panel();
+            this.comboBoxCPName = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxSubContextPath = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -74,9 +77,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelChangesWarning = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.comboBoxCPName = new System.Windows.Forms.ComboBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
+            this.panelSaveTime.SuspendLayout();
+            this.panelCPName.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPageInventory.SuspendLayout();
             this.tabControlInventory.SuspendLayout();
@@ -185,8 +189,8 @@
             // 
             // tabPageGeneral
             // 
-            this.tabPageGeneral.Controls.Add(this.comboBoxCPName);
-            this.tabPageGeneral.Controls.Add(this.dateTimePickerSaveTime);
+            this.tabPageGeneral.Controls.Add(this.panelSaveTime);
+            this.tabPageGeneral.Controls.Add(this.panelCPName);
             this.tabPageGeneral.Controls.Add(this.label8);
             this.tabPageGeneral.Controls.Add(this.textBoxSubContextPath);
             this.tabPageGeneral.Controls.Add(this.label7);
@@ -204,15 +208,93 @@
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
+            // panelSaveTime
+            // 
+            this.panelSaveTime.Controls.Add(this.dateTimePickerSaveTime);
+            this.panelSaveTime.Location = new System.Drawing.Point(379, 122);
+            this.panelSaveTime.Margin = new System.Windows.Forms.Padding(0);
+            this.panelSaveTime.Name = "panelSaveTime";
+            this.panelSaveTime.Size = new System.Drawing.Size(208, 27);
+            this.panelSaveTime.TabIndex = 17;
+            // 
             // dateTimePickerSaveTime
             // 
             this.dateTimePickerSaveTime.CustomFormat = "dd MMMM yyyy HH:mm";
             this.dateTimePickerSaveTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerSaveTime.Location = new System.Drawing.Point(382, 122);
+            this.dateTimePickerSaveTime.Location = new System.Drawing.Point(3, 3);
             this.dateTimePickerSaveTime.Name = "dateTimePickerSaveTime";
             this.dateTimePickerSaveTime.Size = new System.Drawing.Size(203, 20);
             this.dateTimePickerSaveTime.TabIndex = 14;
             this.dateTimePickerSaveTime.ValueChanged += new System.EventHandler(this.dateTimePickerSaveTime_ValueChanged);
+            // 
+            // panelCPName
+            // 
+            this.panelCPName.Controls.Add(this.comboBoxCPName);
+            this.panelCPName.Location = new System.Drawing.Point(379, 13);
+            this.panelCPName.Margin = new System.Windows.Forms.Padding(0);
+            this.panelCPName.Name = "panelCPName";
+            this.panelCPName.Size = new System.Drawing.Size(208, 27);
+            this.panelCPName.TabIndex = 16;
+            // 
+            // comboBoxCPName
+            // 
+            this.comboBoxCPName.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBoxCPName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCPName.FormattingEnabled = true;
+            this.comboBoxCPName.Items.AddRange(new object[] {
+            "None",
+            "PT_CP00_TestSave",
+            "PT_CP01_Insertion",
+            "PT_CP02_DrawingFinished",
+            "PT_CP03_BreakfastFinished",
+            "PT_CP04_LeaveHouse",
+            "PT_CP05_EnterHouse",
+            "PT_CP06_DadWakeUp",
+            "PT_CP10_HelmetEquiped",
+            "PT_CP11_MaskEquiped",
+            "PT_CP12_LightArmorEquiped",
+            "PT_CP13_HeavyArmorEquiped",
+            "PT_CP14_WaterEaterDefeated",
+            "PT_CP15_GolemCemeteryComplete",
+            "PT_CP16_CostumePainted",
+            "PT_CP17_MantroidPlanetVisited",
+            "PT_CP18_SnowmanBlownUp",
+            "PT_CP19_PlayedSnowball",
+            "PT_CP20_CaptainSpiritQuestComplete",
+            "PT_CP21_PlayedHotDogManGame",
+            "PT_CP22_CloakEquiped",
+            "PT_CP23_TrexChecked",
+            "PT_CP24_VikingChecked",
+            "PT_CP25_ActionFigureChecked",
+            "PT_CP26_SharkChecked",
+            "PT_CP27_SkyPirateChecked",
+            "PT_CP28_SnowmancerChecked",
+            "PT_CP29_FirecrackerCollected",
+            "PT_CP30_GarageKeyCollected",
+            "PT_CP31_MapCollected",
+            "PT_CP32_CarkeyFloorCollected",
+            "PT_CP33_CarkeyBowlCollected",
+            "PT_CP34_CarkeyBowlDeposited",
+            "PT_CP35_TrousersCollected",
+            "PT_CP36_CigaretteCollected",
+            "PT_CP37_MapDeposited",
+            "PT_CP38_CigaretteConsumed",
+            "PT_CP39_TrousersDeposited",
+            "PT_CP40_EnterGarage1stTime",
+            "PT_CP41_EnterGarage",
+            "PT_CP42_ExitGarage",
+            "PT_CP43_EnterTreeHouse",
+            "PT_CP44_ExitTreeHouse",
+            "PT_CP45_EnteringGolemCemetery",
+            "PT_CP46_EnteringWaterEater",
+            "PT_CP47_BeforeMantroidPlanet",
+            "PT_CP48_WardrobeKeyCollected",
+            "PT_CP49_WardrobeKeyUsed"});
+            this.comboBoxCPName.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxCPName.Name = "comboBoxCPName";
+            this.comboBoxCPName.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxCPName.TabIndex = 15;
+            this.comboBoxCPName.SelectedValueChanged += new System.EventHandler(this.comboBoxCPName_SelectedValueChanged);
             // 
             // label8
             // 
@@ -630,65 +712,6 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
-            // comboBoxCPName
-            // 
-            this.comboBoxCPName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCPName.FormattingEnabled = true;
-            this.comboBoxCPName.Items.AddRange(new object[] {
-            "None",
-            "PT_CP00_TestSave",
-            "PT_CP01_Insertion",
-            "PT_CP02_DrawingFinished",
-            "PT_CP03_BreakfastFinished",
-            "PT_CP04_LeaveHouse",
-            "PT_CP05_EnterHouse",
-            "PT_CP06_DadWakeUp",
-            "PT_CP10_HelmetEquiped",
-            "PT_CP11_MaskEquiped",
-            "PT_CP12_LightArmorEquiped",
-            "PT_CP13_HeavyArmorEquiped",
-            "PT_CP14_WaterEaterDefeated",
-            "PT_CP15_GolemCemeteryComplete",
-            "PT_CP16_CostumePainted",
-            "PT_CP17_MantroidPlanetVisited",
-            "PT_CP18_SnowmanBlownUp",
-            "PT_CP19_PlayedSnowball",
-            "PT_CP20_CaptainSpiritQuestComplete",
-            "PT_CP21_PlayedHotDogManGame",
-            "PT_CP22_CloakEquiped",
-            "PT_CP23_TrexChecked",
-            "PT_CP24_VikingChecked",
-            "PT_CP25_ActionFigureChecked",
-            "PT_CP26_SharkChecked",
-            "PT_CP27_SkyPirateChecked",
-            "PT_CP28_SnowmancerChecked",
-            "PT_CP29_FirecrackerCollected",
-            "PT_CP30_GarageKeyCollected",
-            "PT_CP31_MapCollected",
-            "PT_CP32_CarkeyFloorCollected",
-            "PT_CP33_CarkeyBowlCollected",
-            "PT_CP34_CarkeyBowlDeposited",
-            "PT_CP35_TrousersCollected",
-            "PT_CP36_CigaretteCollected",
-            "PT_CP37_MapDeposited",
-            "PT_CP38_CigaretteConsumed",
-            "PT_CP39_TrousersDeposited",
-            "PT_CP40_EnterGarage1stTime",
-            "PT_CP41_EnterGarage",
-            "PT_CP42_ExitGarage",
-            "PT_CP43_EnterTreeHouse",
-            "PT_CP44_ExitTreeHouse",
-            "PT_CP45_EnteringGolemCemetery",
-            "PT_CP46_EnteringWaterEater",
-            "PT_CP47_BeforeMantroidPlanet",
-            "PT_CP48_WardrobeKeyCollected",
-            "PT_CP49_WardrobeKeyUsed"});
-            this.comboBoxCPName.Location = new System.Drawing.Point(382, 18);
-            this.comboBoxCPName.Name = "comboBoxCPName";
-            this.comboBoxCPName.Size = new System.Drawing.Size(202, 21);
-            this.comboBoxCPName.TabIndex = 15;
-            this.comboBoxCPName.SelectedValueChanged += new System.EventHandler(this.comboBoxCPName_SelectedValueChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -704,6 +727,8 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
+            this.panelSaveTime.ResumeLayout(false);
+            this.panelCPName.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPageInventory.ResumeLayout(false);
@@ -778,6 +803,8 @@
         private System.Windows.Forms.Label labelChangesWarning;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox comboBoxCPName;
+        private System.Windows.Forms.Panel panelSaveTime;
+        private System.Windows.Forms.Panel panelCPName;
     }
 }
 

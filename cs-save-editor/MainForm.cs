@@ -23,6 +23,10 @@ namespace cs_save_editor
         private GameSave _gameSave;
         private List<string> _steamIdFolders = new List<string>();
 
+        private List<dynamic> _editedControls = new List<object>();
+
+        private bool SaveLoading = false;
+
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             _gameSave = new GameSave();
@@ -30,11 +34,16 @@ namespace cs_save_editor
             _gameSave.ReadSaveFromFile(textBoxSavePath.Text);
 
             //General tab
+            SaveLoading = true;
+
             comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointName"].Value;
             textBoxMapName.Text = _gameSave.Data["MapName"].Value;
             textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
             textBoxSubContextPath.Text = _gameSave.Data["CurrentSubContextPathName"].Value;
             dateTimePickerSaveTime.Value = _gameSave.Data["SaveTime"].Value["DateTime"];
+
+            SaveLoading = false;
+            _editedControls.Clear();
 
             UpdateInventoryGrids();
             UpdateSeenNotifsGrid();
@@ -46,8 +55,6 @@ namespace cs_save_editor
 
             tabControlMain.Enabled = true;
             buttonSaveEdits.Enabled = true;
-            labelChangesWarning.Visible = false;
-            _gameSave.SaveChangesSaved = true;
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -71,6 +78,27 @@ namespace cs_save_editor
         {
             _gameSave.WriteSaveToFile(textBoxSavePath.Text);
             MessageBox.Show(Resources.EditsSuccessfullySavedMessage, "Savegame Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            foreach (var cnt in _editedControls)
+            {
+               if (cnt is DataGridViewCell)
+                {
+                    cnt.Style.BackColor = Color.White;
+                }
+               else if (cnt is TextBox)
+                {
+                    cnt.BackColor = SystemColors.Window;
+                }
+               else if (cnt is Panel)
+                {
+                    cnt.BackColor = Color.Transparent;
+                }
+                else
+                {
+                    cnt.BackColor = Color.White;
+                }
+            }
+            _editedControls.Clear();
             labelChangesWarning.Visible = false;
         }
 
@@ -108,14 +136,12 @@ namespace cs_save_editor
             {
                 dataGridViewInventory3.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
-
-
         }
 
         private DataTable BuildInventoryTable(string inv_type)
         {
             DataTable t = new DataTable();
-            var item_list = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+            List<dynamic> item_list = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
                       .Value["PlayerInventorySaveData"].Value[inv_type].Value;
 
             t.Columns.Add("Name");
@@ -123,12 +149,13 @@ namespace cs_save_editor
 
             object[] row = new object[t.Columns.Count];
 
-            for (int i=1; i<item_list.Count; i++)
+            foreach (var item in item_list.Skip(1))
             {
-                row[0] = item_list[i]["PickupID"].Value;
-                row[1] = item_list[i]["Quantity"].Value;
+                row[0] = item["PickupID"].Value;
+                row[1] = item["Quantity"].Value;
                 t.Rows.Add(row);
             }
+            
             return t;
         }
 
@@ -146,7 +173,7 @@ namespace cs_save_editor
         private DataTable BuildSeenNotifsTable() //may be incorrect
         {
             DataTable t = new DataTable();
-            var notif_list = _gameSave.Data["CurrentSubContextSaveData"]
+            List<dynamic> notif_list = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["PlayerSaveData"].Value["AlreadySeenNotifications"].Value;
 
             t.Columns.Add("Name");
@@ -244,7 +271,7 @@ namespace cs_save_editor
         private DataTable BuildWorldTable()
         {
             DataTable t = new DataTable();
-            var packages = _gameSave.Data["CurrentSubContextSaveData"]
+            List<dynamic> packages = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["WorldStreamingSaveData"].Value;
 
             t.Columns.Add("Package name");
@@ -259,14 +286,14 @@ namespace cs_save_editor
             t.Columns[4].DataType = typeof(bool);
             t.Columns[5].DataType = typeof(bool);
             object[] row = new object[t.Columns.Count];
-            for (int i=1; i<packages.Count; i++)
+            foreach(var pack in packages.Skip(1))
             {
-                row[0] = packages[i]["StreamingLevelPackageName"].Value;
-                row[1] = packages[i]["bShouldBeLoaded"].Value;
-                row[2] = packages[i]["bShouldBeVisible"].Value;
-                row[3] = packages[i]["bShouldBlockOnLoad"].Value;
-                row[4] = packages[i]["bHasLoadedLevel"].Value;
-                row[5] = packages[i]["bIsVisible"].Value;
+                row[0] = pack["StreamingLevelPackageName"].Value;
+                row[1] = pack["bShouldBeLoaded"].Value;
+                row[2] = pack["bShouldBeVisible"].Value;
+                row[3] = pack["bShouldBlockOnLoad"].Value;
+                row[4] = pack["bHasLoadedLevel"].Value;
+                row[5] = pack["bIsVisible"].Value;
                 t.Rows.Add(row);
             }
             return t;
@@ -392,12 +419,12 @@ namespace cs_save_editor
         {
             DataTable t = new DataTable();
             t.Columns.Add("Name");
-            var names = _gameSave.Data["CurrentSubContextSaveData"]
+            List<dynamic> names = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["ShowPicturesSaveData"].Value["AllShowPictureIDSeen"].Value;
 
-            for (int i=1; i<names.Count; i++)
+            foreach (var name in names.Skip(1))
             {
-                t.Rows.Add(new object[] { names[i]["Name"].Value });
+                t.Rows.Add(new object[] { name["Name"].Value });
             }
             return t;
         }
@@ -414,6 +441,11 @@ namespace cs_save_editor
                 editForm.ShowDialog();
                 if (editForm.changesMade)
                 {
+                    if (!_editedControls.Contains(dataGridViewFacts[0, e.RowIndex]))
+                    {
+                        _editedControls.Add(dataGridViewFacts[0, e.RowIndex]);
+                    }
+                    dataGridViewFacts[0, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                     ShowChangesWarning();
                 }
             }
@@ -423,31 +455,57 @@ namespace cs_save_editor
         private void comboBoxCPName_SelectedValueChanged(object sender, EventArgs e)
         {
             _gameSave.Data["CheckpointName"].Value = comboBoxCPName.SelectedItem.ToString();
-            ShowChangesWarning();
+            if (!SaveLoading)
+            {
+                _editedControls.AddUnique(panelCPName);
+                panelCPName.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
+            
         }
 
         private void textBoxMapName_TextChanged(object sender, EventArgs e)
         {
             _gameSave.Data["MapName"].Value = textBoxMapName.Text;
-            ShowChangesWarning();
+            if (!SaveLoading)
+            {
+                _editedControls.AddUnique(textBoxMapName);
+                textBoxMapName.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
         }
 
         private void textBoxSubContextID_TextChanged(object sender, EventArgs e)
         {
             _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value = textBoxSubContextID.Text;
-            ShowChangesWarning();
+            if (!SaveLoading)
+            {
+                _editedControls.AddUnique(textBoxSubContextID);
+                textBoxSubContextID.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
         }
 
         private void textBoxSubContextPath_TextChanged(object sender, EventArgs e)
         {
             _gameSave.Data["CurrentSubContextPathName"].Value = textBoxSubContextPath.Text;
-            ShowChangesWarning();
+            if (!SaveLoading)
+            {
+                _editedControls.AddUnique(textBoxSubContextPath);
+                textBoxSubContextPath.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
         }
 
         private void dateTimePickerSaveTime_ValueChanged(object sender, EventArgs e)
         {
             _gameSave.Data["SaveTime"].Value["DateTime"] = dateTimePickerSaveTime.Value;
-            ShowChangesWarning();
+            if (!SaveLoading)
+            {
+                _editedControls.AddUnique(panelSaveTime);
+                panelSaveTime.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
         }
 
         private int newRowIndex = -1;
@@ -507,6 +565,11 @@ namespace cs_save_editor
                         }
                 }
 
+                _editedControls.AddRange(((DataGridView)sender).Rows[e.RowIndex].Cells.Cast<DataGridViewCell>());
+                foreach (DataGridViewCell cell in ((DataGridView)sender).Rows[e.RowIndex].Cells)
+                {
+                    cell.Style.BackColor = Color.LightGoldenrodYellow;
+                }
                 ShowChangesWarning();
             }
         }
@@ -542,6 +605,8 @@ namespace cs_save_editor
                         break;
                     }
             }
+
+            _editedControls.RemoveAll(x => (x is DataGridViewCell && x.RowIndex == e.Row.Index));
             ShowChangesWarning();
         }
 
@@ -585,6 +650,11 @@ namespace cs_save_editor
             {
                 var item_name = dataGridViewInventory1[0, e.RowIndex].Value.ToString(); 
                 _gameSave.EditInventoryItem("InventoryItems", item_name, Convert.ToInt32(newCellValue));
+                _editedControls.AddUnique(dataGridViewInventory1[e.ColumnIndex, e.RowIndex]);
+                foreach (DataGridViewCell cell in dataGridViewInventory1.Rows[e.RowIndex].Cells)
+                {
+                    cell.Style.BackColor = Color.LightGoldenrodYellow;
+                }
                 ShowChangesWarning();
             }
         }
@@ -608,6 +678,11 @@ namespace cs_save_editor
             {
                 var item_name = dataGridViewInventory2[0, e.RowIndex].Value.ToString();
                 _gameSave.EditInventoryItem("BackPackItems", item_name, Convert.ToInt32(newCellValue));
+                _editedControls.AddUnique(dataGridViewInventory2[e.ColumnIndex, e.RowIndex]);
+                foreach (DataGridViewCell cell in dataGridViewInventory2.Rows[e.RowIndex].Cells)
+                {
+                    cell.Style.BackColor = Color.LightGoldenrodYellow;
+                }
                 ShowChangesWarning();
             }
         }
@@ -631,6 +706,11 @@ namespace cs_save_editor
             {
                 var item_name = dataGridViewInventory3[0, e.RowIndex].Value.ToString();
                 _gameSave.EditInventoryItem("PocketsItems", item_name, Convert.ToInt32(newCellValue));
+                _editedControls.AddUnique(dataGridViewInventory3[e.ColumnIndex, e.RowIndex]);
+                foreach (DataGridViewCell cell in dataGridViewInventory3.Rows[e.RowIndex].Cells)
+                {
+                    cell.Style.BackColor = Color.LightGoldenrodYellow;
+                }
                 ShowChangesWarning();
             }
         }
@@ -654,6 +734,8 @@ namespace cs_save_editor
             {
                 var notif_name = dataGridViewSeenTutos[0, e.RowIndex].Value.ToString();
                 _gameSave.EditSeenTutorial(notif_name, Convert.ToInt32(newCellValue));
+                _editedControls.AddUnique(dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex]);
+                dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
         }
@@ -666,6 +748,8 @@ namespace cs_save_editor
             {
                 _gameSave.Data["CurrentSubContextSaveData"].Value["FactsSaveData"]
             .Value[name]["bKeepFactValuesOnSaveReset"].Value = Convert.ToBoolean(newCellValue);
+                _editedControls.AddUnique(dataGridViewFacts[e.ColumnIndex, e.RowIndex]);
+                dataGridViewFacts[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
         }
@@ -709,6 +793,8 @@ namespace cs_save_editor
                 }
 
                 _gameSave.EditPackageProperty(name, property, Convert.ToBoolean(newCellValue));
+                _editedControls.AddUnique(dataGridViewWorld[e.ColumnIndex, e.RowIndex]);
+                dataGridViewWorld[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
 
@@ -722,7 +808,8 @@ namespace cs_save_editor
             try
             {
                 value = Convert.ToUInt32(tb.Text);
-                tb.BackColor = SystemColors.Window;
+                tb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(tb);
             }
             catch
             {
@@ -741,7 +828,8 @@ namespace cs_save_editor
             try
             {
                 value = Convert.ToSingle(tb.Text);
-                tb.BackColor = SystemColors.Window;
+                tb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(tb);
             }
             catch
             {
@@ -760,7 +848,8 @@ namespace cs_save_editor
             try
             {
                 value = Convert.ToUInt32(tb.Text);
-                tb.BackColor = SystemColors.Window;
+                tb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(tb);
             }
             catch
             {

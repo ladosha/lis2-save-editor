@@ -24,7 +24,6 @@ namespace cs_save_editor
             return;
         }
 
-        ///*
         public static void WriteProperty(this BinaryWriter writer, dynamic property, bool inArray = false, string arrElType = "", string structElType = "")
         {
             if (!inArray)
@@ -149,20 +148,9 @@ namespace cs_save_editor
                     {
                         if (!inArray)
                         {
-                            //long length = writer.ReadInt64();
-                            //string eltype = writer.ReadUE4String();
-                            //byte[] unkbytes = writer.ReadBytes(17);
-                            //long end = writer.BaseStream.Position + length;
-                            //Dictionary<string, object> value = new Dictionary<string, object>();
-
                             writer.Write(property.Length);
                             WriteUE4String(writer, property.ElementType);
                             writer.Write(property.UnkBytes);
-
-                            if (property.ElementType == "LIS2ObjectiveCueGroupSaveData")
-                            {
-                                var test = property.ElementType; 
-                            }
 
                             switch (property.ElementType)
                             {
@@ -253,17 +241,11 @@ namespace cs_save_editor
 
                 case "ArrayProperty":
                     {
-                        //long length = writer.ReadInt64();
-                        //string eltype = writer.ReadUE4String();
-                        //byte unkbyte = writer.ReadByte();
-                        //int count = writer.ReadInt32();
-
                         writer.Write(property.Length);
                         WriteUE4String(writer, property.ElementType);
                         writer.Write(property.UnkByte);
                         writer.Write(property.ElementCount);
 
-                        //List<dynamic> value = new List<dynamic>();
                         if (property.ElementType == "StructProperty")
                         {
                             var info = property.Value[0];
@@ -283,7 +265,6 @@ namespace cs_save_editor
                         {
                             for (int i = 0; i < property.ElementCount; i++)
                             {
-                                //value.Add(writer.ParseProperty(true, eltype));
                                 WriteProperty(writer, property.Value[i], true, property.ElementType);
                             }
                         }
@@ -291,25 +272,17 @@ namespace cs_save_editor
                     }
                 case "MapProperty":
                     {
-                        //long length = writer.ReadInt64();
-                        //string keytype = writer.ReadUE4String();
-                        //string valtype = writer.ReadUE4String();
-                        //byte[] unkbytes = writer.ReadBytes(5);
-                        //int count = writer.ReadInt32();
-
+                        
                         writer.Write(property.Length);
                         WriteUE4String(writer, property.KeyType);
                         WriteUE4String(writer, property.ValType);
                         writer.Write(property.UnkBytes);
                         writer.Write(property.ElementCount);
 
-                        //Dictionary<object, object> value = new Dictionary<object, object>();
-
                         if (property.KeyType == "StructProperty" && property.ValType == "StructProperty")
                         {
                             foreach (var child in property.Value) //FactAssets. add guid and struct containing entire fact asset
                             {
-                                //value.Add(writer.ReadBytes(16), writer.ParseProperty(true, valtype));
                                 writer.Write(new Guid(child.Key).ToByteArray());
                                 var val = child.Value;
                                 WriteProperty(writer, val, true, property.ValType);
@@ -319,7 +292,6 @@ namespace cs_save_editor
                         {
                             foreach (var child in property.Value)
                             {
-                                //value.Add(writer.ParseProperty(true, keytype), writer.ParseProperty(true, valtype));
                                 WriteProperty(writer, child.Key, true, property.KeyType);
                                 WriteProperty(writer, child.Value, true, property.ValType);
                             }
@@ -335,9 +307,6 @@ namespace cs_save_editor
                     }
                 case "SetProperty": //only ONE such property in the file, and it's still empty :D 
                     {
-                        //long length = writer.ReadInt64(); //maybe
-                        //string eltype = writer.ReadUE4String(); //likely
-                        //writer.ReadBytes(9);
                         writer.Write(property.Length);
                         WriteUE4String(writer, property.ElementType);
                         writer.Write(property.UnkBytes);
@@ -349,6 +318,5 @@ namespace cs_save_editor
                     }
             }
         }
-        //*/
     }
 }
