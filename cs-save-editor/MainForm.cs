@@ -651,10 +651,7 @@ namespace cs_save_editor
                 var item_name = dataGridViewInventory1[0, e.RowIndex].Value.ToString(); 
                 _gameSave.EditInventoryItem("InventoryItems", item_name, Convert.ToInt32(newCellValue));
                 _editedControls.AddUnique(dataGridViewInventory1[e.ColumnIndex, e.RowIndex]);
-                foreach (DataGridViewCell cell in dataGridViewInventory1.Rows[e.RowIndex].Cells)
-                {
-                    cell.Style.BackColor = Color.LightGoldenrodYellow;
-                }
+                dataGridViewInventory1[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
         }
@@ -679,10 +676,7 @@ namespace cs_save_editor
                 var item_name = dataGridViewInventory2[0, e.RowIndex].Value.ToString();
                 _gameSave.EditInventoryItem("BackPackItems", item_name, Convert.ToInt32(newCellValue));
                 _editedControls.AddUnique(dataGridViewInventory2[e.ColumnIndex, e.RowIndex]);
-                foreach (DataGridViewCell cell in dataGridViewInventory2.Rows[e.RowIndex].Cells)
-                {
-                    cell.Style.BackColor = Color.LightGoldenrodYellow;
-                }
+                dataGridViewInventory2[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
         }
@@ -707,10 +701,7 @@ namespace cs_save_editor
                 var item_name = dataGridViewInventory3[0, e.RowIndex].Value.ToString();
                 _gameSave.EditInventoryItem("PocketsItems", item_name, Convert.ToInt32(newCellValue));
                 _editedControls.AddUnique(dataGridViewInventory3[e.ColumnIndex, e.RowIndex]);
-                foreach (DataGridViewCell cell in dataGridViewInventory3.Rows[e.RowIndex].Cells)
-                {
-                    cell.Style.BackColor = Color.LightGoldenrodYellow;
-                }
+                dataGridViewInventory3[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
         }
