@@ -17,7 +17,6 @@ namespace cs_save_editor
             return new string(reader.ReadChars(length)).Remove(length - 1);
         }
 
-        //Function for all property types, if we manage to make a parser
         public static dynamic ParseProperty(this BinaryReader reader, bool inArray = false, string arrElType="", string structElType = "")
         {
             string name = "";
@@ -241,7 +240,6 @@ namespace cs_save_editor
 
                         return s_value;
                     }
-
                 case "ArrayProperty":
                     {
                         long length = reader.ReadInt64();
@@ -325,149 +323,5 @@ namespace cs_save_editor
             }
         }
 
-        /*
-
-        public static Dictionary<string, InventoryItem> ParseInventorySection(this BinaryReader reader)
-        {
-            long section_length = reader.ParseStructProperty().Length;
-            long section_end_addr = reader.BaseStream.Position + section_length;
-            NameProperty name;
-            IntProperty qty;
-
-            Dictionary<string, InventoryItem> items = new Dictionary<string, InventoryItem>();
-
-            while (reader.BaseStream.Position < section_end_addr)
-            {
-                name = reader.ParseNameProperty();
-                qty = reader.ParseIntProperty();
-                reader.ReadUE4String(); //"None"
-                items[name.Value] = new InventoryItem { Name = name, Quantity = qty };
-            }
-
-            return items;
-        }
-
-        public static List<SeenNotification> ParseAlreadySeenNotifs(this BinaryReader reader)
-        {
-            int count = reader.ReadInt32();
-
-            List<SeenNotification> notifs = new List<SeenNotification>();
-
-            for (int i = 0; i < count; i++)
-            {
-                notifs.Add(new SeenNotification
-                {
-                    Name = new NameProperty { Name = "Notification", Address = reader.BaseStream.Position, Value = reader.ReadUE4String() },
-                    Times = new IntProperty { Name = "SeenNotifTimes", Address = reader.BaseStream.Position, Value = reader.ReadInt32() }
-                });
-            }
-
-            return notifs;
-        }
-
-        public static FactAsset ParseFactAsset(this BinaryReader reader)
-        {
-            reader.BaseStream.Seek(101, SeekOrigin.Current); //The GUID of the fact asset and some misc bytes
-
-            Dictionary<string, BoolFact> BoolFacts = new Dictionary<string, BoolFact>();
-            Dictionary<string, IntFact> IntFacts = new Dictionary<string, IntFact>();
-            Dictionary<string, FloatFact> FloatFacts = new Dictionary<string, FloatFact>();
-            Dictionary<string, EnumFact> EnumFacts = new Dictionary<string, EnumFact>();
-
-            reader.ParseArrayProperty();
-            //bool facts section
-            long section_len = reader.ParseStructProperty().Length;
-            long section_end = reader.BaseStream.Position + section_len;
-
-            while (reader.BaseStream.Position < section_end)
-            {
-                BoolProperty value = reader.ParseBoolProperty();
-                NameProperty name = reader.ParseNameProperty();
-                BoolFacts.Add(name.Value, new BoolFact { Name = name, Value = value });
-                reader.ParseStructProperty(); //The GUID's "container"
-                reader.ReadBytes(16); //GUID itself
-                reader.ReadUE4String(); //"None"
-            }
-
-            reader.ParseArrayProperty();
-            //int facts section
-            section_len = reader.ParseStructProperty().Length;
-            section_end = reader.BaseStream.Position + section_len;
-
-            while (reader.BaseStream.Position < section_end)
-            {
-                IntProperty value = reader.ParseIntProperty();
-                NameProperty name = reader.ParseNameProperty();
-                IntFacts.Add(name.Value, new IntFact { Name = name, Value = value });
-                reader.ParseStructProperty(); //The GUID's "container"
-                reader.ReadBytes(16); //GUID itself
-                reader.ReadUE4String(); //"None"
-            }
-
-            reader.ParseArrayProperty();
-            //float facts section
-            section_len = reader.ParseStructProperty().Length;
-            section_end = reader.BaseStream.Position + section_len;
-
-            while (reader.BaseStream.Position < section_end)
-            {
-                FloatProperty value = reader.ParseFloatProperty();
-                NameProperty name = reader.ParseNameProperty();
-                FloatFacts.Add(name.Value, new FloatFact { Name = name, Value = value });
-                reader.ParseStructProperty(); //The GUID's "container"
-                reader.ReadBytes(16); //GUID itself
-                reader.ReadUE4String(); //"None"
-            }
-
-            reader.ParseArrayProperty();
-            //enum facts section
-            section_len = reader.ParseStructProperty().Length;
-            section_end = reader.BaseStream.Position + section_len;
-
-            while (reader.BaseStream.Position < section_end)
-            {
-                ////EnumProperty value = reader.ParseEnumProperty();
-                //NameProperty name = reader.ParseNameProperty();
-                //FloatFacts.Add(name.Value, new FloatFact { Name = name, Value = value });
-                //reader.ParseStructProperty(); //The GUID's "container"
-                //reader.ReadBytes(16); //GUID itself
-                //reader.ReadUE4String(); //"None"
-                //throw new InvalidDataException("Found enum data! at "+reader.BaseStream.Position.ToString());
-                reader.ReadBytes(Convert.ToInt32(section_len));
-            }
-
-            //parse KeepFact
-            BoolFact kfv = reader.ParseOuterBoolFact();
-            BoolFacts.Add(kfv.Name.Value, kfv);
-            reader.ReadUE4String(); //"None"
-
-            return new FactAsset(BoolFacts, IntFacts, FloatFacts, EnumFacts);
-        }
-
-        public static List<StreamingLevelPackage> ParseLevelPackages (this BinaryReader reader)
-        {
-            int count = reader.ParseArrayProperty().ElementCount; //"WorldStreamingSaveData"
-            reader.ParseStructProperty(); //"WorldStreamingSaveData"
-
-            List<StreamingLevelPackage> packs = new List<StreamingLevelPackage>();
-
-            for (int i = 0; i < count; i++)
-            {
-                packs.Add(new StreamingLevelPackage
-                {
-                    Name = reader.ParseNameProperty(),
-                    ShouldBeLoaded = reader.ParseBoolProperty(),
-                    ShouldBeVisible = reader.ParseBoolProperty(),
-                    ShouldBlockOnLoad = reader.ParseBoolProperty(),
-                    HasLoadedLevel = reader.ParseBoolProperty(),
-                    IsVisible = reader.ParseBoolProperty()
-                });
-                reader.ReadUE4String(); //"None"
-            }
-
-            return packs; 
-        }
-
-        */
     }
 }
