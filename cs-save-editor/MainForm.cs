@@ -20,20 +20,21 @@ namespace cs_save_editor
             ValidatePaths();
         }
 
-        GameSave gameSave;
+        private GameSave _gameSave;
+        private List<string> _steamIdFolders = new List<string>();
 
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            gameSave = new GameSave();
+            _gameSave = new GameSave();
 
-            gameSave.ReadSaveFromFile(textBoxSavePath.Text);
+            _gameSave.ReadSaveFromFile(textBoxSavePath.Text);
 
             //General tab
-            comboBoxCPName.SelectedItem = gameSave.Data["CheckpointName"].Value;
-            textBoxMapName.Text = gameSave.Data["MapName"].Value;
-            textBoxSubContextID.Text = gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
-            textBoxSubContextPath.Text = gameSave.Data["CurrentSubContextPathName"].Value;
-            dateTimePickerSaveTime.Value = gameSave.Data["SaveTime"].Value["DateTime"];
+            comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointName"].Value;
+            textBoxMapName.Text = _gameSave.Data["MapName"].Value;
+            textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
+            textBoxSubContextPath.Text = _gameSave.Data["CurrentSubContextPathName"].Value;
+            dateTimePickerSaveTime.Value = _gameSave.Data["SaveTime"].Value["DateTime"];
 
             UpdateInventoryGrids();
             UpdateSeenNotifsGrid();
@@ -46,7 +47,7 @@ namespace cs_save_editor
             tabControlMain.Enabled = true;
             buttonSaveEdits.Enabled = true;
             labelChangesWarning.Visible = false;
-            gameSave.SaveChangesSaved = true;
+            _gameSave.SaveChangesSaved = true;
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace cs_save_editor
 
         private void buttonSaveEdits_Click(object sender, EventArgs e)
         {
-            gameSave.WriteSaveToFile(textBoxSavePath.Text);
+            _gameSave.WriteSaveToFile(textBoxSavePath.Text);
             MessageBox.Show(Resources.EditsSuccessfullySavedMessage, "Savegame Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
             labelChangesWarning.Visible = false;
         }
@@ -114,7 +115,7 @@ namespace cs_save_editor
         private DataTable BuildInventoryTable(string inv_type)
         {
             DataTable t = new DataTable();
-            var item_list = gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+            var item_list = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
                       .Value["PlayerInventorySaveData"].Value[inv_type].Value;
 
             t.Columns.Add("Name");
@@ -145,7 +146,7 @@ namespace cs_save_editor
         private DataTable BuildSeenNotifsTable() //may be incorrect
         {
             DataTable t = new DataTable();
-            var notif_list = gameSave.Data["CurrentSubContextSaveData"]
+            var notif_list = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["PlayerSaveData"].Value["AlreadySeenNotifications"].Value;
 
             t.Columns.Add("Name");
@@ -172,7 +173,7 @@ namespace cs_save_editor
         private DataTable BuildSeenTutosTable()
         {
             DataTable t = new DataTable();
-            var tuto_list = gameSave.Data["CurrentSubContextSaveData"]
+            var tuto_list = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["PlayerSaveData"].Value["AlreadySeenTutorials"].Value;
 
             t.Columns.Add("Name");
@@ -211,7 +212,7 @@ namespace cs_save_editor
         private DataTable BuildAllFactsTable()
         {
             DataTable t = new DataTable();
-            var asset_list = gameSave.Data["CurrentSubContextSaveData"]
+            var asset_list = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["FactsSaveData"].Value;
 
             t.Columns.Add("Asset ID");
@@ -243,7 +244,7 @@ namespace cs_save_editor
         private DataTable BuildWorldTable()
         {
             DataTable t = new DataTable();
-            var packages = gameSave.Data["CurrentSubContextSaveData"]
+            var packages = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["WorldStreamingSaveData"].Value;
 
             t.Columns.Add("Package name");
@@ -275,7 +276,7 @@ namespace cs_save_editor
         {
             tabPageMetrics.Controls.Clear();
 
-            var root = gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value;
+            var root = _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value;
             int gbox_coord = 3, lbl_coord = 20, max_lbl_width = 0;
             foreach (var section in root)
             {
@@ -391,7 +392,7 @@ namespace cs_save_editor
         {
             DataTable t = new DataTable();
             t.Columns.Add("Name");
-            var names = gameSave.Data["CurrentSubContextSaveData"]
+            var names = _gameSave.Data["CurrentSubContextSaveData"]
                              .Value["ShowPicturesSaveData"].Value["AllShowPictureIDSeen"].Value;
 
             for (int i=1; i<names.Count; i++)
@@ -409,7 +410,7 @@ namespace cs_save_editor
             {
                 var editForm = new FactEditForm();
                 string assetId = dataGridViewFacts[0, e.RowIndex].Value.ToString();
-                editForm.asset = gameSave.Data["CurrentSubContextSaveData"].Value["FactsSaveData"].Value[assetId];
+                editForm.asset = _gameSave.Data["CurrentSubContextSaveData"].Value["FactsSaveData"].Value[assetId];
                 editForm.ShowDialog();
                 if (editForm.changesMade)
                 {
@@ -421,31 +422,31 @@ namespace cs_save_editor
         #region Edit functions
         private void comboBoxCPName_SelectedValueChanged(object sender, EventArgs e)
         {
-            gameSave.Data["CheckpointName"].Value = comboBoxCPName.SelectedItem.ToString();
+            _gameSave.Data["CheckpointName"].Value = comboBoxCPName.SelectedItem.ToString();
             ShowChangesWarning();
         }
 
         private void textBoxMapName_TextChanged(object sender, EventArgs e)
         {
-            gameSave.Data["MapName"].Value = textBoxMapName.Text;
+            _gameSave.Data["MapName"].Value = textBoxMapName.Text;
             ShowChangesWarning();
         }
 
         private void textBoxSubContextID_TextChanged(object sender, EventArgs e)
         {
-            gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value = textBoxSubContextID.Text;
+            _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value = textBoxSubContextID.Text;
             ShowChangesWarning();
         }
 
         private void textBoxSubContextPath_TextChanged(object sender, EventArgs e)
         {
-            gameSave.Data["CurrentSubContextPathName"].Value = textBoxSubContextPath.Text;
+            _gameSave.Data["CurrentSubContextPathName"].Value = textBoxSubContextPath.Text;
             ShowChangesWarning();
         }
 
         private void dateTimePickerSaveTime_ValueChanged(object sender, EventArgs e)
         {
-            gameSave.Data["SaveTime"].Value["DateTime"] = dateTimePickerSaveTime.Value;
+            _gameSave.Data["SaveTime"].Value["DateTime"] = dateTimePickerSaveTime.Value;
             ShowChangesWarning();
         }
 
@@ -466,7 +467,7 @@ namespace cs_save_editor
                         {
                             var qty = dataGridViewInventory1[1, e.RowIndex].Value;
                             if (qty is DBNull) qty = 0;
-                            gameSave.EditInventoryItem("InventoryItems", dataGridViewInventory1[0, e.RowIndex].Value.ToString(), Convert.ToInt32(qty));
+                            _gameSave.EditInventoryItem("InventoryItems", dataGridViewInventory1[0, e.RowIndex].Value.ToString(), Convert.ToInt32(qty));
                             dataGridViewInventory1[1, e.RowIndex].Value = qty;
                             break;
                         }
@@ -474,7 +475,7 @@ namespace cs_save_editor
                         {
                             var qty = dataGridViewInventory2[1, e.RowIndex].Value;
                             if (qty is DBNull) qty = 0;
-                            gameSave.EditInventoryItem("BackPackItems", dataGridViewInventory2[0, e.RowIndex].Value.ToString(), Convert.ToInt32(qty));
+                            _gameSave.EditInventoryItem("BackPackItems", dataGridViewInventory2[0, e.RowIndex].Value.ToString(), Convert.ToInt32(qty));
                             dataGridViewInventory2[1, e.RowIndex].Value = qty;
                             break;
                         }
@@ -482,7 +483,7 @@ namespace cs_save_editor
                         {
                             var qty = dataGridViewInventory3[1, e.RowIndex].Value;
                             if (qty is DBNull) qty = 0;
-                            gameSave.EditInventoryItem("PocketsItems", dataGridViewInventory3[0, e.RowIndex].Value.ToString(), Convert.ToInt32(qty));
+                            _gameSave.EditInventoryItem("PocketsItems", dataGridViewInventory3[0, e.RowIndex].Value.ToString(), Convert.ToInt32(qty));
                             dataGridViewInventory3[1, e.RowIndex].Value = qty;
                             break;
                         }
@@ -490,13 +491,13 @@ namespace cs_save_editor
                         {
                             var times = dataGridViewSeenTutos[1, e.RowIndex].Value;
                             if (times is DBNull) times = 0;
-                            gameSave.EditSeenTutorial(dataGridViewSeenTutos[0, e.RowIndex].Value.ToString(), Convert.ToInt32(times));
+                            _gameSave.EditSeenTutorial(dataGridViewSeenTutos[0, e.RowIndex].Value.ToString(), Convert.ToInt32(times));
                             dataGridViewSeenTutos[1, e.RowIndex].Value = times;
                             break;
                         }
                     case "dataGridViewSeenPics":
                         {
-                            gameSave.EditSeenPicture(dataGridViewSeenPics[0, e.RowIndex].Value.ToString(), false);
+                            _gameSave.EditSeenPicture(dataGridViewSeenPics[0, e.RowIndex].Value.ToString(), false);
                             break;
                         }
                     default:
@@ -522,22 +523,22 @@ namespace cs_save_editor
             {
                 case "dataGridViewInventory1":
                     {
-                        gameSave.EditInventoryItem("InventoryItems", name, null);
+                        _gameSave.EditInventoryItem("InventoryItems", name, null);
                         break;
                     }
                 case "dataGridViewInventory2":
                     {
-                        gameSave.EditInventoryItem("BackPackItems", name, null);
+                        _gameSave.EditInventoryItem("BackPackItems", name, null);
                         break;
                     }
                 case "dataGridViewInventory3":
                     {
-                        gameSave.EditInventoryItem("PocketsItems", name, null);
+                        _gameSave.EditInventoryItem("PocketsItems", name, null);
                         break;
                     }
                 case "dataGridViewSeenTutos":
                     {
-                        gameSave.EditSeenTutorial(name, null);
+                        _gameSave.EditSeenTutorial(name, null);
                         break;
                     }
             }
@@ -583,7 +584,7 @@ namespace cs_save_editor
             if (newCellValue.ToString() != origCellValue.ToString())
             {
                 var item_name = dataGridViewInventory1[0, e.RowIndex].Value.ToString(); 
-                gameSave.EditInventoryItem("InventoryItems", item_name, Convert.ToInt32(newCellValue));
+                _gameSave.EditInventoryItem("InventoryItems", item_name, Convert.ToInt32(newCellValue));
                 ShowChangesWarning();
             }
         }
@@ -606,7 +607,7 @@ namespace cs_save_editor
             if (newCellValue.ToString() != origCellValue.ToString())
             {
                 var item_name = dataGridViewInventory2[0, e.RowIndex].Value.ToString();
-                gameSave.EditInventoryItem("BackPackItems", item_name, Convert.ToInt32(newCellValue));
+                _gameSave.EditInventoryItem("BackPackItems", item_name, Convert.ToInt32(newCellValue));
                 ShowChangesWarning();
             }
         }
@@ -629,7 +630,7 @@ namespace cs_save_editor
             if (newCellValue.ToString() != origCellValue.ToString())
             {
                 var item_name = dataGridViewInventory3[0, e.RowIndex].Value.ToString();
-                gameSave.EditInventoryItem("PocketsItems", item_name, Convert.ToInt32(newCellValue));
+                _gameSave.EditInventoryItem("PocketsItems", item_name, Convert.ToInt32(newCellValue));
                 ShowChangesWarning();
             }
         }
@@ -652,7 +653,7 @@ namespace cs_save_editor
             if (newCellValue.ToString() != origCellValue.ToString())
             {
                 var notif_name = dataGridViewSeenTutos[0, e.RowIndex].Value.ToString();
-                gameSave.EditSeenTutorial(notif_name, Convert.ToInt32(newCellValue));
+                _gameSave.EditSeenTutorial(notif_name, Convert.ToInt32(newCellValue));
                 ShowChangesWarning();
             }
         }
@@ -663,7 +664,7 @@ namespace cs_save_editor
             newCellValue = dataGridViewFacts[e.ColumnIndex, e.RowIndex].Value;
             if (newCellValue.ToString() != origCellValue.ToString())
             {
-                gameSave.Data["CurrentSubContextSaveData"].Value["FactsSaveData"]
+                _gameSave.Data["CurrentSubContextSaveData"].Value["FactsSaveData"]
             .Value[name]["bKeepFactValuesOnSaveReset"].Value = Convert.ToBoolean(newCellValue);
                 ShowChangesWarning();
             }
@@ -707,7 +708,7 @@ namespace cs_save_editor
                         }
                 }
 
-                gameSave.EditPackageProperty(name, property, Convert.ToBoolean(newCellValue));
+                _gameSave.EditPackageProperty(name, property, Convert.ToBoolean(newCellValue));
                 ShowChangesWarning();
             }
 
@@ -728,7 +729,7 @@ namespace cs_save_editor
                 tb.BackColor = Color.Red;
             }
 
-            gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value[info[0]]["Counters"].Value[info[1]] = value;
+            _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value[info[0]]["Counters"].Value[info[1]] = value;
             ShowChangesWarning();
         }
 
@@ -747,7 +748,7 @@ namespace cs_save_editor
                 tb.BackColor = Color.Red;
             }
 
-            gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value[info[0]]["TimeCounters"].Value[info[1]] = value;
+            _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value[info[0]]["TimeCounters"].Value[info[1]] = value;
             ShowChangesWarning();
         }
 
@@ -766,7 +767,7 @@ namespace cs_save_editor
                 tb.BackColor = Color.Red;
             }
 
-            gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value[info[0]]["InteractionCounters"].Value[info[2]][info[1]].Value = value;
+            _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value[info[0]]["InteractionCounters"].Value[info[2]][info[1]].Value = value;
             ShowChangesWarning();
         }
         #endregion
@@ -783,6 +784,9 @@ namespace cs_save_editor
                 tabControlMain.SelectedTab = page;
             }
             tabControlMain.SelectedTab = tabPageGeneral;
+
+            DetectSavePath();
+            labelChangesWarning.Visible = false;
 
             textBoxSavePath.Text = _settingManager.Settings.SavePath;
 
@@ -801,7 +805,7 @@ namespace cs_save_editor
         {
             _settingManager.SaveSettings();
 
-            if (gameSave != null && !gameSave.SaveChangesSaved)
+            if (_gameSave != null && !_gameSave.SaveChangesSaved)
             {
                 DialogResult answer = MessageBox.Show(Resources.UnsavedEditsWarningMessage,
                     "Savegame Editor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -815,7 +819,43 @@ namespace cs_save_editor
                 }
             }
             else e.Cancel = false;
-    }
+        }
+
+        private void DetectSavePath()
+        {
+            try
+            {
+                _steamIdFolders = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Dontnod\").ToList<string>();
+            }
+            catch
+            {
+
+            }
+
+            if (String.IsNullOrEmpty(_settingManager.Settings.SavePath))
+            {
+                if (_steamIdFolders.Count >= 1)
+                {
+                    if (File.Exists(_steamIdFolders[0].ToString() + @"\CaptainSpirit\Saved\SaveGames\GameSave_Slot0.sav"))
+                    {
+                        textBoxSavePath.Text = _steamIdFolders[0].ToString() + @"\CaptainSpirit\Saved\SaveGames\GameSave_Slot0.sav";
+                        _settingManager.Settings.SavePath = textBoxSavePath.Text;
+                    }
+                    else
+                    {
+                        textBoxSavePath.Text = "Auto-detection failed! Please select the path manually.";
+                    }
+                }
+                else
+                {
+                    textBoxSavePath.Text = "Auto-detection failed! Please select the path manually.";
+                }
+            }
+            else
+            {
+                textBoxSavePath.Text = _settingManager.Settings.SavePath;
+            }
+        }
 
         private void ValidatePaths()
         {
@@ -842,7 +882,7 @@ namespace cs_save_editor
                 buttonSaveEdits.Enabled = false;
                 tabControlMain.Enabled = false;
                 labelChangesWarning.Text = "Save file changed! Press 'Load' to update.";
-                labelChangesWarning.Visible = true; //shows warning about save file
+                labelChangesWarning.Visible = true;
             }
             else
             {
@@ -854,7 +894,7 @@ namespace cs_save_editor
 
         private void ShowChangesWarning()
         {
-            gameSave.SaveChangesSaved = false;
+            _gameSave.SaveChangesSaved = false;
             labelChangesWarning.Text = "Press 'Save' to write changes to the save file.";
             labelChangesWarning.Visible = true;
         }
