@@ -61,6 +61,18 @@ namespace cs_save_editor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Awesome Adventures of Captain Spirit
+        ///savegame viewer and editor.
+        ///
+        ///Version: {0}.
+        /// </summary>
+        internal static string AboutMessage {
+            get {
+                return ResourceManager.GetString("AboutMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incorrect value!.
         /// </summary>
         internal static string BadValueMessage {

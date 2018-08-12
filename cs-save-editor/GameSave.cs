@@ -30,20 +30,25 @@ namespace cs_save_editor
                 if (reader.ReadByte() != saveFileHeader[i])
                 {
                     SaveIsValid = false;
-                    break;
+                    return;
                 }
             }
 
-            if (SaveIsValid)
-            {
-                Data = new Dictionary<string, dynamic>();
+            Data = new Dictionary<string, dynamic>();
 
+            try
+            {
                 while (reader.BaseStream.Position < reader.BaseStream.Length - 4)
                 {
                     dynamic prop = reader.ParseProperty();
                     Data.Add(prop.Name, prop);
                 }
             }
+            catch
+            {
+                SaveIsValid = false;
+            }
+            
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);

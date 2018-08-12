@@ -30,20 +30,22 @@ namespace cs_save_editor
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             _gameSave = new GameSave();
-
             _gameSave.ReadSaveFromFile(textBoxSavePath.Text);
 
-            //General tab
+            if (!_gameSave.SaveIsValid)
+            {
+                MessageBox.Show(Resources.CorruptSaveMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             SaveLoading = true;
 
+            //General tab
             comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointName"].Value;
             textBoxMapName.Text = _gameSave.Data["MapName"].Value;
             textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
             textBoxSubContextPath.Text = _gameSave.Data["CurrentSubContextPathName"].Value;
             dateTimePickerSaveTime.Value = _gameSave.Data["SaveTime"].Value["DateTime"];
-
-            SaveLoading = false;
-            _editedControls.Clear();
 
             UpdateInventoryGrids();
             UpdateSeenNotifsGrid();
@@ -53,8 +55,14 @@ namespace cs_save_editor
             GenerateMetrics();
             UpdateSeenPicturesGrid();
 
+            SaveLoading = false;
+
+            _editedControls.Clear();
             tabControlMain.Enabled = true;
             buttonSaveEdits.Enabled = true;
+            labelChangesWarning.Visible = false;
+            _gameSave.SaveChangesSaved = true;
+
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -104,9 +112,7 @@ namespace cs_save_editor
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("The Awesome Adventures of Captain Spirit"
-                + Environment.NewLine + "savegame viewer and editor." +
-                  Environment.NewLine + Environment.NewLine + "Version: " + Program.GetApplicationVersionStr(), "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(String.Format(Resources.AboutMessage, Program.GetApplicationVersionStr()), "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         #region Table-building
@@ -951,13 +957,7 @@ namespace cs_save_editor
             if (success)
             {
                 textBoxSavePath.BackColor = SystemColors.Window;
-            }
-            else
-            {
-                textBoxSavePath.BackColor = Color.Red;
-            }
-            if (success)
-            {
+                _settingManager.Settings.SavePath = textBoxSavePath.Text;
                 buttonLoad.Enabled = true;
                 buttonSaveEdits.Enabled = false;
                 tabControlMain.Enabled = false;
@@ -966,6 +966,7 @@ namespace cs_save_editor
             }
             else
             {
+                textBoxSavePath.BackColor = Color.Red;
                 buttonLoad.Enabled = false;
                 buttonSaveEdits.Enabled = false;
                 tabControlMain.Enabled = false;
