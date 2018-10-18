@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Text;
 
-namespace cs_save_editor
+namespace lis2_save_editor
 {
     static class Program
     {

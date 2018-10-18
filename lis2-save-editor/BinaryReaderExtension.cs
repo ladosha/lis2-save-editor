@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 
-namespace cs_save_editor
+namespace lis2_save_editor
 {
     public static class BinaryReaderExtension
     {
@@ -103,6 +103,18 @@ namespace cs_save_editor
                         }
 
                         return reader.ReadUInt32();
+                    }
+                case "Int16Property":
+                    {
+                        if (!inArray)
+                        {
+                            int length = reader.ReadInt32(); //it is always 2 bytes, but still
+                            byte[] unkbytes = reader.ReadBytes(5);
+                            short value = reader.ReadInt16();
+                            return new Int16Property { Name = name, Length = length, UnkBytes = unkbytes, Type = type, Value = value };
+                        }
+
+                        return reader.ReadInt16();
                     }
                 case "FloatProperty":
                     {
@@ -301,20 +313,38 @@ namespace cs_save_editor
                             }
                         }
                         return new MapProperty { Name = name, Type = type, KeyType = keytype, Length = length, ValType = valtype, UnkBytes = unkbytes, ElementCount = count, Value = value };
-                    }
-                    //unimplemented yet due to lack of data
+                    } 
                 case "TextProperty":
                     {
                         long length = reader.ReadInt64();
-                        byte[] value = reader.ReadBytes(6); //for now. there are only 2 text properties anyway
-                        return new TextProperty { Name = name, Length = length, Type = type, Value = value };
+                        byte[] unkbytes = reader.ReadBytes(6);
+                        string[] value;
+                        if (length == 5)
+                        {
+                            value = new string[0];
+                        }
+                        else
+                        {
+                            value = new string[2] { reader.ReadUE4String(), reader.ReadUE4String() }; //there are only 2 text properties anyway
+                        }
+                        return new TextProperty { Name = name, Length = length, Type = type, UnkBytes = unkbytes, Value = value };
                     }
-                case "SetProperty": //only ONE such property in the file, and it's still empty :D 
+                //unimplemented yet due to lack of data
+                case "SetProperty": //only GUIDs inside set properties. yay!
                     {
-                        long length = reader.ReadInt64(); //maybe
-                        string eltype = reader.ReadUE4String(); //likely
-                        byte[] unkbytes = reader.ReadBytes(9);
-                        return new SetProperty { Name = name, Length = length, Type = type, ElementType = eltype, UnkBytes = unkbytes };
+                        long length = reader.ReadInt64();
+                        string eltype = reader.ReadUE4String();
+                        byte[] unkbytes = reader.ReadBytes(5);
+                        int count = reader.ReadInt32();
+
+                        List<dynamic> value = new List<dynamic>();
+
+                        for (int i = 0; i < count; i++)
+                        {
+                            value.Add(new Guid(reader.ReadBytes(16)));
+                        }
+
+                        return new SetProperty { Name = name, Length = length, Type = type, ElementType = eltype, UnkBytes = unkbytes, Value = value };
                     }
                 default:
                     {

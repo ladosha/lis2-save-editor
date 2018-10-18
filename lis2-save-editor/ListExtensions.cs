@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cs_save_editor
+namespace lis2_save_editor
 {
     public static class ListExtensions
     {

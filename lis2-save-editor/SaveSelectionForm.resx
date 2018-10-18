@@ -117,22 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutMessage" xml:space="preserve">
-    <value>The Awesome Adventures of Captain Spirit
-savegame viewer and editor.
-
-Version: {0}</value>
-  </data>
-  <data name="BadValueMessage" xml:space="preserve">
-    <value>Incorrect value!</value>
-  </data>
-  <data name="CorruptSaveMessage" xml:space="preserve">
-    <value>Save file is empty or corrupt! Please specify a different one.</value>
-  </data>
-  <data name="EditsSuccessfullySavedMessage" xml:space="preserve">
-    <value>Saved successfully!</value>
-  </data>
-  <data name="UnsavedEditsWarningMessage" xml:space="preserve">
-    <value>There are unsaved edits left! Exit without saving?</value>
-  </data>
 </root>

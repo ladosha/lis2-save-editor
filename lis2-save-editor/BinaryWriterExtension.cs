@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 
-namespace cs_save_editor
+namespace lis2_save_editor
 {
     public static class BinaryWriterExtension
     {
@@ -52,7 +52,7 @@ namespace cs_save_editor
                             break;
                         }
 
-                        writer.Write(property.Value);
+                        writer.Write(property);
                         break;
                     }
                 case "NameProperty":
@@ -102,6 +102,19 @@ namespace cs_save_editor
                         break;
                     }
                 case "UInt32Property":
+                    {
+                        if (!inArray)
+                        {
+                            writer.Write(property.Length);
+                            writer.Write(property.UnkBytes);
+                            writer.Write(property.Value);
+                            break;
+                        }
+
+                        writer.Write(property);
+                        break;
+                    }
+                case "Int16Property":
                     {
                         if (!inArray)
                         {
@@ -298,18 +311,29 @@ namespace cs_save_editor
                         }
                         break;
                     }
-                //unimplemented yet due to lack of data
+
                 case "TextProperty":
                     {
                         writer.Write(property.Length);
-                        writer.Write(property.Value);
+                        writer.Write(property.UnkBytes);
+                        foreach (string s in property.Value)
+                        {
+                            WriteUE4String(writer, s);
+                        }
                         break;
                     }
-                case "SetProperty": //only ONE such property in the file, and it's still empty :D 
+                //unimplemented yet due to lack of data
+                case "SetProperty":
                     {
                         writer.Write(property.Length);
                         WriteUE4String(writer, property.ElementType);
                         writer.Write(property.UnkBytes);
+                        writer.Write(property.ElementCount);
+
+                        foreach (var child in property.Value)
+                        {
+                            writer.Write(child.ToByteArray());
+                        }
                         break;
                     }
                 default:

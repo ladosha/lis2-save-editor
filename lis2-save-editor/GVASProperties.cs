@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 
 
-namespace cs_save_editor
+namespace lis2_save_editor
 {
     #region Properties
 
@@ -52,7 +52,7 @@ namespace cs_save_editor
         public string Name { get; set; }
         public string Type { get; set; }
         public int Length { get { return Value.GetUE4ByteLength(); } set { } }
-        public byte[] UnkBytes { get; set; }
+        public byte[] UnkBytes { get { return new byte[5]; } set { } }
         public string Value { get; set; }
 
         public int GetSelfByteLength()
@@ -66,8 +66,8 @@ namespace cs_save_editor
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public int Length { get; set; }
-        public byte[] UnkBytes { get; set; }
+        public int Length { get { return 1; } set { } }
+        public byte[] UnkBytes { get { return new byte[14] { 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x4E, 0x6F, 0x6E, 0x65, 0x00, 0x00 }; } set { } }
         public byte Value { get; set; }
 
         public int GetSelfByteLength()
@@ -80,7 +80,7 @@ namespace cs_save_editor
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public int Length { get; set; }
+        public int Length { get { return 4; } set { } }
         public byte[] UnkBytes { get { return new byte[5]; } set { } }
         public int Value { get; set; }
 
@@ -95,9 +95,23 @@ namespace cs_save_editor
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public int Length { get; set; }
-        public byte[] UnkBytes { get; set; }
+        public int Length { get { return 4; } set { } }
+        public byte[] UnkBytes { get { return new byte[5]; } set { } }
         public uint Value { get; set; }
+
+        public int GetSelfByteLength()
+        {
+            return Name.GetUE4ByteLength() + Type.GetUE4ByteLength() + 4 + UnkBytes.Length + Length;
+        }
+    }
+
+    public class Int16Property
+    {
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int Length { get { return 2; } set { } }
+        public byte[] UnkBytes { get { return new byte[5]; } set { } }
+        public short Value { get; set; }
 
         public int GetSelfByteLength()
         {
@@ -109,7 +123,7 @@ namespace cs_save_editor
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public int Length { get; set; }
+        public int Length { get { return 4; } set { } }
         public byte[] UnkBytes { get { return new byte[5]; } set { } }
         public float Value { get; set; }
 
@@ -124,8 +138,8 @@ namespace cs_save_editor
         public string Name { get; set; }
         public string Type { get; set; }
         public long Length { get { return Value.GetUE4ByteLength(); } set { } }
-        public string ElementType { get; set; } //just a theory
-        public byte UnkByte { get; set; }
+        public string ElementType { get; set; }
+        public byte UnkByte { get { return 0; } set { } }
         public string Value { get; set; } //for now? maybe will implement later
 
         public long GetSelfByteLength()
@@ -251,6 +265,11 @@ namespace cs_save_editor
                                     len += 4;
                                     break;
                                 }
+                            case "Int16Property":
+                                {
+                                    len += 2;
+                                    break;
+                                }
                             case "EnumProperty":
                                 {
                                     len += element.Length + 5;
@@ -268,7 +287,7 @@ namespace cs_save_editor
             set { }
         }
         public string ElementType { get; set; }
-        public byte UnkByte { get; set; }
+        public byte UnkByte { get { return 0; } set { } }
         public int ElementCount { get { return Value.Count - (ElementType == "StructProperty" ? 1 : 0); } set { } }
         public List<dynamic> Value { get; set; }
 
@@ -384,6 +403,11 @@ namespace cs_save_editor
                                     len += 4;
                                     break;
                                 }
+                            case "Int16Property":
+                                {
+                                    len += 2;
+                                    break;
+                                }
                             case "EnumProperty":
                                 {
                                     len += element.Key.Length + 5;
@@ -431,6 +455,11 @@ namespace cs_save_editor
                                     len += 4;
                                     break;
                                 }
+                            case "Int16Property":
+                                {
+                                    len += 2;
+                                    break;
+                                }
                             case "EnumProperty":
                                 {
                                     len += element.Value.Length + 5;
@@ -462,7 +491,7 @@ namespace cs_save_editor
         }
         public string KeyType { get; set; }
         public string ValType { get; set; }
-        public byte[] UnkBytes { get; set; }
+        public byte[] UnkBytes { get { return new byte[5]; } set { } }
         public int ElementCount { get { return Value.Count; } set { } }
         public Dictionary<dynamic, dynamic> Value { get; set; }
 
@@ -476,9 +505,11 @@ namespace cs_save_editor
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public long Length { get; set; }
+        public long Length { get { return 16 * Value.Count + 8; } set { } } //all guids + element count int + 4 unknown bytes
         public string ElementType { get; set; }
-        public byte[] UnkBytes { get; set; } //for now
+        public int ElementCount { get { return Value.Count; } set { } }
+        public byte[] UnkBytes { get { return new byte[5]; } set { } } //for now
+        public List<dynamic> Value { get; set; }
 
         public long GetSelfByteLength()
         {
@@ -490,12 +521,30 @@ namespace cs_save_editor
     {
         public string Name { get; set; }
         public string Type { get; set; }
-        public long Length { get; set; }
-        public byte[] Value { get; set; } //for now.
+        public long Length
+        {
+            get
+            {
+                int ValueLength = 0;
+                foreach (string s in Value)
+                {
+                    ValueLength += s.GetUE4ByteLength();
+                }
+                return ValueLength + 5; //unknown bytes are part of length
+            }
+            set { }
+        }
+        public byte[] UnkBytes { get; set; }
+        public string[] Value { get; set; }
 
         public long GetSelfByteLength()
         {
-            return Name.GetUE4ByteLength() + Type.GetUE4ByteLength() + 8 + 6;
+            int ValueLength = 0;
+            foreach (string s in Value)
+            {
+                ValueLength += s.GetUE4ByteLength();
+            }
+            return Name.GetUE4ByteLength() + Type.GetUE4ByteLength() + 8 + UnkBytes.Length + ValueLength;
         }
 
 

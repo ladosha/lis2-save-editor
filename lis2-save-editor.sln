@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cs-save-editor", "cs-save-editor\cs-save-editor.csproj", "{1ED5E060-A03B-4C5D-92F4-C7C367CAFAA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lis2-save-editor", "lis2-save-editor\lis2-save-editor.csproj", "{1ED5E060-A03B-4C5D-92F4-C7C367CAFAA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

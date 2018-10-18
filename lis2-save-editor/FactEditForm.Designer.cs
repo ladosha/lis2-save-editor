@@ -1,4 +1,4 @@
-﻿namespace cs_save_editor
+﻿namespace lis2_save_editor
 {
     partial class FactEditForm
     {
@@ -75,6 +75,8 @@
             // 
             // dataGridViewBool
             // 
+            this.dataGridViewBool.AllowUserToAddRows = false;
+            this.dataGridViewBool.AllowUserToDeleteRows = false;
             this.dataGridViewBool.AllowUserToResizeRows = false;
             this.dataGridViewBool.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBool.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -85,10 +87,6 @@
             this.dataGridViewBool.TabIndex = 0;
             this.dataGridViewBool.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewBool.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBool_CellEndEdit);
-            this.dataGridViewBool.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowValidated);
-            this.dataGridViewBool.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_RowValidating);
-            this.dataGridViewBool.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_UserAddedRow);
-            this.dataGridViewBool.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
             // 
             // tabPageInt
             // 
@@ -103,6 +101,8 @@
             // 
             // dataGridViewInt
             // 
+            this.dataGridViewInt.AllowUserToAddRows = false;
+            this.dataGridViewInt.AllowUserToDeleteRows = false;
             this.dataGridViewInt.AllowUserToResizeRows = false;
             this.dataGridViewInt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -113,10 +113,6 @@
             this.dataGridViewInt.TabIndex = 1;
             this.dataGridViewInt.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewInt.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInt_CellEndEdit);
-            this.dataGridViewInt.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowValidated);
-            this.dataGridViewInt.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_RowValidating);
-            this.dataGridViewInt.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_UserAddedRow);
-            this.dataGridViewInt.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
             // 
             // tabPageFloat
             // 
@@ -131,6 +127,8 @@
             // 
             // dataGridViewFloat
             // 
+            this.dataGridViewFloat.AllowUserToAddRows = false;
+            this.dataGridViewFloat.AllowUserToDeleteRows = false;
             this.dataGridViewFloat.AllowUserToResizeRows = false;
             this.dataGridViewFloat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewFloat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -141,10 +139,6 @@
             this.dataGridViewFloat.TabIndex = 1;
             this.dataGridViewFloat.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewFloat.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFloat_CellEndEdit);
-            this.dataGridViewFloat.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowValidated);
-            this.dataGridViewFloat.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_RowValidating);
-            this.dataGridViewFloat.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_UserAddedRow);
-            this.dataGridViewFloat.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
             // 
             // tabPageEnum
             // 
@@ -171,10 +165,6 @@
             this.dataGridViewEnum.TabIndex = 1;
             this.dataGridViewEnum.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewEnum.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEnum_CellEndEdit);
-            this.dataGridViewEnum.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowValidated);
-            this.dataGridViewEnum.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_RowValidating);
-            this.dataGridViewEnum.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_UserAddedRow);
-            this.dataGridViewEnum.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView_UserDeletingRow);
             // 
             // FactEditForm
             // 

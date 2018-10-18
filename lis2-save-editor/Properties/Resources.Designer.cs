@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace cs_save_editor.Properties {
+namespace lis2_save_editor.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace cs_save_editor.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("cs_save_editor.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("lis2_save_editor.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,8 +61,8 @@ namespace cs_save_editor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Awesome Adventures of Captain Spirit
-        ///savegame viewer and editor.
+        ///   Looks up a localized string similar to Savegame viewer and edior for Life is Strange 2
+        ///and The Awesome Adventures of Captain Spirit.
         ///
         ///Version: {0}.
         /// </summary>
@@ -96,6 +96,16 @@ namespace cs_save_editor.Properties {
         internal static string EditsSuccessfullySavedMessage {
             get {
                 return ResourceManager.GetString("EditsSuccessfullySavedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LIS2_icon {
+            get {
+                object obj = ResourceManager.GetObject("LIS2-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
