@@ -634,7 +634,7 @@
             this.textBoxDanielScaleZ.Name = "textBoxDanielScaleZ";
             this.textBoxDanielScaleZ.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielScaleZ.TabIndex = 31;
-            this.textBoxDanielScaleZ.Tag = "Player::Scale3D::Z";
+            this.textBoxDanielScaleZ.Tag = "BrotherAI::Scale3D::Z";
             this.textBoxDanielScaleZ.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // textBoxDanielScaleY
@@ -643,7 +643,7 @@
             this.textBoxDanielScaleY.Name = "textBoxDanielScaleY";
             this.textBoxDanielScaleY.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielScaleY.TabIndex = 30;
-            this.textBoxDanielScaleY.Tag = "Player::Scale3D::Y";
+            this.textBoxDanielScaleY.Tag = "BrotherAI::Scale3D::Y";
             this.textBoxDanielScaleY.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // textBoxDanielScaleX
@@ -652,7 +652,7 @@
             this.textBoxDanielScaleX.Name = "textBoxDanielScaleX";
             this.textBoxDanielScaleX.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielScaleX.TabIndex = 29;
-            this.textBoxDanielScaleX.Tag = "Player::Scale3D::X";
+            this.textBoxDanielScaleX.Tag = "BrotherAI::Scale3D::X";
             this.textBoxDanielScaleX.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // label17
@@ -670,7 +670,7 @@
             this.textBoxDanielTranslationZ.Name = "textBoxDanielTranslationZ";
             this.textBoxDanielTranslationZ.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielTranslationZ.TabIndex = 27;
-            this.textBoxDanielTranslationZ.Tag = "Player::Translation::Z";
+            this.textBoxDanielTranslationZ.Tag = "BrotherAI::Translation::Z";
             this.textBoxDanielTranslationZ.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // textBoxDanielTranslationY
@@ -679,7 +679,7 @@
             this.textBoxDanielTranslationY.Name = "textBoxDanielTranslationY";
             this.textBoxDanielTranslationY.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielTranslationY.TabIndex = 26;
-            this.textBoxDanielTranslationY.Tag = "Player::Translation::Y";
+            this.textBoxDanielTranslationY.Tag = "BrotherAI::Translation::Y";
             this.textBoxDanielTranslationY.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // textBoxDanielTranslationX
@@ -688,7 +688,7 @@
             this.textBoxDanielTranslationX.Name = "textBoxDanielTranslationX";
             this.textBoxDanielTranslationX.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielTranslationX.TabIndex = 25;
-            this.textBoxDanielTranslationX.Tag = "Player::Translation::X";
+            this.textBoxDanielTranslationX.Tag = "BrotherAI::Translation::X";
             this.textBoxDanielTranslationX.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // label18
@@ -706,7 +706,7 @@
             this.textBoxDanielRotationW.Name = "textBoxDanielRotationW";
             this.textBoxDanielRotationW.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielRotationW.TabIndex = 23;
-            this.textBoxDanielRotationW.Tag = "Player::Rotation::W";
+            this.textBoxDanielRotationW.Tag = "BrotherAI::Rotation::W";
             this.textBoxDanielRotationW.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // textBoxDanielRotationZ
@@ -715,7 +715,7 @@
             this.textBoxDanielRotationZ.Name = "textBoxDanielRotationZ";
             this.textBoxDanielRotationZ.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielRotationZ.TabIndex = 22;
-            this.textBoxDanielRotationZ.Tag = "Player::Rotation::Z";
+            this.textBoxDanielRotationZ.Tag = "BrotherAI::Rotation::Z";
             this.textBoxDanielRotationZ.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // textBoxDanielRotationY
@@ -724,7 +724,7 @@
             this.textBoxDanielRotationY.Name = "textBoxDanielRotationY";
             this.textBoxDanielRotationY.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielRotationY.TabIndex = 21;
-            this.textBoxDanielRotationY.Tag = "Player::Rotation::Y";
+            this.textBoxDanielRotationY.Tag = "BrotherAI::Rotation::Y";
             this.textBoxDanielRotationY.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // textBoxDanielRotationX
@@ -733,7 +733,7 @@
             this.textBoxDanielRotationX.Name = "textBoxDanielRotationX";
             this.textBoxDanielRotationX.Size = new System.Drawing.Size(67, 20);
             this.textBoxDanielRotationX.TabIndex = 20;
-            this.textBoxDanielRotationX.Tag = "Player::Rotation::X";
+            this.textBoxDanielRotationX.Tag = "BrotherAI::Rotation::X";
             this.textBoxDanielRotationX.TextChanged += new System.EventHandler(this.textBoxPosition_TextChanged);
             // 
             // groupBoxPlayerPos

@@ -1432,6 +1432,7 @@ namespace lis2_save_editor
                             }
                         }
                     };
+                    root.AddUnique(new_item);
                 }
                 else //edit existing
                 {
