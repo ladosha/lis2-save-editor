@@ -15,6 +15,15 @@ namespace lis2_save_editor
         public Dictionary<Guid, string> EnumFacts { get; set; }
     }
 
+    public class OutfitObject
+    {
+        public Guid GUID { get; set; }
+        public string Name { get; set; }
+        public string Slot { get; set; }
+        public string Owner { get; set; }
+        
+    }
+
     public static class GameInfo
     {
         public static string[] LIS2_CheckpointNames = new string[]
@@ -121,6 +130,219 @@ namespace lis2_save_editor
             "Episode 03",
             "Episode 04",
             "Episode 05",
+        };
+
+        public static string[] CS_InventoryItems = new string[]
+        {
+            "PT_CharlesRoom_Cigarette",
+            "PT_CharlesRoom_Trousers",
+            "PT_CharlesRoom_WardrobeKey",
+            "PT_Garage_Firecrackers",
+            "PT_InventoryData",
+            "PT_Kitchen_GarageKey",
+            "PT_LivingRoom_CarKeys",
+            "PT_LivingRoom_Crumbs",
+            "PT_TransparentMap"
+        };
+
+        public static string[] LIS2_InventoryItems = new string[]
+        {
+            //Epsiode 1
+            "E1_1A_Beers",
+            "E1_1A_Blanket",
+            "E1_1A_BullyFlyer",
+            "E1_1A_Chips",
+            "E1_1A_condoms",
+            "E1_1A_Cookies",
+            "E1_1A_DadPicture",
+            "E1_1A_FantasyBook02",
+            "E1_1A_Headphones",
+            "E1_1A_HomeKeys",
+            "E1_1A_Idcard",
+            "E1_1A_JennNote",
+            "E1_1A_Lighter",
+            "E1_1A_MCQTest",
+            "E1_1A_PencilCase",
+            "E1_1A_PhoneCharger",
+            "E1_1A_RightTool",
+            "E1_1A_SkateTool",
+            "E1_1A_Soda",
+            "E1_1A_Textbook",
+            "E1_1A_USBkey",
+            "E1_1A_Wallet",
+            "E1_1A_WaterBottle",
+            "E1_1A_WeedPipe",
+            "E1_1A_WrongTool_01",
+            "E1_1A_WrongTool_02",
+            "E1_1A_WrongTool_03",
+            "E1_1A_WrongTool_04",
+            "E1_1A_WrongTool_05",
+            "E1_2A_ChocolateBar",
+            "E1_2A_Log01",
+            "E1_2A_Log02",
+            "E1_2A_Log03",
+            "E1_2A_NewspaperArticle",
+            "E1_2A_PhoneCharger",
+            "E1_2A_Receipt",
+            "E1_5A_Cans",
+            "E1_5A_Chips",
+            "E1_5A_ChocoCrisp",
+            "E1_5A_EmptyBottle",
+            "E1_5A_FilledWaterBottle",
+            "E1_5A_HalfEatenApple",
+            "E1_5A_Leaves",
+            "E1_5A_Map",
+            "E1_5A_Pebble",
+            "E1_5A_PineCones",
+            "E1_5A_PowerBear",
+            "E1_5A_Sandwich",
+            "E1_5A_SleepingBag",
+            "E1_5A_SlicedBread",
+            "E1_5A_Soda",
+            "E1_5A_Sweat",
+            "E1_5A_Tent",
+            "E1_5A_Tool1",
+            "E1_5A_Tool2",
+            "E1_5A_TShirt",
+            "E1_5A_WaterBottle",
+            "E1_7A_BrodyLetter",
+            "E1_7A_BrodySouvenir",
+            "E1_7A_MotelKey",
+            "E1_7A_StolenToy",
+            "E1_7A_Towels",
+            "E1_8A_BusTickets",
+            "E1_8A_Toiletries",
+        };
+
+        public static string[] LIS2_SeenNotifsNames = new string[]
+        {
+            "PROM_MetaInventoryNotification_Collectible",
+            "PROM_MetaInventoryNotification_Inventory",
+            "PROM_MetaInventoryNotification_Journal",
+            "PROM_MetaInventoryNotification_Map",
+            "PROM_MetaInventoryNotification_Phone",
+            "PROM_MetaInventoryNotification_PhoneNotif",
+            "PROM_MetaInventoryNotification_PhoneWithInfo",
+            "PROM_MetaInventoryNotification_NewItemAddedTo",
+            "PROM_MetaInventoryNotification_NewEntryInJournal",
+            "PROM_MetaInventoryNotification_MailNewMessageReceived",
+            "PROM_MetaInventoryNotification_MailNewMessageReceived_2",
+            "PROM_MetaInventoryNotification_NewSouvenirCollected",
+            "PROM_MetaInventoryNotification_NewEntryInMap",
+            "PROM_MetaInventoryNotification_NewObjectiveAddedTo",
+        };
+
+        public static string[] CS_SeenTutosNames = new string[]
+        {
+            "PT_GameTutorial_CaptainSpiritLogoTutorial",
+            "PT_GameTutorial_ClickOnRecentercameraTo",
+            "PT_GameTutorial_ExitSystemTutorial",
+            "PT_GameTutorial_HoldJogToRun",
+            "PT_GameTutorial_HoldPoweractivationToSee",
+            "PT_GameTutorial_HoldTuto",
+            "PT_GameTutorial_InteractionTutorial",
+            "PT_GameTutorial_InteractionTutorialPS4",
+            "PT_GameTutorial_InventoyTutorial",
+            "PT_GameTutorial_LabyrinthTuto",
+            "PT_GameTutorial_MashTuto",
+            "PT_GameTutorial_MoveCameraTutorial",
+            "PT_GameTutorial_MoveCharacterTutorial",
+            "PT_GameTutorial_MoveChrisWithMovecharacter",
+            "PT_GameTutorial_MoveForwardWithMoveforward",
+            "PT_GameTutorial_MoveTheCameraWith",
+            "PT_GameTutorial_NewChoiceTuto",
+            "PT_GameTutorial_ObjectInteractionTuto",
+            "PT_GameTutorial_ObjectInteractionTutoPS4",
+            "PT_GameTutorial_ObservationTuto",
+            "PT_GameTutorial_OpenAndCloseYour",
+            "PT_GameTutorial_PhHoldWithMashbutton",
+            "PT_GameTutorial_PhMashWithMashbutton",
+            "PT_GameTutorial_PhPressExitsystembuttonTo",
+            "PT_GameTutorial_PhSwitchWithPoweractivation",
+            "PT_GameTutorial_PhToInteractWith",
+            "PT_GameTutorial_PhToInteractWith_2",
+            "PT_GameTutorial_PhToSpeakWhile_2",
+            "PT_GameTutorial_PhUseSelectionlistmoveyTo",
+            "PT_GameTutorial_PhUseSelectionlistmoveyTo_2",
+            "PT_GameTutorial_PhUseTheButtons_2",
+            "PT_GameTutorial_PhWhileInA",
+            "PT_GameTutorial_PhWhileInA_2",
+            "PT_GameTutorial_PowerTutorial",
+            "PT_GameTutorial_PressExitbuttonToExit",
+            "PT_GameTutorial_PressOpendiaryMyAwesome",
+            "PT_GameTutorial_PressSwitchcontrolbuttonToToggle",
+            "PT_GameTutorial_RecenterCamTutorial",
+            "PT_GameTutorial_RunTutorial",
+            "PT_GameTutorial_ShowPictureTuto",
+            "PT_GameTutorial_SkipTuto",
+            "PT_GameTutorial_SnowBallTutorial",
+            "PT_GameTutorial_SnowballUseLookupTo",
+            "PT_GameTutorial_StagingChoiceSelection",
+            "PT_GameTutorial_StagingChoiceSelectionPS4",
+            "PT_GameTutorial_StagingChoiceTuto",
+            "PT_GameTutorial_StagingChoiceValidation",
+            "PT_GameTutorial_StagingChoiceValidationPS4",
+            "PT_GameTutorial_StaticDialogTuto",
+            "PT_GameTutorial_StaticDialogTutoPS4",
+            "PT_GameTutorial_SwitchCamShoulderTutorial",
+            "PT_GameTutorial_SwitchViewTuto",
+            "PT_GameTutorial_ThisLogoCaptainspiritlogoAppears",
+            "PT_GameTutorial_ToggleDialTuto",
+            "PT_GameTutorial_ToggleDynamicDialTutorial",
+            "PT_GameTutorial_ToggleInventoryTuto",
+            "PT_GameTutorial_UseChangecamerashoulderToSwitch",
+            "PT_GameTutorial_UseLookupToAim",
+        };
+
+        public static string[] LIS2_SeenTutosNames = new string[]
+        {
+            "PROM_GameTutorial_CallDanielTuto",
+            "PROM_GameTutorial_ClassicDanielInteractionTuto",
+            "PROM_GameTutorial_Daniel",
+            "PROM_GameTutorial_DanielInteractionTutorial",
+            "PROM_GameTutorial_DrawSequence",
+            "PROM_GameTutorial_DrawTuto",
+            "PROM_GameTutorial_DrawTuto_Hold",
+            "PROM_GameTutorial_DynDialogTuto",
+            "PROM_GameTutorial_DynDialogTutoPS4",
+            "PROM_GameTutorial_ExitSystemTutorial",
+            "PROM_GameTutorial_GrabMachineTuto",
+            "PROM_GameTutorial_HideAndSeekCall",
+            "PROM_GameTutorial_HoldTuto",
+            "PROM_GameTutorial_InteractionTutorial",
+            "PROM_GameTutorial_InteractionTutorialPS4",
+            "PROM_GameTutorial_InventoryTutorial",
+            "PROM_GameTutorial_JournalTutorial",
+            "PROM_GameTutorial_LabyrinthTuto",
+            "PROM_GameTutorial_LittleWolfTutorial",
+            "PROM_GameTutorial_LookAtDanielTuto",
+            "PROM_GameTutorial_MoneyVerifTuto",
+            "PROM_GameTutorial_MoveCameraTutorial",
+            "PROM_GameTutorial_MoveCharacterTutorial",
+            "PROM_GameTutorial_NewChoiceTuto",
+            "PROM_GameTutorial_ObjectInteractionTuto",
+            "PROM_GameTutorial_ObjectInteractionTutoPS4",
+            "PROM_GameTutorial_ObservationTuto",
+            "PROM_GameTutorial_PhPressExitbuttonTo",
+            "PROM_GameTutorial_PowerTutorial",
+            "PROM_GameTutorial_RecenterCamTutorial",
+            "PROM_GameTutorial_RegionMapTuto",
+            "PROM_GameTutorial_RunTutorial",
+            "PROM_GameTutorial_ShowPictureTuto",
+            "PROM_GameTutorial_SkipTuto",
+            "PROM_GameTutorial_StagingChoiceSelection",
+            "PROM_GameTutorial_StagingChoiceSelectionPS4",
+            "PROM_GameTutorial_StagingChoiceTuto",
+            "PROM_GameTutorial_StagingChoiceValidation",
+            "PROM_GameTutorial_StagingChoiceValidationPS4",
+            "PROM_GameTutorial_StaticDialogTuto",
+            "PROM_GameTutorial_StaticDialogTutoPS4",
+            "PROM_GameTutorial_SwitchCamShoulderTutorial",
+            "PROM_GameTutorial_SwitchViewTuto",
+            "PROM_GameTutorial_ToggleDialTuto",
+            "PROM_GameTutorial_ToggleDynamicDialTutorial",
+            "PROM_GameTutorial_ToggleInventoryTuto",
+            "PROM_GameTutorial_WoodenStickTutorial",
         };
 
         public static Dictionary<string, string> LIS2_SubContextNames = new Dictionary<string, string>
@@ -790,6 +1012,48 @@ namespace lis2_save_editor
             {new Guid("{4D5F4316-385D-4207-9A96-03853033C802}"), "E1_Menu_SMS_Lyla_E1-7A_05"},
         };
 
+        public static List<OutfitObject> LIS2_Outfits = new List<OutfitObject>()
+        {
+            new OutfitObject { GUID = new Guid("00000000-0000-0000-0000-000000000000"), Name = "(none)" }, //special case for empty value
+            new OutfitObject { GUID = new Guid("258501f2-2b99-44a3-b1e6-0f83b6215716"), Name = "E1_Sean_Basic", Slot = "Main", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("31083e38-41ce-4905-be44-7b31520e73ed"), Name = "E1_Sean_Bag", Slot = "Main", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("84f1b323-03ac-44be-a4e4-036d32014ef5"), Name = "E1_Sean_CapBag", Slot = "Main", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("5d26d057-311b-4057-b598-3233bffe33e9"), Name = "E1_Sean_Cap", Slot = "Main", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("cd3ec5e7-e476-4b97-ba5b-5b4d8ba0b606"), Name = "E1_Sean_Hoodie", Slot = "Main", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("b8ed07f4-951a-4d1d-8212-7470b0f1be14"), Name = "E1_Sean_HoodieNoBag", Slot = "Main", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("fa32cddd-1ec0-4c45-ab5a-47508a762ec1"), Name = "E1_Sean_BigBag", Slot = "Main", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("d4346ee6-f36e-4567-abfe-2393c3eccad4"), Name = "E1_Sean_Basic_Arm", Slot = "Arms", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("717b7dd4-d676-4a51-8ad8-7d66a7ba4726"), Name = "E1_Daniel_Chemise", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("ed4d7fe5-dace-4885-bc2d-194fadf6ce89"), Name = "E1_Daniel_Tshirt", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("554bf18d-7fc7-4576-9007-7424411c8e78"), Name = "E1_Daniel_TshirtSocks", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("ac9ce54f-ad9c-4490-b932-223560ff0a62"), Name = "E1_Daniel_ShirtAndSocks", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("dc7613e2-8a58-42c8-8a20-87cf10e0be6e"), Name = "E1_Daniel_BarefootRegularShirtDryHair", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("15bff69f-790a-47b6-b5c7-8d8f8348466b"), Name = "E1_Daniel_BarefootRegularShirtWetHair", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("814b5063-a9d1-4795-99ea-cc55e3c07723"), Name = "E1_Daniel_RaccoonSweat", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("96a80845-28ba-4b12-818b-db9773d724d7"), Name = "E1_Daniel_Bag", Slot = "Main", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("34804a71-6888-4c5c-92b9-30c9ed41d276"), Name = "E1_Daniel_Basic_FrontMask", Slot = "Mask", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("e228f90d-36b3-4a43-bc45-e7f1d96879f0"), Name = "E1_Daniel_BackMask", Slot = "Mask", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("bf5f70c8-9368-4432-9300-12ceb0680c73"), Name = "E1_Daniel_Basic_NoMask", Slot = "Mask", Owner = "Daniel" },
+            new OutfitObject { GUID = new Guid("69d5dfb2-e0e9-4db9-b45d-805a91841c53"), Name = "E1_Sean_Default_Head", Slot = "Head", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("5bda150f-31c4-4f71-a1ac-7899da78dfc4"), Name = "E1_Sean_Hoodie_Head", Slot = "Head", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("51358f03-c176-4b4b-9bb0-8a3f142ed436"), Name = "E1_KeyChain", Slot = "Collectible_Mesh", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("c9c36f89-c56b-4b19-8526-8a5c03eefc55"), Name = "E1_FishBait", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("0b669cfa-db74-439b-80b9-aa6e9d199672"), Name = "E1_LostNecklace", Slot = "Collectible_Mesh", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("c7b71306-96ec-4f1f-a460-22787437d74e"), Name = "E1_Feather", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("09593626-017e-40f4-bcd1-14cc05087da7"), Name = "E1_BadgePowerBear", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("6c631a0a-3bb4-44e9-9b7e-472f3ff5b5e4"), Name = "E1_BadgeAnarchy", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("de89a776-e442-4fc2-9c42-b5957f887675"), Name = "E1_BadgeButterfly", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("2f38aa48-61f5-4df2-b27f-a3777eb015e4"), Name = "E1_BadgeHole", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("bbf2ff81-110f-4ec3-85be-f1d1628f1edb"), Name = "E1_BadgeSleep", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("f63c0a17-79a5-4c32-89a2-8585074899e6"), Name = "E1_BadgeTornado", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("9925f441-bb21-4005-b4d0-def32e69b900"), Name = "E1_HawtDawg", Slot = "Collectible_Mesh", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("bdd1d9a4-90ca-4d15-bfe1-7091eca59e11"), Name = "E1_BadgeHDMPatch", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("cefdbfb6-928e-49fd-9bf3-49576cbba8be"), Name = "E1_BadgePowerBear", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("9e7d3039-38d9-4427-bf83-883ec4604bf1"), Name = "E1_BadgeThunder", Slot = "Collectible_Badge", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("b9874a4e-6342-4a44-914b-ee2828a922d2"), Name = "E1_Sean_Dirt", Slot = "Dirt_General", Owner = "Sean" },
+            new OutfitObject { GUID = new Guid("1a0e11ac-34e8-49f6-88e5-7df47292068e"), Name = "E1_Daniel_Dirt", Slot = "Head_Dirt", Owner = "Daniel" },
+        };
+
         public static Dictionary<string, FactAsset> CS_FactAssets = new Dictionary<string, FactAsset>()
         {
             {
@@ -986,7 +1250,6 @@ namespace lis2_save_editor
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-
                     },
                 }
             },
@@ -995,7 +1258,6 @@ namespace lis2_save_editor
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -1190,11 +1452,9 @@ namespace lis2_save_editor
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-
                     },
                 }
             },
@@ -1209,15 +1469,12 @@ namespace lis2_save_editor
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-
                     },
                 }
             },
@@ -1226,7 +1483,6 @@ namespace lis2_save_editor
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -1243,7 +1499,6 @@ namespace lis2_save_editor
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-
                     },
                 }
             },
@@ -1314,7 +1569,6 @@ namespace lis2_save_editor
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
@@ -1327,7 +1581,6 @@ namespace lis2_save_editor
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -1404,11 +1657,9 @@ namespace lis2_save_editor
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-
                     },
                 }
             },
@@ -1421,7 +1672,6 @@ namespace lis2_save_editor
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -1429,305 +1679,36 @@ namespace lis2_save_editor
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-                        {new Guid("d13dfe23-add0-4c4b-9548-c169f3a96d8c"), "F_E1_6A_Inside_InsertionFirstTalk_FirstChoiceChitchat"},
-                        {new Guid("eeadfb02-97ed-477c-9e1a-5d5503a65c49"), "F_E1_6A_Inside_InsertionFirstTalk_PastLife"},
-                        {new Guid("96a33ac4-0969-4e43-95de-746af8436091"), "F_E1_6A_Inside_InsertionFirstTalk_DogChoiceName"},
                         {new Guid("38b3bc29-7cc7-4e80-b325-18a7a00049d1"), "F_E1_6A_Inside_InsertionFirstTalk_BrodyStatus"},
                         {new Guid("13677780-72c4-41ed-a561-076d56ff5daf"), "F_E1_6A_Inside_InsertionFirstTalk_DogChoice"},
+                        {new Guid("96a33ac4-0969-4e43-95de-746af8436091"), "F_E1_6A_Inside_InsertionFirstTalk_DogChoiceName"},
+                        {new Guid("d13dfe23-add0-4c4b-9548-c169f3a96d8c"), "F_E1_6A_Inside_InsertionFirstTalk_FirstChoiceChitchat"},
                         {new Guid("f5950514-5578-4119-ba49-1fac5c06bc5e"), "F_E1_6A_Inside_InsertionFirstTalk_LearnBrody"},
+                        {new Guid("eeadfb02-97ed-477c-9e1a-5d5503a65c49"), "F_E1_6A_Inside_InsertionFirstTalk_PastLife"},
+                        {new Guid("0e7725ca-184f-4655-b853-da49ac4ba710"), "F_E1_6A_Inside_InsertionFirstTalk_SeanChooseDogName"},
                     },
                 }
             },
             {
-                "6df61026-8352-46e6-a159-202a3a74d054", new FactAsset
+                "bb00a9b7-9de1-46eb-affd-519593939409", new FactAsset
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
+                        {new Guid("1a3ad35d-086b-48c9-b2a6-34f2c63a48c2"), "F_PROM_MovePlayerTutoDone"},
+                        {new Guid("6efd17f0-1465-4da4-83a3-9fa320e83fff"), "F_PROM_MoveCamTutoDone"},
+                        {new Guid("76466cb2-18ad-4d68-b398-3d8deac3e913"), "F_PROM_DrawSeq_SwitchTutoFirstTime"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
-                        
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-                       
-                    },
-                }
-            },
-            {
-                "8c794872-5f7d-413f-b975-20a5e3334f92", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("d15f37ed-33bb-4bac-8c9f-49106179ce32"), "F_E1_2A_SecondaryPath_FallenTree_DanielHelped"},
-                        {new Guid("dcfbb855-c53f-479c-9952-d77b978fd021"), "F_E1_2A_ParkingArea_Car_Left"},
-                        {new Guid("cfb61e85-42d0-402c-a213-bc4f43f7bd11"), "F_E1_2A_PicnicArea_DanielPoISpiderWeb"},
-                        {new Guid("dd8d5ba5-deac-4dc2-ad7b-198eb0ae5e50"), "F_E1_2A_SecondaryPath_HideAndSeek_DanielReady"},
-                        {new Guid("ce74e429-2a8c-4186-954e-cd25475c35b9"), "F_E1_2A_ShelterArea_CampFire_GatheringMaterials"},
-                        {new Guid("5ef102bd-b371-471c-9f4c-bb5b7f2d58a5"), "F_E1_2A_PicnicArea_ZenBench_Available"},
-                        {new Guid("c6b5a8dd-b3c0-40ff-94b4-d1cb742f42ed"), "F_E1_2A_ParkingArea_PayStationSign_ShowPictureSeen"},
-                        {new Guid("beb421d7-fe7f-4c5e-898d-fd3917d0cf1b"), "F_E1_2A_ParkingArea_PayStationSign_MailboxLooked"},
-                        {new Guid("9966845b-de1b-4d59-bba2-24e3d0076a1b"), "F_E1_2A_ParkingArea_PayStationSign_MailboxBroken"},
-                        {new Guid("5d13ce02-f454-4bc3-a7f5-dbeb361566e2"), "F_E1_2A_SecondaryPath_FallenTree_SeanCrossed"},
-                        {new Guid("ec644d8a-88e7-4f7e-9122-26d38087e1ea"), "F_E1_2A_PicnicArea_HideAndSeek_DanielHidden"},
-                        {new Guid("079c7a6a-c679-4a92-9120-468771d39332"), "F_E1_2A_PicnicArea_PlayHideAndSeek"},
-                        {new Guid("5a6d4445-8a43-4e3c-b653-b37ba8d109e7"), "F_E1_2A_ParkingArea_DialChoice_Minecraft"},
-                        {new Guid("995b5ad9-76b6-411a-b25f-ecaaa0d159b8"), "F_E1_2A_SecondaryPath_FallenTree_FirstCross"},
-                        {new Guid("3e5429ac-07ff-4d87-9462-0969669a00b1"), "F_E1_2A_SecondaryPath_SeanFoundPath"},
-                        {new Guid("bb496683-b13e-4e10-9f08-3dfd4105a06c"), "F_E1_2A_PicnicArea_ZenBench_InterruptedByDaniel"},
-                        {new Guid("32c9c107-7631-4737-be67-9951f714ca74"), "F_E1_2A_ParkingArea_PayStationSign_TryOpen"},
-                        {new Guid("374b2fe3-9553-43b2-b518-e49681381cda"), "F_E1_2A_HikingTrail_Raccoon_Shown"},
-                        {new Guid("12bb6b3e-e1c8-4f96-b394-2605550fda73"), "F_E1_2A_PicnicArea_TrailBlazeShown"},
-                        {new Guid("5665548c-285f-4ddc-baba-1e3ac99febf1"), "F_E1_2A_ParkingArea_DeadRaccoonSeen"},
-                        {new Guid("312a3033-8492-461d-9ca5-2197f6ceaa6c"), "F_E1_2A_ParkingArea_DanielOnPoICar"},
-                        {new Guid("f15bc701-f90b-498a-880b-89ccc319f26f"), "F_E1_2A_ParkingArea_WildlifeSign_Reassure"},
-                        {new Guid("3f035ca3-ec9c-4ef9-9d97-a2404b5819e2"), "F_E1_2A_ParkingArea_HasForcedToilets"},
-                        {new Guid("6c3a601a-8771-46e3-822d-c55c5854ef16"), "F_E1_2A_PicnicArea_QuicklyFoundDanielSpot"},
-                        {new Guid("f4b43ad7-5b1b-476d-a459-80ccc3730234"), "F_E1_2A_ShelterArea_CampFire_Built"},
-                        {new Guid("c65ac77d-a8f7-4444-a2b8-0392d80b2ee6"), "F_E1_2A_ShelterArea_FortificationDone"},
-                        {new Guid("ab3844de-e60a-4bef-a8ce-e6529fbf65ed"), "F_E1_2A_ShelterArea_HelpFireDone"},
-                        {new Guid("f008d108-d15b-4bf2-a121-c9886a35f7f1"), "F_E1_2A_ShelterArea_GPSit"},
-                        {new Guid("bc9b7fba-6f1f-4b5a-bc4c-3a03ab5a8eac"), "F_E1_2A_PicnicArea_TasteBerries01"},
-                        {new Guid("48a82c3c-8085-4d04-9e08-03ddeac9cf8c"), "F_E1_2A_PicnicArea_BerriesFoundByDaniel"},
-                        {new Guid("0faba736-d103-45d6-a691-a3f69df75862"), "F_E1_2A_PicnicArea_TasteBerries02"},
-                        {new Guid("2a7c1131-2600-4f07-be4c-595569730604"), "F_E1_2A_PicnicArea_TasteBerries03"},
-                        {new Guid("a1ea66f3-4530-439d-a8a0-3c825cf7b338"), "F_E1_2A_ShelterArea_GPSit_Speaking"},
-                        {new Guid("9e510f5b-9f42-443d-b952-3a3000016c53"), "F_E1_2A_ShelterArea_GPSit_DanielYawns"},
-                        {new Guid("2c1d2658-f5b8-4fda-8ff2-6c03012e8b7b"), "F_E1_2A_ParkingArea_DeadAnimals_DiscussDone"},
-                        {new Guid("270bba5d-e169-4222-8b4e-eea7a7fc2067"), "F_E1_2A_ShelterArea_HelpFire_NeedDumpWood"},
-                        {new Guid("704911e3-9f53-42da-aeb6-0fa2835c7770"), "F_E1_2A_SecondaryPath_TreeFungusSeen"},
-                        {new Guid("5a87301d-e737-42e6-bf6b-400aef6160ce"), "F_E1_2A_ShelterArea_CampFire_LogPlaced"},
-                        {new Guid("5814e354-a0f3-4d5a-a423-74ce5ccfaaf8"), "F_E1_2A_ShelterArea_SkimStone_Teach"},
-                        {new Guid("768fb3a2-1811-439f-be9f-2b7220a4362b"), "F_E1_2A_ShelterArea_SkimStone_Succeed"},
-                        {new Guid("c56b5834-b112-4e17-957d-85fbbd3e2b6c"), "F_E1_2A_ShelterArea_SpikesDone"},
-                        {new Guid("997d553d-179c-4542-8885-70a6986c9605"), "F_E1_2A_ShelterArea_LookFortificationsSunset"},
-                        {new Guid("97cf1823-98ff-4383-9a75-e75dbfd74350"), "F_E1_2A_SecondaryPath_BigClimb_DanielScared"},
-                        {new Guid("8a82cd1e-4f9f-4180-aa19-5a720701c4e8"), "F_E1_2A_PicnicArea_Berries02_Showed"},
-                        {new Guid("6d081d2a-2499-4abb-a98a-80b79bbdcb65"), "F_E1_2A_PicnicArea_Berries03_NeedTesting"},
-                        {new Guid("e1a0c639-7180-40b2-ac96-4d9020649b32"), "F_E1_2A_PicnicArea_Berries01_Active"},
-                        {new Guid("4a5fa37e-6733-477d-9bee-3439f038139f"), "F_E1_2A_PicnicArea_Berries02_Active"},
-                        {new Guid("d4f9e636-0683-4b8b-9bc7-b53e90200a77"), "F_E1_2A_TEMP_DanielIshidding"},
-                        {new Guid("c1dcb439-aa98-4cd8-aff5-ea06216a4cdc"), "F_E1_2A_PicnicArea_Berries02_DanielDone"},
-                        {new Guid("37b5fa5d-0a84-4217-bf7e-f9016bd9c388"), "F_E1_2A_PicnicArea_Berries01_DanielDone"},
-                        {new Guid("6f0c64fa-4f51-4d5b-a622-ab1d23f38bcb"), "F_E1_2A_PicnicArea_Berries03_DanielDone"},
-                        {new Guid("48e3a68a-f367-4b3b-85ba-61fb34ee41d3"), "F_E1_2A_PicnicArea_BearMarksLooked"},
-                        {new Guid("4488a09b-ff35-4d8c-83e7-b963ff6d83a0"), "F_E1_2A_PicnicArea_HideAndSeek_SeanRefused"},
-                        {new Guid("ba8a784e-7095-485a-83af-ef9f59b1bdfe"), "F_E1_2A_ShelterArea_HelpFire_Spot03_Taken"},
-                        {new Guid("667b1f5f-22c9-4998-96db-2d7e4e640154"), "F_E1_2A_PicnicArea_Berries03_Active"},
-                        {new Guid("148580cf-3548-4791-92a2-d50bae086d49"), "F_E1_2A_PicnicArea_Berries04_Active"},
-                        {new Guid("5bf6c770-c673-4b15-a8fb-d3bab3edf3b6"), "F_E1_2A_PicnicArea_Berries04_Checked"},
-                        {new Guid("0596868d-a5ef-43b6-bce3-ffd43a88c7f3"), "F_E1_2A_PicnicArea_Berries04_DanielDone"},
-                        {new Guid("226d712d-e4cf-4783-80d4-b43575c6a9c9"), "F_E1_2A_PicnicArea_Berries04_NeedTesting"},
-                        {new Guid("6c8be0c3-6af1-4306-80c8-91e1c4a3478a"), "F_E1_2A_PicnicArea_TasteBerries04"},
-                        {new Guid("4e159d56-2069-4f93-97d7-19273e6ab56d"), "F_E1_2A_PicnicArea_GoodBerriesTastedBySean"},
-                        {new Guid("519c40e4-a8ac-49ec-a267-faefa85d9c93"), "F_E1_2A_PicnicArea_GoodBerriesTastedByDaniel"},
-                        {new Guid("afc8c9a8-0b93-45d0-975a-1b38a556cd58"), "F_E1_2A_PicnicArea_Berries_SeanBusy"},
-                        {new Guid("4dea7224-18cd-42ed-b074-1e5acae98451"), "F_E1_2A_PicnicArea_Berries_DanielSick"},
-                        {new Guid("997917fb-fe5a-43a1-8e80-8e57ebd61d1a"), "F_E1_2A_PicnicArea_BadBerriesTastedByDaniel"},
-                        {new Guid("8d78a035-6b3c-4604-91fa-a4efeeee7aaf"), "F_E1_2A_PicnicArea_BadBerriesTastedBySean"},
-                        {new Guid("9f6b5432-0041-4dc1-ac3f-35ec11e2973f"), "F_E1_2A_PicnicArea_Berries05_Active"},
-                        {new Guid("4a907df6-4179-4000-8b8e-7fb260487a4a"), "F_E1_2A_PicnicArea_Berries05_DanielDone"},
-                        {new Guid("03c49ebc-7f8d-44f4-b621-124c6fd12529"), "F_E1_2A_PicnicArea_Berries05_Showed"},
-                        {new Guid("006ba01a-2d25-4551-a6d3-35205be00885"), "F_E1_2A_PicnicArea_TasteBerries05"},
-                        {new Guid("235a15a5-b3a5-4cea-9c9b-5aa50b4474e2"), "F_E1_2A_HiddenVistaEnable"},
-                        {new Guid("c95182c8-b214-4bf0-a7a9-ab22ef312dfd"), "F_E1_2A_ShelterArea_GoodNight"},
-                        {new Guid("f1e43570-3945-412b-8acf-3617914bbda6"), "F_E1_2A_InDrawSequence"},
-                        {new Guid("6315a43b-bcd7-47ef-871f-6ebd53d7418b"), "F_E1_2A_Berries_DanielAsk"},
-                        {new Guid("db4b6d87-0397-43ae-bc59-5d04ad7a99db"), "F_E1_2A_PicnicArea_TutoLookCanBeLaunched"},
-                        {new Guid("fc2567a0-990c-4696-aa7f-33e2badf8832"), "F_E1_2A_WoodRaceResult_DanielWon"},
-                        {new Guid("35bb5083-5428-4c79-8868-be25232cd588"), "F_E1_2A_ParkingArea_SeanNearCar"},
-                        {new Guid("6e4188b5-ca69-4490-a465-999884e0f479"), "F_E1_2A_WoodDump_DanielWaiting"},
-                        {new Guid("faa928a4-405c-41b1-a16a-b47f1fda2ffc"), "F_E1_2A_SubcontextStarted"},
-                        {new Guid("622f2d1a-6bfe-4816-94e2-7ff1a3aef600"), "F_E1_2A_ShelterArea_DanielFishing"},
-                        {new Guid("c8b37ac8-d1cc-413f-b623-62d4e198a042"), "F_E1_2A_SeanNearFireCamp"},
-                        {new Guid("5c136ce7-2ac5-4edd-b157-685b2fdc9178"), "F_E1_2A_DarkeningWoodsDone"},
-                        {new Guid("a924b1f6-70e3-497a-9722-bdd6a96f6255"), "F_E1_2A_DanielDoingPoIActivities"},
-                        {new Guid("a4080432-b236-49c6-b53a-cc4e234f9eae"), "F_E1_2A_PoIFishingStarted"},
-                        {new Guid("6c6b3f5b-3077-4d4a-8b8f-e7a47a0b40c6"), "F_E1_2A_ShelterArea_DanielFollow"},
-                        {new Guid("5c25bc5f-333e-4895-bfa6-9c9d5bc1db86"), "F_E1_2A_ShelterArea_WeaponRacksDone"},
-                        {new Guid("2c79c91f-d2e3-442b-bce8-2a51df9a3442"), "F_E1_2A_RaccoonPoIReached"},
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("c3bb2901-405b-4a8d-8ba3-45793ebe2a84"), "F_E1_2A_ShelterArea_WeaponStick"},
-                        {new Guid("4f13630d-02d9-478f-a41b-4deba37fb008"), "F_E1_2A_ShelterArea_LogsInInventory"},
-                        {new Guid("f06cc6e3-38c9-4754-9980-56e3380128f5"), "F_E1_2A_PicnicArea_HideAndSeek_InnerVoiceCues"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("ba42465a-612e-4ba3-b7d1-bbd0532c134c"), "F_E1_2A_PicnicArea_HideAndSeek_State"},
-                        {new Guid("4f6a59cf-aeae-45c8-b853-03f29f729649"), "F_E1_2A_ShelterArea_DanielActivities"},
-                        {new Guid("ceac9bd8-b276-4d4d-b168-6f6e39e05aa8"), "F_E1_2A_DanielStatus"},
-                    },
-                }
-            },
-            {
-                "8d1f66e2-963b-401e-a772-0636ab0ccc46", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "8d024f8e-860c-4c97-88d9-e9c918b111d2", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "8ef75771-96ef-41b1-8e6b-47b31c7835a2", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("660d6c56-37e7-49b2-a17b-0071666488fc"), "F_PROM_E1_1A_Journal_DetailsDone"},
-                        {new Guid("75f3a89b-bccb-4b05-9cee-3fcfcd6067cd"), "F_PROM_E1_1A_Journal_RoughDone"},
-                        {new Guid("2bf78da0-9955-41dd-8e38-8a91159d64e8"), "F_PROM_E1_1A_DrawSQCFinished"},
-                        {new Guid("5172a55e-e3b7-4982-9a41-0e1842364ec6"), "F_PROM_E1_2A_Journal_DetailsDone"},
-                        {new Guid("f5ac5af6-5720-4062-865a-d9faf595b56e"), "F_PROM_E1_2A_Journal_RoughDone"},
-                        {new Guid("01eeedf3-8a90-4695-b8f6-6d6e730d354a"), "F_PROM_E1_7A_Journal_RoughDone"},
-                        {new Guid("7eeb459b-da01-4534-b105-b37c981823d2"), "F_PROM_E1_7A_Journal_DetailsDone"},
-                        {new Guid("d457a4c0-ffc2-4dc0-b435-b9e1a2395ee6"), "F_PROM_E1_2A_DrawSQCFinished"},
-                        {new Guid("d8d373af-d234-444c-b4c8-4715c53bff6b"), "F_PROM_E1_7A_DrawSQCFinished"},
-                        {new Guid("1b416551-37cc-4033-a91e-cf74a1dabd4a"), "F_PROM_DrawSeq_FirstLaunch"},
-                        {new Guid("763108d1-16c4-4f0e-bcb0-0578f2e3b6a7"), "F_PROM_DrawSequenceAborted"},
-                        {new Guid("184d70e7-7b85-4e98-8e42-5f052e81e3f3"), "F_PROM_DrawSeqTuto_DrawOnce"},
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("6c2e9d98-842b-4316-9575-1f592972c86e"), "F_PROM_DrawSeqTuto_Steps"},
-                    },
-                }
-            },
-            {
-                "23dce93e-dccf-4487-806b-103a84900ada", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("93c89fe7-309c-4c93-a519-131ec672b791"), "F_E1_5A_GasStation_Outside_FamilyUpset"},
-                        {new Guid("46542e23-c5c7-4ef7-a04a-c9e3187ea2a9"), "F_E1_5A_GasStation_Outside_BegFoodSean"},
-                        {new Guid("5bc425b4-8839-40a9-b82f-efe6c9fc5cb8"), "F_E1_5A_GasStation_Inside_InteruptDanielSpeakGSTL"},
-                        {new Guid("3c826176-58d8-4bdb-b304-a8a2a20ec0d7"), "F_E1_5A_GasStation_Inside_HasEnoughMoney"},
-                        {new Guid("77d79125-f1b5-4e36-bff2-0ede46d8e205"), "F_E1_5A_GasStation_Inside_DanielGrabMachine"},
-                        {new Guid("69fac30e-84ad-4c52-9e65-c10bc0d40c52"), "F_E1_5A_GasStation_Inside_ShouldPlayGrabMachine"},
-                        {new Guid("b73a5dad-4c58-443c-b204-d670df91ec77"), "F_E1_5A_GasStation_Inside_Suspicious"},
-                        {new Guid("3e519db7-418b-41ce-8f3c-a1f19aa696ce"), "F_E1_5A_GasStation_Inside_SeanHasWonPowerBear"},
-                        {new Guid("e410c9cf-1310-45fc-a918-a731cf5f2f5a"), "F_E1_5A_GasStation_Inside_DanielWonPowerBear"},
-                        {new Guid("c6a9f5e1-2fc8-4b76-97f8-7a293dd34886"), "F_E1_5A_GasStation_Inside_HasStolenSomething"},
-                        {new Guid("72cb2885-1c68-4dbb-b721-bf90c5237c8e"), "F_E1_5A_GasStation_Inside_IsPettingPuppy"},
-                        {new Guid("1d5a1339-1d10-47bb-af20-c8a396054811"), "F_E1_5A_GasStation_LookForFood"},
-                        {new Guid("ad5e972c-d7ad-4036-9c70-b4c405b8fd7a"), "F_E1_5A_GasStation_LookForDrinks"},
-                        {new Guid("930e185b-e20d-4364-bb46-9f78b05db74a"), "F_E1_5A_GasStation_FindAMap"},
-                        {new Guid("65ef491a-58f7-4215-b6e8-b1b4bcd3af57"), "F_E1_5A_GasStation_Inside_DanielIsBusy"},
-                        {new Guid("34578527-81d8-40c2-8d18-1552a1097218"), "F_E1_5A_GasStation_Inside_HasBoughtSomething"},
-                        {new Guid("e13430b4-8d2a-461f-89ae-19269f3c1b41"), "F_E1_5A_GasStation_Inside_TriesPayNotEnought"},
-                        {new Guid("a3de6f7e-e554-4932-8d0e-8e5107972f14"), "F_E1_5A_GasStation_Inside_ComeFromRemoveItem"},
-                        {new Guid("73670f77-413c-42b5-aa36-3d5c9e44382a"), "F_E1_5A_GasStation_Outside_HUB_Visiting"},
-                        {new Guid("6738d43a-c501-4b86-b367-99dddd831378"), "F_E1_5A_GasStation_Outside_HUB_Halloween"},
-                        {new Guid("68c44b71-a900-4658-a0a4-7693d75be1a5"), "F_E1_5A_GasStation_Outside_HUB_Food"},
-                        {new Guid("0c735771-abde-482d-8b9b-4c724d96c414"), "F_E1_5A_GasStation_IsInside"},
-                        {new Guid("1b3d0266-4571-441e-8750-b4db396c3a55"), "F_E1_5A_GasStation_Inside_LadyBusywithSean"},
-                        {new Guid("cfe13b5a-b563-4a2b-8b9a-8f356737c7df"), "F_E1_5A_GasStation_Inside_HasSeenLeaveMap"},
-                        {new Guid("f6c59fd9-b18d-4339-aa54-f0809999041f"), "F_E1_5A_GasStation_Outside_SeanIsInToilets"},
-                        {new Guid("1c6d0d63-2209-4a97-a7d7-e5b81666eaef"), "F_E1_5A_GasStation_Inside_TalkNearAirVentDone"},
-                        {new Guid("d1a59d61-127b-4b4a-86aa-904197203ad9"), "F_E1_5A_GasStation_Night"},
-                        {new Guid("2b8d0d9e-8c34-49c6-ae2d-31c7813d9c6f"), "F_E1_5A_GasStation_Objective_Escape"},
-                        {new Guid("c9008d79-2dba-4f31-853f-54efb5c637eb"), "F_E1_5A_GasStation_ReachGS"},
-                        {new Guid("1892b876-3e03-4005-8aec-3c1ce6c8f7a1"), "F_E1_5A_GasStation_Inside_DanielBroughtTool"},
-                        {new Guid("799408fd-3e98-4df1-a158-c21df814904d"), "F_E1_5A_GasStation_Outside_DanIsInToilets"},
-                        {new Guid("71f8438d-ae2a-44e5-ad0b-1f1356cfd651"), "F_E1_5A_GasStation_KnowsBrodyName"},
-                        {new Guid("18cb2aae-ee4d-4a3a-9e28-70834603ff29"), "F_E1_5A_GasStation_KnowsHankName"},
-                        {new Guid("a0618e36-8470-4d7f-aea1-3a21faa8d0a4"), "F_E1_5A_GasStation_Outside_HUB_NoHalloween"},
-                        {new Guid("02d2a24c-def3-4b58-a096-2aab2fbf71b6"), "F_E1_5A_GasStation_Inside_DirectRemoveItem"},
-                        {new Guid("e0287535-cdc5-471f-9814-75fd92412cd9"), "F_E1_5A_GasStation_Inside_DoingGMPOI"},
-                        {new Guid("1a226813-e810-4ae8-bbf7-bf198f5651cd"), "F_E1_5A_GasStation_Outside_CanLaunchInsertionInnerVoices"},
-                        {new Guid("b3b0f1fd-5508-457b-a187-a50fe15615ac"), "F_E1_5A_GasStation_Outside_CanReceivedSMS"},
-                        {new Guid("3a8ca174-d471-4053-a597-3eef4fd28a5b"), "F_E1_5A_GasStation_Inside_DanielChocobarPOI"},
-                        {new Guid("dc2b7ec0-128a-4ad2-b0da-208c1dc21728"), "F_E1_5A_GasStation_Outside_ZenSequenceCompleted"},
-                        {new Guid("d9f27820-2244-49e4-9ede-b48e715f68e3"), "F_E1_5A_GasStation_Outside_DestroyTruck"},
-                        {new Guid("1b87364f-ade8-4ed1-94fd-f468436e7946"), "F_E1_5A_GasStation_Inside_IsPuppyAwake"},
-                        {new Guid("55e844f7-3f52-4484-9636-55bdba41b350"), "F_E1_5A_GasStation_Inside_PoIDorisPlaying"},
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("68d6eddd-cd4c-4c56-8abf-c2dd792ed53b"), "F_E1_5A_GasStation_Outside_FamilyMood"},
-                        {new Guid("76cfb6e5-0807-4721-a38a-02036c843cf8"), "F_E1_5A_GasStation_Inside_PayStep"},
-                        {new Guid("203e8c6d-ab32-444b-adfa-c997c060e86e"), "F_E1_5A_GasStation_Inside_GMDanielTries"},
-                        {new Guid("6b2aaf71-8ef7-4583-989a-7432175c11b5"), "F_E1_5A_GasStation_Inside_PayNumberOfTime"},
-                        {new Guid("fe37b5b9-2901-442f-a32a-95935c629534"), "F_E1_5A_GasStation_Inside_Crosswords"},
-                        {new Guid("edd5bce3-b72e-4f04-8dbd-53f6ff26c254"), "F_E1_5A_GasStation_Inside_NumberItemsOnDesk"},
-                        {new Guid("46b774f4-3195-4820-9684-5f5748dd5faf"), "F_E1_5A_GasStation_Inside_GMSeanTries"},
-                        {new Guid("c3dddc8c-b2c0-4dbb-a550-cd5fd566aba4"), "F_E1_5A_GasStation_Inside_CantStealCues"},
-                        {new Guid("5e6505c6-514e-4422-8902-07d821e1343b"), "F_E1_5A_GasStation_Inside_FailedToSteal"},
-                        {new Guid("5e862243-5e62-42af-a66b-6f2d208956fc"), "F_E1_5A_GasStation_Inside_PriceToPay"},
-                        {new Guid("d9450025-b4cf-44e8-9e63-9982163d87cc"), "F_E1_5A_GasStation_Inside_UsedMoneyOnce"},
-                        {new Guid("94509e31-66b1-41ac-920a-1df9d131c390"), "F_E1_5A_GasStation_Inside_PayTotalSequence"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("d683b719-2b46-4d78-bdd8-307e78d04750"), "F_E1_5A_GasStation_Inside_ChocoCrispStatus"},
-                        {new Guid("c7a34168-044d-4955-939c-ac3b8c201d37"), "F_E1_5A_GasStation_Inside_WaterBottleStatus"},
-                        {new Guid("ba67d013-3636-47ea-9141-4247f02b0431"), "F_E1_5A_GasStation_Inside_CanStatus"},
-                        {new Guid("07fe1bb9-3312-4581-b627-e394f554513c"), "F_E1_5A_GasStation_Inside_SleepingBagStatus"},
-                        {new Guid("ab1b4aa2-5515-41b0-8cb9-40ab3e60734a"), "F_E1_5A_GasStation_Inside_SandwichStatus"},
-                        {new Guid("20d58722-a5d7-4e52-8869-4555f3a0cef2"), "F_E1_5A_GasStation_Inside_SlicedBreadStatus"},
-                        {new Guid("d0c09577-662f-49e6-bdc6-98f19f2a9510"), "F_E1_5A_GasStation_Inside_BroTalkToCustomer"},
-                        {new Guid("f52c692a-2c74-4f5f-b743-f429f07e4a0d"), "F_E1_5A_GasStation_Inside_ToolStatus"},
-                        {new Guid("dc6649db-57c7-479e-8ff6-7fc904c8f83f"), "F_E1_5A_GasStation_Inside_GMState"},
-                        {new Guid("a1bbaf76-b1c4-447c-9449-8690f6d25269"), "F_E1_5A_GasStation_TotalFood"},
                     },
                 }
             },
@@ -1779,731 +1760,6 @@ namespace lis2_save_editor
                 }
             },
             {
-                "61d63f40-103f-49a4-957e-9e4d64859819", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("6782716e-0f53-4055-a2fb-b8216c3986b3"), "F_E1_7A_IntActor_MotelCardCollectible_C1_Look"},
-                        {new Guid("5196ed5c-b212-4a73-a892-79096a3f646f"), "F_E1_7A_IntActor_MotelCardCollectible_C2_Take"},
-                        {new Guid("6a4b50b2-3dae-4a2d-a5dd-44a4ab291647"), "F_E1_7A_IntActor_Phone_C1_Pickupthephone"},
-                        {new Guid("ff20b1c0-1a22-4d53-83fa-e05687703fe8"), "F_E1_7A_IntActor_BeachDaniel_C1_Look"},
-                        {new Guid("5b5b4958-8acf-49e0-8516-7fab0d4677ea"), "F_E1_7A_IntActor_MainDoor_C1_Goinside"},
-                        {new Guid("9f405205-6fe3-4c3b-a3ff-037ca5f3eb05"), "F_E1_7A_IntActor_BathTap_C1_Look"},
-                        {new Guid("d72bf256-1eec-4689-8487-da4c77211815"), "F_E1_7A_IntActor_BathTap_C2_Open"},
-                        {new Guid("d64a3e87-3cf1-40b3-8b63-a2835d7eba06"), "F_E1_7A_IntActor_BathTap_C3_Close"},
-                        {new Guid("6b52d733-99d3-46df-bd7c-b15c4e95d5db"), "F_E1_7A_IntActor_Bathtub_C1_Look"},
-                        {new Guid("4761b8a3-4610-40d5-9823-4691655692ed"), "F_E1_7A_IntActor_Bathtub_C2_Look"},
-                        {new Guid("048f8de4-4713-4755-89da-fe29542405c7"), "F_E1_7A_IntActor_Bathtub_C3_Calltobath"},
-                        {new Guid("cf595e37-9a9e-448f-bdc9-dab541b2f1c4"), "F_E1_7A_IntActor_SinkTap_C1_Wash"},
-                        {new Guid("7afdbfa0-43cc-474b-9948-c82cfcaa5615"), "F_E1_7A_IntActor_Daniel_C2_WatchTVtogether"},
-                        {new Guid("561de799-672a-4638-8b00-f50ac071a172"), "F_E1_7A_IntActor_TowelHolder_C1_Puttowel"},
-                        {new Guid("ce78ccf7-b248-4e06-99b8-b9ce344f0b2f"), "F_E1_7A_IntActor_VendingMachine_C1_Buyasoda($1)"},
-                        {new Guid("260175ba-14c3-4828-b59b-165bff79b689"), "F_E1_7A_IntActor_Instructions_C1_Look"},
-                        {new Guid("27eaec6c-a977-4e6f-8b1b-a500a8a19ed7"), "F_E1_7A_IntActor_Map_C1_Look"},
-                        {new Guid("522d08f9-b3b6-423e-94b8-9ff4607a94e7"), "F_E1_7A_IntActor_Toy_C2_Question"},
-                        {new Guid("3cf8ac78-fa98-4196-a2fa-7b7f865adb90"), "F_E1_7A_IntActor_LiquidSoap_C1_Look"},
-                        {new Guid("6003db8b-da37-43b2-b02d-8efd7910006a"), "F_E1_7A_IntActor_LiquidSoap_C2_Add"},
-                        {new Guid("d871dc58-61ca-4e24-b180-a1bd6f99cced"), "F_E1_7A_IntActor_Wardrobe_C1_Open"},
-                        {new Guid("70376d81-7c18-4190-8281-9cc643ed5f1b"), "F_E1_7A_IntActor_WoodStick_C1_Playfetch"},
-                        {new Guid("5d487ce9-841c-4621-8095-71d8876746f8"), "F_E1_7A_IntActor_WoodStick_C2_Look"},
-                        {new Guid("5f17384e-957b-4a89-93d1-3b5fef615ae9"), "F_E1_7A_IntActor_BrodyCarBeach_C1_Look"},
-                        {new Guid("9f583eb9-1301-49b9-8ee1-64bdb1d5ce4f"), "F_E1_7A_IntActor_BagBeach_C1_Look"},
-                        {new Guid("f157e3d9-e59b-4db1-9722-093f9a59299b"), "F_E1_7A_IntActor_BrodyBag_C1_Look"},
-                        {new Guid("dd364e89-67a1-4a16-9b9b-fdfc03120c4a"), "F_E1_7A_IntActor_SandCastle_C1_Look"},
-                        {new Guid("d33180fa-3d4d-489f-90cd-aa2310df50b8"), "F_E1_7A_IntActor_FrenchWindowInside_C1_Gooutside"},
-                        {new Guid("160e132b-bd9b-46f2-91b3-71d9801a9b8f"), "F_E1_7A_IntActor_FrenchWindowInside_C2_Goinside"},
-                        {new Guid("d39a022e-3562-4cab-966b-80a232a307eb"), "F_E1_7A_IntActor_TV_C1_Look"},
-                        {new Guid("5b0058f1-5ea4-424c-8071-637d09e09e7e"), "F_E1_7A_IntActor_Tickle_C1_Tickle"},
-                        {new Guid("5daa67fc-2897-42a7-97e5-2a00aa36a83a"), "F_E1_7A_IntActor_Shampoo_C1_Look"},
-                        {new Guid("10fe4ef9-082b-45fb-8330-7f6d6a755b72"), "F_E1_7A_IntActor_Painting_C1_Look"},
-                        {new Guid("e123d0d8-ce8e-4a9f-8cc7-cd7b9019fb2a"), "F_E1_7A_IntActor_JRNLNote_C1_Look"},
-                        {new Guid("239b853c-93f5-4f33-bf2a-0d5c3cb76fac"), "F_E1_7A_IntActor_Card_C1_Look"},
-                        {new Guid("8ba1206b-01e3-43e0-a4f2-edaaf9f08649"), "F_E1_7A_IntActor_FreshTowels_C1_Take"},
-                        {new Guid("835d6953-7e46-42f5-92f4-3efe7b57695b"), "F_E1_7A_IntActor_FreshTowels_C2_Look"},
-                        {new Guid("e42f0b7a-ea05-476a-8603-8ff53ec60be8"), "F_E1_7A_IntActor_BagDaniel_C1_Look"},
-                        {new Guid("c0ab0b52-1802-4463-a610-0f6f3ca65222"), "F_E1_7A_IntActor_Flyers_C1_Look"},
-                        {new Guid("157e0d10-b4fe-4dd7-8698-f1ae7f2e5e1d"), "F_E1_7A_IntActor_Tent_C1_Look"},
-                        {new Guid("3019f7c9-fd80-4476-9eeb-7e61520749c3"), "F_E1_7A_IntActor_Bed2_C1_Look"},
-                        {new Guid("1d977460-a725-4fca-8f4b-a338338d009c"), "F_E1_7A_IntActor_DanielShoes_C1_Look"},
-                        {new Guid("ff30740e-3e13-4833-8ddb-4be1c69bf412"), "F_E1_7A_IntActor_Tie_C1_Look"},
-                        {new Guid("1cd18fcb-2e88-4df7-b0d8-337a53cf5c63"), "F_E1_7A_IntActor_246_C1_Look"},
-                        {new Guid("15b085eb-b389-4125-b7d0-eaa674a4e52b"), "F_E1_7A_IntActor_338_C1_Look"},
-                        {new Guid("94371a0e-5119-451b-ab64-7b6c5dc8b27b"), "F_E1_7A_IntActor_AshTray_C1_Look"},
-                        {new Guid("da80b876-e1d6-4846-be27-729995ed2e2f"), "F_E1_7A_IntActor_Balcony_C1_Lean"},
-                        {new Guid("abdee6da-e573-44fa-9182-41e438b6f9b8"), "F_E1_7A_IntActor_ForgottenPaper_C1_Look"},
-                        {new Guid("87ae6229-9964-4601-870a-5ff241b24108"), "F_E1_7A_IntActor_LightSwitch_C1_TurnOn"},
-                        {new Guid("a019195f-0e0f-4ae5-b63d-e1bbf984bb4e"), "F_E1_7A_IntActor_MotelDrawing_C1_Sitanddraw"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "77d2dd30-8e65-412f-9fc2-b2f4186815f7", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("e5490026-1035-4291-8aba-7ed7a8d05981"), "F_E1_5A_IntActor_LetterBox_C1_Look"},
-                        {new Guid("33463a13-908d-44d2-b709-b060f998975d"), "F_E1_5A_IntActor_Coffee_C1_Look"},
-                        {new Guid("45e3639b-b7d4-4404-9636-b1913e75faf9"), "F_E1_5A_IntActor_TruckSticker_C1_Take"},
-                        {new Guid("249bfc51-5392-414f-b847-d64e0f3c259a"), "F_E1_5A_IntActor_TruckSticker_C2_Look"},
-                        {new Guid("b128e310-17d3-4dbd-91a6-7117dada067a"), "F_E1_5A_IntActor_Bears_C1_Look"},
-                        {new Guid("0e0efbe2-824c-4847-b61c-f6993dce92d8"), "F_E1_5A_IntActor_JunkPile_C1_Discuss"},
-                        {new Guid("97fa15f2-800f-4d97-a1db-55eddf59dc3b"), "F_E1_5A_IntActor_ToiletSink_C1_Fillbottle"},
-                        {new Guid("1ffdcd61-8955-4889-8f1b-e4cd74a32b79"), "F_E1_5A_IntActor_ToiletSink_C2_Cleanup"},
-                        {new Guid("9846256b-4c1b-4e13-9932-c0df9c93cc68"), "F_E1_5A_IntActor_WildAnimalsPoster_C1_Look"},
-                        {new Guid("bfe3b03e-4c7a-4ce3-88c3-df8d1a17b815"), "F_E1_5A_IntActor_TrappedBird_C1_Look"},
-                        {new Guid("fc2f4655-f43c-4ce7-a8a8-ec73a4c9af91"), "F_E1_5A_IntActor_TrappedBird_C2_Move"},
-                        {new Guid("a1293795-cd2a-477c-b95b-3de35ccd4326"), "F_E1_5A_IntActor_ToiletDoorGetout_C1_Leave"},
-                        {new Guid("539afad8-67b1-4259-8a2a-170d0c327303"), "F_E1_5A_IntActor_ToiletDoor_C1_Look"},
-                        {new Guid("72a52426-d57e-4dbc-a8b2-090fd0805119"), "F_E1_5A_IntActor_ToiletDoor_C3_Entertogether"},
-                        {new Guid("9d888568-a90a-45f1-af4f-09670e655ecb"), "F_E1_5A_IntActor_FrontDoor_C1_Goin"},
-                        {new Guid("26b8cdd4-69a1-41da-8458-fcbf7d5a6cca"), "F_E1_5A_IntActor_FrontDoor_C2_Goin"},
-                        {new Guid("7a8ff2ab-ee21-4438-803a-c86f24e512dd"), "F_E1_5A_IntActor_Brody_C1_Look"},
-                        {new Guid("cd233aaa-fa9a-475e-995a-4c3678c802b9"), "F_E1_5A_IntActor_Brody_C3_Interrupt"},
-                        {new Guid("2c643680-9a19-416b-8887-e0f52f76483f"), "F_E1_5A_IntActor_Feather_C1_Pickup"},
-                        {new Guid("61115a43-2468-4d52-a0a0-2a3fa6e06c34"), "F_E1_5A_IntActor_Feather_C2_Look"},
-                        {new Guid("4116af06-ff68-4ad9-8654-c5db3ff7cf71"), "F_E1_5A_IntActor_314_C1_Look"},
-                        {new Guid("32d9179f-e719-4a0c-84d2-1cecf02df8a7"), "F_E1_5A_IntActor_Bench_C1_Sit"},
-                        {new Guid("921685e5-45bd-4497-98b0-6dda29ddd245"), "F_E1_5A_IntActor_Family_C1_Look"},
-                        {new Guid("2f731807-8ea6-46f1-a3ec-18fae37ffad4"), "F_E1_5A_IntActor_Family_C2_Speak"},
-                        {new Guid("02351ac8-bb1c-4c87-9015-d1fb80b2b3a6"), "F_E1_5A_IntActor_Trash_C1_Look"},
-                        {new Guid("dcfdb960-2a9f-4fc5-8fac-504773d73308"), "F_E1_5A_IntActor_Trash_C2_Lookforfood"},
-                        {new Guid("d6f75727-6ba0-4039-a2c3-07d2f9fa1d31"), "F_E1_5A_IntActor_PicnicTable_C1_Look"},
-                        {new Guid("c043fdbf-b2e2-49fc-8174-fdc13b82001a"), "F_E1_5A_IntActor_PicnicTable_C2_Eat"},
-                        {new Guid("cccbc116-349c-40ce-a660-8f9da8ce2d8b"), "F_E1_5A_IntActor_PicnicTable_C3_LocalMap"},
-                        {new Guid("53343ec7-bd33-47c5-a09a-2db3aa6bb10f"), "F_E1_5A_IntActor_Souvenir2_C1_Look"},
-                        {new Guid("3467ea99-186b-41b4-83e9-b02846feab56"), "F_E1_5A_IntActor_Fallen_C1_Take"},
-                        {new Guid("a5e5089e-4325-4944-a96e-6d3f0b1c7f79"), "F_E1_5A_IntActor_Door_C1_Look"},
-                        {new Guid("3f0bd912-ed8c-4c3a-8af0-db417518584d"), "F_E1_5A_IntActor_ExitDoor_C1_Look"},
-                        {new Guid("91fdec3c-ec8a-4841-b50d-2510822055ec"), "F_E1_5A_IntActor_ExitDoor_C2_Asktoopen"},
-                        {new Guid("c098ae26-2a7a-405f-a470-31376ed4475e"), "F_E1_5A_IntActor_SpanishLessons_C1_Look"},
-                        {new Guid("45cb42dc-7751-46a8-9b8e-88d10ffd309e"), "F_E1_5A_IntActor_InflatablePumpkin_C1_Look"},
-                        {new Guid("70811abb-92b5-4501-ba64-5298da3489a7"), "F_E1_5A_IntActor_IceContainer_C1_Look"},
-                        {new Guid("b4f768a9-196f-43d7-b234-9e113373aa66"), "F_E1_5A_IntActor_House_C1_Look"},
-                        {new Guid("ef254118-d5af-4a78-b8d5-22af5b133c14"), "F_E1_5A_IntActor_HalloweenPoster2_C1_Look"},
-                        {new Guid("93143570-9f18-4e48-8aee-0bf5cd2cf4d9"), "F_E1_5A_IntActor_HalloweenDeco1_C1_Look"},
-                        {new Guid("b3232f49-f5e4-4fda-9746-35dc150afb32"), "F_E1_5A_IntActor_HalfCarvedBear_C1_Look"},
-                        {new Guid("ca966dd8-3e84-4a4a-918a-5bcd98c17620"), "F_E1_5A_IntActor_GivePuppyPoster_C1_Look"},
-                        {new Guid("73cbcabe-6daa-4314-a3e7-b3bbeb1771b9"), "F_E1_5A_IntActor_296_C1_Look"},
-                        {new Guid("540bc265-fb4f-4e4c-9bed-2c59b6bca737"), "F_E1_5A_IntActor_CampingSign_C1_Look"},
-                        {new Guid("cc43971c-c1ee-4fee-b9a6-42382300ef0f"), "F_E1_5A_IntActor_BigBear_C1_Look"},
-                        {new Guid("434d2cd0-ed63-4059-a405-7358c878e4a0"), "F_E1_5A_IntActor_Witch_C1_Look"},
-                        {new Guid("2356e655-7d76-4746-bf6e-3fa483c2ecc4"), "F_E1_5A_IntActor_Tent_C1_Look"},
-                        {new Guid("427f735f-78f4-4946-a34b-9f7c580b13c7"), "F_E1_5A_IntActor_PowerBear_C1_Look"},
-                        {new Guid("c075d95a-5e62-4d4b-9f2a-9044a364aaf5"), "F_E1_5A_IntActor_Poster1_C1_Look"},
-                        {new Guid("8bf9fbf2-835c-4595-9f84-9f5c52429b75"), "F_E1_5A_IntActor_Postcard_C1_Look"},
-                        {new Guid("f67a0b5a-5eaa-426a-a6cd-936d58b595f5"), "F_E1_5A_IntActor_KnifeDisplay_C1_Look"},
-                        {new Guid("e004eb57-41c6-49dc-bf1a-7a47ec11c6a4"), "F_E1_5A_IntActor_CampingGear_C1_Look"},
-                        {new Guid("1fd04838-c5ef-4f6b-bded-29d828834fd9"), "F_E1_5A_IntActor_ATM_C1_Look"},
-                        {new Guid("693d87a7-ba0e-40ee-bfb7-a9db39286fbf"), "F_E1_5A_IntActor_AirVent_C1_Asktotearoff"},
-                        {new Guid("1a88640c-0613-4584-8b01-cf5fe819c846"), "F_E1_5A_IntActor_AirVent_C2_AnswerDaniel"},
-                        {new Guid("6c2f424e-de69-49be-947d-ba0a03a4270a"), "F_E1_5A_IntActor_AirVent_C3_Takethetool"},
-                        {new Guid("83ac922e-f7d2-46dc-989f-94c97c56f625"), "F_E1_5A_IntActor_PosterToMove_C2_Push"},
-                        {new Guid("ad6ab9fa-ced1-466b-a172-bf4dd6261054"), "F_E1_5A_IntActor_BackDoorKeys_C1_Look"},
-                        {new Guid("38d98818-760b-4b75-b53c-48f2cc340f52"), "F_E1_5A_IntActor_BackDoorKeys_C2_Reach"},
-                        {new Guid("055b3df4-9b9d-49d6-9f1b-4016b3a6dd67"), "F_E1_5A_IntActor_Tube_C1_Push"},
-                        {new Guid("79bd1c08-22a0-4b8a-b8c3-248c6fe64607"), "F_E1_5A_IntActor_StorageDoor_C1_Open"},
-                        {new Guid("25dd8f77-d91d-400d-ba83-17c5cd15f035"), "F_E1_5A_IntActor_Computer_C1_Look"},
-                        {new Guid("72260f3e-b041-4708-a936-f4ed2ad09db3"), "F_E1_5A_IntActor_PilePaper_C1_Read"},
-                        {new Guid("23d42d76-047e-4cae-be95-b48f4da9c6dd"), "F_E1_5A_IntActor_Souvenir_C1_Kick"},
-                        {new Guid("ee1ba46f-1700-4603-86bd-74a0f4f0b490"), "F_E1_5A_IntActor_FamilyPicture_C1_Look"},
-                        {new Guid("4aaeac1d-7b1f-4736-a66e-1ef012451ef6"), "F_E1_5A_IntActor_Ties_C1_Break"},
-                        {new Guid("51b4e1bd-a881-435a-a2fa-2201d246e34c"), "F_E1_5A_IntActor_Ties_C2_Break"},
-                        {new Guid("4db983a8-3001-4383-9750-b5b15b170124"), "F_E1_5A_IntActor_PipeAnchor_C1_Tear"},
-                        {new Guid("b55fb716-6d68-4dfd-81df-38ada2ee4f97"), "F_E1_5A_IntActor_PipeAnchor_C2_Look"},
-                        {new Guid("18bc9ce7-891a-4da8-8ce7-4f96158a07a3"), "F_E1_5A_IntActor_PipeAnchor_C3_Tear"},
-                        {new Guid("12bf8dcd-29db-4ef1-993d-8646fff07bc2"), "F_E1_5A_IntActor_PipeAnchor_C5_Askfortool"},
-                        {new Guid("e974645f-27f9-4aa8-88e1-a02d463ef6c6"), "F_E1_5A_IntActor_ChocoCrisp_C3_Steal"},
-                        {new Guid("06cd8006-3b29-47e3-90d8-58ed3e5a51d3"), "F_E1_5A_IntActor_ChocoCrisp_C1_Look"},
-                        {new Guid("a0febc72-a178-4eb8-9675-0d872ed334f7"), "F_E1_5A_IntActor_ChocoCrisp_C2_Addtobasket($1.99)"},
-                        {new Guid("b8fb48ea-1da5-4705-aa72-72f429add4cc"), "F_E1_5A_IntActor_SodaBottle_C1_Look"},
-                        {new Guid("5ce887e3-3d59-416c-b700-08c2dac37744"), "F_E1_5A_IntActor_InspectorToolDesk_C1_Inspect"},
-                        {new Guid("4d361ac2-9aed-4b3d-9dd9-2640ffd28919"), "F_E1_5A_IntActor_GrabMachine_C1_Look"},
-                        {new Guid("622d1e44-c793-4e12-be75-7202a78962eb"), "F_E1_5A_IntActor_GrabMachine_C3_Play($1)"},
-                        {new Guid("898d7b6d-f814-4d30-9042-3f7f8563f940"), "F_E1_5A_IntActor_KeyChain_C1_Look"},
-                        {new Guid("628e6242-ccd8-434c-a5a2-7f7d96d2bd63"), "F_E1_5A_IntActor_KeyChain_C2_Show"},
-                        {new Guid("8246f891-3d1c-432e-a96a-63ea960264b4"), "F_E1_5A_IntActor_TShirt_C3_Look"},
-                        {new Guid("5b46c5c1-d60c-482f-9983-308a0ce0abcf"), "F_E1_5A_IntActor_FrontDoor_C1_Getout"},
-                        {new Guid("c3924a3f-dcfb-4b60-ab4e-96e6b3a950d9"), "F_E1_5A_IntActor_Can_C2_Addtobasket($4.50)"},
-                        {new Guid("ba78accd-344b-4dc3-99e0-af94c9b953e1"), "F_E1_5A_IntActor_CelebrityPhoto_C1_Look"},
-                        {new Guid("7496edd2-8f6d-4009-bd54-5cce771411eb"), "F_E1_5A_IntActor_GSTL01_C1_Pay"},
-                        {new Guid("5dc85b20-1188-40b9-8d7d-835113d31c54"), "F_E1_5A_IntActor_GSTL01_C5_Speak"},
-                        {new Guid("a64f6ad4-c4e7-46f8-9e2c-07249efe1430"), "F_E1_5A_IntActor_GSTL01_C2_Look"},
-                        {new Guid("c8eff45f-320a-4a22-8293-ed90ad644838"), "F_E1_5A_IntActor_GSTL01_C4_Interrupt"},
-                        {new Guid("fe6a5552-933f-43c6-8ef4-63c0f809fd35"), "F_E1_5A_IntActor_HotDogMachine_C1_Look"},
-                        {new Guid("f83415c7-8b24-4ccf-87d0-5920ef052001"), "F_E1_5A_IntActor_HotDogMachine_C2_Make2hotdogs($6)"},
-                        {new Guid("e9028068-be50-4753-acfc-e4980838c045"), "F_E1_5A_IntActor_Puppy_C1_Look"},
-                        {new Guid("2c3613d0-70b0-4f1c-82ab-94aec440693a"), "F_E1_5A_IntActor_Puppy_C4_Discuss"},
-                        {new Guid("bf2d7a93-481a-4f61-a37a-733928f138ec"), "F_E1_5A_IntActor_RegionMap_C1_Take"},
-                        {new Guid("2757b077-36ce-46ba-be84-b681945588ff"), "F_E1_5A_IntActor_WaterBottle_C2_Addtobasket($4.50)"},
-                        {new Guid("f8e175ca-7c03-46d2-9192-78d3250e7da1"), "F_E1_5A_IntActor_RegionMap_C2_Look"},
-                        {new Guid("3171b178-e644-4deb-9531-92c3b97febef"), "F_E1_5A_IntActor_SleepingBag_C1_Addtobasket($16)"},
-                        {new Guid("64a81bd2-f75d-409e-b6b2-833cd98a7638"), "F_E1_5A_IntActor_SleepingBag_C3_Look"},
-                        {new Guid("d7bb5851-fc4c-4e3b-82ca-a92258f8d69d"), "F_E1_5A_IntActor_SlicedBread_C1_Look"},
-                        {new Guid("b638d1f5-4325-4409-8bc0-4c0f1cbf57a3"), "F_E1_5A_IntActor_SlicedBread_C2_Addtobasket($5.90)"},
-                        {new Guid("49a6af56-ec4d-4c6a-a76a-04747b631e64"), "F_E1_5A_IntActor_WaterBottle_C1_Look"},
-                        {new Guid("1b7c06f4-c304-4c30-ab28-06a3bce86694"), "F_E1_5A_IntActor_Sweat_C1_Look"},
-                        {new Guid("be731f5e-d9fd-47d2-a4f4-0f4c99589b8c"), "F_E1_5A_IntActor_window_C1_Look"},
-                        {new Guid("d375a512-1988-4f25-9c4f-ca9f5be54c72"), "F_E1_5A_IntActor_window_C2_Asktoopen"},
-                        {new Guid("05a6908f-ec9b-4f89-a320-87ca26d7919e"), "F_E1_5A_IntActor_LicensePlate_C1_Look"},
-                        {new Guid("6962db43-3a3d-4b17-a375-022821c0ce70"), "F_E1_5A_IntActor_Mirror_C1_Look"},
-                        {new Guid("be565a0c-3e75-45bf-b2ee-98d6ebd07e6b"), "F_E1_5A_IntActor_Newspaper_C1_Read"},
-                        {new Guid("c94576aa-adfb-4ed5-a67f-38a49e99f6a8"), "F_E1_5A_IntActor_Posters_C1_Look"},
-                        {new Guid("7ebf1af9-6cf6-4ea8-bf69-72b4d9a80191"), "F_E1_5A_IntActor_Shelve_C1_Look"},
-                        {new Guid("83917d24-8eb4-4fae-a70a-d5bcfc5caaf9"), "F_E1_5A_IntActor_Shelve_C2_Discuss"},
-                        {new Guid("e30d5199-aa7b-4873-9acd-e7239b023b0e"), "F_E1_5A_IntActor_Sign_C1_Look"},
-                        {new Guid("3eea9066-774d-47f5-8427-710c13757dfd"), "F_E1_5A_IntActor_ToiletInstruction1_C1_Look"},
-                        {new Guid("ba895b79-bdfc-47e8-89da-4b90fb123f6b"), "F_E1_5A_IntActor_ToiletPaperDispenser_C1_Look"},
-                        {new Guid("ac059e09-c118-4aa6-bfa2-39aadaa824ec"), "F_E1_5A_IntActor_Brochures_C1_Look"},
-                        {new Guid("6454bf12-11e4-45ac-b459-f2a825e91bab"), "F_E1_5A_IntActor_SportTeam_C1_Look"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "584d97de-04cb-4a71-99c0-c54b3f967d63", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("9ff56633-c07a-45bf-94a6-7eca959a1936"), "F_E1_7A_BathReady"},
-                        {new Guid("8717dfd7-c309-42ae-ad5d-12e7f2402c08"), "F_E1_7A_UsedLiquidSoapInTime"},
-                        {new Guid("52458e76-b0fb-49eb-bb19-68b3f0bf710e"), "F_E1_7A_BathWaterTapOpened"},
-                        {new Guid("f7df30f0-fa9d-41d4-b4c6-9481b5df0718"), "F_E1_7A_LightBathRoom"},
-                        {new Guid("61cd79d3-033b-41ec-9e64-6649452f1b19"), "F_E1_7A_OnBalcony"},
-                        {new Guid("34c8b41d-36b3-4320-82ca-4ad2266a377e"), "F_E1_7A_ReceivedLylaMessage"},
-                        {new Guid("3a9e028e-819d-4dbc-befa-174f0d0ffa12"), "F_E1_7A_SeanProximity"},
-                        {new Guid("3611c705-99d0-4b5a-bd06-1719994a0911"), "F_E1_7A_StealingIsBad"},
-                        {new Guid("07581ad2-695d-4c7b-b1dc-47f096f3da17"), "F_E1_7A_ShowBag"},
-                        {new Guid("7c293c08-bfbf-4a0f-83e0-dd75bb895a79"), "F_E1_7A_ShowTowels"},
-                        {new Guid("642fb0c9-238c-497b-af3a-97fd15ed9dad"), "F_E1_7A_ShowShoes"},
-                        {new Guid("c212480d-1d67-4479-af98-000ea0fc0376"), "F_E1_7A_CuddleSoft"},
-                        {new Guid("6c8229e1-9b16-4daf-bf5b-9c95ab4a6ce7"), "F_E1_7A_VaniheDiscussionOn"},
-                        {new Guid("fd29a6b8-487d-4538-a0c7-50fae85bf732"), "F_E1_7A_CanTickle"},
-                        {new Guid("57339838-c805-47a5-83e7-d552b4f7f541"), "F_E1_7A_CanPlayPowerBear"},
-                        {new Guid("3f7b5b9a-fdea-4667-9780-6fb9476e0339"), "F_E1_7A_IsCollectibleMode"},
-                        {new Guid("44e1acd8-b75a-49b6-9cdf-5f57c4d76e04"), "F_E1_7A_ShowPowerBear"},
-                        {new Guid("b29f42c3-e6d7-4e82-a018-cc96aa502777"), "F_E1_7A_ArguedAboutToy"},
-                        {new Guid("82213249-13a3-4b88-b4fa-f70c39bdf297"), "F_E1_7A_WalletLastStatus"},
-                        {new Guid("1e229bbd-30e5-4553-83da-81705984bf8e"), "F_E1_7A_SpecialDanceShot"},
-                        {new Guid("c8836b85-8122-46d9-8849-07cdd4ccaaf5"), "F_E1_7A_ActivateSeagull"},
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("0a925493-1dcb-4bac-9da2-31218466f9be"), "F_E1_7A_NumberOfStickThrow"},
-                        {new Guid("87a69e93-637e-4d90-acbb-e1e055b05034"), "F_E1_7A_ToggleLight"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("520f6717-d4dd-4d6c-b729-05578cbc190c"), "F_E1_7A_BedChoosing"},
-                        {new Guid("ab399ad9-6066-4535-acf2-774139caed4e"), "F_E1_7A_MotelStatus"},
-                    },
-                }
-            },
-            {
-                "2306ef8a-6020-40cf-be17-13915de8fd94", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("d0d7ba64-972a-4521-a75f-1bcd2783ee60"), "F_E1_6B_FinishedBrody"},
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "31542d9d-b83b-4796-835d-3f3917d201f2", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("d90addd3-1aa5-453a-a92a-b089973b5fb6"), "F_E1_7A_POI_Room10"},
-                        {new Guid("30239d26-60e8-429b-a175-767def834ace"), "F_E1_7A_POI_Room8"},
-                        {new Guid("89bc390d-1b01-429c-95c8-2086f1edfe92"), "F_E1_7A_POI_Chair1"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "44645c7e-038c-4fac-bff6-4ce3a6229f80", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("857d3e14-28ae-4e35-89b8-c27cc80f4b47"), "F_E1_5A_POI_BP_PoI_Int_Airvent_PoI_Infini"},
-                        {new Guid("7da6b5da-b7af-4bc7-8995-58488aad62f1"), "F_E1_5A_POI_BP_PoI_Int_GrabMachine"},
-                        {new Guid("1173357b-0e2d-4e30-91ff-c9ca8c5fe7f3"), "F_E1_5A_POI_BP_PoI_Out_Shelve"},
-                        {new Guid("a960ad8c-a367-48ba-ae12-6401dc2d7ef0"), "F_E1_5A_POI_BP_PoI_int_Brody"},
-                        {new Guid("4eec7da7-a8db-4e69-b5d7-b59897c8c8aa"), "F_E1_5A_POI_BP_PoI_Int_Witch"},
-                        {new Guid("e7252a54-ddf8-42be-8995-c7e26f941cb8"), "F_E1_5A_POI_BP_PoI_Out_BearPoster"},
-                        {new Guid("f2fdfc28-c335-4389-a463-dde98bfa0488"), "F_E1_5A_POI_BP_PoI_Int_Puppy"},
-                        {new Guid("8ebfd76e-5e9c-4c05-a370-3045d87336d7"), "F_E1_5A_POI_BP_PoI_Out_ToiletPoster"},
-                        {new Guid("9f2a5589-97e9-4b87-bee5-97ac3d3d6697"), "F_E1_5A_POI_BP_PoI_Out_Toilet_Sitting"},
-                        {new Guid("4c51523c-a190-4b90-9269-781e285084fc"), "F_E1_5A_POI_BP_PoI_Int_Ketchup_PoI_Infini"},
-                        {new Guid("d4bb698c-8488-4b61-8532-453786e9c160"), "F_E1_5A_POI_BP_PoI_Int_Cream_PoI_Infini"},
-                        {new Guid("23461862-8970-49fb-8b78-09814527d554"), "F_E1_5A_POI_BP_PoI_Int_Drink_Infini"},
-                        {new Guid("5f3d175a-691a-483f-8adc-a4d8e1eef547"), "F_E1_5A_POI_BP_PoI_Out_InfiniZenSqc"},
-                        {new Guid("2c7a1423-a4ac-4537-91aa-59cd7a2e0f41"), "F_E1_5A_POI_BP_PoI_Int_Chocobar"},
-                        {new Guid("d54e3a03-b991-4c2d-b602-fba747a01f6d"), "F_E1_5A_POI_BP_PoI_Int_Doris"},
-                        {new Guid("f283f000-9758-498c-8183-0145000154d1"), "F_E1_5A_POI_BP_PoI_Int_Bear"},
-                        {new Guid("c7dfa3ad-3caa-45c6-80e4-56fd48d0ba97"), "F_E1_5A_POI_BP_PoI_Int_Beer"},
-                        {new Guid("c627e238-7f7b-4cd4-b8cf-c0dc9b88d315"), "F_E1_5A_POI_BP_PoI_Int_CandyMachine"},
-                        {new Guid("d1cadd2d-b3d0-40a4-a18b-e4083314d26f"), "F_E1_5A_POI_BP_PoI_Int_Drinks"},
-                        {new Guid("dbd1335e-66b5-48db-b01a-a6b523e574e5"), "F_E1_5A_POI_BP_PoI_Int_Juice"},
-                        {new Guid("1263e5eb-61b3-4b79-ac70-446190fc3596"), "F_E1_5A_POI_BP_PoI_Int_Ketchup"},
-                        {new Guid("9cebe397-4ed8-4cf6-bdbc-55c322c81a48"), "F_E1_5A_POI_BP_PoI_Int_Kitchen"},
-                        {new Guid("4a3cd210-601e-4246-99d4-e334132d3101"), "F_E1_5A_POI_BP_PoI_Int_Knifes"},
-                        {new Guid("397b4b12-a91b-4741-a126-6cf12bf3f065"), "F_E1_5A_POI_BP_PoI_Int_PeanutButter"},
-                        {new Guid("d9ff91ed-e4de-4a53-82ea-4f7f35377885"), "F_E1_5A_POI_BP_PoI_Int_PowerBear"},
-                        {new Guid("9e380258-c28b-42d2-9a9c-d88da9813ce6"), "F_E1_5A_POI_BP_PoI_Int_SouvenirRack"},
-                        {new Guid("60114b12-6b9a-4071-82a9-a25856823334"), "F_E1_5A_POI_BP_PoI_Int_Sweater"},
-                        {new Guid("8925b5c3-5e0e-4c6d-93e7-70b8d3af71b5"), "F_E1_5A_POI_BP_PoI_Int_Tea"},
-                        {new Guid("ba4f3c87-7d98-4fcf-8d14-6a6bd7928a13"), "F_E1_5A_POI_BP_PoI_Int_Tents"},
-                        {new Guid("23ea4c83-8383-4c4f-a29b-e2f2976e5e01"), "F_E1_5A_POI_BP_PoI_Int_Window"},
-                        {new Guid("9d651314-85c1-478d-bae2-aa50efa1e82b"), "F_E1_5A_POI_BP_PoI_Out_Curb2"},
-                        {new Guid("718bd3df-7cc8-4b76-9113-4f03825ee358"), "F_E1_5A_POI_BP_PoI_Out_CampingSign"},
-                        {new Guid("0aee468f-8866-44fb-a10a-f36b96bbcd67"), "F_E1_5A_POI_BP_PoI_Out_DragFeet2"},
-                        {new Guid("2649c76f-9724-4281-b43f-fa4744f29200"), "F_E1_5A_POI_BP_PoI_Out_Pump1"},
-                        {new Guid("0d56b967-21d9-4746-b8c0-d753fd56540e"), "F_E1_5A_POI_BP_PoI_Out_LeanWallBack"},
-                        {new Guid("047c9e4e-09c5-4957-a136-78194a63e36d"), "F_E1_5A_POI_BP_PoI_Out_Pump3"},
-                        {new Guid("6250d361-aea2-43f6-851c-50f9fb5070c4"), "F_E1_5A_POI_BP_PoI_Out_Pump4"},
-                        {new Guid("ca13ec28-6614-49b0-9850-6483a490ff8d"), "F_E1_5A_POI_BP_PoI_Out_Pumpkin"},
-                        {new Guid("09043f8a-2346-492d-b80a-35eb17e2f659"), "F_E1_5A_POI_BP_PoI_Out_SquirrelNut"},
-                        {new Guid("7248e008-be5e-4927-ac59-1b9cdaea2500"), "F_E1_5A_POI_BP_PoI_Out_SEarch"},
-                        {new Guid("f2d5cec5-d37c-4d21-8a40-2ddb23794f97"), "F_E1_5A_POI_BP_PoI_Out_SitJunk"},
-                        {new Guid("f9a91273-d5e7-4f76-be4a-70af8e145d30"), "F_E1_5A_POI_BP_PoI_Out_Table"},
-                        {new Guid("2fa6d822-8574-4ca3-bbd1-5edcc0ee632a"), "F_E1_5A_POI_BP_PoI_Out_TouchNeck"},
-                        {new Guid("55ef92ba-bd04-49c7-8556-a4453d2447d3"), "F_E1_5A_POI_BP_PoI_Out_Workbench"},
-                        {new Guid("297db690-fb8b-447c-8b18-f881fda56ece"), "F_E1_5A_POI_BP_PoI_Out_TouchNeck2"},
-                        {new Guid("2039b69a-06a3-47fa-9f0e-4ac926370994"), "F_E1_5A_POI_BP_PoI_Out_Ins_GSDiscovery"},
-                        {new Guid("382c1126-cf78-4b17-8918-525991e58bed"), "F_E1_5A_POI_BP_PoI_OutOfbreathe"},
-                        {new Guid("4a79866d-4146-4729-ae97-3eae16ae54e2"), "F_E1_5A_POI_BP_PoI_Out_Ins_LeanElectricPole"},
-                        {new Guid("0372940f-1f07-4ee2-b08d-6950d6105b4e"), "F_E1_5A_POI_BP_PoI_Out_Inst_OldPath"},
-                        {new Guid("4ddd63fa-28da-41ea-9514-12bccb76f56f"), "F_E1_5A_POI_BP_PoI_Out_DragFeet4"},
-                        {new Guid("0cd70309-08fb-46d3-a7e3-7b5ab683f3d6"), "F_E1_5A_POI_BP_PoI_Out_SitTree2"},
-                        {new Guid("f1214068-f6fa-40e9-bfa7-ac6e3a6009a0"), "F_E1_5A_POI_BP_PoI_Out_LeanWoodPile"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "96169c2a-2532-4a82-800b-4b18dfacb941", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("c36a35e1-8475-4f5a-b9bc-206d52dec6e1"), "F_E1_1A_IntActor_SeanWindow_C1_Look"},
-                        {new Guid("07c8fc58-a4d2-44e6-8f54-2625231d5756"), "F_E1_1A_IntActor_GarageDrawer_C1_Open"},
-                        {new Guid("83b4b880-8e97-4de1-841e-12bc5ffc80fe"), "F_E1_1A_IntActor_RightTool01_C1_Take"},
-                        {new Guid("f6169c03-ed1a-491c-8299-7f84d426210d"), "F_E1_1A_IntActor_RightTool01_C2_Look"},
-                        {new Guid("d99b861b-c313-4461-a067-22fed1aafd1c"), "F_E1_1A_IntActor_WrongTool01_C2_Look"},
-                        {new Guid("996cd574-9412-494e-ba24-a16ec4e7e0fb"), "F_E1_1A_IntActor_WrongTool05_C1_Take"},
-                        {new Guid("a8d1dd3a-276d-4dee-a31e-12e69da0cc91"), "F_E1_1A_IntActor_WrongTool03_C2_Look"},
-                        {new Guid("5fde135c-7997-4f4f-91d6-a5b2e88896be"), "F_E1_1A_IntActor_WrongTool05_C2_Look"},
-                        {new Guid("4509a605-4d7d-4e09-a4ec-09e275b1106c"), "F_E1_1A_IntActor_WrongTool06_C2_Look"},
-                        {new Guid("b6e0ff7f-23cc-40ec-884f-d6c6323c6393"), "F_E1_1A_IntActor_WrongTool07_C2_Look"},
-                        {new Guid("0724b3fc-ad7f-4339-8c46-213ad19cd9be"), "F_E1_1A_IntActor_Laptop_C1_CallLyla"},
-                        {new Guid("863c6451-a363-4607-b5f9-19e07f88a0c2"), "F_E1_1A_IntActor_Laptop_C2_Use"},
-                        {new Guid("9ef0f46e-43aa-4e1f-927f-c711ad66d0c1"), "F_E1_1A_IntActor_Laptop_C3_Facebook"},
-                        {new Guid("435570ea-60ee-4aff-91f5-3646a17b045d"), "F_E1_1A_IntActor_WallTag_C1_Look"},
-                        {new Guid("c5a7915e-760a-47a9-94ed-59268beec216"), "F_E1_1A_IntActor_Ball_C1_Play"},
-                        {new Guid("bd584cc6-6951-4545-8243-09d4ced9e249"), "F_E1_1A_IntActor_LightSwitch2_C1_Turnon"},
-                        {new Guid("353bfde4-9e54-499b-9d09-4b6fc87ff851"), "F_E1_1A_IntActor_LightSwitch2_C2_Turnoff"},
-                        {new Guid("4b158185-06d1-4333-a2cf-0aab173c4202"), "F_E1_1A_IntActor_Fridge_C1_Open"},
-                        {new Guid("bc919e50-44a6-46e6-bc22-7d516b4b428c"), "F_E1_1A_IntActor_DanielRoom_C1_Knock"},
-                        {new Guid("9b75c206-f7c3-4a74-99db-a06d1118ebf9"), "F_E1_1A_IntActor_DanielRoom_C2_Open"},
-                        {new Guid("8b3f7a80-70d0-47c9-96f0-2decf366ba6b"), "F_E1_1A_IntActor_Dad_C1_GiveTool"},
-                        {new Guid("635a2be9-80b9-4659-b022-5bc1480123ec"), "F_E1_1A_IntActor_Dad_C2_GiveTool"},
-                        {new Guid("46f6157c-082f-4dd0-b5f5-237609230925"), "F_E1_1A_IntActor_Cupboard01_C1_Open"},
-                        {new Guid("6c213096-e557-4371-8cb5-66ac201497e4"), "F_E1_1A_IntActor_SeanBackpack_C1_Pack"},
-                        {new Guid("4e6ca510-d2e5-4173-abc2-071a3d2f5a48"), "F_E1_1A_IntActor_SeanBackpack_C2_Look"},
-                        {new Guid("a03c83e6-2113-47e8-9ff6-aeca41233d31"), "F_E1_1A_IntActor_Sodas_C1_Take"},
-                        {new Guid("d4e42bb0-2123-460c-9759-cad1644c94d2"), "F_E1_1A_IntActor_SeanBackpack_C3_Look"},
-                        {new Guid("c4c79d19-5e61-4872-98e3-7ad2a9413c99"), "F_E1_1A_IntActor_SeanBackpack_C4_Look"},
-                        {new Guid("aba9e660-42fc-4d4b-953d-944d80270bce"), "F_E1_1A_IntActor_Beers_C1_Take"},
-                        {new Guid("79ba4d56-a714-4321-a23b-b7db4875e332"), "F_E1_1A_IntActor_Beers_C2_Look"},
-                        {new Guid("9907149a-0b88-4a99-8673-55fdd70e215e"), "F_E1_1A_IntActor_Beers_C3_Switch"},
-                        {new Guid("8097b6b9-94dd-4433-82a1-d728646e373a"), "F_E1_1A_IntActor_Sodas_C2_Look"},
-                        {new Guid("2d9cf4e3-bb78-43b5-a755-b22cb88afe78"), "F_E1_1A_IntActor_Sodas_C3_Switch"},
-                        {new Guid("0f71ff6d-27b6-4593-b9f5-80438bf2e647"), "F_E1_1A_IntActor_Chips_C2_Look"},
-                        {new Guid("f5352957-4b4f-47c3-ac50-20fa6e324e2b"), "F_E1_1A_IntActor_Chips_C3_Switch"},
-                        {new Guid("bc816a67-81e4-43bf-83ae-9d680122433e"), "F_E1_1A_IntActor_Cookies_C1_Take"},
-                        {new Guid("e9cb49b9-f7fc-494f-a7ce-d3ccb43f378e"), "F_E1_1A_IntActor_Cookies_C2_Look"},
-                        {new Guid("7dd579c5-53c0-439e-a466-d4a610166d9b"), "F_E1_1A_IntActor_Cookies_C3_Switch"},
-                        {new Guid("9526c5a0-0b39-48c3-9755-dbac09ea16dc"), "F_E1_1A_IntActor_letters_C1_Reorganize"},
-                        {new Guid("ccad8560-634d-47f0-9d1b-50fb0da18c84"), "F_E1_1A_IntActor_SketchDesk_C1_SketchLyla"},
-                        {new Guid("ee6dc2e2-043e-43f6-a0df-f880895fe315"), "F_E1_1A_IntActor_SeanDrawer_C1_Open"},
-                        {new Guid("d17795b9-33b8-4c78-a5ab-7be29d928036"), "F_E1_1A_IntActor_SeanDrawer_C2_Close"},
-                        {new Guid("7bd1f292-52f6-4ae8-8b66-d9920465aca1"), "F_E1_1A_IntActor_Lamp_C1_SwitchOn"},
-                        {new Guid("5d79b4bd-ee1b-4347-b749-25a52328fdbf"), "F_E1_1A_IntActor_Ipod_C1_Play"},
-                        {new Guid("a87e77f4-bea2-44c7-a5d0-d36956338874"), "F_E1_1A_IntActor_Ipod_C2_Stop"},
-                        {new Guid("d2d536b4-b3b1-40d2-8574-14f815354db1"), "F_E1_1A_IntActor_Ipod_C3_Look"},
-                        {new Guid("cebb19b4-0d26-4331-8fc4-c74197b8c887"), "F_E1_1A_IntActor_Blanket_C1_Look"},
-                        {new Guid("188db876-9304-4f51-aad9-2022518debf6"), "F_E1_1A_IntActor_Blanket_C2_Take"},
-                        {new Guid("97e27aea-efa8-48bb-8b3d-f6b36e803b81"), "F_E1_1A_IntActor_Jar_C2_Look"},
-                        {new Guid("7d5bdfec-3ad6-4b42-a633-f084ab5da744"), "F_E1_1A_IntActor_Jar_C4_Addmoney($10)"},
-                        {new Guid("15224a96-9233-4c79-a53e-10967d0a2721"), "F_E1_1A_IntActor_NightstandBook_C1_Move"},
-                        {new Guid("6d674cc2-f0ce-4515-9ce3-356d2493474f"), "F_E1_1A_IntActor_WeedPipe_C1_Look"},
-                        {new Guid("1eb398db-7f68-474a-a0b8-17ea0eb4d815"), "F_E1_1A_IntActor_WeedPipe_C2_Take"},
-                        {new Guid("2a9510af-25fa-49bf-9a12-a291363afd7a"), "F_E1_1A_IntActor_SeanRoom_C1_Enter"},
-                        {new Guid("7f674d35-c66c-4829-88cf-185fc4dae731"), "F_E1_1A_IntActor_DeskCupboard_C1_open"},
-                        {new Guid("230b3ef0-6535-4a09-84ca-1f77e3030052"), "F_E1_1A_IntActor_Candy_C1_Look"},
-                        {new Guid("19035224-541b-4db1-a76f-ffcc8bf16dbf"), "F_E1_1A_IntActor_Candy_C3_Switch"},
-                        {new Guid("2b901154-0ec5-48c5-b541-ffe6c338e7da"), "F_E1_1A_IntActor_Candy_C2_Take"},
-                        {new Guid("b4e70006-3709-4475-9d3b-9116453fcaa5"), "F_E1_1A_IntActor_Leftover_C1_Look"},
-                        {new Guid("5d1fe151-2c20-4e89-bea8-1e281257d6fb"), "F_E1_1A_IntActor_GigFlyer_C1_Look"},
-                        {new Guid("b2f69b1c-317b-44d8-a0c0-af9f8c77b5f6"), "F_E1_1A_IntActor_ArtBook_C1_Look"},
-                        {new Guid("b5752878-6098-4a4d-93c9-5a472fa74d4b"), "F_E1_1A_IntActor_BaseballCap_C1_Look"},
-                        {new Guid("8630379f-41ad-4ef9-b538-3ad95f99c146"), "F_E1_1A_IntActor_BandPoster_C1_Look"},
-                        {new Guid("2c36e416-dc1a-4e35-930a-ae52de08fdbb"), "F_E1_1A_IntActor_BirthdayGift_C1_Look"},
-                        {new Guid("41aeda2e-205d-4b61-b85d-8f7fabfb8e62"), "F_E1_1A_IntActor_Cabinet_C1_Practice"},
-                        {new Guid("aa8a0ec0-1ac4-4d08-9d4b-ed3bdb9c3b57"), "F_E1_1A_IntActor_Cabinet_C2_Look"},
-                        {new Guid("98af4981-af20-4070-a82d-3bc37b59b12f"), "F_E1_1A_IntActor_ChairBean_C1_SitandDraw"},
-                        {new Guid("4f8607f1-ef6b-4c86-823f-28e52dc0050e"), "F_E1_1A_IntActor_Condoms_C1_Take"},
-                        {new Guid("304b42fb-bcf6-4058-932e-a9235dec433c"), "F_E1_1A_IntActor_Condoms_C2_Look"},
-                        {new Guid("4267a64b-49ee-4d83-b97b-6317edcfcfef"), "F_E1_1A_IntActor_CornSyrup_C1_Look"},
-                        {new Guid("963885f4-1bfe-4c5f-a2e4-1f9d5dc54b45"), "F_E1_1A_IntActor_Couch_C1_Sit"},
-                        {new Guid("1dec3ae5-30e0-43cc-a58c-452d775afd85"), "F_E1_1A_IntActor_DaanielHomework_C1_Look"},
-                        {new Guid("cf19e0d6-5dfc-4684-ac44-e14d41df2e0b"), "F_E1_1A_IntActor_DadBook_C1_Look"},
-                        {new Guid("7321779d-8560-4690-968c-b0cb32a9a1ac"), "F_E1_1A_IntActor_DadPaper_C1_Look"},
-                        {new Guid("f420f77a-0d28-46ac-b8cb-bc372fccb883"), "F_E1_1A_IntActor_DadRoom_C1_Look"},
-                        {new Guid("a2bb9b8f-4128-4b62-8597-e7f08d476022"), "F_E1_1A_IntActor_DadShoes_C1_Look"},
-                        {new Guid("756789ef-4113-428a-a2f6-b6cad5f52f7b"), "F_E1_1A_IntActor_DanielToy_C1_Look"},
-                        {new Guid("ab8296a2-1e8d-4b22-bb27-94eb261c42e4"), "F_E1_1A_IntActor_FakePumpkin_C1_Look"},
-                        {new Guid("1e22c307-cec2-4d2f-b796-7edbb7ec81c4"), "F_E1_1A_IntActor_Engine_C1_Look"},
-                        {new Guid("1577c30b-f3e2-4baa-8134-4c4bf71c4a68"), "F_E1_1A_IntActor_FireExtiguinsher_C1_Look"},
-                        {new Guid("d638ba0b-cbd1-47f1-b66a-687f5b05c701"), "F_E1_1A_IntActor_Fireplace_C1_Look"},
-                        {new Guid("a88b2b68-b745-4948-b2f8-b7cef7fb0541"), "F_E1_1A_IntActor_FramedLicence_C1_Look"},
-                        {new Guid("6b0087ba-b4ea-4d48-a741-5293347bd8ce"), "F_E1_1A_IntActor_FriendPicture_C1_Look"},
-                        {new Guid("55098aeb-2491-49a4-bb31-34ec2c6fd109"), "F_E1_1A_IntActor_GamingMagazine_C1_Look"},
-                        {new Guid("dc115c9d-eb76-43dd-9565-31cd62af6bb6"), "F_E1_1A_IntActor_GaragePicture_C1_Look"},
-                        {new Guid("852c12a6-d2d2-4a5e-a831-6d113491f3e7"), "F_E1_1A_IntActor_HeadSet_C1_Look"},
-                        {new Guid("999536f8-9f41-4126-8381-b7c061899c5c"), "F_E1_1A_IntActor_KarenBox_C1_Look"},
-                        {new Guid("b6c333b1-38fa-4287-8e7b-ec375c4aeb03"), "F_E1_1A_IntActor_LaundryBasket_C1_Look"},
-                        {new Guid("e26ca89a-5d28-485d-8e3a-606e6c313d58"), "F_E1_1A_IntActor_LeftOverFood_C1_Look"},
-                        {new Guid("87601179-a5c5-4cc0-8618-1134ed2545e8"), "F_E1_1A_IntActor_LightSwitch_C1_Turnon"},
-                        {new Guid("e367f94d-c895-4c06-a14a-c2521f23584f"), "F_E1_1A_IntActor_LightSwitch_C2_Turnoff"},
-                        {new Guid("d218f122-37d6-4078-9e61-d59cf82e8d49"), "F_E1_1A_IntActor_LivingRoomWindow_C1_Look"},
-                        {new Guid("74f905e7-54ab-4a32-a08f-818fb7651705"), "F_E1_1A_IntActor_LOTRCollection_C1_Look"},
-                        {new Guid("03257e5c-4f55-4889-8533-d5e6ceab1355"), "F_E1_1A_IntActor_MoviePoster_C1_Look"},
-                        {new Guid("99863c4a-f82f-43fd-ac7e-b6549083c357"), "F_E1_1A_IntActor_462_C1_Look"},
-                        {new Guid("1c7279ff-51f3-4adb-b8b5-71a6120ceb73"), "F_E1_1A_IntActor_MusicPoster_C1_Look"},
-                        {new Guid("6722a9be-8e40-4c79-b652-b6b52b595fe4"), "F_E1_1A_IntActor_NeighborNote_C1_Look"},
-                        {new Guid("921169ef-0da4-411a-b2f9-953bcc1df811"), "F_E1_1A_IntActor_Nightstand_C1_Open"},
-                        {new Guid("40fb383c-1935-4cd8-9748-5f9a5e5c7c06"), "F_E1_1A_IntActor_OldPhone_C1_Look"},
-                        {new Guid("1b41a00b-bd91-4fc4-b251-3927fc9c8681"), "F_E1_1A_IntActor_OldToy_C1_Look"},
-                        {new Guid("e9d10748-314b-4af4-957d-cb4537ca8db8"), "F_E1_1A_IntActor_Picture_C1_Look"},
-                        {new Guid("d0c863bc-869d-4702-a2db-90663b25d063"), "F_E1_1A_IntActor_Playbox_C1_Look"},
-                        {new Guid("fc893275-9e86-4c8f-b573-8c3f7900dc4d"), "F_E1_1A_IntActor_Postcard_C1_Look"},
-                        {new Guid("a70d281d-2b82-4705-898f-3d7c3ad432fc"), "F_E1_1A_IntActor_Receipt_C1_Look"},
-                        {new Guid("a97ecbd2-345d-4568-8046-36125418cb05"), "F_E1_1A_IntActor_ReligiousPortrait_C1_Look"},
-                        {new Guid("b809bf2e-5207-44ca-bf6c-607937ffc02a"), "F_E1_1A_IntActor_RetrocarsBook_C1_Look"},
-                        {new Guid("edf975bb-8b0a-412c-8ad9-2eeb18b9da90"), "F_E1_1A_IntActor_Saw_C1_Look"},
-                        {new Guid("de1c7276-37e8-4985-97eb-80aa5c4ce440"), "F_E1_1A_IntActor_SeanBike_C1_Look"},
-                        {new Guid("36f6df7a-47d1-4771-8232-21542964e64a"), "F_E1_1A_IntActor_SeanBook_C1_Look"},
-                        {new Guid("7b4e3c80-878f-4795-b6c0-8d1a6bd2b665"), "F_E1_1A_IntActor_SeanCar_C1_Look"},
-                        {new Guid("1d7bf8a9-87f6-422e-bd76-b91c6a2b1e1a"), "F_E1_1A_IntActor_SeanDrawing_C1_Look"},
-                        {new Guid("23418976-98b1-4d5c-ae18-a365c5b02d78"), "F_E1_1A_IntActor_SecretRecipe_C1_Look"},
-                        {new Guid("37e3a7ed-7a8f-4025-aeec-eb3daa3d8c63"), "F_E1_1A_IntActor_Skateboard_C1_Look"},
-                        {new Guid("a208ba54-2ef2-4293-9f64-cf252696ae90"), "F_E1_1A_IntActor_SkateParkPicture_C1_Look"},
-                        {new Guid("b52844f4-a46f-4820-9018-1cfca690895a"), "F_E1_1A_IntActor_SkiEquipment_C1_Look"},
-                        {new Guid("106c93d6-f181-4970-9ff7-8f62774e17e9"), "F_E1_1A_IntActor_SkiPicture_C1_Look"},
-                        {new Guid("bca24543-c88e-43b0-a153-89c8f74f11ac"), "F_E1_1A_IntActor_Slate_C1_Look"},
-                        {new Guid("8c06ce42-ab34-4ee9-9c05-d6d734f3a89f"), "F_E1_1A_IntActor_Smoothie_C1_Look"},
-                        {new Guid("8a4e13f2-36a5-48c3-b4ae-2325a1d8abba"), "F_E1_1A_IntActor_Tools_C1_Look"},
-                        {new Guid("74fdb572-1f46-4989-a06c-f2153f144831"), "F_E1_1A_IntActor_ToothBrush_C1_Look"},
-                        {new Guid("d6eb4e7b-b416-4139-b643-2ae6f16767af"), "F_E1_1A_IntActor_Trophies_C1_Look"},
-                        {new Guid("b33bc3ad-df15-43f5-853a-303852368c82"), "F_E1_1A_IntActor_TV_C1_Look"},
-                        {new Guid("9956b72d-857c-4a08-9429-e5e3340789ed"), "F_E1_1A_IntActor_WorkUniform_C1_Look"},
-                        {new Guid("067616d3-734e-47f9-b3e7-9f90e6b6e656"), "F_E1_1A_IntActor_XmasDecorations_C1_Look"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
-                "975670f7-d8ca-4a4e-a7b8-941dd7c9ba29", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("3f2184fb-d459-403d-9ad9-ecea5ed254af"), "F_E1_2A_IntoTheWoods_ParkingArea_WildLife_C"},
-                        {new Guid("689150ce-7dc5-4218-bd62-8378793fdd25"), "F_E1_2A_IntoTheWoods_ShelterArea_DiscoverShelter_C"},
-                        {new Guid("2efc9849-9c54-4d60-ba99-44f0b669a34e"), "F_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_C"},
-                        {new Guid("a66756fb-b8c1-45c5-8bf2-25a070486331"), "F_E1_2A_ShelterArea_BrettTalk_C"},
-                        {new Guid("672fe880-e72a-4ffe-940e-949607ba1266"), "F_E1_2A_IntoTheWoods_MainTrail_Raccoon_C"},
-                        {new Guid("8476b92b-e9b8-47c3-a21a-411d34801e36"), "F_E1_2A_IntoTheWoods_ParkingArea_TrailEntrance_C"},
-                        {new Guid("513b2084-9dc8-48d7-a5cd-ce125e67dbee"), "F_E1_2A_IntoTheWoods_ParkingArea_Car_C"},
-                        {new Guid("6e403e04-810d-4123-a2cc-d6c7704462ee"), "F_E1_2A_IntoTheWoods_ParkingArea_WildLifeSign_C"},
-                        {new Guid("2202c2ef-0d40-464a-913b-2ae865c7fda2"), "F_E1_2A_IntoTheWoods_PicnicArea_Vista_C"},
-                        {new Guid("09b0b3ae-5640-4e59-99f9-9f7e1d9687f7"), "F_E1_2A_IntoTheWoods_Parking_NoCampingSign_C"},
-                        {new Guid("fa06b7ca-f853-46d3-9e58-7e2fc50bea48"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze04_C"},
-                        {new Guid("51d24579-1b8a-4e94-8c89-346956f7d10f"), "F_E1_2A_IntoTheWoods_HelpFire_Result_C"},
-                        {new Guid("5ab65a4b-b204-42cc-91b7-9856c3ef396e"), "F_E1_2A_IntoTheWoods_ShelterArea_BuildFort_WeaponRack_C"},
-                        {new Guid("3d3798b8-3d5a-4d5d-8e71-be077550ea33"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze02_C"},
-                        {new Guid("606aa441-fffc-4682-bbba-54a24c6910a9"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze01_C"},
-                        {new Guid("f7c4a5d7-c0ba-456c-9bc0-e3da33492138"), "F_E1_2A_ShelterArea_BuildFort_LookAround_WeaponRack_C"},
-                        {new Guid("45d267c9-ad4c-488f-a46c-0e9f7b425410"), "F_E1_2A_IntoTheWoods_SecondaryPath_FallenTree_C"},
-                        {new Guid("fe04fdfc-ebe8-469a-a7b2-50e3a049d1c6"), "F_E1_2A_IntoTheWoods_PicnicArea_GoodBerries_DanielFoundBerries_C"},
-                        {new Guid("c642e5a7-d3c0-47d9-9bff-c82ccf0a26ff"), "F_E1_2A_IntoTheWoods_PicnicArea_BadBerries_DanielFoundBerries_C"},
-                        {new Guid("084c86ae-4360-48a3-87a1-9bf999df1f12"), "F_E1_2A_IntoTheWoods_ShelterArea_HiddenVista_C"},
-                        {new Guid("4f1c4cb3-28c0-408b-a5ab-963547c02fc3"), "F_E1_2A_IntoTheWoods_ShelterArea_Fishing_C"},
-                        {new Guid("15301bea-ad5f-470a-bb7a-f07dd72237b0"), "F_E1_2A_IntoTheWoods_SecondaryPath_TreeFungus_C"},
-                        {new Guid("20368025-98db-4900-9912-ced44b5863ce"), "F_E1_2A_IntoTheWoods_ShelterArea_HelpFire_2Logs_C"},
-                        {new Guid("e51aa456-43f5-42f0-bd9a-5b596807897f"), "F_E1_2A_IntoTheWoods_ShelterArea_HelpFire_3Logs_C"},
-                        {new Guid("bfcab1c6-baba-4980-981c-b505bd0cf195"), "F_E1_2A_ShelterArea_Weapon03_C"},
-                        {new Guid("a2baad2b-dff3-481d-bacf-9976e927adcb"), "F_E1_2A_IntoTheWoods_ShelterArea_BuildFort_PushTrunk_C"},
-                        {new Guid("99b5ef50-9601-4d49-ac8b-6525bd0e0d23"), "F_E1_2A_IntoTheWoods_ShelterArea_BuildFort_Spikes_C"},
-                        {new Guid("16351941-4a9e-46d5-b303-c0f6a68c36d3"), "F_E1_2A_ShelterArea_Weapon02_C"},
-                        {new Guid("03a76524-37ec-4384-89d2-2ccc80ae2bfc"), "F_E1_2A_IntoTheWoods_PicnicArea_SpiderWeb_C"},
-                        {new Guid("86269d74-0217-4bd7-9d24-95b3e6c735f7"), "F_E1_2A_IntoTheWoods_Hikingtrail_Landslide_C"},
-                        {new Guid("ad3b0ca2-7c6f-488e-bb4d-3ffa7ab99d35"), "F_E1_2A_IntoTheWoods_ShelterArea_SkimStones_C"},
-                        {new Guid("7db31c16-e693-4fa7-86cb-0b5afffe2c45"), "F_E1_2A_IntoTheWoods_PicnicArea_GoodBerries_ShowDaniel_C"},
-                        {new Guid("c909fe2e-515f-4f52-8926-46a0690a98e3"), "F_E1_2A_IntoTheWoods_Road_DeadAnimal_C"},
-                        {new Guid("a8cea612-d5d7-444c-8441-81c7be84377d"), "F_E1_2A_ShelterArea_SwordFight_C"},
-                        {new Guid("523b2dbc-55bb-4785-b9e5-983dea0f4e42"), "F_E1_2A_IntoTheWoods_SecondaryPath_ClimbDown_C"},
-                        {new Guid("144d7b71-3783-4ab7-959b-c82aee16fdf9"), "F_E1_2A_IntoTheWoods_PicnicArea_BearMarkings_C"},
-                        {new Guid("531c009d-93ef-4de0-a730-791cf8dafd93"), "F_E1_2A_PicnicArea_GoodBerries_KnownSpot_C"},
-                        {new Guid("3bd4b46c-0f94-4879-9c85-704bc06df1a0"), "F_E1_2A_IntoTheWoods_SecondaryPath_BirdNest_C"},
-                        {new Guid("d0829ed3-ad46-4082-b89b-fd542b02d8eb"), "F_E1_2A_ShelterArea_Weapon01_C"},
-                        {new Guid("8e0c8dc1-d08b-4711-9b5d-e9de8d26937b"), "F_E1_2A_IntoTheWoods_ParkingArea_LookingForCar_C"},
-                        {new Guid("dae498ed-0825-4c93-8082-6c8c779d33c1"), "F_E1_2A_IntoTheWoods_PicnicArea_PicnicSign_C"},
-                        {new Guid("9b5356f8-3a40-4c8a-87e5-fcc177ec1d4d"), "F_E1_2A_IntoTheWoods_PicnicArea_SitTable_C"},
-                        {new Guid("d56cd32e-0d77-4460-a65d-b9b71ff61738"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze03_C"},
-                        {new Guid("0074d00b-e9c9-4e02-84c8-7c30bc0f30b0"), "F_E1_2A_IntoTheWoods_Parking_StartHiking_C"},
-                        {new Guid("1bb1a43b-fe06-42d3-849b-99fe451e28de"), "F_E1_2A_IntoTheWoods_ParkingArea_DarkeningWoods_C"},
-                        {new Guid("185dbb91-c917-4c29-95ba-de99a40b9997"), "F_E1_2A_IntoTheWoods_PicnicArea_AreaDiscovered_C"},
-                        {new Guid("6ef7834a-d3b5-419f-8a48-55e2c991efae"), "F_E1_2A_IntoTheWoods_SecondaryPath_SeanFoundPath_C"},
-                        {new Guid("a2b38821-b8d5-49f3-9f59-a94580582bda"), "F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_C"},
-                        {new Guid("d5a1ac2f-bb63-4b58-bb7a-57d81e92f07e"), "F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_StartHiding_C"},
-                        {new Guid("27ece961-caf1-453d-a74e-fdab49b45e00"), "F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_Counting_C"},
-                        {new Guid("7333d6e9-22cb-4d48-b377-809010f1c94e"), "F_E1_2A_IntoTheWoods_SecondaryPath_ChitChat_C"},
-                        {new Guid("42e37d34-ebfc-438f-9ca9-05694388d170"), "F_E1_2A_IntoTheWoods_HikingTrail_Raccoon_C"},
-                        {new Guid("c741257f-d6f7-44dd-8825-594917aa39cd"), "F_E1_2A_IntoTheWoods_PicnicArea_Insertion_C"},
-                        {new Guid("f1643b50-c85b-4f10-a03b-3a485f2a7019"), "F_E1_2A_IntoTheWoods_ShelterArea_Howling_C"},
-                        {new Guid("00606ab1-ac8d-4ad4-b4ec-6d7c4947fcc8"), "F_E1_2A_IntoTheWoods_ShelterArea_CellphonePlay_C"},
-                        {new Guid("e9a41842-cc82-4c16-8443-e453fbc9f416"), "F_E1_2A_IntoTheWoods_HikingTrail_ChitChat_01_C"},
-                        {new Guid("00b283ef-ba8e-4059-af90-00244bc54851"), "ORPHAN_F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_Call_C"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("8d0e4507-a7a2-42f9-aca7-5e501e605234"), "F_E1_2A_ParkingArea_WildLife_Choice"},
-                        {new Guid("acfd72fd-64c4-4543-baad-e1773da44e42"), "F_E1_2A_ShelterArea_DiscoverShelter_ActivityChoice"},
-                        {new Guid("11cb774a-0ea3-40b1-b5c5-ece021b4cda9"), "F_E1_2A_ShelterArea_PreviousMeal_Choice"},
-                        {new Guid("01734494-3d62-42bc-b808-7f2f9381c91f"), "F_E1_2A_ShelterArea_BrettTalk_BrettTalkChoice"},
-                        {new Guid("7fc75022-4ad4-4ced-9f08-b8473af92c48"), "F_E1_2A_ParkingArea_Car_Choice00"},
-                        {new Guid("6e51fdbf-aef9-47fe-b450-cda939a27fc5"), "F_E1_2A_PicnicArea_GoodBerries_DanielFoundBerries_Choice00"},
-                        {new Guid("61c76900-27ad-4743-8263-572d6068a6f7"), "F_E1_2A_PicnicArea_BadBerries_DanielFoundBerries_Choice00"},
-                        {new Guid("746cb2f4-e459-43c8-93ef-454ce7cfcbf5"), "F_E1_2A_ParkingArea_DarkeningWoods_DarkeningWoodChoice"},
-                        {new Guid("8fcdbd09-b252-44c0-8b94-72d1bd9825b9"), "F_E1_2A_PicnicArea_HideAndSeek_HideAndSeek"},
-                        {new Guid("e86ee3e4-88ff-4322-a01a-8b65a4ecc1a1"), "F_E1_2A_ShelterArea_Howling_HowlingChoice"},
-                        {new Guid("c38a395e-863b-412a-982d-80b593de412b"), "F_E1_2A_ShelterArea_CellphonePlay_CellphonePlay"},
-                        {new Guid("361487c0-858c-4864-b7fc-f8d218af8550"), "F_E1_2A_LevelChoice_Chocobar"},
-                        {new Guid("2c51ddf3-de4d-42df-a7c2-840e860811f0"), "F_E1_2A_LevelChoice_AskToilet"},
-                        {new Guid("9668ac83-db40-4a1c-96f9-0b77ff4126ca"), "F_E1_2A_LevelChoice_IgniteFire"},
-                        {new Guid("62a97afb-b942-4e01-b2ad-c5fcd315024e"), "F_E1_2A_LevelChoice_SkimStoneChoice01"},
-                        {new Guid("11d8925b-2966-4ca7-84c4-d51850747cc9"), "F_E1_2A_LevelChoice_SkimStoneChoice02"},
-                        {new Guid("26dd40f9-4f79-490f-9be5-6e41345f0bfa"), "F_E1_2A_LevelChoice_SkimStoneChoice03"},
-                        {new Guid("fdc61931-4e8e-4c97-a3bf-c1a28c92b9c3"), "F_E1_2A_LevelChoice_ZenRockChoice"},
-                        {new Guid("2c4d3dbb-41e6-4852-8184-2d19f851c593"), "F_E1_2A_LevelChoice_FirstIgnite"},
-                    },
-                }
-            },
-            {
-                "97632851-6cb5-4253-a9ff-10197157317d", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("6a5cf9f7-2c69-4c62-acc8-03ec67349320"), "F_E1_2A_IntActor_Bench_C2_DanielHere"},
-                        {new Guid("4f120696-55d4-419e-a9a4-be2f57a1b660"), "F_E1_2A_IntActor_FallenTree_C2_Help"},
-                        {new Guid("08a703b8-7808-43dc-8b2d-76aed133c506"), "F_E1_2A_IntActor_DropDown_C1_Help"},
-                        {new Guid("d2064f1b-f879-4c4b-b739-87df9f314b0b"), "F_E1_2A_IntActor_HideAndSeek_C1_Scare"},
-                        {new Guid("5fa20f96-6175-4a62-9ac1-1a6e6ae7d594"), "F_E1_2A_IntActor_SpiderWeb_C1_Explain"},
-                        {new Guid("aa0a6671-83a0-4347-9108-41162557233b"), "F_E1_2A_IntActor_Raccoon_C1_Look"},
-                        {new Guid("6410f2a4-05c7-42bb-81cb-d9dd8714a645"), "F_E1_2A_IntActor_Raccoon_C2_Show"},
-                        {new Guid("983782f8-b13b-488b-86e4-2368d9a87abd"), "F_E1_2A_IntActor_DanielSkimStone_C1_Teach"},
-                        {new Guid("6650d4a5-04b2-487c-8d37-ab26688fb302"), "F_E1_2A_IntActor_SpeakGPSit_C1_Look"},
-                        {new Guid("a94116fe-3203-49b7-b3dc-28d725f09f72"), "F_E1_2A_IntActor_SpeakGPSit_C2_Gotosleep"},
-                        {new Guid("b360536c-5f9b-48aa-b741-8c599d93f4b5"), "F_E1_2A_IntActor_PushTrunk_C1_Push"},
-                        {new Guid("a2e62802-68a2-42c5-81ba-db871b7ee4aa"), "F_E1_2A_IntActor_PushTrunk_C2_Look"},
-                        {new Guid("6fd2a40e-9959-4e0c-bf1e-11625d55aed1"), "F_E1_2A_IntActor_Fishing_C2_Cheerup"},
-                        {new Guid("ac9c3f8f-72ab-4df3-b804-dcb51ddf6da3"), "F_E1_2A_IntActor_Log11_C1_Take"},
-                        {new Guid("a42b3a9e-f6d0-4649-b7fc-3e50f1e7b31c"), "F_E1_2A_IntActor_SwordFight_C3_Play"},
-                        {new Guid("fde17506-4cb6-4d78-b582-68a8ba966d79"), "F_E1_2A_IntActor_ZenRock_C1_Sit"},
-                        {new Guid("f686aec4-2e0a-4964-929e-95547ebc1ea5"), "F_E1_2A_IntActor_ZenRock_C2_Sit"},
-                        {new Guid("84a0da15-ef37-4371-bb1b-e6c44a5efb21"), "F_E1_2A_IntActor_Firepit_C1_AddLogs"},
-                        {new Guid("dfddcd1b-1997-4231-b082-12d3c564aaeb"), "F_E1_2A_IntActor_Firepit_C2_Ignite"},
-                        {new Guid("9dc5fc31-4d20-4778-ae48-efcd9618c8db"), "F_E1_2A_IntActor_Firepit_C3_Look"},
-                        {new Guid("a50a1aea-eb0c-47ba-af0b-0e2f805cdfa8"), "F_E1_2A_IntActor_Firepit_C4_BuildFire"},
-                        {new Guid("8b4065ea-6e7b-4149-86d8-4db94d9c0cf9"), "F_E1_2A_IntActor_Firepit_C5_Ignite"},
-                        {new Guid("08d1a63e-13a0-4235-9550-66dd47676363"), "F_E1_2A_IntActor_SkimStone_C1_Skim"},
-                        {new Guid("1d381791-6fe7-4b5a-b973-1eef6f7af6cc"), "F_E1_2A_IntActor_SpiderWeb_C1_Look"},
-                        {new Guid("55e522f3-0aa2-45e8-aec6-768c5ddb0aa2"), "F_E1_2A_IntActor_Car_C1_Look"},
-                        {new Guid("a1a13d32-d466-49d7-a08e-71e9ff0b5f05"), "F_E1_2A_IntActor_Car_C3_Look"},
-                        {new Guid("d4d82e88-7418-4613-a4dc-c6423db26fd1"), "F_E1_2A_IntActor_Car_C4_Examine"},
-                        {new Guid("7f7412ef-243c-45c6-a317-72b9d009ae50"), "F_E1_2A_IntActor_Toilet_C1_Look"},
-                        {new Guid("1af1f5dc-62ec-4fdd-bc4d-15fa20f1f13a"), "F_E1_2A_IntActor_Toilet_C2_Ask"},
-                        {new Guid("19f91ba7-46d2-4c25-b9a0-a2346093a2a7"), "F_E1_2A_IntActor_Sign2_C1_Look"},
-                        {new Guid("363181ff-fcd1-4f07-b0f6-37f15a421957"), "F_E1_2A_IntActor_Sign2_C2_Discuss"},
-                        {new Guid("b7daf0b4-4c57-4941-8eb6-84a81386ab20"), "F_E1_2A_IntActor_Berries03_C1_Eat"},
-                        {new Guid("54167ae9-bf6d-4f31-a84f-7da66d5c546d"), "F_E1_2A_IntActor_Berries03_C3_Look"},
-                        {new Guid("41c4eb5f-d8d2-4062-8603-a71e9e688c08"), "F_E1_2A_IntActor_Log01_C1_Take"},
-                        {new Guid("14024f80-d94a-4607-880b-c8d42f309188"), "F_E1_2A_IntActor_Log04_C1_Take"},
-                        {new Guid("b9abebbe-cc6c-439f-b16f-de1e2352592c"), "F_E1_2A_IntActor_Log15_C1_Take"},
-                        {new Guid("07d87600-8826-419e-a1f2-18d19092fb9b"), "F_E1_2A_IntActor_Log13_C1_Take"},
-                        {new Guid("3b497320-2b34-4f88-ba49-96120c70e08d"), "F_E1_2A_IntActor_TrailBlaze2_C1_Look"},
-                        {new Guid("a98ff914-1172-4bf4-813f-d7f8c8a7da96"), "F_E1_2A_IntActor_TrailBlaze3_C1_Look"},
-                        {new Guid("2d7addea-df00-48b4-992c-c49d75b9ffdd"), "F_E1_2A_IntActor_TrailBlaze1_C1_Look"},
-                        {new Guid("7a6ff58c-61e1-4c7e-a39c-c8d60bd91a9d"), "F_E1_2A_IntActor_TrailBlaze01_C1_Look"},
-                        {new Guid("48045ae8-3c38-4a0f-8577-a89bbed70bf2"), "F_E1_2A_IntActor_TrailBlaze01_C2_Show"},
-                        {new Guid("c46fa48e-5c98-4794-9840-9a0307676bcc"), "F_E1_2A_IntActor_FallenTree_C1_Climbover"},
-                        {new Guid("6a29c807-2369-488e-a1ad-adff1345bee1"), "F_E1_2A_IntActor_Berries01_C1_Eat"},
-                        {new Guid("b5927dab-3f6c-415b-aac4-237247c9b95f"), "F_E1_2A_IntActor_Berries01_C2_Look"},
-                        {new Guid("489d54e9-e59d-48df-a019-4eff078af4c8"), "F_E1_2A_IntActor_Berries01_C3_Look"},
-                        {new Guid("95e4c151-1b4b-4161-b5be-e82dccb09175"), "F_E1_2A_IntActor_Berries02_C1_Eat"},
-                        {new Guid("d20421be-84a8-4692-bc08-73aa9321432a"), "F_E1_2A_IntActor_Berries02_C2_Look"},
-                        {new Guid("8777a262-6fc5-4bfe-9b20-3281f5e2acdc"), "F_E1_2A_IntActor_Berries02_C3_Look"},
-                        {new Guid("80e35a58-248e-43e3-bdf0-1ea734b6a9bf"), "F_E1_2A_IntActor_Berries02_C5_Show"},
-                        {new Guid("4c41b432-175b-4eac-a513-d02d17adc54c"), "F_E1_2A_IntActor_Ledge_C1_ClimbDown"},
-                        {new Guid("a48eaad9-1ff8-49cb-ad44-c4006b5251d0"), "F_E1_2A_IntActor_Berries04_C1_Eat"},
-                        {new Guid("a6e62088-1520-48be-afcb-8ffc43822506"), "F_E1_2A_IntActor_Berries04_C2_Look"},
-                        {new Guid("cf68e60d-0e35-45f4-8d00-01a38716dd5b"), "F_E1_2A_IntActor_Berries04_C3_Look"},
-                        {new Guid("69611505-6f28-48a2-8920-8e7b26804f1c"), "F_E1_2A_IntActor_Berries04_C4_Check"},
-                        {new Guid("eb31dfcf-a64b-4fd9-b4b5-b0d52777d59b"), "F_E1_2A_IntActor_SeanPhone_C1_Look"},
-                        {new Guid("474d5241-b868-4bb4-ac57-5b7c52a97221"), "F_E1_2A_IntActor_Berries05_C1_Eat"},
-                        {new Guid("7a63eb04-7adb-48fe-ae0e-db5d533bfd08"), "F_E1_2A_IntActor_Berries05_C2_Look"},
-                        {new Guid("1baedb9f-c82e-408c-9f98-3d9a0301a2b6"), "F_E1_2A_IntActor_Berries05_C3_Look"},
-                        {new Guid("de6aee94-7166-49d8-b0a5-d894eb0bfcf7"), "F_E1_2A_IntActor_Berries05_C5_Show"},
-                        {new Guid("38b4f5fe-8a92-4815-a8e1-8a4d1528bf44"), "F_E1_2A_IntActor_Berries06_C3_Look"},
-                        {new Guid("af12ff07-1d89-449f-bf04-4f2a8e313ebb"), "F_E1_2A_IntActor_SeanBag_C1_Look"},
-                        {new Guid("ec8b75f2-b94f-4876-810c-bb22d0f0e905"), "F_E1_2A_IntActor_SeanBag_C2_Look"},
-                        {new Guid("0a88222e-1d82-4835-a6aa-7dc65ecc7ab5"), "F_E1_2A_IntActor_MailboxRock_C1_BreakBox"},
-                        {new Guid("399d8b04-a567-4b56-9790-3347256515c8"), "F_E1_2A_IntActor_LogStack01_C1_Check"},
-                        {new Guid("c8bc4dba-c21f-4472-9234-56ee38c30963"), "F_E1_2A_IntActor_Drawing_C1_SitandDraw"},
-                        {new Guid("22a8d010-dd8e-4cdb-82e7-6791aa9091ec"), "F_E1_2A_IntActor_Wallet_C1_Look"},
-                        {new Guid("53e4d085-6981-47bb-87ea-aa80de4a0713"), "F_E1_2A_IntActor_Cookies_C1_Look"},
-                        {new Guid("7c7516e2-a2c1-4559-8aa0-17b5b68e8021"), "F_E1_2A_IntActor_SodaCan_C1_Look"},
-                        {new Guid("240be55c-3ad2-40b3-9aca-b25e763c3425"), "F_E1_2A_IntActor_BearMarks02_C1_Look"},
-                        {new Guid("bb782cbf-2d1e-4932-953d-f9783bdcdc2a"), "F_E1_2A_IntActor_BirdNest_C1_Show"},
-                        {new Guid("14c83925-8c6d-4985-abb2-3cb874ab656e"), "F_E1_2A_IntActor_Carving1_C1_Look"},
-                        {new Guid("0e9b99dd-2800-4f88-a8e1-9b3c4a6344da"), "F_E1_2A_IntActor_Carving2_C1_Look"},
-                        {new Guid("f656ab4f-1d16-4fba-a9b5-8d3f0f88a187"), "F_E1_2A_IntActor_CatFood_C1_Look"},
-                        {new Guid("12125117-f5ac-4ba4-a682-45caf5596ed3"), "F_E1_2A_IntActor_DeadAnimal_C1_Look"},
-                        {new Guid("24ceb230-1d7f-433d-9e07-160cbfb3d1aa"), "F_E1_2A_IntActor_DeadAnimal_C2_Discuss"},
-                        {new Guid("5e94151b-b855-4afe-b5fd-1ebd4e48f46f"), "F_E1_2A_IntActor_HygieneSign_C1_Look"},
-                        {new Guid("14bc85fd-86e8-4621-a904-04df9ca74e9d"), "F_E1_2A_IntActor_Landslide_C1_Look"},
-                        {new Guid("948c6e2b-d86e-4467-9779-f890681fb746"), "F_E1_2A_IntActor_Mailbox_C1_Open"},
-                        {new Guid("0a4781fd-720a-4a3f-8dff-0d14876b4a25"), "F_E1_2A_IntActor_Mailbox_C2_Look"},
-                        {new Guid("368a90f4-0c05-4b98-9f99-36713aa94e13"), "F_E1_2A_IntActor_Mailbox_C3_Look"},
-                        {new Guid("69639c37-a3f3-4724-9736-1e07c8033dd8"), "F_E1_2A_IntActor_Mailbox_C4_Look"},
-                        {new Guid("f9970676-d9c6-4ad2-8397-880eda3fc442"), "F_E1_2A_IntActor_Map_C1_Look"},
-                        {new Guid("5dd1e409-4fbc-45ad-a8d2-0d2313d69f53"), "F_E1_2A_IntActor_Map_C2_Discuss"},
-                        {new Guid("cc0cdb86-2238-4dd5-bdf6-91ea7cd53960"), "F_E1_2A_IntActor_Marks_C1_Look"},
-                        {new Guid("5cbb91bf-c810-4c89-a139-a459fe9f63d8"), "F_E1_2A_IntActor_Paper_C1_Look"},
-                        {new Guid("21241fa0-9c27-4673-98de-f78fac1ab7ae"), "F_E1_2A_IntActor_Paper_C2_Discuss"},
-                        {new Guid("e0b5fbcd-e4a0-48b4-b45f-f627248fafda"), "F_E1_2A_IntActor_PicNicSign_C1_Look"},
-                        {new Guid("9d7d8982-8f90-4429-bc21-427476411fff"), "F_E1_2A_IntActor_Polaroid_C1_Look"},
-                        {new Guid("62a55a17-1abe-470a-acb6-fc2c5655a68e"), "F_E1_2A_IntActor_ShelfFungusTree_C1_Look"},
-                        {new Guid("aca44ce9-898c-4801-b87d-502a6507a2a4"), "F_E1_2A_IntActor_Sign3_C1_Look"},
-                        {new Guid("387eefaf-7a4a-4899-a5ab-fc2e08328c9c"), "F_E1_2A_IntActor_Sign4_C1_Look"},
-                        {new Guid("f73e069e-4003-4275-979e-0dc79697e771"), "F_E1_2A_IntActor_Spikes02_C1_Look"},
-                        {new Guid("87e13bc5-27e4-48ef-a520-fb56e45b4bcf"), "F_E1_2A_IntActor_Tag01_C1_Look"},
-                        {new Guid("c0e3c8c0-6cd7-43b0-a45a-9ed3ff111a70"), "F_E1_2A_IntActor_TagRocks02_C1_Look"},
-                        {new Guid("7ba5c249-c7cc-44e2-9898-a06415165a9a"), "F_E1_2A_IntActor_TrailBlaze_C1_Look"},
-                        {new Guid("7a4f1fb0-87d3-48e2-858f-68357388df11"), "F_E1_2A_IntActor_TrailDamage01_C1_Look"},
-                        {new Guid("59662f4a-9b92-4461-b3f7-29bd8864e21e"), "F_E1_2A_IntActor_TrailDamage01_C2_Discuss"},
-                        {new Guid("52ac87da-a870-4877-9bf6-985e92a99284"), "F_E1_2A_IntActor_TrailDamage02_C1_Look"},
-                        {new Guid("633a0cf5-663a-4652-8ed8-f28c3a175596"), "F_E1_2A_IntActor_WaspNest_C1_Look"},
-                        {new Guid("8fd24a7f-101d-4865-bf8e-eccbcec29c95"), "F_E1_2A_IntActor_WeaponRacks_C1_Look"},
-                        {new Guid("852af7fc-bcf5-45a0-bbad-88fb747a763c"), "F_E1_2A_IntActor_WelcomePaper_C1_Look"},
-                        {new Guid("b5fbd89c-8908-41a2-ace5-40e9414a7637"), "F_E1_2A_IntActor_WelcomePaper_C2_Discuss"},
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
                 "a1ae06c3-2da3-40b4-b2ec-afa897c3ad59", new FactAsset
                 {
                     BoolFacts = new Dictionary<Guid, string>
@@ -2511,162 +1767,66 @@ namespace lis2_save_editor
                         {new Guid("e3ee31b1-cc47-4a15-bfcf-767081dae3a4"), "F_ACH_E1_OnTheRoadAgain"},
                         {new Guid("2e7ee17d-038b-4e47-9422-1251b497f55c"), "F_ACH_E1_Supporter"},
                         {new Guid("ccb0c1d5-8173-4ac3-ae71-f64c432d7f6d"), "F_ACH_E1_WildlifeProtector"},
+                        {new Guid("57a61f81-fe7c-41f3-bc9a-684bea9b8656"), "F_ACH_E1_TheSketchyWay"},
                         {new Guid("87f75924-efda-412d-8454-20b8a2d6d0fe"), "F_ACH_E1_BearGang"},
                         {new Guid("58860169-feef-4b12-8009-185cacd2fc8e"), "F_ACH_E1_LuckyCharm"},
-                        {new Guid("57a61f81-fe7c-41f3-bc9a-684bea9b8656"), "F_ACH_E1_TheSketchyWay"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-
                     },
                 }
             },
             {
-                "afca1e71-03e3-46b3-85b0-f55c014e5ac8", new FactAsset
+                "8ef75771-96ef-41b1-8e6b-47b31c7835a2", new FactAsset
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
+                        {new Guid("5172a55e-e3b7-4982-9a41-0e1842364ec6"), "F_PROM_E1_2A_Journal_DetailsDone"},
+                        {new Guid("f5ac5af6-5720-4062-865a-d9faf595b56e"), "F_PROM_E1_2A_Journal_RoughDone"},
+                        {new Guid("01eeedf3-8a90-4695-b8f6-6d6e730d354a"), "F_PROM_E1_7A_Journal_RoughDone"},
+                        {new Guid("7eeb459b-da01-4534-b105-b37c981823d2"), "F_PROM_E1_7A_Journal_DetailsDone"},
+                        {new Guid("d457a4c0-ffc2-4dc0-b435-b9e1a2395ee6"), "F_PROM_E1_2A_DrawSQCFinished"},
+                        {new Guid("d8d373af-d234-444c-b4c8-4715c53bff6b"), "F_PROM_E1_7A_DrawSQCFinished"},
+                        {new Guid("1b416551-37cc-4033-a91e-cf74a1dabd4a"), "F_PROM_DrawSeq_FirstLaunch"},
+                        {new Guid("763108d1-16c4-4f0e-bcb0-0578f2e3b6a7"), "F_PROM_DrawSequenceAborted"},
+                        {new Guid("184d70e7-7b85-4e98-8e42-5f052e81e3f3"), "F_PROM_DrawSeqTuto_DrawOnce"},
+                        {new Guid("660d6c56-37e7-49b2-a17b-0071666488fc"), "F_PROM_E1_1A_Journal_DetailsDone"},
+                        {new Guid("75f3a89b-bccb-4b05-9cee-3fcfcd6067cd"), "F_PROM_E1_1A_Journal_RoughDone"},
+                        {new Guid("2bf78da0-9955-41dd-8e38-8a91159d64e8"), "F_PROM_E1_1A_DrawSQCFinished"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
-                        {new Guid("cea8eca8-d9b4-44bd-8c94-917169851c15"), "F_E1_7A_MotelRoom_JRNLObject_C"},
-                        {new Guid("b74c51a2-8acb-4d42-8446-d4e46fda7862"), "F_E1_7A_MotelRoom_AnswerFRND_C"},
-                        {new Guid("c7bb90ef-e948-47cd-8773-943687e3cebe"), "F_E1_7A_Beach_Insertion_C"},
-                        {new Guid("e2506b49-db24-4829-a03c-e5a61e60a758"), "F_E1_7A_MotelRoom_PowerReveal_C"},
-                        {new Guid("ac2d9f6b-c385-49f7-9c93-47445e156176"), "F_E1_7A_Walkway_Room10_C"},
-                        {new Guid("a2dde0ad-fcad-451f-b639-d8b740d21108"), "F_E1_7A_Walkway_Room8_C"},
-                        {new Guid("26e77363-0da1-40b4-9c14-4fce145ef7ea"), "F_E1_7A_Beach_PlayingMushroomTwo_C"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-                        {new Guid("9b9a47e1-8a80-46a4-b721-635f72ac868c"), "F_E1_7A_MotelRoom_JRNLObject_JRNLToy"},
-                        {new Guid("6ed46ef3-fcff-464f-a017-25cf8d017d91"), "F_E1_7A_MotelRoom_AnswerFRND_CheckLylaNews"},
-                        {new Guid("0692d1d4-44d8-4e22-a5ea-cb9e34052c2b"), "F_E1_7A_MotelRoom_AnswerFRND_ComeBack"},
-                        {new Guid("65700e37-d19c-4250-bfda-17c367b252cd"), "F_E1_7A_MotelRoom_AnswerFRND_FinalChoice"},
-                        {new Guid("45075eca-b039-483b-b864-c796478c86a1"), "F_E1_7A_Beach_Insertion_PhoneTrash"},
-                        {new Guid("e4c32d97-6138-4e9b-b5f0-c1e31104730b"), "F_E1_7A_MotelRoom_PowerReveal_SecondChoice"},
-                        {new Guid("3efe08cd-e206-40dc-8e23-86fd4539ed5c"), "F_E1_7A_MotelRoom_PowerReveal_FirstChoice "},
-                        {new Guid("08dda61a-bc65-49ff-8a5a-a31d03ac5b76"), "F_E1_7A_MotelRoom_PowerReveal_BadOptionalChoice"},
-                        {new Guid("78c1f749-18a2-41bd-85d5-833401a6feed"), "F_E1_7A_MotelRoom_PowerReveal_PromiseChoice"},
-                        {new Guid("40be204c-c0a8-47cd-9a26-4ecd6208b0e2"), "F_E1_7A_LevelChoice_RPSChoice"},
-                        {new Guid("3218275e-c026-4882-98f4-6df47498e231"), "F_E1_7A_LevelChoice_DanceBed"},
-                        {new Guid("a912b0d6-38bc-4bdb-ae7a-e8b88cb1afb6"), "F_E1_7A_LevelChoice_AcceptRevenge"},
-                        {new Guid("942cc0d1-aa82-4785-b807-8442fba7dba1"), "F_E1_7A_LevelChoice_StaggingChoiceLyla"},
-                        {new Guid("edbe169b-3a00-4adf-bd5c-e5f58764bd44"), "F_E1_7A_LevelChoice_AskStickLoop"},
+                        {new Guid("6c2e9d98-842b-4316-9575-1f592972c86e"), "F_PROM_DrawSeqTuto_Steps"},
                     },
                 }
             },
             {
-                "b26ffabf-a347-4f18-83f6-162f05cc835a", new FactAsset
+                "c4a76bc0-7a1a-426f-aa2c-6241c7019ffb", new FactAsset
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
+                        {new Guid("3a07565e-3240-47b7-855b-1251aa172212"), "F_PROM_LIS1_SacrificeArcadiaBay"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
-                        {new Guid("1c469ece-649e-467b-9926-3fd9998c4b38"), "F_E1_5A_Inside_SwitchPosGM_C"},
-                        {new Guid("a304e54e-3d9f-4606-adf0-3663a36e6e86"), "F_E1_5A_Inside_StartGM_C"},
-                        {new Guid("c5016c95-4833-468a-833a-58df0f5d688b"), "F_E1_5A_Inside_Pay_C"},
-                        {new Guid("d77ce8fa-4553-400f-ad01-d211eac6ca5d"), "F_E1_5A_GasStation_Office_AskForTool_C"},
-                        {new Guid("714e3b88-e49a-4088-8bd8-e5aff442897f"), "F_E1_5A_GasStation_Office_WakeUpInOffice_C"},
-                        {new Guid("3af102cd-e526-4ce2-9031-ee7271ac5921"), "F_E1_5A_Office_CheckWindow_C"},
-                        {new Guid("b792dde0-32bf-40ed-aff2-61a37aa921cf"), "F_E1_5A_Outside_Family_C"},
-                        {new Guid("e03b9a4b-a7be-4c9b-bcbe-05617d314980"), "F_E1_5A_Inside_ExaminePuppy_C"},
-                        {new Guid("5f7ca12d-dfd0-4c6c-a5b6-5138cb91b39d"), "F_E1_5A_Inside_InteruptBroLady_C"},
-                        {new Guid("1880f1bd-0e46-42fb-9a1d-27a885f2935d"), "F_E1_5A_Inside_SpeakShopKeeper_C"},
-                        {new Guid("a0f52995-8e67-4046-9ade-6bda225eee63"), "F_E1_5A_Inside_JRNLSpeak_C"},
-                        {new Guid("73d0ec94-709a-40f6-b58c-7274cc65b095"), "F_E1_5A_Inside_PuppyPoI_C"},
-                        {new Guid("d8123f34-7792-4506-86a1-b3b07d96e159"), "F_E1_5A_Outside_WildPoster_PoI_C"},
-                        {new Guid("4747f5b7-b34e-41e1-b862-e590ab0686ef"), "F_E1_5A_Inside_Witch_C"},
-                        {new Guid("ef3d0726-1257-4d58-9ff1-12dec347071d"), "F_E1_5A_Inside_GMPoI_C"},
-                        {new Guid("8795df56-7459-402a-9f74-81b3de1cd3ad"), "F_E1_5A_Inside_ShockOCrisp_C"},
-                        {new Guid("c56bf4d6-51dc-4b18-8fbc-c17bdd6c4ff9"), "F_E1_5A_Inside_BeerPoster_C"},
-                        {new Guid("ad168ba0-1e48-4ccb-a5fd-3658a273505d"), "F_E1_5A_Inside_CardboardPowerBear_C"},
-                        {new Guid("be25c596-523e-4ce2-8ddf-ed5a2633c941"), "F_E1_5A_Inside_Postcard_C"},
-                        {new Guid("b7a704c4-d0cd-4e14-b41a-8440fd0f584f"), "F_E1_5A_Inside_Tent_C"},
-                        {new Guid("468afedf-8dc2-48c0-a9a3-183107fde892"), "F_E1_5A_Outside_CampingSign_C"},
-                        {new Guid("762e8272-dddf-434a-a548-16a288a85932"), "F_E1_5A_Inside_Pumpkin_C"},
-                        {new Guid("2f5d3066-94d3-4fcd-91ff-8702a40cc0a9"), "F_E1_5A_Outside_BearShelves_C"},
-                        {new Guid("d829f527-80d1-45bb-bf8d-2f64093e29fa"), "F_E1_5A_Outside_GSDiscovery_C"},
-                        {new Guid("1b37f341-9600-42c0-a28a-b36abdaaa471"), "F_E1_5A_Inside_RandomA_C"},
-                        {new Guid("1b3578e7-a763-4d61-b0e2-4aed62dccf5c"), "F_E1_5A_Inside_RandomB_C"},
-                        {new Guid("ecbf50f5-9c9d-4105-8961-3068deb90d62"), "F_E1_5A_Outside_RandomB_C"},
-                        {new Guid("8c6a709f-9479-47b7-a705-6628044f2826"), "F_E1_5A_Outside_RandomC_C"},
-                        {new Guid("b2d1e662-424b-4ed0-aabe-2ccc4ca06974"), "F_E1_5A_Inside_HalloweenCostume_C"},
-                        {new Guid("0bff652e-0e16-45de-8549-85cd2cc91038"), "F_E1_5A_Inside_FirstEntrance_C"},
-                        {new Guid("2e1448f6-5cd5-4699-a36b-58f2a440bdfe"), "F_E1_5A_Outside_SpanishLessons_C"},
-                        {new Guid("0e448726-c8f5-4eb2-86b3-6d9bdaefd45d"), "F_E1_5A_Outside_DanielReactFoodBeg_C"},
-                        {new Guid("139de9c0-a3bd-42bf-b498-651cc92bc7de"), "F_E1_5A_Outside_JunkPile_C"},
-                        {new Guid("3bf7a049-8218-4fbd-849b-597c5ec4ffc4"), "F_E1_5A_Office_LockedDoor_C"},
-                        {new Guid("9c108fc8-7c6e-4abe-a1bb-0ba1b397d420"), "F_E1_5A_Office_ScaredC_C"},
-                        {new Guid("76aefa22-230f-4b7a-8037-f1c5262323de"), "F_E1_5A_Office_ScaredD_C"},
-                        {new Guid("c28f0b0b-4d2a-4672-ab25-f826fc1f5c27"), "F_E1_5A_Outside_ChitChat_C"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-                        {new Guid("98df6f68-feee-4276-b481-9d9343612e41"), "F_E1_5A_Inside_SwitchPosGM_LetHimPlay1"},
-                        {new Guid("cf6cd875-0e35-4b03-9e8c-011cb977fe76"), "F_E1_5A_Inside_SwitchPosGM_Play1"},
-                        {new Guid("4b26867f-f7c3-4862-87ed-7c8cd4c97ddb"), "F_E1_5A_Inside_SwitchPosGM_Play2"},
-                        {new Guid("c29e8009-7e64-4f5b-a81e-80b0010ae313"), "F_E1_5A_Inside_StartGM_WhoFirst"},
-                        {new Guid("d46405ba-ea80-4c7a-b908-8b1a6466704a"), "F_E1_5A_Inside_Pay_Pay"},
-                        {new Guid("48c45475-eb2b-4908-b4a7-77aacdded1bf"), "F_E1_5A_Office_AskForTool_TypeTool"},
-                        {new Guid("c94a2565-b121-474f-b887-78d4223c787a"), "F_E1_5A_Office_AskForTool_Location"},
-                        {new Guid("4da04555-e876-48a8-a4cb-9885cb0302b9"), "F_E1_5A_Office_WakeUpInOffice_Choice"},
-                        {new Guid("2a6084d3-3423-4985-8d33-0e5b7b71b4ed"), "F_E1_5A_Outside_Family_HUB"},
-                        {new Guid("67d25768-30c1-4653-a7c9-87444b872f7e"), "F_E1_5A_Outside_Family_Weather"},
-                        {new Guid("8da72c0c-b5d1-4b23-810a-6458e2a718f6"), "F_E1_5A_Inside_ExaminePuppy_TakePuppy"},
-                        {new Guid("425c96d5-59f2-4216-a66d-9cc7bda05760"), "F_E1_5A_Inside_SpeakShopKeeper_WhyHere"},
-                        {new Guid("5092c9b8-f06b-4fba-94d9-14402a1e900b"), "F_E1_5A_Inside_SpeakShopKeeper_Parents"},
-                        {new Guid("3fc008c1-bf32-4628-9363-3a534d1c98df"), "F_E1_5A_Inside_SpeakShopKeeper_LongTrip"},
-                        {new Guid("0c203b74-cd4c-4547-8f74-080305eb8e5e"), "F_E1_5A_Inside_JRNLSpeak_People"},
-                        {new Guid("98538f69-e306-4f90-8d9b-4c0322b9dbb4"), "F_E1_5A_Inside_JRNLSpeak_Travelling"},
-                        {new Guid("a5948bad-e4a4-436d-b90b-d47607999715"), "F_E1_5A_Inside_FirstEntrance_Choice00"},
-                        {new Guid("84c6634c-81c7-42a8-8677-23bcc3b257dd"), "F_E1_5A_LevelChoice_HalfEatenApple"},
-                        {new Guid("f4bbeeb1-605c-4ed1-af5b-f9bd248fb7ce"), "F_E1_5A_LevelChoice_Owner_PicNic"},
-                        {new Guid("ee2d744e-fe9c-4637-89c2-414ae27f5d25"), "F_E1_5A_LevelChoice_NightChoice_1"},
-                        {new Guid("5410b798-b722-467e-9061-e83d042583f8"), "F_E1_5A_LevelChoice_NightChoice_2"},
-                        {new Guid("eb8c4253-3331-4cdd-9434-e444cffae3c2"), "F_E1_5A_Outside_ChitChat_GetOutReaction"},
-                    },
-                }
-            },
-            {
-                "bb00a9b7-9de1-46eb-affd-519593939409", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("1a3ad35d-086b-48c9-b2a6-34f2c63a48c2"), "F_PROM_MovePlayerTutoDone"},
-                        {new Guid("6efd17f0-1465-4da4-83a3-9fa320e83fff"), "F_PROM_MoveCamTutoDone"},
-                        {new Guid("76466cb2-18ad-4d68-b398-3d8deac3e913"), "F_PROM_DrawSeq_SwitchTutoFirstTime"},
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
                     },
                 }
             },
@@ -2675,7 +1835,6 @@ namespace lis2_save_editor
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-                        {new Guid("c7f9024b-9afe-4d9f-a9ab-4bdde43a8f13"), "F_E1_1A_GotBeers"},
                         {new Guid("0000d292-673b-4a40-8861-ee4aeb5c1226"), "F_E1_1A_GotSoda"},
                         {new Guid("f7114fe7-119c-4631-b770-b22dcb98e23b"), "F_E1_1A_GotChips"},
                         {new Guid("4010b7e3-d5d2-4ca6-8086-461720baf01b"), "F_E1_1A_GotCookies"},
@@ -2683,14 +1842,12 @@ namespace lis2_save_editor
                         {new Guid("743889e7-93ff-4970-935a-fa1674258285"), "F_E1_1A_SeanRoom_GPSit"},
                         {new Guid("7bcea34c-7a9f-408f-a2e7-939e78ee90b0"), "F_E1_1A_GotMoney"},
                         {new Guid("479e6d3e-9c1e-4041-80ff-f769f8e29e31"), "F_E1_1A_SchoolBagPacked"},
-                        {new Guid("7cc63a4b-47e6-4bd3-8b88-6c9e1f588b99"), "F_E1_1A_ToolPuzzle_HintReversible"},
                         {new Guid("d8587c69-15e1-4c67-ac70-c75a1038c482"), "F_E1_1A_JennFacebookUnlock"},
                         {new Guid("6d0ac468-9ba6-4dd4-98dc-1ad1326554db"), "F_E1_1A_DialForbiden"},
                         {new Guid("d7c29ffa-49ca-47b3-99ec-0b305f89282c"), "F_E1_1A_MusicPlaying"},
                         {new Guid("28b746c0-1ba6-4e31-a1ee-f548c6d0741d"), "F_E1_1A_DrawingLyla"},
                         {new Guid("f402986f-9dce-4718-8836-298160dc24bf"), "F_E1_1A_Laptop_InDial"},
                         {new Guid("e90b0625-30c8-446b-a163-ba500b7c7a93"), "F_E1_1A_Laptop_InSequence"},
-                        {new Guid("a51fdf50-24d5-48bf-8f9d-6108c48b03e7"), "F_E1_1A_Laptop_LylaReact"},
                         {new Guid("cc9d2d92-1ddb-4d66-ac68-95341881a5e3"), "F_E1_1A_Laptop_ReactWindow"},
                         {new Guid("add88076-0c14-4380-8de2-3eff8e943ef9"), "F_E1_1A_Laptop_AllowShowDrawing"},
                         {new Guid("1b931e04-0a28-4da3-98a0-feeb311f5bf2"), "F_E1_1A_Textmessage_FRNDSkype"},
@@ -2707,6 +1864,9 @@ namespace lis2_save_editor
                         {new Guid("d0c50f3b-e1e7-420e-93bf-77e106247d7d"), "F_E1_1A_InDialWithDad"},
                         {new Guid("8327f84a-d39a-4269-9039-a4b820212dca"), "F_E1_1A_SMS_FRND06_Seen"},
                         {new Guid("89a857d9-66dc-485c-b28e-ff3fe9432371"), "F_E1_1A_SMS_FRND_Seen"},
+                        {new Guid("a51fdf50-24d5-48bf-8f9d-6108c48b03e7"), "F_E1_1A_Laptop_LylaReact"},
+                        {new Guid("c7f9024b-9afe-4d9f-a9ab-4bdde43a8f13"), "F_E1_1A_GotBeers"},
+                        {new Guid("7cc63a4b-47e6-4bd3-8b88-6c9e1f588b99"), "F_E1_1A_ToolPuzzle_HintReversible"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -2723,32 +1883,10 @@ namespace lis2_save_editor
                 }
             },
             {
-                "c4a76bc0-7a1a-426f-aa2c-6241c7019ffb", new FactAsset
-                {
-                    BoolFacts = new Dictionary<Guid, string>
-                    {
-                        {new Guid("3a07565e-3240-47b7-855b-1251aa172212"), "F_PROM_LIS1_SacrificeArcadiaBay"},
-                    },
-                    IntFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    FloatFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                    EnumFacts = new Dictionary<Guid, string>
-                    {
-
-                    },
-                }
-            },
-            {
                 "cec79f2a-2731-4b18-8152-56b4c63311c5", new FactAsset
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -2764,14 +1902,13 @@ namespace lis2_save_editor
                         {new Guid("47c32e56-540d-4c16-b77f-a834f62133ee"), "F_E1_1A_Garage_EmptyDrawer_C"},
                         {new Guid("dae77557-6031-4ae0-a9ac-2d73c30270b3"), "F_E1_1A_Garage_Chitchat01_C"},
                         {new Guid("59df54ad-3480-4e1f-9372-855b38a49ffa"), "F_E1_1A_Garage_ToolHint01_C"},
-                        {new Guid("a007d660-3ed7-42dc-8e41-77389740e978"), "F_E1_1A_SeanRoom_LylaReact_C"},
                         {new Guid("234ee765-94e3-45e1-93f4-e048f4a5f9ea"), "F_E1_1A_SeanRoom_SkypeDrawing_C"},
+                        {new Guid("a007d660-3ed7-42dc-8e41-77389740e978"), "F_E1_1A_SeanRoom_LylaReact_C"},
                         {new Guid("374c9a34-9937-4fb8-8c4b-ef521fd85417"), "F_E1_1A_Garage_Chitchat02_C"},
                         {new Guid("c7488cef-a1c7-44c8-bd04-8257115ee27f"), "F_E1_1A_Garage_ToolHint02_C"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
@@ -2797,11 +1934,476 @@ namespace lis2_save_editor
                 }
             },
             {
+                "96169c2a-2532-4a82-800b-4b18dfacb941", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("07c8fc58-a4d2-44e6-8f54-2625231d5756"), "F_E1_1A_IntActor_GarageDrawer_C1_Open"},
+                        {new Guid("83b4b880-8e97-4de1-841e-12bc5ffc80fe"), "F_E1_1A_IntActor_RightTool01_C1_Take"},
+                        {new Guid("f6169c03-ed1a-491c-8299-7f84d426210d"), "F_E1_1A_IntActor_RightTool01_C2_Look"},
+                        {new Guid("d99b861b-c313-4461-a067-22fed1aafd1c"), "F_E1_1A_IntActor_WrongTool01_C2_Look"},
+                        {new Guid("a8d1dd3a-276d-4dee-a31e-12e69da0cc91"), "F_E1_1A_IntActor_WrongTool03_C2_Look"},
+                        {new Guid("5fde135c-7997-4f4f-91d6-a5b2e88896be"), "F_E1_1A_IntActor_WrongTool05_C2_Look"},
+                        {new Guid("4509a605-4d7d-4e09-a4ec-09e275b1106c"), "F_E1_1A_IntActor_WrongTool06_C2_Look"},
+                        {new Guid("b6e0ff7f-23cc-40ec-884f-d6c6323c6393"), "F_E1_1A_IntActor_WrongTool07_C2_Look"},
+                        {new Guid("0724b3fc-ad7f-4339-8c46-213ad19cd9be"), "F_E1_1A_IntActor_Laptop_C1_CallLyla"},
+                        {new Guid("863c6451-a363-4607-b5f9-19e07f88a0c2"), "F_E1_1A_IntActor_Laptop_C2_Use"},
+                        {new Guid("9ef0f46e-43aa-4e1f-927f-c711ad66d0c1"), "F_E1_1A_IntActor_Laptop_C3_Facebook"},
+                        {new Guid("435570ea-60ee-4aff-91f5-3646a17b045d"), "F_E1_1A_IntActor_WallTag_C1_Look"},
+                        {new Guid("4b158185-06d1-4333-a2cf-0aab173c4202"), "F_E1_1A_IntActor_Fridge_C1_Open"},
+                        {new Guid("bc919e50-44a6-46e6-bc22-7d516b4b428c"), "F_E1_1A_IntActor_DanielRoom_C1_Knock"},
+                        {new Guid("9b75c206-f7c3-4a74-99db-a06d1118ebf9"), "F_E1_1A_IntActor_DanielRoom_C2_Open"},
+                        {new Guid("8b3f7a80-70d0-47c9-96f0-2decf366ba6b"), "F_E1_1A_IntActor_Dad_C1_GiveTool"},
+                        {new Guid("46f6157c-082f-4dd0-b5f5-237609230925"), "F_E1_1A_IntActor_Cupboard01_C1_Open"},
+                        {new Guid("6c213096-e557-4371-8cb5-66ac201497e4"), "F_E1_1A_IntActor_SeanBackpack_C1_Pack"},
+                        {new Guid("4e6ca510-d2e5-4173-abc2-071a3d2f5a48"), "F_E1_1A_IntActor_SeanBackpack_C2_Look"},
+                        {new Guid("a03c83e6-2113-47e8-9ff6-aeca41233d31"), "F_E1_1A_IntActor_Sodas_C1_Take"},
+                        {new Guid("f5352957-4b4f-47c3-ac50-20fa6e324e2b"), "F_E1_1A_IntActor_Chips_C3_Switch"},
+                        {new Guid("bc816a67-81e4-43bf-83ae-9d680122433e"), "F_E1_1A_IntActor_Cookies_C1_Take"},
+                        {new Guid("e9cb49b9-f7fc-494f-a7ce-d3ccb43f378e"), "F_E1_1A_IntActor_Cookies_C2_Look"},
+                        {new Guid("7dd579c5-53c0-439e-a466-d4a610166d9b"), "F_E1_1A_IntActor_Cookies_C3_Switch"},
+                        {new Guid("9526c5a0-0b39-48c3-9755-dbac09ea16dc"), "F_E1_1A_IntActor_letters_C1_Reorganize"},
+                        {new Guid("ccad8560-634d-47f0-9d1b-50fb0da18c84"), "F_E1_1A_IntActor_SketchDesk_C1_SketchLyla"},
+                        {new Guid("ee6dc2e2-043e-43f6-a0df-f880895fe315"), "F_E1_1A_IntActor_SeanDrawer_C1_Open"},
+                        {new Guid("d17795b9-33b8-4c78-a5ab-7be29d928036"), "F_E1_1A_IntActor_SeanDrawer_C2_Close"},
+                        {new Guid("5d79b4bd-ee1b-4347-b749-25a52328fdbf"), "F_E1_1A_IntActor_Ipod_C1_Play"},
+                        {new Guid("a87e77f4-bea2-44c7-a5d0-d36956338874"), "F_E1_1A_IntActor_Ipod_C2_Stop"},
+                        {new Guid("d2d536b4-b3b1-40d2-8574-14f815354db1"), "F_E1_1A_IntActor_Ipod_C3_Look"},
+                        {new Guid("cebb19b4-0d26-4331-8fc4-c74197b8c887"), "F_E1_1A_IntActor_Blanket_C1_Look"},
+                        {new Guid("188db876-9304-4f51-aad9-2022518debf6"), "F_E1_1A_IntActor_Blanket_C2_Take"},
+                        {new Guid("97e27aea-efa8-48bb-8b3d-f6b36e803b81"), "F_E1_1A_IntActor_Jar_C2_Look"},
+                        {new Guid("7d5bdfec-3ad6-4b42-a633-f084ab5da744"), "F_E1_1A_IntActor_Jar_C4_Addmoney($10)"},
+                        {new Guid("15224a96-9233-4c79-a53e-10967d0a2721"), "F_E1_1A_IntActor_NightstandBook_C1_Move"},
+                        {new Guid("2a9510af-25fa-49bf-9a12-a291363afd7a"), "F_E1_1A_IntActor_SeanRoom_C1_Enter"},
+                        {new Guid("7f674d35-c66c-4829-88cf-185fc4dae731"), "F_E1_1A_IntActor_DeskCupboard_C1_open"},
+                        {new Guid("230b3ef0-6535-4a09-84ca-1f77e3030052"), "F_E1_1A_IntActor_Candy_C1_Look"},
+                        {new Guid("19035224-541b-4db1-a76f-ffcc8bf16dbf"), "F_E1_1A_IntActor_Candy_C3_Switch"},
+                        {new Guid("b4e70006-3709-4475-9d3b-9116453fcaa5"), "F_E1_1A_IntActor_Leftover_C1_Look"},
+                        {new Guid("b2f69b1c-317b-44d8-a0c0-af9f8c77b5f6"), "F_E1_1A_IntActor_ArtBook_C1_Look"},
+                        {new Guid("b5752878-6098-4a4d-93c9-5a472fa74d4b"), "F_E1_1A_IntActor_BaseballCap_C1_Look"},
+                        {new Guid("2c36e416-dc1a-4e35-930a-ae52de08fdbb"), "F_E1_1A_IntActor_BirthdayGift_C1_Look"},
+                        {new Guid("41aeda2e-205d-4b61-b85d-8f7fabfb8e62"), "F_E1_1A_IntActor_Cabinet_C1_Practice"},
+                        {new Guid("4267a64b-49ee-4d83-b97b-6317edcfcfef"), "F_E1_1A_IntActor_CornSyrup_C1_Look"},
+                        {new Guid("963885f4-1bfe-4c5f-a2e4-1f9d5dc54b45"), "F_E1_1A_IntActor_Couch_C1_Sit"},
+                        {new Guid("1dec3ae5-30e0-43cc-a58c-452d775afd85"), "F_E1_1A_IntActor_DaanielHomework_C1_Look"},
+                        {new Guid("cf19e0d6-5dfc-4684-ac44-e14d41df2e0b"), "F_E1_1A_IntActor_DadBook_C1_Look"},
+                        {new Guid("7321779d-8560-4690-968c-b0cb32a9a1ac"), "F_E1_1A_IntActor_DadPaper_C1_Look"},
+                        {new Guid("f420f77a-0d28-46ac-b8cb-bc372fccb883"), "F_E1_1A_IntActor_DadRoom_C1_Look"},
+                        {new Guid("a2bb9b8f-4128-4b62-8597-e7f08d476022"), "F_E1_1A_IntActor_DadShoes_C1_Look"},
+                        {new Guid("756789ef-4113-428a-a2f6-b6cad5f52f7b"), "F_E1_1A_IntActor_DanielToy_C1_Look"},
+                        {new Guid("ab8296a2-1e8d-4b22-bb27-94eb261c42e4"), "F_E1_1A_IntActor_FakePumpkin_C1_Look"},
+                        {new Guid("1577c30b-f3e2-4baa-8134-4c4bf71c4a68"), "F_E1_1A_IntActor_FireExtiguinsher_C1_Look"},
+                        {new Guid("d638ba0b-cbd1-47f1-b66a-687f5b05c701"), "F_E1_1A_IntActor_Fireplace_C1_Look"},
+                        {new Guid("a88b2b68-b745-4948-b2f8-b7cef7fb0541"), "F_E1_1A_IntActor_FramedLicence_C1_Look"},
+                        {new Guid("6b0087ba-b4ea-4d48-a741-5293347bd8ce"), "F_E1_1A_IntActor_FriendPicture_C1_Look"},
+                        {new Guid("55098aeb-2491-49a4-bb31-34ec2c6fd109"), "F_E1_1A_IntActor_GamingMagazine_C1_Look"},
+                        {new Guid("dc115c9d-eb76-43dd-9565-31cd62af6bb6"), "F_E1_1A_IntActor_GaragePicture_C1_Look"},
+                        {new Guid("852c12a6-d2d2-4a5e-a831-6d113491f3e7"), "F_E1_1A_IntActor_HeadSet_C1_Look"},
+                        {new Guid("999536f8-9f41-4126-8381-b7c061899c5c"), "F_E1_1A_IntActor_KarenBox_C1_Look"},
+                        {new Guid("b6c333b1-38fa-4287-8e7b-ec375c4aeb03"), "F_E1_1A_IntActor_LaundryBasket_C1_Look"},
+                        {new Guid("e26ca89a-5d28-485d-8e3a-606e6c313d58"), "F_E1_1A_IntActor_LeftOverFood_C1_Look"},
+                        {new Guid("87601179-a5c5-4cc0-8618-1134ed2545e8"), "F_E1_1A_IntActor_LightSwitch_C1_Turnon"},
+                        {new Guid("e367f94d-c895-4c06-a14a-c2521f23584f"), "F_E1_1A_IntActor_LightSwitch_C2_Turnoff"},
+                        {new Guid("d218f122-37d6-4078-9e61-d59cf82e8d49"), "F_E1_1A_IntActor_LivingRoomWindow_C1_Look"},
+                        {new Guid("74f905e7-54ab-4a32-a08f-818fb7651705"), "F_E1_1A_IntActor_LOTRCollection_C1_Look"},
+                        {new Guid("03257e5c-4f55-4889-8533-d5e6ceab1355"), "F_E1_1A_IntActor_MoviePoster_C1_Look"},
+                        {new Guid("99863c4a-f82f-43fd-ac7e-b6549083c357"), "F_E1_1A_IntActor_462_C1_Look"},
+                        {new Guid("1c7279ff-51f3-4adb-b8b5-71a6120ceb73"), "F_E1_1A_IntActor_MusicPoster_C1_Look"},
+                        {new Guid("6722a9be-8e40-4c79-b652-b6b52b595fe4"), "F_E1_1A_IntActor_NeighborNote_C1_Look"},
+                        {new Guid("921169ef-0da4-411a-b2f9-953bcc1df811"), "F_E1_1A_IntActor_Nightstand_C1_Open"},
+                        {new Guid("e9d10748-314b-4af4-957d-cb4537ca8db8"), "F_E1_1A_IntActor_Picture_C1_Look"},
+                        {new Guid("d0c863bc-869d-4702-a2db-90663b25d063"), "F_E1_1A_IntActor_Playbox_C1_Look"},
+                        {new Guid("fc893275-9e86-4c8f-b573-8c3f7900dc4d"), "F_E1_1A_IntActor_Postcard_C1_Look"},
+                        {new Guid("a97ecbd2-345d-4568-8046-36125418cb05"), "F_E1_1A_IntActor_ReligiousPortrait_C1_Look"},
+                        {new Guid("b809bf2e-5207-44ca-bf6c-607937ffc02a"), "F_E1_1A_IntActor_RetrocarsBook_C1_Look"},
+                        {new Guid("edf975bb-8b0a-412c-8ad9-2eeb18b9da90"), "F_E1_1A_IntActor_Saw_C1_Look"},
+                        {new Guid("de1c7276-37e8-4985-97eb-80aa5c4ce440"), "F_E1_1A_IntActor_SeanBike_C1_Look"},
+                        {new Guid("36f6df7a-47d1-4771-8232-21542964e64a"), "F_E1_1A_IntActor_SeanBook_C1_Look"},
+                        {new Guid("1d7bf8a9-87f6-422e-bd76-b91c6a2b1e1a"), "F_E1_1A_IntActor_SeanDrawing_C1_Look"},
+                        {new Guid("23418976-98b1-4d5c-ae18-a365c5b02d78"), "F_E1_1A_IntActor_SecretRecipe_C1_Look"},
+                        {new Guid("37e3a7ed-7a8f-4025-aeec-eb3daa3d8c63"), "F_E1_1A_IntActor_Skateboard_C1_Look"},
+                        {new Guid("a208ba54-2ef2-4293-9f64-cf252696ae90"), "F_E1_1A_IntActor_SkateParkPicture_C1_Look"},
+                        {new Guid("b52844f4-a46f-4820-9018-1cfca690895a"), "F_E1_1A_IntActor_SkiEquipment_C1_Look"},
+                        {new Guid("106c93d6-f181-4970-9ff7-8f62774e17e9"), "F_E1_1A_IntActor_SkiPicture_C1_Look"},
+                        {new Guid("bca24543-c88e-43b0-a153-89c8f74f11ac"), "F_E1_1A_IntActor_Slate_C1_Look"},
+                        {new Guid("8c06ce42-ab34-4ee9-9c05-d6d734f3a89f"), "F_E1_1A_IntActor_Smoothie_C1_Look"},
+                        {new Guid("8a4e13f2-36a5-48c3-b4ae-2325a1d8abba"), "F_E1_1A_IntActor_Tools_C1_Look"},
+                        {new Guid("74fdb572-1f46-4989-a06c-f2153f144831"), "F_E1_1A_IntActor_ToothBrush_C1_Look"},
+                        {new Guid("d6eb4e7b-b416-4139-b643-2ae6f16767af"), "F_E1_1A_IntActor_Trophies_C1_Look"},
+                        {new Guid("b33bc3ad-df15-43f5-853a-303852368c82"), "F_E1_1A_IntActor_TV_C1_Look"},
+                        {new Guid("9956b72d-857c-4a08-9429-e5e3340789ed"), "F_E1_1A_IntActor_WorkUniform_C1_Look"},
+                        {new Guid("067616d3-734e-47f9-b3e7-9f90e6b6e656"), "F_E1_1A_IntActor_XmasDecorations_C1_Look"},
+                        {new Guid("c36a35e1-8475-4f5a-b9bc-206d52dec6e1"), "F_E1_1A_IntActor_SeanWindow_C1_Look"},
+                        {new Guid("bd584cc6-6951-4545-8243-09d4ced9e249"), "F_E1_1A_IntActor_LightSwitch2_C1_Turnon"},
+                        {new Guid("353bfde4-9e54-499b-9d09-4b6fc87ff851"), "F_E1_1A_IntActor_LightSwitch2_C2_Turnoff"},
+                        {new Guid("d4e42bb0-2123-460c-9759-cad1644c94d2"), "F_E1_1A_IntActor_SeanBackpack_C3_Look"},
+                        {new Guid("79ba4d56-a714-4321-a23b-b7db4875e332"), "F_E1_1A_IntActor_Beers_C2_Look"},
+                        {new Guid("8097b6b9-94dd-4433-82a1-d728646e373a"), "F_E1_1A_IntActor_Sodas_C2_Look"},
+                        {new Guid("0f71ff6d-27b6-4593-b9f5-80438bf2e647"), "F_E1_1A_IntActor_Chips_C2_Look"},
+                        {new Guid("7bd1f292-52f6-4ae8-8b66-d9920465aca1"), "F_E1_1A_IntActor_Lamp_C1_SwitchOn"},
+                        {new Guid("6d674cc2-f0ce-4515-9ce3-356d2493474f"), "F_E1_1A_IntActor_WeedPipe_C1_Look"},
+                        {new Guid("5d1fe151-2c20-4e89-bea8-1e281257d6fb"), "F_E1_1A_IntActor_GigFlyer_C1_Look"},
+                        {new Guid("8630379f-41ad-4ef9-b538-3ad95f99c146"), "F_E1_1A_IntActor_BandPoster_C1_Look"},
+                        {new Guid("aa8a0ec0-1ac4-4d08-9d4b-ed3bdb9c3b57"), "F_E1_1A_IntActor_Cabinet_C2_Look"},
+                        {new Guid("98af4981-af20-4070-a82d-3bc37b59b12f"), "F_E1_1A_IntActor_ChairBean_C1_SitandDraw"},
+                        {new Guid("4f8607f1-ef6b-4c86-823f-28e52dc0050e"), "F_E1_1A_IntActor_Condoms_C1_Take"},
+                        {new Guid("304b42fb-bcf6-4058-932e-a9235dec433c"), "F_E1_1A_IntActor_Condoms_C2_Look"},
+                        {new Guid("1e22c307-cec2-4d2f-b796-7edbb7ec81c4"), "F_E1_1A_IntActor_Engine_C1_Look"},
+                        {new Guid("40fb383c-1935-4cd8-9748-5f9a5e5c7c06"), "F_E1_1A_IntActor_OldPhone_C1_Look"},
+                        {new Guid("1b41a00b-bd91-4fc4-b251-3927fc9c8681"), "F_E1_1A_IntActor_OldToy_C1_Look"},
+                        {new Guid("a70d281d-2b82-4705-898f-3d7c3ad432fc"), "F_E1_1A_IntActor_Receipt_C1_Look"},
+                        {new Guid("7b4e3c80-878f-4795-b6c0-8d1a6bd2b665"), "F_E1_1A_IntActor_SeanCar_C1_Look"},
+                        {new Guid("996cd574-9412-494e-ba24-a16ec4e7e0fb"), "F_E1_1A_IntActor_WrongTool05_C1_Take"},
+                        {new Guid("c5a7915e-760a-47a9-94ed-59268beec216"), "F_E1_1A_IntActor_Ball_C1_Play"},
+                        {new Guid("635a2be9-80b9-4659-b022-5bc1480123ec"), "F_E1_1A_IntActor_Dad_C2_GiveTool"},
+                        {new Guid("c4c79d19-5e61-4872-98e3-7ad2a9413c99"), "F_E1_1A_IntActor_SeanBackpack_C4_Look"},
+                        {new Guid("aba9e660-42fc-4d4b-953d-944d80270bce"), "F_E1_1A_IntActor_Beers_C1_Take"},
+                        {new Guid("9907149a-0b88-4a99-8673-55fdd70e215e"), "F_E1_1A_IntActor_Beers_C3_Switch"},
+                        {new Guid("2d9cf4e3-bb78-43b5-a755-b22cb88afe78"), "F_E1_1A_IntActor_Sodas_C3_Switch"},
+                        {new Guid("1eb398db-7f68-474a-a0b8-17ea0eb4d815"), "F_E1_1A_IntActor_WeedPipe_C2_Take"},
+                        {new Guid("2b901154-0ec5-48c5-b541-ffe6c338e7da"), "F_E1_1A_IntActor_Candy_C2_Take"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                }
+            },
+            {
+                "8c794872-5f7d-413f-b975-20a5e3334f92", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("d15f37ed-33bb-4bac-8c9f-49106179ce32"), "F_E1_2A_SecondaryPath_FallenTree_DanielHelped"},
+                        {new Guid("dcfbb855-c53f-479c-9952-d77b978fd021"), "F_E1_2A_ParkingArea_Car_Left"},
+                        {new Guid("cfb61e85-42d0-402c-a213-bc4f43f7bd11"), "F_E1_2A_PicnicArea_DanielPoISpiderWeb"},
+                        {new Guid("dd8d5ba5-deac-4dc2-ad7b-198eb0ae5e50"), "F_E1_2A_SecondaryPath_HideAndSeek_DanielReady"},
+                        {new Guid("ce74e429-2a8c-4186-954e-cd25475c35b9"), "F_E1_2A_ShelterArea_CampFire_GatheringMaterials"},
+                        {new Guid("5ef102bd-b371-471c-9f4c-bb5b7f2d58a5"), "F_E1_2A_PicnicArea_ZenBench_Available"},
+                        {new Guid("c6b5a8dd-b3c0-40ff-94b4-d1cb742f42ed"), "F_E1_2A_ParkingArea_PayStationSign_ShowPictureSeen"},
+                        {new Guid("5d13ce02-f454-4bc3-a7f5-dbeb361566e2"), "F_E1_2A_SecondaryPath_FallenTree_SeanCrossed"},
+                        {new Guid("ec644d8a-88e7-4f7e-9122-26d38087e1ea"), "F_E1_2A_PicnicArea_HideAndSeek_DanielHidden"},
+                        {new Guid("5a6d4445-8a43-4e3c-b653-b37ba8d109e7"), "F_E1_2A_ParkingArea_DialChoice_Minecraft"},
+                        {new Guid("995b5ad9-76b6-411a-b25f-ecaaa0d159b8"), "F_E1_2A_SecondaryPath_FallenTree_FirstCross"},
+                        {new Guid("3e5429ac-07ff-4d87-9462-0969669a00b1"), "F_E1_2A_SecondaryPath_SeanFoundPath"},
+                        {new Guid("bb496683-b13e-4e10-9f08-3dfd4105a06c"), "F_E1_2A_PicnicArea_ZenBench_InterruptedByDaniel"},
+                        {new Guid("374b2fe3-9553-43b2-b518-e49681381cda"), "F_E1_2A_HikingTrail_Raccoon_Shown"},
+                        {new Guid("12bb6b3e-e1c8-4f96-b394-2605550fda73"), "F_E1_2A_PicnicArea_TrailBlazeShown"},
+                        {new Guid("5665548c-285f-4ddc-baba-1e3ac99febf1"), "F_E1_2A_ParkingArea_DeadRaccoonSeen"},
+                        {new Guid("312a3033-8492-461d-9ca5-2197f6ceaa6c"), "F_E1_2A_ParkingArea_DanielOnPoICar"},
+                        {new Guid("f15bc701-f90b-498a-880b-89ccc319f26f"), "F_E1_2A_ParkingArea_WildlifeSign_Reassure"},
+                        {new Guid("3f035ca3-ec9c-4ef9-9d97-a2404b5819e2"), "F_E1_2A_ParkingArea_HasForcedToilets"},
+                        {new Guid("6c3a601a-8771-46e3-822d-c55c5854ef16"), "F_E1_2A_PicnicArea_QuicklyFoundDanielSpot"},
+                        {new Guid("f4b43ad7-5b1b-476d-a459-80ccc3730234"), "F_E1_2A_ShelterArea_CampFire_Built"},
+                        {new Guid("c65ac77d-a8f7-4444-a2b8-0392d80b2ee6"), "F_E1_2A_ShelterArea_FortificationDone"},
+                        {new Guid("f008d108-d15b-4bf2-a121-c9886a35f7f1"), "F_E1_2A_ShelterArea_GPSit"},
+                        {new Guid("bc9b7fba-6f1f-4b5a-bc4c-3a03ab5a8eac"), "F_E1_2A_PicnicArea_TasteBerries01"},
+                        {new Guid("48a82c3c-8085-4d04-9e08-03ddeac9cf8c"), "F_E1_2A_PicnicArea_BerriesFoundByDaniel"},
+                        {new Guid("2a7c1131-2600-4f07-be4c-595569730604"), "F_E1_2A_PicnicArea_TasteBerries03"},
+                        {new Guid("a1ea66f3-4530-439d-a8a0-3c825cf7b338"), "F_E1_2A_ShelterArea_GPSit_Speaking"},
+                        {new Guid("9e510f5b-9f42-443d-b952-3a3000016c53"), "F_E1_2A_ShelterArea_GPSit_DanielYawns"},
+                        {new Guid("2c1d2658-f5b8-4fda-8ff2-6c03012e8b7b"), "F_E1_2A_ParkingArea_DeadAnimals_DiscussDone"},
+                        {new Guid("704911e3-9f53-42da-aeb6-0fa2835c7770"), "F_E1_2A_SecondaryPath_TreeFungusSeen"},
+                        {new Guid("5a87301d-e737-42e6-bf6b-400aef6160ce"), "F_E1_2A_ShelterArea_CampFire_LogPlaced"},
+                        {new Guid("768fb3a2-1811-439f-be9f-2b7220a4362b"), "F_E1_2A_ShelterArea_SkimStone_Succeed"},
+                        {new Guid("c56b5834-b112-4e17-957d-85fbbd3e2b6c"), "F_E1_2A_ShelterArea_SpikesDone"},
+                        {new Guid("997d553d-179c-4542-8885-70a6986c9605"), "F_E1_2A_ShelterArea_LookFortificationsSunset"},
+                        {new Guid("97cf1823-98ff-4383-9a75-e75dbfd74350"), "F_E1_2A_SecondaryPath_BigClimb_DanielScared"},
+                        {new Guid("e1a0c639-7180-40b2-ac96-4d9020649b32"), "F_E1_2A_PicnicArea_Berries01_Active"},
+                        {new Guid("d4f9e636-0683-4b8b-9bc7-b53e90200a77"), "F_E1_2A_TEMP_DanielIshidding"},
+                        {new Guid("37b5fa5d-0a84-4217-bf7e-f9016bd9c388"), "F_E1_2A_PicnicArea_Berries01_DanielDone"},
+                        {new Guid("6f0c64fa-4f51-4d5b-a622-ab1d23f38bcb"), "F_E1_2A_PicnicArea_Berries03_DanielDone"},
+                        {new Guid("48e3a68a-f367-4b3b-85ba-61fb34ee41d3"), "F_E1_2A_PicnicArea_BearMarksLooked"},
+                        {new Guid("667b1f5f-22c9-4998-96db-2d7e4e640154"), "F_E1_2A_PicnicArea_Berries03_Active"},
+                        {new Guid("148580cf-3548-4791-92a2-d50bae086d49"), "F_E1_2A_PicnicArea_Berries04_Active"},
+                        {new Guid("5bf6c770-c673-4b15-a8fb-d3bab3edf3b6"), "F_E1_2A_PicnicArea_Berries04_Checked"},
+                        {new Guid("0596868d-a5ef-43b6-bce3-ffd43a88c7f3"), "F_E1_2A_PicnicArea_Berries04_DanielDone"},
+                        {new Guid("226d712d-e4cf-4783-80d4-b43575c6a9c9"), "F_E1_2A_PicnicArea_Berries04_NeedTesting"},
+                        {new Guid("6c8be0c3-6af1-4306-80c8-91e1c4a3478a"), "F_E1_2A_PicnicArea_TasteBerries04"},
+                        {new Guid("4e159d56-2069-4f93-97d7-19273e6ab56d"), "F_E1_2A_PicnicArea_GoodBerriesTastedBySean"},
+                        {new Guid("519c40e4-a8ac-49ec-a267-faefa85d9c93"), "F_E1_2A_PicnicArea_GoodBerriesTastedByDaniel"},
+                        {new Guid("afc8c9a8-0b93-45d0-975a-1b38a556cd58"), "F_E1_2A_PicnicArea_Berries_SeanBusy"},
+                        {new Guid("4dea7224-18cd-42ed-b074-1e5acae98451"), "F_E1_2A_PicnicArea_Berries_DanielSick"},
+                        {new Guid("997917fb-fe5a-43a1-8e80-8e57ebd61d1a"), "F_E1_2A_PicnicArea_BadBerriesTastedByDaniel"},
+                        {new Guid("8d78a035-6b3c-4604-91fa-a4efeeee7aaf"), "F_E1_2A_PicnicArea_BadBerriesTastedBySean"},
+                        {new Guid("9f6b5432-0041-4dc1-ac3f-35ec11e2973f"), "F_E1_2A_PicnicArea_Berries05_Active"},
+                        {new Guid("4a907df6-4179-4000-8b8e-7fb260487a4a"), "F_E1_2A_PicnicArea_Berries05_DanielDone"},
+                        {new Guid("006ba01a-2d25-4551-a6d3-35205be00885"), "F_E1_2A_PicnicArea_TasteBerries05"},
+                        {new Guid("235a15a5-b3a5-4cea-9c9b-5aa50b4474e2"), "F_E1_2A_HiddenVistaEnable"},
+                        {new Guid("c95182c8-b214-4bf0-a7a9-ab22ef312dfd"), "F_E1_2A_ShelterArea_GoodNight"},
+                        {new Guid("f1e43570-3945-412b-8acf-3617914bbda6"), "F_E1_2A_InDrawSequence"},
+                        {new Guid("6315a43b-bcd7-47ef-871f-6ebd53d7418b"), "F_E1_2A_Berries_DanielAsk"},
+                        {new Guid("db4b6d87-0397-43ae-bc59-5d04ad7a99db"), "F_E1_2A_PicnicArea_TutoLookCanBeLaunched"},
+                        {new Guid("35bb5083-5428-4c79-8868-be25232cd588"), "F_E1_2A_ParkingArea_SeanNearCar"},
+                        {new Guid("faa928a4-405c-41b1-a16a-b47f1fda2ffc"), "F_E1_2A_SubcontextStarted"},
+                        {new Guid("622f2d1a-6bfe-4816-94e2-7ff1a3aef600"), "F_E1_2A_ShelterArea_DanielFishing"},
+                        {new Guid("c8b37ac8-d1cc-413f-b623-62d4e198a042"), "F_E1_2A_SeanNearFireCamp"},
+                        {new Guid("5c136ce7-2ac5-4edd-b157-685b2fdc9178"), "F_E1_2A_DarkeningWoodsDone"},
+                        {new Guid("a924b1f6-70e3-497a-9722-bdd6a96f6255"), "F_E1_2A_DanielDoingPoIActivities"},
+                        {new Guid("a4080432-b236-49c6-b53a-cc4e234f9eae"), "F_E1_2A_PoIFishingStarted"},
+                        {new Guid("6c6b3f5b-3077-4d4a-8b8f-e7a47a0b40c6"), "F_E1_2A_ShelterArea_DanielFollow"},
+                        {new Guid("5c25bc5f-333e-4895-bfa6-9c9d5bc1db86"), "F_E1_2A_ShelterArea_WeaponRacksDone"},
+                        {new Guid("2c79c91f-d2e3-442b-bce8-2a51df9a3442"), "F_E1_2A_RaccoonPoIReached"},
+                        {new Guid("beb421d7-fe7f-4c5e-898d-fd3917d0cf1b"), "F_E1_2A_ParkingArea_PayStationSign_MailboxLooked"},
+                        {new Guid("9966845b-de1b-4d59-bba2-24e3d0076a1b"), "F_E1_2A_ParkingArea_PayStationSign_MailboxBroken"},
+                        {new Guid("079c7a6a-c679-4a92-9120-468771d39332"), "F_E1_2A_PicnicArea_PlayHideAndSeek"},
+                        {new Guid("32c9c107-7631-4737-be67-9951f714ca74"), "F_E1_2A_ParkingArea_PayStationSign_TryOpen"},
+                        {new Guid("ab3844de-e60a-4bef-a8ce-e6529fbf65ed"), "F_E1_2A_ShelterArea_HelpFireDone"},
+                        {new Guid("0faba736-d103-45d6-a691-a3f69df75862"), "F_E1_2A_PicnicArea_TasteBerries02"},
+                        {new Guid("270bba5d-e169-4222-8b4e-eea7a7fc2067"), "F_E1_2A_ShelterArea_HelpFire_NeedDumpWood"},
+                        {new Guid("5814e354-a0f3-4d5a-a423-74ce5ccfaaf8"), "F_E1_2A_ShelterArea_SkimStone_Teach"},
+                        {new Guid("8a82cd1e-4f9f-4180-aa19-5a720701c4e8"), "F_E1_2A_PicnicArea_Berries02_Showed"},
+                        {new Guid("6d081d2a-2499-4abb-a98a-80b79bbdcb65"), "F_E1_2A_PicnicArea_Berries03_NeedTesting"},
+                        {new Guid("4a5fa37e-6733-477d-9bee-3439f038139f"), "F_E1_2A_PicnicArea_Berries02_Active"},
+                        {new Guid("c1dcb439-aa98-4cd8-aff5-ea06216a4cdc"), "F_E1_2A_PicnicArea_Berries02_DanielDone"},
+                        {new Guid("4488a09b-ff35-4d8c-83e7-b963ff6d83a0"), "F_E1_2A_PicnicArea_HideAndSeek_SeanRefused"},
+                        {new Guid("ba8a784e-7095-485a-83af-ef9f59b1bdfe"), "F_E1_2A_ShelterArea_HelpFire_Spot03_Taken"},
+                        {new Guid("03c49ebc-7f8d-44f4-b621-124c6fd12529"), "F_E1_2A_PicnicArea_Berries05_Showed"},
+                        {new Guid("fc2567a0-990c-4696-aa7f-33e2badf8832"), "F_E1_2A_WoodRaceResult_DanielWon"},
+                        {new Guid("6e4188b5-ca69-4490-a465-999884e0f479"), "F_E1_2A_WoodDump_DanielWaiting"},
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("c3bb2901-405b-4a8d-8ba3-45793ebe2a84"), "F_E1_2A_ShelterArea_WeaponStick"},
+                        {new Guid("4f13630d-02d9-478f-a41b-4deba37fb008"), "F_E1_2A_ShelterArea_LogsInInventory"},
+                        {new Guid("f06cc6e3-38c9-4754-9980-56e3380128f5"), "F_E1_2A_PicnicArea_HideAndSeek_InnerVoiceCues"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("ba42465a-612e-4ba3-b7d1-bbd0532c134c"), "F_E1_2A_PicnicArea_HideAndSeek_State"},
+                        {new Guid("4f6a59cf-aeae-45c8-b853-03f29f729649"), "F_E1_2A_ShelterArea_DanielActivities"},
+                        {new Guid("ceac9bd8-b276-4d4d-b168-6f6e39e05aa8"), "F_E1_2A_DanielStatus"},
+                    },
+                }
+            },
+            {
+                "975670f7-d8ca-4a4e-a7b8-941dd7c9ba29", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("3f2184fb-d459-403d-9ad9-ecea5ed254af"), "F_E1_2A_IntoTheWoods_ParkingArea_WildLife_C"},
+                        {new Guid("689150ce-7dc5-4218-bd62-8378793fdd25"), "F_E1_2A_IntoTheWoods_ShelterArea_DiscoverShelter_C"},
+                        {new Guid("2efc9849-9c54-4d60-ba99-44f0b669a34e"), "F_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_C"},
+                        {new Guid("a66756fb-b8c1-45c5-8bf2-25a070486331"), "F_E1_2A_ShelterArea_BrettTalk_C"},
+                        {new Guid("672fe880-e72a-4ffe-940e-949607ba1266"), "F_E1_2A_IntoTheWoods_MainTrail_Raccoon_C"},
+                        {new Guid("8476b92b-e9b8-47c3-a21a-411d34801e36"), "F_E1_2A_IntoTheWoods_ParkingArea_TrailEntrance_C"},
+                        {new Guid("513b2084-9dc8-48d7-a5cd-ce125e67dbee"), "F_E1_2A_IntoTheWoods_ParkingArea_Car_C"},
+                        {new Guid("6e403e04-810d-4123-a2cc-d6c7704462ee"), "F_E1_2A_IntoTheWoods_ParkingArea_WildLifeSign_C"},
+                        {new Guid("2202c2ef-0d40-464a-913b-2ae865c7fda2"), "F_E1_2A_IntoTheWoods_PicnicArea_Vista_C"},
+                        {new Guid("09b0b3ae-5640-4e59-99f9-9f7e1d9687f7"), "F_E1_2A_IntoTheWoods_Parking_NoCampingSign_C"},
+                        {new Guid("5ab65a4b-b204-42cc-91b7-9856c3ef396e"), "F_E1_2A_IntoTheWoods_ShelterArea_BuildFort_WeaponRack_C"},
+                        {new Guid("3d3798b8-3d5a-4d5d-8e71-be077550ea33"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze02_C"},
+                        {new Guid("606aa441-fffc-4682-bbba-54a24c6910a9"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze01_C"},
+                        {new Guid("f7c4a5d7-c0ba-456c-9bc0-e3da33492138"), "F_E1_2A_ShelterArea_BuildFort_LookAround_WeaponRack_C"},
+                        {new Guid("45d267c9-ad4c-488f-a46c-0e9f7b425410"), "F_E1_2A_IntoTheWoods_SecondaryPath_FallenTree_C"},
+                        {new Guid("fe04fdfc-ebe8-469a-a7b2-50e3a049d1c6"), "F_E1_2A_IntoTheWoods_PicnicArea_GoodBerries_DanielFoundBerries_C"},
+                        {new Guid("c642e5a7-d3c0-47d9-9bff-c82ccf0a26ff"), "F_E1_2A_IntoTheWoods_PicnicArea_BadBerries_DanielFoundBerries_C"},
+                        {new Guid("084c86ae-4360-48a3-87a1-9bf999df1f12"), "F_E1_2A_IntoTheWoods_ShelterArea_HiddenVista_C"},
+                        {new Guid("4f1c4cb3-28c0-408b-a5ab-963547c02fc3"), "F_E1_2A_IntoTheWoods_ShelterArea_Fishing_C"},
+                        {new Guid("15301bea-ad5f-470a-bb7a-f07dd72237b0"), "F_E1_2A_IntoTheWoods_SecondaryPath_TreeFungus_C"},
+                        {new Guid("bfcab1c6-baba-4980-981c-b505bd0cf195"), "F_E1_2A_ShelterArea_Weapon03_C"},
+                        {new Guid("a2baad2b-dff3-481d-bacf-9976e927adcb"), "F_E1_2A_IntoTheWoods_ShelterArea_BuildFort_PushTrunk_C"},
+                        {new Guid("99b5ef50-9601-4d49-ac8b-6525bd0e0d23"), "F_E1_2A_IntoTheWoods_ShelterArea_BuildFort_Spikes_C"},
+                        {new Guid("16351941-4a9e-46d5-b303-c0f6a68c36d3"), "F_E1_2A_ShelterArea_Weapon02_C"},
+                        {new Guid("03a76524-37ec-4384-89d2-2ccc80ae2bfc"), "F_E1_2A_IntoTheWoods_PicnicArea_SpiderWeb_C"},
+                        {new Guid("ad3b0ca2-7c6f-488e-bb4d-3ffa7ab99d35"), "F_E1_2A_IntoTheWoods_ShelterArea_SkimStones_C"},
+                        {new Guid("c909fe2e-515f-4f52-8926-46a0690a98e3"), "F_E1_2A_IntoTheWoods_Road_DeadAnimal_C"},
+                        {new Guid("a8cea612-d5d7-444c-8441-81c7be84377d"), "F_E1_2A_ShelterArea_SwordFight_C"},
+                        {new Guid("523b2dbc-55bb-4785-b9e5-983dea0f4e42"), "F_E1_2A_IntoTheWoods_SecondaryPath_ClimbDown_C"},
+                        {new Guid("144d7b71-3783-4ab7-959b-c82aee16fdf9"), "F_E1_2A_IntoTheWoods_PicnicArea_BearMarkings_C"},
+                        {new Guid("531c009d-93ef-4de0-a730-791cf8dafd93"), "F_E1_2A_PicnicArea_GoodBerries_KnownSpot_C"},
+                        {new Guid("3bd4b46c-0f94-4879-9c85-704bc06df1a0"), "F_E1_2A_IntoTheWoods_SecondaryPath_BirdNest_C"},
+                        {new Guid("d0829ed3-ad46-4082-b89b-fd542b02d8eb"), "F_E1_2A_ShelterArea_Weapon01_C"},
+                        {new Guid("8e0c8dc1-d08b-4711-9b5d-e9de8d26937b"), "F_E1_2A_IntoTheWoods_ParkingArea_LookingForCar_C"},
+                        {new Guid("dae498ed-0825-4c93-8082-6c8c779d33c1"), "F_E1_2A_IntoTheWoods_PicnicArea_PicnicSign_C"},
+                        {new Guid("9b5356f8-3a40-4c8a-87e5-fcc177ec1d4d"), "F_E1_2A_IntoTheWoods_PicnicArea_SitTable_C"},
+                        {new Guid("d56cd32e-0d77-4460-a65d-b9b71ff61738"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze03_C"},
+                        {new Guid("0074d00b-e9c9-4e02-84c8-7c30bc0f30b0"), "F_E1_2A_IntoTheWoods_Parking_StartHiking_C"},
+                        {new Guid("1bb1a43b-fe06-42d3-849b-99fe451e28de"), "F_E1_2A_IntoTheWoods_ParkingArea_DarkeningWoods_C"},
+                        {new Guid("185dbb91-c917-4c29-95ba-de99a40b9997"), "F_E1_2A_IntoTheWoods_PicnicArea_AreaDiscovered_C"},
+                        {new Guid("6ef7834a-d3b5-419f-8a48-55e2c991efae"), "F_E1_2A_IntoTheWoods_SecondaryPath_SeanFoundPath_C"},
+                        {new Guid("a2b38821-b8d5-49f3-9f59-a94580582bda"), "F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_C"},
+                        {new Guid("d5a1ac2f-bb63-4b58-bb7a-57d81e92f07e"), "F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_StartHiding_C"},
+                        {new Guid("27ece961-caf1-453d-a74e-fdab49b45e00"), "F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_Counting_C"},
+                        {new Guid("7333d6e9-22cb-4d48-b377-809010f1c94e"), "F_E1_2A_IntoTheWoods_SecondaryPath_ChitChat_C"},
+                        {new Guid("42e37d34-ebfc-438f-9ca9-05694388d170"), "F_E1_2A_IntoTheWoods_HikingTrail_Raccoon_C"},
+                        {new Guid("c741257f-d6f7-44dd-8825-594917aa39cd"), "F_E1_2A_IntoTheWoods_PicnicArea_Insertion_C"},
+                        {new Guid("f1643b50-c85b-4f10-a03b-3a485f2a7019"), "F_E1_2A_IntoTheWoods_ShelterArea_Howling_C"},
+                        {new Guid("00606ab1-ac8d-4ad4-b4ec-6d7c4947fcc8"), "F_E1_2A_IntoTheWoods_ShelterArea_CellphonePlay_C"},
+                        {new Guid("00b283ef-ba8e-4059-af90-00244bc54851"), "ORPHAN_F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_Call_C"},
+                        {new Guid("fa06b7ca-f853-46d3-9e58-7e2fc50bea48"), "F_E1_2A_IntoTheWoods_PicnicArea_TrailBlaze04_C"},
+                        {new Guid("51d24579-1b8a-4e94-8c89-346956f7d10f"), "F_E1_2A_IntoTheWoods_HelpFire_Result_C"},
+                        {new Guid("20368025-98db-4900-9912-ced44b5863ce"), "F_E1_2A_IntoTheWoods_ShelterArea_HelpFire_2Logs_C"},
+                        {new Guid("e51aa456-43f5-42f0-bd9a-5b596807897f"), "F_E1_2A_IntoTheWoods_ShelterArea_HelpFire_3Logs_C"},
+                        {new Guid("86269d74-0217-4bd7-9d24-95b3e6c735f7"), "F_E1_2A_IntoTheWoods_Hikingtrail_Landslide_C"},
+                        {new Guid("7db31c16-e693-4fa7-86cb-0b5afffe2c45"), "F_E1_2A_IntoTheWoods_PicnicArea_GoodBerries_ShowDaniel_C"},
+                        {new Guid("e9a41842-cc82-4c16-8443-e453fbc9f416"), "F_E1_2A_IntoTheWoods_HikingTrail_ChitChat_01_C"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("8d0e4507-a7a2-42f9-aca7-5e501e605234"), "F_E1_2A_ParkingArea_WildLife_Choice"},
+                        {new Guid("acfd72fd-64c4-4543-baad-e1773da44e42"), "F_E1_2A_ShelterArea_DiscoverShelter_ActivityChoice"},
+                        {new Guid("11cb774a-0ea3-40b1-b5c5-ece021b4cda9"), "F_E1_2A_ShelterArea_PreviousMeal_Choice"},
+                        {new Guid("01734494-3d62-42bc-b808-7f2f9381c91f"), "F_E1_2A_ShelterArea_BrettTalk_BrettTalkChoice"},
+                        {new Guid("6e51fdbf-aef9-47fe-b450-cda939a27fc5"), "F_E1_2A_PicnicArea_GoodBerries_DanielFoundBerries_Choice00"},
+                        {new Guid("61c76900-27ad-4743-8263-572d6068a6f7"), "F_E1_2A_PicnicArea_BadBerries_DanielFoundBerries_Choice00"},
+                        {new Guid("746cb2f4-e459-43c8-93ef-454ce7cfcbf5"), "F_E1_2A_ParkingArea_DarkeningWoods_DarkeningWoodChoice"},
+                        {new Guid("8fcdbd09-b252-44c0-8b94-72d1bd9825b9"), "F_E1_2A_PicnicArea_HideAndSeek_HideAndSeek"},
+                        {new Guid("e86ee3e4-88ff-4322-a01a-8b65a4ecc1a1"), "F_E1_2A_ShelterArea_Howling_HowlingChoice"},
+                        {new Guid("c38a395e-863b-412a-982d-80b593de412b"), "F_E1_2A_ShelterArea_CellphonePlay_CellphonePlay"},
+                        {new Guid("361487c0-858c-4864-b7fc-f8d218af8550"), "F_E1_2A_LevelChoice_Chocobar"},
+                        {new Guid("2c51ddf3-de4d-42df-a7c2-840e860811f0"), "F_E1_2A_LevelChoice_AskToilet"},
+                        {new Guid("9668ac83-db40-4a1c-96f9-0b77ff4126ca"), "F_E1_2A_LevelChoice_IgniteFire"},
+                        {new Guid("62a97afb-b942-4e01-b2ad-c5fcd315024e"), "F_E1_2A_LevelChoice_SkimStoneChoice01"},
+                        {new Guid("11d8925b-2966-4ca7-84c4-d51850747cc9"), "F_E1_2A_LevelChoice_SkimStoneChoice02"},
+                        {new Guid("26dd40f9-4f79-490f-9be5-6e41345f0bfa"), "F_E1_2A_LevelChoice_SkimStoneChoice03"},
+                        {new Guid("fdc61931-4e8e-4c97-a3bf-c1a28c92b9c3"), "F_E1_2A_LevelChoice_ZenRockChoice"},
+                        {new Guid("2c4d3dbb-41e6-4852-8184-2d19f851c593"), "F_E1_2A_LevelChoice_FirstIgnite"},
+                        {new Guid("7fc75022-4ad4-4ced-9f08-b8473af92c48"), "F_E1_2A_ParkingArea_Car_Choice00"},
+                    },
+                }
+            },
+            {
+                "97632851-6cb5-4253-a9ff-10197157317d", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("6a5cf9f7-2c69-4c62-acc8-03ec67349320"), "F_E1_2A_IntActor_Bench_C2_DanielHere"},
+                        {new Guid("4f120696-55d4-419e-a9a4-be2f57a1b660"), "F_E1_2A_IntActor_FallenTree_C2_Help"},
+                        {new Guid("08a703b8-7808-43dc-8b2d-76aed133c506"), "F_E1_2A_IntActor_DropDown_C1_Help"},
+                        {new Guid("d2064f1b-f879-4c4b-b739-87df9f314b0b"), "F_E1_2A_IntActor_HideAndSeek_C1_Scare"},
+                        {new Guid("aa0a6671-83a0-4347-9108-41162557233b"), "F_E1_2A_IntActor_Raccoon_C1_Look"},
+                        {new Guid("6410f2a4-05c7-42bb-81cb-d9dd8714a645"), "F_E1_2A_IntActor_Raccoon_C2_Show"},
+                        {new Guid("6650d4a5-04b2-487c-8d37-ab26688fb302"), "F_E1_2A_IntActor_SpeakGPSit_C1_Look"},
+                        {new Guid("a94116fe-3203-49b7-b3dc-28d725f09f72"), "F_E1_2A_IntActor_SpeakGPSit_C2_Gotosleep"},
+                        {new Guid("b360536c-5f9b-48aa-b741-8c599d93f4b5"), "F_E1_2A_IntActor_PushTrunk_C1_Push"},
+                        {new Guid("a2e62802-68a2-42c5-81ba-db871b7ee4aa"), "F_E1_2A_IntActor_PushTrunk_C2_Look"},
+                        {new Guid("fde17506-4cb6-4d78-b582-68a8ba966d79"), "F_E1_2A_IntActor_ZenRock_C1_Sit"},
+                        {new Guid("f686aec4-2e0a-4964-929e-95547ebc1ea5"), "F_E1_2A_IntActor_ZenRock_C2_Sit"},
+                        {new Guid("84a0da15-ef37-4371-bb1b-e6c44a5efb21"), "F_E1_2A_IntActor_Firepit_C1_AddLogs"},
+                        {new Guid("dfddcd1b-1997-4231-b082-12d3c564aaeb"), "F_E1_2A_IntActor_Firepit_C2_Ignite"},
+                        {new Guid("9dc5fc31-4d20-4778-ae48-efcd9618c8db"), "F_E1_2A_IntActor_Firepit_C3_Look"},
+                        {new Guid("a50a1aea-eb0c-47ba-af0b-0e2f805cdfa8"), "F_E1_2A_IntActor_Firepit_C4_BuildFire"},
+                        {new Guid("8b4065ea-6e7b-4149-86d8-4db94d9c0cf9"), "F_E1_2A_IntActor_Firepit_C5_Ignite"},
+                        {new Guid("08d1a63e-13a0-4235-9550-66dd47676363"), "F_E1_2A_IntActor_SkimStone_C1_Skim"},
+                        {new Guid("1d381791-6fe7-4b5a-b973-1eef6f7af6cc"), "F_E1_2A_IntActor_SpiderWeb_C1_Look"},
+                        {new Guid("55e522f3-0aa2-45e8-aec6-768c5ddb0aa2"), "F_E1_2A_IntActor_Car_C1_Look"},
+                        {new Guid("a1a13d32-d466-49d7-a08e-71e9ff0b5f05"), "F_E1_2A_IntActor_Car_C3_Look"},
+                        {new Guid("d4d82e88-7418-4613-a4dc-c6423db26fd1"), "F_E1_2A_IntActor_Car_C4_Examine"},
+                        {new Guid("1af1f5dc-62ec-4fdd-bc4d-15fa20f1f13a"), "F_E1_2A_IntActor_Toilet_C2_Ask"},
+                        {new Guid("19f91ba7-46d2-4c25-b9a0-a2346093a2a7"), "F_E1_2A_IntActor_Sign2_C1_Look"},
+                        {new Guid("363181ff-fcd1-4f07-b0f6-37f15a421957"), "F_E1_2A_IntActor_Sign2_C2_Discuss"},
+                        {new Guid("b7daf0b4-4c57-4941-8eb6-84a81386ab20"), "F_E1_2A_IntActor_Berries03_C1_Eat"},
+                        {new Guid("54167ae9-bf6d-4f31-a84f-7da66d5c546d"), "F_E1_2A_IntActor_Berries03_C3_Look"},
+                        {new Guid("41c4eb5f-d8d2-4062-8603-a71e9e688c08"), "F_E1_2A_IntActor_Log01_C1_Take"},
+                        {new Guid("14024f80-d94a-4607-880b-c8d42f309188"), "F_E1_2A_IntActor_Log04_C1_Take"},
+                        {new Guid("b9abebbe-cc6c-439f-b16f-de1e2352592c"), "F_E1_2A_IntActor_Log15_C1_Take"},
+                        {new Guid("a98ff914-1172-4bf4-813f-d7f8c8a7da96"), "F_E1_2A_IntActor_TrailBlaze3_C1_Look"},
+                        {new Guid("2d7addea-df00-48b4-992c-c49d75b9ffdd"), "F_E1_2A_IntActor_TrailBlaze1_C1_Look"},
+                        {new Guid("7a6ff58c-61e1-4c7e-a39c-c8d60bd91a9d"), "F_E1_2A_IntActor_TrailBlaze01_C1_Look"},
+                        {new Guid("48045ae8-3c38-4a0f-8577-a89bbed70bf2"), "F_E1_2A_IntActor_TrailBlaze01_C2_Show"},
+                        {new Guid("c46fa48e-5c98-4794-9840-9a0307676bcc"), "F_E1_2A_IntActor_FallenTree_C1_Climbover"},
+                        {new Guid("6a29c807-2369-488e-a1ad-adff1345bee1"), "F_E1_2A_IntActor_Berries01_C1_Eat"},
+                        {new Guid("b5927dab-3f6c-415b-aac4-237247c9b95f"), "F_E1_2A_IntActor_Berries01_C2_Look"},
+                        {new Guid("4c41b432-175b-4eac-a513-d02d17adc54c"), "F_E1_2A_IntActor_Ledge_C1_ClimbDown"},
+                        {new Guid("a48eaad9-1ff8-49cb-ad44-c4006b5251d0"), "F_E1_2A_IntActor_Berries04_C1_Eat"},
+                        {new Guid("a6e62088-1520-48be-afcb-8ffc43822506"), "F_E1_2A_IntActor_Berries04_C2_Look"},
+                        {new Guid("69611505-6f28-48a2-8920-8e7b26804f1c"), "F_E1_2A_IntActor_Berries04_C4_Check"},
+                        {new Guid("eb31dfcf-a64b-4fd9-b4b5-b0d52777d59b"), "F_E1_2A_IntActor_SeanPhone_C1_Look"},
+                        {new Guid("474d5241-b868-4bb4-ac57-5b7c52a97221"), "F_E1_2A_IntActor_Berries05_C1_Eat"},
+                        {new Guid("7a63eb04-7adb-48fe-ae0e-db5d533bfd08"), "F_E1_2A_IntActor_Berries05_C2_Look"},
+                        {new Guid("af12ff07-1d89-449f-bf04-4f2a8e313ebb"), "F_E1_2A_IntActor_SeanBag_C1_Look"},
+                        {new Guid("c8bc4dba-c21f-4472-9234-56ee38c30963"), "F_E1_2A_IntActor_Drawing_C1_SitandDraw"},
+                        {new Guid("22a8d010-dd8e-4cdb-82e7-6791aa9091ec"), "F_E1_2A_IntActor_Wallet_C1_Look"},
+                        {new Guid("53e4d085-6981-47bb-87ea-aa80de4a0713"), "F_E1_2A_IntActor_Cookies_C1_Look"},
+                        {new Guid("2e6a6d17-49b0-4d7e-9e26-45a7c2cb44f1"), "F_E1_2A_IntActor_Ants_C1_Look"},
+                        {new Guid("5d7dde0a-9415-448e-84ac-dcfa3f7baccd"), "F_E1_2A_IntActor_BearMarks02_C2_Look"},
+                        {new Guid("bb782cbf-2d1e-4932-953d-f9783bdcdc2a"), "F_E1_2A_IntActor_BirdNest_C1_Show"},
+                        {new Guid("0e9b99dd-2800-4f88-a8e1-9b3c4a6344da"), "F_E1_2A_IntActor_Carving2_C1_Look"},
+                        {new Guid("f656ab4f-1d16-4fba-a9b5-8d3f0f88a187"), "F_E1_2A_IntActor_CatFood_C1_Look"},
+                        {new Guid("12125117-f5ac-4ba4-a682-45caf5596ed3"), "F_E1_2A_IntActor_DeadAnimal_C1_Look"},
+                        {new Guid("24ceb230-1d7f-433d-9e07-160cbfb3d1aa"), "F_E1_2A_IntActor_DeadAnimal_C2_Discuss"},
+                        {new Guid("5e94151b-b855-4afe-b5fd-1ebd4e48f46f"), "F_E1_2A_IntActor_HygieneSign_C1_Look"},
+                        {new Guid("f9970676-d9c6-4ad2-8397-880eda3fc442"), "F_E1_2A_IntActor_Map_C1_Look"},
+                        {new Guid("5dd1e409-4fbc-45ad-a8d2-0d2313d69f53"), "F_E1_2A_IntActor_Map_C2_Discuss"},
+                        {new Guid("cc0cdb86-2238-4dd5-bdf6-91ea7cd53960"), "F_E1_2A_IntActor_Marks_C1_Look"},
+                        {new Guid("5cbb91bf-c810-4c89-a139-a459fe9f63d8"), "F_E1_2A_IntActor_Paper_C1_Look"},
+                        {new Guid("21241fa0-9c27-4673-98de-f78fac1ab7ae"), "F_E1_2A_IntActor_Paper_C2_Discuss"},
+                        {new Guid("e0b5fbcd-e4a0-48b4-b45f-f627248fafda"), "F_E1_2A_IntActor_PicNicSign_C1_Look"},
+                        {new Guid("9d7d8982-8f90-4429-bc21-427476411fff"), "F_E1_2A_IntActor_Polaroid_C1_Look"},
+                        {new Guid("62a55a17-1abe-470a-acb6-fc2c5655a68e"), "F_E1_2A_IntActor_ShelfFungusTree_C1_Look"},
+                        {new Guid("aca44ce9-898c-4801-b87d-502a6507a2a4"), "F_E1_2A_IntActor_Sign3_C1_Look"},
+                        {new Guid("387eefaf-7a4a-4899-a5ab-fc2e08328c9c"), "F_E1_2A_IntActor_Sign4_C1_Look"},
+                        {new Guid("f73e069e-4003-4275-979e-0dc79697e771"), "F_E1_2A_IntActor_Spikes02_C1_Look"},
+                        {new Guid("c0e3c8c0-6cd7-43b0-a45a-9ed3ff111a70"), "F_E1_2A_IntActor_TagRocks02_C1_Look"},
+                        {new Guid("7a4f1fb0-87d3-48e2-858f-68357388df11"), "F_E1_2A_IntActor_TrailDamage01_C1_Look"},
+                        {new Guid("52ac87da-a870-4877-9bf6-985e92a99284"), "F_E1_2A_IntActor_TrailDamage02_C1_Look"},
+                        {new Guid("633a0cf5-663a-4652-8ed8-f28c3a175596"), "F_E1_2A_IntActor_WaspNest_C1_Look"},
+                        {new Guid("8fd24a7f-101d-4865-bf8e-eccbcec29c95"), "F_E1_2A_IntActor_WeaponRacks_C1_Look"},
+                        {new Guid("852af7fc-bcf5-45a0-bbad-88fb747a763c"), "F_E1_2A_IntActor_WelcomePaper_C1_Look"},
+                        {new Guid("5fa20f96-6175-4a62-9ac1-1a6e6ae7d594"), "F_E1_2A_IntActor_SpiderWeb_C1_Explain"},
+                        {new Guid("983782f8-b13b-488b-86e4-2368d9a87abd"), "F_E1_2A_IntActor_DanielSkimStone_C1_Teach"},
+                        {new Guid("6fd2a40e-9959-4e0c-bf1e-11625d55aed1"), "F_E1_2A_IntActor_Fishing_C2_Cheerup"},
+                        {new Guid("ac9c3f8f-72ab-4df3-b804-dcb51ddf6da3"), "F_E1_2A_IntActor_Log11_C1_Take"},
+                        {new Guid("a42b3a9e-f6d0-4649-b7fc-3e50f1e7b31c"), "F_E1_2A_IntActor_SwordFight_C3_Play"},
+                        {new Guid("7f7412ef-243c-45c6-a317-72b9d009ae50"), "F_E1_2A_IntActor_Toilet_C1_Look"},
+                        {new Guid("07d87600-8826-419e-a1f2-18d19092fb9b"), "F_E1_2A_IntActor_Log13_C1_Take"},
+                        {new Guid("3b497320-2b34-4f88-ba49-96120c70e08d"), "F_E1_2A_IntActor_TrailBlaze2_C1_Look"},
+                        {new Guid("489d54e9-e59d-48df-a019-4eff078af4c8"), "F_E1_2A_IntActor_Berries01_C3_Look"},
+                        {new Guid("95e4c151-1b4b-4161-b5be-e82dccb09175"), "F_E1_2A_IntActor_Berries02_C1_Eat"},
+                        {new Guid("d20421be-84a8-4692-bc08-73aa9321432a"), "F_E1_2A_IntActor_Berries02_C2_Look"},
+                        {new Guid("8777a262-6fc5-4bfe-9b20-3281f5e2acdc"), "F_E1_2A_IntActor_Berries02_C3_Look"},
+                        {new Guid("80e35a58-248e-43e3-bdf0-1ea734b6a9bf"), "F_E1_2A_IntActor_Berries02_C5_Show"},
+                        {new Guid("cf68e60d-0e35-45f4-8d00-01a38716dd5b"), "F_E1_2A_IntActor_Berries04_C3_Look"},
+                        {new Guid("1baedb9f-c82e-408c-9f98-3d9a0301a2b6"), "F_E1_2A_IntActor_Berries05_C3_Look"},
+                        {new Guid("de6aee94-7166-49d8-b0a5-d894eb0bfcf7"), "F_E1_2A_IntActor_Berries05_C5_Show"},
+                        {new Guid("38b4f5fe-8a92-4815-a8e1-8a4d1528bf44"), "F_E1_2A_IntActor_Berries06_C3_Look"},
+                        {new Guid("ec8b75f2-b94f-4876-810c-bb22d0f0e905"), "F_E1_2A_IntActor_SeanBag_C2_Look"},
+                        {new Guid("0a88222e-1d82-4835-a6aa-7dc65ecc7ab5"), "F_E1_2A_IntActor_MailboxRock_C1_BreakBox"},
+                        {new Guid("399d8b04-a567-4b56-9790-3347256515c8"), "F_E1_2A_IntActor_LogStack01_C1_Check"},
+                        {new Guid("7c7516e2-a2c1-4559-8aa0-17b5b68e8021"), "F_E1_2A_IntActor_SodaCan_C1_Look"},
+                        {new Guid("240be55c-3ad2-40b3-9aca-b25e763c3425"), "F_E1_2A_IntActor_BearMarks02_C1_Look"},
+                        {new Guid("14c83925-8c6d-4985-abb2-3cb874ab656e"), "F_E1_2A_IntActor_Carving1_C1_Look"},
+                        {new Guid("14bc85fd-86e8-4621-a904-04df9ca74e9d"), "F_E1_2A_IntActor_Landslide_C1_Look"},
+                        {new Guid("948c6e2b-d86e-4467-9779-f890681fb746"), "F_E1_2A_IntActor_Mailbox_C1_Open"},
+                        {new Guid("0a4781fd-720a-4a3f-8dff-0d14876b4a25"), "F_E1_2A_IntActor_Mailbox_C2_Look"},
+                        {new Guid("368a90f4-0c05-4b98-9f99-36713aa94e13"), "F_E1_2A_IntActor_Mailbox_C3_Look"},
+                        {new Guid("69639c37-a3f3-4724-9736-1e07c8033dd8"), "F_E1_2A_IntActor_Mailbox_C4_Look"},
+                        {new Guid("87e13bc5-27e4-48ef-a520-fb56e45b4bcf"), "F_E1_2A_IntActor_Tag01_C1_Look"},
+                        {new Guid("7ba5c249-c7cc-44e2-9898-a06415165a9a"), "F_E1_2A_IntActor_TrailBlaze_C1_Look"},
+                        {new Guid("59662f4a-9b92-4461-b3f7-29bd8864e21e"), "F_E1_2A_IntActor_TrailDamage01_C2_Discuss"},
+                        {new Guid("b5fbd89c-8908-41a2-ace5-40e9414a7637"), "F_E1_2A_IntActor_WelcomePaper_C2_Discuss"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                }
+            },
+            {
                 "ced8c2ab-0115-4e53-859a-0f56ee663e4a", new FactAsset
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -2817,14 +2419,10 @@ namespace lis2_save_editor
                         {new Guid("32dc880d-3f3f-4b4c-b860-c89d4e8778e7"), "F_E1_2A_POI_TrailBlaze04"},
                         {new Guid("28fc0591-4709-46ec-81f7-51bca74a5ccc"), "F_E1_2A_POI_TrailBlaze01"},
                         {new Guid("51b7d849-79a5-42d5-a4ab-a9fc8fff92f5"), "F_E1_2A_POI_BuildFort_LookAround5"},
-                        {new Guid("8ac72f9b-9a0f-4d0a-9766-d65594085d5e"), "F_E1_2A_POI_TrailBlaze03"},
-                        {new Guid("62143eaa-7188-4375-adaa-b9bfb8a77522"), "F_E1_2A_POI_HelpFire_DumpWood"},
                         {new Guid("38c3d48c-9a45-46a1-91d1-2a303c4f0c71"), "F_E1_2A_POI_FallenTree"},
                         {new Guid("f7e4cd2a-e21f-4119-9607-d7e51784da04"), "F_E1_2A_POI_Berries03_DanielFound"},
                         {new Guid("eaf3eb57-a2e7-482d-9318-5cf5e094a88c"), "F_E1_2A_POI_Berries04_DanielFound"},
                         {new Guid("835cb8a3-e398-47c9-a596-36e7accd5484"), "F_E1_2A_POI_HiddenVista"},
-                        {new Guid("51312153-0159-4362-af6d-82dc63911497"), "F_E1_2A_POI_Fishing"},
-                        {new Guid("c0fad90f-b706-482c-a462-de21910375f6"), "F_E1_2A_POI_MainTrail_Vault01"},
                         {new Guid("fa3c5bcd-df93-4b97-9a84-8daad9cce793"), "F_E1_2A_POI_TreeFungus"},
                         {new Guid("d5eab3dd-cf30-4b4b-aa80-1a6cd6d0371a"), "F_E1_2A_POI_BuildFort_TakeWood03"},
                         {new Guid("53384d89-9b56-4c9b-a0fa-2dd95f2a69cb"), "F_E1_2A_POI_BuildFort_PushTrunk"},
@@ -2836,13 +2434,8 @@ namespace lis2_save_editor
                         {new Guid("358aefa8-f2f4-46c0-822c-94873b690828"), "F_E1_2A_POI_SwordFight"},
                         {new Guid("52d16bc6-b6e7-4c21-ad74-136d93dcad58"), "F_E1_2A_POI_BuildFort_TakeWood02"},
                         {new Guid("782ca510-3c0c-467a-a0fe-4e2cbd473cfd"), "F_E1_2A_POI_BuildFort_LookAround3"},
-                        {new Guid("e3d5f870-b6a9-4e06-a728-e54bdcdb05d6"), "F_E1_2A_POI_HelpFire_TakeWood02_02"},
-                        {new Guid("aadc1b89-c740-472d-b9af-b548a041a4b8"), "F_E1_2A_POI_HelpFire_TakeWood03_02"},
                         {new Guid("0a12da26-7810-45b0-a97f-ddf3acfde55e"), "F_E1_2A_POI_SpiderWeb"},
-                        {new Guid("ee116bf4-4269-4b65-a771-9bffbc6f9ce8"), "F_E1_2A_POI_Berries02_ShowDaniel"},
-                        {new Guid("46c45ee6-3b69-4f22-925e-05f28fa0b51b"), "F_E1_2A_POI_Berries05_ShowDaniel"},
                         {new Guid("9925eeb2-0be5-42ea-91ee-d1663983f2c5"), "F_E1_2A_POI_DeadAnimal"},
-                        {new Guid("23e43155-5342-4cb8-a30d-1f50511442f2"), "F_E1_2A_POI_Landslide"},
                         {new Guid("4e3152f6-0756-4e15-b4b1-f77f6a307074"), "F_E1_2A_POI_ClimbDown"},
                         {new Guid("9563a00d-700a-4b6d-b072-d96e3d3653aa"), "F_E1_2A_POI_BearMarkings"},
                         {new Guid("0f2a157b-266b-4d06-9e87-4c1436d8d39b"), "F_E1_2A_POI_Berries01_FoundKnownSpot"},
@@ -2854,37 +2447,402 @@ namespace lis2_save_editor
                         {new Guid("842ffbbd-6e8f-416b-b836-e99aa508c570"), "F_E1_2A_POI_Lean05"},
                         {new Guid("b81c9b7b-b6d9-42df-8e65-293086c84e16"), "F_E1_2A_POI_leanCar01"},
                         {new Guid("e93cf8ad-bff7-47a6-bde0-10e9eb71c955"), "F_E1_2A_POI_LookAround01"},
-                        {new Guid("d0277103-f325-4d7e-994d-ef5e78f82f7c"), "F_E1_2A_POI_LookAtSignRoad"},
                         {new Guid("4dd4783f-a9cb-429c-b406-b7fd79c0bebf"), "F_E1_2A_POI_LookingForCar"},
                         {new Guid("582b8963-8d04-41d4-8bf2-37ee7ba44475"), "F_E1_2A_POI_LookOver03"},
-                        {new Guid("4e805929-ff26-4f47-bcd7-df0028f5fb42"), "F_E1_2A_POI_LookOver06"},
                         {new Guid("1b74374c-36f6-4fdb-96fc-7805d61a8083"), "F_E1_2A_POI_Parking_Vault02"},
                         {new Guid("ea788b53-9a9e-4a5d-b101-62f4bf7dab05"), "F_E1_2A_POI_Parking_Vault03"},
                         {new Guid("426e13dc-325f-49a4-9bb7-a7fe4da9bbb1"), "F_E1_2A_POI_Picnic_Vault01"},
                         {new Guid("1fbf085b-06fa-4caa-8ce2-44a26117b2d7"), "F_E1_2A_POI_Picnic_Vault02"},
                         {new Guid("07fc534e-f45f-484b-a230-487eccfc27bd"), "F_E1_2A_POI_Picnic_Vault06"},
-                        {new Guid("d1b36484-1077-4777-a5a9-2f3c5c618c65"), "F_E1_2A_POI_Parking_Vault04"},
                         {new Guid("dae27385-cd96-4c6f-b95d-bd28a9d0b760"), "F_E1_2A_POI_Picnic_Vault10"},
                         {new Guid("18666e9f-2d7e-40cd-a25a-511bb3bf8754"), "F_E1_2A_POI_PicnicSign"},
                         {new Guid("b67b805d-c5c6-41e5-b529-cc465e1e7243"), "F_E1_2A_POI_ReadTableCarving01"},
                         {new Guid("a955f659-333f-4209-9e73-3cf562bb85aa"), "F_E1_2A_POI_Shelter_Vault01"},
-                        {new Guid("221a088d-8d02-463f-aac2-bca3be4f1fc9"), "F_E1_2A_POI_SecPath_Vault02"},
                         {new Guid("71f17f5e-1e5c-4a54-a6f9-f83e7eafd90f"), "F_E1_2A_POI_Shelter_Vault02"},
                         {new Guid("855b99d3-9c7c-4bfe-8ea3-aaf87d871683"), "F_E1_2A_POI_Shelter_Vault03"},
                         {new Guid("ffe45a4f-6082-4ddc-b3d0-0a5730f169cf"), "F_E1_2A_POI_Shelter_Vault06"},
                         {new Guid("003305d3-5d3e-4888-9a93-c7b4e12740a7"), "F_E1_2A_POI_Shelter_Vault07"},
                         {new Guid("d3fd80cf-076a-498b-abed-75642fdae12b"), "F_E1_2A_POI_Shelter_Vault09"},
                         {new Guid("b70fe620-4aee-4737-9436-fa355c00d985"), "F_E1_2A_POI_SitTable"},
-                        {new Guid("40dff057-e0f0-4774-8587-c6ff59a180d9"), "F_E1_2A_POI_SitTrunk_16"},
                         {new Guid("a4cf65c7-c072-4499-b89f-abc0c3bf6949"), "F_E1_2A_POI_TrailBlaze02"},
+                        {new Guid("8ac72f9b-9a0f-4d0a-9766-d65594085d5e"), "F_E1_2A_POI_TrailBlaze03"},
+                        {new Guid("62143eaa-7188-4375-adaa-b9bfb8a77522"), "F_E1_2A_POI_HelpFire_DumpWood"},
+                        {new Guid("51312153-0159-4362-af6d-82dc63911497"), "F_E1_2A_POI_Fishing"},
+                        {new Guid("c0fad90f-b706-482c-a462-de21910375f6"), "F_E1_2A_POI_MainTrail_Vault01"},
+                        {new Guid("e3d5f870-b6a9-4e06-a728-e54bdcdb05d6"), "F_E1_2A_POI_HelpFire_TakeWood02_02"},
+                        {new Guid("aadc1b89-c740-472d-b9af-b548a041a4b8"), "F_E1_2A_POI_HelpFire_TakeWood03_02"},
+                        {new Guid("ee116bf4-4269-4b65-a771-9bffbc6f9ce8"), "F_E1_2A_POI_Berries02_ShowDaniel"},
+                        {new Guid("46c45ee6-3b69-4f22-925e-05f28fa0b51b"), "F_E1_2A_POI_Berries05_ShowDaniel"},
+                        {new Guid("23e43155-5342-4cb8-a30d-1f50511442f2"), "F_E1_2A_POI_Landslide"},
+                        {new Guid("d0277103-f325-4d7e-994d-ef5e78f82f7c"), "F_E1_2A_POI_LookAtSignRoad"},
+                        {new Guid("4e805929-ff26-4f47-bcd7-df0028f5fb42"), "F_E1_2A_POI_LookOver06"},
+                        {new Guid("d1b36484-1077-4777-a5a9-2f3c5c618c65"), "F_E1_2A_POI_Parking_Vault04"},
+                        {new Guid("221a088d-8d02-463f-aac2-bca3be4f1fc9"), "F_E1_2A_POI_SecPath_Vault02"},
+                        {new Guid("40dff057-e0f0-4774-8587-c6ff59a180d9"), "F_E1_2A_POI_SitTrunk_16"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
-
+                    },
+                }
+            },
+            {
+                "23dce93e-dccf-4487-806b-103a84900ada", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("46542e23-c5c7-4ef7-a04a-c9e3187ea2a9"), "F_E1_5A_GasStation_Outside_BegFoodSean"},
+                        {new Guid("5bc425b4-8839-40a9-b82f-efe6c9fc5cb8"), "F_E1_5A_GasStation_Inside_InteruptDanielSpeakGSTL"},
+                        {new Guid("3c826176-58d8-4bdb-b304-a8a2a20ec0d7"), "F_E1_5A_GasStation_Inside_HasEnoughMoney"},
+                        {new Guid("77d79125-f1b5-4e36-bff2-0ede46d8e205"), "F_E1_5A_GasStation_Inside_DanielGrabMachine"},
+                        {new Guid("69fac30e-84ad-4c52-9e65-c10bc0d40c52"), "F_E1_5A_GasStation_Inside_ShouldPlayGrabMachine"},
+                        {new Guid("b73a5dad-4c58-443c-b204-d670df91ec77"), "F_E1_5A_GasStation_Inside_Suspicious"},
+                        {new Guid("3e519db7-418b-41ce-8f3c-a1f19aa696ce"), "F_E1_5A_GasStation_Inside_SeanHasWonPowerBear"},
+                        {new Guid("e410c9cf-1310-45fc-a918-a731cf5f2f5a"), "F_E1_5A_GasStation_Inside_DanielWonPowerBear"},
+                        {new Guid("c6a9f5e1-2fc8-4b76-97f8-7a293dd34886"), "F_E1_5A_GasStation_Inside_HasStolenSomething"},
+                        {new Guid("72cb2885-1c68-4dbb-b721-bf90c5237c8e"), "F_E1_5A_GasStation_Inside_IsPettingPuppy"},
+                        {new Guid("1d5a1339-1d10-47bb-af20-c8a396054811"), "F_E1_5A_GasStation_LookForFood"},
+                        {new Guid("ad5e972c-d7ad-4036-9c70-b4c405b8fd7a"), "F_E1_5A_GasStation_LookForDrinks"},
+                        {new Guid("930e185b-e20d-4364-bb46-9f78b05db74a"), "F_E1_5A_GasStation_FindAMap"},
+                        {new Guid("65ef491a-58f7-4215-b6e8-b1b4bcd3af57"), "F_E1_5A_GasStation_Inside_DanielIsBusy"},
+                        {new Guid("34578527-81d8-40c2-8d18-1552a1097218"), "F_E1_5A_GasStation_Inside_HasBoughtSomething"},
+                        {new Guid("e13430b4-8d2a-461f-89ae-19269f3c1b41"), "F_E1_5A_GasStation_Inside_TriesPayNotEnought"},
+                        {new Guid("6738d43a-c501-4b86-b367-99dddd831378"), "F_E1_5A_GasStation_Outside_HUB_Halloween"},
+                        {new Guid("68c44b71-a900-4658-a0a4-7693d75be1a5"), "F_E1_5A_GasStation_Outside_HUB_Food"},
+                        {new Guid("0c735771-abde-482d-8b9b-4c724d96c414"), "F_E1_5A_GasStation_IsInside"},
+                        {new Guid("1b3d0266-4571-441e-8750-b4db396c3a55"), "F_E1_5A_GasStation_Inside_LadyBusywithSean"},
+                        {new Guid("cfe13b5a-b563-4a2b-8b9a-8f356737c7df"), "F_E1_5A_GasStation_Inside_HasSeenLeaveMap"},
+                        {new Guid("1c6d0d63-2209-4a97-a7d7-e5b81666eaef"), "F_E1_5A_GasStation_Inside_TalkNearAirVentDone"},
+                        {new Guid("d1a59d61-127b-4b4a-86aa-904197203ad9"), "F_E1_5A_GasStation_Night"},
+                        {new Guid("2b8d0d9e-8c34-49c6-ae2d-31c7813d9c6f"), "F_E1_5A_GasStation_Objective_Escape"},
+                        {new Guid("c9008d79-2dba-4f31-853f-54efb5c637eb"), "F_E1_5A_GasStation_ReachGS"},
+                        {new Guid("1892b876-3e03-4005-8aec-3c1ce6c8f7a1"), "F_E1_5A_GasStation_Inside_DanielBroughtTool"},
+                        {new Guid("71f8438d-ae2a-44e5-ad0b-1f1356cfd651"), "F_E1_5A_GasStation_KnowsBrodyName"},
+                        {new Guid("18cb2aae-ee4d-4a3a-9e28-70834603ff29"), "F_E1_5A_GasStation_KnowsHankName"},
+                        {new Guid("e0287535-cdc5-471f-9814-75fd92412cd9"), "F_E1_5A_GasStation_Inside_DoingGMPOI"},
+                        {new Guid("1a226813-e810-4ae8-bbf7-bf198f5651cd"), "F_E1_5A_GasStation_Outside_CanLaunchInsertionInnerVoices"},
+                        {new Guid("b3b0f1fd-5508-457b-a187-a50fe15615ac"), "F_E1_5A_GasStation_Outside_CanReceivedSMS"},
+                        {new Guid("3a8ca174-d471-4053-a597-3eef4fd28a5b"), "F_E1_5A_GasStation_Inside_DanielChocobarPOI"},
+                        {new Guid("dc2b7ec0-128a-4ad2-b0da-208c1dc21728"), "F_E1_5A_GasStation_Outside_ZenSequenceCompleted"},
+                        {new Guid("d9f27820-2244-49e4-9ede-b48e715f68e3"), "F_E1_5A_GasStation_Outside_DestroyTruck"},
+                        {new Guid("1b87364f-ade8-4ed1-94fd-f468436e7946"), "F_E1_5A_GasStation_Inside_IsPuppyAwake"},
+                        {new Guid("55e844f7-3f52-4484-9636-55bdba41b350"), "F_E1_5A_GasStation_Inside_PoIDorisPlaying"},
+                        {new Guid("93c89fe7-309c-4c93-a519-131ec672b791"), "F_E1_5A_GasStation_Outside_FamilyUpset"},
+                        {new Guid("a3de6f7e-e554-4932-8d0e-8e5107972f14"), "F_E1_5A_GasStation_Inside_ComeFromRemoveItem"},
+                        {new Guid("73670f77-413c-42b5-aa36-3d5c9e44382a"), "F_E1_5A_GasStation_Outside_HUB_Visiting"},
+                        {new Guid("f6c59fd9-b18d-4339-aa54-f0809999041f"), "F_E1_5A_GasStation_Outside_SeanIsInToilets"},
+                        {new Guid("799408fd-3e98-4df1-a158-c21df814904d"), "F_E1_5A_GasStation_Outside_DanIsInToilets"},
+                        {new Guid("a0618e36-8470-4d7f-aea1-3a21faa8d0a4"), "F_E1_5A_GasStation_Outside_HUB_NoHalloween"},
+                        {new Guid("02d2a24c-def3-4b58-a096-2aab2fbf71b6"), "F_E1_5A_GasStation_Inside_DirectRemoveItem"},
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("68d6eddd-cd4c-4c56-8abf-c2dd792ed53b"), "F_E1_5A_GasStation_Outside_FamilyMood"},
+                        {new Guid("76cfb6e5-0807-4721-a38a-02036c843cf8"), "F_E1_5A_GasStation_Inside_PayStep"},
+                        {new Guid("203e8c6d-ab32-444b-adfa-c997c060e86e"), "F_E1_5A_GasStation_Inside_GMDanielTries"},
+                        {new Guid("6b2aaf71-8ef7-4583-989a-7432175c11b5"), "F_E1_5A_GasStation_Inside_PayNumberOfTime"},
+                        {new Guid("fe37b5b9-2901-442f-a32a-95935c629534"), "F_E1_5A_GasStation_Inside_Crosswords"},
+                        {new Guid("edd5bce3-b72e-4f04-8dbd-53f6ff26c254"), "F_E1_5A_GasStation_Inside_NumberItemsOnDesk"},
+                        {new Guid("46b774f4-3195-4820-9684-5f5748dd5faf"), "F_E1_5A_GasStation_Inside_GMSeanTries"},
+                        {new Guid("c3dddc8c-b2c0-4dbb-a550-cd5fd566aba4"), "F_E1_5A_GasStation_Inside_CantStealCues"},
+                        {new Guid("5e6505c6-514e-4422-8902-07d821e1343b"), "F_E1_5A_GasStation_Inside_FailedToSteal"},
+                        {new Guid("5e862243-5e62-42af-a66b-6f2d208956fc"), "F_E1_5A_GasStation_Inside_PriceToPay"},
+                        {new Guid("d9450025-b4cf-44e8-9e63-9982163d87cc"), "F_E1_5A_GasStation_Inside_UsedMoneyOnce"},
+                        {new Guid("94509e31-66b1-41ac-920a-1df9d131c390"), "F_E1_5A_GasStation_Inside_PayTotalSequence"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("d683b719-2b46-4d78-bdd8-307e78d04750"), "F_E1_5A_GasStation_Inside_ChocoCrispStatus"},
+                        {new Guid("c7a34168-044d-4955-939c-ac3b8c201d37"), "F_E1_5A_GasStation_Inside_WaterBottleStatus"},
+                        {new Guid("ba67d013-3636-47ea-9141-4247f02b0431"), "F_E1_5A_GasStation_Inside_CanStatus"},
+                        {new Guid("d0c09577-662f-49e6-bdc6-98f19f2a9510"), "F_E1_5A_GasStation_Inside_BroTalkToCustomer"},
+                        {new Guid("f52c692a-2c74-4f5f-b743-f429f07e4a0d"), "F_E1_5A_GasStation_Inside_ToolStatus"},
+                        {new Guid("dc6649db-57c7-479e-8ff6-7fc904c8f83f"), "F_E1_5A_GasStation_Inside_GMState"},
+                        {new Guid("a1bbaf76-b1c4-447c-9449-8690f6d25269"), "F_E1_5A_GasStation_TotalFood"},
+                        {new Guid("07fe1bb9-3312-4581-b627-e394f554513c"), "F_E1_5A_GasStation_Inside_SleepingBagStatus"},
+                        {new Guid("ab1b4aa2-5515-41b0-8cb9-40ab3e60734a"), "F_E1_5A_GasStation_Inside_SandwichStatus"},
+                        {new Guid("20d58722-a5d7-4e52-8869-4555f3a0cef2"), "F_E1_5A_GasStation_Inside_SlicedBreadStatus"},
+                    },
+                }
+            },
+            {
+                "b26ffabf-a347-4f18-83f6-162f05cc835a", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("1c469ece-649e-467b-9926-3fd9998c4b38"), "F_E1_5A_Inside_SwitchPosGM_C"},
+                        {new Guid("a304e54e-3d9f-4606-adf0-3663a36e6e86"), "F_E1_5A_Inside_StartGM_C"},
+                        {new Guid("c5016c95-4833-468a-833a-58df0f5d688b"), "F_E1_5A_Inside_Pay_C"},
+                        {new Guid("d77ce8fa-4553-400f-ad01-d211eac6ca5d"), "F_E1_5A_GasStation_Office_AskForTool_C"},
+                        {new Guid("714e3b88-e49a-4088-8bd8-e5aff442897f"), "F_E1_5A_GasStation_Office_WakeUpInOffice_C"},
+                        {new Guid("3af102cd-e526-4ce2-9031-ee7271ac5921"), "F_E1_5A_Office_CheckWindow_C"},
+                        {new Guid("b792dde0-32bf-40ed-aff2-61a37aa921cf"), "F_E1_5A_Outside_Family_C"},
+                        {new Guid("e03b9a4b-a7be-4c9b-bcbe-05617d314980"), "F_E1_5A_Inside_ExaminePuppy_C"},
+                        {new Guid("1880f1bd-0e46-42fb-9a1d-27a885f2935d"), "F_E1_5A_Inside_SpeakShopKeeper_C"},
+                        {new Guid("a0f52995-8e67-4046-9ade-6bda225eee63"), "F_E1_5A_Inside_JRNLSpeak_C"},
+                        {new Guid("73d0ec94-709a-40f6-b58c-7274cc65b095"), "F_E1_5A_Inside_PuppyPoI_C"},
+                        {new Guid("d8123f34-7792-4506-86a1-b3b07d96e159"), "F_E1_5A_Outside_WildPoster_PoI_C"},
+                        {new Guid("4747f5b7-b34e-41e1-b862-e590ab0686ef"), "F_E1_5A_Inside_Witch_C"},
+                        {new Guid("ef3d0726-1257-4d58-9ff1-12dec347071d"), "F_E1_5A_Inside_GMPoI_C"},
+                        {new Guid("8795df56-7459-402a-9f74-81b3de1cd3ad"), "F_E1_5A_Inside_ShockOCrisp_C"},
+                        {new Guid("c56bf4d6-51dc-4b18-8fbc-c17bdd6c4ff9"), "F_E1_5A_Inside_BeerPoster_C"},
+                        {new Guid("ad168ba0-1e48-4ccb-a5fd-3658a273505d"), "F_E1_5A_Inside_CardboardPowerBear_C"},
+                        {new Guid("be25c596-523e-4ce2-8ddf-ed5a2633c941"), "F_E1_5A_Inside_Postcard_C"},
+                        {new Guid("b7a704c4-d0cd-4e14-b41a-8440fd0f584f"), "F_E1_5A_Inside_Tent_C"},
+                        {new Guid("762e8272-dddf-434a-a548-16a288a85932"), "F_E1_5A_Inside_Pumpkin_C"},
+                        {new Guid("2f5d3066-94d3-4fcd-91ff-8702a40cc0a9"), "F_E1_5A_Outside_BearShelves_C"},
+                        {new Guid("d829f527-80d1-45bb-bf8d-2f64093e29fa"), "F_E1_5A_Outside_GSDiscovery_C"},
+                        {new Guid("1b37f341-9600-42c0-a28a-b36abdaaa471"), "F_E1_5A_Inside_RandomA_C"},
+                        {new Guid("1b3578e7-a763-4d61-b0e2-4aed62dccf5c"), "F_E1_5A_Inside_RandomB_C"},
+                        {new Guid("ecbf50f5-9c9d-4105-8961-3068deb90d62"), "F_E1_5A_Outside_RandomB_C"},
+                        {new Guid("8c6a709f-9479-47b7-a705-6628044f2826"), "F_E1_5A_Outside_RandomC_C"},
+                        {new Guid("b2d1e662-424b-4ed0-aabe-2ccc4ca06974"), "F_E1_5A_Inside_HalloweenCostume_C"},
+                        {new Guid("0bff652e-0e16-45de-8549-85cd2cc91038"), "F_E1_5A_Inside_FirstEntrance_C"},
+                        {new Guid("2e1448f6-5cd5-4699-a36b-58f2a440bdfe"), "F_E1_5A_Outside_SpanishLessons_C"},
+                        {new Guid("0e448726-c8f5-4eb2-86b3-6d9bdaefd45d"), "F_E1_5A_Outside_DanielReactFoodBeg_C"},
+                        {new Guid("3bf7a049-8218-4fbd-849b-597c5ec4ffc4"), "F_E1_5A_Office_LockedDoor_C"},
+                        {new Guid("9c108fc8-7c6e-4abe-a1bb-0ba1b397d420"), "F_E1_5A_Office_ScaredC_C"},
+                        {new Guid("76aefa22-230f-4b7a-8037-f1c5262323de"), "F_E1_5A_Office_ScaredD_C"},
+                        {new Guid("c28f0b0b-4d2a-4672-ab25-f826fc1f5c27"), "F_E1_5A_Outside_ChitChat_C"},
+                        {new Guid("5f7ca12d-dfd0-4c6c-a5b6-5138cb91b39d"), "F_E1_5A_Inside_InteruptBroLady_C"},
+                        {new Guid("468afedf-8dc2-48c0-a9a3-183107fde892"), "F_E1_5A_Outside_CampingSign_C"},
+                        {new Guid("139de9c0-a3bd-42bf-b498-651cc92bc7de"), "F_E1_5A_Outside_JunkPile_C"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("98df6f68-feee-4276-b481-9d9343612e41"), "F_E1_5A_Inside_SwitchPosGM_LetHimPlay1"},
+                        {new Guid("cf6cd875-0e35-4b03-9e8c-011cb977fe76"), "F_E1_5A_Inside_SwitchPosGM_Play1"},
+                        {new Guid("4b26867f-f7c3-4862-87ed-7c8cd4c97ddb"), "F_E1_5A_Inside_SwitchPosGM_Play2"},
+                        {new Guid("c29e8009-7e64-4f5b-a81e-80b0010ae313"), "F_E1_5A_Inside_StartGM_WhoFirst"},
+                        {new Guid("d46405ba-ea80-4c7a-b908-8b1a6466704a"), "F_E1_5A_Inside_Pay_Pay"},
+                        {new Guid("48c45475-eb2b-4908-b4a7-77aacdded1bf"), "F_E1_5A_Office_AskForTool_TypeTool"},
+                        {new Guid("4da04555-e876-48a8-a4cb-9885cb0302b9"), "F_E1_5A_Office_WakeUpInOffice_Choice"},
+                        {new Guid("2a6084d3-3423-4985-8d33-0e5b7b71b4ed"), "F_E1_5A_Outside_Family_HUB"},
+                        {new Guid("8da72c0c-b5d1-4b23-810a-6458e2a718f6"), "F_E1_5A_Inside_ExaminePuppy_TakePuppy"},
+                        {new Guid("425c96d5-59f2-4216-a66d-9cc7bda05760"), "F_E1_5A_Inside_SpeakShopKeeper_WhyHere"},
+                        {new Guid("5092c9b8-f06b-4fba-94d9-14402a1e900b"), "F_E1_5A_Inside_SpeakShopKeeper_Parents"},
+                        {new Guid("3fc008c1-bf32-4628-9363-3a534d1c98df"), "F_E1_5A_Inside_SpeakShopKeeper_LongTrip"},
+                        {new Guid("0c203b74-cd4c-4547-8f74-080305eb8e5e"), "F_E1_5A_Inside_JRNLSpeak_People"},
+                        {new Guid("98538f69-e306-4f90-8d9b-4c0322b9dbb4"), "F_E1_5A_Inside_JRNLSpeak_Travelling"},
+                        {new Guid("a5948bad-e4a4-436d-b90b-d47607999715"), "F_E1_5A_Inside_FirstEntrance_Choice00"},
+                        {new Guid("84c6634c-81c7-42a8-8677-23bcc3b257dd"), "F_E1_5A_LevelChoice_HalfEatenApple"},
+                        {new Guid("f4bbeeb1-605c-4ed1-af5b-f9bd248fb7ce"), "F_E1_5A_LevelChoice_Owner_PicNic"},
+                        {new Guid("ee2d744e-fe9c-4637-89c2-414ae27f5d25"), "F_E1_5A_LevelChoice_NightChoice_1"},
+                        {new Guid("5410b798-b722-467e-9061-e83d042583f8"), "F_E1_5A_LevelChoice_NightChoice_2"},
+                        {new Guid("eb8c4253-3331-4cdd-9434-e444cffae3c2"), "F_E1_5A_Outside_ChitChat_GetOutReaction"},
+                        {new Guid("c94a2565-b121-474f-b887-78d4223c787a"), "F_E1_5A_Office_AskForTool_Location"},
+                        {new Guid("67d25768-30c1-4653-a7c9-87444b872f7e"), "F_E1_5A_Outside_Family_Weather"},
+                    },
+                }
+            },
+            {
+                "77d2dd30-8e65-412f-9fc2-b2f4186815f7", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("45e3639b-b7d4-4404-9636-b1913e75faf9"), "F_E1_5A_IntActor_TruckSticker_C1_Take"},
+                        {new Guid("249bfc51-5392-414f-b847-d64e0f3c259a"), "F_E1_5A_IntActor_TruckSticker_C2_Look"},
+                        {new Guid("b128e310-17d3-4dbd-91a6-7117dada067a"), "F_E1_5A_IntActor_Bears_C1_Look"},
+                        {new Guid("9846256b-4c1b-4e13-9932-c0df9c93cc68"), "F_E1_5A_IntActor_WildAnimalsPoster_C1_Look"},
+                        {new Guid("bfe3b03e-4c7a-4ce3-88c3-df8d1a17b815"), "F_E1_5A_IntActor_TrappedBird_C1_Look"},
+                        {new Guid("fc2f4655-f43c-4ce7-a8a8-ec73a4c9af91"), "F_E1_5A_IntActor_TrappedBird_C2_Move"},
+                        {new Guid("9d888568-a90a-45f1-af4f-09670e655ecb"), "F_E1_5A_IntActor_FrontDoor_C1_Goin"},
+                        {new Guid("26b8cdd4-69a1-41da-8458-fcbf7d5a6cca"), "F_E1_5A_IntActor_FrontDoor_C2_Goin"},
+                        {new Guid("cd233aaa-fa9a-475e-995a-4c3678c802b9"), "F_E1_5A_IntActor_Brody_C3_Interrupt"},
+                        {new Guid("2c643680-9a19-416b-8887-e0f52f76483f"), "F_E1_5A_IntActor_Feather_C1_Pickup"},
+                        {new Guid("61115a43-2468-4d52-a0a0-2a3fa6e06c34"), "F_E1_5A_IntActor_Feather_C2_Look"},
+                        {new Guid("4116af06-ff68-4ad9-8654-c5db3ff7cf71"), "F_E1_5A_IntActor_314_C1_Look"},
+                        {new Guid("32d9179f-e719-4a0c-84d2-1cecf02df8a7"), "F_E1_5A_IntActor_Bench_C1_Sit"},
+                        {new Guid("921685e5-45bd-4497-98b0-6dda29ddd245"), "F_E1_5A_IntActor_Family_C1_Look"},
+                        {new Guid("2f731807-8ea6-46f1-a3ec-18fae37ffad4"), "F_E1_5A_IntActor_Family_C2_Speak"},
+                        {new Guid("02351ac8-bb1c-4c87-9015-d1fb80b2b3a6"), "F_E1_5A_IntActor_Trash_C1_Look"},
+                        {new Guid("dcfdb960-2a9f-4fc5-8fac-504773d73308"), "F_E1_5A_IntActor_Trash_C2_Lookforfood"},
+                        {new Guid("d6f75727-6ba0-4039-a2c3-07d2f9fa1d31"), "F_E1_5A_IntActor_PicnicTable_C1_Look"},
+                        {new Guid("c043fdbf-b2e2-49fc-8174-fdc13b82001a"), "F_E1_5A_IntActor_PicnicTable_C2_Eat"},
+                        {new Guid("cccbc116-349c-40ce-a660-8f9da8ce2d8b"), "F_E1_5A_IntActor_PicnicTable_C3_LocalMap"},
+                        {new Guid("3467ea99-186b-41b4-83e9-b02846feab56"), "F_E1_5A_IntActor_Fallen_C1_Take"},
+                        {new Guid("91fdec3c-ec8a-4841-b50d-2510822055ec"), "F_E1_5A_IntActor_ExitDoor_C2_Asktoopen"},
+                        {new Guid("c098ae26-2a7a-405f-a470-31376ed4475e"), "F_E1_5A_IntActor_SpanishLessons_C1_Look"},
+                        {new Guid("45cb42dc-7751-46a8-9b8e-88d10ffd309e"), "F_E1_5A_IntActor_InflatablePumpkin_C1_Look"},
+                        {new Guid("70811abb-92b5-4501-ba64-5298da3489a7"), "F_E1_5A_IntActor_IceContainer_C1_Look"},
+                        {new Guid("ef254118-d5af-4a78-b8d5-22af5b133c14"), "F_E1_5A_IntActor_HalloweenPoster2_C1_Look"},
+                        {new Guid("93143570-9f18-4e48-8aee-0bf5cd2cf4d9"), "F_E1_5A_IntActor_HalloweenDeco1_C1_Look"},
+                        {new Guid("b3232f49-f5e4-4fda-9746-35dc150afb32"), "F_E1_5A_IntActor_HalfCarvedBear_C1_Look"},
+                        {new Guid("ca966dd8-3e84-4a4a-918a-5bcd98c17620"), "F_E1_5A_IntActor_GivePuppyPoster_C1_Look"},
+                        {new Guid("73cbcabe-6daa-4314-a3e7-b3bbeb1771b9"), "F_E1_5A_IntActor_296_C1_Look"},
+                        {new Guid("434d2cd0-ed63-4059-a405-7358c878e4a0"), "F_E1_5A_IntActor_Witch_C1_Look"},
+                        {new Guid("427f735f-78f4-4946-a34b-9f7c580b13c7"), "F_E1_5A_IntActor_PowerBear_C1_Look"},
+                        {new Guid("c075d95a-5e62-4d4b-9f2a-9044a364aaf5"), "F_E1_5A_IntActor_Poster1_C1_Look"},
+                        {new Guid("f67a0b5a-5eaa-426a-a6cd-936d58b595f5"), "F_E1_5A_IntActor_KnifeDisplay_C1_Look"},
+                        {new Guid("1fd04838-c5ef-4f6b-bded-29d828834fd9"), "F_E1_5A_IntActor_ATM_C1_Look"},
+                        {new Guid("693d87a7-ba0e-40ee-bfb7-a9db39286fbf"), "F_E1_5A_IntActor_AirVent_C1_Asktotearoff"},
+                        {new Guid("1a88640c-0613-4584-8b01-cf5fe819c846"), "F_E1_5A_IntActor_AirVent_C2_AnswerDaniel"},
+                        {new Guid("6c2f424e-de69-49be-947d-ba0a03a4270a"), "F_E1_5A_IntActor_AirVent_C3_Takethetool"},
+                        {new Guid("83ac922e-f7d2-46dc-989f-94c97c56f625"), "F_E1_5A_IntActor_PosterToMove_C2_Push"},
+                        {new Guid("ad6ab9fa-ced1-466b-a172-bf4dd6261054"), "F_E1_5A_IntActor_BackDoorKeys_C1_Look"},
+                        {new Guid("38d98818-760b-4b75-b53c-48f2cc340f52"), "F_E1_5A_IntActor_BackDoorKeys_C2_Reach"},
+                        {new Guid("055b3df4-9b9d-49d6-9f1b-4016b3a6dd67"), "F_E1_5A_IntActor_Tube_C1_Push"},
+                        {new Guid("79bd1c08-22a0-4b8a-b8c3-248c6fe64607"), "F_E1_5A_IntActor_StorageDoor_C1_Open"},
+                        {new Guid("25dd8f77-d91d-400d-ba83-17c5cd15f035"), "F_E1_5A_IntActor_Computer_C1_Look"},
+                        {new Guid("ee1ba46f-1700-4603-86bd-74a0f4f0b490"), "F_E1_5A_IntActor_FamilyPicture_C1_Look"},
+                        {new Guid("4aaeac1d-7b1f-4736-a66e-1ef012451ef6"), "F_E1_5A_IntActor_Ties_C1_Break"},
+                        {new Guid("51b4e1bd-a881-435a-a2fa-2201d246e34c"), "F_E1_5A_IntActor_Ties_C2_Break"},
+                        {new Guid("4db983a8-3001-4383-9750-b5b15b170124"), "F_E1_5A_IntActor_PipeAnchor_C1_Tear"},
+                        {new Guid("b55fb716-6d68-4dfd-81df-38ada2ee4f97"), "F_E1_5A_IntActor_PipeAnchor_C2_Look"},
+                        {new Guid("18bc9ce7-891a-4da8-8ce7-4f96158a07a3"), "F_E1_5A_IntActor_PipeAnchor_C3_Tear"},
+                        {new Guid("12bf8dcd-29db-4ef1-993d-8646fff07bc2"), "F_E1_5A_IntActor_PipeAnchor_C5_Askfortool"},
+                        {new Guid("e974645f-27f9-4aa8-88e1-a02d463ef6c6"), "F_E1_5A_IntActor_ChocoCrisp_C3_Steal"},
+                        {new Guid("4d361ac2-9aed-4b3d-9dd9-2640ffd28919"), "F_E1_5A_IntActor_GrabMachine_C1_Look"},
+                        {new Guid("622d1e44-c793-4e12-be75-7202a78962eb"), "F_E1_5A_IntActor_GrabMachine_C3_Play($1)"},
+                        {new Guid("5b46c5c1-d60c-482f-9983-308a0ce0abcf"), "F_E1_5A_IntActor_FrontDoor_C1_Getout"},
+                        {new Guid("c3924a3f-dcfb-4b60-ab4e-96e6b3a950d9"), "F_E1_5A_IntActor_Can_C2_Addtobasket($4.50)"},
+                        {new Guid("7496edd2-8f6d-4009-bd54-5cce771411eb"), "F_E1_5A_IntActor_GSTL01_C1_Pay"},
+                        {new Guid("5dc85b20-1188-40b9-8d7d-835113d31c54"), "F_E1_5A_IntActor_GSTL01_C5_Speak"},
+                        {new Guid("fe6a5552-933f-43c6-8ef4-63c0f809fd35"), "F_E1_5A_IntActor_HotDogMachine_C1_Look"},
+                        {new Guid("2c3613d0-70b0-4f1c-82ab-94aec440693a"), "F_E1_5A_IntActor_Puppy_C4_Discuss"},
+                        {new Guid("bf2d7a93-481a-4f61-a37a-733928f138ec"), "F_E1_5A_IntActor_RegionMap_C1_Take"},
+                        {new Guid("2757b077-36ce-46ba-be84-b681945588ff"), "F_E1_5A_IntActor_WaterBottle_C2_Addtobasket($4.50)"},
+                        {new Guid("be731f5e-d9fd-47d2-a4f4-0f4c99589b8c"), "F_E1_5A_IntActor_window_C1_Look"},
+                        {new Guid("d375a512-1988-4f25-9c4f-ca9f5be54c72"), "F_E1_5A_IntActor_window_C2_Asktoopen"},
+                        {new Guid("05a6908f-ec9b-4f89-a320-87ca26d7919e"), "F_E1_5A_IntActor_LicensePlate_C1_Look"},
+                        {new Guid("be565a0c-3e75-45bf-b2ee-98d6ebd07e6b"), "F_E1_5A_IntActor_Newspaper_C1_Read"},
+                        {new Guid("c94576aa-adfb-4ed5-a67f-38a49e99f6a8"), "F_E1_5A_IntActor_Posters_C1_Look"},
+                        {new Guid("83917d24-8eb4-4fae-a70a-d5bcfc5caaf9"), "F_E1_5A_IntActor_Shelve_C2_Discuss"},
+                        {new Guid("ac059e09-c118-4aa6-bfa2-39aadaa824ec"), "F_E1_5A_IntActor_Brochures_C1_Look"},
+                        {new Guid("6454bf12-11e4-45ac-b459-f2a825e91bab"), "F_E1_5A_IntActor_SportTeam_C1_Look"},
+                        {new Guid("e5490026-1035-4291-8aba-7ed7a8d05981"), "F_E1_5A_IntActor_LetterBox_C1_Look"},
+                        {new Guid("33463a13-908d-44d2-b709-b060f998975d"), "F_E1_5A_IntActor_Coffee_C1_Look"},
+                        {new Guid("0e0efbe2-824c-4847-b61c-f6993dce92d8"), "F_E1_5A_IntActor_JunkPile_C1_Discuss"},
+                        {new Guid("97fa15f2-800f-4d97-a1db-55eddf59dc3b"), "F_E1_5A_IntActor_ToiletSink_C1_Fillbottle"},
+                        {new Guid("1ffdcd61-8955-4889-8f1b-e4cd74a32b79"), "F_E1_5A_IntActor_ToiletSink_C2_Cleanup"},
+                        {new Guid("a1293795-cd2a-477c-b95b-3de35ccd4326"), "F_E1_5A_IntActor_ToiletDoorGetout_C1_Leave"},
+                        {new Guid("539afad8-67b1-4259-8a2a-170d0c327303"), "F_E1_5A_IntActor_ToiletDoor_C1_Look"},
+                        {new Guid("72a52426-d57e-4dbc-a8b2-090fd0805119"), "F_E1_5A_IntActor_ToiletDoor_C3_Entertogether"},
+                        {new Guid("7a8ff2ab-ee21-4438-803a-c86f24e512dd"), "F_E1_5A_IntActor_Brody_C1_Look"},
+                        {new Guid("53343ec7-bd33-47c5-a09a-2db3aa6bb10f"), "F_E1_5A_IntActor_Souvenir2_C1_Look"},
+                        {new Guid("a5e5089e-4325-4944-a96e-6d3f0b1c7f79"), "F_E1_5A_IntActor_Door_C1_Look"},
+                        {new Guid("3f0bd912-ed8c-4c3a-8af0-db417518584d"), "F_E1_5A_IntActor_ExitDoor_C1_Look"},
+                        {new Guid("b4f768a9-196f-43d7-b234-9e113373aa66"), "F_E1_5A_IntActor_House_C1_Look"},
+                        {new Guid("540bc265-fb4f-4e4c-9bed-2c59b6bca737"), "F_E1_5A_IntActor_CampingSign_C1_Look"},
+                        {new Guid("cc43971c-c1ee-4fee-b9a6-42382300ef0f"), "F_E1_5A_IntActor_BigBear_C1_Look"},
+                        {new Guid("2356e655-7d76-4746-bf6e-3fa483c2ecc4"), "F_E1_5A_IntActor_Tent_C1_Look"},
+                        {new Guid("8bf9fbf2-835c-4595-9f84-9f5c52429b75"), "F_E1_5A_IntActor_Postcard_C1_Look"},
+                        {new Guid("e004eb57-41c6-49dc-bf1a-7a47ec11c6a4"), "F_E1_5A_IntActor_CampingGear_C1_Look"},
+                        {new Guid("72260f3e-b041-4708-a936-f4ed2ad09db3"), "F_E1_5A_IntActor_PilePaper_C1_Read"},
+                        {new Guid("23d42d76-047e-4cae-be95-b48f4da9c6dd"), "F_E1_5A_IntActor_Souvenir_C1_Kick"},
+                        {new Guid("06cd8006-3b29-47e3-90d8-58ed3e5a51d3"), "F_E1_5A_IntActor_ChocoCrisp_C1_Look"},
+                        {new Guid("a0febc72-a178-4eb8-9675-0d872ed334f7"), "F_E1_5A_IntActor_ChocoCrisp_C2_Addtobasket($1.99)"},
+                        {new Guid("b8fb48ea-1da5-4705-aa72-72f429add4cc"), "F_E1_5A_IntActor_SodaBottle_C1_Look"},
+                        {new Guid("5ce887e3-3d59-416c-b700-08c2dac37744"), "F_E1_5A_IntActor_InspectorToolDesk_C1_Inspect"},
+                        {new Guid("898d7b6d-f814-4d30-9042-3f7f8563f940"), "F_E1_5A_IntActor_KeyChain_C1_Look"},
+                        {new Guid("628e6242-ccd8-434c-a5a2-7f7d96d2bd63"), "F_E1_5A_IntActor_KeyChain_C2_Show"},
+                        {new Guid("8246f891-3d1c-432e-a96a-63ea960264b4"), "F_E1_5A_IntActor_TShirt_C3_Look"},
+                        {new Guid("ba78accd-344b-4dc3-99e0-af94c9b953e1"), "F_E1_5A_IntActor_CelebrityPhoto_C1_Look"},
+                        {new Guid("a64f6ad4-c4e7-46f8-9e2c-07249efe1430"), "F_E1_5A_IntActor_GSTL01_C2_Look"},
+                        {new Guid("c8eff45f-320a-4a22-8293-ed90ad644838"), "F_E1_5A_IntActor_GSTL01_C4_Interrupt"},
+                        {new Guid("f83415c7-8b24-4ccf-87d0-5920ef052001"), "F_E1_5A_IntActor_HotDogMachine_C2_Make2hotdogs($6)"},
+                        {new Guid("e9028068-be50-4753-acfc-e4980838c045"), "F_E1_5A_IntActor_Puppy_C1_Look"},
+                        {new Guid("f8e175ca-7c03-46d2-9192-78d3250e7da1"), "F_E1_5A_IntActor_RegionMap_C2_Look"},
+                        {new Guid("3171b178-e644-4deb-9531-92c3b97febef"), "F_E1_5A_IntActor_SleepingBag_C1_Addtobasket($16)"},
+                        {new Guid("64a81bd2-f75d-409e-b6b2-833cd98a7638"), "F_E1_5A_IntActor_SleepingBag_C3_Look"},
+                        {new Guid("d7bb5851-fc4c-4e3b-82ca-a92258f8d69d"), "F_E1_5A_IntActor_SlicedBread_C1_Look"},
+                        {new Guid("b638d1f5-4325-4409-8bc0-4c0f1cbf57a3"), "F_E1_5A_IntActor_SlicedBread_C2_Addtobasket($5.90)"},
+                        {new Guid("49a6af56-ec4d-4c6a-a76a-04747b631e64"), "F_E1_5A_IntActor_WaterBottle_C1_Look"},
+                        {new Guid("1b7c06f4-c304-4c30-ab28-06a3bce86694"), "F_E1_5A_IntActor_Sweat_C1_Look"},
+                        {new Guid("6962db43-3a3d-4b17-a375-022821c0ce70"), "F_E1_5A_IntActor_Mirror_C1_Look"},
+                        {new Guid("7ebf1af9-6cf6-4ea8-bf69-72b4d9a80191"), "F_E1_5A_IntActor_Shelve_C1_Look"},
+                        {new Guid("e30d5199-aa7b-4873-9acd-e7239b023b0e"), "F_E1_5A_IntActor_Sign_C1_Look"},
+                        {new Guid("3eea9066-774d-47f5-8427-710c13757dfd"), "F_E1_5A_IntActor_ToiletInstruction1_C1_Look"},
+                        {new Guid("ba895b79-bdfc-47e8-89da-4b90fb123f6b"), "F_E1_5A_IntActor_ToiletPaperDispenser_C1_Look"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                }
+            },
+            {
+                "44645c7e-038c-4fac-bff6-4ce3a6229f80", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("857d3e14-28ae-4e35-89b8-c27cc80f4b47"), "F_E1_5A_POI_BP_PoI_Int_Airvent_PoI_Infini"},
+                        {new Guid("7da6b5da-b7af-4bc7-8995-58488aad62f1"), "F_E1_5A_POI_BP_PoI_Int_GrabMachine"},
+                        {new Guid("1173357b-0e2d-4e30-91ff-c9ca8c5fe7f3"), "F_E1_5A_POI_BP_PoI_Out_Shelve"},
+                        {new Guid("a960ad8c-a367-48ba-ae12-6401dc2d7ef0"), "F_E1_5A_POI_BP_PoI_int_Brody"},
+                        {new Guid("4eec7da7-a8db-4e69-b5d7-b59897c8c8aa"), "F_E1_5A_POI_BP_PoI_Int_Witch"},
+                        {new Guid("e7252a54-ddf8-42be-8995-c7e26f941cb8"), "F_E1_5A_POI_BP_PoI_Out_BearPoster"},
+                        {new Guid("f2fdfc28-c335-4389-a463-dde98bfa0488"), "F_E1_5A_POI_BP_PoI_Int_Puppy"},
+                        {new Guid("4c51523c-a190-4b90-9269-781e285084fc"), "F_E1_5A_POI_BP_PoI_Int_Ketchup_PoI_Infini"},
+                        {new Guid("23461862-8970-49fb-8b78-09814527d554"), "F_E1_5A_POI_BP_PoI_Int_Drink_Infini"},
+                        {new Guid("5f3d175a-691a-483f-8adc-a4d8e1eef547"), "F_E1_5A_POI_BP_PoI_Out_InfiniZenSqc"},
+                        {new Guid("2c7a1423-a4ac-4537-91aa-59cd7a2e0f41"), "F_E1_5A_POI_BP_PoI_Int_Chocobar"},
+                        {new Guid("d54e3a03-b991-4c2d-b602-fba747a01f6d"), "F_E1_5A_POI_BP_PoI_Int_Doris"},
+                        {new Guid("f283f000-9758-498c-8183-0145000154d1"), "F_E1_5A_POI_BP_PoI_Int_Bear"},
+                        {new Guid("c7dfa3ad-3caa-45c6-80e4-56fd48d0ba97"), "F_E1_5A_POI_BP_PoI_Int_Beer"},
+                        {new Guid("c627e238-7f7b-4cd4-b8cf-c0dc9b88d315"), "F_E1_5A_POI_BP_PoI_Int_CandyMachine"},
+                        {new Guid("d1cadd2d-b3d0-40a4-a18b-e4083314d26f"), "F_E1_5A_POI_BP_PoI_Int_Drinks"},
+                        {new Guid("dbd1335e-66b5-48db-b01a-a6b523e574e5"), "F_E1_5A_POI_BP_PoI_Int_Juice"},
+                        {new Guid("1263e5eb-61b3-4b79-ac70-446190fc3596"), "F_E1_5A_POI_BP_PoI_Int_Ketchup"},
+                        {new Guid("9cebe397-4ed8-4cf6-bdbc-55c322c81a48"), "F_E1_5A_POI_BP_PoI_Int_Kitchen"},
+                        {new Guid("397b4b12-a91b-4741-a126-6cf12bf3f065"), "F_E1_5A_POI_BP_PoI_Int_PeanutButter"},
+                        {new Guid("d9ff91ed-e4de-4a53-82ea-4f7f35377885"), "F_E1_5A_POI_BP_PoI_Int_PowerBear"},
+                        {new Guid("9e380258-c28b-42d2-9a9c-d88da9813ce6"), "F_E1_5A_POI_BP_PoI_Int_SouvenirRack"},
+                        {new Guid("60114b12-6b9a-4071-82a9-a25856823334"), "F_E1_5A_POI_BP_PoI_Int_Sweater"},
+                        {new Guid("8925b5c3-5e0e-4c6d-93e7-70b8d3af71b5"), "F_E1_5A_POI_BP_PoI_Int_Tea"},
+                        {new Guid("ba4f3c87-7d98-4fcf-8d14-6a6bd7928a13"), "F_E1_5A_POI_BP_PoI_Int_Tents"},
+                        {new Guid("23ea4c83-8383-4c4f-a29b-e2f2976e5e01"), "F_E1_5A_POI_BP_PoI_Int_Window"},
+                        {new Guid("9d651314-85c1-478d-bae2-aa50efa1e82b"), "F_E1_5A_POI_BP_PoI_Out_Curb2"},
+                        {new Guid("0aee468f-8866-44fb-a10a-f36b96bbcd67"), "F_E1_5A_POI_BP_PoI_Out_DragFeet2"},
+                        {new Guid("2649c76f-9724-4281-b43f-fa4744f29200"), "F_E1_5A_POI_BP_PoI_Out_Pump1"},
+                        {new Guid("047c9e4e-09c5-4957-a136-78194a63e36d"), "F_E1_5A_POI_BP_PoI_Out_Pump3"},
+                        {new Guid("6250d361-aea2-43f6-851c-50f9fb5070c4"), "F_E1_5A_POI_BP_PoI_Out_Pump4"},
+                        {new Guid("ca13ec28-6614-49b0-9850-6483a490ff8d"), "F_E1_5A_POI_BP_PoI_Out_Pumpkin"},
+                        {new Guid("09043f8a-2346-492d-b80a-35eb17e2f659"), "F_E1_5A_POI_BP_PoI_Out_SquirrelNut"},
+                        {new Guid("f9a91273-d5e7-4f76-be4a-70af8e145d30"), "F_E1_5A_POI_BP_PoI_Out_Table"},
+                        {new Guid("297db690-fb8b-447c-8b18-f881fda56ece"), "F_E1_5A_POI_BP_PoI_Out_TouchNeck2"},
+                        {new Guid("2039b69a-06a3-47fa-9f0e-4ac926370994"), "F_E1_5A_POI_BP_PoI_Out_Ins_GSDiscovery"},
+                        {new Guid("382c1126-cf78-4b17-8918-525991e58bed"), "F_E1_5A_POI_BP_PoI_OutOfbreathe"},
+                        {new Guid("4a79866d-4146-4729-ae97-3eae16ae54e2"), "F_E1_5A_POI_BP_PoI_Out_Ins_LeanElectricPole"},
+                        {new Guid("0cd70309-08fb-46d3-a7e3-7b5ab683f3d6"), "F_E1_5A_POI_BP_PoI_Out_SitTree2"},
+                        {new Guid("f1214068-f6fa-40e9-bfa7-ac6e3a6009a0"), "F_E1_5A_POI_BP_PoI_Out_LeanWoodPile"},
+                        {new Guid("8ebfd76e-5e9c-4c05-a370-3045d87336d7"), "F_E1_5A_POI_BP_PoI_Out_ToiletPoster"},
+                        {new Guid("9f2a5589-97e9-4b87-bee5-97ac3d3d6697"), "F_E1_5A_POI_BP_PoI_Out_Toilet_Sitting"},
+                        {new Guid("d4bb698c-8488-4b61-8532-453786e9c160"), "F_E1_5A_POI_BP_PoI_Int_Cream_PoI_Infini"},
+                        {new Guid("4a3cd210-601e-4246-99d4-e334132d3101"), "F_E1_5A_POI_BP_PoI_Int_Knifes"},
+                        {new Guid("718bd3df-7cc8-4b76-9113-4f03825ee358"), "F_E1_5A_POI_BP_PoI_Out_CampingSign"},
+                        {new Guid("0d56b967-21d9-4746-b8c0-d753fd56540e"), "F_E1_5A_POI_BP_PoI_Out_LeanWallBack"},
+                        {new Guid("7248e008-be5e-4927-ac59-1b9cdaea2500"), "F_E1_5A_POI_BP_PoI_Out_SEarch"},
+                        {new Guid("f2d5cec5-d37c-4d21-8a40-2ddb23794f97"), "F_E1_5A_POI_BP_PoI_Out_SitJunk"},
+                        {new Guid("2fa6d822-8574-4ca3-bbd1-5edcc0ee632a"), "F_E1_5A_POI_BP_PoI_Out_TouchNeck"},
+                        {new Guid("55ef92ba-bd04-49c7-8556-a4453d2447d3"), "F_E1_5A_POI_BP_PoI_Out_Workbench"},
+                        {new Guid("0372940f-1f07-4ee2-b08d-6950d6105b4e"), "F_E1_5A_POI_BP_PoI_Out_Inst_OldPath"},
+                        {new Guid("4ddd63fa-28da-41ea-9514-12bccb76f56f"), "F_E1_5A_POI_BP_PoI_Out_DragFeet4"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
                     },
                 }
             },
@@ -2893,7 +2851,6 @@ namespace lis2_save_editor
                 {
                     BoolFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -2901,7 +2858,6 @@ namespace lis2_save_editor
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
-
                     },
                     EnumFacts = new Dictionary<Guid, string>
                     {
@@ -2912,7 +2868,192 @@ namespace lis2_save_editor
                     },
                 }
             },
+            {
+                "584d97de-04cb-4a71-99c0-c54b3f967d63", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("9ff56633-c07a-45bf-94a6-7eca959a1936"), "F_E1_7A_BathReady"},
+                        {new Guid("8717dfd7-c309-42ae-ad5d-12e7f2402c08"), "F_E1_7A_UsedLiquidSoapInTime"},
+                        {new Guid("52458e76-b0fb-49eb-bb19-68b3f0bf710e"), "F_E1_7A_BathWaterTapOpened"},
+                        {new Guid("f7df30f0-fa9d-41d4-b4c6-9481b5df0718"), "F_E1_7A_LightBathRoom"},
+                        {new Guid("61cd79d3-033b-41ec-9e64-6649452f1b19"), "F_E1_7A_OnBalcony"},
+                        {new Guid("34c8b41d-36b3-4320-82ca-4ad2266a377e"), "F_E1_7A_ReceivedLylaMessage"},
+                        {new Guid("3a9e028e-819d-4dbc-befa-174f0d0ffa12"), "F_E1_7A_SeanProximity"},
+                        {new Guid("3611c705-99d0-4b5a-bd06-1719994a0911"), "F_E1_7A_StealingIsBad"},
+                        {new Guid("07581ad2-695d-4c7b-b1dc-47f096f3da17"), "F_E1_7A_ShowBag"},
+                        {new Guid("7c293c08-bfbf-4a0f-83e0-dd75bb895a79"), "F_E1_7A_ShowTowels"},
+                        {new Guid("642fb0c9-238c-497b-af3a-97fd15ed9dad"), "F_E1_7A_ShowShoes"},
+                        {new Guid("c212480d-1d67-4479-af98-000ea0fc0376"), "F_E1_7A_CuddleSoft"},
+                        {new Guid("6c8229e1-9b16-4daf-bf5b-9c95ab4a6ce7"), "F_E1_7A_VaniheDiscussionOn"},
+                        {new Guid("57339838-c805-47a5-83e7-d552b4f7f541"), "F_E1_7A_CanPlayPowerBear"},
+                        {new Guid("3f7b5b9a-fdea-4667-9780-6fb9476e0339"), "F_E1_7A_IsCollectibleMode"},
+                        {new Guid("44e1acd8-b75a-49b6-9cdf-5f57c4d76e04"), "F_E1_7A_ShowPowerBear"},
+                        {new Guid("b29f42c3-e6d7-4e82-a018-cc96aa502777"), "F_E1_7A_ArguedAboutToy"},
+                        {new Guid("82213249-13a3-4b88-b4fa-f70c39bdf297"), "F_E1_7A_WalletLastStatus"},
+                        {new Guid("c8836b85-8122-46d9-8849-07cdd4ccaaf5"), "F_E1_7A_ActivateSeagull"},
+                        {new Guid("fd29a6b8-487d-4538-a0c7-50fae85bf732"), "F_E1_7A_CanTickle"},
+                        {new Guid("1e229bbd-30e5-4553-83da-81705984bf8e"), "F_E1_7A_SpecialDanceShot"},
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("0a925493-1dcb-4bac-9da2-31218466f9be"), "F_E1_7A_NumberOfStickThrow"},
+                        {new Guid("87a69e93-637e-4d90-acbb-e1e055b05034"), "F_E1_7A_ToggleLight"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("520f6717-d4dd-4d6c-b729-05578cbc190c"), "F_E1_7A_BedChoosing"},
+                        {new Guid("ab399ad9-6066-4535-acf2-774139caed4e"), "F_E1_7A_MotelStatus"},
+                    },
+                }
+            },
+            {
+                "afca1e71-03e3-46b3-85b0-f55c014e5ac8", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("cea8eca8-d9b4-44bd-8c94-917169851c15"), "F_E1_7A_MotelRoom_JRNLObject_C"},
+                        {new Guid("b74c51a2-8acb-4d42-8446-d4e46fda7862"), "F_E1_7A_MotelRoom_AnswerFRND_C"},
+                        {new Guid("c7bb90ef-e948-47cd-8773-943687e3cebe"), "F_E1_7A_Beach_Insertion_C"},
+                        {new Guid("e2506b49-db24-4829-a03c-e5a61e60a758"), "F_E1_7A_MotelRoom_PowerReveal_C"},
+                        {new Guid("a2dde0ad-fcad-451f-b639-d8b740d21108"), "F_E1_7A_Walkway_Room8_C"},
+                        {new Guid("ac2d9f6b-c385-49f7-9c93-47445e156176"), "F_E1_7A_Walkway_Room10_C"},
+                        {new Guid("26e77363-0da1-40b4-9c14-4fce145ef7ea"), "F_E1_7A_Beach_PlayingMushroomTwo_C"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("9b9a47e1-8a80-46a4-b721-635f72ac868c"), "F_E1_7A_MotelRoom_JRNLObject_JRNLToy"},
+                        {new Guid("6ed46ef3-fcff-464f-a017-25cf8d017d91"), "F_E1_7A_MotelRoom_AnswerFRND_CheckLylaNews"},
+                        {new Guid("0692d1d4-44d8-4e22-a5ea-cb9e34052c2b"), "F_E1_7A_MotelRoom_AnswerFRND_ComeBack"},
+                        {new Guid("65700e37-d19c-4250-bfda-17c367b252cd"), "F_E1_7A_MotelRoom_AnswerFRND_FinalChoice"},
+                        {new Guid("45075eca-b039-483b-b864-c796478c86a1"), "F_E1_7A_Beach_Insertion_PhoneTrash"},
+                        {new Guid("e4c32d97-6138-4e9b-b5f0-c1e31104730b"), "F_E1_7A_MotelRoom_PowerReveal_SecondChoice"},
+                        {new Guid("3efe08cd-e206-40dc-8e23-86fd4539ed5c"), "F_E1_7A_MotelRoom_PowerReveal_FirstChoice "},
+                        {new Guid("08dda61a-bc65-49ff-8a5a-a31d03ac5b76"), "F_E1_7A_MotelRoom_PowerReveal_BadOptionalChoice"},
+                        {new Guid("78c1f749-18a2-41bd-85d5-833401a6feed"), "F_E1_7A_MotelRoom_PowerReveal_PromiseChoice"},
+                        {new Guid("40be204c-c0a8-47cd-9a26-4ecd6208b0e2"), "F_E1_7A_LevelChoice_RPSChoice"},
+                        {new Guid("3218275e-c026-4882-98f4-6df47498e231"), "F_E1_7A_LevelChoice_DanceBed"},
+                        {new Guid("a912b0d6-38bc-4bdb-ae7a-e8b88cb1afb6"), "F_E1_7A_LevelChoice_AcceptRevenge"},
+                        {new Guid("942cc0d1-aa82-4785-b807-8442fba7dba1"), "F_E1_7A_LevelChoice_StaggingChoiceLyla"},
+                        {new Guid("edbe169b-3a00-4adf-bd5c-e5f58764bd44"), "F_E1_7A_LevelChoice_AskStickLoop"},
+                    },
+                }
+            },
+            {
+                "61d63f40-103f-49a4-957e-9e4d64859819", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("6782716e-0f53-4055-a2fb-b8216c3986b3"), "F_E1_7A_IntActor_MotelCardCollectible_C1_Look"},
+                        {new Guid("6a4b50b2-3dae-4a2d-a5dd-44a4ab291647"), "F_E1_7A_IntActor_Phone_C1_Pickupthephone"},
+                        {new Guid("ff20b1c0-1a22-4d53-83fa-e05687703fe8"), "F_E1_7A_IntActor_BeachDaniel_C1_Look"},
+                        {new Guid("5b5b4958-8acf-49e0-8516-7fab0d4677ea"), "F_E1_7A_IntActor_MainDoor_C1_Goinside"},
+                        {new Guid("9f405205-6fe3-4c3b-a3ff-037ca5f3eb05"), "F_E1_7A_IntActor_BathTap_C1_Look"},
+                        {new Guid("d72bf256-1eec-4689-8487-da4c77211815"), "F_E1_7A_IntActor_BathTap_C2_Open"},
+                        {new Guid("d64a3e87-3cf1-40b3-8b63-a2835d7eba06"), "F_E1_7A_IntActor_BathTap_C3_Close"},
+                        {new Guid("6b52d733-99d3-46df-bd7c-b15c4e95d5db"), "F_E1_7A_IntActor_Bathtub_C1_Look"},
+                        {new Guid("048f8de4-4713-4755-89da-fe29542405c7"), "F_E1_7A_IntActor_Bathtub_C3_Calltobath"},
+                        {new Guid("cf595e37-9a9e-448f-bdc9-dab541b2f1c4"), "F_E1_7A_IntActor_SinkTap_C1_Wash"},
+                        {new Guid("ce78ccf7-b248-4e06-99b8-b9ce344f0b2f"), "F_E1_7A_IntActor_VendingMachine_C1_Buyasoda($1)"},
+                        {new Guid("260175ba-14c3-4828-b59b-165bff79b689"), "F_E1_7A_IntActor_Instructions_C1_Look"},
+                        {new Guid("27eaec6c-a977-4e6f-8b1b-a500a8a19ed7"), "F_E1_7A_IntActor_Map_C1_Look"},
+                        {new Guid("522d08f9-b3b6-423e-94b8-9ff4607a94e7"), "F_E1_7A_IntActor_Toy_C2_Question"},
+                        {new Guid("3cf8ac78-fa98-4196-a2fa-7b7f865adb90"), "F_E1_7A_IntActor_LiquidSoap_C1_Look"},
+                        {new Guid("6003db8b-da37-43b2-b02d-8efd7910006a"), "F_E1_7A_IntActor_LiquidSoap_C2_Add"},
+                        {new Guid("d871dc58-61ca-4e24-b180-a1bd6f99cced"), "F_E1_7A_IntActor_Wardrobe_C1_Open"},
+                        {new Guid("70376d81-7c18-4190-8281-9cc643ed5f1b"), "F_E1_7A_IntActor_WoodStick_C1_Playfetch"},
+                        {new Guid("5d487ce9-841c-4621-8095-71d8876746f8"), "F_E1_7A_IntActor_WoodStick_C2_Look"},
+                        {new Guid("5f17384e-957b-4a89-93d1-3b5fef615ae9"), "F_E1_7A_IntActor_BrodyCarBeach_C1_Look"},
+                        {new Guid("9f583eb9-1301-49b9-8ee1-64bdb1d5ce4f"), "F_E1_7A_IntActor_BagBeach_C1_Look"},
+                        {new Guid("f157e3d9-e59b-4db1-9722-093f9a59299b"), "F_E1_7A_IntActor_BrodyBag_C1_Look"},
+                        {new Guid("dd364e89-67a1-4a16-9b9b-fdfc03120c4a"), "F_E1_7A_IntActor_SandCastle_C1_Look"},
+                        {new Guid("d33180fa-3d4d-489f-90cd-aa2310df50b8"), "F_E1_7A_IntActor_FrenchWindowInside_C1_Gooutside"},
+                        {new Guid("160e132b-bd9b-46f2-91b3-71d9801a9b8f"), "F_E1_7A_IntActor_FrenchWindowInside_C2_Goinside"},
+                        {new Guid("5daa67fc-2897-42a7-97e5-2a00aa36a83a"), "F_E1_7A_IntActor_Shampoo_C1_Look"},
+                        {new Guid("10fe4ef9-082b-45fb-8330-7f6d6a755b72"), "F_E1_7A_IntActor_Painting_C1_Look"},
+                        {new Guid("e123d0d8-ce8e-4a9f-8cc7-cd7b9019fb2a"), "F_E1_7A_IntActor_JRNLNote_C1_Look"},
+                        {new Guid("239b853c-93f5-4f33-bf2a-0d5c3cb76fac"), "F_E1_7A_IntActor_Card_C1_Look"},
+                        {new Guid("835d6953-7e46-42f5-92f4-3efe7b57695b"), "F_E1_7A_IntActor_FreshTowels_C2_Look"},
+                        {new Guid("e42f0b7a-ea05-476a-8603-8ff53ec60be8"), "F_E1_7A_IntActor_BagDaniel_C1_Look"},
+                        {new Guid("c0ab0b52-1802-4463-a610-0f6f3ca65222"), "F_E1_7A_IntActor_Flyers_C1_Look"},
+                        {new Guid("157e0d10-b4fe-4dd7-8698-f1ae7f2e5e1d"), "F_E1_7A_IntActor_Tent_C1_Look"},
+                        {new Guid("1d977460-a725-4fca-8f4b-a338338d009c"), "F_E1_7A_IntActor_DanielShoes_C1_Look"},
+                        {new Guid("ff30740e-3e13-4833-8ddb-4be1c69bf412"), "F_E1_7A_IntActor_Tie_C1_Look"},
+                        {new Guid("1cd18fcb-2e88-4df7-b0d8-337a53cf5c63"), "F_E1_7A_IntActor_246_C1_Look"},
+                        {new Guid("15b085eb-b389-4125-b7d0-eaa674a4e52b"), "F_E1_7A_IntActor_338_C1_Look"},
+                        {new Guid("94371a0e-5119-451b-ab64-7b6c5dc8b27b"), "F_E1_7A_IntActor_AshTray_C1_Look"},
+                        {new Guid("da80b876-e1d6-4846-be27-729995ed2e2f"), "F_E1_7A_IntActor_Balcony_C1_Lean"},
+                        {new Guid("abdee6da-e573-44fa-9182-41e438b6f9b8"), "F_E1_7A_IntActor_ForgottenPaper_C1_Look"},
+                        {new Guid("87ae6229-9964-4601-870a-5ff241b24108"), "F_E1_7A_IntActor_LightSwitch_C1_TurnOn"},
+                        {new Guid("a019195f-0e0f-4ae5-b63d-e1bbf984bb4e"), "F_E1_7A_IntActor_MotelDrawing_C1_Sitanddraw"},
+                        {new Guid("5196ed5c-b212-4a73-a892-79096a3f646f"), "F_E1_7A_IntActor_MotelCardCollectible_C2_Take"},
+                        {new Guid("4761b8a3-4610-40d5-9823-4691655692ed"), "F_E1_7A_IntActor_Bathtub_C2_Look"},
+                        {new Guid("7afdbfa0-43cc-474b-9948-c82cfcaa5615"), "F_E1_7A_IntActor_Daniel_C2_WatchTVtogether"},
+                        {new Guid("561de799-672a-4638-8b00-f50ac071a172"), "F_E1_7A_IntActor_TowelHolder_C1_Puttowel"},
+                        {new Guid("d39a022e-3562-4cab-966b-80a232a307eb"), "F_E1_7A_IntActor_TV_C1_Look"},
+                        {new Guid("5b0058f1-5ea4-424c-8071-637d09e09e7e"), "F_E1_7A_IntActor_Tickle_C1_Tickle"},
+                        {new Guid("8ba1206b-01e3-43e0-a4f2-edaaf9f08649"), "F_E1_7A_IntActor_FreshTowels_C1_Take"},
+                        {new Guid("3019f7c9-fd80-4476-9eeb-7e61520749c3"), "F_E1_7A_IntActor_Bed2_C1_Look"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                }
+            },
+            {
+                "31542d9d-b83b-4796-835d-3f3917d201f2", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("30239d26-60e8-429b-a175-767def834ace"), "F_E1_7A_POI_Room8"},
+                        {new Guid("89bc390d-1b01-429c-95c8-2086f1edfe92"), "F_E1_7A_POI_Chair1"},
+                        {new Guid("d90addd3-1aa5-453a-a92a-b089973b5fb6"), "F_E1_7A_POI_Room10"},
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                }
+            },
+            {
+                "2306ef8a-6020-40cf-be17-13915de8fd94", new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>
+                    {
+                        {new Guid("d0d7ba64-972a-4521-a75f-1bcd2783ee60"), "F_E1_6B_FinishedBrody"},
+                    },
+                    IntFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    FloatFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                    EnumFacts = new Dictionary<Guid, string>
+                    {
+                    },
+                }
+            },
         };
-        
+
     }
 }

@@ -22,7 +22,7 @@ namespace lis2_save_editor
         }
 
         private GameSave _gameSave;
-        private List<string> _steamIdFolders = new List<string>();
+        private string[] _steamIdFolders = new string[0];
 
         private List<dynamic> _editedControls = new List<object>();
 
@@ -86,6 +86,10 @@ namespace lis2_save_editor
                 groupBoxDanielPos.Enabled = true;
                 groupBoxAICall.Enabled = true;
                 groupBoxEpisodeCompletion.Enabled = true;
+                groupBoxMetaInv_SeenSubContexts.Enabled = true;
+                groupBoxMetaInv_TutoStatus.Enabled = true;
+                groupBoxOutfitsSean.Enabled = true;
+                groupBoxOutfitsDaniel.Enabled = true;
 
             }
             else
@@ -96,6 +100,10 @@ namespace lis2_save_editor
                 groupBoxDanielPos.Enabled = false;
                 groupBoxAICall.Enabled = false;
                 groupBoxEpisodeCompletion.Enabled = false;
+                groupBoxMetaInv_SeenSubContexts.Enabled = false;
+                groupBoxMetaInv_TutoStatus.Enabled = false;
+                groupBoxOutfitsSean.Enabled = false;
+                groupBoxOutfitsDaniel.Enabled = false;
             }
             comboBoxSelectCP.SelectedIndex = 0;
 
@@ -265,16 +273,122 @@ namespace lis2_save_editor
             }
         }
 
+        private void UpdateOutfits(int cpIndex)
+        {
+            ClearGroupBox(groupBoxOutfitsSean);
+            ClearGroupBox(groupBoxOutfitsDaniel);
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+                return;
+            }
+
+            List<dynamic> root;
+            
+            foreach (GroupBox gb in tabPageOutfits.Controls.OfType<GroupBox>())
+            {
+                string owner = gb.Tag.ToString();
+                try
+                {
+                    if (cpIndex == 0)
+                    {
+                        root = _gameSave.Data["CurrentSubContextSaveData"].Value["Outfits"].Value[owner]["Items"].Value;
+                    }
+                    else
+                    {
+                        root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["Outfits"].Value[owner]["Items"].Value;
+                    }
+                }
+                catch
+                {
+                    gb.Enabled = false;
+                    continue;
+                }
+                
+
+                foreach (Panel pan in gb.Controls.OfType<Panel>())
+                {
+                    ComboBox cb = (ComboBox)pan.Controls[0];
+                    string[] info = cb.Tag.ToString().Split(new string[] { "::" }, StringSplitOptions.None);
+                    cb.Items.Clear();
+                    cb.Items.Add("(none)");
+                    foreach (var obj in GameInfo.LIS2_Outfits.Where(x => x.Owner == info[0] 
+                                        && (info[1].StartsWith("Collectible_Badge") ? x.Slot == "Collectible_Badge" : x.Slot == info[1])))
+                    {
+                        cb.Items.Add(obj.Name);
+                    }
+                    int index = root.FindIndex(1, x => x["Slot"].Value == info[1]);
+                    cb.SelectedItem = index == -1 ? "(none)"
+                                                  : GameInfo.LIS2_Outfits.Find(x => x.GUID == root[index]["Guid"].Value["Guid"])?.Name
+                                                  ?? "(none)";
+                }
+            }
+        }
+
+        private void UpdateMetaInvSubContexts(int cpIndex)
+        {
+            ClearGroupBox(groupBoxMetaInv_SeenSubContexts);
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+                return;
+            }
+
+            List<dynamic> root;
+
+            if (cpIndex == 0)
+            {
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["MetaInventoryMapSaveData"].Value["SeenSubcontexts"].Value;
+            }
+            else
+            {
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["MetaInventoryMapSaveData"].Value["SeenSubcontexts"].Value;
+            }
+
+            foreach (CheckBox cb in groupBoxMetaInv_SeenSubContexts.Controls.OfType<CheckBox>())
+            {
+                cb.Checked = root.Contains(cb.Tag.ToString());
+            }
+        }
+
+        private void UpdateMetaInvTutoStatus(int cpIndex)
+        {
+            ClearGroupBox(groupBoxMetaInv_TutoStatus);
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+                return;
+            }
+
+            Dictionary<dynamic, dynamic> root;
+
+            if (cpIndex == 0)
+            {
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                       .Value["MetaInventoryTutorialSaveData"].Value["PageTutorialStatusMap"].Value;
+            }
+            else
+            {
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                       .Value["MetaInventoryTutorialSaveData"].Value["PageTutorialStatusMap"].Value;
+            }
+
+            foreach (CheckBox cb in groupBoxMetaInv_TutoStatus.Controls.OfType<CheckBox>())
+            {
+                var key = "ELIS2MetaInventoryPageType::" + cb.Text;
+                cb.Checked = root.ContainsKey(key) ? Convert.ToBoolean(root[key]) : false;
+            }
+        }
+
         private void UpdateInventoryGrids(int cpIndex)
         {
             dataGridViewInventory1.Columns.Clear();
             dataGridViewInventory1.DataSource = BuildInventoryTable(cpIndex, "InventoryItems").DefaultView;
 
             dataGridViewInventory2.Columns.Clear();
-            dataGridViewInventory2.DataSource = BuildInventoryTable(cpIndex, "BackPackItems").DefaultView;
-
             dataGridViewInventory3.Columns.Clear();
-            dataGridViewInventory3.DataSource = BuildInventoryTable(cpIndex, "PocketsItems").DefaultView;
+            if (_gameSave.saveType == SaveType.LIS)
+            {
+                dataGridViewInventory2.DataSource = BuildInventoryTable(cpIndex, "BackPackItems").DefaultView;
+                dataGridViewInventory3.DataSource = BuildInventoryTable(cpIndex, "PocketsItems").DefaultView;
+            }
         }
 
         private DataTable BuildInventoryTable(int cpIndex, string inv_type)
@@ -298,30 +412,55 @@ namespace lis2_save_editor
             if (_gameSave.saveType == SaveType.CaptainSpirit)
             {
                 t.Columns.Add("Name");
+                t.Columns.Add("Active", typeof(bool));
                 t.Columns.Add("Quantity");
 
                 row = new object[t.Columns.Count];
 
-                foreach (var item in item_list.Skip(1))
+                foreach (var item in GameInfo.CS_InventoryItems)
                 {
-                    row[0] = item["PickupID"].Value;
-                    row[1] = item["Quantity"].Value;
+                    row[0] = item;
+                    int index = item_list.FindIndex(1, x => x["PickupID"].Value == item);
+                    if (index == -1)
+                    {
+                        row[1] = false;
+                        row[2] = 0;
+                    }
+                    else
+                    {
+                        row[1] = true;
+                        row[2] = item_list[index]["Quantity"].Value;
+                    }
+                    
                     t.Rows.Add(row);
                 }
             }
             else
             {
                 t.Columns.Add("Name");
+                t.Columns.Add("Active", typeof(bool));
                 t.Columns.Add("Quantity");
                 t.Columns.Add("Is new", typeof(bool));
 
                 row = new object[t.Columns.Count];
 
-                foreach (var item in item_list.Skip(1))
+                foreach (var item in GameInfo.LIS2_InventoryItems)
                 {
-                    row[0] = item["PickupID"].Value;
-                    row[1] = item["Quantity"].Value;
-                    row[2] = item["bIsNew"].Value;
+                    row[0] = item;
+                    int index = item_list.FindIndex(1, x => x["PickupID"].Value == item);
+                    if (index == -1)
+                    {
+                        row[1] = false;
+                        row[2] = 0;
+                        row[3] = false;
+                    }
+                    else
+                    {
+                        row[1] = true;
+                        row[2] = item_list[index]["Quantity"].Value;
+                        row[3] = item_list[index]["bIsNew"].Value;
+                    }
+
                     t.Rows.Add(row);
                 }
             }
@@ -338,6 +477,11 @@ namespace lis2_save_editor
         private DataTable BuildSeenNotifsTable(int cpIndex)
         {
             DataTable t = new DataTable();
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+                return t;
+            }
+
             List<dynamic> notif_list;
             if (cpIndex == 0)
             {
@@ -350,12 +494,12 @@ namespace lis2_save_editor
                              ["PlayerSaveData"].Value["AlreadySeenNotifications"].Value;
             }
             
-
             t.Columns.Add("Name");
+            t.Columns.Add("Seen", typeof(bool));
 
-            foreach (var element in notif_list)
+            foreach (var element in GameInfo.LIS2_SeenNotifsNames)
             {
-                t.Rows.Add(new object[] {element});
+                t.Rows.Add(new object[] {element, notif_list.Contains(element)});
             }
 
             return t;
@@ -370,7 +514,7 @@ namespace lis2_save_editor
         private DataTable BuildSeenTutosTable(int cpIndex)
         {
             DataTable t = new DataTable();
-            dynamic tuto_list;
+            Dictionary<dynamic, dynamic> tuto_list;
 
             if (cpIndex == 0)
             {
@@ -384,11 +528,28 @@ namespace lis2_save_editor
             }
 
             t.Columns.Add("Name");
+            t.Columns.Add("Seen", typeof(bool));
             t.Columns.Add("Times");
 
-            foreach (var element in tuto_list)
+            string[] namelist = _gameSave.saveType == SaveType.CaptainSpirit 
+                              ? GameInfo.CS_SeenTutosNames : GameInfo.LIS2_SeenTutosNames;
+
+            foreach (var name in namelist)
             {
-                t.Rows.Add(new object[] { element.Key, element.Value });
+                object[] row = new object[t.Columns.Count];
+                row[0] = name;
+                var times = tuto_list.FirstOrDefault(x => x.Key == name).Value;
+                if (times == null)
+                {
+                    row[1] = false;
+                    row[2] = 0;
+                }
+                else
+                {
+                    row[1] = true;
+                    row[2] = times;
+                }
+                t.Rows.Add(row);
             }
             return t;
         }
@@ -510,7 +671,6 @@ namespace lis2_save_editor
                 asset_list = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["FactsSaveData"].Value;
             }
             
-
             t.Columns.Add("Asset ID");
             t.Columns.Add("Keep values on save reset?");
             t.Columns[1].DataType = typeof(bool);
@@ -757,7 +917,6 @@ namespace lis2_save_editor
             }
             else
             {
-
                 t.Columns.Add("Obtained in CollectibleMode", typeof(bool));
                 t.Columns.Add("Is new for SPMenu", typeof(bool));
                 object[] row = new object[t.Columns.Count];
@@ -1442,7 +1601,6 @@ namespace lis2_save_editor
                 cb.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(cb);
             }
-
         }
 
         private void checkBoxEpComplete_CheckedChanged(object sender, EventArgs e)
@@ -1458,131 +1616,63 @@ namespace lis2_save_editor
             }
         }
 
-        private int newRowIndex = -1;
-
-        private void dataGridView_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        private void checkBoxMetaInvSeenSubcontexts_CheckedChanged(object sender, EventArgs e)
         {
-            newRowIndex = e.Row.Index-1;
-        }
-
-        private void dataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            if (e.RowIndex == newRowIndex)
+            if (!SaveLoading)
             {
-                switch (((DataGridView)sender).Name)
+                CheckBox cb = (CheckBox)sender;
+                int cpIndex = comboBoxSelectCP.SelectedIndex;
+
+                List<dynamic> root;
+
+                if (cpIndex == 0)
                 {
-                    case "dataGridViewInventory1":
-                        {
-                            var name = dataGridViewInventory1[0, e.RowIndex].Value.ToString();
-                            var qty = dataGridViewInventory1[1, e.RowIndex].Value;
-                            if (qty is DBNull) qty = 0;
-                            _gameSave.EditInventoryItem("InventoryItems", name, comboBoxSelectCP.SelectedIndex, 1, Convert.ToInt32(qty));
-                            if (!(dataGridViewInventory1[2, e.RowIndex].Value is DBNull)) //if user checked "new" before clicking away from the row
-                            {
-                                _gameSave.EditInventoryItem("InventoryItems", name, comboBoxSelectCP.SelectedIndex, 2, Convert.ToInt32(true));
-                            }
-                            dataGridViewInventory1[1, e.RowIndex].Value = qty;
-                            break;
-                        }
-                    case "dataGridViewInventory2":
-                        {
-                            var name = dataGridViewInventory2[0, e.RowIndex].Value.ToString();
-                            var qty = dataGridViewInventory2[1, e.RowIndex].Value;
-                            if (qty is DBNull) qty = 0;
-                            _gameSave.EditInventoryItem("BackPackItems", name, comboBoxSelectCP.SelectedIndex, 1, Convert.ToInt32(qty));
-                            if (!(dataGridViewInventory2[2, e.RowIndex].Value is DBNull)) //if user checked "new" before clicking away from the row
-                            {
-                                _gameSave.EditInventoryItem("BackPackItems", name, comboBoxSelectCP.SelectedIndex, 2, Convert.ToInt32(true));
-                            }
-                            dataGridViewInventory2[1, e.RowIndex].Value = qty;
-                            break;
-                        }
-                    case "dataGridViewInventory3":
-                        {
-                            var name = dataGridViewInventory3[0, e.RowIndex].Value.ToString();
-                            var qty = dataGridViewInventory3[1, e.RowIndex].Value;
-                            if (qty is DBNull) qty = 0;
-                            _gameSave.EditInventoryItem("PocketsItems", name, comboBoxSelectCP.SelectedIndex, 1, Convert.ToInt32(qty));
-                            if (!(dataGridViewInventory3[2, e.RowIndex].Value is DBNull)) //if user checked "new" before clicking away from the row
-                            {
-                                _gameSave.EditInventoryItem("PocketsItems", name, comboBoxSelectCP.SelectedIndex, 2, Convert.ToInt32(true));
-                            }
-                            dataGridViewInventory3[1, e.RowIndex].Value = qty;
-                            break;
-                        }
-                    case "dataGridViewSeenTutos":
-                        {
-                            var times = dataGridViewSeenTutos[1, e.RowIndex].Value;
-                            if (times is DBNull) times = 0;
-                            _gameSave.EditSeenTutorial(dataGridViewSeenTutos[0, e.RowIndex].Value.ToString(), comboBoxSelectCP.SelectedIndex, Convert.ToInt32(times));
-                            dataGridViewSeenTutos[1, e.RowIndex].Value = times;
-                            break;
-                        }
-                    case "dataGridViewSeenNotifs":
-                        {
-                            _gameSave.EditSeenNotification(dataGridViewSeenNotifs[0, e.RowIndex].Value.ToString(), comboBoxSelectCP.SelectedIndex, false);
-                            break;
-                        }
-                    default:
-                        {
-                            throw new Exception("Unknown data grid");
-                            break;
-                        }
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["MetaInventoryMapSaveData"].Value["SeenSubcontexts"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["MetaInventoryMapSaveData"].Value["SeenSubcontexts"].Value;
                 }
 
-                _editedControls.AddRange(((DataGridView)sender).Rows[e.RowIndex].Cells.Cast<DataGridViewCell>());
-                foreach (DataGridViewCell cell in ((DataGridView)sender).Rows[e.RowIndex].Cells)
+                if (cb.Checked)
                 {
-                    cell.Style.BackColor = Color.LightGoldenrodYellow;
+                    root.AddUnique(cb.Tag.ToString());
                 }
-                ShowChangesWarning();
+                else
+                {
+                    root.Remove(cb.Tag.ToString());
+                }
+
+                cb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(cb);
             }
         }
 
-        private void dataGridView_RowValidated(object sender, DataGridViewCellEventArgs e)
+        private void checkBoxMetaInvTutoStatus_CheckedChanged(object sender, EventArgs e)
         {
-            newRowIndex = -1;
-        }
-
-        private void dataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            var name = e.Row.Cells[0].Value.ToString();
-            switch (((DataGridView)sender).Name)
+            if (!SaveLoading)
             {
-                case "dataGridViewInventory1":
-                    {
-                        _gameSave.EditInventoryItem("InventoryItems", name, comboBoxSelectCP.SelectedIndex, 0, null);
-                        break;
-                    }
-                case "dataGridViewInventory2":
-                    {
-                        _gameSave.EditInventoryItem("BackPackItems", name, comboBoxSelectCP.SelectedIndex, 0, null);
-                        break;
-                    }
-                case "dataGridViewInventory3":
-                    {
-                        _gameSave.EditInventoryItem("PocketsItems", name, comboBoxSelectCP.SelectedIndex, 0, null);
-                        break;
-                    }
-                case "dataGridViewSeenTutos":
-                    {
-                        _gameSave.EditSeenTutorial(name, comboBoxSelectCP.SelectedIndex, null);
-                        break;
-                    }
-                case "dataGridViewSeenNotifs":
-                    {
-                        _gameSave.EditSeenNotification(name, comboBoxSelectCP.SelectedIndex, true);
-                        break;
-                    }
-                default:
-                    {
-                        throw new Exception("Unknown data grid");
-                        break;
-                    }
-            }
+                CheckBox cb = (CheckBox)sender;
+                int cpIndex = comboBoxSelectCP.SelectedIndex;
 
-            _editedControls.RemoveAll(x => (x is DataGridViewCell && x.RowIndex == e.Row.Index));
-            ShowChangesWarning();
+                Dictionary<dynamic, dynamic> root;
+
+                if (cpIndex == 0)
+                {
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                           .Value["MetaInventoryTutorialSaveData"].Value["PageTutorialStatusMap"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                           .Value["MetaInventoryTutorialSaveData"].Value["PageTutorialStatusMap"].Value;
+                }
+
+                root["ELIS2MetaInventoryPageType::" + cb.Text] = cb.Checked;
+
+                cb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(cb);
+            }
         }
 
         private void dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -1598,21 +1688,48 @@ namespace lis2_save_editor
 
         object origCellValue, newCellValue;
 
-        private void dataGridViewInventory1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewInventory_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewInventory1.Rows[e.RowIndex].IsNewRow) return;
+            DataGridView grid = (DataGridView)sender;
+
+            string inv_type = "";
+
+            switch (grid.Name)
+            {
+                case "dataGridViewInventory1":
+                    {
+                        inv_type = "InventoryItems";
+                        break;
+                    }
+                case "dataGridViewInventory2":
+                    {
+                        inv_type = "BackPackItems";
+                        break;
+                    }
+                case "dataGridViewInventory3":
+                    {
+                        inv_type = "PocketsItems";
+                        break;
+                    }
+            }
 
             switch (e.ColumnIndex)
             {
                 case 0: return;
                 case 1:
+                case 3:
+                    {
+                        newCellValue = grid[e.ColumnIndex, e.RowIndex].Value;
+                        break;
+                    }
+                case 2:
                     {
                         int result;
-                        if (!int.TryParse(dataGridViewInventory1[1, e.RowIndex].Value.ToString(), out result))
+                        if (!int.TryParse(grid[2, e.RowIndex].Value.ToString(), out result))
                         {
                             MessageBox.Show(Resources.BadValueMessage, "Error");
                             newCellValue = origCellValue;
-                            dataGridViewInventory1[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                            grid[e.ColumnIndex, e.RowIndex].Value = origCellValue;
                         }
                         else
                         {
@@ -1620,123 +1737,75 @@ namespace lis2_save_editor
                         }
                         break;
                     }
-                case 2:
-                    {
-                        newCellValue = dataGridViewInventory1[2, e.RowIndex].Value;
-                        break;
-                    }
             }
-            
 
             if (newCellValue.ToString() != origCellValue.ToString())
             {
-                var item_name = dataGridViewInventory1[0, e.RowIndex].Value.ToString(); 
-                _gameSave.EditInventoryItem("InventoryItems", item_name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, Convert.ToInt32(newCellValue));
-                _editedControls.AddUnique(dataGridViewInventory1[e.ColumnIndex, e.RowIndex]);
-                dataGridViewInventory1[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+                var item_name = grid[0, e.RowIndex].Value.ToString();
+                _gameSave.EditInventoryItem(inv_type, item_name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, Convert.ToInt32(newCellValue));
+
+                if (e.ColumnIndex == 1 ^ Convert.ToBoolean(grid[1, e.RowIndex].Value) == false)
+                {
+                    grid[1, e.RowIndex].Value = true;
+                    _gameSave.EditInventoryItem(inv_type, item_name, comboBoxSelectCP.SelectedIndex, 2, Convert.ToInt32(grid[2, e.RowIndex].Value));
+                    if (_gameSave.saveType == SaveType.LIS)
+                    {
+                        _gameSave.EditInventoryItem(inv_type, item_name, comboBoxSelectCP.SelectedIndex, 3, Convert.ToInt32(grid[3, e.RowIndex].Value));
+                    }
+                }
+                _editedControls.AddUnique(grid[e.ColumnIndex, e.RowIndex]);
+                grid[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
         }
 
-        private void dataGridViewInventory2_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewSeenNotifs_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewInventory2.Rows[e.RowIndex].IsNewRow) return;
-
-            switch (e.ColumnIndex)
-            {
-                case 0: return;
-                case 1:
-                    {
-                        int result;
-                        if (!int.TryParse(dataGridViewInventory2[1, e.RowIndex].Value.ToString(), out result))
-                        {
-                            MessageBox.Show(Resources.BadValueMessage, "Error");
-                            newCellValue = origCellValue;
-                            dataGridViewInventory2[e.ColumnIndex, e.RowIndex].Value = origCellValue;
-                        }
-                        else
-                        {
-                            newCellValue = result;
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        newCellValue = dataGridViewInventory2[2, e.RowIndex].Value;
-                        break;
-                    }
-            }
-
+            newCellValue = dataGridViewSeenNotifs[e.ColumnIndex, e.RowIndex].Value;
 
             if (newCellValue.ToString() != origCellValue.ToString())
             {
-                var item_name = dataGridViewInventory2[0, e.RowIndex].Value.ToString();
-                _gameSave.EditInventoryItem("BackPackItems", item_name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, Convert.ToInt32(newCellValue));
-                _editedControls.AddUnique(dataGridViewInventory2[e.ColumnIndex, e.RowIndex]);
-                dataGridViewInventory2[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
-                ShowChangesWarning();
-            }
-        }
-
-        private void dataGridViewInventory3_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridViewInventory3.Rows[e.RowIndex].IsNewRow) return;
-
-            switch (e.ColumnIndex)
-            {
-                case 0: return;
-                case 1:
-                    {
-                        int result;
-                        if (!int.TryParse(dataGridViewInventory3[1, e.RowIndex].Value.ToString(), out result))
-                        {
-                            MessageBox.Show(Resources.BadValueMessage, "Error");
-                            newCellValue = origCellValue;
-                            dataGridViewInventory3[e.ColumnIndex, e.RowIndex].Value = origCellValue;
-                        }
-                        else
-                        {
-                            newCellValue = result;
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        newCellValue = dataGridViewInventory3[2, e.RowIndex].Value;
-                        break;
-                    }
-            }
-
-
-            if (newCellValue.ToString() != origCellValue.ToString())
-            {
-                var item_name = dataGridViewInventory3[0, e.RowIndex].Value.ToString();
-                _gameSave.EditInventoryItem("PocketsItems", item_name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, Convert.ToInt32(newCellValue));
-                _editedControls.AddUnique(dataGridViewInventory3[e.ColumnIndex, e.RowIndex]);
-                dataGridViewInventory3[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+                var name = dataGridViewSeenNotifs[0, e.RowIndex].Value.ToString();
+                _gameSave.EditSeenNotification(name, comboBoxSelectCP.SelectedIndex, Convert.ToBoolean(newCellValue));
+                _editedControls.AddUnique(dataGridViewSeenNotifs[e.ColumnIndex, e.RowIndex]);
+                dataGridViewSeenNotifs[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
             }
         }
 
         private void dataGridViewSeenTutos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 || dataGridViewSeenTutos.Rows[e.RowIndex].IsNewRow) return;
+            var value = dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex].Value;
             int result;
-            if (!int.TryParse(dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex].Value.ToString(), out result))
+            if (e.ColumnIndex == 1)
             {
-                MessageBox.Show(Resources.BadValueMessage, "Error");
-                newCellValue = origCellValue;
-                dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                newCellValue = value;
             }
             else
             {
-                newCellValue = result;
+                if (!int.TryParse(value.ToString(), out result))
+                {
+                    MessageBox.Show(Resources.BadValueMessage, "Error");
+                    newCellValue = origCellValue;
+                    dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                }
+                else
+                {
+                    newCellValue = result;
+                }
             }
 
             if (newCellValue.ToString() != origCellValue.ToString())
             {
-                var notif_name = dataGridViewSeenTutos[0, e.RowIndex].Value.ToString();
-                _gameSave.EditSeenTutorial(notif_name, comboBoxSelectCP.SelectedIndex, Convert.ToInt32(newCellValue));
+                var name = dataGridViewSeenTutos[0, e.RowIndex].Value.ToString();
+                _gameSave.EditSeenTutorial(name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, Convert.ToInt32(newCellValue));
+
+                if (e.ColumnIndex == 1 ^ Convert.ToBoolean(dataGridViewSeenTutos[1, e.RowIndex].Value) == false)
+                {
+                    dataGridViewSeenTutos[1, e.RowIndex].Value = true;
+                    _gameSave.EditSeenTutorial(name, comboBoxSelectCP.SelectedIndex, 2, Convert.ToInt32(dataGridViewSeenTutos[2, e.RowIndex].Value));
+                }
+
                 _editedControls.AddUnique(dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex]);
                 dataGridViewSeenTutos[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
@@ -1769,8 +1838,6 @@ namespace lis2_save_editor
 
         private void dataGridViewDrawings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 || dataGridViewDrawings.Rows[e.RowIndex].IsNewRow) return;
-
             var value = dataGridViewDrawings[e.ColumnIndex, e.RowIndex].Value;
 
             switch (e.ColumnIndex)
@@ -1816,12 +1883,9 @@ namespace lis2_save_editor
             {
                 var name = dataGridViewDrawings[0, e.RowIndex].Value.ToString();
                 _gameSave.EditDrawing(name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, newCellValue);
-                if (e.ColumnIndex != 1)
+                if (e.ColumnIndex == 1 ^ Convert.ToBoolean(dataGridViewDrawings[1, e.RowIndex].Value) == false)
                 {
                     dataGridViewDrawings[1, e.RowIndex].Value = true;
-                }
-                else if (Convert.ToBoolean(newCellValue) == true)
-                {
                     for (int i = 2; i <= 5; i++)
                     {
                         string cell_value = dataGridViewDrawings[i, e.RowIndex].Value.ToString();
@@ -1920,8 +1984,6 @@ namespace lis2_save_editor
 
         private void dataGridViewSeenPics_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 || dataGridViewSeenPics.Rows[e.RowIndex].IsNewRow) return;
-
             newCellValue = dataGridViewSeenPics[e.ColumnIndex, e.RowIndex].Value;
 
             if (newCellValue.ToString() != origCellValue.ToString())
@@ -1931,20 +1993,11 @@ namespace lis2_save_editor
 
                 if (_gameSave.saveType == SaveType.LIS)
                 {
-                    if (e.ColumnIndex != 1)
+                    if (e.ColumnIndex == 1 ^ Convert.ToBoolean(dataGridViewSeenPics[1, e.RowIndex].Value) == false)
                     {
                         dataGridViewSeenPics[1, e.RowIndex].Value = true;
-                    }
-                    else if (Convert.ToBoolean(newCellValue) == true)
-                    {
-                        if (Convert.ToBoolean(dataGridViewSeenPics[2, e.RowIndex].Value) == true)
-                        {
-                            _gameSave.EditSeenPicture(name, comboBoxSelectCP.SelectedIndex, 2, true);
-                        }
-                        if (Convert.ToBoolean(dataGridViewSeenPics[3, e.RowIndex].Value) == true)
-                        {
-                            _gameSave.EditSeenPicture(name, comboBoxSelectCP.SelectedIndex, 3, true);
-                        }
+                        _gameSave.EditSeenPicture(name, comboBoxSelectCP.SelectedIndex, 2, Convert.ToBoolean(dataGridViewSeenPics[2, e.RowIndex].Value));
+                        _gameSave.EditSeenPicture(name, comboBoxSelectCP.SelectedIndex, 3, Convert.ToBoolean(dataGridViewSeenPics[3, e.RowIndex].Value));
                     }
                 }
                 _editedControls.AddUnique(dataGridViewSeenPics[e.ColumnIndex, e.RowIndex]);
@@ -1953,43 +2006,52 @@ namespace lis2_save_editor
             }
         }
 
-
         private void dataGridViewCollectibles_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var value = dataGridViewCollectibles[e.ColumnIndex, e.RowIndex].Value;
 
-            if (String.IsNullOrWhiteSpace(value.ToString()))
+            if (e.ColumnIndex == 1)
             {
-                newCellValue = "";
-                dataGridViewCollectibles[e.ColumnIndex, e.RowIndex].Value = "";
-            }
-            else if (e.ColumnIndex == 1)
-            {
-                int result;
-                if (!int.TryParse(value.ToString(), out result))
+                if (String.IsNullOrWhiteSpace(value.ToString()))
                 {
-                    MessageBox.Show(Resources.BadValueMessage, "Error");
-                    newCellValue = origCellValue;
-                    dataGridViewCollectibles[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                    newCellValue = "";
+                    dataGridViewCollectibles[e.ColumnIndex, e.RowIndex].Value = "";
                 }
                 else
                 {
-                    newCellValue = result;
-                }
+                    int result;
+                    if (!int.TryParse(value.ToString(), out result))
+                    {
+                        MessageBox.Show(Resources.BadValueMessage, "Error");
+                        newCellValue = origCellValue;
+                        dataGridViewCollectibles[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                    }
+                    else
+                    {
+                        newCellValue = result;
+                    }
+                } 
             }
             else
             {
                 newCellValue = value;
-                if (String.IsNullOrWhiteSpace(dataGridViewCollectibles[1, e.RowIndex].Value.ToString()))
-                {
-                    dataGridViewCollectibles[1, e.RowIndex].Value = -1;
-                }
             }
 
             if (newCellValue.ToString() != origCellValue.ToString())
             {
                 var name = dataGridViewCollectibles[0, e.RowIndex].Value.ToString();
                 _gameSave.EditCollectible(name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, newCellValue);
+
+                if (e.ColumnIndex == 1 ^ String.IsNullOrWhiteSpace(dataGridViewCollectibles[1, e.RowIndex].Value.ToString()))
+                {
+                    if (e.ColumnIndex != 1)
+                    {
+                        dataGridViewCollectibles[1, e.RowIndex].Value = -1;
+                    }
+                    _gameSave.EditCollectible(name, comboBoxSelectCP.SelectedIndex, 2, dataGridViewCollectibles[2, e.RowIndex].Value);
+                    _gameSave.EditCollectible(name, comboBoxSelectCP.SelectedIndex, 3, dataGridViewCollectibles[3, e.RowIndex].Value);
+                }
+                
                 _editedControls.AddUnique(dataGridViewCollectibles[e.ColumnIndex, e.RowIndex]);
                 dataGridViewCollectibles[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
@@ -2108,6 +2170,77 @@ namespace lis2_save_editor
             }
             ShowChangesWarning();
         }
+
+        private void comboBoxOutfit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!SaveLoading)
+            {
+                ComboBox cb = (ComboBox)sender;
+                string[] info = cb.Tag.ToString().Split(new string[] { "::" }, StringSplitOptions.None);
+                var value = cb.SelectedItem.ToString();
+                List<dynamic> target;
+
+                if (comboBoxSelectCP.SelectedIndex == 0)
+                {
+                    target = _gameSave.Data["CurrentSubContextSaveData"].Value["Outfits"].Value[info[0]]["Items"].Value;
+                }
+                else
+                {
+                    target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["Outfits"].Value[info[1]]["Items"].Value;
+                }
+
+                int index = target.FindIndex(1, x => x["Slot"].Value == info[1]);
+                Guid guid = GameInfo.LIS2_Outfits.Find(x => x.Name == value).GUID;
+
+                if (index == -1)
+                {
+                    Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
+                    {
+                        { "Guid", new StructProperty
+                            {
+                                Name = "Guid",
+                                Type = "StructProperty",
+                                ElementType = "Guid",
+                                Value = new Dictionary<string, dynamic>()
+                                {
+                                    { "Guid", guid }
+                                }
+                            }
+                        },
+                        {
+                            "Slot", new NameProperty
+                            {
+                                Name = "Slot",
+                                Type = "NameProperty",
+                                Value = info[1]
+                            }
+                        },
+                        {
+                            "Flags", new ArrayProperty
+                            {
+                                Name = "Flags",
+                                Type = "ArrayProperty",
+                                ElementType = "NameProperty",
+                                Value = new List<dynamic>()
+                            }
+                        }
+                    };
+                    target.AddUnique(new_item);
+                }
+                else if (value == "(none)")
+                {
+                    target.RemoveAt(index);
+                }
+                else
+                {
+                    target[index]["Guid"].Value["Guid"] = guid;
+                }
+
+                _editedControls.AddUnique(cb.Parent);
+                cb.Parent.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
+        }
         #endregion
 
         private void textBoxSavePath_TextChanged(object sender, EventArgs e)
@@ -2150,11 +2283,61 @@ namespace lis2_save_editor
             else e.Cancel = false;
         }
 
+        private void comboBoxSelectCP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SaveLoading = true;
+
+            int index = comboBoxSelectCP.SelectedIndex;
+
+            //General tab
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+                comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointName"].Value;
+                textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
+            }
+            else if (index == 0)
+            {
+                comboBoxCPName.SelectedItem = _gameSave.Data["CurrentSubContextSaveData"].Value["CheckpointName"].Value;
+                textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
+            }
+            else
+            {
+                comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointHistory"].Value[index]["CheckpointName"].Value;
+                textBoxSubContextID.Text = _gameSave.Data["CheckpointHistory"].Value[index]["SubContextId"].Value;
+
+            }
+            textBoxMapName.Text = _gameSave.Data["MapName"].Value;
+            textBoxSubContextPath.Text = _gameSave.Data["CurrentSubContextPathName"].Value;
+            dateTimePickerSaveTime.Value = _gameSave.Data["SaveTime"].Value["DateTime"];
+
+            UpdatePlayerInfo(index);
+            UpdateDanielInfo(index);
+            UpdateAICallInfo(index);
+            UpdateStats(index);
+            UpdateMetaInvSubContexts(index);
+            UpdateMetaInvTutoStatus(index);
+            UpdateInventoryGrids(index);
+            UpdateSeenNotifsGrid(index);
+            UpdateSeenTutosGrid(index);
+            UpdateDrawingsGrid(index);
+            UpdateAllFactsGrid(index);
+            UpdateWorldGrid(index);
+            GenerateMetrics(index);
+            UpdateSeenPicturesGrid(index);
+            UpdateCollectiblesGrid(index);
+            UpdateObjectivesGrid(index);
+            UpdateSeenMessagesGrid(index);
+            UpdateOutfits(index);
+
+            SaveLoading = false;
+            ResetEditedControls();
+        }
+
         private void DetectSavePath()
         {
             try
             {
-                _steamIdFolders = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Dontnod\").ToList<string>();
+                _steamIdFolders = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Dontnod\");
             }
             catch
             {
@@ -2163,39 +2346,45 @@ namespace lis2_save_editor
 
             if (String.IsNullOrEmpty(_settingManager.Settings.SavePath))
             {
-                if (_steamIdFolders.Count >= 1)
+                if (_steamIdFolders.Length == 1)
                 {
                     bool found = false;
 
-                    foreach (var folder in _steamIdFolders)
+                    //search for LIS2 saves
+                    for (int i = 0; i < 5; i++)
                     {
-                        for (int i = 0; i < 5; i++)
+                        if (File.Exists(_steamIdFolders[0].ToString() + @"\LIS2\Saved\SaveGames\GameSave_Slot" + i + ".sav"))
                         {
-                            if (File.Exists(_steamIdFolders[0].ToString() + @"\LIS2\Saved\SaveGames\GameSave_Slot" + i + ".sav"))
-                            {
-                                textBoxSavePath.Text = _steamIdFolders[0].ToString() + @"\LIS2\Saved\SaveGames\GameSave_Slot" + i + ".sav";
-                                _settingManager.Settings.SavePath = textBoxSavePath.Text;
-                                found = true;
-                                break;
-                            }
-                        }
-
-                        if (!found && File.Exists(_steamIdFolders[0].ToString() + @"\CaptainSpirit\Saved\SaveGames\GameSave_Slot0.sav"))
-                        {
-                            textBoxSavePath.Text = _steamIdFolders[0].ToString() + @"\CaptainSpirit\Saved\SaveGames\GameSave_Slot0.sav";
+                            textBoxSavePath.Text = _steamIdFolders[0].ToString() + @"\LIS2\Saved\SaveGames\GameSave_Slot" + i + ".sav";
                             _settingManager.Settings.SavePath = textBoxSavePath.Text;
                             found = true;
-                        }
-                        if (found)
-                        {
                             break;
                         }
                     }
+
+                    //search for CS save
+                    if (!found && File.Exists(_steamIdFolders[0].ToString() + @"\CaptainSpirit\Saved\SaveGames\GameSave_Slot0.sav"))
+                    {
+                        textBoxSavePath.Text = _steamIdFolders[0].ToString() + @"\CaptainSpirit\Saved\SaveGames\GameSave_Slot0.sav";
+                        _settingManager.Settings.SavePath = textBoxSavePath.Text;
+                        found = true;
+                    }
+
                     if (!found)
                     {
                         textBoxSavePath.Text = "Auto-detection failed! Please select the path manually.";
+                    } 
+                }
+                else if (_steamIdFolders.Length > 1)
+                {
+                    using (var saveSelectionForm = new SaveSelectionForm(_steamIdFolders))
+                    {
+                        if (saveSelectionForm.ShowDialog() == DialogResult.OK)
+                        {
+                            textBoxSavePath.Text = saveSelectionForm.savePath;
+                            _settingManager.Settings.SavePath = textBoxSavePath.Text;
+                        }
                     }
-                    
                 }
                 else
                 {
@@ -2227,6 +2416,26 @@ namespace lis2_save_editor
                 buttonSaveEdits.Enabled = false;
                 tabControlMain.Enabled = false;
                 comboBoxSelectCP.Enabled = false;
+
+                try
+                {
+                    string saveRoot = Path.GetFullPath(Path.Combine(textBoxSavePath.Text, @"..\..\..\..\..\")).ToLowerInvariant();
+                    string testRoot = (Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Local\Dontnod\").ToLowerInvariant();
+                    if (saveRoot == testRoot && 
+                       (textBoxSavePath.Text.Contains("CaptainSpirit") || textBoxSavePath.Text.Contains("LIS2")))
+                    {
+                        buttonSaveSelector.Enabled = true;
+                    }
+                    else
+                    {
+                        buttonSaveSelector.Enabled = false;
+                    }
+                }
+                catch
+                {
+                    buttonSaveSelector.Enabled = false;
+                }
+
                 labelChangesWarning.Text = "Save file changed! Press 'Load' to update.";
                 labelChangesWarning.Visible = true;
             }
@@ -2237,54 +2446,8 @@ namespace lis2_save_editor
                 buttonSaveEdits.Enabled = false;
                 tabControlMain.Enabled = false;
                 comboBoxSelectCP.Enabled = false;
+                labelChangesWarning.Visible = false;
             }
-        }
-
-        private void comboBoxSelectCP_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SaveLoading = true;
-
-            int index = comboBoxSelectCP.SelectedIndex;
-
-            //General tab
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
-            { 
-                comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointName"].Value;
-                textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
-            }
-            else if (index == 0)
-            {
-                comboBoxCPName.SelectedItem = _gameSave.Data["CurrentSubContextSaveData"].Value["CheckpointName"].Value;
-                textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
-            }
-            else
-            {
-                comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointHistory"].Value[index]["CheckpointName"].Value;
-                textBoxSubContextID.Text = _gameSave.Data["CheckpointHistory"].Value[index]["SubContextId"].Value;
-
-            }
-            textBoxMapName.Text = _gameSave.Data["MapName"].Value;
-            textBoxSubContextPath.Text = _gameSave.Data["CurrentSubContextPathName"].Value;
-            dateTimePickerSaveTime.Value = _gameSave.Data["SaveTime"].Value["DateTime"];
-
-            UpdatePlayerInfo(index);
-            UpdateDanielInfo(index);
-            UpdateAICallInfo(index);
-            UpdateStats(index);
-            UpdateInventoryGrids(index);
-            UpdateSeenNotifsGrid(index);
-            UpdateSeenTutosGrid(index);
-            UpdateDrawingsGrid(index);
-            UpdateAllFactsGrid(index);
-            UpdateWorldGrid(index);
-            GenerateMetrics(index);
-            UpdateSeenPicturesGrid(index);
-            UpdateCollectiblesGrid(index);
-            UpdateObjectivesGrid(index);
-            UpdateSeenMessagesGrid(index);
-
-            SaveLoading = false;
-            ResetEditedControls();
         }
 
         private void ShowChangesWarning()
@@ -2316,6 +2479,19 @@ namespace lis2_save_editor
                 }
             }
             _editedControls.Clear();
+        }
+
+        private void buttonSaveSelector_Click(object sender, EventArgs e)
+        {
+            using (var saveSelectionForm = new SaveSelectionForm(_steamIdFolders))
+            {
+                saveSelectionForm.savePath = textBoxSavePath.Text;
+                if (saveSelectionForm.ShowDialog() == DialogResult.OK)
+                {
+                    textBoxSavePath.Text = saveSelectionForm.savePath;
+                    _settingManager.Settings.SavePath = textBoxSavePath.Text;
+                }
+            }
         }
 
         private void ClearGroupBox(GroupBox gb)

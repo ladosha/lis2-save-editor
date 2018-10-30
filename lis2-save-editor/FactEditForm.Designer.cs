@@ -173,10 +173,12 @@
             this.ClientSize = new System.Drawing.Size(748, 261);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FactEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit fact asset";
             this.Load += new System.EventHandler(this.FactEditForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FactEditForm_KeyPress);
             this.tabControl1.ResumeLayout(false);
             this.tabPageBool.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBool)).EndInit();

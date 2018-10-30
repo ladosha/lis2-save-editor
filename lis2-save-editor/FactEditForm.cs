@@ -224,7 +224,6 @@ namespace lis2_save_editor
 
         private void dataGridViewBool_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 || dataGridViewBool.Rows[e.RowIndex].IsNewRow) return;
             newCellValue = dataGridViewBool[e.ColumnIndex, e.RowIndex].Value;
 
             if (newCellValue.ToString() != origCellValue.ToString())
@@ -247,7 +246,6 @@ namespace lis2_save_editor
 
         private void dataGridViewInt_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 || dataGridViewInt.Rows[e.RowIndex].IsNewRow) return;
             if (e.ColumnIndex == 1)
             {
                 newCellValue = dataGridViewInt[1, e.RowIndex].Value;
@@ -286,8 +284,6 @@ namespace lis2_save_editor
 
         private void dataGridViewFloat_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 || dataGridViewFloat.Rows[e.RowIndex].IsNewRow) return;
-
             if (e.ColumnIndex == 1)
             {
                 newCellValue = dataGridViewFloat[1, e.RowIndex].Value;
@@ -326,8 +322,6 @@ namespace lis2_save_editor
 
         private void dataGridViewEnum_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0 || dataGridViewEnum.Rows[e.RowIndex].IsNewRow) return;
-
             if (e.ColumnIndex == 1)
             {
                 newCellValue = dataGridViewEnum[1, e.RowIndex].Value;
@@ -361,6 +355,14 @@ namespace lis2_save_editor
                 {
                     EditFactValue("EnumFacts", name, 2, dataGridViewEnum[2, e.RowIndex].Value);
                 }
+            }
+        }
+
+        private void FactEditForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 27)
+            {
+                Close();
             }
         }
 
@@ -407,7 +409,6 @@ namespace lis2_save_editor
                                 Name = "History",
                                 Type = "ArrayProperty",
                                 ElementType = "ByteProperty",
-                                ElementCount = 1,
                                 Value = new List<dynamic>() { colIndex == 1 ? Convert.ToByte(0) : Convert.ToByte(value) }
                             };
                             break;

@@ -62,8 +62,173 @@ namespace lis2_save_editor
                 SaveIsValid = false;
             }
 
+            //string facts = GenerateFactsSQL();
+
+            //string outf = GenerateOutfitList();
+
+            //string inv = GenerateInventorySQL();
+
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
+        }
+
+        public string GenerateFactsSQL()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (saveType == SaveType.CaptainSpirit)
+            {
+                sb.AppendLine("insert or ignore into CSFacts (FactGUID, AssetGUID, Name, Type) values");
+            }
+            else
+            {
+                sb.AppendLine("insert or ignore into LIS2Facts (FactGUID, AssetGUID, Name, Type) values");
+            }
+
+            var assets = Data["CurrentSubContextSaveData"].Value["FactsSaveData"].Value;
+            foreach (var asset in assets.Values)
+            {
+                var id = asset["FactAssetId"].Value["Guid"].ToString();
+                foreach (var fact in ((List<dynamic>)asset["BoolFacts"].Value).Skip(1))
+                {
+                    var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                    var name = fact["FactNameForDebug"].Value;
+                    sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Bool");
+                }
+                foreach (var fact in ((List<dynamic>)asset["IntFacts"].Value).Skip(1))
+                {
+                    var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                    var name = fact["FactNameForDebug"].Value;
+                    sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Int");
+                }
+                foreach (var fact in ((List<dynamic>)asset["FloatFacts"].Value).Skip(1))
+                {
+                    var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                    var name = fact["FactNameForDebug"].Value;
+                    sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Float");
+                }
+                foreach (var fact in ((List<dynamic>)asset["EnumFacts"].Value).Skip(1))
+                {
+                    var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                    var name = fact["FactNameForDebug"].Value;
+                    sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Enum");
+                }
+            }
+
+            if (saveType == SaveType.LIS)
+            {
+                for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+                {
+                    assets = Data["CheckpointHistory"].Value[i]["FactsSaveData"].Value;
+                    foreach (var asset in assets.Values)
+                    {
+                        var id = asset["FactAssetId"].Value["Guid"].ToString();
+                        foreach (var fact in ((List<dynamic>)asset["BoolFacts"].Value).Skip(1))
+                        {
+                            var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                            var name = fact["FactNameForDebug"].Value;
+                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Bool");
+                        }
+                        foreach (var fact in ((List<dynamic>)asset["IntFacts"].Value).Skip(1))
+                        {
+                            var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                            var name = fact["FactNameForDebug"].Value;
+                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Int");
+                        }
+                        foreach (var fact in ((List<dynamic>)asset["FloatFacts"].Value).Skip(1))
+                        {
+                            var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                            var name = fact["FactNameForDebug"].Value;
+                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Float");
+                        }
+                        foreach (var fact in ((List<dynamic>)asset["EnumFacts"].Value).Skip(1))
+                        {
+                            var fact_guid = fact["FactGuid"].Value["Guid"].ToString();
+                            var name = fact["FactNameForDebug"].Value;
+                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", fact_guid, id, name, "Enum");
+                        }
+                    }
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        public string GenerateInventorySQL()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (saveType == SaveType.CaptainSpirit)
+            {
+                return "";
+            }
+            else
+            {
+                sb.AppendLine("insert or ignore into LIS2Inventory (ID, Type) values");
+            }
+
+            var items = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"].Value["PlayerInventorySaveData"].Value;
+            foreach (var item in ((List<dynamic>)items["InventoryItems"].Value).Skip(1))
+            {
+                var id = item["PickupID"].Value.ToString();
+                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id,"Inventory");
+            }
+            foreach (var item in ((List<dynamic>)items["BackPackItems"].Value).Skip(1))
+            {
+                var id = item["PickupID"].Value.ToString();
+                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "BackPack");
+            }
+            foreach (var item in ((List<dynamic>)items["PocketsItems"].Value).Skip(1))
+            {
+                var id = item["PickupID"].Value.ToString();
+                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "Pockets");
+            }
+
+
+            if (saveType == SaveType.LIS)
+            {
+                for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+                {
+                    items = Data["CheckpointHistory"].Value[i]["PlayerSaveData"].Value["PlayerInventorySaveData"].Value;
+                    foreach (var item in ((List<dynamic>)items["InventoryItems"].Value).Skip(1))
+                    {
+                        var id = item["PickupID"].Value.ToString();
+                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "Inventory");
+                    }
+                    foreach (var item in ((List<dynamic>)items["BackPackItems"].Value).Skip(1))
+                    {
+                        var id = item["PickupID"].Value.ToString();
+                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "BackPack");
+                    }
+                    foreach (var item in ((List<dynamic>)items["PocketsItems"].Value).Skip(1))
+                    {
+                        var id = item["PickupID"].Value.ToString();
+                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "Pockets");
+                    }
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        public string GenerateOutfitList()
+        {
+            StringBuilder sb = new StringBuilder();
+            string name = "Sean";
+            List<dynamic> outf_list = Data["CurrentSubContextSaveData"].Value["Outfits"].Value[name]["Items"].Value;
+            foreach (var of in outf_list.Skip(1))
+            {
+                sb.AppendLine(of["Guid"].Value["Guid"].ToString() + "    " + of["Slot"].Value);
+            }
+
+            for (int i=1; i<=Data["CheckpointHistory"].ElementCount; i++)
+            {
+                outf_list = Data["CheckpointHistory"].Value[i]["Outfits"].Value[name]["Items"].Value;
+                foreach (var of in outf_list.Skip(1))
+                {
+                    sb.AppendLine(of["Guid"].Value["Guid"].ToString() + "    " + of["Slot"].Value);
+                }
+            }
+
+            return sb.ToString();
         }
 
         public void WriteSaveToFile(string savePath)
@@ -92,7 +257,7 @@ namespace lis2_save_editor
             SaveChangesSaved = true;
         }
 
-        public void EditInventoryItem(string invType, string name, int cpIndex, int colIndex, int? val)
+        public void EditInventoryItem(string invType, string name, int cpIndex, int colIndex, int val)
         {
             List<dynamic> target;
             if (cpIndex == 0)
@@ -112,33 +277,41 @@ namespace lis2_save_editor
             {
                 Dictionary<string, object> new_item = new Dictionary<string, object>();
                 new_item["PickupID"] = new NameProperty() { Name = "PickupID", Type = "NameProperty", Value = name };
-                new_item["Quantity"] = new IntProperty() { Name = "Quantity", Type = "IntProperty", Value = (colIndex == 1 && val != null) ? (int)val: 0 };
+                new_item["Quantity"] = new IntProperty() { Name = "Quantity", Type = "IntProperty", Value = colIndex == 2 ? val: 0 };
                 if(saveType == SaveType.LIS)
                 {
-                    new_item["bIsNew"] = new BoolProperty() { Name = "bIsNew", Type = "BoolProperty", Value = (colIndex == 2 && val != null) ? Convert.ToBoolean(val) : false };
+                    new_item["bIsNew"] = new BoolProperty() { Name = "bIsNew", Type = "BoolProperty", Value = colIndex == 3 ? Convert.ToBoolean(val) : false };
                 }
                 
                 target.AddUnique(new_item);
             }
             else
             {
-                if (val == null) //Remove inventory item
+                switch(colIndex)
                 {
-                    target.RemoveAt(index);
-                }
-                else //Edit existing item
-                {
-                    if (colIndex == 2)
-                    {
-                        target[index]["bIsNew"].Value = Convert.ToBoolean(val);
-                        return;
-                    }
-                    target[index]["Quantity"].Value = Convert.ToInt32(val);
+                    case 1:
+                        {
+                            if(Convert.ToBoolean(val) == false)
+                            {
+                                target.RemoveAt(index);
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            target[index]["Quantity"].Value = val;
+                            break;
+                        }
+                    case 3:
+                        {
+                            target[index]["bIsNew"].Value = Convert.ToBoolean(val);
+                            break;
+                        }
                 }
             }
         }
 
-        public void EditSeenTutorial(string name, int cpIndex, int? times)
+        public void EditSeenTutorial(string name, int cpIndex, int colIndex, int value)
         {
             Dictionary<object, object> target;
             if (cpIndex == 0)
@@ -152,17 +325,17 @@ namespace lis2_save_editor
                          .Value["AlreadySeenTutorials"].Value;
             }
                 
-            if (times == null) //remove item
+            if (colIndex == 1 && Convert.ToBoolean(value) == false) //remove item
             {
                 target.Remove(name);
             }
             else //edit existing or add new
             {
-                target[name] = times;
+                target[name] = value;
             }
         }
 
-        public void EditSeenNotification(string name, int cpIndex, bool remove)
+        public void EditSeenNotification(string name, int cpIndex, bool seen)
         {
             List<dynamic> target;
             if (cpIndex == 0)
@@ -176,7 +349,7 @@ namespace lis2_save_editor
                          .Value["AlreadySeenNotifications"].Value;
             }
 
-            if (remove)
+            if (!seen)
             {
                 target.Remove(name);
             }
@@ -230,15 +403,15 @@ namespace lis2_save_editor
                             }
                         },
                         { "NameGuid", new StructProperty
+                            {
+                                Name = "NameGuid",
+                                Type = "StructProperty",
+                                ElementType = "Guid",
+                                Value = new Dictionary<string, dynamic>()
                                 {
-                                    Name = "NameGuid",
-                                    Type = "StructProperty",
-                                    ElementType = "Guid",
-                                    Value = new Dictionary<string, dynamic>()
-                                    {
-                                        { "Guid", guid }
-                                    }
+                                    { "Guid", guid }
                                 }
+                            }
                         }
                     }
                 };
@@ -443,7 +616,7 @@ namespace lis2_save_editor
                         { "Guid", guid }
                     }
                     };
-                    target.Add(new_item);
+                    target.AddUnique(new_item);
                 }
                 else
                 {
