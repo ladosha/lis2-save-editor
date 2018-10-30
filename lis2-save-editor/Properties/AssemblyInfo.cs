@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("cs-save-editor")]
+[assembly: AssemblyTitle("lis2-save-editor")]
 [assembly: AssemblyDescription("Life is Strange 2 and Captain Spirit savegame viewer and editor.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
