@@ -33,6 +33,20 @@ namespace lis2_save_editor
             _gameSave = new GameSave();
             _gameSave.ReadSaveFromFile(textBoxSavePath.Text);
 
+            #region BATCH READ
+            /*
+            string[] paths = new string[]
+            {
+               ...
+            };
+
+            foreach (var p in paths)
+            {
+                _gameSave.ReadSaveFromFile(p);
+            }
+            */
+            #endregion
+
             if (!_gameSave.SaveIsValid)
             {
                 MessageBox.Show(Resources.CorruptSaveMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -382,12 +396,23 @@ namespace lis2_save_editor
             dataGridViewInventory1.Columns.Clear();
             dataGridViewInventory1.DataSource = BuildInventoryTable(cpIndex, "InventoryItems").DefaultView;
 
+            dataGridViewInventory1.Columns[1].FillWeight = 10;
+            dataGridViewInventory1.Columns[2].FillWeight = 10;
+            dataGridViewInventory1.Columns[3].FillWeight = 10;
+
             dataGridViewInventory2.Columns.Clear();
             dataGridViewInventory3.Columns.Clear();
             if (_gameSave.saveType == SaveType.LIS)
             {
                 dataGridViewInventory2.DataSource = BuildInventoryTable(cpIndex, "BackPackItems").DefaultView;
+                dataGridViewInventory2.Columns[1].FillWeight = 10;
+                dataGridViewInventory2.Columns[2].FillWeight = 10;
+                dataGridViewInventory2.Columns[3].FillWeight = 10;
+
                 dataGridViewInventory3.DataSource = BuildInventoryTable(cpIndex, "PocketsItems").DefaultView;
+                dataGridViewInventory3.Columns[1].FillWeight = 10;
+                dataGridViewInventory3.Columns[2].FillWeight = 10;
+                dataGridViewInventory3.Columns[3].FillWeight = 10;
             }
         }
 
@@ -472,6 +497,8 @@ namespace lis2_save_editor
         {
             dataGridViewSeenNotifs.Columns.Clear();
             dataGridViewSeenNotifs.DataSource = BuildSeenNotifsTable(cpIndex).DefaultView;
+
+            dataGridViewSeenNotifs.Columns[1].FillWeight = 10;
         }
 
         private DataTable BuildSeenNotifsTable(int cpIndex)
@@ -509,6 +536,9 @@ namespace lis2_save_editor
         {
             dataGridViewSeenTutos.Columns.Clear();
             dataGridViewSeenTutos.DataSource = BuildSeenTutosTable(cpIndex).DefaultView;
+
+            dataGridViewSeenTutos.Columns[1].FillWeight = 10;
+            dataGridViewSeenTutos.Columns[2].FillWeight = 10;
         }
 
         private DataTable BuildSeenTutosTable(int cpIndex)
@@ -652,8 +682,8 @@ namespace lis2_save_editor
 
             dataGridViewFacts.Columns[0].ReadOnly = true;
             dataGridViewFacts.Columns[1].ReadOnly = true;
-            dataGridViewFacts.Columns[1].Width = 30;
-            dataGridViewFacts.Columns[2].Width = 100;
+            dataGridViewFacts.Columns[1].FillWeight = 20;
+            dataGridViewFacts.Columns[2].FillWeight = 20;
         }
 
         private DataTable BuildAllFactsTable(int cpIndex)
@@ -760,9 +790,48 @@ namespace lis2_save_editor
             return t;
         }
 
+        private void UpdateAllLevelsGrid(int cpIndex)
+        {
+            dataGridViewLevels.Columns.Clear();
+            dataGridViewLevels.DataSource = BuildAllLevelsTable(cpIndex).DefaultView;
+
+            DataGridViewButtonColumn butcol = new DataGridViewButtonColumn();
+            butcol.Name = "Value";
+            butcol.Text = "View/Edit";
+            butcol.UseColumnTextForButtonValue = true;
+            dataGridViewLevels.Columns.Insert(1, butcol);
+
+            dataGridViewLevels.Columns[1].FillWeight = 20;
+            dataGridViewLevels.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewLevels.Columns[1].SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+
+        private DataTable BuildAllLevelsTable(int cpIndex)
+        {
+            DataTable t = new DataTable();
+            List<dynamic> level_list;
+
+            if (cpIndex == 0)
+            {
+                level_list = _gameSave.Data["CurrentSubContextSaveData"]
+                             .Value["LevelsSaveData"].Value;
+            }
+            else
+            {
+                level_list = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["LevelsSaveData"].Value;
+            }
+
+            t.Columns.Add("Level ID");
+            foreach (var lvl in level_list.Skip(1))
+            {
+                t.Rows.Add(new object[] { lvl["LevelName"].Value });
+            }
+            return t;
+        }
+
         private void GenerateMetrics(int cpIndex)
         {
-            tabPageMetrics.Controls.Clear();
+            flowLayoutPanelMetrics.Controls.Clear();
 
             dynamic root;
             if (cpIndex == 0)
@@ -774,12 +843,11 @@ namespace lis2_save_editor
                 root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["MetricsSaveData"].Value["MetricsBySection"].Value;
             }
             
-            int gbox_coord = 3, lbl_coord = 20, max_lbl_width = 0;
+            int lbl_coord = 20, max_lbl_width = 0;
             foreach (var section in root)
             {
                 var gbox = new GroupBox();
                 gbox.AutoSize = true;
-                gbox.Location = new Point(gbox_coord, 3);
                 gbox.Text = section.Key;
 
                 foreach (var cnt in section.Value["Counters"].Value)
@@ -868,9 +936,7 @@ namespace lis2_save_editor
                     tb.Location = new Point(tb.Location.X + max_lbl_width, tb.Location.Y);
                 }
 
-                tabPageMetrics.Controls.Add(gbox);
-                
-                gbox_coord += gbox.Width + 6;
+                flowLayoutPanelMetrics.Controls.Add(gbox);
             }
         }
 
@@ -881,9 +947,9 @@ namespace lis2_save_editor
 
             if (_gameSave.saveType == SaveType.LIS)
             {
-                dataGridViewSeenPics.Columns[1].Width = 40;
-                dataGridViewSeenPics.Columns[2].Width = 40;
-                dataGridViewSeenPics.Columns[3].Width = 60;
+                dataGridViewSeenPics.Columns[1].FillWeight = 20;
+                dataGridViewSeenPics.Columns[2].FillWeight = 20;
+                dataGridViewSeenPics.Columns[3].FillWeight = 20;
             }
         }
 
@@ -948,6 +1014,10 @@ namespace lis2_save_editor
         {
             dataGridViewCollectibles.Columns.Clear();
             dataGridViewCollectibles.DataSource = BuildCollectiblesTable(cpIndex).DefaultView;
+
+            dataGridViewCollectibles.Columns[1].FillWeight = 20;
+            dataGridViewCollectibles.Columns[2].FillWeight = 20;
+            dataGridViewCollectibles.Columns[3].FillWeight = 20;
         }
 
         private DataTable BuildCollectiblesTable(int cpIndex)
@@ -1053,6 +1123,8 @@ namespace lis2_save_editor
         {
             dataGridViewSeenMessages.Columns.Clear();
             dataGridViewSeenMessages.DataSource = BuildSeenMessagesTable(cpIndex).DefaultView;
+
+            dataGridViewSeenMessages.Columns[1].FillWeight = 20;
         }
 
         private DataTable BuildSeenMessagesTable(int cpIndex)
@@ -2322,6 +2394,7 @@ namespace lis2_save_editor
             UpdateDrawingsGrid(index);
             UpdateAllFactsGrid(index);
             UpdateWorldGrid(index);
+            UpdateAllLevelsGrid(index);
             GenerateMetrics(index);
             UpdateSeenPicturesGrid(index);
             UpdateCollectiblesGrid(index);
@@ -2490,6 +2563,30 @@ namespace lis2_save_editor
                 {
                     textBoxSavePath.Text = saveSelectionForm.savePath;
                     _settingManager.Settings.SavePath = textBoxSavePath.Text;
+                }
+            }
+        }
+
+        private void dataGridViewLevels_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                var levelForm = new LevelEditForm();
+                var cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    levelForm.level = _gameSave.Data["CurrentSubContextSaveData"].Value["LevelsSaveData"].Value[e.RowIndex + 1];
+                }
+                else
+                {
+                    levelForm.level = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["LevelsSaveData"].Value[e.RowIndex + 1];
+                }
+               levelForm.ShowDialog();
+                if (levelForm.changesMade)
+                {
+                    _editedControls.AddUnique(dataGridViewLevels[0, e.RowIndex]);
+                    dataGridViewLevels[0, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+                    ShowChangesWarning();
                 }
             }
         }

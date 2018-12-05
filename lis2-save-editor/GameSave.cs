@@ -64,9 +64,13 @@ namespace lis2_save_editor
 
             //string facts = GenerateFactsSQL();
 
-            //string outf = GenerateOutfitList();
+            //string outf = GenerateOutfitSQL();
 
             //string inv = GenerateInventorySQL();
+
+            //string levsql = GenerateLevelSQL();
+
+            //File.AppendAllText("FORDB.txt", facts + outf + inv + levsql);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
@@ -149,8 +153,9 @@ namespace lis2_save_editor
                     }
                 }
             }
-
+            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
             return sb.ToString();
+            
         }
 
         public string GenerateInventorySQL()
@@ -205,29 +210,140 @@ namespace lis2_save_editor
                     }
                 }
             }
-
+            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
             return sb.ToString();
         }
 
-        public string GenerateOutfitList()
+        public string GenerateOutfitSQL()
         {
             StringBuilder sb = new StringBuilder();
-            string name = "Sean";
-            List<dynamic> outf_list = Data["CurrentSubContextSaveData"].Value["Outfits"].Value[name]["Items"].Value;
-            foreach (var of in outf_list.Skip(1))
+            sb.AppendLine("insert or ignore into LIS2Outfits (GUID, Slot, Owner) values");
+            foreach (var person in Data["CurrentSubContextSaveData"].Value["Outfits"].Value)
             {
-                sb.AppendLine(of["Guid"].Value["Guid"].ToString() + "    " + of["Slot"].Value);
-            }
-
-            for (int i=1; i<=Data["CheckpointHistory"].ElementCount; i++)
-            {
-                outf_list = Data["CheckpointHistory"].Value[i]["Outfits"].Value[name]["Items"].Value;
+                List<dynamic> outf_list = person.Value["Items"].Value;
                 foreach (var of in outf_list.Skip(1))
                 {
-                    sb.AppendLine(of["Guid"].Value["Guid"].ToString() + "    " + of["Slot"].Value);
+                    var guid = of["Guid"].Value["Guid"].ToString();
+                    string slot = of["Slot"].Value;
+                    if (slot.Contains("Collectible_Badge"))
+                    {
+                        slot = "Collectible_Badge";
+                    }
+                    if (of["Flags"].ElementCount != 0)
+                    {
+                        throw new Exception("Found flags!");
+                    }
+                    sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", guid, slot, person.Key);
                 }
             }
 
+            for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+            {
+                foreach (var person in Data["CheckpointHistory"].Value[i]["Outfits"].Value)
+                {
+                    List<dynamic> outf_list = person.Value["Items"].Value;
+                    foreach (var of in outf_list.Skip(1))
+                    {
+                        var guid = of["Guid"].Value["Guid"].ToString();
+                        string slot = of["Slot"].Value;
+                        if (slot.Contains("Collectible_Badge"))
+                        {
+                            slot = "Collectible_Badge";
+                        }
+                        if (of["Flags"].ElementCount != 0)
+                        {
+                            throw new Exception("Found flags!");
+                        }
+                        sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", guid, slot, person.Key);
+                    }
+                }
+            }
+
+            sb = sb.Replace(",\n", ";\n", sb.Length-3, 3);
+            return sb.ToString();
+        }
+
+        public string GenerateLevelSQL()
+        {
+            StringBuilder sb = new StringBuilder();
+            
+
+            foreach(var level in ((List<dynamic>)Data["CurrentSubContextSaveData"].Value["LevelsSaveData"].Value).Skip(1))
+            {
+                var lvl_name = level["LevelName"].Value;
+                sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
+                List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
+                foreach (var actor in actor_list.Skip(1))
+                {
+                    var actor_name = actor["InteractionActorName"].Value;
+                    sb.AppendFormat("insert or ignore into LIS2InteractionActors (Name, LevelName) values (\"{0}\", \"{1}\");\n", actor_name, lvl_name);
+
+                    sb.AppendLine("insert or ignore into LIS2Interactions (GUID, Name, Type, ActorName, LevelName) values");
+                    foreach (var inter in ((List<dynamic>)actor["ClassicInteractions"].Value).Skip(1))
+                    {
+                        var int_name = inter["InteractionNameForDebug"].Value;
+                        var guid = inter["InteractionGuid"].Value["Guid"].ToString();
+                        sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"),\n", guid, int_name, "Classic", actor_name, lvl_name);
+                    }
+                    foreach (var inter in ((List<dynamic>)actor["DanielInteractions"].Value).Skip(1))
+                    {
+                        var int_name = inter["InteractionNameForDebug"].Value;
+                        var guid = inter["InteractionGuid"].Value["Guid"].ToString();
+                        sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", guid, int_name, "Daniel", actor_name);
+                    }
+                    sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                }
+                List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
+                if(poi_list.Count > 1)
+                {
+                    sb.AppendLine("insert or ignore into LIS2POIs (Name, LevelName) values");
+                    foreach (var poi in poi_list.Skip(1))
+                    {
+                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", poi["PointOfInterestActorName"].Value, lvl_name);
+                    }
+                    sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                }
+            }
+
+            for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+            {
+                foreach (var level in ((List<dynamic>)Data["CheckpointHistory"].Value[i]["LevelsSaveData"].Value).Skip(1))
+                {
+                    var lvl_name = level["LevelName"].Value;
+                    sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
+                    List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
+                    foreach (var actor in actor_list.Skip(1))
+                    {
+                        var actor_name = actor["InteractionActorName"].Value;
+                        sb.AppendFormat("insert or ignore into LIS2InteractionActors (Name, LevelName) values (\"{0}\", \"{1}\");\n", actor_name, lvl_name);
+
+                        sb.AppendLine("insert or ignore into LIS2Interactions (GUID, Name, Type, ActorName, LevelName) values");
+                        foreach (var inter in ((List<dynamic>)actor["ClassicInteractions"].Value).Skip(1))
+                        {
+                            var int_name = inter["InteractionNameForDebug"].Value;
+                            var guid = inter["InteractionGuid"].Value["Guid"].ToString();
+                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"),\n", guid, int_name, "Classic", actor_name, lvl_name);
+                        }
+                        foreach (var inter in ((List<dynamic>)actor["DanielInteractions"].Value).Skip(1))
+                        {
+                            var int_name = inter["InteractionNameForDebug"].Value;
+                            var guid = inter["InteractionGuid"].Value["Guid"].ToString();
+                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", guid, int_name, "Daniel", actor_name);
+                        }
+                        sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                    }
+                    List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
+                    if (poi_list.Count > 1)
+                    {
+                        sb.AppendLine("insert or ignore into LIS2POIs (Name, LevelName) values");
+                        foreach (var poi in poi_list.Skip(1))
+                        {
+                            sb.AppendFormat("(\"{0}\", \"{1}\"),\n", poi["PointOfInterestActorName"].Value, lvl_name);
+                        }
+                        sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                    }
+                }
+            }
             return sb.ToString();
         }
 

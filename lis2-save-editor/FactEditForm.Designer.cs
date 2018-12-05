@@ -177,6 +177,7 @@
             this.Name = "FactEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit fact asset";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FactEditForm_FormClosing);
             this.Load += new System.EventHandler(this.FactEditForm_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FactEditForm_KeyPress);
             this.tabControl1.ResumeLayout(false);

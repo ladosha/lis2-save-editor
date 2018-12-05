@@ -54,10 +54,8 @@ namespace lis2_save_editor
             dataGridViewBool.Columns.Clear();
             dataGridViewBool.DataSource = BuildBoolTable().DefaultView;
 
-            for (int i = 0; i < dataGridViewBool.ColumnCount; i++)
-            {
-                dataGridViewBool.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
+            dataGridViewBool.Columns[1].FillWeight = 20;
+            dataGridViewBool.Columns[2].FillWeight = 20;
         }
 
         private DataTable BuildBoolTable()
@@ -93,10 +91,8 @@ namespace lis2_save_editor
             dataGridViewInt.Columns.Clear();
             dataGridViewInt.DataSource = BuildIntTable().DefaultView;
 
-            for (int i = 0; i < dataGridViewInt.ColumnCount; i++)
-            {
-                dataGridViewInt.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
+            dataGridViewInt.Columns[1].FillWeight = 20;
+            dataGridViewInt.Columns[2].FillWeight = 20;
         }
 
         private DataTable BuildIntTable()
@@ -132,10 +128,8 @@ namespace lis2_save_editor
             dataGridViewFloat.Columns.Clear();
             dataGridViewFloat.DataSource = BuildFloatTable().DefaultView;
 
-            for (int i = 0; i < dataGridViewFloat.ColumnCount; i++)
-            {
-                dataGridViewFloat.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
+            dataGridViewFloat.Columns[1].FillWeight = 20;
+            dataGridViewFloat.Columns[2].FillWeight = 20;
         }
 
         private DataTable BuildFloatTable()
@@ -171,10 +165,8 @@ namespace lis2_save_editor
             dataGridViewEnum.Columns.Clear();
             dataGridViewEnum.DataSource = BuildEnumTable().DefaultView;
 
-            for (int i = 0; i < dataGridViewEnum.ColumnCount; i++)
-            {
-                dataGridViewEnum.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
+            dataGridViewEnum.Columns[1].FillWeight = 20;
+            dataGridViewEnum.Columns[2].FillWeight = 20;
         }
 
         private DataTable BuildEnumTable()
@@ -364,6 +356,14 @@ namespace lis2_save_editor
             {
                 Close();
             }
+        }
+
+        private void FactEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            dataGridViewBool.EndEdit();
+            dataGridViewInt.EndEdit();
+            dataGridViewFloat.EndEdit();
+            dataGridViewEnum.EndEdit();
         }
 
         private void EditFactValue(string factType, string name, int colIndex, object value)
