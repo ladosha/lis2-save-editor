@@ -266,19 +266,20 @@ namespace lis2_save_editor
         public string GenerateLevelSQL()
         {
             StringBuilder sb = new StringBuilder();
-            
+
+            string table = saveType == SaveType.LIS ? "LIS2" : "CS";
 
             foreach(var level in ((List<dynamic>)Data["CurrentSubContextSaveData"].Value["LevelsSaveData"].Value).Skip(1))
             {
                 var lvl_name = level["LevelName"].Value;
-                sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
+                sb.AppendFormat("insert or ignore into {1}Levels (Name) values (\"{0}\");\n", lvl_name, table);
                 List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 foreach (var actor in actor_list.Skip(1))
                 {
                     var actor_name = actor["InteractionActorName"].Value;
-                    sb.AppendFormat("insert or ignore into LIS2InteractionActors (Name, LevelName) values (\"{0}\", \"{1}\");\n", actor_name, lvl_name);
+                    sb.AppendFormat("insert or ignore into {2}InteractionActors (Name, LevelName) values (\"{0}\", \"{1}\");\n", actor_name, lvl_name, table);
 
-                    sb.AppendLine("insert or ignore into LIS2Interactions (GUID, Name, Type, ActorName, LevelName) values");
+                    sb.AppendFormat("insert or ignore into {0}Interactions (GUID, Name, Type, ActorName, LevelName) values\n", table);
                     foreach (var inter in ((List<dynamic>)actor["ClassicInteractions"].Value).Skip(1))
                     {
                         var int_name = inter["InteractionNameForDebug"].Value;
@@ -289,14 +290,14 @@ namespace lis2_save_editor
                     {
                         var int_name = inter["InteractionNameForDebug"].Value;
                         var guid = inter["InteractionGuid"].Value["Guid"].ToString();
-                        sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", guid, int_name, "Daniel", actor_name);
+                        sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"),\n", guid, int_name, "Daniel", actor_name, lvl_name);
                     }
                     sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
                 List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
                 if(poi_list.Count > 1)
                 {
-                    sb.AppendLine("insert or ignore into LIS2POIs (Name, LevelName) values");
+                    sb.AppendFormat("insert or ignore into {0}POIs (Name, LevelName) values\n", table);
                     foreach (var poi in poi_list.Skip(1))
                     {
                         sb.AppendFormat("(\"{0}\", \"{1}\"),\n", poi["PointOfInterestActorName"].Value, lvl_name);
@@ -305,45 +306,49 @@ namespace lis2_save_editor
                 }
             }
 
-            for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+            if (saveType == SaveType.LIS)
             {
-                foreach (var level in ((List<dynamic>)Data["CheckpointHistory"].Value[i]["LevelsSaveData"].Value).Skip(1))
+                for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
-                    var lvl_name = level["LevelName"].Value;
-                    sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
-                    List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
-                    foreach (var actor in actor_list.Skip(1))
+                    foreach (var level in ((List<dynamic>)Data["CheckpointHistory"].Value[i]["LevelsSaveData"].Value).Skip(1))
                     {
-                        var actor_name = actor["InteractionActorName"].Value;
-                        sb.AppendFormat("insert or ignore into LIS2InteractionActors (Name, LevelName) values (\"{0}\", \"{1}\");\n", actor_name, lvl_name);
+                        var lvl_name = level["LevelName"].Value;
+                        sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
+                        List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
+                        foreach (var actor in actor_list.Skip(1))
+                        {
+                            var actor_name = actor["InteractionActorName"].Value;
+                            sb.AppendFormat("insert or ignore into LIS2InteractionActors (Name, LevelName) values (\"{0}\", \"{1}\");\n", actor_name, lvl_name);
 
-                        sb.AppendLine("insert or ignore into LIS2Interactions (GUID, Name, Type, ActorName, LevelName) values");
-                        foreach (var inter in ((List<dynamic>)actor["ClassicInteractions"].Value).Skip(1))
-                        {
-                            var int_name = inter["InteractionNameForDebug"].Value;
-                            var guid = inter["InteractionGuid"].Value["Guid"].ToString();
-                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"),\n", guid, int_name, "Classic", actor_name, lvl_name);
+                            sb.AppendLine("insert or ignore into LIS2Interactions (GUID, Name, Type, ActorName, LevelName) values");
+                            foreach (var inter in ((List<dynamic>)actor["ClassicInteractions"].Value).Skip(1))
+                            {
+                                var int_name = inter["InteractionNameForDebug"].Value;
+                                var guid = inter["InteractionGuid"].Value["Guid"].ToString();
+                                sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"),\n", guid, int_name, "Classic", actor_name, lvl_name);
+                            }
+                            foreach (var inter in ((List<dynamic>)actor["DanielInteractions"].Value).Skip(1))
+                            {
+                                var int_name = inter["InteractionNameForDebug"].Value;
+                                var guid = inter["InteractionGuid"].Value["Guid"].ToString();
+                                sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\"),\n", guid, int_name, "Daniel", actor_name, lvl_name);
+                            }
+                            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }
-                        foreach (var inter in ((List<dynamic>)actor["DanielInteractions"].Value).Skip(1))
+                        List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
+                        if (poi_list.Count > 1)
                         {
-                            var int_name = inter["InteractionNameForDebug"].Value;
-                            var guid = inter["InteractionGuid"].Value["Guid"].ToString();
-                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\", \"{3}\"),\n", guid, int_name, "Daniel", actor_name);
+                            sb.AppendLine("insert or ignore into LIS2POIs (Name, LevelName) values");
+                            foreach (var poi in poi_list.Skip(1))
+                            {
+                                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", poi["PointOfInterestActorName"].Value, lvl_name);
+                            }
+                            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }
-                        sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
-                    }
-                    List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
-                    if (poi_list.Count > 1)
-                    {
-                        sb.AppendLine("insert or ignore into LIS2POIs (Name, LevelName) values");
-                        foreach (var poi in poi_list.Skip(1))
-                        {
-                            sb.AppendFormat("(\"{0}\", \"{1}\"),\n", poi["PointOfInterestActorName"].Value, lvl_name);
-                        }
-                        sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                     }
                 }
             }
+
             return sb.ToString();
         }
 

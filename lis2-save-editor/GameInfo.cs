@@ -27,8 +27,20 @@ namespace lis2_save_editor
     public class LevelObject
     {
         public string Name { get; set; }
-        public List<InteractionActor> Interactions { get; set; }
+        public List<InteractionActor> Interactions { get; set; } 
         public string[] PointsOfInterest { get; set; }
+        public static LevelObject Empty
+        {
+            get
+            {
+                return new LevelObject
+                {
+                    Name = "None",
+                    Interactions = new List<InteractionActor>(),
+                    PointsOfInterest = new string[0]
+                };
+            }
+        }
     }
 
     public class InteractionActor
@@ -1026,32 +1038,2337 @@ namespace lis2_save_editor
             {new Guid("{4D5F4316-385D-4207-9A96-03853033C802}"), "E1_Menu_SMS_Lyla_E1-7A_05"},
         };
 
-        public static List<LevelObject> LIS2_LevelsB = new List<LevelObject>()
+
+        public static List<LevelObject> CS_Levels = new List<LevelObject>()
         {
             {
                 new LevelObject()
                 {
-                    Name = "Name",
+                    Name = "PROM_P",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_AMB",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_Background_GR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHDreams_SD",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHInside_FX",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHInside_GR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHOutside_FX",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHInside_SD",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHOutside_GR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHOutside_LD",
                     Interactions = new List<InteractionActor>()
                     {
                         {
                             new InteractionActor()
                             {
-                                Name = "Name",
+                                Name = "PT_BP_LIS2InteractionActor_Padlock",
                                 ClassicInteractions = new Dictionary<Guid, string>()
                                 {
-                                    {new Guid("{C062F28C-5F88-4420-926B-D56C2FEE7133}"), "E1_1A_DrawSequence" },
+                                    { new Guid("8d786eb3-f446-49aa-aaf8-1de8d31c1b36"), "PROM_P_IntActor_Padlock_C1_Look" },
+                                    { new Guid("f9590e00-f543-4c3b-a4e5-c9faf1e15ab0"), "PROM_P_IntActor_Padlock_C2_Unlock" },
                                 },
                                 DanielInteractions = new Dictionary<Guid, string>()
                                 {
-                                    {new Guid("{C062F28C-5F88-4420-926B-D56C2FEE7133}"), "E1_1A_DrawSequence" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Lookout",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ea61c0e4-7210-4fc1-90c8-b4ac3a375d92"), "PROM_P_IntActor_Lookout_C1_Sit" },
+                                    { new Guid("7d54742c-bf56-4ff1-9e15-84a2065449f6"), "PROM_P_IntActor_Lookout_C2_Sit" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Spiritmobile",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ba214193-e732-4d57-91cb-be08a074525a"), "PROM_P_IntActor_Spiritmobile_C1_Look" },
+                                    { new Guid("82c430bb-8895-44db-8356-064a1325884a"), "PROM_P_IntActor_Spiritmobile_C2_Look" },
+                                    { new Guid("154f15ec-0775-43c3-8f98-43d4fd34afe4"), "PROM_P_IntActor_Spiritmobile_C3_Inspect" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("48e48fd3-7df7-4ecb-9ea6-f4d03e0e7765"), "PROM_P_IntActor_Spiritmobile_C0_PowerDrive" },
+                                    { new Guid("44b4bae6-c363-4dde-8b4d-d31127581d40"), "PROM_P_IntActor_Spiritmobile_C0_PowerDrive" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Firecracker",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("fa2b8065-fe6b-4266-b4de-31d847fbde27"), "PROM_P_IntActor_Firecracker_C1_Look" },
+                                    { new Guid("883a3c99-c8ff-4277-af40-eb8f1b389ebc"), "PROM_P_IntActor_Firecracker_C2_Take" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_LadderGoDown",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("cb96c404-9442-40d7-8d11-f76dd449ad8e"), "PROM_P_IntActor_LadderGoDown_C1_Godown" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SideDoor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("eeb28afc-8349-44e6-8f1e-fbebaadb437f"), "PROM_P_IntActor_SideDoor_C1_Open" },
+                                    { new Guid("cd75c8ca-91a6-40a0-8e26-f901985b28a6"), "PROM_P_IntActor_SideDoor_C2_Open" },
+                                    { new Guid("9f0ccd62-4719-468d-ab42-50a1bee08088"), "PROM_P_IntActor_SideDoor_C3_Open" },
+                                    { new Guid("83f7f143-2e3c-41ea-80a6-396187c7b524"), "PROM_P_IntActor_SideDoor_C4_Open" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_TransparentMap",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e4303c35-b4d4-4192-983a-4346b9443010"), "PROM_P_IntActor_TransparentMap_C1_Look" },
+                                    { new Guid("707c0292-3d7f-43f8-bcd1-ab5198da05da"), "PROM_P_IntActor_TransparentMap_C2_Take" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GolemCemetary",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("2fe86bf6-6940-4250-bfbd-9c50e8a1b20e"), "PROM_P_IntActor_GolemCemetary_C1_Look" },
+                                    { new Guid("85639c10-a766-4e4b-a5de-28c0aefc6df8"), "PROM_P_IntActor_GolemCemetary_C2_Look" },
+                                    { new Guid("efbb1503-2bfd-4e9c-b06e-b45fa06554bd"), "PROM_P_IntActor_GolemCemetary_C3_Enter" },
+                                    { new Guid("1fb1e2bf-2830-4451-8a61-ebc5e646e493"), "PROM_P_IntActor_GolemCemetary_C4_Enter" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SnowMan",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("4bacb280-9bfc-4bde-ae29-721f68d36569"), "PROM_P_IntActor_SnowMan_C1_Look" },
+                                    { new Guid("8dd9acd0-4fa4-4ae8-9ed6-5845d61a3897"), "PROM_P_IntActor_SnowMan_C2_Tune" },
+                                    { new Guid("850e1b12-70f5-40a0-8b89-ef824e4d798e"), "PROM_P_IntActor_SnowMan_C3_Look" },
+                                    { new Guid("e6e12e2c-c46b-4090-9c0f-2fa158e5be6d"), "PROM_P_IntActor_SnowMan_C4_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("50c6c988-1a9c-466b-b6e1-e1c00b312ecb"), "PROM_P_IntActor_SnowMan_C0_BlowUp" },
+                                    { new Guid("8a684962-4063-4875-8e58-8271ec0ccc98"), "PROM_P_IntActor_SnowMan_C0_BlowUp" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CreepyTree",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("f73e181b-84fb-4a36-ab92-410b80e39008"), "PROM_P_IntActor_CreepyTree_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Range",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("207991fd-2155-4942-9225-2d00a00dad89"), "PROM_P_IntActor_Range_C1_Look" },
+                                    { new Guid("3ffd0977-198c-4129-a080-529dbfd1a3bf"), "PROM_P_IntActor_Range_C2_SetupRange" },
+                                    { new Guid("955a6ab6-f5c9-427b-8dae-de7b8752f3e9"), "PROM_P_IntActor_Range_C3_SetupRange" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_LadderGoUp",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("eda6cb4d-5b28-41dd-bf19-89402ba6b5fc"), "PROM_P_IntActor_LadderGoUp_C1_Look" },
+                                    { new Guid("a200dc1a-8c16-43a7-b3b0-4e75a341a20f"), "PROM_P_IntActor_LadderGoUp_C2_Goup" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_TreeCarving",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("cb82ed56-ed96-42c4-883e-3d1ec7025cbc"), "PROM_P_IntActor_TreeCarving_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SkyPirate",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("d61dd8cc-acf2-44a7-ad53-ceaecdccf7cc"), "PROM_P_IntActor_SkyPirate_C1_Look" },
+                                    { new Guid("a786132e-0a68-4e75-b44c-2a984550132b"), "PROM_P_IntActor_SkyPirate_C2_Look" },
+                                    { new Guid("916c4102-311d-411a-8ca3-eb4c4f37852d"), "PROM_P_IntActor_SkyPirate_C3_Check" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SecretStash",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("66a70b0a-903a-41e5-abee-cb1591e653d8"), "PROM_P_IntActor_SecretStash_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("183adefe-08b5-417e-b23f-bd5ee84eddd1"), "PROM_P_IntActor_SecretStash_C0_Open" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SchoolLetters",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("df4f1f5d-83c9-48b7-95e0-d4bd9dbef257"), "PROM_P_IntActor_SchoolLetters_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Ashtray",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("b7b622e9-5ac2-4c7e-a3b3-13e540e0d14d"), "PROM_P_IntActor_Ashtray_C1_Look" },
+                                    { new Guid("a8f9e40e-c095-42f4-a05d-74919de5bdf4"), "PROM_P_IntActor_Ashtray_C2_LightCigarette" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Shovel",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ed2ed7a2-eda2-45d1-a246-f25a9635c26d"), "PROM_P_IntActor_Shovel_C1_ClearSnow" },
+                                    { new Guid("f60bd83f-6f93-471a-913b-3cfae1f1b1bc"), "PROM_P_IntActor_Shovel_C2_Look" },
+                                    { new Guid("785933ca-a0b8-4c6a-8085-81412ac39996"), "PROM_P_IntActor_Shovel_C3_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GarageMainDoor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a20d6a4e-ac59-4391-920d-70c511fc6987"), "PROM_P_IntActor_GarageMainDoor_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("40c28473-ee97-480a-9209-4d251e533972"), "PROM_P_IntActor_GarageMainDoor_C0_Open" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Mailbox",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("6d4939c1-777e-440f-ae1d-a8c95034c542"), "PROM_P_IntActor_Mailbox_C1_Open" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BaseBallCard",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("44a0dfa6-4649-4eea-a853-d023a4df024d"), "PROM_P_IntActor_BaseBallCard_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WallHole",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("09639b74-ae1c-44cd-8fd6-9155fe3dc945"), "PROM_P_IntActor_WallHole_C1_Look" },
+                                    { new Guid("181d9051-715b-4992-8dfb-0d664498bc1b"), "PROM_P_IntActor_WallHole_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Range2",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("8d5c98ab-2c25-4d79-84a3-fa9ec84b57d7"), "PROM_P_IntActor_Range2_C1_Look" },
+                                    { new Guid("6c3abd58-d7ae-4889-a4a6-3325e308aea8"), "PROM_P_IntActor_Range2_C2_Pulverize" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GrandParentsLetterGarage",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("6248b9c0-3daa-4239-99b8-c55866917707"), "PROM_P_IntActor_GrandParentsLetterGarage_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SprayPaint",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e06ccc70-aa0b-4245-a552-462be08384fe"), "PROM_P_IntActor_SprayPaint_C1_Look" },
+                                    { new Guid("2ddf6d4c-7bed-42a5-916f-cdf2d6bbf12a"), "PROM_P_IntActor_SprayPaint_C2_Look" },
+                                    { new Guid("d088a846-a0f7-46e3-8c5b-28f73eb1c773"), "PROM_P_IntActor_SprayPaint_C3_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("b78d05a9-3335-481a-8956-e210469b20cc"), "PROM_P_IntActor_SprayPaint_C0_Use" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_HikingBoots",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("90dab23d-ffb9-4421-8261-4c7d07b221d6"), "PROM_P_IntActor_HikingBoots_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BrokenSwing",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ff16c846-ff99-4aea-9d1c-e3a430eac1ce"), "PROM_P_IntActor_BrokenSwing_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GraffitiHouse",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ed6722a6-b472-43e9-b702-a5677238051e"), "PROM_P_IntActor_GraffitiHouse_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Locker",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a98a6526-ea20-4313-94ab-5ccccdd524b6"), "PROM_P_IntActor_Locker_C1_Open" },
+                                    { new Guid("4673cb7f-002d-4dfe-ac01-b41158bd335e"), "PROM_P_IntActor_Locker_C2_Open" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GarageLightSwitch",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c281c239-f77a-4d79-bbf6-407717352256"), "PROM_P_IntActor_GarageLightSwitch_C1_TurnOn" },
+                                    { new Guid("23648ecd-de36-4f91-a35e-340ae2878288"), "PROM_P_IntActor_GarageLightSwitch_C2_TurnOff" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BinderGarage",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("0c923b29-61ff-4984-a871-c2f9cdd40ce4"), "PROM_P_IntActor_BinderGarage_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Binder",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("24a729e4-8948-49d6-b4c8-9ed10754a0f6"), "PROM_P_IntActor_Binder_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BoxGarage",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a8cae138-f5ec-4d46-bd4d-7a85cf43aac2"), "PROM_P_IntActor_BoxGarage_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Doll",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("94a53cad-fc5f-46a8-85e5-722f5a7bea4d"), "PROM_P_IntActor_Doll_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Noctared",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("86131627-6098-40c6-8a89-f261ea36ab56"), "PROM_P_IntActor_Noctared_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ComicStripTreeHouse",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("6a78c863-56ec-4e16-98ac-e4b7bcc0f978"), "PROM_P_IntActor_ComicStripTreeHouse_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BeerCardboard",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("254f05bc-7313-44e5-a3ce-1d276a499514"), "PROM_P_IntActor_BeerCardboard_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e0bf9028-af7c-403d-88c8-cf81b611c689"), "PROM_P_IntActor_BeerCardboard_C0_Wear" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Lookout2",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("85936598-aee3-4671-9c9b-e9229cffe59d"), "PROM_P_IntActor_Lookout2_C1_SitALT" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ReynoldsHouse",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("cde0caa0-19a8-424c-b60a-78f199bee345"), "PROM_P_IntActor_ReynoldsHouse_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Raccoon",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c55b5b3d-1f8a-4269-bb38-9ff06568ebb4"), "PROM_P_IntActor_Raccoon_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
                                 },
                             }
                         },
                     },
                     PointsOfInterest = new string[]
                     {
-                        "string",
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHOutside_SD",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_Global_MusicMix",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_Global_SD",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_Ground_GR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_PlanetGround_GR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_GarageInside_GR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_EHInside_LD",
+                    Interactions = new List<InteractionActor>()
+                    {
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_DirtyClothes",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c671b3e4-3910-46e5-af91-583a0456bac1"), "PROM_P_IntActor_DirtyClothes_C1_Look" },
+                                    { new Guid("587a0d90-a921-4ab1-aa49-8055be464699"), "PROM_P_IntActor_DirtyClothes_C2_Addtotub" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesBed",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("fd0f930d-0949-40cb-a51c-962c62052cbc"), "PROM_P_IntActor_CharlesBed_C1_Look" },
+                                    { new Guid("086cc518-7f63-46aa-a52c-d1516a9d8fa5"), "PROM_P_IntActor_CharlesBed_C2_Liedown" },
+                                    { new Guid("c76e71a5-d988-4f0b-9df1-5a22494f00bb"), "PROM_P_IntActor_CharlesBed_C3_Liedown" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Dishes",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("f768dd22-c977-4c6b-8f52-82d4c5fdbdd7"), "PROM_P_IntActor_Dishes_C1_Look" },
+                                    { new Guid("5ce51f66-92c2-402d-9409-ef52ee9493a9"), "PROM_P_IntActor_Dishes_C2_Wash" },
+                                    { new Guid("69a5f45d-52ec-4a82-a8ef-56cdd0945b74"), "PROM_P_IntActor_Dishes_C3_Look" },
+                                    { new Guid("bacefc8c-2613-4219-afb7-84c22181f169"), "PROM_P_IntActor_Dishes_C4_Wash" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1c63323b-dab6-4fd6-840b-6db90202917c"), "PROM_P_IntActor_Dishes_C0_MegaWash" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_MicroWave",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e1911246-461b-4f80-82ac-d6525a138ec1"), "PROM_P_IntActor_MicroWave_C1_Look" },
+                                    { new Guid("b47cacfb-bd63-4b1a-a00c-607b5301fdf4"), "PROM_P_IntActor_MicroWave_C2_Givetodad" },
+                                    { new Guid("c584dcab-df67-4344-896b-5253ae5ce8ec"), "PROM_P_IntActor_MicroWave_C3_Look" },
+                                    { new Guid("d3fa8ca0-0b55-42ce-9686-f8a16e01f6a7"), "PROM_P_IntActor_MicroWave_C4_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e9fb7292-3c9a-4efb-bd28-8d3abc29e772"), "PROM_P_IntActor_MicroWave_C0_Irradiate" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_MacCheese",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("cc4db36a-036b-408b-9102-9922e040ef90"), "PROM_P_IntActor_MacCheese_C1_Cook" },
+                                    { new Guid("280820ca-c9e8-483b-b704-930c27891bb3"), "PROM_P_IntActor_MacCheese_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_RecycleBin",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e8c80d03-cf17-422e-84fd-bba5386464d8"), "PROM_P_IntActor_RecycleBin_C1_Look" },
+                                    { new Guid("ac8b2982-89d6-4fb1-bf75-0821624eb2bf"), "PROM_P_IntActor_RecycleBin_C2_Look" },
+                                    { new Guid("4a854b9f-1cc7-45dc-9612-debcc473e1ca"), "PROM_P_IntActor_RecycleBin_C3_TakeOut" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_MainDoor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("b92544b9-1cff-4a25-af96-67590fb8afe0"), "PROM_P_IntActor_MainDoor_C1_GetOut" },
+                                    { new Guid("524a6abb-dafa-45b6-b281-291a2313c4ae"), "PROM_P_IntActor_MainDoor_C2_GetOut" },
+                                    { new Guid("a52e1ab7-746d-4f43-b892-e317bafb40f5"), "PROM_P_IntActor_MainDoor_C3_Getin" },
+                                    { new Guid("db5751fd-99f4-43ac-ab0d-195f03f08a39"), "PROM_P_IntActor_MainDoor_C4_Getin" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesRoomDoor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1ab13313-f448-4650-96d7-6f47e65dced2"), "PROM_P_IntActor_CharlesRoomDoor_C1_Enter" },
+                                    { new Guid("6e6bf78c-a5e0-49bb-98ed-78127b2f6ec2"), "PROM_P_IntActor_CharlesRoomDoor_C2_Leave" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Cloak",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("dde953ae-d755-460c-a43f-0fee465249ca"), "PROM_P_IntActor_Cloak_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c6e50757-c873-436b-b7f2-464c99915818"), "PROM_P_IntActor_Cloak_C0_Wear" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ChrisRoomDoor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("4ff90ab4-866c-48f9-9a17-cbfa32c68748"), "PROM_P_IntActor_ChrisRoomDoor_C1_Open" },
+                                    { new Guid("943af934-157b-43d5-99ff-db79dd247079"), "PROM_P_IntActor_ChrisRoomDoor_C2_Open" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SecretMap_2",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("11850bc4-8c95-4776-ad16-af479b4d7e9f"), "PROM_P_IntActor_2_C1_Look" },
+                                    { new Guid("d547857f-a7ac-4dd1-855e-942f127a585a"), "PROM_P_IntActor_2_C2_Look" },
+                                    { new Guid("02a8a80f-d3fe-491a-b179-9c1c335e3098"), "PROM_P_IntActor_2_C3_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("be4fd82a-687d-42ac-a451-506521be7bcf"), "PROM_P_IntActor_2_C0_Decypher" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Drawing_1",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("f59920dc-8c8c-4b4d-8db8-ca33fe20aa61"), "PROM_P_IntActor_1_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_KeyBowl",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("dd8a6b11-980c-423f-a243-0f309155a54c"), "PROM_P_IntActor_KeyBowl_C1_Put" },
+                                    { new Guid("e16de051-4d99-4f25-bb62-ce213baeead0"), "PROM_P_IntActor_KeyBowl_C2_Take" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_LandlinePhone",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("17f08a92-271f-4714-b7ab-d5a4892f37b7"), "PROM_P_IntActor_LandlinePhone_C1_Answer" },
+                                    { new Guid("fcb4150a-6ab5-4cea-82fc-727c400de7b1"), "PROM_P_IntActor_LandlinePhone_C2_Use" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Turntable",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("61211273-e01f-4bd0-b158-0b506547f39f"), "PROM_P_IntActor_Turntable_C1_Look" },
+                                    { new Guid("4abb4250-9f60-412a-91e1-d443646ddf14"), "PROM_P_IntActor_Turntable_C2_Play" },
+                                    { new Guid("f73428e9-8edc-436a-9b60-f06e2bb42779"), "PROM_P_IntActor_Turntable_C3_Stop" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Pants",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("0cca7b2b-db72-4623-83de-d0b0239d7480"), "PROM_P_IntActor_Pants_C1_Look" },
+                                    { new Guid("a7c9b20d-7af5-463d-9466-2ffefbc7a78b"), "PROM_P_IntActor_Pants_C2_Take" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_LightSwitch",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ffd0f70a-46cf-4361-9811-f7d2627fc530"), "PROM_P_IntActor_LightSwitch_C1_TurnOn" },
+                                    { new Guid("416ef4f5-1876-460b-8cc6-9a1e39eb7188"), "PROM_P_IntActor_LightSwitch_C2_TurnOff" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_FamilyPicture",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("9000f2fe-a597-48fa-983f-fe9d8db57cdd"), "PROM_P_IntActor_FamilyPicture_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BugsMotel",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("5c44cd0b-f751-4017-bac9-6924bf93fdea"), "PROM_P_IntActor_BugsMotel_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Bag",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("f42d1cd4-1948-4151-8be2-c2d18d392088"), "PROM_P_IntActor_Bag_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_AdventCalendar",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ce4564f0-df69-49a0-8901-c55c71a3e0c9"), "PROM_P_IntActor_AdventCalendar_C1_Look" },
+                                    { new Guid("40fdd3a5-5eb7-4cd6-a3e7-a89f5989c719"), "PROM_P_IntActor_AdventCalendar_C2_Eat" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SecretMapFPP",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("d1c2183b-33b9-48c0-85c5-f49654d72381"), "PROM_P_IntActor_SecretMapFPP_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("9603a747-1818-4765-9e6d-8fa4eb39fc33"), "PROM_P_IntActor_SecretMapFPP_C0_Take" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_FavoriteBook",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("3ce33007-c19a-4c67-9883-40a3f87d6d88"), "PROM_P_IntActor_FavoriteBook_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WalkieTalkie",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("4356a497-343a-487a-a19d-9614ba186d36"), "PROM_P_IntActor_WalkieTalkie_C1_Look" },
+                                    { new Guid("ff33514b-d3b4-4d8a-b4a9-3b0e3f9d3c79"), "PROM_P_IntActor_WalkieTalkie_C2_Call" },
+                                    { new Guid("6244aca2-cbca-474c-b0d7-2696c9326dc5"), "PROM_P_IntActor_WalkieTalkie_C3_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Slippers",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("9e3d698f-0522-483c-8e50-c8bd0f3e50c1"), "PROM_P_IntActor_Slippers_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ForestWarrior",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("995e5c3d-851a-49cb-9612-af92dbf13da9"), "PROM_P_IntActor_ForestWarrior_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WishList",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("cedd8d58-e78e-4684-a7d0-f5f2efbe4a06"), "PROM_P_IntActor_WishList_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Trophy",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ccc05d0f-e8fa-46e2-8a98-bd8c4694f87a"), "PROM_P_IntActor_Trophy_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ComicBookBathroom",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1682b309-7917-4c51-95bd-abda6eae39bd"), "PROM_P_IntActor_ComicBookBathroom_C1_Look" },
+                                    { new Guid("a31285f1-4b18-4939-8a68-a1eadccfdf4a"), "PROM_P_IntActor_ComicBookBathroom_C2_Read" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GarageKey",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a518f36c-33d5-47d3-99ea-64d91e48dca9"), "PROM_P_IntActor_GarageKey_C1_Take" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Mirror",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1e76b246-8b9c-4f4b-a01f-f8a7dd354076"), "PROM_P_IntActor_Mirror_C1_Interview" },
+                                    { new Guid("4afaaaae-fada-43c1-b460-35ad919a6c1d"), "PROM_P_IntActor_Mirror_C2_Use" },
+                                    { new Guid("2bdb56b2-be8e-457f-8859-11a844c3d5fc"), "PROM_P_IntActor_Mirror_C3_Use" },
+                                    { new Guid("5b3e52c9-e64e-4ba7-a6a5-291e2ff66b24"), "PROM_P_IntActor_Mirror_C4_Use" },
+                                    { new Guid("ec22e7d0-6982-4216-ba36-964ce34380c4"), "PROM_P_IntActor_Mirror_C5_Use" },
+                                    { new Guid("317af5c9-7319-46b5-89df-70a4b291c4f4"), "PROM_P_IntActor_Mirror_C6_Use" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Faucet",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("55c6b3b2-7ac2-4571-ac56-c4244c59de8a"), "PROM_P_IntActor_Faucet_C1_Use" },
+                                    { new Guid("66b3e217-391f-45c2-9e07-02326a708fc0"), "PROM_P_IntActor_Faucet_C2_Look" },
+                                    { new Guid("727eb070-1b01-46e6-b825-cdc05decb5d4"), "PROM_P_IntActor_Faucet_C3_Use" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Submarine",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("9a5a5454-4c54-4d51-8de1-90aafa26253c"), "PROM_P_IntActor_Submarine_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Console",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("aeda0d36-1335-448f-9321-4a5ac8a693f5"), "PROM_P_IntActor_Console_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_HeightGauge",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("20945b00-8377-4a2a-b98c-326e938d11eb"), "PROM_P_IntActor_HeightGauge_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesRoomTopBox",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("bf29def7-82fa-480e-8175-db385458f8ce"), "PROM_P_IntActor_CharlesRoomTopBox_C1_Look" },
+                                    { new Guid("91b6917a-98f0-4c26-a791-11e6de185c36"), "PROM_P_IntActor_CharlesRoomTopBox_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Newspaper",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("277d981b-7592-4e34-a922-6e21ba256353"), "PROM_P_IntActor_Newspaper_C1_Read" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BaseballBat",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("6a183b6a-5186-4fb0-9b85-44dc3adf6376"), "PROM_P_IntActor_BaseballBat_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Lamp",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("03b67c76-c205-4d3f-b739-20910ee0a64e"), "PROM_P_IntActor_Lamp_C1_Look" },
+                                    { new Guid("6e5f31c1-4905-48ea-ad6a-c7d86d9d895f"), "PROM_P_IntActor_Lamp_C2_Fix" },
+                                    { new Guid("5c61c950-df1b-4b12-9c36-02522ab9a73b"), "PROM_P_IntActor_Lamp_C3_Turnon" },
+                                    { new Guid("2886a3ee-e824-455c-968f-867b1802f0f1"), "PROM_P_IntActor_Lamp_C4_Turnoff" },
+                                    { new Guid("5690047c-f94f-40c2-af53-4e3fbf8018db"), "PROM_P_IntActor_Lamp_C5_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_FistMark",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("fdf2b60d-d3fd-4c64-a2b8-0cec6f124da5"), "PROM_P_IntActor_FistMark_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Tattoo",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("dbf2c463-90f6-462c-8800-55cb499a078a"), "PROM_P_IntActor_Tattoo_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c091ce9e-f497-47b4-ae68-4fbdbdc60420"), "PROM_P_IntActor_Tattoo_C0_Apply" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Fridge",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("7a5f4d80-2bfa-4d77-bb57-641e7f6f9826"), "PROM_P_IntActor_Fridge_C1_Open" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_NerfGun",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1cd075f9-ff69-4ec1-8c6f-fadeefc09837"), "PROM_P_IntActor_NerfGun_C1_Look" },
+                                    { new Guid("190ade1c-e8e7-4278-9d36-2da8919cf54c"), "PROM_P_IntActor_NerfGun_C2_ShootDad" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WhiskyBottle",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c4701167-5c88-4d0f-a092-3f6b6347fcb7"), "PROM_P_IntActor_WhiskyBottle_C1_Look" },
+                                    { new Guid("dfc2e4a1-7101-42fd-9ed6-43654254ee92"), "PROM_P_IntActor_WhiskyBottle_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("256c68d7-1fd6-4987-952b-9312bba58869"), "PROM_P_IntActor_WhiskyBottle_C0_Evaporate" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Sofa",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("6037bad4-8412-4768-a837-68e5a16027a8"), "PROM_P_IntActor_Sofa_C1_Look" },
+                                    { new Guid("2194d490-bf07-41af-bcb9-f80a86ca0850"), "PROM_P_IntActor_Sofa_C2_Sit" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesTrophies",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("fb957a1c-ce98-42f5-a044-5c41faba80d3"), "PROM_P_IntActor_CharlesTrophies_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_FireStove",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("2b022c12-824c-48d8-8323-e0a9fe42fee1"), "PROM_P_IntActor_FireStove_C1_Look" },
+                                    { new Guid("f1105087-7710-437d-b12c-3fe0c667661b"), "PROM_P_IntActor_FireStove_C2_AddLog" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("72da7c86-696d-4974-94cd-7398a8f1801f"), "PROM_P_IntActor_FireStove_C0_Burn" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BookShelfTop",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("97fcf444-21d7-48ad-97eb-7fbe32cf6468"), "PROM_P_IntActor_BookShelfTop_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_DoorDarkZone",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("b18f8034-3845-432b-a35c-716ed8dea046"), "PROM_P_IntActor_DoorDarkZone_C1_Look" },
+                                    { new Guid("4f3e9b8d-2190-46ad-bb2c-94023589388e"), "PROM_P_IntActor_DoorDarkZone_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c7972c2f-67a4-42dc-8659-97cf49e62f8f"), "PROM_P_IntActor_DoorDarkZone_C0_Open" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WaterHeater",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("f894bea4-7a2e-4995-aca9-9f9cd325f1ae"), "PROM_P_IntActor_WaterHeater_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("eea60eb3-44d4-468e-ad8e-efd4b79c82b4"), "PROM_P_IntActor_WaterHeater_C0_Tame" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ChristmasDecorations",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("fd7f4f16-7059-48af-a398-4b119cdf32d2"), "PROM_P_IntActor_ChristmasDecorations_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Memo",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a93a0872-cfef-4f66-a809-a900fcdfa1c0"), "PROM_P_IntActor_Memo_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Window",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("14e034d1-6b7e-4f17-80cb-797708aa8751"), "PROM_P_IntActor_Window_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Closet",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("155e3362-c7a2-4bf4-971c-66dfc9ef45a3"), "PROM_P_IntActor_Closet_C1_Open" },
+                                    { new Guid("68f3c194-8076-428f-97c0-fb95dddb7bc1"), "PROM_P_IntActor_Closet_C2_Open" },
+                                    { new Guid("21666f3f-e1c1-4ac8-8b0f-f91cbedaa10b"), "PROM_P_IntActor_Closet_C3_Open" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Weapons",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("4eb04890-6efb-42e4-99ef-d63e2e6dc675"), "PROM_P_IntActor_Weapons_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesRoomDrawing",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1a008d71-efb6-4321-9f98-600a52f44182"), "PROM_P_IntActor_CharlesRoomDrawing_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Playbox",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a573587b-abef-418f-a08c-0e59a8e7c027"), "PROM_P_IntActor_Playbox_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Tv",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("322b978b-1666-4485-a04d-3913fe8107e5"), "PROM_P_IntActor_Tv_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("2275130c-ccca-4c5a-9234-bd87fad6fca6"), "PROM_P_IntActor_Tv_C0_SwitchOn" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_TeddyBear",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("93f5c9c9-5837-4ab0-a6a7-f24b76251c3d"), "PROM_P_IntActor_TeddyBear_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_PizzaArcadeRankings",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("9a770fa1-cb97-4dd3-991b-2e57e81af739"), "PROM_P_IntActor_PizzaArcadeRankings_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WashingMachine",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("d536aadb-09cf-4f5d-b89f-e2beef0f6bfe"), "PROM_P_IntActor_WashingMachine_C1_Wash" },
+                                    { new Guid("5999c182-dcf0-4494-afd0-36a403008656"), "PROM_P_IntActor_WashingMachine_C2_Look" },
+                                    { new Guid("df14bf69-ac85-44ae-bd36-3416a027dc27"), "PROM_P_IntActor_WashingMachine_C3_AddDad'sPants" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_LoveLetter",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("63227777-054e-4308-823d-eef7be62eee0"), "PROM_P_IntActor_LoveLetter_C1_Read" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BasketBallCloset",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("317b99b5-7fcf-49ea-959e-2c41ae92c136"), "PROM_P_IntActor_BasketBallCloset_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ClosetCase",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a652e91e-3be2-4384-9482-e286ddd71744"), "PROM_P_IntActor_ClosetCase_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GlowingSticker",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a464c236-b4ef-4f1f-bfbf-6d81b0ef3456"), "PROM_P_IntActor_GlowingSticker_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ToiletSticker",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("05fee10b-5772-463d-8300-9dc4d068f64f"), "PROM_P_IntActor_ToiletSticker_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_TrainMagazine",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("a190a3eb-dc26-4659-aa41-e52f39fd83d1"), "PROM_P_IntActor_TrainMagazine_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Razor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("9e621ebb-b5b1-4cfc-8ba2-0d1e014df4d4"), "PROM_P_IntActor_Razor_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_StatBook",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ac8a219e-a381-4975-b41e-4999cdc17b72"), "PROM_P_IntActor_StatBook_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_FriendPhoto",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("93110d37-33e3-4f62-be5e-0a4bc1996468"), "PROM_P_IntActor_FriendPhoto_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_MilkBottle",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("53d61843-ef44-44a6-a35b-118cae8c5c06"), "PROM_P_IntActor_MilkBottle_C1_Drink" },
+                                    { new Guid("8ecc673b-dbdb-4900-9e88-6725e5ed9402"), "PROM_P_IntActor_MilkBottle_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GrandParentsLetter",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("f4f4cc2e-6ead-4075-9ea8-84f406e0c111"), "PROM_P_IntActor_GrandParentsLetter_C1_Read" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesTeamPicture",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("3c843215-4fa9-4767-ac88-cff4aaadd799"), "PROM_P_IntActor_CharlesTeamPicture_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Tupperware",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c0c54a1a-c47e-4057-b448-38dd9384b80c"), "PROM_P_IntActor_Tupperware_C1_Trash" },
+                                    { new Guid("0fe8d09e-2a45-4b55-8293-7e373d078dfb"), "PROM_P_IntActor_Tupperware_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BoxArmyToy",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("38b3bd70-860e-492c-9f05-b0067686fca6"), "PROM_P_IntActor_BoxArmyToy_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_DvdPile",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1a2edac8-b695-4d12-ab84-8db8f76e945f"), "PROM_P_IntActor_DvdPile_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ComicBooksShelf",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("0607a497-22d4-4f36-ad05-87aa7ada03d0"), "PROM_P_IntActor_ComicBooksShelf_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ComicFlyer",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ef6d0205-6d42-4405-8bc8-f708e43217cb"), "PROM_P_IntActor_ComicFlyer_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_VikingBook",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("1c2b8a6c-5d9f-4c57-8820-d429c3eaf606"), "PROM_P_IntActor_VikingBook_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Laptop",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ef2bd89d-f3e0-4e5d-bdcf-018f22ba103f"), "PROM_P_IntActor_Laptop_C1_Use" },
+                                    { new Guid("ed0fb465-d0a0-48d9-b1c4-7a0e7f2f1f0b"), "PROM_P_IntActor_Laptop_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_PhoneCall",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ff305465-d1a8-4242-9e7c-05cbeedf5f3a"), "PROM_P_IntActor_PhoneCall_C1_CallDad" },
+                                    { new Guid("f3e32c30-a4b5-4ae8-a1e5-8cfdf549f2ca"), "PROM_P_IntActor_PhoneCall_C2_CallPizzaDelivery" },
+                                    { new Guid("5c0600a2-c480-43a7-8da0-4978b1feb108"), "PROM_P_IntActor_PhoneCall_C3_CallReynolds" },
+                                    { new Guid("11aeefbd-4b74-4200-b42d-8b5783ef899b"), "PROM_P_IntActor_PhoneCall_C4_CallAudra" },
+                                    { new Guid("841da8a1-bc82-4463-99b0-dccc8f50d897"), "PROM_P_IntActor_PhoneCall_C5_CallReynolds" },
+                                    { new Guid("9d0b0200-85ca-48f9-9953-4f37da4c8e68"), "PROM_P_IntActor_PhoneCall_C6_CallAudra" },
+                                    { new Guid("4ce84b8a-0a40-4792-9061-e6d8e3b0f032"), "PROM_P_IntActor_PhoneCall_C7_CallAudra" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Sofa2",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("29f54cf6-c6c2-401d-8e5b-0d6cc7df7431"), "PROM_P_IntActor_Sofa2_C1_ZenSeqDad" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_MantroidTeam",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("eb88f1dc-475c-4c10-aaf8-0bbde320c686"), "PROM_P_IntActor_MantroidTeam_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_AluminiumFoil",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e1b46a53-0eb2-4de2-8fd2-974f1c7c7a63"), "PROM_P_IntActor_AluminiumFoil_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("2ddd4244-1fbe-4d8a-b23c-0a33a1e7626f"), "PROM_P_IntActor_AluminiumFoil_C0_Wear" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_MakeUp",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("ced5f017-af05-40cf-bb97-7ec34f60d9ae"), "PROM_P_IntActor_MakeUp_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e4c37e26-0521-440d-9ca7-1b1ac463c987"), "PROM_P_IntActor_MakeUp_C0_Apply" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SportBag",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("98be4d43-11c8-4777-b477-0ffd2f17b04e"), "PROM_P_IntActor_SportBag_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("74a8920d-cca8-4230-b112-d975542405ed"), "PROM_P_IntActor_SportBag_C0_Wear" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BeaverCreekPostCard",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("12e408b8-4427-4cf7-b07d-6928e8523511"), "PROM_P_IntActor_BeaverCreekPostCard_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_FirecrackerBox",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c371b165-10ef-451a-92fa-97e6815ed00f"), "PROM_P_IntActor_FirecrackerBox_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_DrawingManual",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("3d6f07c1-3515-4ac5-858b-c76a98d79e8a"), "PROM_P_IntActor_DrawingManual_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Perfume",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("f37b0cc0-504a-40b6-b291-a7fe59d7cdd0"), "PROM_P_IntActor_Perfume_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_KitchenLockedDoor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("fdb4b274-5081-48e8-9f94-cd16d984eaa6"), "PROM_P_IntActor_KitchenLockedDoor_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BoobMag",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("e74c6a3a-7f77-45c7-af39-f065e2ae9942"), "PROM_P_IntActor_BoobMag_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_GroceryList",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c45c81c2-7c7b-4b94-a058-cf9012c06174"), "PROM_P_IntActor_GroceryList_C1_Look" },
+                                    { new Guid("f9378d18-a0e8-45f0-9f30-5436ff96939f"), "PROM_P_IntActor_GroceryList_C2_Addicecream" },
+                                    { new Guid("6268d2b1-d0b6-463a-950e-e89435fbc4f8"), "PROM_P_IntActor_GroceryList_C3_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WashedDishes",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("2c42afee-d9de-44a8-98b7-d5bdac7308b9"), "PROM_P_IntActor_WashedDishes_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesBasketPicture",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("6ca0c81e-4511-4d14-aff4-88575f3cc288"), "PROM_P_IntActor_CharlesBasketPicture_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BeerFridge",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("baa3b1b6-b264-488e-a0f3-b7dcdb2a3065"), "PROM_P_IntActor_BeerFridge_C1_Give" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Record",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("32c57c3e-9817-40ee-b3df-4a74c32f2033"), "PROM_P_IntActor_Record_C1_Play" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BooksLivingRoom",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("d4a6f0f2-9096-491b-82b7-26020eb8c5c0"), "PROM_P_IntActor_BooksLivingRoom_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_WardrobeKey",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("160b58e1-e9ac-4524-87f9-48564b8ed5c9"), "PROM_P_IntActor_WardrobeKey_C1_Look" },
+                                    { new Guid("63504363-4542-4e07-94ae-b291f744a080"), "PROM_P_IntActor_WardrobeKey_C2_Take" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ActionFigures",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("8593bd7a-2aaf-4f51-9e04-77d07770818f"), "PROM_P_IntActor_ActionFigures_C1_Look" },
+                                    { new Guid("5f9716b4-663a-42bd-8083-3691e0335e3f"), "PROM_P_IntActor_ActionFigures_C2_Play" },
+                                    { new Guid("c8dd3bcd-2a75-40fa-82c6-09a76f96a2bd"), "PROM_P_IntActor_ActionFigures_C3_Look" },
+                                    { new Guid("b18dc26f-31c9-4a97-b081-2e0d5e707cb1"), "PROM_P_IntActor_ActionFigures_C4_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesBed2",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("fe18694d-ef69-4202-aea1-5410269c9c0f"), "PROM_P_IntActor_CharlesBed2_C1_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Carkeys",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("7ec8cd95-bd1a-4b8c-b544-5d0bfb2ecf7b"), "PROM_P_IntActor_Carkeys_C1_Look" },
+                                    { new Guid("bac984c4-6281-4fb1-aa54-818f06de2b04"), "PROM_P_IntActor_Carkeys_C2_Take" },
+                                    { new Guid("1a7c3899-b8c5-4188-b8f3-43a2b74d254c"), "PROM_P_IntActor_Carkeys_C3_Take" },
+                                    { new Guid("95bd0caf-dc2d-45c8-8f5d-2d6f72423a28"), "PROM_P_IntActor_Carkeys_C4_Take" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Cellphone",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("6d27fb56-ad68-4149-b160-4a222594dbf7"), "PROM_P_IntActor_Cellphone_C1_Look" },
+                                    { new Guid("a27215a3-ecd4-4553-b82b-e4b32ca65601"), "PROM_P_IntActor_Cellphone_C2_Unlock" },
+                                    { new Guid("44d707d0-4319-4efb-92cc-3cb01a6c4aac"), "PROM_P_IntActor_Cellphone_C3_Play" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Cigarette",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("86ebeba9-817d-4aa1-8f11-bfa081e902be"), "PROM_P_IntActor_Cigarette_C1_Look" },
+                                    { new Guid("d7656f33-b102-4a16-874d-e02638c29286"), "PROM_P_IntActor_Cigarette_C2_Look" },
+                                    { new Guid("d99cbd77-33e6-4892-8341-72c3022240b9"), "PROM_P_IntActor_Cigarette_C3_Stealone" },
+                                    { new Guid("072f088e-1d86-4d9a-997f-b49c8191e15b"), "PROM_P_IntActor_Cigarette_C4_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Dinosaur",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("9be11e09-8911-4888-afb9-ae6fb78da47a"), "PROM_P_IntActor_Dinosaur_C1_Look" },
+                                    { new Guid("ce15ec78-4a6e-4d79-98c0-0236972267ed"), "PROM_P_IntActor_Dinosaur_C2_Play" },
+                                    { new Guid("42be10cf-9317-466c-800d-3723612b0dfd"), "PROM_P_IntActor_Dinosaur_C3_Play" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_CharlesRoomChair",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c56a5213-86a6-4def-96f7-c1a856134da5"), "PROM_P_IntActor_CharlesRoomChair_C1_Move" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Charles",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("7721c421-3282-4f87-8b76-f497021012a7"), "PROM_P_IntActor_Charles_C1_Wakeup" },
+                                    { new Guid("6e3bf673-33e6-4deb-8804-873ab164b3a2"), "PROM_P_IntActor_Charles_C2_Speak" },
+                                    { new Guid("157e656d-9e5e-4f81-9069-33778161dc64"), "PROM_P_IntActor_Charles_C3_Speak" },
+                                    { new Guid("8dcc2c66-5dd4-475e-82d7-58d87deb2a5e"), "PROM_P_IntActor_Charles_C4_Look" },
+                                    { new Guid("9b85e1fb-2972-4e81-be8e-c8b0daa11203"), "PROM_P_IntActor_Charles_C5_Look" },
+                                    { new Guid("d4fe1f50-9d2f-468c-a5ce-4247fa35bcae"), "PROM_P_IntActor_Charles_C6_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ChrisBasketBall",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("c84658a5-2fc4-4234-ac71-5af3e96d3dcd"), "PROM_P_IntActor_ChrisBasketBall_C1_Look" },
+                                    { new Guid("ce40d117-04f5-4e0b-b7b5-5cb78a392fde"), "PROM_P_IntActor_ChrisBasketBall_C2_Throw" },
+                                    { new Guid("657604ac-e587-4fc9-9aa0-c07b31fcd209"), "PROM_P_IntActor_ChrisBasketBall_C3_Throw" },
+                                    { new Guid("ca519fe2-9230-4f14-bb94-2341543b5b9d"), "PROM_P_IntActor_ChrisBasketBall_C4_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_SharkStinger",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("da7535b9-a34b-4ebc-971f-dc56c09398f5"), "PROM_P_IntActor_SharkStinger_C1_Look" },
+                                    { new Guid("8c80772a-7179-40a0-aa32-86730d543861"), "PROM_P_IntActor_SharkStinger_C2_Play" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("b48dc8e8-b28c-4196-bd75-930c7e1c6315"), "PROM_P_IntActor_SharkStinger_C0_Power" },
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_ChrisWardrobeDoor",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("0b0d6f57-abf5-4d3c-9a42-0610313bcd7d"), "PROM_P_IntActor_ChrisWardrobeDoor_C1_Open" },
+                                    { new Guid("31e95f00-3b6b-42cd-bbc3-6c60d2039515"), "PROM_P_IntActor_ChrisWardrobeDoor_C2_Close" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_BeerCans",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("356b46ee-0c4d-4f0f-ab65-1c68b92cb4f5"), "PROM_P_IntActor_BeerCans_C1_Look" },
+                                    { new Guid("d954edde-bffe-461c-a1cb-458907f2b87a"), "PROM_P_IntActor_BeerCans_C2_Trash" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                        {
+                            new InteractionActor()
+                            {
+                                Name = "PT_BP_LIS2InteractionActor_Note",
+                                ClassicInteractions = new Dictionary<Guid, string>()
+                                {
+                                    { new Guid("0abe9558-36eb-4649-b955-c1693e58003e"), "PROM_P_IntActor_Note_C1_Inspect" },
+                                    { new Guid("aa4127a3-cde1-4761-8ab3-421c063c6697"), "PROM_P_IntActor_Note_C2_Look" },
+                                },
+                                DanielInteractions = new Dictionary<Guid, string>()
+                                {
+                                },
+                            }
+                        },
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "PT_HawtDawgMan",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
                     },
                 }
             },
@@ -6851,7 +9168,7 @@ namespace lis2_save_editor
 
         public static List<OutfitObject> LIS2_Outfits = new List<OutfitObject>()
         {
-            new OutfitObject { GUID = new Guid("00000000-0000-0000-0000-000000000000"), Name = "(none)", Slot = "Unknown", Owner = "Unknown" }, //special case for empty value
+            new OutfitObject { GUID = new Guid("00000000-0000-0000-0000-000000000000"), Name = "(none)", Slot = "None", Owner = "None" }, //special case for empty value
             new OutfitObject { GUID = new Guid("258501f2-2b99-44a3-b1e6-0f83b6215716"), Name = "E1_Sean_Basic", Slot = "Main", Owner = "Sean" },
             new OutfitObject { GUID = new Guid("31083e38-41ce-4905-be44-7b31520e73ed"), Name = "E1_Sean_Bag", Slot = "Main", Owner = "Sean" },
             new OutfitObject { GUID = new Guid("84f1b323-03ac-44be-a4e4-036d32014ef5"), Name = "E1_Sean_CapBag", Slot = "Main", Owner = "Sean" },

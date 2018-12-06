@@ -134,6 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cs_icon.ico" />
+    <None Include="cs_icon.png" />
+    <None Include="DanielIntIcon.png" />
     <Content Include="LIS2-icon.ico" />
     <None Include="LIS2-icon.png" />
   </ItemGroup>
@@ -149,6 +151,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

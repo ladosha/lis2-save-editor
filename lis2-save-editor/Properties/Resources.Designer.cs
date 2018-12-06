@@ -91,6 +91,26 @@ namespace lis2_save_editor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CS_icon {
+            get {
+                object obj = ResourceManager.GetObject("CS_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DanielIntIcon {
+            get {
+                object obj = ResourceManager.GetObject("DanielIntIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saved successfully!.
         /// </summary>
         internal static string EditsSuccessfullySavedMessage {
@@ -104,7 +124,7 @@ namespace lis2_save_editor.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap LIS2_icon {
             get {
-                object obj = ResourceManager.GetObject("LIS2-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("LIS2_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -21,11 +21,16 @@ namespace lis2_save_editor
 
         public Dictionary<string, dynamic> level = null;
 
+        public SaveType saveType;
+
         private LevelObject level_info
         {
             get
             {
-                return GameInfo.LIS2_Levels.Find(x => x.Name == level["LevelName"].Value);
+                var obj = saveType == SaveType.CaptainSpirit ? GameInfo.CS_Levels.Find(x => x.Name == level["LevelName"].Value) 
+                                                             : GameInfo.LIS2_Levels.Find(x => x.Name == level["LevelName"].Value);
+                if (obj != null) return obj;
+                return LevelObject.Empty;
             }
         }
 
@@ -35,6 +40,7 @@ namespace lis2_save_editor
         {
             GenerateInteractions();
             UpdatePOITable();
+            this.Text = "Edit level " + level_info.Name;
         }
 
         #region Building
@@ -45,9 +51,11 @@ namespace lis2_save_editor
 
             List<dynamic> root = level["InteractionsSaveData"].Value["InteractionActors"].Value;
 
-            int lbl_coord = 50, max_lbl_width = 0, max_gbox_height = 0;
+            int lbl_coord = 50, max_lbl_width = 0;
 
             Regex reg = new Regex(@"(?<=_)C\d+_.*");
+
+            var special_int_icon = saveType == SaveType.CaptainSpirit ? Resources.CS_icon : Resources.DanielIntIcon;
 
             foreach (var obj in level_info.Interactions)
             {
@@ -115,7 +123,46 @@ namespace lis2_save_editor
                     var tb = new TextBox();
                     tb.Location = new Point(lbl.Location.X + 3, lbl.Location.Y);
                     tb.Name = "tb" + lbl.Text;
-                    tb.Tag = obj.Name + "::" + inter.Key.ToString();
+                    tb.Tag = obj.Name + "::" + "Classic" + "::" + inter.Key.ToString();
+                    tb.Size = new Size(60, 20);
+                    tb.Text = (actor_ind == -1 || inter_ind == -1) ? "" : int_list[inter_ind]["InteractionExecutionCount"].Value.ToString();
+                    tb.TextChanged += new EventHandler(textBoxInteraction_CheckedChanged);
+                    gbox.Controls.Add(tb);
+                    lbl_coord += 26;
+                }
+
+                foreach (var inter in obj.DanielInteractions)
+                {
+                    var pb = new PictureBox();
+                    pb.Image = special_int_icon;
+                    pb.Location = new Point(3, lbl_coord);
+                    pb.Size = new Size(24, 24);
+                    pb.SizeMode = PictureBoxSizeMode.Zoom;
+                    gbox.Controls.Add(pb);
+
+                    var lbl = new Label();
+                    lbl.AutoSize = true;
+                    lbl.Location = new Point(26, lbl_coord);
+                    lbl.Text = reg.Match(inter.Value).Value;
+                    gbox.Controls.Add(lbl);
+
+                    if (lbl.Width > max_lbl_width)
+                    {
+                        max_lbl_width = lbl.Width;
+                    }
+
+                    var inter_ind = -1;
+                    List<dynamic> int_list = null;
+                    if (actor_ind != -1)
+                    {
+                        int_list = root[actor_ind]["DanielInteractions"].Value;
+                        inter_ind = int_list.FindIndex(1, x => x["InteractionGuid"].Value["Guid"] == inter.Key);
+                    }
+
+                    var tb = new TextBox();
+                    tb.Location = new Point(lbl.Location.X + 3, lbl.Location.Y);
+                    tb.Name = "tb" + lbl.Text;
+                    tb.Tag = obj.Name + "::" + "Daniel" + "::" + inter.Key.ToString();
                     tb.Size = new Size(60, 20);
                     tb.Text = (actor_ind == -1 || inter_ind == -1) ? "" : int_list[inter_ind]["InteractionExecutionCount"].Value.ToString();
                     tb.TextChanged += new EventHandler(textBoxInteraction_CheckedChanged);
@@ -131,11 +178,6 @@ namespace lis2_save_editor
                 }
 
                 flowLayoutPanelInteractions.Controls.Add(gbox);
-
-                if(gbox.Height > max_gbox_height)
-                {
-                    max_gbox_height = gbox.Height;
-                }
                 
                 max_lbl_width = 0;
             }
@@ -235,14 +277,14 @@ namespace lis2_save_editor
         private void textBoxInteraction_CheckedChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            string[] info = tb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
+            string[] info = tb.Tag.ToString().Split(new string[] { "::" }, 3, StringSplitOptions.RemoveEmptyEntries);
 
             if (String.IsNullOrEmpty(tb.Text))
             {
                 List<dynamic> root = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 var ind1 = root.FindIndex(1, x => x["InteractionActorName"].Value == info[0]);
-                List<dynamic> int_list = root[ind1]["ClassicInteractions"].Value;
-                var ind2 = int_list.FindIndex(1, x => x["InteractionGuid"].Value["Guid"].ToString() == info[1]);
+                List<dynamic> int_list = root[ind1][info[1]+"Interactions"].Value;
+                var ind2 = int_list.FindIndex(1, x => x["InteractionGuid"].Value["Guid"].ToString() == info[2]);
                 int_list.RemoveAt(ind2);
                 tb.BackColor = Color.LightGoldenrodYellow;
             }
@@ -267,13 +309,14 @@ namespace lis2_save_editor
                     ind1 = root.Count - 1;
                 }
 
-                List<dynamic> int_list = root[ind1]["ClassicInteractions"].Value;
-                var ind2 = int_list.FindIndex(1, x => x["InteractionGuid"].Value["Guid"].ToString() == info[1]);
+                List<dynamic> int_list = root[ind1][info[1]+"Interactions"].Value;
+                var ind2 = int_list.FindIndex(1, x => x["InteractionGuid"].Value["Guid"].ToString() == info[2]);
 
                 if (ind2 == -1)
                 {
-                    Guid guid = new Guid(info[1]);
-                    string inter_name = level_info.Interactions.Find(x => x.Name == info[0]).ClassicInteractions[guid];
+                    Guid guid = new Guid(info[2]);
+                    string inter_name = info[1] == "Classic" ? level_info.Interactions.Find(x => x.Name == info[0]).ClassicInteractions[guid]
+                                                             : level_info.Interactions.Find(x => x.Name == info[0]).DanielInteractions[guid];
                     Dictionary<string, dynamic> new_inter = new Dictionary<string, dynamic>()
                     {
                         {
