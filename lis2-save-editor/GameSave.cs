@@ -273,6 +273,8 @@ namespace lis2_save_editor
             {
                 var lvl_name = level["LevelName"].Value;
                 sb.AppendFormat("insert or ignore into {1}Levels (Name) values (\"{0}\");\n", lvl_name, table);
+
+                //interactions
                 List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 foreach (var actor in actor_list.Skip(1))
                 {
@@ -294,6 +296,8 @@ namespace lis2_save_editor
                     }
                     sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
+
+                //POIs
                 List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
                 if(poi_list.Count > 1)
                 {
@@ -304,6 +308,19 @@ namespace lis2_save_editor
                     }
                     sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
+
+                //WuiVolumes
+                List<dynamic> wui_list = level["WuiVolumeGatesSaveData"].Value;
+                if (wui_list.Count > 1)
+                {
+                    sb.AppendFormat("insert or ignore into {0}WUIs (Name, LevelName) values\n", table);
+                    foreach (var wui in wui_list.Skip(1))
+                    {
+                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", wui["WuiVolumeGateActorName"].Value, lvl_name);
+                    }
+                    sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                }
+                
             }
 
             if (saveType == SaveType.LIS)
@@ -342,6 +359,18 @@ namespace lis2_save_editor
                             foreach (var poi in poi_list.Skip(1))
                             {
                                 sb.AppendFormat("(\"{0}\", \"{1}\"),\n", poi["PointOfInterestActorName"].Value, lvl_name);
+                            }
+                            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                        }
+
+                        //WuiVolumes
+                        List<dynamic> wui_list = level["WuiVolumeGatesSaveData"].Value;
+                        if (wui_list.Count > 1)
+                        {
+                            sb.AppendFormat("insert or ignore into {0}WUIs (Name, LevelName) values\n", table);
+                            foreach (var wui in wui_list.Skip(1))
+                            {
+                                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", wui["WuiVolumeGateActorName"].Value, lvl_name);
                             }
                             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }

@@ -101,6 +101,12 @@
     <Compile Include="SaveSelectionForm.Designer.cs">
       <DependentUpon>SaveSelectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingManager.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="StringExtension.cs" />
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="SaveSelectionForm.resx">
       <DependentUpon>SaveSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>

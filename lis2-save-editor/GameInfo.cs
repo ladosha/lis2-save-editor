@@ -13,6 +13,20 @@ namespace lis2_save_editor
         public Dictionary<Guid, string> IntFacts { get; set; }
         public Dictionary<Guid, string> FloatFacts { get; set; }
         public Dictionary<Guid, string> EnumFacts { get; set; }
+
+        public static FactAsset Empty
+        {
+            get
+            {
+                return new FactAsset
+                {
+                    BoolFacts = new Dictionary<Guid, string>(),
+                    IntFacts = new Dictionary<Guid, string>(),
+                    FloatFacts = new Dictionary<Guid, string>(),
+                    EnumFacts = new Dictionary<Guid, string>()
+                };
+            }
+        }
     }
 
     public class OutfitObject
@@ -29,6 +43,7 @@ namespace lis2_save_editor
         public string Name { get; set; }
         public List<InteractionActor> Interactions { get; set; } 
         public string[] PointsOfInterest { get; set; }
+
         public static LevelObject Empty
         {
             get
@@ -10021,6 +10036,8 @@ namespace lis2_save_editor
                         {new Guid("a51fdf50-24d5-48bf-8f9d-6108c48b03e7"), "F_E1_1A_Laptop_LylaReact"},
                         {new Guid("c7f9024b-9afe-4d9f-a9ab-4bdde43a8f13"), "F_E1_1A_GotBeers"},
                         {new Guid("7cc63a4b-47e6-4bd3-8b88-6c9e1f588b99"), "F_E1_1A_ToolPuzzle_HintReversible"},
+                        {new Guid("2362749a-e5fa-40db-a9d3-d9c48bdc139b"), "F_E1_1A_jar_StealActive"},
+                        {new Guid("d29974b0-1159-4641-97cc-9c3e9ace934b"), "F_E1_1A_ShouldLaunchDrawingChoice"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -10219,6 +10236,10 @@ namespace lis2_save_editor
                         {new Guid("2d9cf4e3-bb78-43b5-a755-b22cb88afe78"), "F_E1_1A_IntActor_Sodas_C3_Switch"},
                         {new Guid("1eb398db-7f68-474a-a0b8-17ea0eb4d815"), "F_E1_1A_IntActor_WeedPipe_C2_Take"},
                         {new Guid("2b901154-0ec5-48c5-b541-ffe6c338e7da"), "F_E1_1A_IntActor_Candy_C2_Take"},
+                        {new Guid("d2a9325c-be70-4ac9-889b-2482a9779493"), "F_E1_1A_IntActor_RightTool01_C3_Take"},
+                        {new Guid("22c31b1a-f921-4419-ab7d-c8f9697348ef"), "F_E1_1A_IntActor_Chips_C1_Take"},
+                        {new Guid("817f1ea5-40ad-4bec-b99f-15ae600f3cbe"), "F_E1_1A_IntActor_Jar_C1_Stealcoins($10)"},
+                        {new Guid("086ba7a7-0c70-4b9a-a1a4-614ee6cbddb5"), "F_E1_1A_IntActor_EmptyChoco_C1_Look"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
@@ -10320,6 +10341,11 @@ namespace lis2_save_editor
                         {new Guid("03c49ebc-7f8d-44f4-b621-124c6fd12529"), "F_E1_2A_PicnicArea_Berries05_Showed"},
                         {new Guid("fc2567a0-990c-4696-aa7f-33e2badf8832"), "F_E1_2A_WoodRaceResult_DanielWon"},
                         {new Guid("6e4188b5-ca69-4490-a465-999884e0f479"), "F_E1_2A_WoodDump_DanielWaiting"},
+                        {new Guid("a8d5b700-9ffb-4b91-bbea-1f14b7e0d6ca"), "F_E1_2A_ParkingArea_Car_Steal"},
+                        {new Guid("4935dcd8-f576-4f66-b945-66067662d6ff"), "F_E1_2A_SecondaryPath_DanielFoundPath"},
+                        {new Guid("215c24b7-2118-481c-aa28-83f20410861f"), "F_E1_2A_ParkingArea_DialChoice_LOTR"},
+                        {new Guid("db9b5381-161a-4fc6-ba9e-a8c184ac2649"), "F_E1_2A_PicnicArea_Berries_DanielStopped"},
+                        {new Guid("e4871c30-a3f4-4c0d-bfb8-4129ee14eba4"), "F_E1_2A_PicnicArea_SwordFightDuel"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -10403,6 +10429,12 @@ namespace lis2_save_editor
                         {new Guid("86269d74-0217-4bd7-9d24-95b3e6c735f7"), "F_E1_2A_IntoTheWoods_Hikingtrail_Landslide_C"},
                         {new Guid("7db31c16-e693-4fa7-86cb-0b5afffe2c45"), "F_E1_2A_IntoTheWoods_PicnicArea_GoodBerries_ShowDaniel_C"},
                         {new Guid("e9a41842-cc82-4c16-8443-e453fbc9f416"), "F_E1_2A_IntoTheWoods_HikingTrail_ChitChat_01_C"},
+                        {new Guid("9ec559af-15be-42af-9b45-f490ff259894"), "F_E1_2A_IntoTheWoods_ShelterArea_EatChocoBar_C"},
+                        {new Guid("36a4b362-ab59-4169-b66a-4e4d7557fe2a"), "F_E1_2A_IntoTheWoods_SecondaryPath_DanielFoundPath_C"},
+                        {new Guid("8a0e2b01-e27a-4cdb-af3c-c2a33fe9dd82"), "F_E1_2A_IntoTheWoods_PicnicArea_TableGraffiti02_C"},
+                        {new Guid("4235e9b3-60d4-4d37-bb35-1eebffdc1be7"), "F_E1_2A_IntoTheWoods_PicnicArea_TableCarving_C"},
+                        {new Guid("1b59031f-17a2-4173-9879-985d0dfc541b"), "F_E1_2A_IntoTheWoods_PicnicArea_HideAndSeek_Cheating_C"},
+                        {new Guid("61f67a1d-ece3-4d93-91ce-2b5fe1dcd9d7"), "F_E1_2A_IntoTheWoods_ParkingToShelter_ChitChat_02_C"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
@@ -10428,6 +10460,7 @@ namespace lis2_save_editor
                         {new Guid("fdc61931-4e8e-4c97-a3bf-c1a28c92b9c3"), "F_E1_2A_LevelChoice_ZenRockChoice"},
                         {new Guid("2c4d3dbb-41e6-4852-8184-2d19f851c593"), "F_E1_2A_LevelChoice_FirstIgnite"},
                         {new Guid("7fc75022-4ad4-4ced-9f08-b8473af92c48"), "F_E1_2A_ParkingArea_Car_Choice00"},
+                        {new Guid("293f9b53-3f3f-40cf-a37f-e4fd5092629b"), "F_E1_2A_ShelterArea_EatChocoBar_Choice"},
                     },
                 }
             },
@@ -10544,6 +10577,16 @@ namespace lis2_save_editor
                         {new Guid("7ba5c249-c7cc-44e2-9898-a06415165a9a"), "F_E1_2A_IntActor_TrailBlaze_C1_Look"},
                         {new Guid("59662f4a-9b92-4461-b3f7-29bd8864e21e"), "F_E1_2A_IntActor_TrailDamage01_C2_Discuss"},
                         {new Guid("b5fbd89c-8908-41a2-ace5-40e9414a7637"), "F_E1_2A_IntActor_WelcomePaper_C2_Discuss"},
+                        {new Guid("3a5cbb06-4537-4d00-a0a5-843ca53eecfd"), "F_E1_2A_IntActor_Bench_C1_Sit"},
+                        {new Guid("0eab79fb-1966-45d5-983f-dddd4e9ac0d9"), "F_E1_2A_IntActor_SwordFight_C2_Duel"},
+                        {new Guid("d6101701-0955-41f2-9d0d-57d5c87b81e8"), "F_E1_2A_IntActor_SkimStone_C2_Look"},
+                        {new Guid("beb61c48-12ac-410c-b687-fd774d753880"), "F_E1_2A_IntActor_Car_C2_Look"},
+                        {new Guid("8f08859e-6382-4efe-8369-5ad50cae4fde"), "F_E1_2A_IntActor_Log17_C1_Take"},
+                        {new Guid("22cee9aa-3a59-4093-98f4-2f979442ccc8"), "F_E1_2A_IntActor_SeanPhone_C2_Look"},
+                        {new Guid("d8fc4800-e454-4860-ab3e-257df82d5a26"), "F_E1_2A_IntActor_Lighter_C1_Look"},
+                        {new Guid("5c7f88b6-9438-4f80-9cc8-070caff72941"), "F_E1_2A_IntActor_BeerCan_C1_Look"},
+                        {new Guid("7d252190-fbb2-49f6-886a-7f7a095ef6f0"), "F_E1_2A_IntActor_Ledge2_C1_Getup"},
+                        {new Guid("f96c7144-0619-4470-b750-b8ffdad38c89"), "F_E1_2A_IntActor_Spikes01_C1_Look"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
@@ -10633,6 +10676,12 @@ namespace lis2_save_editor
                         {new Guid("d1b36484-1077-4777-a5a9-2f3c5c618c65"), "F_E1_2A_POI_Parking_Vault04"},
                         {new Guid("221a088d-8d02-463f-aac2-bca3be4f1fc9"), "F_E1_2A_POI_SecPath_Vault02"},
                         {new Guid("40dff057-e0f0-4774-8587-c6ff59a180d9"), "F_E1_2A_POI_SitTrunk_16"},
+                        {new Guid("e2e59680-0e79-4369-b7c4-70340bf19a75"), "F_E1_2A_POI_SecondaryPathDiscovered"},
+                        {new Guid("96c74cfc-5e12-497b-930d-981ad267dea4"), "F_E1_2A_POI_MainTrail_Vault02"},
+                        {new Guid("339b5766-1fa5-4999-8d41-9f25a1ad2f24"), "F_E1_2A_POI_HideAndSeek_Spot01_PoI06"},
+                        {new Guid("8834a12c-d55e-4ad4-877d-a757087d04af"), "F_E1_2A_POI_HideAndSeek_Spot10_PoI07"},
+                        {new Guid("2be733d4-3096-42d7-a993-deae037b4c1f"), "F_E1_2A_POI_ReadTableCarving02"},
+                        {new Guid("0b25bfe7-47cf-47a1-bbfd-39fc43713744"), "F_E1_2A_POI_TreeCarving"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
@@ -10690,6 +10739,8 @@ namespace lis2_save_editor
                         {new Guid("799408fd-3e98-4df1-a158-c21df814904d"), "F_E1_5A_GasStation_Outside_DanIsInToilets"},
                         {new Guid("a0618e36-8470-4d7f-aea1-3a21faa8d0a4"), "F_E1_5A_GasStation_Outside_HUB_NoHalloween"},
                         {new Guid("02d2a24c-def3-4b58-a096-2aab2fbf71b6"), "F_E1_5A_GasStation_Inside_DirectRemoveItem"},
+                        {new Guid("af9ddd3f-f5a6-4505-ac27-b6a3ea5c9773"), "F_E1_5A_GasStation_Outside_BegFoodDaniel"},
+                        {new Guid("23e3f028-f90e-454b-a3ae-a614b52e74e5"), "F_E1_5A_GasStation_Inside_GetOutPuppyStarted"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -10769,6 +10820,8 @@ namespace lis2_save_editor
                         {new Guid("5f7ca12d-dfd0-4c6c-a5b6-5138cb91b39d"), "F_E1_5A_Inside_InteruptBroLady_C"},
                         {new Guid("468afedf-8dc2-48c0-a9a3-183107fde892"), "F_E1_5A_Outside_CampingSign_C"},
                         {new Guid("139de9c0-a3bd-42bf-b498-651cc92bc7de"), "F_E1_5A_Outside_JunkPile_C"},
+                        {new Guid("422e296a-1258-4ac5-89cf-8be43b0db697"), "F_E1_5A_Outside_DanielBegFamily_C"},
+                        {new Guid("59750b74-59ea-41d4-af4b-48fcdaeeb746"), "F_E1_5A_Inside_Sweater_C"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
@@ -10797,6 +10850,7 @@ namespace lis2_save_editor
                         {new Guid("eb8c4253-3331-4cdd-9434-e444cffae3c2"), "F_E1_5A_Outside_ChitChat_GetOutReaction"},
                         {new Guid("c94a2565-b121-474f-b887-78d4223c787a"), "F_E1_5A_Office_AskForTool_Location"},
                         {new Guid("67d25768-30c1-4653-a7c9-87444b872f7e"), "F_E1_5A_Outside_Family_Weather"},
+                        {new Guid("f13e7ff9-46e0-4728-8fcb-e88ab1114379"), "F_E1_5A_Outside_DanielBegFamily_Convince"},
                     },
                 }
             },
@@ -10922,6 +10976,8 @@ namespace lis2_save_editor
                         {new Guid("e30d5199-aa7b-4873-9acd-e7239b023b0e"), "F_E1_5A_IntActor_Sign_C1_Look"},
                         {new Guid("3eea9066-774d-47f5-8427-710c13757dfd"), "F_E1_5A_IntActor_ToiletInstruction1_C1_Look"},
                         {new Guid("ba895b79-bdfc-47e8-89da-4b90fb123f6b"), "F_E1_5A_IntActor_ToiletPaperDispenser_C1_Look"},
+                        {new Guid("67370e5f-e5e4-4af6-91c3-621ac8d12a7e"), "F_E1_5A_IntActor_Birds_C1_Look"},
+                        {new Guid("ead04278-e7ff-45fc-8859-bf76b7816840"), "F_E1_5A_IntActor_Family_C3_SendDanieltobeg"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
@@ -11048,6 +11104,8 @@ namespace lis2_save_editor
                         {new Guid("c8836b85-8122-46d9-8849-07cdd4ccaaf5"), "F_E1_7A_ActivateSeagull"},
                         {new Guid("fd29a6b8-487d-4538-a0c7-50fae85bf732"), "F_E1_7A_CanTickle"},
                         {new Guid("1e229bbd-30e5-4553-83da-81705984bf8e"), "F_E1_7A_SpecialDanceShot"},
+                        {new Guid("88798867-83a3-4baf-a39a-01e4877c50bf"), "F_E1_7A_SeanLostSHIFUMI"},
+                        {new Guid("8cb0b8e8-b38b-4a50-b2a9-a56994d16fd3"), "F_E1_7A_EnoughPowerBear"},
                     },
                     IntFacts = new Dictionary<Guid, string>
                     {
@@ -11160,6 +11218,10 @@ namespace lis2_save_editor
                         {new Guid("5b0058f1-5ea4-424c-8071-637d09e09e7e"), "F_E1_7A_IntActor_Tickle_C1_Tickle"},
                         {new Guid("8ba1206b-01e3-43e0-a4f2-edaaf9f08649"), "F_E1_7A_IntActor_FreshTowels_C1_Take"},
                         {new Guid("3019f7c9-fd80-4476-9eeb-7e61520749c3"), "F_E1_7A_IntActor_Bed2_C1_Look"},
+                        {new Guid("b3b71217-a5a0-4731-ba3a-6e7b1c7814f1"), "F_E1_7A_IntActor_Daniel_C1_Sendtobath"},
+                        {new Guid("3e54d8af-2a47-4a42-bc0c-a37e6ba65d21"), "F_E1_7A_IntActor_Right_C1_Look"},
+                        {new Guid("6a86d696-1249-47ce-a6da-8b8b5d257507"), "F_E1_7A_IntActor_LightSwitch_C2_TurnOff"},
+                        {new Guid("3cf0bc25-8576-4813-a2e0-1eae750f6cdf"), "F_E1_7A_IntActor_MotelDrawing_C2_Sitanddraw"},
                     },
                     FloatFacts = new Dictionary<Guid, string>
                     {
@@ -11208,6 +11270,7 @@ namespace lis2_save_editor
                 }
             },
         };
+
 
     }
 }

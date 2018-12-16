@@ -26,14 +26,22 @@ namespace lis2_save_editor
         {
             get
             {
-                if (saveType == SaveType.CaptainSpirit)
+                try
                 {
-                    return GameInfo.CS_FactAssets[asset["FactAssetId"].Value["Guid"].ToString()];
+                    if (saveType == SaveType.CaptainSpirit)
+                    {
+                        return GameInfo.CS_FactAssets[asset["FactAssetId"].Value["Guid"].ToString()];
+                    }
+                    else
+                    {
+                        return GameInfo.LIS2_FactAssets[asset["FactAssetId"].Value["Guid"].ToString()];
+                    }
                 }
-                else
+                catch
                 {
-                    return GameInfo.LIS2_FactAssets[asset["FactAssetId"].Value["Guid"].ToString()];
+                    return FactAsset.Empty;
                 }
+                
             }
         }
 
@@ -350,22 +358,6 @@ namespace lis2_save_editor
             }
         }
 
-        private void FactEditForm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 27)
-            {
-                Close();
-            }
-        }
-
-        private void FactEditForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            dataGridViewBool.EndEdit();
-            dataGridViewInt.EndEdit();
-            dataGridViewFloat.EndEdit();
-            dataGridViewEnum.EndEdit();
-        }
-
         private void EditFactValue(string factType, string name, int colIndex, object value)
         {
             List<dynamic> target = asset[factType].Value;
@@ -466,6 +458,42 @@ namespace lis2_save_editor
             changesMade = true;
         }
         #endregion
+
+        SearchForm searchForm;
+        private void FactEditForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (ModifierKeys == Keys.Control && (int)e.KeyChar == 6)
+            {
+                if (searchForm == null)
+                {
+                    searchForm = new SearchForm(tabControl1);
+                }
+                if (searchForm.Visible)
+                {
+                    searchForm.WindowState = FormWindowState.Normal;
+                    searchForm.Activate();
+                }
+                else
+                {
+                    searchForm.Show(this);
+                    searchForm.UpdateSelectedTab();
+                }
+            }
+            else if (e.KeyChar == 27)
+            {
+                Close();
+            }
+        }
+
+        private void FactEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            dataGridViewBool.EndEdit();
+            dataGridViewInt.EndEdit();
+            dataGridViewFloat.EndEdit();
+            dataGridViewEnum.EndEdit();
+        }
+
+
     }
 
 

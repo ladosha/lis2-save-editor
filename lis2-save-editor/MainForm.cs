@@ -37,7 +37,7 @@ namespace lis2_save_editor
             /*
             string[] paths = new string[]
             {
-               ...
+                ...
             };
 
             foreach (var p in paths)
@@ -126,6 +126,14 @@ namespace lis2_save_editor
             buttonSaveEdits.Enabled = true;
             labelChangesWarning.Visible = false;
             _gameSave.SaveChangesSaved = true;
+
+            //datagridview scrollbars dirty fix
+            Size = new Size(this.Width+1, this.Height + 1);
+
+            if (searchForm != null)
+            {
+                searchForm.ResetSearchState();
+            }
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
@@ -209,13 +217,16 @@ namespace lis2_save_editor
             }
 
             dynamic root;
+            string subContextId;
             if (cpIndex == 0)
             {
                 root = _gameSave.Data["CurrentSubContextSaveData"].Value["BrotherAISaveData"].Value;
+                subContextId = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
             }
             else
             {
                 root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["BrotherAISaveData"].Value;
+                subContextId = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["SubContextId"].Value;
             }
 
             dynamic pos = root["RespawnTransform"].Value;
@@ -231,7 +242,21 @@ namespace lis2_save_editor
             textBoxDanielScaleZ.Text = pos["Scale3D"].Value["Vector"].Z.ToString();
 
             comboBoxDanielAIState.SelectedItem = root["AIState"].Value.Replace("ELIS2AIState::", "");
-            comboBoxDanielPOI.SelectedItem = root["PointOfInterestInProgress"].Value; //todo - fill the combobox with items
+
+            List<string> pois = new List<string>();
+            foreach (var level in GameInfo.LIS2_Levels.Where(x => x.Name.Contains(subContextId)))
+            {
+                foreach (var poi in level.PointsOfInterest)
+                {
+                    pois.AddUnique(poi);
+                }
+            }
+            comboBoxDanielPOI.Items.Clear();
+            comboBoxDanielPOI.Items.Add("None");
+            pois.Sort();
+            comboBoxDanielPOI.Items.AddRange(pois.ToArray());
+            comboBoxDanielPOI.SelectedItem = root["PointOfInterestInProgress"].Value;
+
             comboBoxDanielAIPreset.SelectedItem = root["AIDataPresetName"].Value;
         }
 
@@ -2442,6 +2467,11 @@ namespace lis2_save_editor
 
             SaveLoading = false;
             ResetEditedControls();
+
+            if (searchForm != null)
+            {
+                searchForm.ResetSearchState();
+            }
         }
 
         private void DetectSavePath()
@@ -2601,6 +2631,29 @@ namespace lis2_save_editor
                 {
                     textBoxSavePath.Text = saveSelectionForm.savePath;
                     _settingManager.Settings.SavePath = textBoxSavePath.Text;
+                }
+            }
+        }
+
+
+        SearchForm searchForm;
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (ModifierKeys == Keys.Control && (int)e.KeyChar == 6)
+            {
+                if (searchForm == null)
+                {
+                    searchForm = new SearchForm(tabControlMain);
+                }
+                if (searchForm.Visible)
+                {
+                    searchForm.WindowState = FormWindowState.Normal;
+                    searchForm.Activate();
+                }
+                else
+                {
+                    searchForm.Show(this);
+                    searchForm.UpdateSelectedTab();
                 }
             }
         }

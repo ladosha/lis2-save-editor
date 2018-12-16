@@ -550,9 +550,27 @@ namespace lis2_save_editor
             dataGridViewPOIs.EndEdit();
         }
 
+        SearchForm searchForm;
         private void LevelEditForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 27)
+            if (ModifierKeys == Keys.Control && (int)e.KeyChar == 6)
+            {
+                if (searchForm == null)
+                {
+                    searchForm = new SearchForm(tabControl1);
+                }
+                if (searchForm.Visible)
+                {
+                    searchForm.WindowState = FormWindowState.Normal;
+                    searchForm.Activate();
+                }
+                else
+                {
+                    searchForm.Show(this);
+                    searchForm.UpdateSelectedTab();
+                }
+            }
+            else if (e.KeyChar == 27)
             {
                 Close();
             }

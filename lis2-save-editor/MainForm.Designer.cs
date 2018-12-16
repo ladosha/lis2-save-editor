@@ -776,6 +776,7 @@
             // comboBoxDanielPOI
             // 
             this.comboBoxDanielPOI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDanielPOI.DropDownWidth = 400;
             this.comboBoxDanielPOI.FormattingEnabled = true;
             this.comboBoxDanielPOI.Items.AddRange(new object[] {
             "None"});
@@ -2261,12 +2262,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 581);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(860, 620);
             this.Name = "MainForm";
             this.Text = "Life is Strange 2 Save Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
