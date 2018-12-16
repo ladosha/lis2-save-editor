@@ -43,6 +43,7 @@ namespace lis2_save_editor
         public string Name { get; set; }
         public List<InteractionActor> Interactions { get; set; } 
         public string[] PointsOfInterest { get; set; }
+        public string[] WuiVolumes { get; set; }
 
         public static LevelObject Empty
         {
@@ -52,7 +53,8 @@ namespace lis2_save_editor
                 {
                     Name = "None",
                     Interactions = new List<InteractionActor>(),
-                    PointsOfInterest = new string[0]
+                    PointsOfInterest = new string[0],
+                    WuiVolumes = new string[0]
                 };
             }
         }
@@ -1053,7 +1055,6 @@ namespace lis2_save_editor
             {new Guid("{4D5F4316-385D-4207-9A96-03853033C802}"), "E1_Menu_SMS_Lyla_E1-7A_05"},
         };
 
-
         public static List<LevelObject> CS_Levels = new List<LevelObject>()
         {
             {
@@ -1064,6 +1065,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -1078,6 +1082,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1088,6 +1095,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -1102,6 +1112,10 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                        "GAT_EHDreams_ToGolemCem",
+                    },
                 }
             },
             {
@@ -1112,6 +1126,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -1126,6 +1143,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1136,6 +1156,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -1150,6 +1173,15 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                        "GAT_EHInside_HouseDoor",
+                        "GAT_EHInside_Bathroom",
+                        "GAT_EHInside_ChrisRoom",
+                        "GAT_EHInside_CharlesRoom",
+                        "GAT_EHWindow_01",
+                        "GAT_EHWindow_02",
+                    },
                 }
             },
             {
@@ -1160,6 +1192,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -1731,6 +1766,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1743,6 +1781,10 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                        "GAT_EHOutside_GarageDoor",
+                    },
                 }
             },
             {
@@ -1753,6 +1795,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -1767,6 +1812,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1777,6 +1825,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -1791,6 +1842,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1801,6 +1855,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -3373,6 +3430,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -3383,6 +3443,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -3401,6 +3464,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -3411,6 +3477,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -3425,6 +3494,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -3435,6 +3507,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -3449,6 +3524,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -3459,6 +3537,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -3473,6 +3554,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -3483,6 +3567,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -3497,6 +3584,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -3507,6 +3597,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -3521,6 +3614,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -3531,6 +3627,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -4876,6 +4975,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4888,6 +4990,17 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                        "GAT_HouseDoor",
+                        "GAT_BathroomDoor",
+                        "GAT_SeanDoor",
+                        "GAT_GarageInside",
+                        "GAT_Laundry",
+                        "GAT_DanielDoor",
+                        "GAT_Stairs",
+                        "WuiVolumeGate_1",
+                    },
                 }
             },
             {
@@ -4898,6 +5011,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -4912,6 +5028,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4922,6 +5041,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -4936,6 +5058,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4946,6 +5071,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -4960,6 +5088,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4970,6 +5101,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -4984,6 +5118,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4994,6 +5131,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -6365,6 +6505,9 @@ namespace lis2_save_editor
                         "BP_PointOfInterest_SitRock01",
                         "BP_PointOfInterest_Shelter_Sit01",
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6377,6 +6520,11 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                        "GAT_RoadToPicnic",
+                        "GAT_DeepToShelter",
+                    },
                 }
             },
             {
@@ -6387,6 +6535,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -6401,6 +6552,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6411,6 +6565,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -6425,6 +6582,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6435,6 +6595,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -6449,6 +6612,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6459,6 +6625,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -6473,6 +6642,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6485,6 +6657,14 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                        "GAT_GS_ToiletDoor",
+                        "GAT_GS_ShopDoor",
+                        "GAT_GS_DeskDoor",
+                        "GAT_GS_AirVent",
+                        "GAT_GS_OfficeDoor",
+                    },
                 }
             },
             {
@@ -6495,6 +6675,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -7872,6 +8055,9 @@ namespace lis2_save_editor
                         "BP_PoI_Out_LeanBarrier4_336",
                         "BP_PoI_Out_LookGround",
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -7882,6 +8068,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -7896,6 +8085,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -7906,6 +8098,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -7928,6 +8123,9 @@ namespace lis2_save_editor
                         "BP_PoI_Out_Ins_CountingTrees",
                         "BP_PoI_Out_Ins_SitTree",
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -7938,6 +8136,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -7952,6 +8153,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -7962,6 +8166,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -7976,6 +8183,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -7986,6 +8196,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8000,6 +8213,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8010,6 +8226,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8024,6 +8243,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8034,6 +8256,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8048,6 +8273,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8058,6 +8286,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8072,6 +8303,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8082,6 +8316,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8096,6 +8333,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8106,6 +8346,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8120,6 +8363,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8130,6 +8376,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8144,6 +8393,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8154,6 +8406,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8168,6 +8423,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8178,6 +8436,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8841,6 +9102,9 @@ namespace lis2_save_editor
                         "BP_PointOfInterest5",
                         "BP_PointOfInterest_Chair1",
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8853,6 +9117,15 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                        "GAT_MotelDoor",
+                        "Gat_MotelWindow",
+                        "GAT_BathroomDoor",
+                        "GAT_ToMotelPark",
+                        "GAT_MotelStairs01",
+                        "GAT_MotelStairs02",
+                    },
                 }
             },
             {
@@ -8863,6 +9136,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8877,6 +9153,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8887,6 +9166,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8901,6 +9183,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8911,6 +9196,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8925,6 +9213,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8935,6 +9226,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8949,6 +9243,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8959,6 +9256,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8973,6 +9273,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8983,6 +9286,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -8997,6 +9303,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9007,6 +9316,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -9021,6 +9333,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9031,6 +9346,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -9045,6 +9363,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9055,6 +9376,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -9069,6 +9393,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9079,6 +9406,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -9093,6 +9423,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9103,6 +9436,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -9117,6 +9453,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9127,6 +9466,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -9141,6 +9483,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9151,6 +9496,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }
@@ -9165,6 +9513,9 @@ namespace lis2_save_editor
                     PointsOfInterest = new string[]
                     {
                     },
+                    WuiVolumes = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9175,6 +9526,9 @@ namespace lis2_save_editor
                     {
                     },
                     PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
                     {
                     },
                 }

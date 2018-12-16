@@ -38,9 +38,10 @@ namespace lis2_save_editor
 
         private void LevelEditForm_Load(object sender, EventArgs e)
         {
+            this.Text = "Edit level " + level_info.Name;
             GenerateInteractions();
             UpdatePOITable();
-            this.Text = "Edit level " + level_info.Name;
+            UpdateWUITable();
         }
 
         #region Building
@@ -225,6 +226,55 @@ namespace lis2_save_editor
                 }
                 t.Rows.Add(row);
             }
+            return t;
+        }
+
+        private void UpdateWUITable()
+        {
+            dataGridViewWUIs.Columns.Clear();
+            dataGridViewWUIs.DataSource = BuildWUITable().DefaultView;
+        }
+
+        private DataTable BuildWUITable()
+        {
+            DataTable t = new DataTable();
+            t.Columns.Add("Name");
+            t.Columns.Add("Active", typeof(bool));
+            t.Columns.Add("1st vol. radius");
+            t.Columns.Add("2nd vol. radius");
+            t.Columns.Add("Occlusion speed");
+            t.Columns.Add("Minimum occlusion");
+            t.Columns.Add("Is disabled", typeof(bool));
+
+            List<dynamic> target = level["WuiVolumeGatesSaveData"].Value;
+
+            foreach (var wui in level_info.WuiVolumes)
+            {
+                object[] row = new object[t.Columns.Count];
+                row[0] = wui;
+
+                int index = target.FindIndex(1, x => x["WuiVolumeGateActorName"].Value == wui);
+                if (index != -1)
+                {
+                    row[1] = true;
+                    row[2] = target[index]["FirstVolumeRadius"].Value;
+                    row[3] = target[index]["SecondVolumeRadius"].Value;
+                    row[4] = target[index]["OcclusionSpeed"].Value;
+                    row[5] = target[index]["MinimumOcclusion"].Value;
+                    row[6] = target[index]["bDisabled"].Value;
+                }
+                else
+                {
+                    row[1] = false;
+                    row[2] = 0;
+                    row[3] = 0;
+                    row[4] = 0;
+                    row[5] = 0;
+                    row[6] = false;
+                }
+                t.Rows.Add(row);
+            }
+
             return t;
         }
         #endregion
@@ -481,6 +531,48 @@ namespace lis2_save_editor
             }
         }
 
+        private void dataGridViewWUIs_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int colIndex = e.ColumnIndex;
+            if (colIndex > 1 && colIndex < 6)
+            {
+                float result;
+                if (!float.TryParse(dataGridViewWUIs[colIndex, e.RowIndex].Value.ToString(), out result))
+                {
+                    MessageBox.Show(Resources.BadValueMessage, "Error");
+                    newCellValue = origCellValue;
+                    dataGridViewWUIs[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                }
+                else
+                {
+                    newCellValue = result;
+                }
+            }
+            else
+            {
+                newCellValue = dataGridViewWUIs[e.ColumnIndex, e.RowIndex].Value;
+            }
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = dataGridViewWUIs[0, e.RowIndex].Value.ToString();
+                EditWUIValue(name, e.ColumnIndex, newCellValue);
+                dataGridViewWUIs[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+
+                if (e.ColumnIndex != 1)
+                {
+                    dataGridViewWUIs[1, e.RowIndex].Value = true;
+                }
+                else if (Convert.ToBoolean(newCellValue) == true)
+                {
+                    for (int i=2; i<dataGridViewWUIs.ColumnCount; i++)
+                    {
+                        EditWUIValue(name, i, dataGridViewWUIs[i, e.RowIndex].Value);
+                    }
+                }
+            }
+        }
+
         private void EditPOIValue(string name, int colIndex, object value)
         {
             List<dynamic> target = level["PointsOfInterestSaveData"].Value;
@@ -503,7 +595,7 @@ namespace lis2_save_editor
                         {
                             Name = "bIsPointOfInterestEnabled",
                             Type = "BoolProperty",
-                            Value = colIndex == 1 ? true : Convert.ToBoolean(value)
+                            Value = colIndex == 2 ? Convert.ToBoolean(value) : true 
                         }
                     },
                     {
@@ -511,7 +603,7 @@ namespace lis2_save_editor
                         {
                             Name = "RemainingCoolDownTime",
                             Type = "FloatProperty",
-                            Value = colIndex == 1 ? 0 : Convert.ToSingle(value)
+                            Value = colIndex == 3 ? Convert.ToSingle(value) : 0
                         }
                     }
                 };
@@ -543,14 +635,117 @@ namespace lis2_save_editor
             changesMade = true;
         }
 
+        private void EditWUIValue(string name, int colIndex, object value)
+        {
+            List<dynamic> target = level["WuiVolumeGatesSaveData"].Value;
+            int index = target.FindIndex(1, x => x["WuiVolumeGateActorName"].Value == name);
+
+            if (index == -1) //add new item
+            {
+                Dictionary<string, object> new_item = new Dictionary<string, object>()
+                {
+                    {
+                        "WuiVolumeGateActorName", new NameProperty()
+                        {
+                            Name = "WuiVolumeGateActorName",
+                            Type = "NameProperty",
+                            Value = name
+                        }
+                    },
+                    {
+                        "FirstVolumeRadius", new FloatProperty()
+                        {
+                            Name = "FirstVolumeRadius",
+                            Type = "FloatProperty",
+                            Value = colIndex == 2 ? Convert.ToSingle(value) : 0
+                        }
+                    },
+                    {
+                        "SecondVolumeRadius", new FloatProperty()
+                        {
+                            Name = "SecondVolumeRadius",
+                            Type = "FloatProperty",
+                            Value = colIndex == 3 ? Convert.ToSingle(value) : 0
+                        }
+                    },
+                    {
+                        "OcclusionSpeed", new FloatProperty()
+                        {
+                            Name = "OcclusionSpeed",
+                            Type = "FloatProperty",
+                            Value = colIndex == 4 ? Convert.ToSingle(value) : 0
+                        }
+                    },
+                    {
+                        "MinimumOcclusion", new FloatProperty()
+                        {
+                            Name = "MinimumOcclusion",
+                            Type = "FloatProperty",
+                            Value = colIndex == 5 ? Convert.ToSingle(value) : 0
+                        }
+                    },
+                    {
+                        "bDisabled", new BoolProperty()
+                        {
+                            Name = "bDisabled",
+                            Type = "BoolProperty",
+                            Value = colIndex == 6 ? Convert.ToBoolean(value) : false
+                        }
+                    },
+                };
+                target.AddUnique(new_item);
+            }
+            else
+            {
+                if (colIndex == 1 && Convert.ToBoolean(value) == false) //Remove WUI volume
+                {
+                    target.RemoveAt(index);
+                }
+                else
+                {
+                    switch (colIndex)
+                    {
+                        case 2:
+                            {
+                                target[index]["FirstVolumeRadius"].Value = Convert.ToSingle(value);
+                                break;
+                            }
+                        case 3:
+                            {
+                                target[index]["SecondVolumeRadius"].Value = Convert.ToSingle(value);
+                                break;
+                            }
+                        case 4:
+                            {
+                                target[index]["OcclusionSpeed"].Value = Convert.ToSingle(value);
+                                break;
+                            }
+                        case 5:
+                            {
+                                target[index]["MinimumOcclusion"].Value = Convert.ToSingle(value);
+                                break;
+                            }
+                        case 6:
+                            {
+                                target[index]["bDisabled"].Value = Convert.ToBoolean(value);
+                                break;
+                            }
+                    }
+                }
+            }
+            changesMade = true;
+        }
+
         #endregion
 
         private void LevelEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             dataGridViewPOIs.EndEdit();
+            dataGridViewWUIs.EndEdit();
         }
 
         SearchForm searchForm;
+
         private void LevelEditForm_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (ModifierKeys == Keys.Control && (int)e.KeyChar == 6)
