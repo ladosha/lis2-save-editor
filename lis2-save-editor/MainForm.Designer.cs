@@ -151,7 +151,6 @@
             this.dataGridViewLevels = new System.Windows.Forms.DataGridView();
             this.tabPageMetrics = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelMetrics = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPageSeenPics = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenPics = new System.Windows.Forms.DataGridView();
             this.tabPageCollectibles = new System.Windows.Forms.TabPage();
@@ -245,8 +244,6 @@
             this.tabPageLevels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLevels)).BeginInit();
             this.tabPageMetrics.SuspendLayout();
-            this.flowLayoutPanelMetrics.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPageSeenPics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).BeginInit();
             this.tabPageCollectibles.SuspendLayout();
@@ -1644,22 +1641,12 @@
             // flowLayoutPanelMetrics
             // 
             this.flowLayoutPanelMetrics.AutoScroll = true;
-            this.flowLayoutPanelMetrics.Controls.Add(this.pictureBox1);
             this.flowLayoutPanelMetrics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelMetrics.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelMetrics.Name = "flowLayoutPanelMetrics";
+            this.flowLayoutPanelMetrics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(824, 481);
             this.flowLayoutPanelMetrics.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::lis2_save_editor.Properties.Resources.DanielIntIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // tabPageSeenPics
             // 
@@ -2318,8 +2305,6 @@
             this.tabPageLevels.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLevels)).EndInit();
             this.tabPageMetrics.ResumeLayout(false);
-            this.flowLayoutPanelMetrics.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPageSeenPics.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).EndInit();
             this.tabPageCollectibles.ResumeLayout(false);
@@ -2531,7 +2516,6 @@
         private System.Windows.Forms.TabPage tabPageLevels;
         private System.Windows.Forms.DataGridView dataGridViewLevels;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMetrics;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

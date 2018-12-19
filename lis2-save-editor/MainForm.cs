@@ -864,13 +864,53 @@ namespace lis2_save_editor
             dynamic root;
             if (cpIndex == 0)
             {
-                root = _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["MetricsBySection"].Value;
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value;
             }
             else
             {
-                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["MetricsSaveData"].Value["MetricsBySection"].Value;
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["MetricsSaveData"].Value;
             }
-            
+
+            #region Playthrough box
+            var gbox_p = new GroupBox();
+            gbox_p.AutoSize = true;
+            gbox_p.Text = "Playthrough";
+
+            var lbl_p = new Label();
+            lbl_p.AutoSize = true;
+            lbl_p.Location = new Point(3, 20);
+            lbl_p.Text = "GUID";
+            gbox_p.Controls.Add(lbl_p);
+
+            var tb_p = new TextBox();
+            tb_p.Location = new Point(lbl_p.Location.X + 50, lbl_p.Location.Y);
+            tb_p.Name = "tbPlaythroughGuid";
+            tb_p.Size = new Size(220, 20);
+            tb_p.Text = root["PlaythroughId"].Value["Guid"].ToString();
+            tb_p.TextChanged += new EventHandler(textBoxMetricsPlaythroughGuid_TextChnaged);
+            gbox_p.Controls.Add(tb_p);
+
+            if (_gameSave.saveType == SaveType.LIS)
+            {
+                lbl_p = new Label();
+                lbl_p.AutoSize = true;
+                lbl_p.Location = new Point(3, 46);
+                lbl_p.Text = "Counter";
+                gbox_p.Controls.Add(lbl_p);
+
+                tb_p = new TextBox();
+                tb_p.Location = new Point(lbl_p.Location.X + 50, lbl_p.Location.Y);
+                tb_p.Name = "tbPlaythroughCounter";
+                tb_p.Size = new Size(60, 20);
+                tb_p.Text = root["PlaythroughCounter"].Value.ToString();
+                tb_p.TextChanged += new EventHandler(textBoxMetricsPlaythroughCounter_TextChnaged);
+                gbox_p.Controls.Add(tb_p);
+            }
+
+            flowLayoutPanelMetrics.Controls.Add(gbox_p);
+            #endregion
+
+            root = root["MetricsBySection"].Value;
             int lbl_coord = 20, max_lbl_width = 0;
             foreach (var section in root)
             {
@@ -957,12 +997,13 @@ namespace lis2_save_editor
                     lbl_coord += 26;
                 }
 
-                lbl_coord = 20;
-
                 foreach (var tb in gbox.Controls.OfType<TextBox>())
                 {
                     tb.Location = new Point(tb.Location.X + max_lbl_width, tb.Location.Y);
                 }
+
+                lbl_coord = 20;
+                max_lbl_width = 0;
 
                 flowLayoutPanelMetrics.Controls.Add(gbox);
             }
@@ -2217,6 +2258,56 @@ namespace lis2_save_editor
                 _editedControls.AddUnique(dataGridViewSeenMessages[e.ColumnIndex, e.RowIndex]);
                 dataGridViewSeenMessages[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
+            }
+        }
+
+        private void textBoxMetricsPlaythroughGuid_TextChnaged(object sender, EventArgs e)
+        {
+            var tb = (TextBox)sender;
+            Guid value;
+            try
+            {
+                value = new Guid(tb.Text);
+                if (comboBoxSelectCP.SelectedIndex == 0)
+                {
+                    _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["PlaythroughId"].Value["Guid"] = value;
+                }
+                else
+                {
+                    _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["MetricsSaveData"].Value["PlaythroughId"].Value["Guid"] = value;
+                }
+                tb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(tb);
+                ShowChangesWarning();
+            }
+            catch
+            {
+                tb.BackColor = Color.Red;
+            }
+        }
+
+        private void textBoxMetricsPlaythroughCounter_TextChnaged(object sender, EventArgs e)
+        {
+            var tb = (TextBox)sender;
+            int value;
+            try
+            {
+                value = Convert.ToInt32(tb.Text);
+                if (comboBoxSelectCP.SelectedIndex == 0)
+                {
+                    _gameSave.Data["CurrentSubContextSaveData"].Value["MetricsSaveData"].Value["PlaythroughCounter"].Value = value;
+                }
+                else
+                {
+                    _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["MetricsSaveData"].Value["PlaythroughCounter"].Value = value;
+                }
+                tb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(tb);
+                ShowChangesWarning();
+            }
+            catch
+            {
+                tb.BackColor = Color.Red;
             }
         }
 
