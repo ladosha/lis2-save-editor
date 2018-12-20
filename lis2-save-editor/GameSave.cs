@@ -70,6 +70,8 @@ namespace lis2_save_editor
 
             //string levsql = GenerateLevelSQL();
 
+            //string cinsql = GenerateCinematicSQL();
+
             //File.AppendAllText("FORDB.txt", facts + outf + inv + levsql);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
@@ -371,6 +373,51 @@ namespace lis2_save_editor
                             foreach (var wui in wui_list.Skip(1))
                             {
                                 sb.AppendFormat("(\"{0}\", \"{1}\"),\n", wui["WuiVolumeGateActorName"].Value, lvl_name);
+                            }
+                            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                        }
+                    }
+                }
+            }
+
+            return sb.ToString();
+        }
+
+        public string GenerateCinematicSQL()
+        {
+            StringBuilder sb = new StringBuilder();
+            string table = saveType == SaveType.LIS ? "LIS2" : "CS";
+
+            if (saveType == SaveType.CaptainSpirit)
+            {
+                foreach (var context in Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value)
+                {
+                    string context_id = context.Key;
+                    foreach (var cin in ((List<dynamic>)context.Value["PlayedCinematics"].Value).Skip(1))
+                    {
+                        string cin_guid = cin["Guid"].ToString();
+                        sb.AppendFormat("insert or ignore into {0}Cinematics (GUID, SubcontextID) values (\"{1}\", \"{2}\");\n", table, cin_guid, context_id);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var context in Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value)
+                {
+                    string context_id = context.Key;
+                    foreach (var cin in ((List<dynamic>)context.Value["PlayedCinematics"].Value).Skip(1))
+                    {
+                        string cin_guid = cin["Key"].Value["Guid"].ToString();
+                        sb.AppendFormat("insert or ignore into {0}Cinematics (GUID, SubcontextID) values (\"{1}\", \"{2}\");\n", table, cin_guid, context_id);
+
+                        List<dynamic> cond_list = cin["Value"].Value["Conditions"].Value;
+                        if (cond_list.Count > 1)
+                        {
+                            sb.AppendFormat("insert or ignore into {0}CinematicConditions (GUID, CinematicGUID, SubcontextID) values\n", table);
+                            foreach (var cond in cond_list.Skip(1))
+                            {
+                                string cond_guid = cond["Key"].Value["Guid"].ToString();
+                                sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", cond_guid, cin_guid, context_id);
                             }
                             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }

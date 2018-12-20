@@ -39,7 +39,7 @@ namespace lis2_save_editor
             {
                 ...
             };
-
+            
             foreach (var p in paths)
             {
                 _gameSave.ReadSaveFromFile(p);
@@ -120,6 +120,7 @@ namespace lis2_save_editor
                 groupBoxOutfitsDaniel.Enabled = false;
             }
             comboBoxSelectCP.SelectedIndex = 0;
+            GenerateCinematics();
 
             tabControlMain.Enabled = true;
             comboBoxSelectCP.Enabled = true;
@@ -309,57 +310,6 @@ namespace lis2_save_editor
             for (int i = 0; i < groupBoxEpisodeCompletion.Controls.Count; i++)
             {
                 ((CheckBox)groupBoxEpisodeCompletion.Controls.Find("checkBoxEpComplete" + (i + 1), false)[0]).Checked = Convert.ToBoolean(root[i]);
-            }
-        }
-
-        private void UpdateOutfits(int cpIndex)
-        {
-            ClearGroupBox(groupBoxOutfitsSean);
-            ClearGroupBox(groupBoxOutfitsDaniel);
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
-            {
-                return;
-            }
-
-            List<dynamic> root;
-            
-            foreach (GroupBox gb in tabPageOutfits.Controls.OfType<GroupBox>())
-            {
-                string owner = gb.Tag.ToString();
-                try
-                {
-                    if (cpIndex == 0)
-                    {
-                        root = _gameSave.Data["CurrentSubContextSaveData"].Value["Outfits"].Value[owner]["Items"].Value;
-                    }
-                    else
-                    {
-                        root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["Outfits"].Value[owner]["Items"].Value;
-                    }
-                }
-                catch
-                {
-                    gb.Enabled = false;
-                    continue;
-                }
-                
-
-                foreach (Panel pan in gb.Controls.OfType<Panel>())
-                {
-                    ComboBox cb = (ComboBox)pan.Controls[0];
-                    string[] info = cb.Tag.ToString().Split(new string[] { "::" }, StringSplitOptions.None);
-                    cb.Items.Clear();
-                    cb.Items.Add("(none)");
-                    foreach (var obj in GameInfo.LIS2_Outfits.Where(x => x.Owner == info[0] 
-                                        && (info[1].StartsWith("Collectible_Badge") ? x.Slot == "Collectible_Badge" : x.Slot == info[1])))
-                    {
-                        cb.Items.Add(obj.Name);
-                    }
-                    int index = root.FindIndex(1, x => x["Slot"].Value == info[1]);
-                    cb.SelectedItem = index == -1 ? "(none)"
-                                                  : GameInfo.LIS2_Outfits.Find(x => x.GUID == root[index]["Guid"].Value["Guid"])?.Name
-                                                  ?? "(none)";
-                }
             }
         }
 
@@ -1242,6 +1192,152 @@ namespace lis2_save_editor
             }
 
             return t;
+        }
+
+        private void UpdateOutfits(int cpIndex)
+        {
+            ClearGroupBox(groupBoxOutfitsSean);
+            ClearGroupBox(groupBoxOutfitsDaniel);
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+                return;
+            }
+
+            List<dynamic> root;
+
+            foreach (GroupBox gb in tabPageOutfits.Controls.OfType<GroupBox>())
+            {
+                string owner = gb.Tag.ToString();
+                try
+                {
+                    if (cpIndex == 0)
+                    {
+                        root = _gameSave.Data["CurrentSubContextSaveData"].Value["Outfits"].Value[owner]["Items"].Value;
+                    }
+                    else
+                    {
+                        root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["Outfits"].Value[owner]["Items"].Value;
+                    }
+                }
+                catch
+                {
+                    gb.Enabled = false;
+                    continue;
+                }
+
+
+                foreach (Panel pan in gb.Controls.OfType<Panel>())
+                {
+                    ComboBox cb = (ComboBox)pan.Controls[0];
+                    string[] info = cb.Tag.ToString().Split(new string[] { "::" }, StringSplitOptions.None);
+                    cb.Items.Clear();
+                    cb.Items.Add("(none)");
+                    foreach (var obj in GameInfo.LIS2_Outfits.Where(x => x.Owner == info[0]
+                                        && (info[1].StartsWith("Collectible_Badge") ? x.Slot == "Collectible_Badge" : x.Slot == info[1])))
+                    {
+                        cb.Items.Add(obj.Name);
+                    }
+                    int index = root.FindIndex(1, x => x["Slot"].Value == info[1]);
+                    cb.SelectedItem = index == -1 ? "(none)"
+                                                  : GameInfo.LIS2_Outfits.Find(x => x.GUID == root[index]["Guid"].Value["Guid"])?.Name
+                                                  ?? "(none)";
+                }
+            }
+        }
+
+        private void GenerateCinematics()
+        {
+            flowLayoutPanelCinematics.Controls.Clear();
+
+            Dictionary<dynamic, dynamic> root = _gameSave.Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value;
+
+            int cb_y = 20, gbox_y = 20;
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+
+                List<dynamic> save_cin_list = ((List<dynamic>)root["PT"]["PlayedCinematics"].Value).Skip(1).ToList();
+                foreach (var cin in GameInfo.CS_Cinematics)
+                {
+                    var cb_active = new CheckBox();
+                    cb_active.AutoSize = false;
+                    cb_active.Size = new Size(250, 17);
+                    cb_active.Text = cin.GUID.ToString();
+                    dynamic save_cin = save_cin_list.Find(x => x["Guid"] == cin.GUID);
+                    cb_active.Checked = save_cin != null;
+                    cb_active.Tag = "PT::" + cin.GUID.ToString();
+                    cb_active.CheckedChanged += new EventHandler(checkBoxCinematicActive_CheckedChanged);
+                    flowLayoutPanelCinematics.Controls.Add(cb_active);
+                }
+            }
+            else
+            {
+                List<string> subs = GameInfo.LIS2_Cinematics.Select(c => c.SubcontextID).Distinct().ToList();
+                foreach (var sub_id in subs)
+                {
+                    var gbox = new GroupBox();
+                    gbox.AutoSize = true;
+                    gbox.Text = sub_id;
+
+                    //size crutch
+                    var text_lbl = new Label();
+                    text_lbl.AutoSize = true;
+                    text_lbl.Text = gbox.Text;
+                    text_lbl.Visible = false;
+                    gbox.Controls.Add(text_lbl);
+                    gbox.MinimumSize = new Size(text_lbl.Width + 20, gbox.Height);
+
+                    List<dynamic> save_cin_list = root.ContainsKey(sub_id) ? ((List<dynamic>)root[sub_id]["PlayedCinematics"].Value).Skip(1).ToList() : new List<dynamic>();
+                    foreach (var cin in GameInfo.LIS2_Cinematics.Where(x => x.SubcontextID == sub_id))
+                    {
+                        var gbox_cin = new GroupBox();
+                        gbox_cin.AutoSize = true;
+                        gbox_cin.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                        gbox_cin.Location = new Point(3, gbox_y);
+                        gbox_cin.Text = cin.GUID.ToString();
+
+                        //size crutch
+                        var text_lbl_cin = new Label();
+                        text_lbl_cin.AutoSize = true;
+                        text_lbl_cin.Text = gbox_cin.Text;
+                        text_lbl_cin.Visible = false;
+                        gbox_cin.Controls.Add(text_lbl_cin);
+                        gbox_cin.MinimumSize = new Size(text_lbl_cin.Width + 20, 20);
+
+                        var cb_active = new CheckBox();
+                        cb_active.AutoSize = true;
+                        cb_active.Name = "Active";
+                        cb_active.Text = "Active";
+                        cb_active.Location = new Point(10, cb_y);
+                        dynamic save_cin = save_cin_list.Find(x => x["Key"].Value["Guid"] == cin.GUID);
+                        cb_active.Checked = save_cin != null;
+                        cb_active.Tag = sub_id + "::" + cin.GUID.ToString();
+                        cb_active.CheckedChanged += new EventHandler(checkBoxCinematicActive_CheckedChanged);
+                        gbox_cin.Controls.Add(cb_active);
+                        cb_y += 26;
+
+                        List<dynamic> save_cond_list = save_cin != null ? ((List<dynamic>)save_cin["Value"].Value["Conditions"].Value).Skip(1).ToList() : new List<dynamic>();
+                        foreach (var cond in cin.Conditions)
+                        {
+                            var cb = new CheckBox();
+                            cb.AutoSize = true;
+                            cb.Text = cond;
+                            cb.Location = new Point(10, cb_y);
+                            cb.ThreeState = true;
+                            dynamic save_cond = save_cond_list.Find(x => x["Key"].Value["Guid"].ToString() == cond);
+                            cb.CheckState = save_cond != null ? save_cond["Value"].Value == true ? CheckState.Checked : CheckState.Indeterminate : CheckState.Unchecked;
+                            cb.Tag = sub_id + "::" + cin.GUID.ToString() + "::" + cond;
+                            cb.CheckStateChanged += new EventHandler(checkBoxCinematicCondition_CheckStateChanged);
+                            gbox_cin.Controls.Add(cb);
+                            cb_y += 26;
+                        }
+                        gbox.Controls.Add(gbox_cin);
+                        gbox_y += gbox_cin.Height + 10;
+                        cb_y = 20;
+                    }
+                    flowLayoutPanelCinematics.Controls.Add(gbox);
+                    gbox_y = 20;
+                }
+            }
         }
 
         #endregion
@@ -2465,6 +2561,169 @@ namespace lis2_save_editor
                 _editedControls.AddUnique(cb.Parent);
                 cb.Parent.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
+            }
+        }
+
+        private void checkBoxCinematicActive_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+
+            Dictionary<dynamic, dynamic> root = _gameSave.Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value;
+            string[] info = cb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
+
+            List<dynamic> cin_list;
+            if (!root.ContainsKey(info[0])) //Add new subcontext
+            {
+                Dictionary<string, dynamic> new_cont = new Dictionary<string, dynamic>()
+                {
+                    {
+                        "PlayedCinematics", new ArrayProperty()
+                        {
+                            Name = "PlayedCinematics",
+                            Type = "ArrayProperty",
+                            ElementType = "StructProperty",
+                            Value = new List<dynamic>
+                            {
+                                new  Dictionary<string, object>()
+                                {
+                                    { "struct_name", "PlayedCinematics" },
+                                    {"struct_type", "StructProperty" },
+                                    {"struct_length", 0 },
+                                    {"struct_eltype", "LIS2SequencePlayConditions" },
+                                    {"struct_unkbytes", new byte[17] }
+                                }
+                            }
+                        }
+                    }
+                };
+                root[info[0]] = new_cont;
+            }
+            cin_list = root[info[0]]["PlayedCinematics"].Value;
+
+            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            {
+                if(cb.Checked) //Add cinematic
+                {
+                    Dictionary<string, dynamic> new_cin = new Dictionary<string, dynamic>()
+                    {
+                        {
+                            "Guid", new Guid(info[1])
+                        }
+                    };
+                    cin_list.AddUnique(new_cin);
+                }
+                else //Remove
+                {
+                    cin_list.RemoveAt(cin_list.FindIndex(1, x => x["Guid"].ToString() == info[1]));
+                }
+            }
+            else
+            {
+                if (cb.Checked) //Add cinematic
+                {
+                    Dictionary<string, dynamic> new_cin = new Dictionary<string, dynamic>()
+                    {
+                        {
+                            "Key", new StructProperty()
+                            {
+                                Name = "Key",
+                                Type = "StructProperty",
+                                ElementType = "Guid",
+                                Value = new Dictionary<string, dynamic>()
+                                {
+                                    { "Guid",  new Guid(info[1])}
+                                }
+                            }
+                        },
+                        {
+                            "Value", new StructProperty()
+                            {
+                                Name = "Value",
+                                Type = "StructProperty",
+                                ElementType = "LIS2PlayConditions",
+                                Value = new Dictionary<string, dynamic>()
+                                {
+                                    {
+                                        "Conditions", new ArrayProperty()
+                                        {
+                                            Name = "Conditions",
+                                            Type = "ArrayProperty",
+                                            ElementType = "StructProperty",
+                                            Value = new List<dynamic>
+                                            {
+                                                new  Dictionary<string, object>()
+                                                {
+                                                    { "struct_name", "Conditions" },
+                                                    {"struct_type", "StructProperty" },
+                                                    {"struct_length", 0 },
+                                                    {"struct_eltype", "LIS2PlayConditionsFactResult" },
+                                                    {"struct_unkbytes", new byte[17] }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    };
+                    cin_list.AddUnique(new_cin);
+                }
+                else //Remove cinematic
+                {
+                    cin_list.RemoveAt(cin_list.FindIndex(1, x => x["Key"].Value["Guid"].ToString() == info[1]));
+                }
+            }
+            _editedControls.AddUnique(cb);
+            cb.BackColor = Color.LightGoldenrodYellow;
+            ShowChangesWarning();
+
+        }
+
+        private void checkBoxCinematicCondition_CheckStateChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            string[] info = cb.Tag.ToString().Split(new string[] { "::" }, 3, StringSplitOptions.RemoveEmptyEntries);
+
+            ((CheckBox)cb.Parent.Controls["Active"]).Checked = true;
+            List<dynamic> root = _gameSave.Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value[info[0]]["PlayedCinematics"].Value;
+            List<dynamic> cond_list = root[root.FindIndex(1, x => x["Key"].Value["Guid"].ToString() == info[1])]["Value"].Value["Conditions"].Value;
+
+            int index = cond_list.FindIndex(1, x => x["Key"].Value["Guid"].ToString() == info[2]);
+            if (cb.CheckState == CheckState.Unchecked)
+            {
+                cond_list.RemoveAt(index);
+            }
+            else
+            {
+                if (index == -1) //add new condition
+                {
+                    Dictionary<string, dynamic> new_cond = new Dictionary<string, dynamic>()
+                    {
+                        {
+                            "Key", new StructProperty()
+                            {
+                                Name = "Key",
+                                Type = "StructProperty",
+                                ElementType = "Guid",
+                                Value = new Dictionary<string, dynamic>()
+                                {
+                                    { "Guid",  new Guid(info[2])}
+                                }
+                            }
+                        },
+                        {
+                            "Value", new BoolProperty()
+                            {
+                                Name = "Value",
+                                Type = "BoolProperty",
+                                Value = false
+                            }
+                        }
+                    };
+                    cond_list.AddUnique(new_cond);
+                    index = cond_list.Count - 1;
+                }
+                cond_list[index]["Value"].Value = cb.CheckState == CheckState.Checked;
             }
         }
         #endregion

@@ -205,6 +205,8 @@
             this.comboBoxSelectCP = new System.Windows.Forms.ComboBox();
             this.buttonSaveSelector = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tabPageCinematics = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelCinematics = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxMetaInv_TutoStatus.SuspendLayout();
@@ -269,6 +271,7 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tabPageCinematics.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxSavePath
@@ -276,7 +279,7 @@
             this.textBoxSavePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSavePath.Location = new System.Drawing.Point(98, 5);
             this.textBoxSavePath.Name = "textBoxSavePath";
-            this.textBoxSavePath.Size = new System.Drawing.Size(623, 20);
+            this.textBoxSavePath.Size = new System.Drawing.Size(683, 20);
             this.textBoxSavePath.TabIndex = 0;
             this.textBoxSavePath.TextChanged += new System.EventHandler(this.textBoxSavePath_TextChanged);
             // 
@@ -293,7 +296,7 @@
             // buttonBrowse
             // 
             this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowse.Location = new System.Drawing.Point(727, 3);
+            this.buttonBrowse.Location = new System.Drawing.Point(787, 3);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(54, 24);
             this.buttonBrowse.TabIndex = 2;
@@ -304,7 +307,7 @@
             // buttonLoad
             // 
             this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLoad.Location = new System.Drawing.Point(787, 3);
+            this.buttonLoad.Location = new System.Drawing.Point(847, 3);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(54, 24);
             this.buttonLoad.TabIndex = 3;
@@ -316,7 +319,7 @@
             // 
             this.buttonSaveEdits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSaveEdits.Enabled = false;
-            this.buttonSaveEdits.Location = new System.Drawing.Point(787, 33);
+            this.buttonSaveEdits.Location = new System.Drawing.Point(847, 33);
             this.buttonSaveEdits.Name = "buttonSaveEdits";
             this.buttonSaveEdits.Size = new System.Drawing.Size(54, 24);
             this.buttonSaveEdits.TabIndex = 4;
@@ -327,7 +330,7 @@
             // buttonAbout
             // 
             this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAbout.Location = new System.Drawing.Point(727, 33);
+            this.buttonAbout.Location = new System.Drawing.Point(787, 33);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(54, 24);
             this.buttonAbout.TabIndex = 5;
@@ -352,6 +355,7 @@
             this.tabControlMain.Controls.Add(this.tabPageObjectives);
             this.tabControlMain.Controls.Add(this.tabPageMessages);
             this.tabControlMain.Controls.Add(this.tabPageOutfits);
+            this.tabControlMain.Controls.Add(this.tabPageCinematics);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Enabled = false;
             this.tabControlMain.ItemSize = new System.Drawing.Size(49, 20);
@@ -359,7 +363,7 @@
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(838, 515);
+            this.tabControlMain.Size = new System.Drawing.Size(898, 515);
             this.tabControlMain.TabIndex = 6;
             // 
             // tabPageGeneral
@@ -385,7 +389,7 @@
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(830, 487);
+            this.tabPageGeneral.Size = new System.Drawing.Size(890, 487);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
@@ -1633,7 +1637,7 @@
             this.tabPageMetrics.Location = new System.Drawing.Point(4, 24);
             this.tabPageMetrics.Name = "tabPageMetrics";
             this.tabPageMetrics.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMetrics.Size = new System.Drawing.Size(830, 487);
+            this.tabPageMetrics.Size = new System.Drawing.Size(890, 487);
             this.tabPageMetrics.TabIndex = 7;
             this.tabPageMetrics.Text = "Metrics";
             this.tabPageMetrics.UseVisualStyleBackColor = true;
@@ -1645,7 +1649,7 @@
             this.flowLayoutPanelMetrics.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelMetrics.Name = "flowLayoutPanelMetrics";
             this.flowLayoutPanelMetrics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(824, 481);
+            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(884, 481);
             this.flowLayoutPanelMetrics.TabIndex = 0;
             // 
             // tabPageSeenPics
@@ -1759,7 +1763,7 @@
             this.tabPageOutfits.Location = new System.Drawing.Point(4, 24);
             this.tabPageOutfits.Name = "tabPageOutfits";
             this.tabPageOutfits.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOutfits.Size = new System.Drawing.Size(830, 487);
+            this.tabPageOutfits.Size = new System.Drawing.Size(890, 487);
             this.tabPageOutfits.TabIndex = 13;
             this.tabPageOutfits.Text = "Outfits";
             this.tabPageOutfits.UseVisualStyleBackColor = true;
@@ -2170,7 +2174,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(844, 581);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(904, 581);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // label9
@@ -2199,7 +2203,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(629, 30);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(689, 30);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
             // labelChangesWarning
@@ -2209,7 +2213,7 @@
             this.labelChangesWarning.ForeColor = System.Drawing.Color.Red;
             this.labelChangesWarning.Location = new System.Drawing.Point(203, 8);
             this.labelChangesWarning.Name = "labelChangesWarning";
-            this.labelChangesWarning.Size = new System.Drawing.Size(343, 13);
+            this.labelChangesWarning.Size = new System.Drawing.Size(403, 13);
             this.labelChangesWarning.TabIndex = 10;
             this.labelChangesWarning.Text = "Save file changed! Press Load to update.";
             this.labelChangesWarning.Visible = false;
@@ -2231,7 +2235,7 @@
             this.buttonSaveSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSaveSelector.Location = new System.Drawing.Point(552, 3);
+            this.buttonSaveSelector.Location = new System.Drawing.Point(612, 3);
             this.buttonSaveSelector.Name = "buttonSaveSelector";
             this.buttonSaveSelector.Size = new System.Drawing.Size(74, 24);
             this.buttonSaveSelector.TabIndex = 12;
@@ -2243,16 +2247,36 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
+            // tabPageCinematics
+            // 
+            this.tabPageCinematics.Controls.Add(this.flowLayoutPanelCinematics);
+            this.tabPageCinematics.Location = new System.Drawing.Point(4, 24);
+            this.tabPageCinematics.Name = "tabPageCinematics";
+            this.tabPageCinematics.Size = new System.Drawing.Size(890, 487);
+            this.tabPageCinematics.TabIndex = 15;
+            this.tabPageCinematics.Text = "Cinematics";
+            this.tabPageCinematics.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelCinematics
+            // 
+            this.flowLayoutPanelCinematics.AutoScroll = true;
+            this.flowLayoutPanelCinematics.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelCinematics.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelCinematics.Name = "flowLayoutPanelCinematics";
+            this.flowLayoutPanelCinematics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.flowLayoutPanelCinematics.Size = new System.Drawing.Size(890, 487);
+            this.flowLayoutPanelCinematics.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 581);
+            this.ClientSize = new System.Drawing.Size(904, 581);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(860, 620);
+            this.MinimumSize = new System.Drawing.Size(920, 620);
             this.Name = "MainForm";
             this.Text = "Life is Strange 2 Save Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -2334,6 +2358,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tabPageCinematics.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2516,6 +2541,8 @@
         private System.Windows.Forms.TabPage tabPageLevels;
         private System.Windows.Forms.DataGridView dataGridViewLevels;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMetrics;
+        private System.Windows.Forms.TabPage tabPageCinematics;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCinematics;
     }
 }
 

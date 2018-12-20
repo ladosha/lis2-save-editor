@@ -35,7 +35,6 @@ namespace lis2_save_editor
         public string Name { get; set; }
         public string Slot { get; set; }
         public string Owner { get; set; }
-        
     }
 
     public class LevelObject
@@ -67,8 +66,16 @@ namespace lis2_save_editor
         public Dictionary<Guid, string> DanielInteractions { get; set; }
     }
 
+    public class CinematicObject
+    {
+        public Guid GUID { get; set; }
+        public string SubcontextID { get; set; }
+        public string[] Conditions { get; set; }
+    }
+
     public static class GameInfo
     {
+        //source: ..\E1-Cooked\Maps\PROM\... *.umap
         public static string[] LIS2_CheckpointNames = new string[]
         {
             "None",
@@ -188,6 +195,7 @@ namespace lis2_save_editor
             "PT_TransparentMap"
         };
 
+        //source: ..\E1-Cooked\LevelDesign\Inventory\... *.uasset
         public static string[] LIS2_InventoryItems = new string[]
         {
             //Epsiode 1
@@ -257,6 +265,7 @@ namespace lis2_save_editor
             "E1_8A_Toiletries",
         };
 
+        //source: ..\Cooked\Gameplay\GameNotification
         public static string[] LIS2_SeenNotifsNames = new string[]
         {
             "PROM_MetaInventoryNotification_Collectible",
@@ -337,6 +346,7 @@ namespace lis2_save_editor
             "PT_GameTutorial_UseLookupToAim",
         };
 
+        //source: ..\Cooked\Gameplay\GameTutorial
         public static string[] LIS2_SeenTutosNames = new string[]
         {
             "PROM_GameTutorial_CallDanielTuto",
@@ -482,6 +492,7 @@ namespace lis2_save_editor
             {new Guid("cd2608db-59b8-4c20-9030-f8453c2bed87"), "SP_PT_LivingRoom_WesternBooks"},
         };
 
+        //source ..\E1-Cooked\Gameplay\ShowPicture (name in uasset and guid in uexp separated)
         public static Dictionary<Guid, string> LIS2_SeenPicturesNames = new Dictionary<Guid, string>()
         {
             {new Guid("f05d08f8-2c17-4db6-a967-c11fb1c89dc1"), "SP_RetroCars"},
@@ -546,25 +557,27 @@ namespace lis2_save_editor
             {new Guid("04f5ae47-444d-4af2-8bd8-9c899b26e941"), "SP_E1_7A_Inside_SecurityInstructions"},
         };
 
+        //source ..\Cooked\Gameplay\Collectibles
         public static Dictionary<Guid, string> LIS2_CollectibleNames = new Dictionary<Guid, string>()
         {
-            {new Guid("{6F9636A7-A081-4B06-B48F-F1E30D40DA55}"), "DLC_ArcadiaBay_Tornado.png"},
-            {new Guid("{64FC7B16-6678-4F9B-94D8-9F3501C97938}"), "DLC_ArcadiaBay_Anarchy.png"},
-            {new Guid("{33A1ED27-CA00-41E5-B5DE-461C7463D1E7}"), "DLC_ArcadiaBay_Butterfly.png"},
-            {new Guid("{AB6671C1-418F-412E-A7FD-BD0CFB27C3B5}"), "DLC_ArcadiaBay_Hole.png"},
-            {new Guid("{D4CBBC18-575E-4388-80BB-C6D2F308673B}"), "DLC_ArcadiaBay_Sleep.png"},
-            {new Guid("{C9375FB7-5451-45A7-B0B7-50803D121303}"), "DLC_CS_Thunder.png"},
-            {new Guid("{167BF5DA-5092-4343-9C2B-8CA824ADD402}"), "DLC_CS_HDMKeychain.png"},
-            {new Guid("{B228BAF5-07ED-4778-AA12-0826A9835411}"), "DLC_CS_HDMPatch.png"},
-            {new Guid("{D96F0C47-8E65-4434-B4BF-50FD2328498D}"), "DLC_CS_PowerBear.png"},
-            {new Guid("{71ABE91C-84D4-4639-B9D8-4E8E695B6DA8}"), "BearKeyring.png"},
-            {new Guid("{F49914C0-B9BE-473E-A1D1-4B88D557A7DA}"), "Feather.png"},
-            {new Guid("{665B92B2-6AFF-495A-944F-AFC29D163A6E}"), "FishingBait.png"},
-            {new Guid("{F36D74F5-52FD-4D18-B8D2-DC308F1163F0}"), "MotelCard.png"},
-            {new Guid("{0021BE0D-733C-48D9-9858-7979D284BFCB}"), "Necklace.png"},
-            {new Guid("{D9F85836-5020-4AE7-AF10-C3C9D59B7FA5}"), "Trucker.png"},
+            {new Guid("{6F9636A7-A081-4B06-B48F-F1E30D40DA55}"), "DLC_ArcadiaBay_Tornado"},
+            {new Guid("{64FC7B16-6678-4F9B-94D8-9F3501C97938}"), "DLC_ArcadiaBay_Anarchy"},
+            {new Guid("{33A1ED27-CA00-41E5-B5DE-461C7463D1E7}"), "DLC_ArcadiaBay_Butterfly"},
+            {new Guid("{AB6671C1-418F-412E-A7FD-BD0CFB27C3B5}"), "DLC_ArcadiaBay_Hole"},
+            {new Guid("{D4CBBC18-575E-4388-80BB-C6D2F308673B}"), "DLC_ArcadiaBay_Sleep"},
+            {new Guid("{C9375FB7-5451-45A7-B0B7-50803D121303}"), "DLC_CS_Thunder"},
+            {new Guid("{167BF5DA-5092-4343-9C2B-8CA824ADD402}"), "DLC_CS_HDMKeychain"},
+            {new Guid("{B228BAF5-07ED-4778-AA12-0826A9835411}"), "DLC_CS_HDMPatch"},
+            {new Guid("{D96F0C47-8E65-4434-B4BF-50FD2328498D}"), "DLC_CS_PowerBear"},
+            {new Guid("{71ABE91C-84D4-4639-B9D8-4E8E695B6DA8}"), "BearKeyring"},
+            {new Guid("{F49914C0-B9BE-473E-A1D1-4B88D557A7DA}"), "Feather"},
+            {new Guid("{665B92B2-6AFF-495A-944F-AFC29D163A6E}"), "FishingBait"},
+            {new Guid("{F36D74F5-52FD-4D18-B8D2-DC308F1163F0}"), "MotelCard"},
+            {new Guid("{0021BE0D-733C-48D9-9858-7979D284BFCB}"), "Necklace"},
+            {new Guid("{D9F85836-5020-4AE7-AF10-C3C9D59B7FA5}"), "Trucker"},
         };
 
+        //source ..\E1-Cooked\Gameplay\Objective\..... uexp
         public static Dictionary<Guid, string> LIS2_ObjectiveNames = new Dictionary<Guid, string>()
         {
             {new Guid("{2B8C63B7-39DA-499C-84A6-BD067A8FC78E}"), "Find some food for the party"},
@@ -590,6 +603,7 @@ namespace lis2_save_editor
             {new Guid("{8FD88BC2-73B3-4B34-8E57-9872FE80C826}"), "Get a drink for Daniel"},
         };
 
+        //names can be obtained by searching for DrawSequence in files. guids - from save
         public static Dictionary<Guid, string> LIS2_DrawingNames = new Dictionary<Guid, string>()
         {
             {new Guid("{C062F28C-5F88-4420-926B-D56C2FEE7133}"), "E1_1A_DrawSequence" },
@@ -597,6 +611,7 @@ namespace lis2_save_editor
             {new Guid("{27E8A427-3B76-4DC7-9606-A962D3CCA084}"), "E1_7A_DrawSequence" },
         };
 
+        //source ..\E1-Cooked\Gameplay\Phone
         public static Dictionary<Guid, string> LIS2_SMSNames = new Dictionary<Guid, string>()
         {
             {new Guid("{1E42F53E-A518-4FEC-BFB5-6D6DA777E15B}"), "E1_Menu_SMS_PC_Boss_01"},
@@ -9535,6 +9550,7 @@ namespace lis2_save_editor
             },
         };
 
+        //source: D:\exported\LIS_2\root\E1-Cooked\LevelDesign\Outfits
         public static List<OutfitObject> LIS2_Outfits = new List<OutfitObject>()
         {
             new OutfitObject { GUID = new Guid("00000000-0000-0000-0000-000000000000"), Name = "(none)", Slot = "None", Owner = "None" }, //special case for empty value
@@ -9575,6 +9591,4962 @@ namespace lis2_save_editor
             new OutfitObject { GUID = new Guid("9e7d3039-38d9-4427-bf83-883ec4604bf1"), Name = "E1_BadgeThunder", Slot = "Collectible_Badge", Owner = "Sean" },
             new OutfitObject { GUID = new Guid("b9874a4e-6342-4a44-914b-ee2828a922d2"), Name = "E1_Sean_Dirt", Slot = "Dirt_General", Owner = "Sean" },
             new OutfitObject { GUID = new Guid("1a0e11ac-34e8-49f6-88e5-7df47292068e"), Name = "E1_Daniel_Dirt", Slot = "Head_Dirt", Owner = "Daniel" },
+        };
+
+        public static List<CinematicObject> CS_Cinematics = new List<CinematicObject>()
+        {
+            new CinematicObject { GUID = new Guid("e52badb3-90d3-4663-9aab-012eae4e87bd"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("630eab9b-9136-48a8-b0ce-b0aeabadef4f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("bca27523-24f4-436f-948f-460c508d70a7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3ec9441f-e75f-42c9-84a3-1017787f88a3"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("919038d8-b3c0-4d1b-81e9-fc4f0d7b21c8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7962111c-e85a-4722-8e8b-6a3519ead174"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("35c53109-0b0d-47cf-9ad8-c02e136086bf"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("aee51746-b3e9-4d69-8540-6907b23d457e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("025cc3a5-628d-4bb3-b388-66a7f24b15d6"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2bbc8207-20e0-45ad-8546-97bc78407d0e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a3f0cbcd-83b2-4842-94f6-86437f3b0f6a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d21f1711-6985-4a32-913c-15962e6c3014"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("32b44b79-c021-4213-ba6e-8cb633dbeebc"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4b4a02c3-6879-41de-9f8b-05e11316c6a5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c891191e-89c7-4f42-9aab-197766e7f7e2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("63f71079-68f3-49e2-81ba-859b5a22fe09"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("25134fc0-6a26-4492-bc80-ba59bfea5d9e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d6a448b0-c9df-488a-80f6-0ffbf9aa26ad"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("de120f23-9525-4e06-9ce3-155c41a5f323"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("249d70bd-c545-4a47-903f-a981a34c8c79"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1f70b007-1bc9-47d8-8c52-23178be327c3"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("af983b7a-8c72-4db4-a266-920f3d971cfd"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("63539e91-3578-4e60-a593-bd2297b82f1e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("053e7499-ae9f-4682-8b9b-d69f57d339e2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b5088f3f-2744-47f6-8a05-07d61c1ad8e7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("350c9139-6cf4-414e-90ec-42899a68b2f8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("8faada19-452b-4154-a4d6-59197b8829b0"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f2d982ea-9d14-4c03-a40e-1cecde688ae7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("55b1f312-9afb-4c02-8bc3-19d4821d4cf6"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a839f1f1-9330-41f7-96f4-fccca63a4a7b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d334a99a-2936-4523-8aad-d77abab34e70"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("698bd7c3-6087-49bf-941a-5f4eafb47548"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("275120f6-642d-4ad0-aac6-54e0280cacf2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("fb62ca24-330f-462f-9f0d-788fd14f644c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3a27adfe-b33d-412f-86dc-c8fabda54c9b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a7fa990a-f7be-4c08-b759-f2f5895f1efb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c4452b8e-346f-4968-88e0-91dd4736fb5a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("05b0df09-a130-479e-86d0-d1912f164d70"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("46b76641-a7ec-4093-9fa3-72a45eaec032"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("653bc5de-ce07-4bbd-952a-95bd85f38f80"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e015e8e3-e155-4ebc-80fd-d960008d81a1"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e3e43a62-131e-4dff-9830-f1f05f00963b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("67910472-d49a-4057-908e-4460cc1a3ebf"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("364ad457-8a7e-444b-b1e5-1848af3d9e4b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("882c6103-8365-4b58-a475-104da66ea193"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ea79e583-834c-4338-8e49-cea935f7dab4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e6348901-61fb-444a-afae-b444e870a248"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("11dd0180-5954-4b10-ac4c-23f9e08f9843"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a569ba0e-eb1c-40bf-8e25-e2e2ffd3aaeb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("5cb71b80-0c12-4ddb-9c25-2527b1765e33"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("007d4afb-768b-433f-9469-96c603f4f607"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("df66fb9b-bc57-4b77-93a2-ca83b14e9ea2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b098adbf-57b7-4955-ba42-ee5215d646a8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b7a8dc2d-4648-4472-bdf2-24cdb644ce87"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f31167df-76dc-4747-bd9b-e55b7de60e2e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b2930ed4-0e91-407f-a963-f3b3e5b7cfde"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("58169245-9ab6-4a84-890c-4fd212c4eb18"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("39ed8576-d721-412c-a554-9d6b5d856ac7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("690cc3d5-d12a-46c3-a8d3-64a978f561c7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("5d148817-248a-4057-a58a-5ee5a46bf470"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a00f00ab-95c4-4349-9861-fcdee23610bf"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("cb63a867-ad97-4724-aa87-4c010b75cc50"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("039e3ee0-42ab-4445-b14c-149c6882afa3"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7a21b0ad-bccb-4bc2-8949-b144f14f8097"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3721a8c9-69e1-431c-b308-45ef09bcf8ed"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e14eb1a7-93b6-477e-a79a-048f1a0f186a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d5fdc552-6ad5-4dd8-b8ed-f63cdfe62184"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ab65e691-d309-48bf-a27c-178c36ab3dd9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("143e0817-a935-455a-902c-e6b179b01350"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d787fd3a-7805-43a9-a233-366c84ca2f92"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("00e357dd-ba5c-42d8-be48-669c931c2840"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4325ece2-5dec-4656-b6dd-9f59e1b84943"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f26f1c85-e965-4e69-a45c-b1734353964c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("68f9e6d8-55d9-47cf-b8d1-9f5dfbb59be6"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d8783515-7fdc-488e-9299-c150df1ef295"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d46b8660-1d9a-400b-b85e-b7a71d165d6a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("771ddb11-9648-483f-9ebe-9b6a76e93cbb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0019b897-eb65-4d3c-954b-af8f239a9929"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("851a989c-6545-4382-810c-8f8250b9d2b8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2ef136b2-f227-4bd1-97b6-71b433280a91"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("41fd9ca7-e16a-40a6-9d40-364b6b82e1c7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a5e67eba-2fb4-49d6-b7bd-bd5e1ac7d7d0"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2f79de8b-f5ae-4fdd-9f28-deced7701c85"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b5848484-2916-429a-80f2-5c0eda0df950"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1bdc58e5-2bfa-47fc-b469-817f1152d436"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("26f45e9a-1c43-4efd-93e0-ddcbc433600f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("634f1002-f081-4397-8b74-825651856ab4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("dcae66dc-a734-4a34-bff2-780436c9374e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("8e62a89d-2557-44ca-85ae-e67922feb20e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("71563eb4-51e5-4107-afc6-90905eafc4a5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("bfed46f2-c3e1-4001-a0fb-5ce05025f404"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6b09d710-494f-40e2-823f-d5b58412781f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("5376b09c-02bd-48e3-bfae-6707a5f54ab9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2a379cb5-57a1-48a4-b282-5b4a8fddf981"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c7daf646-e96f-4ca5-95ab-a5744fe445be"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e9bd0f0a-ba15-4cd5-9317-e3e46819cb05"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("82168a58-15f5-4b62-86f5-800013417245"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("dd9d8eff-af1c-4617-8c3e-2e534452f5d1"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("88c33a83-d5df-4248-b55a-220c65fe670f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1ceb61a0-758e-48e4-9a01-4aec8c35384a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b355f120-c59e-4606-9aaf-3e80dec98455"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("801c3ddf-dd3b-4335-bb34-908200e3b346"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("42489182-d66f-41dc-a8a2-670f36e56c9a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b15b76d5-e5ed-4361-8e97-b57a394ac9ce"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6a994cf0-5803-40de-8ac9-9f4a4a42e8f8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ad86193a-8e7d-41bf-a753-f3b166dc47ab"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("54020a18-2c0b-4e64-ad06-b2a36d8f61fe"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1ab4cd4d-8eca-4040-893e-cb9fcb3a9e1f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f0a7bce1-109e-4aeb-9dbe-e083f7b9e27a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("76411230-6c4b-48a3-bee2-e7b2e913d22d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f8e0fe0f-91a1-4ba1-ba7d-310fb8457549"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("85415b85-1d58-488f-8e2a-7a005a646635"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("248b5351-a90f-4fd2-9b59-bd83fe6e9ca8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a672a6b7-df6c-417c-abbb-6abbb0c42b2f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("93805cbb-f0f8-4621-b340-f8cdb3cf76c3"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a3b7bc1d-543b-464c-b2d5-a0433ca56743"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1fff0b71-eedb-4d91-b157-3e8c3a9daf5a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0115a5af-8de7-407b-94e7-5d836d70428a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3f7d1356-1c21-4231-9e17-7a40ca6e5efd"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("28a34549-4949-485a-ac7f-cb8aa1e62fad"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("421de6af-becb-4112-ac27-06085170a301"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2607f353-d8b0-4d16-b896-168f0176f7cd"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2b083152-8155-4df0-a876-c8cf5f9e8c3d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("549bad97-2378-412a-9082-5b574fce9a3d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("83963907-2279-4cc5-bd08-e963d6161491"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a24df0b7-8689-414f-9364-483fdefe729a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("44bde91f-e090-4411-a2c2-2eeded0a69fc"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c024a683-99a4-4d36-b98f-622bf4034c52"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b9ecb927-fab9-4c57-a227-93c7386c60c3"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3e1f4e82-b284-43d7-baa7-718bb3be233f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f2393873-176e-4133-aeab-f8a99c1bf23d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("afec88d3-c3c9-43f6-b764-b8eaa7d4589e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a8e772f2-c5cd-4564-8315-4504796d1d2b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("01af06e8-e35c-49dc-bedc-4ae7ee8e3e60"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("959a362e-31f3-454c-89c3-df81d2ea883d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("73af193f-8f93-4060-8283-08d1b20cb7b3"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0655eb5d-e558-4d80-8db8-e09c58daf650"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ab36f0c0-22dc-4209-9fc7-bddc44d7538a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1f080c03-d3fa-4384-945f-3dd9b47176d8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0c0d0c7f-4015-4162-8445-593c1c9e412f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("613ad136-4ef8-4f67-8cf2-8f70220c869e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("22b5e479-bc9c-4b3d-9d16-a1ed30a9d7f4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3141988c-6f9f-468b-a4fe-2ab9909d1f8e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("63293a7a-385f-4523-ad0b-4600d368bc80"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3aa08a20-249c-4ee1-bb35-864c8d1bda3c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7d42bd2d-f994-432d-8f56-f98c02cedba5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0b5d7f17-1b67-4ad2-9e68-f063468b582d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("9ce7f243-b01f-40e5-8bcd-2a8333c0a078"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a5e9bc79-be9b-4924-87c5-62a429c01074"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0211af1b-02e6-4d19-8fc9-9f6c4f808d5f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b1be2e53-d61d-4aa5-9f2c-3b5919697bdb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e81e1bc9-b8dc-4d17-9963-acc586fd07c5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6e25bf27-7593-4fae-a35e-65633b838052"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6e63dbec-6996-446a-b4bd-895941dfa6dc"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("bc121506-74d3-43f5-980c-605fc8010eac"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("8d0f61c3-b5f9-4ab1-9fdf-281970495248"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("835e9b62-45c8-46e7-89fa-1b8f03636217"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ff13292e-d1cd-49f4-9385-d157e9491f69"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("022265f7-74af-4358-973a-5de7b016b992"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("5ea0154a-2ec9-4262-a6ba-eca9a8a605e1"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7483cc70-b2d9-48e0-affc-11e923210606"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("007a9f7d-5d99-497b-b15a-ef3a40bd74d9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("27c0e960-3425-457b-b9e1-b5304b89f89e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("790a6a58-adc5-430c-a9dd-063b0ba15a2b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("16f5f0ff-de47-49b1-ba11-8a95758d38e8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ee1d3976-582a-4d0f-8214-eef0da0069de"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1f83808e-e7df-4adb-83b1-bbee8bc17e00"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c875b73f-2699-41ad-840c-214413a857b4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ab5b8052-8301-4773-8620-310357c9c5db"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ff82a521-e4a9-45c4-9c15-9f24c898abe1"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a74dc28e-b3c1-4209-a632-d3f036a047f0"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f3fbf54e-e72e-42fb-9fcc-1af921964cfa"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("ae745a42-b6f2-4222-986b-b75261895b6b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("dbdb395f-933f-4995-a5a0-3f5ace5b15d6"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d7758a98-2018-4f5c-b995-b01d8eb3b261"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3f68fa6b-de57-42bf-b9a7-d2f9946e50bc"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0aefd7ef-a42e-4726-bdbd-dc2319108596"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("dc9188ca-98be-4076-8445-4e2ca15b34ea"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1544c246-c08d-4062-adf8-6d383d441744"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("876e3e4a-0018-451c-8279-91490d13bee9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("675b75b7-6d8b-4c57-ae7e-2e0b025a7a92"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1abd3728-60d7-4d02-bc90-d52b8bda5a96"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f1a8724a-65cf-497b-9666-3ba9ff5f4e44"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("84430dd0-fe38-4dbd-ae34-cbb0fc35af16"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("8debd038-1a97-4a5b-87af-f09b22eb8f2d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("733e6207-63ef-46d0-bb39-0d960285910e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f8970385-c538-47de-ba12-815a1865480b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f28fbc32-5822-4a62-8337-7adce9089b92"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("205d06a3-ab4a-4b3d-8cdb-c5865fcf930a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4b52a302-2c48-49d3-9fe0-b7ad1a28bc25"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("84765d8c-06cd-4194-b737-9dcd74c0711f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("19ab3b9a-4307-40a6-b3b8-55ea99121f14"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c446fdf9-0e6b-4343-bed0-c06d1fd6d992"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("351d7c81-ebd9-45f4-b083-ead2b66eefd5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d39b869c-8517-4625-88d3-d9c5f1f07627"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("9c79a72a-cad4-4be3-adbe-0aba35efba76"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("69e75b71-e269-41e8-a4a3-bfd80d13abb9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3d7dceb4-a548-48f3-a488-459cb3e58673"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f0d55436-5677-458a-a061-cc38676381ca"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("04be2f69-f1ad-44a5-b5ea-b9dc61c00fd4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b340649c-4ecb-4677-bfac-93dd1c91b540"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("91307903-78da-4131-adc2-ab1388067a86"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("334e2de6-b9a5-4b83-beea-e957da927b60"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("62a927c2-ba4b-4ea2-aa7b-6051da02193e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4c28e977-959b-42fd-8da2-9e27da3f4cec"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f6c22947-a255-4462-b84f-04e2f5423732"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b0160e1c-fe83-42e9-8c51-56e871e02833"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6c7f663c-e14e-4833-b684-a7aca7ef86a9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("26d4bb64-7783-42fc-9a99-3cfb2a471b8c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d8b7f135-c6a0-4109-8918-f53bd6806b68"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("347d2225-4b40-4570-8f88-616f8cb8a45b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("854d8cce-bb1a-48ed-8b3f-27d45cb61885"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7b43df8a-14d1-4c69-a957-d1d4cbe65c8e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("40dfd358-6362-4622-91b7-3776d9e7f283"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6fe9d669-127d-488d-af31-f89e0d0bab4f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a63d91e7-59d7-4723-80bb-7a92b4e4065b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f5238f38-ada1-4c36-b7ba-89f5a95a05cd"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("069ea8b6-5674-40c5-9c8f-96491bc139bb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("fb586829-7056-4ed7-8861-be92969fe976"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d265a1e8-cfa5-498c-812b-f43d2f0dcef8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("94b1abec-ef73-4d5f-bffe-d642d7dce4ba"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("440a7f69-04d5-4762-81a2-88dafc265141"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b7ed32ef-7538-4ac0-bda1-aed71fa8d4ec"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("9fd40fba-f237-4454-b4c3-fc95d1d716e5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("380ae164-2fc5-4343-b033-b15100f5710d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("fc4b998d-d18e-42f9-bd05-ca492d91d44b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("dda66271-c8d9-4996-96c3-bbd5cddc70c2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("87ad8ea0-d94d-46e1-8e61-aa773ec63ae8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("dc8f5dc1-c7c5-49f3-81ed-b6c4ec41d3a4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2170829d-f5c3-4869-90e4-ba058a007d4c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f609e773-a4e7-4281-8b64-521f185f0b65"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("64e9d23a-3bc9-40a5-a65c-a90733cd3e0c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("8bf8e1ed-a814-4bdb-9cbd-6e49bcd69f42"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("479c625f-ed16-481d-8763-e625d0da1516"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("008e9bbf-a0cb-4930-baca-2a6aa58366a7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4b104d0a-e9cb-4498-815e-491d0a654bc8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("227f6018-5e1f-4bde-94ef-15a1ccfc996b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("49148647-0834-49db-b493-6ffad2f2b57f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("9cee6d9a-32c2-46b7-bd7d-36f832a4d373"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b9b2edc9-52f4-4d97-928a-f972fa507c10"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("15ab58bb-6bb7-45c1-ad57-c867e3fa0a1b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f886d9a0-5a50-40e4-afff-6d39f09ab477"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("288dce4c-71b6-4fa4-aa71-4341eef9e1fe"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("353d27ac-9241-4fd5-865c-f2fd5d2cd338"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("29284bc0-ebab-4c04-9dc3-0282289c7c58"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6cde1c5e-bb97-486d-b2b8-2e75139498ed"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6c2e9755-4aab-40ed-8335-51f713008293"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("414392c1-8e2d-4a52-948a-9d2796e11cf9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("8d481ff2-5736-4d2e-a0d7-edf1c2b5d936"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("824d7aa9-fdcf-4116-8333-c6f31128ddb6"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e91b3ecc-427e-442d-99f4-f0f66c12a12e"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4ce1e174-1716-479d-88a6-d7e110ada270"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("dbd016f0-e4c3-467b-b6ff-5e05c553fea2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0806ac20-0b2a-4387-a5ed-e98449b0f7a5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e791982d-6775-4a9a-9907-5a4dba188152"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0e484097-c752-42a9-a6a0-d030221e04e0"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f12c7efd-f5e1-4efc-8913-c9f28eb6a71c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("96a675eb-630f-4cb8-b3b3-6ec781c1eb17"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("91984053-6453-4154-97a6-77fe4eb155e3"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7d87cceb-0b30-4c4d-9833-95a7f38a7369"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("01570153-d74f-4824-8e03-607c105d6962"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("068319b8-d5b0-45c0-ae0d-cb9df7a53730"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("d9e623ac-7b59-4696-ae36-17e04829aed0"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b680acfe-5dc3-4efc-8760-13e35ee1a3d4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("bc9ac68d-f1d9-46b7-b164-9ad99cf5d291"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("78eea985-5204-44ad-b51e-7bc93453c095"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3eb59ab6-7689-4dc3-9c89-7522d04a40bb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("62a0304b-cb87-4f73-a8d0-082b7153dfc5"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("54cc3f92-3b70-4a0a-b0fb-2861194a11ee"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f9267b13-da82-4a90-a77b-321d4ac319bb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6b76da48-8173-4193-9e91-d26f163e16c7"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("fa08b2ad-414d-4697-8d09-f1b7adf761e4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b7a8ef76-f74e-48d0-816e-cf68399ad18c"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b9e04f13-5236-4db2-9ac9-e01c189708d4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1772e796-0bd7-44ed-929d-f3d12c45ab65"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4bbf9d89-a353-4185-a761-7d8a4f57d535"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("6f287dfe-0409-42f2-99e8-7fbb339b2116"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("5c0b7dd5-b2be-42e7-b1cd-7b96a3be3a37"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("fce4d729-967d-4bb6-96a2-dfe428fe629f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7dee983b-4e93-4844-b847-4f2161d372b2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("76bf664c-26f7-4222-b5ed-031f21f1d393"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("bee868b4-0477-4be2-8d06-34e94137aa58"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c59ac4ef-20e9-408a-8452-5fd698d7d0da"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2d005e10-9655-441e-a765-4c51c74ac098"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("acbaec90-5472-41b9-8f8d-b6206b909e30"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("57c66187-c697-4ce7-a233-ba2200140c99"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("3e956e35-1702-467c-823d-cb71108205c4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0eee1c85-e22a-4997-8270-f7d8d411cf3a"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a7f7079c-c7ff-48d3-a817-f84f007500e8"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("bdc05429-aea4-491d-9bcf-83f361e81555"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("7f9e721e-e1f9-4814-a9a0-52b7e745ed2b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b91ba23a-eb48-4cd7-8bda-f1fb43420afd"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("e9d0620f-07be-4c65-9a0c-7936e11b4408"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("aa87f6e9-1564-4b73-8a2f-c5dbe5524b49"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b64e24b2-2064-4402-a4d7-09bdd7db3493"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("b29dd6af-5a6a-4c38-b94f-9ba9c74a7ac6"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("5076a294-56b8-4e2b-afbe-5818092d145b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("66c0be77-1410-4bbd-acff-156052e76b69"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("8164014f-5e53-476a-bf8e-59aa66f9e908"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("df8c3319-dfca-4b51-b4bc-389f2074824b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("2ca497c5-ae13-43c8-951a-50fa0de96355"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0895ffc4-68b3-41ec-a427-37032067e22b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("4b0dd78f-a707-4007-b5a2-c6ca827fc119"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("0d1093e7-146b-487b-bcc2-271889eee878"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("9d1ecd05-e3f8-430d-a6d3-768b5f0b96e2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("eb3deb4f-c961-4dc1-a002-f3afb1f048c4"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c2f6b393-32d5-4aa5-ad96-61776a22230b"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("9c5aa97f-cba6-4826-bcce-365277c4d384"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f4e5ee7f-ec09-4b85-b714-4930df161435"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("38630758-33c4-4639-b169-02f01971b566"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("855f6331-1076-4626-b51f-c90c1d913ad2"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c18a3614-9117-48df-a3e7-73a4175158d9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("96f0ed35-ee06-4caa-a65a-57bb2ced8a58"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("df07f56d-bf7b-4a7a-9bd8-50b89c0db7c1"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("db2279a8-182c-4c81-9964-010ea3b07c60"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c636cc7e-5491-45fa-86ff-3b95b90ac6db"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("833d2678-eef8-4db1-8f87-341bef510ecb"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("41591e59-ab28-467c-b0b2-5c2986a99449"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("c8c2b0f1-1926-47b4-afd8-cbfd337c75a9"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("cd40c529-751b-4561-9b76-65e5144e9694"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("1d31d288-cb6f-4c1f-b971-744424c7eb80"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("fcad2053-26ed-4b58-aaf2-4f9b282f6419"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("5e1e3011-60cb-46c8-8646-d476c6e1b29d"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("f5174a54-42ed-4c7c-b017-68101c40310f"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a6376b7e-0095-4593-9b0b-be1160333fcf"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a181a4b0-a9f3-43d2-9c05-23a7b4eedb84"), SubcontextID = "PT", Conditions = new string[0] },
+            new CinematicObject { GUID = new Guid("a3b452b7-d380-4e5d-ab53-1e74cf3753f6"), SubcontextID = "PT", Conditions = new string[0] },
+        };
+
+        public static List<CinematicObject> LIS2_Cinematics = new List<CinematicObject>()
+        {
+            new CinematicObject
+            {
+                GUID = new Guid("e6d56886-d73b-4ff9-824f-0720be1d7ece"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("49530a2d-f9a3-4597-a5e1-86ce2755f277"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c6cdee01-951f-481d-aad0-3c8ecc4c7abf"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7235f5d9-37e6-43ea-a68c-b18b7e5dcce9"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("34293208-b4ae-4021-aee8-5dae9f75e926"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4b2d57fb-3bf5-4817-9c93-626ab8e509a6"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("55253b2d-c4ac-4838-8cda-4aaf569812d6"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d5b5b1f6-3bd9-4208-8116-345393d0b608"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a3176b18-387a-4140-9236-b2b266f6bfcf"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1bba7dda-14cb-4a03-bbf8-46f76283a24c"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c747a679-677c-465a-aead-a2ea6349b864"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d62db7cf-1f71-4c15-977b-37014db84071"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("476a7bb3-62ae-4079-b2cc-d9bf79bd29e0"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2b3f63eb-bb24-4fa0-9a96-baf91e2993ea"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19016bd0-1db6-4007-a6b1-96445b19cccf"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("34a302da-d8ce-4f4f-8ad5-9ebb6ede8e71"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("374e61ec-650b-44fa-a5f2-2fa191424eba"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("afed45c4-a5c2-47bb-b85b-aa73c18a2ede"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("79e1700e-7787-4f4a-9a46-e654143ff61f"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a825e6b-c93f-40ab-b171-74e6e6b720a5"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6b24797b-34ff-45f6-9a33-b06c3a7ff417"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a62aa5d9-4afa-4fd2-9ba6-16ba2b7a7c44"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c9d301a7-46cd-4c38-b3be-4385894784f8"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b7ca4a63-7465-4d5c-9386-db6493d55737"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe915ec4-11de-41ed-b8de-cb196ca5d848"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0bcfea65-4f44-40c7-991d-560f4941ddf5"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e00b227f-67d9-420e-86cb-a7a4d9e87e48"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("41b1ac54-2891-4c93-8c1c-91f165e36f3f"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bdc6e997-97e4-40c8-b4e6-c039ce3731da"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("09d7f8a0-2cc9-4cf0-b6eb-e80014fc5e54"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0b32574f-8d09-4c2c-b749-9d152319a2bd"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7b80bd1e-fd46-404e-b5a7-e4fee6feb290"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a69c7631-ea17-4f6c-8a00-8b8dd2d1345b"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("923d56b5-144e-4cfa-bb51-a455cfb9c7a1"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("eee487fd-1571-4e92-83f2-d4890147cf4c"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("94ed5e92-ecf8-45da-a83e-538d36c39565"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("712ea97f-119f-4890-9197-4ecfe7493d15"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f72c5bbd-0efd-4ede-a125-03852c0dae23"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d6518ff3-2f64-47bd-a69a-18a81c24602c"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("edbcb3ed-1771-4eba-91e8-e37cc779d83b"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("29c1d13e-c4de-46d8-bb99-15b933c2cb3d"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("10bc5361-34ac-4bc5-b54b-173266604adc"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d6a3c0a9-b932-492a-a6ce-01bd960df4b2"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                    "414b4e25-aeae-4889-a5e9-b780d6a76e0b",
+                    "82d4d2ce-deb8-4bf7-a285-ad0041b248cb",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6eae4d79-162c-4f58-8ce9-286b86086553"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ccf6f463-837b-424d-b3f9-c941f2984d06"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c170f943-da6b-42db-a485-88364747470d"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ccb436ce-1811-4ff4-819a-c8fbe6d67a88"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5916c4d5-7f65-4c9c-bc2f-42ad60f797f3"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("88ab2afe-33eb-4eb6-90b6-bdfea0e20de3"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3b767ded-3b44-4985-a03f-da37ee92967a"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("404186fb-4261-49d3-89dc-33e4b2710bde"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("27802e54-26d3-47b6-9b73-548e97330f0b"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c0f1ccd8-1598-41da-86b3-4ec461870208"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dde8ff90-aa36-4b55-ac80-a8b2c19b79e1"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("07c721ed-c0b9-4fc8-a210-942e1bce6e23"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("aa80e528-3554-4166-89c6-42fecb015d1e"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1e06066b-8d55-4b22-aac5-a558172a0fbe"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d99e7f69-c65e-4d3c-8634-e137940035bf"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3644b1ad-7860-487c-b70a-a70bcf3d1204"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b0dfaaf9-cf68-44be-8fa5-cd79ee98f823"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("959ed4f1-b958-4512-ad46-dad5abeb5cad"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2afa892a-c7a1-4d0b-b0db-6547997898eb"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("768085f2-39d1-421d-906d-f55aea785e32"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b29b506a-c79c-482f-b332-6f9db4a33612"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b1def273-2ce7-4b99-88f6-61d7cc880f78"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f120d917-b49b-4c72-ab80-d9707118e930"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c24c5b60-7ce1-47dc-8719-c8f6fedf1a65"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5b4ddc61-da5d-4e69-8d65-3a6987cfbf6c"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a4fd99a4-8410-48da-96f9-152fc9c0b574"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bfa92d96-c02f-4510-b62c-8d4e1469e6c5"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("04a026c7-5041-43bb-9f38-5970ca7bc7fa"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5446d799-1d1c-41bc-88c8-1a9b1c4bbbaf"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e17a08d1-a2d7-4e37-bcc0-e5bb51aede9b"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8230fea9-9490-4385-8862-90ebcec2ad33"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2da0174a-6c11-4399-9c55-cddf4a722244"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6464aa34-f7a1-4175-a2c9-e68b4bb32dcc"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("32735e41-dfd5-4b6b-8c29-a6ff34a5d629"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("595e9cb2-8d39-4cae-9dfd-36695e8bcd53"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a0bddfa7-bf21-4351-a008-9bafb4fe4519"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("75e8e823-b9f8-4e30-a165-92ccd1375f42"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("102ca079-9573-426c-9bac-1703687bb93f"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ee1fd272-f94e-41d4-b36f-020b3c81a9b8"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bfa34592-0e8f-4cdc-ab20-3e71353f2d45"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b38db69e-5dca-48c4-badc-463ca75cbb89"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c627de19-cdd5-44dc-bcee-a49ea2644b45"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d848def7-a682-4b5d-a3ca-00046cfe632f"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                    "34800ec2-0023-433d-aa51-5942eac22b76",
+                    "7169b48e-43ab-4a10-a75b-e8fe08e2c8b4",
+                    "9a35ea94-fd6c-41c2-8b65-6d59686d5edb",
+                    "9e60fc1e-8ebb-4395-9354-75b928c10923",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("713d7226-adf9-4b86-ac36-dd9b28da06b3"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cd6d147a-3d7a-4f11-852d-1fb1439451fa"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("30798d48-59c2-45cd-9a9b-c3b1aaa71851"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("382fcc4d-7c3c-4b6a-9b49-0791d62f25bd"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("16f2a64d-6dad-4a39-b046-f0ad65a5ee69"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1b3021e1-8506-4b72-80aa-d60b12a53721"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("32db5379-c23c-41c4-9b23-967c1f8f6bc0"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9b49ff3c-748f-4c15-b161-bdcf6cd9b2f1"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cc2fb30b-5847-4822-9808-d7824125e1c6"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f467e42f-1e0b-4f22-a5b8-abe17cdd6a8a"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a345ffbf-0428-4693-89c7-c542cf346d27"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e00bbc44-6c27-46d5-8b66-66d46fe911a9"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ee3ce5f1-82ee-42c5-aa21-cbce1ada1749"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                    "0786bfbe-e157-4e76-8dc8-2da2701b0d30",
+                    "87701e34-bbcd-492c-bacf-7c6cbdc376c7",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d92c8156-036a-4487-b71e-195ca1c60c1b"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43426dd7-c94d-4f30-87a9-2445d810a3a6"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f5d5db1-69cb-4185-891a-d1abaa6f53ab"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b4cc2fa2-1b66-4b76-9bc3-4ba2479e74f5"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("957f18d0-f3ad-437b-8019-63cf610d656c"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7a2ed41f-57b9-43a7-9115-6068324eef36"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4514eb8b-b7cf-47df-8713-8257ea152e7f"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9d62a645-6070-41ff-b4b1-3ddfd419807d"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3cf20aab-1cc6-476e-95db-2d5bb9d09f54"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("da6b608e-40c0-40fe-ad18-8a2040a71327"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3c701c84-2c8c-41aa-976a-77829077b91a"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ac0c7062-a72a-490f-94e6-77577b75f504"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e95379bc-15e5-4d5b-b437-83ec507c4764"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("52298de6-b218-4639-90b5-a32f305cf68c"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df53ba86-8a45-42c3-8545-348ed2388d1d"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9ae7eb02-49ae-4d5d-a461-f3afc8d46504"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("42346da3-5ac1-4d31-97cb-a3c2aaa09c74"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e50db607-4ee6-4f94-a349-052a0f05537e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9a879a73-efab-491b-bb86-db3a0515fa2b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("645faf94-f155-4968-bba5-599d642fd897"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7b8c7767-5979-4c1b-9302-e4a71eecb4a8"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("03d58333-a14b-40e1-ac01-dcd867a1b4ec"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4dc9e706-06fd-45fd-9a74-2607bc75e564"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b2e7ea48-ee25-40c0-8e9d-ef3c46e2ca5f"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("685ca3de-51b3-45bd-94e3-52fbd40b5809"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c13c0ff9-fc2e-4468-b1db-e4cf0454fe5d"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ed49919-fba2-467d-9d9d-6a4de129f925"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("af30d9d6-90ad-4b1b-85ac-476b86bdaa58"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b9f2d464-1916-4363-96e5-c422eaa23a40"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("564bb845-823b-4a9d-bafc-793a75ccea76"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "2f737db5-3320-4eb7-b6b3-9eaaed721146",
+                    "56de76aa-236b-475d-98f9-a35e13e64b3f",
+                    "5bc78f7d-0cba-46b4-828f-ab9ff3bd9a35",
+                    "7188c8bf-4993-4274-9aeb-47e4971f2db6",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ab87abb8-392e-4843-bafe-fe546bb2fd5c"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("030e9ac0-ebe1-44ff-8982-7f10a7ae791a"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3795229a-a631-4da7-9155-2fb99b7da360"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("91498362-e94e-4227-a5b0-21e4496f2150"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5e2d1a7d-ac6b-476f-a61f-8d8befede848"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2fe3c73b-d4cc-4104-88d4-f3481311000e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a691f5c4-860d-4416-b27a-a7eda32dc0fa"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bd3338f4-0cc5-4246-905a-6c889d2ee934"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("88b16186-c32f-4c1d-874b-b645ec975c70"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "15243135-fa29-443b-bad5-ff569a952f25",
+                    "59b2a62b-cf78-4baf-8113-a9b6d719abe6",
+                    "781c6804-e923-4704-a1b9-8c57a530d4cc",
+                    "9c892493-86c4-46e2-9d6a-cfc2191786d7",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5a7ece85-d717-460c-a238-192954df911b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3f7da316-3949-4d00-acc7-3c296764f36e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("220da6ee-ca53-43bd-be44-93692ca8e0a6"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f13baa9d-1423-4648-aa00-8621f8c7551e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3789771-0d8e-43d4-9964-e39e99d51784"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("96b1873a-679b-453f-9db1-1f98abcd65fe"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bb229341-ab6d-4363-82c1-61241e16b186"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bd886d81-0894-40be-b707-de3fa4d46c0f"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("00ab1143-4033-4790-afdd-3c51a70597a1"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df46b8b9-676a-4f8a-b137-47ecfaa28854"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a2775088-85db-4344-b0c2-4419eed794ff"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("30e7ce5e-e003-4e6f-97c2-3c710755b070"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ce4fa244-de8f-49cf-966f-806cab0f555c"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e03f579a-f273-4605-ba0e-43567dc4935c"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("212a0fd4-079d-4521-8c02-180fc35d00ca"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "6527d4d4-8b43-4d06-9844-d4aaa9cdee33",
+                    "71e7a872-bab4-4f36-9394-ef743a58bc8e",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3341f0d3-1c97-4057-a32e-2e888547580b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "002d6396-fc1b-4b0e-b7b7-891c5d6c5189",
+                    "0b9ce59d-b8c0-474b-ae27-35a5caaece71",
+                    "0e12ec36-81fc-4938-80d4-5a0d3bf3b521",
+                    "0eeaf7ff-4092-4c54-84cd-c62bceb1895c",
+                    "3caa7335-0393-42ed-ae10-d200d4711dab",
+                    "560c7d02-a320-4eb5-ad6d-784fedb42264",
+                    "5e1376b4-d0a7-4348-8c14-c304ccd7a7ec",
+                    "6527d4d4-8b43-4d06-9844-d4aaa9cdee33",
+                    "71e7a872-bab4-4f36-9394-ef743a58bc8e",
+                    "76415810-845b-4350-83ce-7b2b94f26299",
+                    "95959780-e9e2-40dc-8b3e-92ebb87bd23a",
+                    "b1337ede-0684-460b-a1e2-918405e8b15e",
+                    "bd0f510c-213d-449d-8d95-6fc5ba4625b2",
+                    "ed5c408e-ee08-463c-b017-a9d13c681c8f",
+                    "fbcc5901-2108-41fe-b838-6d5b6028b109",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("adb057c0-9624-434c-a076-5b841ef71a00"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3193e62d-2813-4618-96a5-c94904386905"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7a15e05b-3e75-40a2-a2fa-f60cc66a4916"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("50612983-2805-4e32-a6b6-b5c007c10027"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2d2f01c1-e2ce-41a3-a9d0-c2654c31adc7"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "74694081-ebe0-442c-9be3-8c545b7432e3",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2449d373-d21e-438d-bc65-b2868c205b82"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6301d5d9-a3ae-485d-97ac-edaf81eb2f19"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("58950484-161a-4ea7-9cb2-26b02644e607"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "576686c7-af2a-478e-bda9-dad1c4ab99c8",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("08b2ba6a-2ceb-4ee3-8aee-101836aaeef5"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1db18472-b9a7-483e-8c47-0fee01ea9753"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9db05815-a46f-4c3c-aab6-d66b73dc52ea"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3d01736b-ebc8-418f-810f-c060001ac8fd"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("54fb70a2-df49-41c6-8ad0-469ce32a05e3"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "f70e9f77-a133-4297-8ffc-6d49728c3d3c",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("80a96f05-5214-4a0f-8223-31d34df95c7c"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9f893a3e-220c-41bd-a8ed-60a66802e92d"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cc143171-fc0b-4588-b488-5b94f4ff7570"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df2dc42e-c218-4eee-920e-af01225c2ac1"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3bbe965c-d951-4f12-ae93-f4d915cc9585"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b85f29fd-61fe-4fc4-8fce-ac3a623983c3"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d3c9832b-351f-4947-9c4e-226880d8681e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("79029da7-8793-46c1-8308-f0cd7cbcf14c"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4056edd0-b912-480e-8e4a-cd3bcd5f50d1"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fc1acba5-8473-4df0-a5f8-1fc7fdebec52"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("04165c03-0f63-45db-aaa0-d904b45690c4"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("51a2b0cb-bdc2-40b6-afaf-40f902218b67"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("132906f8-c64b-4339-bae6-c4e0b40c5c5c"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("60c80ce0-b3c8-46a3-aea7-a7931a1f04cc"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2924b9bf-506a-4556-81fc-e8b937502e56"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("51be6d35-6af7-41b8-9dc9-c68b24611287"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a4d35178-c877-49bb-a7fa-58a9b3aa0b3e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d0ab1779-cae1-434c-9511-8a8d814940ae"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("56d933a7-43dc-4566-9548-86f5e9d49524"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("84c0378e-7385-4b23-b1c5-02e964997cd0"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e285e0e1-e70f-4b98-851d-7e1e85d2c7e7"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "16e99ffb-65fa-4910-8946-0d3983418d86",
+                    "28bb39f9-96f4-40f9-b6f6-17c08d95c786",
+                    "4b13df7b-8b3d-473c-a979-902833a29c0f",
+                    "6d81612d-e4c8-47d4-a633-72dd5510df3b",
+                    "82ac5dbc-74f9-4e5e-877a-21f9b3369248",
+                    "86036ea3-5945-4794-a5f4-6a9af71765c9",
+                    "8a3cc22f-b8f2-4729-88f1-cde3de0c46e1",
+                    "901981e7-7f23-4cef-a6b7-c9c01c70798b",
+                    "c4cd674a-d33c-4323-9ea6-6e6ee4ed24f3",
+                    "ed70b3ef-3fea-4e10-8d82-e8d124361acc",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("af8ffbc0-395d-4146-a7af-3a9b53e76dad"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fc6ec8e9-e494-47dd-9cbe-fe3cbfe1b114"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43bd4fa3-e8f2-4e99-9949-ffab4563ed6e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("53a60b88-55e6-41f4-aedd-1ffb12a0d184"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("40de32da-3b6a-4355-a7bf-5d85bf6b6842"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("90b93da5-f543-4e96-b63c-166298e1f686"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("82ecd29f-3d0b-4594-a9fa-a219d59a3a69"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("334b7cd8-793c-4bc1-8209-e3d7daa83ac5"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4f8cbb46-1de8-41d1-9c08-5e3d9e74345e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bf822bf4-4b76-4292-b8e7-c7883f73328b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5539f9f8-d6cd-4b25-9933-4ed31c61920b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b47e0c33-2699-498e-94be-751f72120f5b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("904b850f-1c84-4628-82ea-de45bfa3da34"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("16a62658-b0a5-4bdb-ab65-0d512ff643fd"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a56b878f-3cbc-4865-ab99-40d66ff625e9"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f93bd3fb-0bdc-48ba-b65e-c6b5309af33a"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4394c730-23ac-4cf9-8b07-611e8d15a5b3"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("098abd3e-c7f3-4ee5-a948-429bbe474bd0"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("32a2695e-c06a-4834-88d3-5c569b9aa13b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("28bc68ed-9863-4407-8697-1a74facaf123"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e5f36a8f-e4a4-4743-87f0-d4f5f7ba7dbb"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "0370ace7-7d9a-4790-ab50-69ce42d89a3f",
+                    "487a70bd-dd9d-4c28-87e3-8ee47096de6a",
+                    "48e8247e-4b4e-424b-8823-0188c6a666b4",
+                    "502d5055-cebb-497b-b3c6-fef0190a0346",
+                    "7ee39f60-c827-4c2f-86b9-3c382916c061",
+                    "b1499037-7a74-44a0-85a0-a94b709ab733",
+                    "ef0cfb9e-ce85-45a8-b1c7-91e1b002559e",
+                    "f8d03b27-017e-418e-ba5f-51161d9cbed8",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("22b390e7-886d-4821-9ea1-31bd8a4f3c85"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1534ba1f-bb62-407c-896a-c5a082a03550"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("345c4247-7f59-48f9-a8a7-19984ede14b0"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3f18a7d-56ac-4455-9b00-c773bfd6ef38"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("181adee4-e04d-4c15-b673-2634753b3034"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("aba5e03a-c7ed-4ab4-8fcf-e1ef91191eb6"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2c0765cb-2d29-40d4-bf29-d1e78a5221a2"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c87283f-a0ed-4b29-987b-d1112804e35f"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("51f2dc2b-1e7f-4456-a9bd-d080f991267d"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7f7e82f7-0cdc-421b-8c5b-c7a4a2d8854d"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("29232a12-0e7d-40a3-ad74-eadd320bd08c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("91a7225e-5e1e-4940-b180-fe11b4c1a164"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("42ac6366-2377-4ce5-bf07-e2a27bca7577"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2aebae21-1d41-4144-a60f-4bc9d365d622"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("37f33945-7108-48ae-a371-393f6a9bcb44"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("898fb837-a610-413d-bee0-a3d3b489d698"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8dde7c01-79c1-462d-908f-8eb6cae319ef"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ba6e8f9-c50a-4354-81b8-d2139cb30c18"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d5fc6d97-f8eb-4c4a-981b-e62fb5aac11d"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1958f745-07a3-46bf-8501-c4da3ff1ac13"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e9851db6-59f8-4a5a-a31b-20b80865fb29"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ee67f4c2-65b6-4974-9d70-d708ef7b0e49"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "54ed7421-cb72-4a97-bd8e-531eaa99b030",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19d1720b-0b62-473d-b4ec-5c9f4fd91a41"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4a246ea9-9888-423e-bfec-3eb8495ba2a5"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("977cd66f-9a6a-4124-bd4a-a59596286477"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c71dc571-9853-4150-b985-9575f381306b"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d4d4c49e-44c7-4e21-be74-4d8a00f19f3c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ab5a1a92-bb99-4841-9a41-2ed536c90c49"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("35485aae-922c-4468-879a-bcbbd0499e20"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ada269ff-5887-490a-8711-f8e028b12d98"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("67021333-9a7a-4fd9-8820-69144c12bd06"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("adfef314-ba90-4491-bf48-f2b4851aa482"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2b04f49c-4f59-4990-9eaf-ca402b52a7ac"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("972ce84e-3c8e-469c-9420-b6ff6ed89f58"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4296f3fc-3dcc-4cb0-baed-9f7779acbffe"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("77af8c6e-21e4-4c67-ad83-e2822d8618c1"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("92656de8-ee91-423a-8cb8-e55a6acca100"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("38645270-cc53-4cc7-b088-7342f9d33e1e"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "85ed7569-8b54-47dd-bc67-7d9d37fe90ea",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f8a7090d-8465-4c7a-9183-88d92e18c350"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("298e6344-15c9-43b6-960a-2c779ea298cc"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("62d359c2-42d3-470a-84cb-f68ff722c136"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("aeaedec6-c2df-4c4a-a25f-603f1771303a"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43ae550b-5eef-4c81-b47f-9c456c2758de"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c28fe75e-84de-4bd8-9584-197113fee1b8"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("72ab2254-e71c-44c7-86fc-4ae37bc2951d"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0d3d94d0-76c8-4bbb-b856-a9438f7f5db4"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("55f38efd-ab4d-40e0-8c6e-a33c15e4d406"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("45304145-ccbb-40a7-8746-46630861df66"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3b6840ba-791d-439a-922f-cdc7e3c6f4ff"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("abcbc3a3-980f-46d2-9203-f2009a7340b6"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2fcb0c66-6345-4a2d-ab97-f9085475af95"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d1942a28-3f2d-446c-b15c-80241515be00"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f5b80fe-b19b-44a9-b6b6-12ecdaccca69"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6bba2c59-208e-4392-bc02-6b691065a76b"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ba311e6-ad85-498e-82d5-3fc5ea4c3efd"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("48f647be-c4a6-4f1d-9008-595f708eb8fc"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("653768a4-40a9-4943-a001-7e5039d05dc9"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("50e599c4-f7ce-450b-9e4b-e84fd7565ce5"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("28c81220-fc51-4531-aefa-8db2f1586abc"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4d2aa021-2be6-4a62-a43c-049e571ce246"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dbda4251-d07a-4f35-96ba-4ffa46d63689"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("88b292a3-55a9-4bbd-b620-d28e087aab2b"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("66391e13-cb58-4d47-8d10-be886c76a55c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5e2245bb-805b-42d9-8a27-8fbefa2385d4"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c1efc43-e13e-4a3f-a568-de14e5f705aa"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5b6da1c3-1b8a-4ef5-b4e7-9758d4af22ff"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ed880253-8fdc-4572-8f9d-06846910bd1e"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("231bd053-3588-484c-b446-4cba00b8008f"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6f01937f-e198-4992-a9db-02cf8dd15011"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe091801-aaa7-46c5-b514-36203c728623"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1a4a6aaf-1475-431b-a795-0992976e3bd8"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("db5e4216-f8eb-4fcc-a72f-d3a1c80a1d9d"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("78a4edcf-5aa6-43f2-ad86-530213c42d88"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("099dca56-8a75-4dcd-bf2f-5471e480af86"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5ab4ba6d-fd0c-4f3d-aeb7-1044daa0efe4"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df97427d-0694-4f73-b545-1ee6be3da5c6"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d72ee73a-73cb-4def-bd1c-da71384a26e9"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("24148bf3-d596-4668-97ba-39f4f13a8e94"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1f5da6a6-da4c-4dd6-8482-9858d76d6b9b"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8e2dfbe4-2472-4dac-bb2a-b68c53416af9"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a8bc6e5f-f4d4-4d5c-9965-6fc799ac5858"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("484ad69d-7833-4350-a9cd-f1256017e4ee"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("258e7013-f2ad-414f-a2e2-472873b08b5b"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5ea10a16-a1ee-4d08-93ee-d17025d97d60"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("98e3fb44-8441-4ff9-a45b-b744acd0d074"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1147f619-1e3c-4554-99b7-7f3312ec9843"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cecb73c8-5b55-4c06-8e7e-033eff50e44d"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c8140b90-ea33-4e59-9cf2-045a8915f1cb"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("544aa10e-3fd1-4047-94bf-76387235ea26"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "e4df7983-80cb-440a-81c1-b28134c31c01",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3667143-8122-4659-a965-43b7ccb23f85"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "2dde0ddc-a155-4f10-9312-d85dbfd5b756",
+                    "3f2f790e-e08e-45cf-9e6f-683605467c34",
+                    "529675d6-7fd6-4adf-ac7b-4c0a136e0681",
+                    "5fd91eb8-ada3-4759-9094-8d4357bed6e2",
+                    "6233bb9b-5677-4921-82aa-e693ed808dcf",
+                    "9431ef29-a88d-448c-b4d1-4ee1a36b171d",
+                    "a4d3e8bc-43e8-4605-89ed-587cf9b2e9db",
+                    "ad29a146-540b-45e1-a336-b35248a41620",
+                    "ae4c4e0d-41b4-4dfd-a7f8-aacaa9ff2341",
+                    "ca9a6f9d-7305-4575-82d1-66b417306eed",
+                    "cb66d6fe-1e1a-466d-bbc6-7a5058bef1ee",
+                    "cdd4ad21-32e9-433f-80e8-1bf1f32753e5",
+                    "cdf35217-f26f-4d86-b302-ef9877a5c661",
+                    "ec9ffc80-5b97-4266-b061-133534d13e20",
+                    "fa1f0b06-5b5c-45d6-997c-08620331c987",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c76c71ef-2151-4c9a-b436-35afe48b7d2b"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "00e3e72c-ff78-4671-b6b5-8306e89aa38f",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("41c4be61-602d-4683-8674-17a4ea03807d"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ef0fa2c4-b08d-4942-930b-b77a41b9e5d7"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("04e1df73-2363-4bea-9dc4-f79689b148c4"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ad82126-82ce-42e2-9fb7-c07af6207869"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ffa20504-55d6-4337-8ac0-26b4adf58c70"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d5a37f4a-8715-42ca-abe0-a9eb2eba9121"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("00f72de5-39ce-46e6-9dcd-dcefbf91ab6a"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bfdf4de6-6c89-431e-9102-771cca9f5b57"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9f46c334-36ad-4791-934d-db8c3347424a"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("eae7996f-4852-4278-8c8e-cf8ce6711fdf"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c4187ece-24d9-44bc-ad37-f0376beacb92"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e2cd2506-5c75-49f9-bf70-cfdb78964be3"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a0bce28-46ce-478c-be80-cec207c81c73"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c241868e-3493-4560-9370-0a74402058fc"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("36721ef8-933a-42da-bf60-275729860eee"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ddeaf29b-9a2b-4e06-88ac-dff38ea9462a"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9faebe2c-8008-4cea-88f7-43e40935ea65"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4d954282-31c3-46c0-85e3-7d250ba485c2"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("890fec6a-70c7-4e94-8147-78db19102a4f"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "4f3ab30a-62a8-4c9e-b4c6-1075679e67d1",
+                    "793ff156-33d6-4a10-afd8-d99433f0cf0f",
+                    "82433d48-0c5a-42f0-9561-e02fcaae0a4e",
+                    "c2d1c175-ac3b-4924-bf87-544699dacb71",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5ce8f5da-5de1-4103-a9be-78db9ceb1bd8"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "294ce1b0-f44a-4b85-8fce-099f159668c1",
+                    "48344558-e78d-4d18-ab46-c57f67005ec2",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f8331d2c-1a2a-4bd1-bb9c-49a8d395c2bd"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "294ce1b0-f44a-4b85-8fce-099f159668c1",
+                    "48344558-e78d-4d18-ab46-c57f67005ec2",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a2af1a17-d98e-453d-9db9-fc36bde83659"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ad0f579-ec94-465f-a38d-5d1eeb8028eb"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("de799157-ca89-455a-9584-a6ae1f61a281"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("722a9b2f-b4d9-4166-b5ca-06ad7430460c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ef80ffc-03f2-49cf-8fa0-51c72f5fa0f0"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5a32503f-9604-45ec-b2b0-2b0cbf2e9c1b"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6ed111cf-d44a-4322-b0e4-073009f5a6df"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "4320f13b-f7e3-4944-9749-038786affaaa",
+                    "668f1e85-aa00-420f-90e0-25c6fafe190e",
+                    "8291ff99-8f3c-43ec-8ea1-43bcd127fbac",
+                    "981dda19-029c-4376-92c5-5371fff7edde",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5b9dba85-2ade-4031-b498-3390ff5e7919"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e7da56a4-3a1d-4a37-a4e8-cfe245599bdf"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("58fecef3-7eca-4ce0-87c0-c7d79c3e30b6"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("55700999-d5cd-4596-b751-09390a149043"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("963d5e39-3299-4f0b-ae01-0d2adc3bb424"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("04dfb6ec-eda3-419b-a4c2-40efce22a11e"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b803c60f-8da2-43a4-99cf-f8015d5db9db"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9cb2318b-08c6-4bf5-94f8-147904cf591a"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3dd5df89-2959-45b1-8e9e-ed0eeede7901"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("eee831e4-d651-4801-9317-8000a733c482"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b830b0cc-7482-43f1-bbdf-ce9aa3d03f3e"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d8fbcf63-f770-46ff-a471-6065fb9e9473"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3397ada1-fcbd-4756-a7ab-55761cb20d97"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e96e13c0-a382-4983-87eb-47c0ae1da863"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f21167d1-785c-4849-83d0-9056c5ddba32"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7539e123-4093-40cd-b505-80fd3e3b6c48"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dd0e5eeb-d171-45c8-97bf-f136b82fd12a"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8cf23822-0fd9-495b-aea4-8b46492a3a9e"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("77e87df9-d480-4a5a-8a70-41e66866ff75"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b12a3e73-d300-409e-8a9f-440999f3fcd6"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a949fe32-146b-449b-8dfa-ba43c4851d86"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e69e9305-fe07-4a27-b236-0b8cbe8a7c50"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bdf9a76f-3250-4375-bbcc-9f64665912e8"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("464e77f2-c326-40e3-8099-7ff4625dc188"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e8c35c9d-3263-41a5-9061-f80694757b7e"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a5db4a1a-514f-4739-bd1a-c09d729c4d85"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5014374a-70db-4aa5-96b4-379d3651ab15"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                    "7c7da20f-32f5-4a01-8f9e-bead955d76c5",
+                    "c1cbd90d-c9b6-4dc2-af93-4b890f63a8c5",
+                    "f8080860-cd80-414d-a017-56e6efb1013c",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a6d3ab2d-6515-45bb-b49b-d75c3760500b"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a5a7bb8-e9ab-41b9-9067-29ba033bd3d6"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("73a1916b-1ec1-4c8b-8cfa-c4f63705f2c7"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("33034c77-1d83-420c-ae91-7fca06d0432c"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("290d7cd1-9cc6-4e39-a946-dd9d2c15c336"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("56fa25e0-3ea5-4325-8fea-988ba72be935"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1a15a4a4-beef-4e9a-b5c7-4245fee39779"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cc09d1a9-b1dc-46e9-ba11-7e304b3b15b4"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ddafb67c-fe8f-4387-9a23-cb86da90dff8"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a8b984aa-4dab-424f-8fc4-54aca1934df4"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("455aa596-66bb-4d32-9740-32f48f9e1fde"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5f926a1d-98fa-43b4-95ee-c98f66110fe6"),
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("828f2778-c747-48af-8ff9-759950162182"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c45b8c2e-1c41-4611-b086-5dfa1174e5c1"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19016e9a-2c61-4e8a-950a-006975ce6915"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("35a83976-fe92-4d3d-942f-b8fc753e2167"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("27dac71c-1651-4d56-8d45-fe0af3d65154"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5b07b040-b609-4656-b4fa-e8a725c11ecf"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("29c1a721-a0c0-4a27-afbe-00de65f1d542"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19fcf7c1-976a-4f9a-8cbe-0828dcea5970"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cebe6fee-9c49-4f7e-9591-0896c03e9391"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9aed2158-b0d2-4ecd-a251-cc3283788a23"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "1f1fdf91-5d76-42f3-aa3d-a0519a9f9e70",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c6b8358-83ec-4d05-b8da-7d158c9da5ca"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("854bc35b-6798-4ffe-9579-01cf4d770170"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8b1f7530-f4bd-46ef-a459-46ad66094480"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2b14878e-385c-4bef-b1e5-e9bec50cf6fc"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b5e85262-9f02-41ab-a084-16ab6215ba50"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "c36a0736-ca94-4d82-87ae-6df12d497b7a",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6af21e69-c167-4460-b339-f41770cf579c"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d5902662-1fb6-48c2-ae33-1324f754207b"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3ce3224b-4cfc-4549-9b43-961f127e630c"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe0c382e-03e0-447a-82d3-074b13f25190"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("956f2197-1a88-4888-b183-4ca066c68793"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dbe8ea6b-cf53-42e9-8c39-6e412c41c9b9"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2394656a-fc92-4257-9970-e524e904ad95"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("795e5935-24df-45fa-b0b2-48b8c1efe1a2"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a613aff0-70f7-4a59-8eda-d50d5a7e6d4c"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("14760c75-d081-492d-b27e-e41a72e08732"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("79263ef3-5ce4-4fd2-bcff-114b11b416aa"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f7ef6a2-2fa6-45f6-abdf-2e74c36bae6f"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f0584f9-2009-44df-95c5-57b34c4de92b"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9246b200-1edf-4640-8edc-626a70d4baf3"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ea70b507-874a-4046-8e7b-a13e2cd43d8b"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("20cafb87-1919-4ac1-8ff7-ca8a13694e40"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f04bbc4c-c406-41df-af92-7e603917cb3c"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "f42cebd5-88e6-45f3-a8ab-886924563421",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c7c685c8-584d-443b-86cb-8063b29d41fb"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "002b73f9-45f9-431f-a735-16d187d6968e",
+                    "71016687-84c8-4121-a507-356b2c496e09",
+                    "27a827cc-79de-48f2-aa78-8c090c409515",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("941a9e9a-4c79-4032-bc43-889dc091c02e"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "09f6615e-9ef1-4b25-bc6c-3191a606a3d9",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ac1b67ec-390f-44de-87c4-35d2246e1707"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9bc4e40f-edb3-440d-b3ce-12e447570013"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c37367c-d897-4fee-99e4-9d161c41a6db"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("94c854a4-9f80-4983-ad4a-eea6d3d521b8"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c9352847-ef90-4099-8782-1060c3ac6273"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d6523a95-d567-4432-a145-78a537f213ff"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1ed5c87c-1052-4699-bf30-570889a2e9ab"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9b03ef9f-3908-4ca0-bcb0-333d86b8c4fb"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19ab7969-62d7-4007-bfc5-7398765ff988"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fabc6575-f1d0-4598-95ad-1a689c57924e"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8d41c0e7-ea7f-4f25-b92c-296c89245df2"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("408902e5-e0cc-4924-8540-b6ab2c1de1dc"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a05ca786-a9b6-4ae8-90c3-0660e44a2b7d"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e25c23a2-bec2-4fce-b241-fd64304398e0"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("68898e3f-92ef-4396-8f41-02e6915dd8d8"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "162abce2-1618-4a4f-b7e0-c6020b75e1d3",
+                    "519c2ae1-a772-4326-9c3e-711d8d5a0194",
+                    "63dc33bc-c9c9-4890-af36-365f54c7752c",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6e246303-38c8-41cd-af81-9071b1156ad8"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0ef8ece2-c813-4070-bb42-901fd30d1883"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4b2283ac-cab0-4ae4-ab5c-9fc31bdc8ab9"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df0b66ee-4e40-41ee-b140-f284870658f7"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("21c0e252-690b-4327-a526-5e5cd133a174"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("47b69d4a-8d32-478f-b3a1-e735e988c67b"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7f82a6bd-2863-49a8-9515-1ae15223b9b0"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("809940bf-7eaf-4ac1-a923-ab2787fbebe6"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe932191-84ee-4100-bf70-18568028da18"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2f84a95b-6460-413b-bb44-28e721ae730d"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("122dab02-6530-4265-8441-231d156ffc99"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a351898e-2a05-4cd0-be59-28d568f94df3"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e65a89bb-79b0-42ff-bbb0-19081fc2fba3"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b5d79098-fb3d-4011-b78b-4172433475ce"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("25c748f5-2813-4034-a285-d8881688e70a"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("272d4824-bc6a-4969-b7ba-241d6615ed5b"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("44dcc76b-5b0f-4059-87f9-d127e872d5ff"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("22abc182-49b7-41ee-aa14-5164a62614fd"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d8ddbb29-010e-4d7a-871c-2f0c67ee6a45"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b4a4040b-2129-4d0d-a0a8-84fe18224806"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43726599-c365-487f-b541-e4d9f4258899"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7fdbb26a-66d5-423e-ba8c-9bba2ec6fb87"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("db7a4524-1ba0-4542-baf5-84b6216f4627"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3ffcec69-c571-4a87-ae74-0e275b615322"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("decb7f03-6038-4563-980d-cb5ba72ad9e5"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("be31ed69-ed04-44c9-9c4a-746ee7e50972"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e0f94f70-1d9b-4da2-9daf-42e6705b1b90"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "503a1d06-ceab-410b-9f95-0b1b88936fe9",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4b83880d-f80b-4129-b2b0-a1895ca42b48"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "5d1ec815-5e1a-4a5b-92c3-9efb4a93e98b",
+                    "65b56bba-0925-45af-ab3c-3d69d74c1355",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("06698159-6a9e-41aa-a5ad-04516d415f8e"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("150e3f86-bdf8-4531-ab7e-0f93791d10a7"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4d128837-2bee-4f9f-af13-a70c8e4d0ded"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ffeb1392-4ed2-4287-8673-9da6330dcff0"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6af27ee6-0c23-4061-8839-b6be9c719157"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "f829a967-b6ac-44b2-90a1-ea6d6555fdc0",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b95cf1e8-c6a5-4ec6-a508-5b57791e7057"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("93bb3b88-461e-4080-bd5a-4141c81cd685"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b04c8dee-da49-40b1-9056-654b65ac50c7"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0fa45515-a56c-4acd-9d59-a3690c87fc0d"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1ac059e2-8fb2-4283-afdd-891af30a2948"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("45c62f90-dd91-4cc2-a6a2-7a525a85e686"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("365ebc55-7c5b-43f4-98cf-4db72096269d"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("82c15aef-d306-451b-93d2-7296aeaa8ef5"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("93d55102-f96c-4e8d-bdea-dee625c1d79c"),
+                SubcontextID = "E1_9A",
+                Conditions = new string[]
+                {
+                    "dc88ab4d-3a00-4ae0-9c2f-5469be077cd8",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2c967e9a-129e-4742-a67e-15a70f8bc89b"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e12f1927-a87c-4ef3-9727-3d82ab231f96"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6839c2a9-5dee-42d3-bc6b-825d986fa1eb"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2261a983-9397-4b05-a81e-a7524fc63704"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6a686abc-4623-479c-820a-abe3c152ad59"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("75c94962-5cae-4322-95da-6055f373b9ec"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0e500bee-0556-4e69-9d17-7e3bf3619d81"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2fde7d9b-037b-491e-a2b1-04946830c54a"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1f99e8b3-6937-41ab-ae87-67c2e95ab3e5"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0cefd0ee-5dfc-418b-983e-ae17a495ed77"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4fd8aa9d-aa3a-4f90-9ef9-f10b972f5d7d"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1b5862ac-f259-4c3d-bb27-e5c44cfced4b"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("201b918a-6e4f-4504-8988-9fdcc0377793"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4a3dda3d-6770-400b-ab41-308cf4b8d46e"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c21d40b7-a9dd-4da7-807e-dc71893fc445"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("96c1beda-c27b-4e82-a4c4-8b0caf9925ba"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e08e15dc-0fd3-4518-b4c2-9b236e8cc17c"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                    "e6e7943b-93a4-460f-84f7-6c1ab8eb480a",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0d6594d0-385f-48c9-9a8b-7735e5740633"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e85798b4-53c3-4e6e-a0f4-1b10e9f8c742"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f7e28822-74d9-4405-acef-6d8568ea4e7f"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0af3dfd6-4c51-49bc-b5a5-2b120f128da6"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("72096ad0-deaf-40cb-a328-c1fe233c0a7f"),
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("614938cc-4929-4cf9-8c8b-df9b603fb5b1"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7c15e795-4af6-4ac3-b9cb-b616812cc05d"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("353c2d0c-98bd-472c-a98f-a9324bd0c51e"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0c6e8f1a-ec70-405f-9e67-6134b94a769f"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f262a28a-2afb-4be8-8f05-e977bb1116b4"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("682e9c15-6f25-4bb4-9534-185b04b1805a"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("07be9d35-2e3f-4947-987f-a0f4ef31bffc"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9132e33f-2fc2-465b-ab05-0b8ed681bb9f"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("483458f1-ab02-4a17-bba1-1f2f9181675b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6fce0dd0-2106-4568-ae6b-8ec5fbd74500"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6c1c61f3-945f-4fec-84df-8714d57592fe"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d8beb5ee-4d6a-48c8-bbb4-738bf1680a7b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "6a179ff2-9efd-433a-a919-ed1acbef3dc1",
+                    "aee2ff2b-9303-47cc-ae81-e2ec9dcdeadf",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("35a4d987-d6a8-4318-bfa6-6274574835d1"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c847bba7-bdd2-43f7-8e34-20c3a8d10645"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a335e3b1-2966-4cf1-9cca-f65da2375334"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8a03114e-4975-4771-907d-c2ff566e0827"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("feac7cff-fff3-4378-9db8-e1b06a36708b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9b10c6b4-4f54-4f2b-a996-106f45b1f5a8"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("631bf278-aa91-4bfc-8b31-d4cbfb5dda78"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("46ffe65d-4878-4868-8d6e-6be2a6e099a4"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f086081f-8216-4495-b225-dc2ab2e01902"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("576eab10-e6bf-41eb-9274-a72b171498a2"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("49781b7e-584c-478a-8965-23d5c6355053"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a48ad625-dac8-454f-85a7-ab6c6064315b"),
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a9ff3bc4-afac-4d8a-b032-3ffb58185c0e"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("eb76df3c-1545-49a4-afa1-5883cef8358c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "bd89736b-8e5b-42f8-a3f1-7cc5239c8155",
+                    "c39e6adf-b11f-4783-912d-0a19ddcd3a30",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("08a442bc-83c7-48ec-ac71-c107c8868090"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ca4b27c-afe9-49b8-a2d0-f40a6a4ff001"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ce4c35de-c297-4547-bf3d-9ab3622909be"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "bd89736b-8e5b-42f8-a3f1-7cc5239c8155",
+                    "c39e6adf-b11f-4783-912d-0a19ddcd3a30",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ab4b3dc1-dbe4-4a02-a7c8-2ede56b444dd"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("724a921c-0c0d-4cad-ab21-86141cac6ff8"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2783138a-c8f5-4c8b-881c-ea06cb7f0a15"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5aef31cb-1497-43cd-a3d9-208f32a08831"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5c22e6c1-dcf1-47cc-9d41-65429742d73e"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("25a28f0f-903c-4816-8347-a98b9352781c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "44f7baaf-0310-4c0d-80c4-9db1f65e3345",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("18695c64-2414-482e-b471-8857710ac625"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f9c4afb6-c318-4633-a157-139f019d3578"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("933d72b8-36db-452d-8239-a5b8cef43d50"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0b4fd4c3-6428-4fb0-a498-54ad969d1bc0"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6f533d5d-8d20-4166-8e4d-3bca2345aa4c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("805f91a5-6fea-47ef-9dd0-364e973f568a"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("87d29c55-b99d-48c4-a31f-411527c1489c"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("77dca39c-ab9d-491a-8fd2-8c616d416d10"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b733933f-9923-4651-a9e8-5653905d7b83"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("23c884d1-030d-4906-ae64-929b4efc2872"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a0a2595a-3d18-469e-933d-8862ebd07f03"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("974384d4-c49a-48be-b8fc-340baa5ab4d4"),
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d67453d6-eef4-4d69-bf81-fd86192b81c5"),
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bdf9a76f-3250-4375-bbcc-9f64665912e8"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("464e77f2-c326-40e3-8099-7ff4625dc188"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2f8686af-713b-482d-9a67-5cb578b5566c"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a5db4a1a-514f-4739-bd1a-c09d729c4d85"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5014374a-70db-4aa5-96b4-379d3651ab15"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                    "7c7da20f-32f5-4a01-8f9e-bead955d76c5",
+                    "c1cbd90d-c9b6-4dc2-af93-4b890f63a8c5",
+                    "f8080860-cd80-414d-a017-56e6efb1013c",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("112c6f67-9a2b-401a-b45c-64134ceb86c9"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a5a7bb8-e9ab-41b9-9067-29ba033bd3d6"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("73a1916b-1ec1-4c8b-8cfa-c4f63705f2c7"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ba8d0e46-b4ab-4374-b70f-14cf8044933b"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("290d7cd1-9cc6-4e39-a946-dd9d2c15c336"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("56fa25e0-3ea5-4325-8fea-988ba72be935"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1a15a4a4-beef-4e9a-b5c7-4245fee39779"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cc09d1a9-b1dc-46e9-ba11-7e304b3b15b4"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ddafb67c-fe8f-4387-9a23-cb86da90dff8"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a8b984aa-4dab-424f-8fc4-54aca1934df4"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("455aa596-66bb-4d32-9740-32f48f9e1fde"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5f926a1d-98fa-43b4-95ee-c98f66110fe6"),
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("84bbc05a-ae21-40df-89bf-a806399f497e"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("53529a2d-154d-4a56-9344-d81dbe3fc635"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8bdc5ebb-32d5-4552-8ef6-63c28ad54ee0"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("82c9ed55-faee-4626-892f-cb17f61c8cbf"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("07b1eb62-6ccf-4364-bade-22c327b1155e"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("47204697-cc5a-4bc5-b726-b32aba01161f"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "0f56c864-589b-4917-9a10-319e7ef8f759",
+                    "40cfea1b-42f8-4617-bd5f-a250b2f50d4c",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4535857b-fcdb-4e72-bc70-6470e3e7cdda"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("65797be2-db3b-4926-a861-905e647be66f"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("71c95c8e-0bc4-4c2b-b3a0-8e5a572aedb3"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e42f41e2-d563-4d0c-9ad9-dc0bb0dfecf7"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6a63b2d0-c555-4642-a71f-5f5d6fb9b64a"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f2b89641-30e8-4866-903c-3e90e2596858"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "65292528-11bc-479a-a680-c5b6bfa6cb95",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4e475719-f901-44e2-a5fe-56201b201931"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4fd7f2c5-d407-4df6-9762-ff6ca33008df"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1ba3a73e-4c30-457e-9fd3-8ecfb2105689"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ec93931-9f59-424f-a3d4-69ec3140aa57"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("50791fef-7400-48f0-a6b1-50110d49ba85"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("413fe20e-62f1-4959-8c57-34c6d0c61e83"),
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
         };
 
         public static Dictionary<string, FactAsset> CS_FactAssets = new Dictionary<string, FactAsset>()
@@ -11624,7 +16596,5 @@ namespace lis2_save_editor
                 }
             },
         };
-
-
     }
 }
