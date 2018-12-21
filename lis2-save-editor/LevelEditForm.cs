@@ -70,6 +70,7 @@ namespace lis2_save_editor
                 text_lbl.AutoSize = true;
                 text_lbl.Text = gbox.Text;
                 text_lbl.Visible = false;
+                text_lbl.Enabled = false;
                 gbox.Controls.Add(text_lbl);
                 gbox.MinimumSize = new Size(text_lbl.Width + 20, gbox.Height);
 

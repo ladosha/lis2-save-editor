@@ -390,14 +390,11 @@ namespace lis2_save_editor
 
             if (saveType == SaveType.CaptainSpirit)
             {
-                foreach (var context in Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value)
+                List<dynamic> cin_list = Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value["PT"]["PlayedCinematics"].Value;
+                foreach (var cin in cin_list.Skip(1))
                 {
-                    string context_id = context.Key;
-                    foreach (var cin in ((List<dynamic>)context.Value["PlayedCinematics"].Value).Skip(1))
-                    {
-                        string cin_guid = cin["Guid"].ToString();
-                        sb.AppendFormat("insert or ignore into {0}Cinematics (GUID, SubcontextID) values (\"{1}\", \"{2}\");\n", table, cin_guid, context_id);
-                    }
+                    string cin_guid = cin["Guid"].ToString();
+                    sb.AppendFormat("insert or ignore into CSCinematics (GUID) values (\"{1}\");\n", table, cin_guid);
                 }
             }
             else
