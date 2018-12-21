@@ -7,7 +7,6 @@ using lis2_save_editor.Properties;
 using System.IO;
 using System.Drawing;
 using System.Linq;
-using System.Numerics;
 
 namespace lis2_save_editor
 {
@@ -1254,14 +1253,20 @@ namespace lis2_save_editor
             int cb_y = 20, gbox_y = 20;
             if (_gameSave.saveType == SaveType.CaptainSpirit)
             {
-
                 List<dynamic> save_cin_list = ((List<dynamic>)root["PT"]["PlayedCinematics"].Value).Skip(1).ToList();
+                int max_length = 0;
+                foreach (var l in GameInfo.CS_Cinematics.Select(x => x.Name))
+                {
+                    if (l.Length > max_length) max_length = l.Length;
+                }
+                max_length *= 6;
+                
                 foreach (var cin in GameInfo.CS_Cinematics)
                 {
                     var cb_active = new CheckBox();
                     cb_active.AutoSize = false;
-                    cb_active.Size = new Size(250, 17);
-                    cb_active.Text = cin.GUID.ToString();
+                    cb_active.Size = new Size(max_length, 17);
+                    cb_active.Text = String.IsNullOrEmpty(cin.Name) ? cin.GUID.ToString() : cin.Name;
                     dynamic save_cin = save_cin_list.Find(x => x["Guid"] == cin.GUID);
                     cb_active.Checked = save_cin != null;
                     cb_active.Tag = "PT::" + cin.GUID.ToString();
@@ -1294,7 +1299,7 @@ namespace lis2_save_editor
                         gbox_cin.AutoSize = true;
                         gbox_cin.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         gbox_cin.Location = new Point(3, gbox_y);
-                        gbox_cin.Text = cin.GUID.ToString();
+                        gbox_cin.Text = String.IsNullOrEmpty(cin.Name) ? cin.GUID.ToString() : cin.Name;
 
                         //size crutch
                         var text_lbl_cin = new Label();

@@ -69,6 +69,7 @@ namespace lis2_save_editor
     public class CinematicObject
     {
         public Guid GUID { get; set; }
+        public string Name { get; set; }
         public string SubcontextID { get; set; }
         public string[] Conditions { get; set; }
     }
@@ -9595,548 +9596,483 @@ namespace lis2_save_editor
 
         public static List<CinematicObject> CS_Cinematics = new List<CinematicObject>()
         {
-            new CinematicObject { GUID = new Guid("0019b897-eb65-4d3c-954b-af8f239a9929") },
-            new CinematicObject { GUID = new Guid("007a9f7d-5d99-497b-b15a-ef3a40bd74d9") },
-            new CinematicObject { GUID = new Guid("007d4afb-768b-433f-9469-96c603f4f607") },
-            new CinematicObject { GUID = new Guid("008e9bbf-a0cb-4930-baca-2a6aa58366a7") },
-            new CinematicObject { GUID = new Guid("00e357dd-ba5c-42d8-be48-669c931c2840") },
-            new CinematicObject { GUID = new Guid("0115a5af-8de7-407b-94e7-5d836d70428a") },
-            new CinematicObject { GUID = new Guid("01570153-d74f-4824-8e03-607c105d6962") },
-            new CinematicObject { GUID = new Guid("01af06e8-e35c-49dc-bedc-4ae7ee8e3e60") },
-            new CinematicObject { GUID = new Guid("0211af1b-02e6-4d19-8fc9-9f6c4f808d5f") },
-            new CinematicObject { GUID = new Guid("022265f7-74af-4358-973a-5de7b016b992") },
-            new CinematicObject { GUID = new Guid("025cc3a5-628d-4bb3-b388-66a7f24b15d6") },
-            new CinematicObject { GUID = new Guid("039e3ee0-42ab-4445-b14c-149c6882afa3") },
-            new CinematicObject { GUID = new Guid("04be2f69-f1ad-44a5-b5ea-b9dc61c00fd4") },
-            new CinematicObject { GUID = new Guid("053e7499-ae9f-4682-8b9b-d69f57d339e2") },
-            new CinematicObject { GUID = new Guid("05b0df09-a130-479e-86d0-d1912f164d70") },
-            new CinematicObject { GUID = new Guid("0655eb5d-e558-4d80-8db8-e09c58daf650") },
-            new CinematicObject { GUID = new Guid("068319b8-d5b0-45c0-ae0d-cb9df7a53730") },
-            new CinematicObject { GUID = new Guid("069ea8b6-5674-40c5-9c8f-96491bc139bb") },
-            new CinematicObject { GUID = new Guid("0806ac20-0b2a-4387-a5ed-e98449b0f7a5") },
-            new CinematicObject { GUID = new Guid("0895ffc4-68b3-41ec-a427-37032067e22b") },
-            new CinematicObject { GUID = new Guid("0aefd7ef-a42e-4726-bdbd-dc2319108596") },
-            new CinematicObject { GUID = new Guid("0b5d7f17-1b67-4ad2-9e68-f063468b582d") },
-            new CinematicObject { GUID = new Guid("0c0d0c7f-4015-4162-8445-593c1c9e412f") },
-            new CinematicObject { GUID = new Guid("0d1093e7-146b-487b-bcc2-271889eee878") },
-            new CinematicObject { GUID = new Guid("0e484097-c752-42a9-a6a0-d030221e04e0") },
-            new CinematicObject { GUID = new Guid("0eee1c85-e22a-4997-8270-f7d8d411cf3a") },
-            new CinematicObject { GUID = new Guid("11dd0180-5954-4b10-ac4c-23f9e08f9843") },
-            new CinematicObject { GUID = new Guid("143e0817-a935-455a-902c-e6b179b01350") },
-            new CinematicObject { GUID = new Guid("1544c246-c08d-4062-adf8-6d383d441744") },
-            new CinematicObject { GUID = new Guid("15ab58bb-6bb7-45c1-ad57-c867e3fa0a1b") },
-            new CinematicObject { GUID = new Guid("16f5f0ff-de47-49b1-ba11-8a95758d38e8") },
-            new CinematicObject { GUID = new Guid("1772e796-0bd7-44ed-929d-f3d12c45ab65") },
-            new CinematicObject { GUID = new Guid("19ab3b9a-4307-40a6-b3b8-55ea99121f14") },
-            new CinematicObject { GUID = new Guid("1ab4cd4d-8eca-4040-893e-cb9fcb3a9e1f") },
-            new CinematicObject { GUID = new Guid("1abd3728-60d7-4d02-bc90-d52b8bda5a96") },
-            new CinematicObject { GUID = new Guid("1bdc58e5-2bfa-47fc-b469-817f1152d436") },
-            new CinematicObject { GUID = new Guid("1ceb61a0-758e-48e4-9a01-4aec8c35384a") },
-            new CinematicObject { GUID = new Guid("1d31d288-cb6f-4c1f-b971-744424c7eb80") },
-            new CinematicObject { GUID = new Guid("1f080c03-d3fa-4384-945f-3dd9b47176d8") },
-            new CinematicObject { GUID = new Guid("1f70b007-1bc9-47d8-8c52-23178be327c3") },
-            new CinematicObject { GUID = new Guid("1f83808e-e7df-4adb-83b1-bbee8bc17e00") },
-            new CinematicObject { GUID = new Guid("1fff0b71-eedb-4d91-b157-3e8c3a9daf5a") },
-            new CinematicObject { GUID = new Guid("205d06a3-ab4a-4b3d-8cdb-c5865fcf930a") },
-            new CinematicObject { GUID = new Guid("2170829d-f5c3-4869-90e4-ba058a007d4c") },
-            new CinematicObject { GUID = new Guid("227f6018-5e1f-4bde-94ef-15a1ccfc996b") },
-            new CinematicObject { GUID = new Guid("22b5e479-bc9c-4b3d-9d16-a1ed30a9d7f4") },
-            new CinematicObject { GUID = new Guid("248b5351-a90f-4fd2-9b59-bd83fe6e9ca8") },
-            new CinematicObject { GUID = new Guid("249d70bd-c545-4a47-903f-a981a34c8c79") },
-            new CinematicObject { GUID = new Guid("25134fc0-6a26-4492-bc80-ba59bfea5d9e") },
-            new CinematicObject { GUID = new Guid("2607f353-d8b0-4d16-b896-168f0176f7cd") },
-            new CinematicObject { GUID = new Guid("26d4bb64-7783-42fc-9a99-3cfb2a471b8c") },
-            new CinematicObject { GUID = new Guid("26f45e9a-1c43-4efd-93e0-ddcbc433600f") },
-            new CinematicObject { GUID = new Guid("275120f6-642d-4ad0-aac6-54e0280cacf2") },
-            new CinematicObject { GUID = new Guid("27c0e960-3425-457b-b9e1-b5304b89f89e") },
-            new CinematicObject { GUID = new Guid("288dce4c-71b6-4fa4-aa71-4341eef9e1fe") },
-            new CinematicObject { GUID = new Guid("28a34549-4949-485a-ac7f-cb8aa1e62fad") },
-            new CinematicObject { GUID = new Guid("29284bc0-ebab-4c04-9dc3-0282289c7c58") },
-            new CinematicObject { GUID = new Guid("2a379cb5-57a1-48a4-b282-5b4a8fddf981") },
-            new CinematicObject { GUID = new Guid("2b083152-8155-4df0-a876-c8cf5f9e8c3d") },
-            new CinematicObject { GUID = new Guid("2bbc8207-20e0-45ad-8546-97bc78407d0e") },
-            new CinematicObject { GUID = new Guid("2ca497c5-ae13-43c8-951a-50fa0de96355") },
-            new CinematicObject { GUID = new Guid("2d005e10-9655-441e-a765-4c51c74ac098") },
-            new CinematicObject { GUID = new Guid("2ef136b2-f227-4bd1-97b6-71b433280a91") },
-            new CinematicObject { GUID = new Guid("2f79de8b-f5ae-4fdd-9f28-deced7701c85") },
-            new CinematicObject { GUID = new Guid("3141988c-6f9f-468b-a4fe-2ab9909d1f8e") },
-            new CinematicObject { GUID = new Guid("32b44b79-c021-4213-ba6e-8cb633dbeebc") },
-            new CinematicObject { GUID = new Guid("334e2de6-b9a5-4b83-beea-e957da927b60") },
-            new CinematicObject { GUID = new Guid("347d2225-4b40-4570-8f88-616f8cb8a45b") },
-            new CinematicObject { GUID = new Guid("350c9139-6cf4-414e-90ec-42899a68b2f8") },
-            new CinematicObject { GUID = new Guid("351d7c81-ebd9-45f4-b083-ead2b66eefd5") },
-            new CinematicObject { GUID = new Guid("353d27ac-9241-4fd5-865c-f2fd5d2cd338") },
-            new CinematicObject { GUID = new Guid("35c53109-0b0d-47cf-9ad8-c02e136086bf") },
-            new CinematicObject { GUID = new Guid("364ad457-8a7e-444b-b1e5-1848af3d9e4b") },
-            new CinematicObject { GUID = new Guid("3721a8c9-69e1-431c-b308-45ef09bcf8ed") },
-            new CinematicObject { GUID = new Guid("380ae164-2fc5-4343-b033-b15100f5710d") },
-            new CinematicObject { GUID = new Guid("38630758-33c4-4639-b169-02f01971b566") },
-            new CinematicObject { GUID = new Guid("39ed8576-d721-412c-a554-9d6b5d856ac7") },
-            new CinematicObject { GUID = new Guid("3a27adfe-b33d-412f-86dc-c8fabda54c9b") },
-            new CinematicObject { GUID = new Guid("3aa08a20-249c-4ee1-bb35-864c8d1bda3c") },
-            new CinematicObject { GUID = new Guid("3d7dceb4-a548-48f3-a488-459cb3e58673") },
-            new CinematicObject { GUID = new Guid("3e1f4e82-b284-43d7-baa7-718bb3be233f") },
-            new CinematicObject { GUID = new Guid("3e956e35-1702-467c-823d-cb71108205c4") },
-            new CinematicObject { GUID = new Guid("3eb59ab6-7689-4dc3-9c89-7522d04a40bb") },
-            new CinematicObject { GUID = new Guid("3ec9441f-e75f-42c9-84a3-1017787f88a3") },
-            new CinematicObject { GUID = new Guid("3f68fa6b-de57-42bf-b9a7-d2f9946e50bc") },
-            new CinematicObject { GUID = new Guid("3f7d1356-1c21-4231-9e17-7a40ca6e5efd") },
-            new CinematicObject { GUID = new Guid("40dfd358-6362-4622-91b7-3776d9e7f283") },
-            new CinematicObject { GUID = new Guid("414392c1-8e2d-4a52-948a-9d2796e11cf9") },
-            new CinematicObject { GUID = new Guid("41591e59-ab28-467c-b0b2-5c2986a99449") },
-            new CinematicObject { GUID = new Guid("41fd9ca7-e16a-40a6-9d40-364b6b82e1c7") },
-            new CinematicObject { GUID = new Guid("421de6af-becb-4112-ac27-06085170a301") },
-            new CinematicObject { GUID = new Guid("42489182-d66f-41dc-a8a2-670f36e56c9a") },
-            new CinematicObject { GUID = new Guid("4325ece2-5dec-4656-b6dd-9f59e1b84943") },
-            new CinematicObject { GUID = new Guid("440a7f69-04d5-4762-81a2-88dafc265141") },
-            new CinematicObject { GUID = new Guid("44bde91f-e090-4411-a2c2-2eeded0a69fc") },
-            new CinematicObject { GUID = new Guid("46b76641-a7ec-4093-9fa3-72a45eaec032") },
-            new CinematicObject { GUID = new Guid("479c625f-ed16-481d-8763-e625d0da1516") },
-            new CinematicObject { GUID = new Guid("49148647-0834-49db-b493-6ffad2f2b57f") },
-            new CinematicObject { GUID = new Guid("4b0dd78f-a707-4007-b5a2-c6ca827fc119") },
-            new CinematicObject { GUID = new Guid("4b104d0a-e9cb-4498-815e-491d0a654bc8") },
-            new CinematicObject { GUID = new Guid("4b4a02c3-6879-41de-9f8b-05e11316c6a5") },
-            new CinematicObject { GUID = new Guid("4b52a302-2c48-49d3-9fe0-b7ad1a28bc25") },
-            new CinematicObject { GUID = new Guid("4bbf9d89-a353-4185-a761-7d8a4f57d535") },
-            new CinematicObject { GUID = new Guid("4c28e977-959b-42fd-8da2-9e27da3f4cec") },
-            new CinematicObject { GUID = new Guid("4ce1e174-1716-479d-88a6-d7e110ada270") },
-            new CinematicObject { GUID = new Guid("5076a294-56b8-4e2b-afbe-5818092d145b") },
-            new CinematicObject { GUID = new Guid("5376b09c-02bd-48e3-bfae-6707a5f54ab9") },
-            new CinematicObject { GUID = new Guid("54020a18-2c0b-4e64-ad06-b2a36d8f61fe") },
-            new CinematicObject { GUID = new Guid("549bad97-2378-412a-9082-5b574fce9a3d") },
-            new CinematicObject { GUID = new Guid("54cc3f92-3b70-4a0a-b0fb-2861194a11ee") },
-            new CinematicObject { GUID = new Guid("55b1f312-9afb-4c02-8bc3-19d4821d4cf6") },
-            new CinematicObject { GUID = new Guid("57c66187-c697-4ce7-a233-ba2200140c99") },
-            new CinematicObject { GUID = new Guid("58169245-9ab6-4a84-890c-4fd212c4eb18") },
-            new CinematicObject { GUID = new Guid("5c0b7dd5-b2be-42e7-b1cd-7b96a3be3a37") },
-            new CinematicObject { GUID = new Guid("5cb71b80-0c12-4ddb-9c25-2527b1765e33") },
-            new CinematicObject { GUID = new Guid("5d148817-248a-4057-a58a-5ee5a46bf470") },
-            new CinematicObject { GUID = new Guid("5e1e3011-60cb-46c8-8646-d476c6e1b29d") },
-            new CinematicObject { GUID = new Guid("5ea0154a-2ec9-4262-a6ba-eca9a8a605e1") },
-            new CinematicObject { GUID = new Guid("613ad136-4ef8-4f67-8cf2-8f70220c869e") },
-            new CinematicObject { GUID = new Guid("62a0304b-cb87-4f73-a8d0-082b7153dfc5") },
-            new CinematicObject { GUID = new Guid("62a927c2-ba4b-4ea2-aa7b-6051da02193e") },
-            new CinematicObject { GUID = new Guid("630eab9b-9136-48a8-b0ce-b0aeabadef4f") },
-            new CinematicObject { GUID = new Guid("63293a7a-385f-4523-ad0b-4600d368bc80") },
-            new CinematicObject { GUID = new Guid("634f1002-f081-4397-8b74-825651856ab4") },
-            new CinematicObject { GUID = new Guid("63539e91-3578-4e60-a593-bd2297b82f1e") },
-            new CinematicObject { GUID = new Guid("63f71079-68f3-49e2-81ba-859b5a22fe09") },
-            new CinematicObject { GUID = new Guid("64e9d23a-3bc9-40a5-a65c-a90733cd3e0c") },
-            new CinematicObject { GUID = new Guid("653bc5de-ce07-4bbd-952a-95bd85f38f80") },
-            new CinematicObject { GUID = new Guid("66c0be77-1410-4bbd-acff-156052e76b69") },
-            new CinematicObject { GUID = new Guid("675b75b7-6d8b-4c57-ae7e-2e0b025a7a92") },
-            new CinematicObject { GUID = new Guid("67910472-d49a-4057-908e-4460cc1a3ebf") },
-            new CinematicObject { GUID = new Guid("68f9e6d8-55d9-47cf-b8d1-9f5dfbb59be6") },
-            new CinematicObject { GUID = new Guid("690cc3d5-d12a-46c3-a8d3-64a978f561c7") },
-            new CinematicObject { GUID = new Guid("698bd7c3-6087-49bf-941a-5f4eafb47548") },
-            new CinematicObject { GUID = new Guid("69e75b71-e269-41e8-a4a3-bfd80d13abb9") },
-            new CinematicObject { GUID = new Guid("6a994cf0-5803-40de-8ac9-9f4a4a42e8f8") },
-            new CinematicObject { GUID = new Guid("6b09d710-494f-40e2-823f-d5b58412781f") },
-            new CinematicObject { GUID = new Guid("6b76da48-8173-4193-9e91-d26f163e16c7") },
-            new CinematicObject { GUID = new Guid("6c2e9755-4aab-40ed-8335-51f713008293") },
-            new CinematicObject { GUID = new Guid("6c7f663c-e14e-4833-b684-a7aca7ef86a9") },
-            new CinematicObject { GUID = new Guid("6cde1c5e-bb97-486d-b2b8-2e75139498ed") },
-            new CinematicObject { GUID = new Guid("6e25bf27-7593-4fae-a35e-65633b838052") },
-            new CinematicObject { GUID = new Guid("6e63dbec-6996-446a-b4bd-895941dfa6dc") },
-            new CinematicObject { GUID = new Guid("6f287dfe-0409-42f2-99e8-7fbb339b2116") },
-            new CinematicObject { GUID = new Guid("6fe9d669-127d-488d-af31-f89e0d0bab4f") },
-            new CinematicObject { GUID = new Guid("71563eb4-51e5-4107-afc6-90905eafc4a5") },
-            new CinematicObject { GUID = new Guid("733e6207-63ef-46d0-bb39-0d960285910e") },
-            new CinematicObject { GUID = new Guid("73af193f-8f93-4060-8283-08d1b20cb7b3") },
-            new CinematicObject { GUID = new Guid("7483cc70-b2d9-48e0-affc-11e923210606") },
-            new CinematicObject { GUID = new Guid("76411230-6c4b-48a3-bee2-e7b2e913d22d") },
-            new CinematicObject { GUID = new Guid("76bf664c-26f7-4222-b5ed-031f21f1d393") },
-            new CinematicObject { GUID = new Guid("771ddb11-9648-483f-9ebe-9b6a76e93cbb") },
-            new CinematicObject { GUID = new Guid("78eea985-5204-44ad-b51e-7bc93453c095") },
-            new CinematicObject { GUID = new Guid("790a6a58-adc5-430c-a9dd-063b0ba15a2b") },
-            new CinematicObject { GUID = new Guid("7962111c-e85a-4722-8e8b-6a3519ead174") },
-            new CinematicObject { GUID = new Guid("7a21b0ad-bccb-4bc2-8949-b144f14f8097") },
-            new CinematicObject { GUID = new Guid("7b43df8a-14d1-4c69-a957-d1d4cbe65c8e") },
-            new CinematicObject { GUID = new Guid("7d42bd2d-f994-432d-8f56-f98c02cedba5") },
-            new CinematicObject { GUID = new Guid("7d87cceb-0b30-4c4d-9833-95a7f38a7369") },
-            new CinematicObject { GUID = new Guid("7dee983b-4e93-4844-b847-4f2161d372b2") },
-            new CinematicObject { GUID = new Guid("7f9e721e-e1f9-4814-a9a0-52b7e745ed2b") },
-            new CinematicObject { GUID = new Guid("801c3ddf-dd3b-4335-bb34-908200e3b346") },
-            new CinematicObject { GUID = new Guid("8164014f-5e53-476a-bf8e-59aa66f9e908") },
-            new CinematicObject { GUID = new Guid("82168a58-15f5-4b62-86f5-800013417245") },
-            new CinematicObject { GUID = new Guid("824d7aa9-fdcf-4116-8333-c6f31128ddb6") },
-            new CinematicObject { GUID = new Guid("833d2678-eef8-4db1-8f87-341bef510ecb") },
-            new CinematicObject { GUID = new Guid("835e9b62-45c8-46e7-89fa-1b8f03636217") },
-            new CinematicObject { GUID = new Guid("83963907-2279-4cc5-bd08-e963d6161491") },
-            new CinematicObject { GUID = new Guid("84430dd0-fe38-4dbd-ae34-cbb0fc35af16") },
-            new CinematicObject { GUID = new Guid("84765d8c-06cd-4194-b737-9dcd74c0711f") },
-            new CinematicObject { GUID = new Guid("851a989c-6545-4382-810c-8f8250b9d2b8") },
-            new CinematicObject { GUID = new Guid("85415b85-1d58-488f-8e2a-7a005a646635") },
-            new CinematicObject { GUID = new Guid("854d8cce-bb1a-48ed-8b3f-27d45cb61885") },
-            new CinematicObject { GUID = new Guid("855f6331-1076-4626-b51f-c90c1d913ad2") },
-            new CinematicObject { GUID = new Guid("876e3e4a-0018-451c-8279-91490d13bee9") },
-            new CinematicObject { GUID = new Guid("87ad8ea0-d94d-46e1-8e61-aa773ec63ae8") },
-            new CinematicObject { GUID = new Guid("882c6103-8365-4b58-a475-104da66ea193") },
-            new CinematicObject { GUID = new Guid("88c33a83-d5df-4248-b55a-220c65fe670f") },
-            new CinematicObject { GUID = new Guid("8bf8e1ed-a814-4bdb-9cbd-6e49bcd69f42") },
-            new CinematicObject { GUID = new Guid("8d0f61c3-b5f9-4ab1-9fdf-281970495248") },
-            new CinematicObject { GUID = new Guid("8d481ff2-5736-4d2e-a0d7-edf1c2b5d936") },
-            new CinematicObject { GUID = new Guid("8debd038-1a97-4a5b-87af-f09b22eb8f2d") },
-            new CinematicObject { GUID = new Guid("8e62a89d-2557-44ca-85ae-e67922feb20e") },
-            new CinematicObject { GUID = new Guid("8faada19-452b-4154-a4d6-59197b8829b0") },
-            new CinematicObject { GUID = new Guid("91307903-78da-4131-adc2-ab1388067a86") },
-            new CinematicObject { GUID = new Guid("919038d8-b3c0-4d1b-81e9-fc4f0d7b21c8") },
-            new CinematicObject { GUID = new Guid("91984053-6453-4154-97a6-77fe4eb155e3") },
-            new CinematicObject { GUID = new Guid("93805cbb-f0f8-4621-b340-f8cdb3cf76c3") },
-            new CinematicObject { GUID = new Guid("94b1abec-ef73-4d5f-bffe-d642d7dce4ba") },
-            new CinematicObject { GUID = new Guid("959a362e-31f3-454c-89c3-df81d2ea883d") },
-            new CinematicObject { GUID = new Guid("96a675eb-630f-4cb8-b3b3-6ec781c1eb17") },
-            new CinematicObject { GUID = new Guid("96f0ed35-ee06-4caa-a65a-57bb2ced8a58") },
-            new CinematicObject { GUID = new Guid("9c5aa97f-cba6-4826-bcce-365277c4d384") },
-            new CinematicObject { GUID = new Guid("9c79a72a-cad4-4be3-adbe-0aba35efba76") },
-            new CinematicObject { GUID = new Guid("9ce7f243-b01f-40e5-8bcd-2a8333c0a078") },
-            new CinematicObject { GUID = new Guid("9cee6d9a-32c2-46b7-bd7d-36f832a4d373") },
-            new CinematicObject { GUID = new Guid("9d1ecd05-e3f8-430d-a6d3-768b5f0b96e2") },
-            new CinematicObject { GUID = new Guid("9fd40fba-f237-4454-b4c3-fc95d1d716e5") },
-            new CinematicObject { GUID = new Guid("a00f00ab-95c4-4349-9861-fcdee23610bf") },
-            new CinematicObject { GUID = new Guid("a181a4b0-a9f3-43d2-9c05-23a7b4eedb84") },
-            new CinematicObject { GUID = new Guid("a24df0b7-8689-414f-9364-483fdefe729a") },
-            new CinematicObject { GUID = new Guid("a3b452b7-d380-4e5d-ab53-1e74cf3753f6") },
-            new CinematicObject { GUID = new Guid("a3b7bc1d-543b-464c-b2d5-a0433ca56743") },
-            new CinematicObject { GUID = new Guid("a3f0cbcd-83b2-4842-94f6-86437f3b0f6a") },
-            new CinematicObject { GUID = new Guid("a569ba0e-eb1c-40bf-8e25-e2e2ffd3aaeb") },
-            new CinematicObject { GUID = new Guid("a5e67eba-2fb4-49d6-b7bd-bd5e1ac7d7d0") },
-            new CinematicObject { GUID = new Guid("a5e9bc79-be9b-4924-87c5-62a429c01074") },
-            new CinematicObject { GUID = new Guid("a6376b7e-0095-4593-9b0b-be1160333fcf") },
-            new CinematicObject { GUID = new Guid("a63d91e7-59d7-4723-80bb-7a92b4e4065b") },
-            new CinematicObject { GUID = new Guid("a672a6b7-df6c-417c-abbb-6abbb0c42b2f") },
-            new CinematicObject { GUID = new Guid("a74dc28e-b3c1-4209-a632-d3f036a047f0") },
-            new CinematicObject { GUID = new Guid("a7f7079c-c7ff-48d3-a817-f84f007500e8") },
-            new CinematicObject { GUID = new Guid("a7fa990a-f7be-4c08-b759-f2f5895f1efb") },
-            new CinematicObject { GUID = new Guid("a839f1f1-9330-41f7-96f4-fccca63a4a7b") },
-            new CinematicObject { GUID = new Guid("a8e772f2-c5cd-4564-8315-4504796d1d2b") },
-            new CinematicObject { GUID = new Guid("aa87f6e9-1564-4b73-8a2f-c5dbe5524b49") },
-            new CinematicObject { GUID = new Guid("ab36f0c0-22dc-4209-9fc7-bddc44d7538a") },
-            new CinematicObject { GUID = new Guid("ab5b8052-8301-4773-8620-310357c9c5db") },
-            new CinematicObject { GUID = new Guid("ab65e691-d309-48bf-a27c-178c36ab3dd9") },
-            new CinematicObject { GUID = new Guid("acbaec90-5472-41b9-8f8d-b6206b909e30") },
-            new CinematicObject { GUID = new Guid("ad86193a-8e7d-41bf-a753-f3b166dc47ab") },
-            new CinematicObject { GUID = new Guid("ae745a42-b6f2-4222-986b-b75261895b6b") },
-            new CinematicObject { GUID = new Guid("aee51746-b3e9-4d69-8540-6907b23d457e") },
-            new CinematicObject { GUID = new Guid("af983b7a-8c72-4db4-a266-920f3d971cfd") },
-            new CinematicObject { GUID = new Guid("afec88d3-c3c9-43f6-b764-b8eaa7d4589e") },
-            new CinematicObject { GUID = new Guid("b0160e1c-fe83-42e9-8c51-56e871e02833") },
-            new CinematicObject { GUID = new Guid("b098adbf-57b7-4955-ba42-ee5215d646a8") },
-            new CinematicObject { GUID = new Guid("b15b76d5-e5ed-4361-8e97-b57a394ac9ce") },
-            new CinematicObject { GUID = new Guid("b1be2e53-d61d-4aa5-9f2c-3b5919697bdb") },
-            new CinematicObject { GUID = new Guid("b2930ed4-0e91-407f-a963-f3b3e5b7cfde") },
-            new CinematicObject { GUID = new Guid("b29dd6af-5a6a-4c38-b94f-9ba9c74a7ac6") },
-            new CinematicObject { GUID = new Guid("b340649c-4ecb-4677-bfac-93dd1c91b540") },
-            new CinematicObject { GUID = new Guid("b355f120-c59e-4606-9aaf-3e80dec98455") },
-            new CinematicObject { GUID = new Guid("b5088f3f-2744-47f6-8a05-07d61c1ad8e7") },
-            new CinematicObject { GUID = new Guid("b5848484-2916-429a-80f2-5c0eda0df950") },
-            new CinematicObject { GUID = new Guid("b64e24b2-2064-4402-a4d7-09bdd7db3493") },
-            new CinematicObject { GUID = new Guid("b680acfe-5dc3-4efc-8760-13e35ee1a3d4") },
-            new CinematicObject { GUID = new Guid("b7a8dc2d-4648-4472-bdf2-24cdb644ce87") },
-            new CinematicObject { GUID = new Guid("b7a8ef76-f74e-48d0-816e-cf68399ad18c") },
-            new CinematicObject { GUID = new Guid("b7ed32ef-7538-4ac0-bda1-aed71fa8d4ec") },
-            new CinematicObject { GUID = new Guid("b91ba23a-eb48-4cd7-8bda-f1fb43420afd") },
-            new CinematicObject { GUID = new Guid("b9b2edc9-52f4-4d97-928a-f972fa507c10") },
-            new CinematicObject { GUID = new Guid("b9e04f13-5236-4db2-9ac9-e01c189708d4") },
-            new CinematicObject { GUID = new Guid("b9ecb927-fab9-4c57-a227-93c7386c60c3") },
-            new CinematicObject { GUID = new Guid("bc121506-74d3-43f5-980c-605fc8010eac") },
-            new CinematicObject { GUID = new Guid("bc9ac68d-f1d9-46b7-b164-9ad99cf5d291") },
-            new CinematicObject { GUID = new Guid("bca27523-24f4-436f-948f-460c508d70a7") },
-            new CinematicObject { GUID = new Guid("bdc05429-aea4-491d-9bcf-83f361e81555") },
-            new CinematicObject { GUID = new Guid("bee868b4-0477-4be2-8d06-34e94137aa58") },
-            new CinematicObject { GUID = new Guid("bfed46f2-c3e1-4001-a0fb-5ce05025f404") },
-            new CinematicObject { GUID = new Guid("c024a683-99a4-4d36-b98f-622bf4034c52") },
-            new CinematicObject { GUID = new Guid("c18a3614-9117-48df-a3e7-73a4175158d9") },
-            new CinematicObject { GUID = new Guid("c2f6b393-32d5-4aa5-ad96-61776a22230b") },
-            new CinematicObject { GUID = new Guid("c4452b8e-346f-4968-88e0-91dd4736fb5a") },
-            new CinematicObject { GUID = new Guid("c446fdf9-0e6b-4343-bed0-c06d1fd6d992") },
-            new CinematicObject { GUID = new Guid("c59ac4ef-20e9-408a-8452-5fd698d7d0da") },
-            new CinematicObject { GUID = new Guid("c636cc7e-5491-45fa-86ff-3b95b90ac6db") },
-            new CinematicObject { GUID = new Guid("c7daf646-e96f-4ca5-95ab-a5744fe445be") },
-            new CinematicObject { GUID = new Guid("c875b73f-2699-41ad-840c-214413a857b4") },
-            new CinematicObject { GUID = new Guid("c891191e-89c7-4f42-9aab-197766e7f7e2") },
-            new CinematicObject { GUID = new Guid("c8c2b0f1-1926-47b4-afd8-cbfd337c75a9") },
-            new CinematicObject { GUID = new Guid("cb63a867-ad97-4724-aa87-4c010b75cc50") },
-            new CinematicObject { GUID = new Guid("cd40c529-751b-4561-9b76-65e5144e9694") },
-            new CinematicObject { GUID = new Guid("d21f1711-6985-4a32-913c-15962e6c3014") },
-            new CinematicObject { GUID = new Guid("d265a1e8-cfa5-498c-812b-f43d2f0dcef8") },
-            new CinematicObject { GUID = new Guid("d334a99a-2936-4523-8aad-d77abab34e70") },
-            new CinematicObject { GUID = new Guid("d39b869c-8517-4625-88d3-d9c5f1f07627") },
-            new CinematicObject { GUID = new Guid("d46b8660-1d9a-400b-b85e-b7a71d165d6a") },
-            new CinematicObject { GUID = new Guid("d5fdc552-6ad5-4dd8-b8ed-f63cdfe62184") },
-            new CinematicObject { GUID = new Guid("d6a448b0-c9df-488a-80f6-0ffbf9aa26ad") },
-            new CinematicObject { GUID = new Guid("d7758a98-2018-4f5c-b995-b01d8eb3b261") },
-            new CinematicObject { GUID = new Guid("d787fd3a-7805-43a9-a233-366c84ca2f92") },
-            new CinematicObject { GUID = new Guid("d8783515-7fdc-488e-9299-c150df1ef295") },
-            new CinematicObject { GUID = new Guid("d8b7f135-c6a0-4109-8918-f53bd6806b68") },
-            new CinematicObject { GUID = new Guid("d9e623ac-7b59-4696-ae36-17e04829aed0") },
-            new CinematicObject { GUID = new Guid("db2279a8-182c-4c81-9964-010ea3b07c60") },
-            new CinematicObject { GUID = new Guid("dbd016f0-e4c3-467b-b6ff-5e05c553fea2") },
-            new CinematicObject { GUID = new Guid("dbdb395f-933f-4995-a5a0-3f5ace5b15d6") },
-            new CinematicObject { GUID = new Guid("dc8f5dc1-c7c5-49f3-81ed-b6c4ec41d3a4") },
-            new CinematicObject { GUID = new Guid("dc9188ca-98be-4076-8445-4e2ca15b34ea") },
-            new CinematicObject { GUID = new Guid("dcae66dc-a734-4a34-bff2-780436c9374e") },
-            new CinematicObject { GUID = new Guid("dd9d8eff-af1c-4617-8c3e-2e534452f5d1") },
-            new CinematicObject { GUID = new Guid("dda66271-c8d9-4996-96c3-bbd5cddc70c2") },
-            new CinematicObject { GUID = new Guid("de120f23-9525-4e06-9ce3-155c41a5f323") },
-            new CinematicObject { GUID = new Guid("df07f56d-bf7b-4a7a-9bd8-50b89c0db7c1") },
-            new CinematicObject { GUID = new Guid("df66fb9b-bc57-4b77-93a2-ca83b14e9ea2") },
-            new CinematicObject { GUID = new Guid("df8c3319-dfca-4b51-b4bc-389f2074824b") },
-            new CinematicObject { GUID = new Guid("e015e8e3-e155-4ebc-80fd-d960008d81a1") },
-            new CinematicObject { GUID = new Guid("e14eb1a7-93b6-477e-a79a-048f1a0f186a") },
-            new CinematicObject { GUID = new Guid("e3e43a62-131e-4dff-9830-f1f05f00963b") },
-            new CinematicObject { GUID = new Guid("e52badb3-90d3-4663-9aab-012eae4e87bd") },
-            new CinematicObject { GUID = new Guid("e6348901-61fb-444a-afae-b444e870a248") },
-            new CinematicObject { GUID = new Guid("e791982d-6775-4a9a-9907-5a4dba188152") },
-            new CinematicObject { GUID = new Guid("e81e1bc9-b8dc-4d17-9963-acc586fd07c5") },
-            new CinematicObject { GUID = new Guid("e91b3ecc-427e-442d-99f4-f0f66c12a12e") },
-            new CinematicObject { GUID = new Guid("e9bd0f0a-ba15-4cd5-9317-e3e46819cb05") },
-            new CinematicObject { GUID = new Guid("e9d0620f-07be-4c65-9a0c-7936e11b4408") },
-            new CinematicObject { GUID = new Guid("ea79e583-834c-4338-8e49-cea935f7dab4") },
-            new CinematicObject { GUID = new Guid("eb3deb4f-c961-4dc1-a002-f3afb1f048c4") },
-            new CinematicObject { GUID = new Guid("ee1d3976-582a-4d0f-8214-eef0da0069de") },
-            new CinematicObject { GUID = new Guid("f0a7bce1-109e-4aeb-9dbe-e083f7b9e27a") },
-            new CinematicObject { GUID = new Guid("f0d55436-5677-458a-a061-cc38676381ca") },
-            new CinematicObject { GUID = new Guid("f12c7efd-f5e1-4efc-8913-c9f28eb6a71c") },
-            new CinematicObject { GUID = new Guid("f1a8724a-65cf-497b-9666-3ba9ff5f4e44") },
-            new CinematicObject { GUID = new Guid("f2393873-176e-4133-aeab-f8a99c1bf23d") },
-            new CinematicObject { GUID = new Guid("f26f1c85-e965-4e69-a45c-b1734353964c") },
-            new CinematicObject { GUID = new Guid("f28fbc32-5822-4a62-8337-7adce9089b92") },
-            new CinematicObject { GUID = new Guid("f2d982ea-9d14-4c03-a40e-1cecde688ae7") },
-            new CinematicObject { GUID = new Guid("f31167df-76dc-4747-bd9b-e55b7de60e2e") },
-            new CinematicObject { GUID = new Guid("f3fbf54e-e72e-42fb-9fcc-1af921964cfa") },
-            new CinematicObject { GUID = new Guid("f4e5ee7f-ec09-4b85-b714-4930df161435") },
-            new CinematicObject { GUID = new Guid("f5174a54-42ed-4c7c-b017-68101c40310f") },
-            new CinematicObject { GUID = new Guid("f5238f38-ada1-4c36-b7ba-89f5a95a05cd") },
-            new CinematicObject { GUID = new Guid("f609e773-a4e7-4281-8b64-521f185f0b65") },
-            new CinematicObject { GUID = new Guid("f6c22947-a255-4462-b84f-04e2f5423732") },
-            new CinematicObject { GUID = new Guid("f886d9a0-5a50-40e4-afff-6d39f09ab477") },
-            new CinematicObject { GUID = new Guid("f8970385-c538-47de-ba12-815a1865480b") },
-            new CinematicObject { GUID = new Guid("f8e0fe0f-91a1-4ba1-ba7d-310fb8457549") },
-            new CinematicObject { GUID = new Guid("f9267b13-da82-4a90-a77b-321d4ac319bb") },
-            new CinematicObject { GUID = new Guid("fa08b2ad-414d-4697-8d09-f1b7adf761e4") },
-            new CinematicObject { GUID = new Guid("fb586829-7056-4ed7-8861-be92969fe976") },
-            new CinematicObject { GUID = new Guid("fb62ca24-330f-462f-9f0d-788fd14f644c") },
-            new CinematicObject { GUID = new Guid("fc4b998d-d18e-42f9-bd05-ca492d91d44b") },
-            new CinematicObject { GUID = new Guid("fcad2053-26ed-4b58-aaf2-4f9b282f6419") },
-            new CinematicObject { GUID = new Guid("fce4d729-967d-4bb6-96a2-dfe428fe629f") },
-            new CinematicObject { GUID = new Guid("ff13292e-d1cd-49f4-9385-d157e9491f69") },
-            new CinematicObject { GUID = new Guid("ff82a521-e4a9-45c4-9c15-9f24c898abe1") },
+            new CinematicObject { GUID = new Guid("e52badb3-90d3-4663-9aab-012eae4e87bd"), Name = "IntroFade" },
+            new CinematicObject { GUID = new Guid("67910472-d49a-4057-908e-4460cc1a3ebf"), Name = "LS_EHInside_LaundryRoom_LightSwitchOn" },
+            new CinematicObject { GUID = new Guid("5cb71b80-0c12-4ddb-9c25-2527b1765e33"), Name = "LS_EHInside_LaundryRoom_LightSwitchOff" },
+            new CinematicObject { GUID = new Guid("1e15c3e4-739c-4112-96d3-62a2503b843b"), Name = "IGE_EHInside_LivingRoom_ResetItemPosition" },
+            new CinematicObject { GUID = new Guid("0b5d7f17-1b67-4ad2-9e68-f063468b582d"), Name = "MS_PT_EHInside_LaundryRoom_WaterHeater_TameOutro" },
+            new CinematicObject { GUID = new Guid("2ab22a01-2eaa-487f-8462-531b4e80a24a"), Name = "MS_PT_EHInside_CharlesRoom_Wardrobe_Loop" },
+            new CinematicObject { GUID = new Guid("16a129ef-e633-425a-a076-1ae25834908d"), Name = "LS_PT_EHInside_CharlesRoom_Vinyl_Loop" },
+            new CinematicObject { GUID = new Guid("2607f353-d8b0-4d16-b896-168f0176f7cd"), Name = "MS_PT_EHInside_CharlesRoom_Turntable_PutVinyl" },
+            new CinematicObject { GUID = new Guid("549bad97-2378-412a-9082-5b574fce9a3d"), Name = "MS_PT_EHInside_CharlesRoom_Bed_LieDownLoop" },
+            new CinematicObject { GUID = new Guid("fb470547-2e49-4658-b03b-375f04333cbf"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_IntroC" },
+            new CinematicObject { GUID = new Guid("350c9139-6cf4-414e-90ec-42899a68b2f8"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_IntroA" },
+            new CinematicObject { GUID = new Guid("3eb59ab6-7689-4dc3-9c89-7522d04a40bb"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_IntroB" },
+            new CinematicObject { GUID = new Guid("2d4590ec-bc78-423c-af36-0ee54fa87049"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_IntroD" },
+            new CinematicObject { GUID = new Guid("8faada19-452b-4154-a4d6-59197b8829b0"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_PourringMilk" },
+            new CinematicObject { GUID = new Guid("f2d982ea-9d14-4c03-a40e-1cecde688ae7"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop1stChoice" },
+            new CinematicObject { GUID = new Guid("7f9e721e-e1f9-4814-a9a0-52b7e745ed2b"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_BreakfastServedA" },
+            new CinematicObject { GUID = new Guid("55b1f312-9afb-4c02-8bc3-19d4821d4cf6"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_BreakfastServedB" },
+            new CinematicObject { GUID = new Guid("62a0304b-cb87-4f73-a8d0-082b7153dfc5"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_GameDayA" },
+            new CinematicObject { GUID = new Guid("d334a99a-2936-4523-8aad-d77abab34e70"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_GameDayB" },
+            new CinematicObject { GUID = new Guid("698bd7c3-6087-49bf-941a-5f4eafb47548"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_RebelDad" },
+            new CinematicObject { GUID = new Guid("b605637a-902b-476b-a1ef-a80623eb010c"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_InjuryA" },
+            new CinematicObject { GUID = new Guid("fb62ca24-330f-462f-9f0d-788fd14f644c"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_InjuryB" },
+            new CinematicObject { GUID = new Guid("a7fa990a-f7be-4c08-b759-f2f5895f1efb"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_EndA" },
+            new CinematicObject { GUID = new Guid("c18a3614-9117-48df-a3e7-73a4175158d9"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_EndB" },
+            new CinematicObject { GUID = new Guid("b5088f3f-2744-47f6-8a05-07d61c1ad8e7"), Name = "MS_PT_EHInside_ChrisRoom_Door_ExitForBreakfast" },
+            new CinematicObject { GUID = new Guid("a839f1f1-9330-41f7-96f4-fccca63a4a7b"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop2ndChoice" },
+            new CinematicObject { GUID = new Guid("275120f6-642d-4ad0-aac6-54e0280cacf2"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop3rdChoice" },
+            new CinematicObject { GUID = new Guid("3a27adfe-b33d-412f-86dc-c8fabda54c9b"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop4thChoice" },
+            new CinematicObject { GUID = new Guid("c4452b8e-346f-4968-88e0-91dd4736fb5a"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_ReadyForMatchNoFade" },
+            new CinematicObject { GUID = new Guid("fa08b2ad-414d-4697-8d09-f1b7adf761e4"), Name = "MS_PT_EHInside_Kitchen_Microwave_GiveMacCheese_Perfect" },
+            new CinematicObject { GUID = new Guid("8f980c2a-e10a-4dda-95cc-143d37eb4911"), Name = "IGE_FadeEndFPP" },
+            new CinematicObject { GUID = new Guid("54cc3f92-3b70-4a0a-b0fb-2861194a11ee"), Name = "MS_PT_EHInside_Kitchen_BeerCans_TrashNomalEnd" },
+            new CinematicObject { GUID = new Guid("0c0d0c7f-4015-4162-8445-593c1c9e412f"), Name = "MS_PT_EHInside_Kitchen_BeerCans_TrashPowerEnd" },
+            new CinematicObject { GUID = new Guid("1f080c03-d3fa-4384-945f-3dd9b47176d8"), Name = "MS_PT_EHInside_Kitchen_BeerCans_TrashLoop" },
+            new CinematicObject { GUID = new Guid("73af193f-8f93-4060-8283-08d1b20cb7b3"), Name = "MS_PT_EHInside_Kitchen_Tupperware_Loop" },
+            new CinematicObject { GUID = new Guid("bee868b4-0477-4be2-8d06-34e94137aa58"), Name = "MS_PT_EHInside_Kitchen_Tupperware_NormalTrash" },
+            new CinematicObject { GUID = new Guid("0655eb5d-e558-4d80-8db8-e09c58daf650"), Name = "MS_PT_EHInside_Kitchen_Tupperware_PowerTrash" },
+            new CinematicObject { GUID = new Guid("ca6eb618-2bc7-4bf8-8404-39d6674f0791"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_PourringMilkIntro" },
+            new CinematicObject { GUID = new Guid("7e8069d4-b29b-4dfb-bc04-1c7b9a696ed6"), Name = "MS_PT_EHInside_Kitchen_Microwave_GiveMacCheese_Cold" },
+            new CinematicObject { GUID = new Guid("4ce1e174-1716-479d-88a6-d7e110ada270"), Name = "MS_PT_EHInside_Kitchen_CellPhone_Unlock_Success" },
+            new CinematicObject { GUID = new Guid("2cc0dfa6-5f5f-4cb7-8c35-80d0f8e20b07"), Name = "Heating" },
+            new CinematicObject { GUID = new Guid("b7a8dc2d-4648-4472-bdf2-24cdb644ce87"), Name = "MS_PT_EHInside_Kitchen_CellPhone_Playing" },
+            new CinematicObject { GUID = new Guid("77d90e6d-28dc-47a2-bc69-3c79c8a96e29"), Name = "MS_PT_EHInside_Kitchen_DialBreakfast_Checkpoints_BreakfastFinished" },
+            new CinematicObject { GUID = new Guid("f31167df-76dc-4747-bd9b-e55b7de60e2e"), Name = "MS_PT_EHInside_Kitchen_CellPhone_PlayDone" },
+            new CinematicObject { GUID = new Guid("3e956e35-1702-467c-823d-cb71108205c4"), Name = "MS_PT_EHInside_Kitchen_Sink_PowerWashIntro" },
+            new CinematicObject { GUID = new Guid("0eee1c85-e22a-4997-8270-f7d8d411cf3a"), Name = "MS_PT_EHInside_Kitchen_Sink_PowerWash" },
+            new CinematicObject { GUID = new Guid("9d1ecd05-e3f8-430d-a6d3-768b5f0b96e2"), Name = "MS_PT_EHInside_Kitchen_Sink_PowerWashWithCharles" },
+            new CinematicObject { GUID = new Guid("6e804692-306b-406b-ac6b-7287dd134d5b"), Name = "MS_PT_EHInside_LivingRoom_Beer_Give" },
+            new CinematicObject { GUID = new Guid("6b76da48-8173-4193-9e91-d26f163e16c7"), Name = "MS_PT_EHInside_Kitchen_Microwave_GiveMacCheese" },
+            new CinematicObject { GUID = new Guid("33a2b72a-d2fa-4ad0-b0c9-b73ef2bd5d97"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_FillGlassDrink" },
+            new CinematicObject { GUID = new Guid("f0a0fc4b-e540-4c5a-b99e-69e7d0e84f44"), Name = "MS_PT_EHInside_Kitchen_Microwave_GiveMacCheese_Drunk" },
+            new CinematicObject { GUID = new Guid("8f62ab41-5c70-4456-a1ec-27d075651a7d"), Name = "Timer" },
+            new CinematicObject { GUID = new Guid("b0cb1457-204a-460e-a731-60c0c47ec354"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose01" },
+            new CinematicObject { GUID = new Guid("a74dc28e-b3c1-4209-a632-d3f036a047f0"), Name = "MS_PT_EHInside_LivingRoom_Help_ChrisCriesBegin" },
+            new CinematicObject { GUID = new Guid("80f1a3e9-2279-419d-8320-d184b37dd1b5"), Name = "MS_PT_EHInside_LivingRoom_Help_ChrisCriesFact1" },
+            new CinematicObject { GUID = new Guid("ae745a42-b6f2-4222-986b-b75261895b6b"), Name = "MS_PT_EHInside_LivingRoom_Help_ChrisCriesEnd" },
+            new CinematicObject { GUID = new Guid("f3fbf54e-e72e-42fb-9fcc-1af921964cfa"), Name = "MS_PT_EHInside_LivingRoom_Help_ChrisCriesFact2" },
+            new CinematicObject { GUID = new Guid("43ef11c4-c80d-44dc-b79b-c8e4353bf350"), Name = "IGE_EHInside_LivingRoom_CharlesArmchair_Sleep_Loop" },
+            new CinematicObject { GUID = new Guid("e81e1bc9-b8dc-4d17-9963-acc586fd07c5"), Name = "MS_PT_EHInside_LivingRoom_Charles_Fall" },
+            new CinematicObject { GUID = new Guid("39ed8576-d721-412c-a554-9d6b5d856ac7"), Name = "MS_PT_EHInside_LivingRoom_Phone_Loop" },
+            new CinematicObject { GUID = new Guid("ac00ecf8-afb8-4fac-9b2b-0c1b12a9933e"), Name = "IGE_EHInside_LivingRoom_CharlesArmchair_Normal_Loop" },
+            new CinematicObject { GUID = new Guid("d7758a98-2018-4f5c-b995-b01d8eb3b261"), Name = "MS_PT_EHInside_LivingRoom_Checkpoint_BeforeDadWakesUp" },
+            new CinematicObject { GUID = new Guid("df915b74-cf04-4731-b3b6-7113fc42b7a5"), Name = "IGE_EHInside_LivingRoom_PhoneRinging" },
+            new CinematicObject { GUID = new Guid("f2227040-37e7-4935-b13a-545a9a045c5e"), Name = "IGE_EHInside_LivingRoom_StatBook_Loop" },
+            new CinematicObject { GUID = new Guid("b0c19350-e3b0-487e-b91a-bd67e945a7bb"), Name = "IGE_EHInside_LivingRoom_StatBook_End" },
+            new CinematicObject { GUID = new Guid("c1b605d1-8529-4edb-a957-cc438ce29d5d"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin01" },
+            new CinematicObject { GUID = new Guid("e56f2f5d-e34e-4561-bc6b-a47b0ee514bf"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose02" },
+            new CinematicObject { GUID = new Guid("9de6ee29-39a9-40dd-a106-3970547ebd22"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin02" },
+            new CinematicObject { GUID = new Guid("bab0b28b-593e-4f05-8237-11b791cadc36"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_Drink02" },
+            new CinematicObject { GUID = new Guid("ed7065e7-c0b1-4461-94c4-7868daedd2a4"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose03" },
+            new CinematicObject { GUID = new Guid("7322cf25-2c47-4159-a6db-7febdc3102a5"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_Drink03" },
+            new CinematicObject { GUID = new Guid("a3d3c6da-3029-43b6-9626-e5cac068d331"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin03" },
+            new CinematicObject { GUID = new Guid("b989c9b7-2075-4ebf-8d04-7064efc2afe3"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose04" },
+            new CinematicObject { GUID = new Guid("2bf5d046-c704-45e7-80ea-c9d7c581998e"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_DrinkToast" },
+            new CinematicObject { GUID = new Guid("d0a5f81b-f52d-4a06-aebc-0bf22f08d3ba"), Name = "IGE_EHInside_LivingRoom_CharlesArmchair_NormalToDrunkLite" },
+            new CinematicObject { GUID = new Guid("6efc10ac-c8ad-42db-9728-4fe22bb368f5"), Name = "IGE_EHInside_LivingRoom_CharlesArmchair_DrunkLite_Loop" },
+            new CinematicObject { GUID = new Guid("14f01d72-66a0-47f1-9513-5d6ec09898aa"), Name = "IGE_EHInside_LivingRoom_CharlesArmchair_DrunkHeavy_Loop" },
+            new CinematicObject { GUID = new Guid("56693963-69ed-42eb-b9b2-b14030c63592"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_RemoteTVOn" },
+            new CinematicObject { GUID = new Guid("81f20053-acfb-48ff-9ea5-1243cf50f885"), Name = "MS_PT_EHInside_LivingRoom_NerfGun_ShootDad" },
+            new CinematicObject { GUID = new Guid("b91ba23a-eb48-4cd7-8bda-f1fb43420afd"), Name = "MS_PT_EHInside_LivingRoom_WhiskyBottle_Power" },
+            new CinematicObject { GUID = new Guid("52bef616-d02e-4cbc-b543-3ff11bd1d114"), Name = "MS_PT_EHInside_LivingRoom_Help_ChrisCriesBeginAlternate" },
+            new CinematicObject { GUID = new Guid("9fd40fba-f237-4454-b4c3-fc95d1d716e5"), Name = "MS_PT_EHInside_LivingRoom_Dinosaur_Play" },
+            new CinematicObject { GUID = new Guid("30395c9f-93ac-4596-9ed0-ad014875534e"), Name = "MS_PT_EHInside_LivingRoom_Dinosaur_PlayWithCharles" },
+            new CinematicObject { GUID = new Guid("b2930ed4-0e91-407f-a963-f3b3e5b7cfde"), Name = "MS_PT_EHInside_LivingRoom_Phone_Answer" },
+            new CinematicObject { GUID = new Guid("77e4873a-90c0-4912-9dfc-90e675a6ffa6"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin05" },
+            new CinematicObject { GUID = new Guid("cf9c6c3e-a3f0-4c3e-80f8-ac08dd62eb9a"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose08" },
+            new CinematicObject { GUID = new Guid("278f5fe9-f2ce-4679-8565-3aa747dfb24e"), Name = "IGE_EHInside_LivingRoom_CharlesDrunkLite_ReactWin01" },
+            new CinematicObject { GUID = new Guid("70c35871-3db2-4872-a6e6-79cac47c8723"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose07" },
+            new CinematicObject { GUID = new Guid("58169245-9ab6-4a84-890c-4fd212c4eb18"), Name = "MS_PT_EHInside_LivingRoom_Phone_Start" },
+            new CinematicObject { GUID = new Guid("690cc3d5-d12a-46c3-a8d3-64a978f561c7"), Name = "MS_PT_EHInside_LivingRoom_Phone_Stop" },
+            new CinematicObject { GUID = new Guid("8378186a-c665-4ac9-b0c8-2aaa4063692e"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_DrinkLong" },
+            new CinematicObject { GUID = new Guid("f4406518-5af5-4743-b07f-7eee255d6784"), Name = "IGE_EHInside_LivingRoom_CharlesArmchair_DrunkLiteToNormal" },
+            new CinematicObject { GUID = new Guid("802b31d1-147e-4545-8173-c1e24fd4a8f2"), Name = "IGE_EHInside_LivingRoom_CharlesArmchair_NormalToDrunkHeavy" },
+            new CinematicObject { GUID = new Guid("c34c0f33-3645-494c-9305-3ec519191a7c"), Name = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_DrinkToast" },
+            new CinematicObject { GUID = new Guid("e05c2fe1-6aee-458f-bc55-805cb066848a"), Name = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink01" },
+            new CinematicObject { GUID = new Guid("54b37698-ac21-43ee-b2ae-31472745eb41"), Name = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink03" },
+            new CinematicObject { GUID = new Guid("885d1a2f-856d-4de8-a823-1edfc537ce69"), Name = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink02" },
+            new CinematicObject { GUID = new Guid("ec67d074-c289-45ce-8c78-51cfebabd2c4"), Name = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink04" },
+            new CinematicObject { GUID = new Guid("c6db6713-2569-4d06-a3b9-f3342e1ed38b"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_RemoteStatBook_Start" },
+            new CinematicObject { GUID = new Guid("4c0483c0-40b3-49a4-bb0e-5ea19990ee59"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_FillGlassDrink2" },
+            new CinematicObject { GUID = new Guid("3ec9441f-e75f-42c9-84a3-1017787f88a3"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_ChoiceLoop1" },
+            new CinematicObject { GUID = new Guid("7962111c-e85a-4722-8e8b-6a3519ead174"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_ChoiceLoop2" },
+            new CinematicObject { GUID = new Guid("aee51746-b3e9-4d69-8540-6907b23d457e"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_ChoiceLoop3" },
+            new CinematicObject { GUID = new Guid("2bbc8207-20e0-45ad-8546-97bc78407d0e"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_Finished" },
+            new CinematicObject { GUID = new Guid("919038d8-b3c0-4d1b-81e9-fc4f0d7b21c8"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_ChoicePart1" },
+            new CinematicObject { GUID = new Guid("025cc3a5-628d-4bb3-b388-66a7f24b15d6"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_ChoicePart3" },
+            new CinematicObject { GUID = new Guid("35c53109-0b0d-47cf-9ad8-c02e136086bf"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_ChoicePart2" },
+            new CinematicObject { GUID = new Guid("8e62a89d-2557-44ca-85ae-e67922feb20e"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_Loop1stChoice" },
+            new CinematicObject { GUID = new Guid("dcae66dc-a734-4a34-bff2-780436c9374e"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_StartFight" },
+            new CinematicObject { GUID = new Guid("71563eb4-51e5-4107-afc6-90905eafc4a5"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_BossChoiceA" },
+            new CinematicObject { GUID = new Guid("5bd12e08-e523-4ca6-a40a-abecbc49ff91"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_BossChoiceB" },
+            new CinematicObject { GUID = new Guid("6b09d710-494f-40e2-823f-d5b58412781f"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_LiarChoiceA" },
+            new CinematicObject { GUID = new Guid("df07f56d-bf7b-4a7a-9bd8-50b89c0db7c1"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_LiarChoiceB" },
+            new CinematicObject { GUID = new Guid("bfed46f2-c3e1-4001-a0fb-5ce05025f404"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_Loop3rdChoice" },
+            new CinematicObject { GUID = new Guid("5376b09c-02bd-48e3-bfae-6707a5f54ab9"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_Loop4thChoice" },
+            new CinematicObject { GUID = new Guid("6005563b-c78b-488b-9953-698bdf30b0c9"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_CaptainSpiritChoiceA" },
+            new CinematicObject { GUID = new Guid("2a379cb5-57a1-48a4-b282-5b4a8fddf981"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_CaptainSpiritChoiceB" },
+            new CinematicObject { GUID = new Guid("63539e91-3578-4e60-a593-bd2297b82f1e"), Name = "MS_PT_EHInside_ChrisRoom_MantroidCar_Loop" },
+            new CinematicObject { GUID = new Guid("af983b7a-8c72-4db4-a266-920f3d971cfd"), Name = "MS_PT_EHInside_ChrisRoom_MantroidCar_Start" },
+            new CinematicObject { GUID = new Guid("053e7499-ae9f-4682-8b9b-d69f57d339e2"), Name = "MS_PT_EHInside_ChrisRoom_MantroidCar_Play" },
+            new CinematicObject { GUID = new Guid("855f6331-1076-4626-b51f-c90c1d913ad2"), Name = "MS_PT_EHInside_ChrisRoom_MantroidCar_Power" },
+            new CinematicObject { GUID = new Guid("588e1194-3470-44c4-9dab-42f2de0a9399"), Name = "MS_PT_EHInside_ChrisRoom_Insertion_NoIntro" },
+            new CinematicObject { GUID = new Guid("98607412-7fe5-4c05-ba08-48c4ce0b3180"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_Checkpoint_DrawingFinished" },
+            new CinematicObject { GUID = new Guid("bca27523-24f4-436f-948f-460c508d70a7"), Name = "MS_PT_EHInside_ChrisRoom_InsertionNewPropal2" },
+            new CinematicObject { GUID = new Guid("630eab9b-9136-48a8-b0ce-b0aeabadef4f"), Name = "MS_PT_EHInside_ChrisRoom_PreInsertionNewPropal2" },
+            new CinematicObject { GUID = new Guid("41fd9ca7-e16a-40a6-9d40-364b6b82e1c7"), Name = "MS_PT_EHInside_Bathroom_Mirror_Use" },
+            new CinematicObject { GUID = new Guid("f1a467e8-ccac-4f86-9bab-bc137400e420"), Name = "IGE_EHInside_LivingRoom_StatBook_Start" },
+            new CinematicObject { GUID = new Guid("7e05f996-4754-4ac4-9f93-9983746c13c7"), Name = "IGE_EHInside_LivingRoom_CharlesNormal_FillGlassNoDrink" },
+            new CinematicObject { GUID = new Guid("a3f0cbcd-83b2-4842-94f6-86437f3b0f6a"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_Look" },
+            new CinematicObject { GUID = new Guid("802fbcf3-bcdb-4ca3-8bdd-8c4d3cfd0d8b"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_LookDestroy" },
+            new CinematicObject { GUID = new Guid("91984053-6453-4154-97a6-77fe4eb155e3"), Name = "MS_PT_EHInside_ChrisRoom_ActionFigurines_LookRelease" },
+            new CinematicObject { GUID = new Guid("38630758-33c4-4639-b169-02f01971b566"), Name = "MS_PT_EHInside_ChrisRoom_MantroidCar_Look" },
+            new CinematicObject { GUID = new Guid("2f79de8b-f5ae-4fdd-9f28-deced7701c85"), Name = "MS_PT_EHInside_ChrisRoom_Cloak_Look" },
+            new CinematicObject { GUID = new Guid("b5848484-2916-429a-80f2-5c0eda0df950"), Name = "MS_PT_EHInside_ChrisRoom_Cloak_Wear" },
+            new CinematicObject { GUID = new Guid("dd9d8eff-af1c-4617-8c3e-2e534452f5d1"), Name = "MS_PT_EHInside_ChrisRoom_FavoriteToy_Look" },
+            new CinematicObject { GUID = new Guid("2170829d-f5c3-4869-90e4-ba058a007d4c"), Name = "MS_PT_EHInside_LivingRoom_FrontDoor_LeaveFast" },
+            new CinematicObject { GUID = new Guid("0aefd7ef-a42e-4726-bdbd-dc2319108596"), Name = "MS_PT_EHInside_LivingRoom_FrontDoor_LeaveWithoutJacket" },
+            new CinematicObject { GUID = new Guid("440a7f69-04d5-4762-81a2-88dafc265141"), Name = "MS_PT_EHInside_LivingRoom_FrontDoor_Enter" },
+            new CinematicObject { GUID = new Guid("b9b2edc9-52f4-4d97-928a-f972fa507c10"), Name = "MS_PT_EHInside_LivingRoom_FrontDoor_EnterFast" },
+            new CinematicObject { GUID = new Guid("039e3ee0-42ab-4445-b14c-149c6882afa3"), Name = "MS_PT_EHInside_LivingRoom_Couch_Look" },
+            new CinematicObject { GUID = new Guid("b7a8ef76-f74e-48d0-816e-cf68399ad18c"), Name = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart1Start" },
+            new CinematicObject { GUID = new Guid("b9e04f13-5236-4db2-9ac9-e01c189708d4"), Name = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart1Loop" },
+            new CinematicObject { GUID = new Guid("1772e796-0bd7-44ed-929d-f3d12c45ab65"), Name = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart1End" },
+            new CinematicObject { GUID = new Guid("5d148817-248a-4057-a58a-5ee5a46bf470"), Name = "MS_PT_EHInside_LivingRoom_Phone_CallDadCellphone" },
+            new CinematicObject { GUID = new Guid("a5e9bc79-be9b-4924-87c5-62a429c01074"), Name = "MS_PT_EHInside_LivingRoom_Phone_CallPizza" },
+            new CinematicObject { GUID = new Guid("5076a294-56b8-4e2b-afbe-5818092d145b"), Name = "MS_PT_EHInside_LivingRoom_Phone_CallReynolds01" },
+            new CinematicObject { GUID = new Guid("0895ffc4-68b3-41ec-a427-37032067e22b"), Name = "MS_PT_EHInside_LivingRoom_Phone_CallOdessa" },
+            new CinematicObject { GUID = new Guid("9ce7f243-b01f-40e5-8bcd-2a8333c0a078"), Name = "MS_PT_EHInside_LivingRoom_Phone_CallReynolds02" },
+            new CinematicObject { GUID = new Guid("a00f00ab-95c4-4349-9861-fcdee23610bf"), Name = "MS_PT_EHInside_LivingRoom_NerfGun_Look" },
+            new CinematicObject { GUID = new Guid("3f68fa6b-de57-42bf-b9a7-d2f9946e50bc"), Name = "MS_PT_EHInside_LivingRoom_WhiskyBottle_Look" },
+            new CinematicObject { GUID = new Guid("7a21b0ad-bccb-4bc2-8949-b144f14f8097"), Name = "MS_PT_EHInside_LivingRoom_WhiskyBottle_Look_02" },
+            new CinematicObject { GUID = new Guid("aa87f6e9-1564-4b73-8a2f-c5dbe5524b49"), Name = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart2Start" },
+            new CinematicObject { GUID = new Guid("b64e24b2-2064-4402-a4d7-09bdd7db3493"), Name = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart2Loop" },
+            new CinematicObject { GUID = new Guid("b29dd6af-5a6a-4c38-b94f-9ba9c74a7ac6"), Name = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart2End" },
+            new CinematicObject { GUID = new Guid("4b0dd78f-a707-4007-b5a2-c6ca827fc119"), Name = "MS_PT_EHInside_Kitchen_CarKey_Put" },
+            new CinematicObject { GUID = new Guid("0d1093e7-146b-487b-bcc2-271889eee878"), Name = "MS_PT_EHInside_Kitchen_CarKey_Take" },
+            new CinematicObject { GUID = new Guid("b7ed32ef-7538-4ac0-bda1-aed71fa8d4ec"), Name = "MS_PT_EHInside_LivingRoom_Dinosaur_Look" },
+            new CinematicObject { GUID = new Guid("3721a8c9-69e1-431c-b308-45ef09bcf8ed"), Name = "MS_PT_EHInside_LivingRoom_FireStove_Look" },
+            new CinematicObject { GUID = new Guid("e14eb1a7-93b6-477e-a79a-048f1a0f186a"), Name = "MS_PT_EHInside_LivingRoom_FireStove_AddLog" },
+            new CinematicObject { GUID = new Guid("d5fdc552-6ad5-4dd8-b8ed-f63cdfe62184"), Name = "MS_PT_EHInside_LivingRoom_FireStove_Power" },
+            new CinematicObject { GUID = new Guid("613ad136-4ef8-4f67-8cf2-8f70220c869e"), Name = "MS_PT_EHInside_Kitchen_GroceryList_AddCandy" },
+            new CinematicObject { GUID = new Guid("007d4afb-768b-433f-9469-96c603f4f607"), Name = "MS_PT_EHInside_Kitchen_Laptop_Look" },
+            new CinematicObject { GUID = new Guid("0211af1b-02e6-4d19-8fc9-9f6c4f808d5f"), Name = "MS_PT_EHInside_LivingRoom_CarKey_Look" },
+            new CinematicObject { GUID = new Guid("e9d0620f-07be-4c65-9a0c-7936e11b4408"), Name = "MS_PT_EHInside_LivingRoom_CarKey_Take" },
+            new CinematicObject { GUID = new Guid("b1be2e53-d61d-4aa5-9f2c-3b5919697bdb"), Name = "MS_PT_EHInside_LivingRoom_CarKey_DadAsleep" },
+            new CinematicObject { GUID = new Guid("45be98eb-edf5-476a-98f7-43caff57f746"), Name = "MS_PT_EHInside_LivingRoom_CarKey_TakeDadStatbook" },
+            new CinematicObject { GUID = new Guid("46b76641-a7ec-4093-9fa3-72a45eaec032"), Name = "MS_PT_EHInside_Kitchen_Microwave_Look" },
+            new CinematicObject { GUID = new Guid("8d729a9f-9c51-4ad9-9c7f-0eaa2671c4b1"), Name = "MS_PT_EHInside_Kitchen_Microwave_Power" },
+            new CinematicObject { GUID = new Guid("653bc5de-ce07-4bbd-952a-95bd85f38f80"), Name = "MS_PT_EHInside_Kitchen_RecycleBin_Look" },
+            new CinematicObject { GUID = new Guid("6cde1c5e-bb97-486d-b2b8-2e75139498ed"), Name = "MS_PT_EHInside_Kitchen_RecycleBin_TakeOut" },
+            new CinematicObject { GUID = new Guid("e015e8e3-e155-4ebc-80fd-d960008d81a1"), Name = "MS_PT_EHInside_Kitchen_BeerCans_Look" },
+            new CinematicObject { GUID = new Guid("ab36f0c0-22dc-4209-9fc7-bddc44d7538a"), Name = "MS_PT_EHInside_Kitchen_BeerCans_Trash" },
+            new CinematicObject { GUID = new Guid("959a362e-31f3-454c-89c3-df81d2ea883d"), Name = "MS_PT_EHInside_Kitchen_Tupperware_Start" },
+            new CinematicObject { GUID = new Guid("df66fb9b-bc57-4b77-93a2-ca83b14e9ea2"), Name = "MS_PT_EHInside_Kitchen_CellPhoneLook" },
+            new CinematicObject { GUID = new Guid("b098adbf-57b7-4955-ba42-ee5215d646a8"), Name = "MS_PT_EHInside_Kitchen_CellPhone_Unlock_Start" },
+            new CinematicObject { GUID = new Guid("78eea985-5204-44ad-b51e-7bc93453c095"), Name = "MS_PT_EHInside_Kitchen_CellPhone_Play" },
+            new CinematicObject { GUID = new Guid("f9267b13-da82-4a90-a77b-321d4ac319bb"), Name = "MS_PT_EHInside_Kitchen_Fridge_MacNCheeseCook" },
+            new CinematicObject { GUID = new Guid("87ad8ea0-d94d-46e1-8e61-aa773ec63ae8"), Name = "MS_PT_EHInside_Kitchen_AluminiumFoil_Look" },
+            new CinematicObject { GUID = new Guid("dc8f5dc1-c7c5-49f3-81ed-b6c4ec41d3a4"), Name = "MS_PT_EHInside_Kitchen_AluminiumFoil_Take" },
+            new CinematicObject { GUID = new Guid("05b0df09-a130-479e-86d0-d1912f164d70"), Name = "MS_PT_EHInside_Kitchen_Sink_Look" },
+            new CinematicObject { GUID = new Guid("96f0ed35-ee06-4caa-a65a-57bb2ced8a58"), Name = "MS_PT_EHInside_Kitchen_Sink_Wash" },
+            new CinematicObject { GUID = new Guid("01af06e8-e35c-49dc-bedc-4ae7ee8e3e60"), Name = "MS_PT_EHInside_Kitchen_Fridge_Milk" },
+            new CinematicObject { GUID = new Guid("22b5e479-bc9c-4b3d-9d16-a1ed30a9d7f4"), Name = "MS_PT_EHInside_Kitchen_GarageKey_Take" },
+            new CinematicObject { GUID = new Guid("acbaec90-5472-41b9-8f8d-b6206b909e30"), Name = "MS_PT_EHInside_Bathroom_MakeUp_Look" },
+            new CinematicObject { GUID = new Guid("57c66187-c697-4ce7-a233-ba2200140c99"), Name = "MS_PT_EHInside_Bathroom_MakeUp_Apply" },
+            new CinematicObject { GUID = new Guid("2ca497c5-ae13-43c8-951a-50fa0de96355"), Name = "MS_PT_EHInside_LaundryRoom_Dadpaper_Find" },
+            new CinematicObject { GUID = new Guid("28a34549-4949-485a-ac7f-cb8aa1e62fad"), Name = "MS_PT_EHInside_CharlesRoom_Bed_Look" },
+            new CinematicObject { GUID = new Guid("2b083152-8155-4df0-a876-c8cf5f9e8c3d"), Name = "MS_PT_EHInside_CharlesRoom_Bed_LieDownStart" },
+            new CinematicObject { GUID = new Guid("a24df0b7-8689-414f-9364-483fdefe729a"), Name = "MS_PT_EHInside_CharlesRoom_Bed_NoMusicLoop" },
+            new CinematicObject { GUID = new Guid("83963907-2279-4cc5-bd08-e963d6161491"), Name = "MS_PT_EHInside_CharlesRoom_Bed_LieDownEnd" },
+            new CinematicObject { GUID = new Guid("b15b76d5-e5ed-4361-8e97-b57a394ac9ce"), Name = "MS_PT_EHInside_CharlesRoom_Wardrobe_Closed" },
+            new CinematicObject { GUID = new Guid("3e1f4e82-b284-43d7-baa7-718bb3be233f"), Name = "MS_PT_EHInside_CharlesRoom_Wardrobe_Close" },
+            new CinematicObject { GUID = new Guid("44bde91f-e090-4411-a2c2-2eeded0a69fc"), Name = "MS_PT_EHInside_CharlesRoom_Wardrobe_Open" },
+            new CinematicObject { GUID = new Guid("068319b8-d5b0-45c0-ae0d-cb9df7a53730"), Name = "MS_PT_EHInside_CharlesRoom_Wardrobe_ReOpen" },
+            new CinematicObject { GUID = new Guid("76411230-6c4b-48a3-bee2-e7b2e913d22d"), Name = "MS_PT_EHInside_CharlesRoom_LightArmor_Look" },
+            new CinematicObject { GUID = new Guid("f8e0fe0f-91a1-4ba1-ba7d-310fb8457549"), Name = "MS_PT_EHInside_CharlesRoom_LightArmor_Craft" },
+            new CinematicObject { GUID = new Guid("801c3ddf-dd3b-4335-bb34-908200e3b346"), Name = "MS_PT_EHInside_CharlesRoom_Door_Open" },
+            new CinematicObject { GUID = new Guid("afec88d3-c3c9-43f6-b764-b8eaa7d4589e"), Name = "MS_PT_EHInside_CharlesRoom_Door_Close" },
+            new CinematicObject { GUID = new Guid("c024a683-99a4-4d36-b98f-622bf4034c52"), Name = "MS_PT_EHInside_CharlesRoom_Console_Look" },
+            new CinematicObject { GUID = new Guid("a569ba0e-eb1c-40bf-8e25-e2e2ffd3aaeb"), Name = "MS_PT_EHInside_LaundryRoom_WashingMachine_Wash" },
+            new CinematicObject { GUID = new Guid("364ad457-8a7e-444b-b1e5-1848af3d9e4b"), Name = "MS_PT_EHInside_LaundryRoom_WashingMachine_Look" },
+            new CinematicObject { GUID = new Guid("df8c3319-dfca-4b51-b4bc-389f2074824b"), Name = "MS_PT_EHInside_LaundryRoom_WashingMachine_PutTrousers" },
+            new CinematicObject { GUID = new Guid("421de6af-becb-4112-ac27-06085170a301"), Name = "MS_PT_EHInside_CharlesRoom_Turntable_Look" },
+            new CinematicObject { GUID = new Guid("85bbaade-4232-4f9b-b29e-6ae5a681a4fc"), Name = "MS_PT_EHInside_CharlesRoom_Turntable_Play" },
+            new CinematicObject { GUID = new Guid("c636cc7e-5491-45fa-86ff-3b95b90ac6db"), Name = "MS_PT_EHInside_CharlesRoom_Turntable_Stop" },
+            new CinematicObject { GUID = new Guid("66c0be77-1410-4bbd-acff-156052e76b69"), Name = "MS_PT_EHInside_CharlesRoom_Trousers_Look" },
+            new CinematicObject { GUID = new Guid("8164014f-5e53-476a-bf8e-59aa66f9e908"), Name = "MS_PT_EHInside_CharlesRoom_Trousers_Take" },
+            new CinematicObject { GUID = new Guid("6a994cf0-5803-40de-8ac9-9f4a4a42e8f8"), Name = "MS_PT_EHInside_CharlesRoom_Cigarettes_Look" },
+            new CinematicObject { GUID = new Guid("ad86193a-8e7d-41bf-a753-f3b166dc47ab"), Name = "MS_PT_EHInside_CharlesRoom_Cigarettes_Steal" },
+            new CinematicObject { GUID = new Guid("a3b7bc1d-543b-464c-b2d5-a0433ca56743"), Name = "MS_PT_EHInside_CharlesRoom_WardrobeKey_Look" },
+            new CinematicObject { GUID = new Guid("1fff0b71-eedb-4d91-b157-3e8c3a9daf5a"), Name = "MS_PT_EHInside_CharlesRoom_WardrobeKey_Take" },
+            new CinematicObject { GUID = new Guid("e6348901-61fb-444a-afae-b444e870a248"), Name = "MS_PT_EHInside_LaundryRoom_DarkRoom_Look" },
+            new CinematicObject { GUID = new Guid("3141988c-6f9f-468b-a4fe-2ab9909d1f8e"), Name = "MS_PT_EHInside_LaundryRoom_DarkRoom_Enter" },
+            new CinematicObject { GUID = new Guid("63293a7a-385f-4523-ad0b-4600d368bc80"), Name = "MS_PT_EHInside_LaundryRoom_WaterHeater_Look" },
+            new CinematicObject { GUID = new Guid("3aa08a20-249c-4ee1-bb35-864c8d1bda3c"), Name = "MS_PT_EHInside_LaundryRoom_WaterHeater_TameIntro" },
+            new CinematicObject { GUID = new Guid("7d42bd2d-f994-432d-8f56-f98c02cedba5"), Name = "MS_PT_EHInside_LaundryRoom_WaterHeater_TameCameraSequence" },
+            new CinematicObject { GUID = new Guid("5468d071-f082-491e-8c89-7117739f508b"), Name = "MS_PT_EHInside_ChrisRoom_Letter_Look" },
+            new CinematicObject { GUID = new Guid("a8f37387-0727-4703-9af2-e4404c7939bd"), Name = "MS_PT_EHInside_ChrisRoom_Drawing_Look" },
+            new CinematicObject { GUID = new Guid("6d056f97-882b-41e1-a56e-d7a7d5c70170"), Name = "MS_PT_EHInside_ChrisRoom_Insertion" },
+            new CinematicObject { GUID = new Guid("76bf664c-26f7-4222-b5ed-031f21f1d393"), Name = "MS_PT_EHInside_ChrisRoom_Tattoo_Look" },
+            new CinematicObject { GUID = new Guid("25134fc0-6a26-4492-bc80-ba59bfea5d9e"), Name = "MS_PT_EHInside_ChrisRoom_Bag_Look" },
+            new CinematicObject { GUID = new Guid("32b44b79-c021-4213-ba6e-8cb633dbeebc"), Name = "MS_PT_EHInside_ChrisRoom_Vivarium_Look" },
+            new CinematicObject { GUID = new Guid("4b4a02c3-6879-41de-9f8b-05e11316c6a5"), Name = "MS_PT_EHInside_ChrisRoom_Trophy_Look" },
+            new CinematicObject { GUID = new Guid("1bdc58e5-2bfa-47fc-b469-817f1152d436"), Name = "MS_PT_EHInside_ChrisRoom_WalkieTalkie_Look" },
+            new CinematicObject { GUID = new Guid("1f70b007-1bc9-47d8-8c52-23178be327c3"), Name = "MS_PT_EHInside_ChrisRoom_Slippers_Look" },
+            new CinematicObject { GUID = new Guid("de120f23-9525-4e06-9ce3-155c41a5f323"), Name = "MS_PT_EHInside_ChrisRoom_AdventCalendar_Look" },
+            new CinematicObject { GUID = new Guid("88c33a83-d5df-4248-b55a-220c65fe670f"), Name = "MS_PT_EHInside_ChrisRoom_Console_Look" },
+            new CinematicObject { GUID = new Guid("c7daf646-e96f-4ca5-95ab-a5744fe445be"), Name = "MS_PT_EHInside_ChrisRoom_BasketBall_Look" },
+            new CinematicObject { GUID = new Guid("1ceb61a0-758e-48e4-9a01-4aec8c35384a"), Name = "MS_PT_EHInside_ChrisRoom_Remote_Look" },
+            new CinematicObject { GUID = new Guid("bdc05429-aea4-491d-9bcf-83f361e81555"), Name = "MS_PT_EHInside_ChrisRoom_Tattoo_Apply" },
+            new CinematicObject { GUID = new Guid("634f1002-f081-4397-8b74-825651856ab4"), Name = "MS_PT_EHInside_ChrisRoom_Chest_Look" },
+            new CinematicObject { GUID = new Guid("d6a448b0-c9df-488a-80f6-0ffbf9aa26ad"), Name = "MS_PT_EHInside_ChrisRoom_WalkieTalkie_ReportToBase" },
+            new CinematicObject { GUID = new Guid("a5e67eba-2fb4-49d6-b7bd-bd5e1ac7d7d0"), Name = "MS_PT_EHInside_ChrisRoom_Closet_Open" },
+            new CinematicObject { GUID = new Guid("fc4b998d-d18e-42f9-bd05-ca492d91d44b"), Name = "MS_PT_EHInside_ChrisRoom_Closet_Close" },
+            new CinematicObject { GUID = new Guid("249d70bd-c545-4a47-903f-a981a34c8c79"), Name = "MS_PT_EHInside_ChrisRoom_AdventCalendar_Eat" },
+            new CinematicObject { GUID = new Guid("26f45e9a-1c43-4efd-93e0-ddcbc433600f"), Name = "MS_PT_EHInside_ChrisRoom_Window_Look" },
+            new CinematicObject { GUID = new Guid("2f48a996-8907-4d7a-a804-8fe4384b1bd3"), Name = "MS_PT_EHInside_Kitchen_Fridge_Look" },
+            new CinematicObject { GUID = new Guid("a8e772f2-c5cd-4564-8315-4504796d1d2b"), Name = "MS_PT_EHInside_Kitchen_Fridge_Open" },
+            new CinematicObject { GUID = new Guid("746d4366-eca9-45f7-a371-b6959b04a553"), Name = "MS_PT_EHInside_LivingRoom_PostIt_Look" },
+            new CinematicObject { GUID = new Guid("e1709cd0-11c3-435b-92f8-1314c30e9be3"), Name = "MS_PT_EHInside_LivingRoom_Phone_Look" },
+            new CinematicObject { GUID = new Guid("cb63a867-ad97-4724-aa87-4c010b75cc50"), Name = "MS_PT_EHInside_LivingRoom_trophies_Look" },
+            new CinematicObject { GUID = new Guid("68aef567-ad11-4fdc-af0a-bde8e35b776d"), Name = "MS_PT_EHInside_Kitchen_GarageKey_Look" },
+            new CinematicObject { GUID = new Guid("b355f120-c59e-4606-9aaf-3e80dec98455"), Name = "MS_PT_EHInside_ChrisRoom_Remote_Power" },
+            new CinematicObject { GUID = new Guid("e9bd0f0a-ba15-4cd5-9317-e3e46819cb05"), Name = "MS_PT_EHInside_ChrisRoom_BasketBall_ThrowFail" },
+            new CinematicObject { GUID = new Guid("7d87cceb-0b30-4c4d-9833-95a7f38a7369"), Name = "MS_PT_EHInside_ChrisRoom_ArmyToys_Look" },
+            new CinematicObject { GUID = new Guid("a052b407-7d52-42b2-83cb-c386a9cb6b10"), Name = "SS_PT_EHInside_ChrisRoom_ActionFigurines_Play_01" },
+            new CinematicObject { GUID = new Guid("d21f1711-6985-4a32-913c-15962e6c3014"), Name = "MS_PT_EHInside_ChrisRoom_DVDs_Look" },
+            new CinematicObject { GUID = new Guid("c59ac4ef-20e9-408a-8452-5fd698d7d0da"), Name = "MS_PT_EHInside_Kitchen_Fridge_Close" },
+            new CinematicObject { GUID = new Guid("63f71079-68f3-49e2-81ba-859b5a22fe09"), Name = "MS_PT_EHInside_ChrisRoom_Plush_Look" },
+            new CinematicObject { GUID = new Guid("c891191e-89c7-4f42-9aab-197766e7f7e2"), Name = "MS_PT_EHInside_ChrisRoom_ComicBooks_Look" },
+            new CinematicObject { GUID = new Guid("3061cf02-6852-4f0b-9288-13e8d90423dc"), Name = "IGE_CharleCookingLoop" },
+            new CinematicObject { GUID = new Guid("0474e2ae-50bd-4107-a3b5-05698f6bd49e"), Name = "SS_PT_EHInside_ChrisRoom_WalkieTalkie_ReportToBase_01" },
+            new CinematicObject { GUID = new Guid("6152ea59-3d0e-4b80-97d2-2f3ceba3fbb1"), Name = "MS_PT_EHInside_ChrisRoom_MapPart2_Look" },
+            new CinematicObject { GUID = new Guid("79f492e9-a38d-4253-9f04-8fc6b7b3dd07"), Name = "SS_PT_EHInside_ChrisRoom_MapPart2_Take_01" },
+            new CinematicObject { GUID = new Guid("6a533df8-75b3-4faa-89c1-70a7d6dab393"), Name = "SS_PT_EHInside_ChrisRoom_Insertion_01" },
+            new CinematicObject { GUID = new Guid("9b72379f-0588-4d95-a54e-a11305aae461"), Name = "SS_PT_EHInside_ChrisRoom_Drawing_Finished_01" },
+            new CinematicObject { GUID = new Guid("7b6b6227-30ba-4b74-856f-02f28030f5bd"), Name = "SS_Sequences_SubScene_DialBreakfast2" },
+            new CinematicObject { GUID = new Guid("f78c057d-5184-4957-9e65-75c724381992"), Name = "SS_Sequences_SubScene_DialBreakfastCharlesOnly" },
+            new CinematicObject { GUID = new Guid("4c952f16-365b-4ea5-b581-fe2afd3b25e8"), Name = "SS_Sequences_SubScene_DialBreakfastChrisOnly" },
+            new CinematicObject { GUID = new Guid("344ddb97-a60b-4fd8-8a3e-ef88596bed6e"), Name = "SS_PT_EHInside_Kitchen_ReadyForMatch_01" },
+            new CinematicObject { GUID = new Guid("acc78625-01d2-4a23-980c-1fd1faff2e3c"), Name = "SS_PT_EHInside_Kitchen_ReadyForMatch_02" },
+            new CinematicObject { GUID = new Guid("dde77cac-a84b-436d-8c18-eeb7e470c40a"), Name = "SS_Sequences_SubScene_DialBreakfast" },
+            new CinematicObject { GUID = new Guid("2d9cd8b3-4c9f-4c06-89c6-006c0f2514c8"), Name = "SS_PT_EHInside_ChrisRoom_AdventCalendar_Eat_01" },
+            new CinematicObject { GUID = new Guid("f1820d23-4fa7-40b0-bd0f-468b3f12614a"), Name = "SS_PT_EHInside_ChrisRoom_MantroidCar_Play_01" },
+            new CinematicObject { GUID = new Guid("2c393949-5b25-48f4-88e6-90d357e757eb"), Name = "SS_PT_EHInside_ChrisRoom_MantroidCar_Power_01" },
+            new CinematicObject { GUID = new Guid("60e9a3da-da27-4696-92fa-57be85538799"), Name = "SS_PT_EHInside_ChrisRoom_Closet_Open_01" },
+            new CinematicObject { GUID = new Guid("7704a785-0eb8-45a6-9b70-5bca130222c4"), Name = "SS_PT_EHInside_ChrisRoom_Closet_Close_01" },
+            new CinematicObject { GUID = new Guid("de5e891f-71ef-40f0-9d6f-b6b5b45ba321"), Name = "SS_PT_EHInside_ChrisRoom_Tattoo_01" },
+            new CinematicObject { GUID = new Guid("73fa278d-dfb6-4085-a2f3-33b17a72f70a"), Name = "SS_PT_EHInside_ChrisRoom_Remote_Power_01" },
+            new CinematicObject { GUID = new Guid("0ffbb771-63f2-4f3b-b05b-6d837ee5cbe5"), Name = "IGE_EHInside_LivingRoom_CharlesFall" },
+            new CinematicObject { GUID = new Guid("800990ee-ef02-4f21-9bcb-dd4148083c5d"), Name = "IGE_EHInside_LivingRoom_CharlesFallLoop" },
+            new CinematicObject { GUID = new Guid("5e3a1502-661f-46b9-8b26-5b314b2c0545"), Name = "MatchSequence" },
+            new CinematicObject { GUID = new Guid("a672a6b7-df6c-417c-abbb-6abbb0c42b2f"), Name = "MS_PT_EHInside_CharlesRoom_Lamp_Look" },
+            new CinematicObject { GUID = new Guid("1ab4cd4d-8eca-4040-893e-cb9fcb3a9e1f"), Name = "MS_PT_EHInside_CharlesRoom_Chair_Use" },
+            new CinematicObject { GUID = new Guid("93805cbb-f0f8-4621-b340-f8cdb3cf76c3"), Name = "MS_PT_EHInside_CharlesRoom_Lamp_Fix" },
+            new CinematicObject { GUID = new Guid("11dd0180-5954-4b10-ac4c-23f9e08f9843"), Name = "MS_PT_EHInside_LaundryRoom_DirtyLaundry_PutClothes" },
+            new CinematicObject { GUID = new Guid("c7ca46c3-5fd6-41fa-ad29-fdac8bfe25e6"), Name = "MS_PT_EHInside_ChrisRoom_BasketBall_ThrowSuccess" },
+            new CinematicObject { GUID = new Guid("ab65e691-d309-48bf-a27c-178c36ab3dd9"), Name = "MS_PT_EHInside_Bathroom_WaterFaucet_Use" },
+            new CinematicObject { GUID = new Guid("bd53ef22-2e4a-49c9-9298-28bb5f29b6b2"), Name = "MS_PT_EHInside_Kitchen_CellPhone_Unlock_Fail" },
+            new CinematicObject { GUID = new Guid("2f7a9b39-25dd-48ce-823d-a8a7883c9e3f"), Name = "SS_PT_EHInside_Kitchen_BeerCans_Trash" },
+            new CinematicObject { GUID = new Guid("445ad172-d65c-4834-a84d-06be868c1d23"), Name = "SS_PT_EHInside_Kitchen_GroceryList_AddCandy_01" },
+            new CinematicObject { GUID = new Guid("f0a7bce1-109e-4aeb-9dbe-e083f7b9e27a"), Name = "MS_PT_EHInside_CharlesRoom_Chair_UseFinished" },
+            new CinematicObject { GUID = new Guid("01570153-d74f-4824-8e03-607c105d6962"), Name = "MS_PT_EHInside_CharlesRoom_SecretBox_Look" },
+            new CinematicObject { GUID = new Guid("bf7129b9-6164-4e47-a709-d0a70dc5979c"), Name = "DS_PT_EHInside_Kitchen_DialClaire_HadAParty" },
+            new CinematicObject { GUID = new Guid("32f2ebfc-a7a1-48d1-babb-c031b38418a6"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Start_PhoneCalled" },
+            new CinematicObject { GUID = new Guid("6e25bf27-7593-4fae-a35e-65633b838052"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Start_Normal" },
+            new CinematicObject { GUID = new Guid("2e1c8cf9-bacf-4418-b085-adfeaaef6e9c"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Start_RecycleBin" },
+            new CinematicObject { GUID = new Guid("dbd016f0-e4c3-467b-b6ff-5e05c553fea2"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Start_Costume" },
+            new CinematicObject { GUID = new Guid("ffb6b9cb-4d09-4680-b423-74e9b7176bc3"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Smoking" },
+            new CinematicObject { GUID = new Guid("6e63dbec-6996-446a-b4bd-895941dfa6dc"), Name = "DS_PT_EHInside_Kitchen_DialClaire_BeforeChoice01" },
+            new CinematicObject { GUID = new Guid("c8c2b0f1-1926-47b4-afd8-cbfd337c75a9"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Videogame" },
+            new CinematicObject { GUID = new Guid("a6376b7e-0095-4593-9b0b-be1160333fcf"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Homework" },
+            new CinematicObject { GUID = new Guid("8d0f61c3-b5f9-4ab1-9fdf-281970495248"), Name = "DS_PT_EHInside_Kitchen_DialClaire_HouseCleaning" },
+            new CinematicObject { GUID = new Guid("0806ac20-0b2a-4387-a5ed-e98449b0f7a5"), Name = "DS_PT_EHInside_Kitchen_DialClaire_SnowCleared_03" },
+            new CinematicObject { GUID = new Guid("835e9b62-45c8-46e7-89fa-1b8f03636217"), Name = "DS_PT_EHInside_Kitchen_DialClaire_LaundryDay_01" },
+            new CinematicObject { GUID = new Guid("ff13292e-d1cd-49f4-9385-d157e9491f69"), Name = "DS_PT_EHInside_Kitchen_DialClaire_LaundryDay_02" },
+            new CinematicObject { GUID = new Guid("e791982d-6775-4a9a-9907-5a4dba188152"), Name = "DS_PT_EHInside_Kitchen_DialClaire_RecycleBin_01" },
+            new CinematicObject { GUID = new Guid("cd40c529-751b-4561-9b76-65e5144e9694"), Name = "DS_PT_EHInside_Kitchen_DialClaire_SnowCleared_01" },
+            new CinematicObject { GUID = new Guid("a181a4b0-a9f3-43d2-9c05-23a7b4eedb84"), Name = "DS_PT_EHInside_Kitchen_DialClaire_SnowCleared_02" },
+            new CinematicObject { GUID = new Guid("6c7463a7-661e-4f50-ad0a-b4d6598915fd"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DidntLeaveHouse" },
+            new CinematicObject { GUID = new Guid("cf1c25e3-f9ab-493c-a71b-b9c0b31efb44"), Name = "DS_PT_EHInside_Kitchen_DialClaire_LeftHouse" },
+            new CinematicObject { GUID = new Guid("0e484097-c752-42a9-a6a0-d030221e04e0"), Name = "DS_PT_EHInside_Kitchen_DialClaire_HeadExplosion" },
+            new CinematicObject { GUID = new Guid("022265f7-74af-4358-973a-5de7b016b992"), Name = "DS_PT_EHInside_Kitchen_DialClaire_HeardNoise" },
+            new CinematicObject { GUID = new Guid("3217bcd0-9995-4a63-9229-635847e317be"), Name = "DS_PT_EHInside_Kitchen_DialClaire_NoHear" },
+            new CinematicObject { GUID = new Guid("1d31d288-cb6f-4c1f-b971-744424c7eb80"), Name = "DS_PT_EHInside_Kitchen_DialClaire_TreeAccident" },
+            new CinematicObject { GUID = new Guid("7483cc70-b2d9-48e0-affc-11e923210606"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DadFell_01" },
+            new CinematicObject { GUID = new Guid("007a9f7d-5d99-497b-b15a-ef3a40bd74d9"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DadFell_02" },
+            new CinematicObject { GUID = new Guid("f12c7efd-f5e1-4efc-8913-c9f28eb6a71c"), Name = "DS_PT_EHInside_Kitchen_DialClaire_RecycleBin_02" },
+            new CinematicObject { GUID = new Guid("96a675eb-630f-4cb8-b3b3-6ec781c1eb17"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Ending_Distrust" },
+            new CinematicObject { GUID = new Guid("27c0e960-3425-457b-b9e1-b5304b89f89e"), Name = "DS_PT_EHInside_Kitchen_DialClaire_TodayPlan" },
+            new CinematicObject { GUID = new Guid("cb517fc6-997f-443b-aae3-5b3fe3348f09"), Name = "DS_PT_EHInside_Kitchen_DialClaire_SpottedBruises" },
+            new CinematicObject { GUID = new Guid("16f5f0ff-de47-49b1-ba11-8a95758d38e8"), Name = "DS_PT_EHInside_Kitchen_DialClaire_BuyingTree" },
+            new CinematicObject { GUID = new Guid("fcad2053-26ed-4b58-aaf2-4f9b282f6419"), Name = "DS_PT_EHInside_Kitchen_DialClaire_FixingTreeHouse" },
+            new CinematicObject { GUID = new Guid("65e3aa76-4e24-4080-9d58-572923c990af"), Name = "DS_PT_EHInside_Kitchen_DialClaire_TreeAccidentLying_01" },
+            new CinematicObject { GUID = new Guid("ee1d3976-582a-4d0f-8214-eef0da0069de"), Name = "DS_PT_EHInside_Kitchen_DialClaire_TreeDecoration" },
+            new CinematicObject { GUID = new Guid("b3c1ce74-b911-422b-b920-f8a3c298bd11"), Name = "DS_PT_EHInside_Kitchen_DialClaire_TreeAccidentLying_02" },
+            new CinematicObject { GUID = new Guid("1f83808e-e7df-4adb-83b1-bbee8bc17e00"), Name = "DS_PT_EHInside_Kitchen_DialClaire_SameTeam" },
+            new CinematicObject { GUID = new Guid("a3b452b7-d380-4e5d-ab53-1e74cf3753f6"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DadBusy" },
+            new CinematicObject { GUID = new Guid("f5174a54-42ed-4c7c-b017-68101c40310f"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DadNoHandyman" },
+            new CinematicObject { GUID = new Guid("829c41bf-3086-451d-8d55-4bf3d4488002"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DadExcused" },
+            new CinematicObject { GUID = new Guid("c875b73f-2699-41ad-840c-214413a857b4"), Name = "DS_PT_EHInside_Kitchen_DialClaire_BeforeEnding" },
+            new CinematicObject { GUID = new Guid("c0d786bf-c806-4244-a70f-2e9c21c5dd2b"), Name = "DS_PT_EHInside_Kitchen_DialClaire_GoofingWithFriends_01" },
+            new CinematicObject { GUID = new Guid("168cceb3-7054-479a-bef5-93b081946910"), Name = "DS_PT_EHInside_Kitchen_DialClaire_FellDownTheStairs_01" },
+            new CinematicObject { GUID = new Guid("bc3d8885-e4cb-4ff6-848f-a46fd5d51817"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DadDidIt_01" },
+            new CinematicObject { GUID = new Guid("18832b8b-863e-46ae-b02a-d073c94010ce"), Name = "DS_PT_EHInside_Kitchen_DialClaire_FellDownTheStairs_02" },
+            new CinematicObject { GUID = new Guid("a735579a-10d6-4ef5-9b51-be1ad5c62f7f"), Name = "DS_PT_EHInside_Kitchen_DialClaire_SpottedLiar" },
+            new CinematicObject { GUID = new Guid("e3c92537-bcf9-401f-b40e-b26fd862a1c6"), Name = "DS_PT_EHInside_Kitchen_DialClaire_DadDidIt_02" },
+            new CinematicObject { GUID = new Guid("7d61c41b-cdb9-4f8c-bdd7-df9b051c625b"), Name = "DS_PT_EHInside_Kitchen_DialClaire_GoofingWithFriends_02" },
+            new CinematicObject { GUID = new Guid("8460c36e-691e-483a-ba1d-64782c998e6b"), Name = "DS_PT_EHInside_Kitchen_DialClaire_SeeYouLater" },
+            new CinematicObject { GUID = new Guid("03db2337-6d3c-4174-a513-d555e31577eb"), Name = "DS_PT_EHInside_Kitchen_DialClaire_RecycleBin_03" },
+            new CinematicObject { GUID = new Guid("21a5bf97-e8d2-4e8e-b308-94710f60fb11"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Ending_Believe" },
+            new CinematicObject { GUID = new Guid("ab5b8052-8301-4773-8620-310357c9c5db"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Ending_Doubt" },
+            new CinematicObject { GUID = new Guid("4714521d-1c5a-43fa-86b9-084da6ce1a15"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Ending_End" },
+            new CinematicObject { GUID = new Guid("bc121506-74d3-43f5-980c-605fc8010eac"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Loop_Choice01" },
+            new CinematicObject { GUID = new Guid("5ea0154a-2ec9-4262-a6ba-eca9a8a605e1"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Loop_Choice02" },
+            new CinematicObject { GUID = new Guid("790a6a58-adc5-430c-a9dd-063b0ba15a2b"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Loop_Choice03" },
+            new CinematicObject { GUID = new Guid("5e1e3011-60cb-46c8-8646-d476c6e1b29d"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Loop_Choice05" },
+            new CinematicObject { GUID = new Guid("248b5351-a90f-4fd2-9b59-bd83fe6e9ca8"), Name = "MS_PT_EHInside_CharlesRoom_BaseballBat_Look" },
+            new CinematicObject { GUID = new Guid("f2393873-176e-4133-aeab-f8a99c1bf23d"), Name = "MS_PT_EHInside_CharlesRoom_FistMark_Look" },
+            new CinematicObject { GUID = new Guid("0115a5af-8de7-407b-94e7-5d836d70428a"), Name = "LS_PT_EHInside_CharlesRoom_Lamp_SwitchOn" },
+            new CinematicObject { GUID = new Guid("3f7d1356-1c21-4231-9e17-7a40ca6e5efd"), Name = "LS_PT_EHInside_CharlesRoom_Lamp_SwitchOff" },
+            new CinematicObject { GUID = new Guid("143e0817-a935-455a-902c-e6b179b01350"), Name = "MS_PT_EHInside_Bathroom_Razor_Look" },
+            new CinematicObject { GUID = new Guid("ea79e583-834c-4338-8e49-cea935f7dab4"), Name = "MS_PT_EHInside_LaundryRoom_XmasDecorations_Look" },
+            new CinematicObject { GUID = new Guid("882c6103-8365-4b58-a475-104da66ea193"), Name = "MS_PT_EHInside_LaundryRoom_DirtyLaundry_Look" },
+            new CinematicObject { GUID = new Guid("e3e43a62-131e-4dff-9830-f1f05f00963b"), Name = "MS_PT_EHInside_Kitchen_KitchenDoor_Open" },
+            new CinematicObject { GUID = new Guid("dda66271-c8d9-4996-96c3-bbd5cddc70c2"), Name = "MS_PT_EHInside_LivingRoom_StatBook_Look" },
+            new CinematicObject { GUID = new Guid("4bbf9d89-a353-4185-a761-7d8a4f57d535"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_Start_Normal" },
+            new CinematicObject { GUID = new Guid("ea53f3d7-370c-4947-bbc4-922d7b7f1877"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_SportHeroes" },
+            new CinematicObject { GUID = new Guid("ce17b18a-c5f0-4560-9d5d-30ed839a50bd"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_BasketBallRules" },
+            new CinematicObject { GUID = new Guid("fce4d729-967d-4bb6-96a2-dfe428fe629f"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_PineTree" },
+            new CinematicObject { GUID = new Guid("5c0b7dd5-b2be-42e7-b1cd-7b96a3be3a37"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_Mom" },
+            new CinematicObject { GUID = new Guid("9a4270d3-9acf-465c-8743-a72b3f2d977e"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_Playbox" },
+            new CinematicObject { GUID = new Guid("500787f8-8870-4f2c-84fe-0257aebf0238"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_Start_Fast" },
+            new CinematicObject { GUID = new Guid("7dee983b-4e93-4844-b847-4f2161d372b2"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_End_Normal" },
+            new CinematicObject { GUID = new Guid("e43f0783-aa8a-4d9b-8a78-3001e15555d4"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_End_Fast" },
+            new CinematicObject { GUID = new Guid("6f287dfe-0409-42f2-99e8-7fbb339b2116"), Name = "DS_PT_EHInside_LivingRoom_HalfTime_Loop_Choice01" },
+            new CinematicObject { GUID = new Guid("cf1ca4ba-b87f-4dac-9496-a7d3e9c49136"), Name = "SS_PT_EHInside_LivingRoom_HalfTime_01" },
+            new CinematicObject { GUID = new Guid("42489182-d66f-41dc-a8a2-670f36e56c9a"), Name = "MS_PT_EHInside_CharlesRoom_HeightGauge_Look" },
+            new CinematicObject { GUID = new Guid("b9ecb927-fab9-4c57-a227-93c7386c60c3"), Name = "MS_PT_EHInside_CharlesRoom_Basketball_Look" },
+            new CinematicObject { GUID = new Guid("54020a18-2c0b-4e64-ad06-b2a36d8f61fe"), Name = "MS_PT_EHInside_CharlesRoom_SecretBox_LookBeforeChair" },
+            new CinematicObject { GUID = new Guid("85415b85-1d58-488f-8e2a-7a005a646635"), Name = "MS_PT_EHInside_CharlesRoom_Perfume_Look" },
+            new CinematicObject { GUID = new Guid("380ae164-2fc5-4343-b033-b15100f5710d"), Name = "MS_PT_EHInside_LaundryRoom_GlowingStickers_Look" },
+            new CinematicObject { GUID = new Guid("db2279a8-182c-4c81-9964-010ea3b07c60"), Name = "MS_PT_EHInside_Bathroom_WaterFaucet_Look" },
+            new CinematicObject { GUID = new Guid("851a989c-6545-4382-810c-8f8250b9d2b8"), Name = "MS_PT_EHInside_Bathroom_ToiletStickers_Look" },
+            new CinematicObject { GUID = new Guid("2c484fba-49d5-4d51-ab10-1e7a40ceafe1"), Name = "Container_DS_PT_EHInside_Bathroom_Mirror_Dial" },
+            new CinematicObject { GUID = new Guid("0019b897-eb65-4d3c-954b-af8f239a9929"), Name = "DS_PT_EHInside_Bathroom_Mirror_DialEnd" },
+            new CinematicObject { GUID = new Guid("d787fd3a-7805-43a9-a233-366c84ca2f92"), Name = "DS_PT_EHInside_Bathroom_Mirror_DialStart" },
+            new CinematicObject { GUID = new Guid("68f9e6d8-55d9-47cf-b8d1-9f5dfbb59be6"), Name = "DS_PT_EHInside_Bathroom_Mirror_Forgive" },
+            new CinematicObject { GUID = new Guid("2d005e10-9655-441e-a765-4c51c74ac098"), Name = "DS_PT_EHInside_Bathroom_Mirror_ImTheHero" },
+            new CinematicObject { GUID = new Guid("f26f1c85-e965-4e69-a45c-b1734353964c"), Name = "DS_PT_EHInside_Bathroom_Mirror_LoopChoice01" },
+            new CinematicObject { GUID = new Guid("d46b8660-1d9a-400b-b85e-b7a71d165d6a"), Name = "DS_PT_EHInside_Bathroom_Mirror_LoopChoice02" },
+            new CinematicObject { GUID = new Guid("00e357dd-ba5c-42d8-be48-669c931c2840"), Name = "DS_PT_EHInside_Bathroom_Mirror_MantroidBully" },
+            new CinematicObject { GUID = new Guid("833d2678-eef8-4db1-8f87-341bef510ecb"), Name = "DS_PT_EHInside_Bathroom_Mirror_MantroidGone" },
+            new CinematicObject { GUID = new Guid("771ddb11-9648-483f-9ebe-9b6a76e93cbb"), Name = "DS_PT_EHInside_Bathroom_Mirror_MyParents" },
+            new CinematicObject { GUID = new Guid("4325ece2-5dec-4656-b6dd-9f59e1b84943"), Name = "DS_PT_EHInside_Bathroom_Mirror_SuperVillainsTeam" },
+            new CinematicObject { GUID = new Guid("d8783515-7fdc-488e-9299-c150df1ef295"), Name = "DS_PT_EHInside_Bathroom_Mirror_ThatsMyJob" },
+            new CinematicObject { GUID = new Guid("41591e59-ab28-467c-b0b2-5c2986a99449"), Name = "DS_PT_EHInside_Bathroom_Mirror_Threaten" },
+            new CinematicObject { GUID = new Guid("69920c79-105b-46a1-9c70-b1d7b1f8d76f"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Loop_Choice04" },
+            new CinematicObject { GUID = new Guid("2ef136b2-f227-4bd1-97b6-71b433280a91"), Name = "MS_PT_EHInside_Bathroom_Submarine_Look" },
+            new CinematicObject { GUID = new Guid("82168a58-15f5-4b62-86f5-800013417245"), Name = "MS_PT_EHInside_ChrisRoom_FirecrackerBox_Look" },
+            new CinematicObject { GUID = new Guid("9d9662ec-45d2-4a02-9911-dcd097ac9158"), Name = "MS_PT_EHInside_Kitchen_Sink_LookAfterWash" },
+            new CinematicObject { GUID = new Guid("5dcecf2e-3979-4426-a0a6-7a0007456bd5"), Name = "MatchSequence_WithAnim" },
+            new CinematicObject { GUID = new Guid("ff82a521-e4a9-45c4-9c15-9f24c898abe1"), Name = "DS_PT_EHInside_Kitchen_DialClaire_Ending_End_2" },
+            new CinematicObject { GUID = new Guid("52347391-c86b-4be8-9e22-3d7fc0a963d3"), Name = "MS_PT_EHOutside_TreeHouse_IGE_Sit" },
+            new CinematicObject { GUID = new Guid("dbdb395f-933f-4995-a5a0-3f5ace5b15d6"), Name = "MS_PT_EHOutside_Garden_Ending" },
+            new CinematicObject { GUID = new Guid("d4403d45-6a97-4184-b956-7cb711f3a66e"), Name = "MS_PT_EHOutside_Garden_Golem_Loop" },
+            new CinematicObject { GUID = new Guid("f1a8724a-65cf-497b-9666-3ba9ff5f4e44"), Name = "MS_PT_EHOutside_Garden_Golem_GoLeft" },
+            new CinematicObject { GUID = new Guid("84430dd0-fe38-4dbd-ae34-cbb0fc35af16"), Name = "MS_PT_EHOutside_Garden_Golem_GoRight" },
+            new CinematicObject { GUID = new Guid("675b75b7-6d8b-4c57-ae7e-2e0b025a7a92"), Name = "MS_PT_EHOutside_Garden_Golem_Enter" },
+            new CinematicObject { GUID = new Guid("8debd038-1a97-4a5b-87af-f09b22eb8f2d"), Name = "MS_PT_EHOutside_Garden_Golem_Exit" },
+            new CinematicObject { GUID = new Guid("8bf8e1ed-a814-4bdb-9cbd-6e49bcd69f42"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_Powerdrive" },
+            new CinematicObject { GUID = new Guid("479c625f-ed16-481d-8763-e625d0da1516"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetArrival" },
+            new CinematicObject { GUID = new Guid("49148647-0834-49db-b493-6ffad2f2b57f"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetReturn" },
+            new CinematicObject { GUID = new Guid("a7f7079c-c7ff-48d3-a817-f84f007500e8"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetFaint" },
+            new CinematicObject { GUID = new Guid("414392c1-8e2d-4a52-948a-9d2796e11cf9"), Name = "MS_PT_EHOutside_Garden_Range_GetInPosition" },
+            new CinematicObject { GUID = new Guid("64e9d23a-3bc9-40a5-a65c-a90733cd3e0c"), Name = "MS_PT_EHOutside_Garage_SprayPaint_Use" },
+            new CinematicObject { GUID = new Guid("94b1abec-ef73-4d5f-bffe-d642d7dce4ba"), Name = "MS_PT_EHOutside_Garden_Golem_EnterFast" },
+            new CinematicObject { GUID = new Guid("fc58518a-be0c-4a45-9b85-877c50c79768"), Name = "IGE_EHOutside_TreeHouse_Hatch_Open" },
+            new CinematicObject { GUID = new Guid("f5238f38-ada1-4c36-b7ba-89f5a95a05cd"), Name = "MS_PT_EHOutside_TreeHouse_SecretHatch_Open" },
+            new CinematicObject { GUID = new Guid("fb586829-7056-4ed7-8861-be92969fe976"), Name = "MS_PT_EHOutside_TreeHouse_SecretHatch_Close" },
+            new CinematicObject { GUID = new Guid("8d481ff2-5736-4d2e-a0d7-edf1c2b5d936"), Name = "MS_PT_EHOutside_Garden_Range_Success" },
+            new CinematicObject { GUID = new Guid("824d7aa9-fdcf-4116-8333-c6f31128ddb6"), Name = "MS_PT_EHOutside_Garden_Range_CleanUp" },
+            new CinematicObject { GUID = new Guid("a552b84b-3aae-4e64-bf4a-3b3ea52b6c17"), Name = "MS_PT_EHOutside_Garden_Range_Failed" },
+            new CinematicObject { GUID = new Guid("16ad54e2-1017-4285-86a2-c16d648dfc8a"), Name = "MS_PT_EHOutside_Garden_Range_GetInPositionFast" },
+            new CinematicObject { GUID = new Guid("854d8cce-bb1a-48ed-8b3f-27d45cb61885"), Name = "MS_PT_EHOutside_TreeHouse_Cigarette_Smoke" },
+            new CinematicObject { GUID = new Guid("15ab58bb-6bb7-45c1-ad57-c867e3fa0a1b"), Name = "MS_PT_EHOutside_Garage_Locker_OpenFirstTime" },
+            new CinematicObject { GUID = new Guid("40dfd358-6362-4622-91b7-3776d9e7f283"), Name = "MS_PT_EHOutside_TreeHouse_ZenLoopInfinit" },
+            new CinematicObject { GUID = new Guid("9cee6d9a-32c2-46b7-bd7d-36f832a4d373"), Name = "MS_PT_EHOutside_TreeHouse_ZenEndUp" },
+            new CinematicObject { GUID = new Guid("a63d91e7-59d7-4723-80bb-7a92b4e4065b"), Name = "MS_PT_EHOutside_TreeHouse_ZenEnd" },
+            new CinematicObject { GUID = new Guid("e91b3ecc-427e-442d-99f4-f0f66c12a12e"), Name = "MS_PT_EHOutside_Garden_Golem_End2" },
+            new CinematicObject { GUID = new Guid("26d4bb64-7783-42fc-9a99-3cfb2a471b8c"), Name = "MS_PT_EHOutside_TreeHouse_Skypirate_Check" },
+            new CinematicObject { GUID = new Guid("227f6018-5e1f-4bde-94ef-15a1ccfc996b"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetCrossroadTestMash_Success" },
+            new CinematicObject { GUID = new Guid("b7fb4305-4be9-43f2-8bb4-76c62dce2dc9"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetCrossroadEndFail" },
+            new CinematicObject { GUID = new Guid("84765d8c-06cd-4194-b737-9dcd74c0711f"), Name = "IGE_EHOutside_Garage_LightOn" },
+            new CinematicObject { GUID = new Guid("351d7c81-ebd9-45f4-b083-ead2b66eefd5"), Name = "IGE_EHOutside_Garage_LightOff" },
+            new CinematicObject { GUID = new Guid("008e9bbf-a0cb-4930-baca-2a6aa58366a7"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetCrossroadIntro" },
+            new CinematicObject { GUID = new Guid("d84c59b0-e9c8-47d1-bd0d-0a9ae2ddeb62"), Name = "RaccoonIdle" },
+            new CinematicObject { GUID = new Guid("d39b869c-8517-4625-88d3-d9c5f1f07627"), Name = "MS_PT_EHOutside_Garage_Locker_QuitPadlock" },
+            new CinematicObject { GUID = new Guid("9c5aa97f-cba6-4826-bcce-365277c4d384"), Name = "MS_PT_EHOutside_Garage_BeerCardboard_Look" },
+            new CinematicObject { GUID = new Guid("f4e5ee7f-ec09-4b85-b714-4930df161435"), Name = "MS_PT_EHOutside_Garage_BeerCardboard_Take" },
+            new CinematicObject { GUID = new Guid("c446fdf9-0e6b-4343-bed0-c06d1fd6d992"), Name = "MS_PT_EHOutside_Garage_CombinationLock_Look" },
+            new CinematicObject { GUID = new Guid("19ab3b9a-4307-40a6-b3b8-55ea99121f14"), Name = "MS_PT_EHOutside_Garage_SprayPaint_Look" },
+            new CinematicObject { GUID = new Guid("f6c22947-a255-4462-b84f-04e2f5423732"), Name = "MS_PT_EHOutside_TreeHouse_Cigarette_Look" },
+            new CinematicObject { GUID = new Guid("6fe9d669-127d-488d-af31-f89e0d0bab4f"), Name = "MS_PT_EHOutside_TreeHouse_ZenLoopScream" },
+            new CinematicObject { GUID = new Guid("eb3deb4f-c961-4dc1-a002-f3afb1f048c4"), Name = "MS_PT_EHOutside_Garage_SideDoor_EnterFail" },
+            new CinematicObject { GUID = new Guid("69e75b71-e269-41e8-a4a3-bfd80d13abb9"), Name = "MS_PT_EHOutside_Garage_SideDoor_Leave" },
+            new CinematicObject { GUID = new Guid("f609e773-a4e7-4281-8b64-521f185f0b65"), Name = "MS_PT_EHOutside_Garage_SideDoor_Enter" },
+            new CinematicObject { GUID = new Guid("4b52a302-2c48-49d3-9fe0-b7ad1a28bc25"), Name = "MS_PT_EHOutside_Garage_SideDoor_EnterFirstTime" },
+            new CinematicObject { GUID = new Guid("d265a1e8-cfa5-498c-812b-f43d2f0dcef8"), Name = "MS_PT_EHOutside_TreeHouse_Ladder_Descend" },
+            new CinematicObject { GUID = new Guid("f8970385-c538-47de-ba12-815a1865480b"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_Look" },
+            new CinematicObject { GUID = new Guid("f28fbc32-5822-4a62-8337-7adce9089b92"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_Inspect" },
+            new CinematicObject { GUID = new Guid("7b43df8a-14d1-4c69-a957-d1d4cbe65c8e"), Name = "MS_PT_EHOutside_TreeHouse_ZenStart" },
+            new CinematicObject { GUID = new Guid("3d7dceb4-a548-48f3-a488-459cb3e58673"), Name = "MS_PT_EHOutside_Garden_Snowman_Look" },
+            new CinematicObject { GUID = new Guid("f0d55436-5677-458a-a061-cc38676381ca"), Name = "MS_PT_EHOutside_Garden_Snowman_Tune" },
+            new CinematicObject { GUID = new Guid("a9c02749-b758-4854-94bb-527121573f8d"), Name = "MS_PT_EHOutside_Garden_Snowman_LookDestroyed" },
+            new CinematicObject { GUID = new Guid("29284bc0-ebab-4c04-9dc3-0282289c7c58"), Name = "MS_PT_EHOutside_Garden_Snowman_BlowUp" },
+            new CinematicObject { GUID = new Guid("04be2f69-f1ad-44a5-b5ea-b9dc61c00fd4"), Name = "MS_PT_EHOutside_Garden_Snowman_Joke" },
+            new CinematicObject { GUID = new Guid("084d19e9-5f2a-450b-a41b-d462bfc8b1ef"), Name = "MS_PT_EHOutside_Garden_RecycleBin_Look" },
+            new CinematicObject { GUID = new Guid("6c2e9755-4aab-40ed-8335-51f713008293"), Name = "MS_PT_EHOutside_Garden_RecycleBin_SetupRange" },
+            new CinematicObject { GUID = new Guid("0fcec62e-f716-4e72-bb57-d2ba9854988e"), Name = "MS_PT_EHOutside_Garden_RecycleBin_SetupRangeFast" },
+            new CinematicObject { GUID = new Guid("353d27ac-9241-4fd5-865c-f2fd5d2cd338"), Name = "MS_PT_EHOutside_Garage_Locker_Close" },
+            new CinematicObject { GUID = new Guid("b680acfe-5dc3-4efc-8760-13e35ee1a3d4"), Name = "MS_PT_EHOutside_Garage_Locker_Open" },
+            new CinematicObject { GUID = new Guid("334e2de6-b9a5-4b83-beea-e957da927b60"), Name = "MS_PT_EHOutside_TreeHouse_Ladder_Look" },
+            new CinematicObject { GUID = new Guid("4c28e977-959b-42fd-8da2-9e27da3f4cec"), Name = "MS_PT_EHOutside_TreeHouse_Ladder_Ascend" },
+            new CinematicObject { GUID = new Guid("b0160e1c-fe83-42e9-8c51-56e871e02833"), Name = "MS_PT_EHOutside_TreeHouse_SecretHatch_Look" },
+            new CinematicObject { GUID = new Guid("876e3e4a-0018-451c-8279-91490d13bee9"), Name = "MS_PT_EHOutside_Garden_Golem_Look" },
+            new CinematicObject { GUID = new Guid("f886d9a0-5a50-40e4-afff-6d39f09ab477"), Name = "MS_PT_EHOutside_Garage_Firecracker_Look" },
+            new CinematicObject { GUID = new Guid("288dce4c-71b6-4fa4-aa71-4341eef9e1fe"), Name = "MS_PT_EHOutside_Garage_Firecracker_Take" },
+            new CinematicObject { GUID = new Guid("6c7f663c-e14e-4833-b684-a7aca7ef86a9"), Name = "MS_PT_EHOutside_TreeHouse_Skypirate_Look" },
+            new CinematicObject { GUID = new Guid("4b104d0a-e9cb-4498-815e-491d0a654bc8"), Name = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetCrossroadTestMash" },
+            new CinematicObject { GUID = new Guid("1abd3728-60d7-4d02-bc90-d52b8bda5a96"), Name = "MS_PT_EHOutside_Garden_Golem_CrawlingGP" },
+            new CinematicObject { GUID = new Guid("04da1d48-19d6-481d-abf2-9835cf8c5f66"), Name = "IGE_EHOutside_Garage_Locker_Open" },
+            new CinematicObject { GUID = new Guid("9a4b64db-c362-4466-89a7-5a789ecf013b"), Name = "MS_PT_EHOutside_Garden_Mailbox_Look" },
+            new CinematicObject { GUID = new Guid("733e6207-63ef-46d0-bb39-0d960285910e"), Name = "MS_PT_EHOutside_Garden_Mailbox_Open" },
+            new CinematicObject { GUID = new Guid("c83cc566-607d-45af-8baf-5a0e8a1fa04a"), Name = "MS_PT_EHOutside_Garden_Range_Look" },
+            new CinematicObject { GUID = new Guid("dc9188ca-98be-4076-8445-4e2ca15b34ea"), Name = "MS_PT_EHOutside_Garden_Shovel_Look" },
+            new CinematicObject { GUID = new Guid("1544c246-c08d-4062-adf8-6d383d441744"), Name = "MS_PT_EHOutside_Garden_Shovel_ClearSnow" },
+            new CinematicObject { GUID = new Guid("2308f8bc-33af-4df2-93f9-36a5c557bc08"), Name = "MS_PT_EHOutside_Garage_Hatch_Look" },
+            new CinematicObject { GUID = new Guid("205d06a3-ab4a-4b3d-8cdb-c5865fcf930a"), Name = "MS_PT_EHOutside_Garage_MainDoor_OpenClose" },
+            new CinematicObject { GUID = new Guid("069ea8b6-5674-40c5-9c8f-96491bc139bb"), Name = "MS_PT_EHOutside_TreeHouse_Layer_Take" },
+            new CinematicObject { GUID = new Guid("d9e623ac-7b59-4696-ae36-17e04829aed0"), Name = "MS_PT_EHOutside_Garden_TreeStump_Look" },
+            new CinematicObject { GUID = new Guid("b340649c-4ecb-4677-bfac-93dd1c91b540"), Name = "MS_PT_EHOutside_Garden_PondMonster_Look" },
+            new CinematicObject { GUID = new Guid("9c79a72a-cad4-4be3-adbe-0aba35efba76"), Name = "MS_PT_EHOutside_Garage_HickingBoots_Look" },
+            new CinematicObject { GUID = new Guid("d8b7f135-c6a0-4109-8918-f53bd6806b68"), Name = "MS_PT_EHOutside_TreeHouse_GirlyToy_Look" },
+            new CinematicObject { GUID = new Guid("347d2225-4b40-4570-8f88-616f8cb8a45b"), Name = "MS_PT_EHOutside_TreeHouse_Noctared_Look" },
+            new CinematicObject { GUID = new Guid("91307903-78da-4131-adc2-ab1388067a86"), Name = "MS_PT_EHOutside_Garden_Swing_Look" },
+            new CinematicObject { GUID = new Guid("62a927c2-ba4b-4ea2-aa7b-6051da02193e"), Name = "MS_PT_EHOutside_Garden_Graffiti_Look" },
+            new CinematicObject { GUID = new Guid("bc9ac68d-f1d9-46b7-b164-9ad99cf5d291"), Name = "MS_PT_EHOutside_Garden_ReynoldHouse_Look" },
+            new CinematicObject { GUID = new Guid("c2f6b393-32d5-4aa5-ad96-61776a22230b"), Name = "MS_PT_EHOutside_Garden_Raccoon_Look" },
         };
 
         public static List<CinematicObject> LIS2_Cinematics = new List<CinematicObject>()
         {
             new CinematicObject
             {
-                GUID = new Guid("e6d56886-d73b-4ff9-824f-0720be1d7ece"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("49530a2d-f9a3-4597-a5e1-86ce2755f277"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c6cdee01-951f-481d-aad0-3c8ecc4c7abf"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("7235f5d9-37e6-43ea-a68c-b18b7e5dcce9"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("34293208-b4ae-4021-aee8-5dae9f75e926"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4b2d57fb-3bf5-4817-9c93-626ab8e509a6"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("55253b2d-c4ac-4838-8cda-4aaf569812d6"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d5b5b1f6-3bd9-4208-8116-345393d0b608"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a3176b18-387a-4140-9236-b2b266f6bfcf"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("1bba7dda-14cb-4a03-bbf8-46f76283a24c"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c747a679-677c-465a-aead-a2ea6349b864"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d62db7cf-1f71-4c15-977b-37014db84071"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("476a7bb3-62ae-4079-b2cc-d9bf79bd29e0"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2b3f63eb-bb24-4fa0-9a96-baf91e2993ea"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("19016bd0-1db6-4007-a6b1-96445b19cccf"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("34a302da-d8ce-4f4f-8ad5-9ebb6ede8e71"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("374e61ec-650b-44fa-a5f2-2fa191424eba"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("afed45c4-a5c2-47bb-b85b-aa73c18a2ede"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("79e1700e-7787-4f4a-9a46-e654143ff61f"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("3a825e6b-c93f-40ab-b171-74e6e6b720a5"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6b24797b-34ff-45f6-9a33-b06c3a7ff417"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a62aa5d9-4afa-4fd2-9ba6-16ba2b7a7c44"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c9d301a7-46cd-4c38-b3be-4385894784f8"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b7ca4a63-7465-4d5c-9386-db6493d55737"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("fe915ec4-11de-41ed-b8de-cb196ca5d848"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0bcfea65-4f44-40c7-991d-560f4941ddf5"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e00b227f-67d9-420e-86cb-a7a4d9e87e48"),
+                GUID = new Guid("959ed4f1-b958-4512-ad46-dad5abeb5cad"),
+                Name = "MS_E1_1A_Garage_LightSwitch_TurnOff",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10145,6 +10081,70 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("41b1ac54-2891-4c93-8c1c-91f165e36f3f"),
+                Name = "MS_E1_1A_Garage_LightSwitch_TurnOn",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6a686abc-4623-479c-820a-abe3c152ad59"),
+                Name = "MS_E1_1A_Kitchen_ChocoWrap_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e00b227f-67d9-420e-86cb-a7a4d9e87e48"),
+                Name = "MS_E1_1A_LivingRoom_Shoes_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a62aa5d9-4afa-4fd2-9ba6-16ba2b7a7c44"),
+                Name = "MS_E1_1A_LivingRoom_Leftovers_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a825e6b-c93f-40ab-b171-74e6e6b720a5"),
+                Name = "MS_E1_1A_SeanRoom_Pumpkin_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("32db5379-c23c-41c4-9b23-967c1f8f6bc0"),
+                Name = "MS_E1_1A_SeanRoom_SkateBoard_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1b3021e1-8506-4b72-80aa-d60b12a53721"),
+                Name = "MS_E1_1A_SeanRoom_WorkUniform_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3da82fe-f599-46e1-aba1-dbcab33ffdb0"),
+                Name = "MS_E1_1A_Garage_Engine_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10153,6 +10153,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("bdc6e997-97e4-40c8-b4e6-c039ce3731da"),
+                Name = "MS_E1_1A_Garage_WallPainting_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10160,31 +10161,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("09d7f8a0-2cc9-4cf0-b6eb-e80014fc5e54"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0b32574f-8d09-4c2c-b749-9d152319a2bd"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("7b80bd1e-fd46-404e-b5a7-e4fee6feb290"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a69c7631-ea17-4f6c-8a00-8b8dd2d1345b"),
+                GUID = new Guid("3644b1ad-7860-487c-b70a-a70bcf3d1204"),
+                Name = "MS_E1_1A_Garage_Saw_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10193,6 +10171,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("923d56b5-144e-4cfa-bb51-a455cfb9c7a1"),
+                Name = "MS_E1_1A_Garage_Box_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10200,7 +10179,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("eee487fd-1571-4e92-83f2-d4890147cf4c"),
+                GUID = new Guid("0b32574f-8d09-4c2c-b749-9d152319a2bd"),
+                Name = "MS_E1_1A_Garage_SkiEquipment_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10208,7 +10188,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("94ed5e92-ecf8-45da-a83e-538d36c39565"),
+                GUID = new Guid("6b24797b-34ff-45f6-9a33-b06c3a7ff417"),
+                Name = "MS_E1_1A_LivingRoom_Window_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10216,7 +10197,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("712ea97f-119f-4890-9197-4ecfe7493d15"),
+                GUID = new Guid("afed45c4-a5c2-47bb-b85b-aa73c18a2ede"),
+                Name = "MS_E1_1A_LivingRoom_Playbox_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10224,23 +10206,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("f72c5bbd-0efd-4ede-a125-03852c0dae23"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d6518ff3-2f64-47bd-a69a-18a81c24602c"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("edbcb3ed-1771-4eba-91e8-e37cc779d83b"),
+                GUID = new Guid("c24c5b60-7ce1-47dc-8719-c8f6fedf1a65"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_TakeCandies",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10249,6 +10216,133 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("29c1d13e-c4de-46d8-bb99-15b933c2cb3d"),
+                Name = "MS_E1_1A_Garage_Tools_Look01",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f5d5db1-69cb-4185-891a-d1abaa6f53ab"),
+                Name = "DS_E1_1A_SeanRoom_SkypeJennDial_ChoiceLoop01",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("957f18d0-f3ad-437b-8019-63cf610d656c"),
+                Name = "DS_E1_1A_SeanRoom_SkypeJennDial_End",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0af3dfd6-4c51-49bc-b5a5-2b120f128da6"),
+                Name = "DS_E1_1A_SeanRoom_SkypeJennDial_SoWhat",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b4cc2fa2-1b66-4b76-9bc3-4ba2479e74f5"),
+                Name = "DS_E1_1A_SeanRoom_SkypeJennDial_SuperCool",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43426dd7-c94d-4f30-87a9-2445d810a3a6"),
+                Name = "DS_E1_1A_SeanRoom_SkypeJennDial_Practice",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("311bed99-4b9e-41c0-91f9-0aa6d8d898d8"),
+                Name = "DS_E1_1A_SeanRoom_SkypeJennDial_NoPractice",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d92c8156-036a-4487-b71e-195ca1c60c1b"),
+                Name = "DS_E1_1A_SeanRoom_SkypeJennDial_Start",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ee1fd272-f94e-41d4-b36f-020b3c81a9b8"),
+                Name = "DS_E1_1A_DanielRoom_Knock_ChoiceLoop02",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a0bddfa7-bf21-4351-a008-9bafb4fe4519"),
+                Name = "DS_E1_1A_DanielRoom_Knock_ChoiceLoop01",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bfa34592-0e8f-4cdc-ab20-3e71353f2d45"),
+                Name = "DS_E1_1A_DanielRoom_Knock_Marry",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3f585b77-01d4-4ec3-ba2d-9ec591784cbf"),
+                Name = "DS_E1_1A_DanielRoom_Knock_Cheating",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("102ca079-9573-426c-9bac-1703687bb93f"),
+                Name = "DS_E1_1A_DanielRoom_Knock_Halloween",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c21d40b7-a9dd-4da7-807e-dc71893fc445"),
+                Name = "DS_E1_1A_DanielRoom_Knock_Ambulance",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("75e8e823-b9f8-4e30-a165-92ccd1375f42"),
+                Name = "DS_E1_1A_DanielRoom_Knock_DontTell",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10257,6 +10351,187 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("10bc5361-34ac-4bc5-b54b-173266604adc"),
+                Name = "MS_E1_1A_Garage_Tools_Take01",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d99e7f69-c65e-4d3c-8634-e137940035bf"),
+                Name = "DS_E1_1A_Garage_DadDial_End",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1e06066b-8d55-4b22-aac5-a558172a0fbe"),
+                Name = "DS_E1_1A_Garage_DadDial_Hurry",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("201b918a-6e4f-4504-8988-9fdcc0377793"),
+                Name = "DS_E1_1A_Garage_DadDial_Hug",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("aa80e528-3554-4166-89c6-42fecb015d1e"),
+                Name = "DS_E1_1A_Garage_DadDial_ChoiceLoopHug",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("07c721ed-c0b9-4fc8-a210-942e1bce6e23"),
+                Name = "DS_E1_1A_Garage_DadDial_AskHug",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1b5862ac-f259-4c3d-bb27-e5c44cfced4b"),
+                Name = "DS_E1_1A_Garage_DadDial_DontWorry",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dde8ff90-aa36-4b55-ac80-a8b2c19b79e1"),
+                Name = "DS_E1_1A_Garage_DadDial_DadParty",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c0f1ccd8-1598-41da-86b3-4ec461870208"),
+                Name = "DS_E1_1A_Garage_DadDial_ChoiceLoopMoreInfo",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("27802e54-26d3-47b6-9b73-548e97330f0b"),
+                Name = "DS_E1_1A_Garage_DadDial_Careful",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("daef9cfc-556f-4535-a445-ac2689e2c627"),
+                Name = "DS_E1_1A_Garage_DadDial_Lie",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("404186fb-4261-49d3-89dc-33e4b2710bde"),
+                Name = "DS_E1_1A_Garage_DadDial_TellTheTruth",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3b767ded-3b44-4985-a03f-da37ee92967a"),
+                Name = "DS_E1_1A_Garage_DadDial_ChoiceLoopParty",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("88ab2afe-33eb-4eb6-90b6-bdfea0e20de3"),
+                Name = "DS_E1_1A_Garage_DadDial_AskMoney",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5916c4d5-7f65-4c9c-bc2f-42ad60f797f3"),
+                Name = "DS_E1_1A_Garage_DadDial_Wicked",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4fd8aa9d-aa3a-4f90-9ef9-f10b972f5d7d"),
+                Name = "DS_E1_1A_Garage_DadDial_DontHaveTo",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ccb436ce-1811-4ff4-819a-c8fbe6d67a88"),
+                Name = "DS_E1_1A_Garage_DadDial_ChoiceLoopSeanCar",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c170f943-da6b-42db-a485-88364747470d"),
+                Name = "DS_E1_1A_Garage_DadDial_SeanReact",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ccf6f463-837b-424d-b3f9-c941f2984d06"),
+                Name = "DS_E1_1A_Garage_DadDial_Trying",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dec31d12-8fc5-4e15-8ad4-c78d50d97231"),
+                Name = "DS_E1_1A_Garage_DadDial_ForWhat",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6eae4d79-162c-4f58-8ce9-286b86086553"),
+                Name = "DS_E1_1A_Garage_DadDial_ChoiceLoopFuture",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10265,6 +10540,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("d6a3c0a9-b932-492a-a6ce-01bd960df4b2"),
+                Name = "DS_E1_1A_Garage_DadDial_ToolSuccess",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10274,7 +10550,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("6eae4d79-162c-4f58-8ce9-286b86086553"),
+                GUID = new Guid("38b3a089-bdba-486a-bcf9-a916288eca16"),
+                Name = "DS_E1_1A_Garage_DadDial_ToolFail",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10282,7 +10559,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("ccf6f463-837b-424d-b3f9-c941f2984d06"),
+                GUID = new Guid("c747a679-677c-465a-aead-a2ea6349b864"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_ChoiceLoopFriends",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10290,7 +10568,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c170f943-da6b-42db-a485-88364747470d"),
+                GUID = new Guid("d62db7cf-1f71-4c15-977b-37014db84071"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_AlwaysFriends",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10298,7 +10577,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("ccb436ce-1811-4ff4-819a-c8fbe6d67a88"),
+                GUID = new Guid("e12f1927-a87c-4ef3-9727-3d82ab231f96"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_Joke",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10306,7 +10586,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("5916c4d5-7f65-4c9c-bc2f-42ad60f797f3"),
+                GUID = new Guid("a3176b18-387a-4140-9236-b2b266f6bfcf"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_MakeFun",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10314,7 +10595,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("88ab2afe-33eb-4eb6-90b6-bdfea0e20de3"),
+                GUID = new Guid("476a7bb3-62ae-4079-b2cc-d9bf79bd29e0"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_End",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10322,7 +10604,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3b767ded-3b44-4985-a03f-da37ee92967a"),
+                GUID = new Guid("1bba7dda-14cb-4a03-bbf8-46f76283a24c"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_Planes",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10330,7 +10613,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("404186fb-4261-49d3-89dc-33e4b2710bde"),
+                GUID = new Guid("6839c2a9-5dee-42d3-bc6b-825d986fa1eb"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_NotPossible",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10338,7 +10622,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("27802e54-26d3-47b6-9b73-548e97330f0b"),
+                GUID = new Guid("d5b5b1f6-3bd9-4208-8116-345393d0b608"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_ChoiceLoopDrawing",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10346,7 +10631,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c0f1ccd8-1598-41da-86b3-4ec461870208"),
+                GUID = new Guid("f467e42f-1e0b-4f22-a5b8-abe17cdd6a8a"),
+                Name = "MS_E1_1A_SeanRoom_Nightstand_Close",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10354,7 +10640,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("dde8ff90-aa36-4b55-ac80-a8b2c19b79e1"),
+                GUID = new Guid("9b49ff3c-748f-4c15-b161-bdcf6cd9b2f1"),
+                Name = "MS_E1_1A_SeanRoom_Nightstand_Open",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10362,7 +10649,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("07c721ed-c0b9-4fc8-a210-942e1bce6e23"),
+                GUID = new Guid("e00bbc44-6c27-46d5-8b66-66d46fe911a9"),
+                Name = "MS_E1_1A_SeanRoom_DeskCupboard_Close",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10370,7 +10658,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("aa80e528-3554-4166-89c6-42fecb015d1e"),
+                GUID = new Guid("74a5a3fd-ddfb-45c2-b751-b8406656a4ba"),
+                Name = "MS_E1_1A_SeanRoom_DeskCupboard_Loop",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10378,7 +10667,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("1e06066b-8d55-4b22-aac5-a558172a0fbe"),
+                GUID = new Guid("a345ffbf-0428-4693-89c7-c542cf346d27"),
+                Name = "MS_E1_1A_SeanRoom_DeskCupboard_Open",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10386,7 +10676,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("d99e7f69-c65e-4d3c-8634-e137940035bf"),
+                GUID = new Guid("f7e28822-74d9-4405-acef-6d8568ea4e7f"),
+                Name = "MS_E1_1A_SeanRoom_SketchZen_End",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10394,7 +10685,18 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3644b1ad-7860-487c-b70a-a70bcf3d1204"),
+                GUID = new Guid("e08e15dc-0fd3-4518-b4c2-9b236e8cc17c"),
+                Name = "MS_E1_1A_SeanRoom_SketchZen_Start",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                    "e6e7943b-93a4-460f-84f7-6c1ab8eb480a",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("34293208-b4ae-4021-aee8-5dae9f75e926"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_ChoiceLoop01",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10402,7 +10704,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b0dfaaf9-cf68-44be-8fa5-cd79ee98f823"),
+                GUID = new Guid("55253b2d-c4ac-4838-8cda-4aaf569812d6"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_PartyList",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10410,7 +10713,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("959ed4f1-b958-4512-ad46-dad5abeb5cad"),
+                GUID = new Guid("4b2d57fb-3bf5-4817-9c93-626ab8e509a6"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_SmokeRefuse",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10418,7 +10722,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("2afa892a-c7a1-4d0b-b0db-6547997898eb"),
+                GUID = new Guid("2c967e9a-129e-4742-a67e-15a70f8bc89b"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_SmokeAccept",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10426,7 +10731,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("768085f2-39d1-421d-906d-f55aea785e32"),
+                GUID = new Guid("7235f5d9-37e6-43ea-a68c-b18b7e5dcce9"),
+                Name = "DS_E1_1A_HouseFront_ChillSteps_Start",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10434,7 +10740,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b29b506a-c79c-482f-b332-6f9db4a33612"),
+                GUID = new Guid("19016bd0-1db6-4007-a6b1-96445b19cccf"),
+                Name = "DS_E1_1A_Kitchen_EnterHouse_ChoiceLoop",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10442,7 +10749,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b1def273-2ce7-4b99-88f6-61d7cc880f78"),
+                GUID = new Guid("34a302da-d8ce-4f4f-8ad5-9ebb6ede8e71"),
+                Name = "DS_E1_1A_Kitchen_EnterHouse_GiveDad",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10450,7 +10758,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("f120d917-b49b-4c72-ab80-d9707118e930"),
+                GUID = new Guid("9450a22a-5de3-47dd-a38a-716c2bc133be"),
+                Name = "DS_E1_1A_Kitchen_EnterHouse_GiveDaniel",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10458,7 +10767,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c24c5b60-7ce1-47dc-8719-c8f6fedf1a65"),
+                GUID = new Guid("2261a983-9397-4b05-a81e-a7524fc63704"),
+                Name = "DS_E1_1A_Kitchen_EnterHouse_TakeIt",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10466,7 +10776,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("5b4ddc61-da5d-4e69-8d65-3a6987cfbf6c"),
+                GUID = new Guid("2b3f63eb-bb24-4fa0-9a96-baf91e2993ea"),
+                Name = "DS_E1_1A_Kitchen_EnterHouse_Start",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10474,71 +10785,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a4fd99a4-8410-48da-96f9-152fc9c0b574"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("bfa92d96-c02f-4510-b62c-8d4e1469e6c5"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("04a026c7-5041-43bb-9f38-5970ca7bc7fa"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5446d799-1d1c-41bc-88c8-1a9b1c4bbbaf"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e17a08d1-a2d7-4e37-bcc0-e5bb51aede9b"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8230fea9-9490-4385-8862-90ebcec2ad33"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2da0174a-6c11-4399-9c55-cddf4a722244"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6464aa34-f7a1-4175-a2c9-e68b4bb32dcc"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("32735e41-dfd5-4b6b-8c29-a6ff34a5d629"),
+                GUID = new Guid("4a3dda3d-6770-400b-ab41-308cf4b8d46e"),
+                Name = "MS_E1_1A_DanielRoom_Knock_SeanChocoCrisp",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10547,6 +10795,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("595e9cb2-8d39-4cae-9dfd-36695e8bcd53"),
+                Name = "MS_E1_1A_DanielRoom_Knock_DadChocoCrisp",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10554,7 +10803,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a0bddfa7-bf21-4351-a008-9bafb4fe4519"),
+                GUID = new Guid("962fa310-63a7-45f8-bcdf-84eb6ac368c0"),
+                Name = "MS_E1_1A_DanielRoom_Knock_DanielChocoCrisp",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10562,7 +10812,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("75e8e823-b9f8-4e30-a165-92ccd1375f42"),
+                GUID = new Guid("fe915ec4-11de-41ed-b8de-cb196ca5d848"),
+                Name = "MS_E1_1A_House_LivingRoom_Couch_ZenEnd",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10570,7 +10821,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("102ca079-9573-426c-9bac-1703687bb93f"),
+                GUID = new Guid("b7ca4a63-7465-4d5c-9386-db6493d55737"),
+                Name = "MS_E1_1A_House_LivingRoom_Couch_ZenLoop",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10578,7 +10830,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("ee1fd272-f94e-41d4-b36f-020b3c81a9b8"),
+                GUID = new Guid("c9d301a7-46cd-4c38-b3be-4385894784f8"),
+                Name = "MS_E1_1A_House_LivingRoom_Couch_ZenStart",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10586,7 +10839,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("bfa34592-0e8f-4cdc-ab20-3e71353f2d45"),
+                GUID = new Guid("96c1beda-c27b-4e82-a4c4-8b0caf9925ba"),
+                Name = "MS_E1_1A_House_SeanRoom_Nightstand_Condoms",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10594,7 +10848,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b38db69e-5dca-48c4-badc-463ca75cbb89"),
+                GUID = new Guid("81cef768-8ddd-4718-a388-dd2caa9a139d"),
+                Name = "E1_1A_FRNDRoom_CallSkype",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10602,7 +10857,89 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c627de19-cdd5-44dc-bcee-a49ea2644b45"),
+                GUID = new Guid("32735e41-dfd5-4b6b-8c29-a6ff34a5d629"),
+                Name = "MS_E1_1A_DanielRoom_Knock_Start",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5736226d-2555-4ec8-b268-cef02cb0b25e"),
+                Name = "MS_E1_1A_Garage_PuzzleTool_SeanLeave",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("59b83c42-4d82-4b02-a49a-1d9b452cb649"),
+                Name = "MS_E1_1A_House_SeanRoom_Door_Leave",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("713d7226-adf9-4b86-ac36-dd9b28da06b3"),
+                Name = "MS_E1_1A_House_SeanRoom_Door_Enter",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5b4ddc61-da5d-4e69-8d65-3a6987cfbf6c"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_SwitchToChips",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9d4de288-d2f3-4680-bd9f-8741b1b4dd0a"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_LookChips",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0e500bee-0556-4e69-9d17-7e3bf3619d81"),
+                Name = "MS_E1_1A_House_Kitchen_Cupboard01_TakeChips",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bfa92d96-c02f-4510-b62c-8d4e1469e6c5"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_SwitchToCookies",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("272e772d-cdfd-4989-ae57-2594c5e049da"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_LookCookies",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b1def273-2ce7-4b99-88f6-61d7cc880f78"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_TakeBrownies",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10611,6 +10948,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("d848def7-a682-4b5d-a3ca-00046cfe632f"),
+                Name = "DS_E1_1A_Bathroom_PepTalk_Start",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10622,7 +10960,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("713d7226-adf9-4b86-ac36-dd9b28da06b3"),
+                GUID = new Guid("04a026c7-5041-43bb-9f38-5970ca7bc7fa"),
+                Name = "MS_E1_1A_House_Kitchen_Fridge_Open",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10630,7 +10969,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("cd6d147a-3d7a-4f11-852d-1fb1439451fa"),
+                GUID = new Guid("8230fea9-9490-4385-8862-90ebcec2ad33"),
+                Name = "MS_E1_1A_House_Kitchen_Fridge_Close",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10638,7 +10978,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("30798d48-59c2-45cd-9a9b-c3b1aaa71851"),
+                GUID = new Guid("2da0174a-6c11-4399-9c55-cddf4a722244"),
+                Name = "MS_E1_1A_DanielRoom_Open",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10646,7 +10987,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("382fcc4d-7c3c-4b6a-9b49-0791d62f25bd"),
+                GUID = new Guid("605080eb-95a1-47b8-9d28-446f2cf924de"),
+                Name = "MS_E1_1A_Garage_Dad_GiveWrongTool",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10654,7 +10996,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("16f2a64d-6dad-4a39-b046-f0ad65a5ee69"),
+                GUID = new Guid("b29b506a-c79c-482f-b332-6f9db4a33612"),
+                Name = "MS_E1_1A_House_Kitchen_Cupboard01_Open",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10662,7 +11005,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("1b3021e1-8506-4b72-80aa-d60b12a53721"),
+                GUID = new Guid("a4fd99a4-8410-48da-96f9-152fc9c0b574"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_Close",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10670,7 +11014,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("32db5379-c23c-41c4-9b23-967c1f8f6bc0"),
+                GUID = new Guid("eee487fd-1571-4e92-83f2-d4890147cf4c"),
+                Name = "MS_E1_1A_Garage_Drawer_Open",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10678,7 +11023,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("9b49ff3c-748f-4c15-b161-bdcf6cd9b2f1"),
+                GUID = new Guid("374e61ec-650b-44fa-a5f2-2fa191424eba"),
+                Name = "MS_E1_1A_LivingRoom_SchoolBag_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10686,7 +11032,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("cc2fb30b-5847-4822-9808-d7824125e1c6"),
+                GUID = new Guid("6464aa34-f7a1-4175-a2c9-e68b4bb32dcc"),
+                Name = "MS_E1_1A_LivingRoom_SchoolBag_PackEverything",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10694,7 +11041,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("f467e42f-1e0b-4f22-a5b8-abe17cdd6a8a"),
+                GUID = new Guid("c24799fd-97f5-4d64-accc-fcba1620823e"),
+                Name = "MS_E1_1A_SeanRoom_DeskCupboard_Take",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10702,15 +11050,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a345ffbf-0428-4693-89c7-c542cf346d27"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e00bbc44-6c27-46d5-8b66-66d46fe911a9"),
+                GUID = new Guid("3bc7f6a5-1ab0-4aa1-b694-7c9fba2cf7bc"),
+                Name = "MS_E1_1A_SeanRoom_DeskCupboard_WeedPipe_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10719,6 +11060,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("ee3ce5f1-82ee-42c5-aa21-cbce1ada1749"),
+                Name = "MS_E1_1A_SeanRoom_Laptop_SkypeCall",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10728,7 +11070,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("d92c8156-036a-4487-b71e-195ca1c60c1b"),
+                GUID = new Guid("f72c5bbd-0efd-4ede-a125-03852c0dae23"),
+                Name = "MS_E1_1A_Garage_Tools_Look05",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10736,7 +11079,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("43426dd7-c94d-4f30-87a9-2445d810a3a6"),
+                GUID = new Guid("00baa879-831e-48cf-a59b-ddf9a41dce34"),
+                Name = "MS_E1_1A_Garage_Tools_Take05",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10744,7 +11088,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("0f5d5db1-69cb-4185-891a-d1abaa6f53ab"),
+                GUID = new Guid("a8dc6b79-14b7-4151-a991-b0f74d6db37c"),
+                Name = "MS_E1_1A_Kitchen_Fridge_SwitchToBeers",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10752,7 +11097,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b4cc2fa2-1b66-4b76-9bc3-4ba2479e74f5"),
+                GUID = new Guid("22a7a19d-1c58-4974-b4ce-c7370cbdfdc1"),
+                Name = "MS_E1_1A_Kitchen_Fridge_Beers_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10760,7 +11106,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("957f18d0-f3ad-437b-8019-63cf610d656c"),
+                GUID = new Guid("2fde7d9b-037b-491e-a2b1-04946830c54a"),
+                Name = "MS_E1_1A_House_Kitchen_Fridge_Beers_Take",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10768,7 +11115,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("7a2ed41f-57b9-43a7-9115-6068324eef36"),
+                GUID = new Guid("2871907a-c455-4272-8985-795fb700b4da"),
+                Name = "MS_E1_1A_Kitchen_Fridge_SwitchToSodas",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10776,7 +11124,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("4514eb8b-b7cf-47df-8713-8257ea152e7f"),
+                GUID = new Guid("1f99e8b3-6937-41ab-ae87-67c2e95ab3e5"),
+                Name = "MS_E1_1A_Kitchen_Fridge_Sodas_Look",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10784,7 +11133,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("9d62a645-6070-41ff-b4b1-3ddfd419807d"),
+                GUID = new Guid("5446d799-1d1c-41bc-88c8-1a9b1c4bbbaf"),
+                Name = "MS_E1_1A_House_Kitchen_Fridge_Sodas_Take",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10792,7 +11142,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3cf20aab-1cc6-476e-95db-2d5bb9d09f54"),
+                GUID = new Guid("cc2fb30b-5847-4822-9808-d7824125e1c6"),
+                Name = "MS_E1_1A_SeanRoom_Nightstand_Move",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10800,7 +11151,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("da6b608e-40c0-40fe-ad18-8a2040a71327"),
+                GUID = new Guid("edbcb3ed-1771-4eba-91e8-e37cc779d83b"),
+                Name = "MS_E1_1A_Garage_Tools_Look06",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10808,7 +11160,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3c701c84-2c8c-41aa-976a-77829077b91a"),
+                GUID = new Guid("b5fbbcd0-a975-4f03-aa33-365f309d3e1f"),
+                Name = "MS_E1_1A_Garage_Tools_Take06",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10816,7 +11169,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("ac0c7062-a72a-490f-94e6-77577b75f504"),
+                GUID = new Guid("05bbc7a0-7fcc-4ad9-9a4f-acad0fe451f7"),
+                Name = "MS_E1_1A_Kitchen_Jar_TakeMoneyQuick",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10824,7 +11178,188 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("e95379bc-15e5-4d5b-b437-83ec507c4764"),
+                GUID = new Guid("768085f2-39d1-421d-906d-f55aea785e32"),
+                Name = "MS_E1_1A_Kitchen_Jar_PutMoney",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2afa892a-c7a1-4d0b-b0db-6547997898eb"),
+                Name = "MS_E1_1A_Kitchen_Jar_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("75c94962-5cae-4322-95da-6055f373b9ec"),
+                Name = "MS_E1_1A_Kitchen_Jar_TakeMoney",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a69c7631-ea17-4f6c-8a00-8b8dd2d1345b"),
+                Name = "MS_E1_1A_Garage_Blanket_Take",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7b80bd1e-fd46-404e-b5a7-e4fee6feb290"),
+                Name = "MS_E1_1A_Garage_Blanket_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("94ed5e92-ecf8-45da-a83e-538d36c39565"),
+                Name = "MS_E1_1A_Garage_Tools_Look03",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("757dbea8-c879-4130-8e20-ec04fd6bbd06"),
+                Name = "MS_E1_1A_Garage_Tools_Take03",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d6518ff3-2f64-47bd-a69a-18a81c24602c"),
+                Name = "MS_E1_1A_Garage_Tools_Look04",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e9659e10-1bb8-4cd4-a82c-b1ea2f0ef4c8"),
+                Name = "MS_E1_1A_Garage_Tools_Take04",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("712ea97f-119f-4890-9197-4ecfe7493d15"),
+                Name = "MS_E1_1A_Garage_Tools_Look02",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("db420eaf-fb06-4988-86c9-88efcd78f991"),
+                Name = "MS_E1_1A_Garage_Tools_Take02",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f21547f8-f698-4300-9db1-7799189b8f93"),
+                Name = "MS_E1_1A_SeanRoom_Ipod_QuickPlay",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("16f2a64d-6dad-4a39-b046-f0ad65a5ee69"),
+                Name = "MS_E1_1A_SeanRoom_Ipod_Stop",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cd6d147a-3d7a-4f11-852d-1fb1439451fa"),
+                Name = "MS_E1_1A_SeanRoom_Ipod_Play",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bd88126f-cc9f-4dbf-942c-2d8b7b023a4e"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawing_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b38db69e-5dca-48c4-badc-463ca75cbb89"),
+                Name = "MS_E1_1A_DanielRoom_Knock_End",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a3ee790-d012-4e25-a1d6-00ee1768eabb"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawing_ShowLater",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("01d269f9-b3a7-4a9b-ae54-c6e6c082ac52"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawing_PutBackLater",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5002baf3-f429-40a1-a899-81d15660d7c5"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawing_PutBack",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2b3bb20c-b3b2-4e99-8227-603bf6b58847"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawing_Show",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ba12960d-2f15-4b1c-ae80-dfeb5bc0b81c"),
+                Name = "MS_E1_1A_SeanRoom_Laptop_LookOutside",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10833,6 +11368,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("52298de6-b218-4639-90b5-a32f305cf68c"),
+                Name = "MS_E1_1A_HouseFront_CopStandOff_Ending",
                 SubcontextID = "E1_1A",
                 Conditions = new string[]
                 {
@@ -10840,7 +11376,377 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("df53ba86-8a45-42c3-8545-348ed2388d1d"),
+                GUID = new Guid("dc694df9-1647-43cd-bc2f-7d79b97bf1fc"),
+                Name = "MS_E1_1A_HouseFront_CopStandOff_Obey",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e95379bc-15e5-4d5b-b437-83ec507c4764"),
+                Name = "MS_E1_1A_HouseFront_CopStandOff_Explain",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ac0c7062-a72a-490f-94e6-77577b75f504"),
+                Name = "MS_E1_1A_HouseFront_BrettFight_End",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("72096ad0-deaf-40cb-a328-c1fe233c0a7f"),
+                Name = "MS_E1_1A_HouseFront_BrettFight_BlameDaniel",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3c701c84-2c8c-41aa-976a-77829077b91a"),
+                Name = "MS_E1_1A_HouseFront_BrettFight_AttackBrett",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("da6b608e-40c0-40fe-ad18-8a2040a71327"),
+                Name = "MS_E1_1A_HouseFront_BrettFight_SeanArrive",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("49530a2d-f9a3-4597-a5e1-86ce2755f277"),
+                Name = "MS_E1_1A_Street_Insertion_Intro",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b022b7f8-ce6e-4021-acd8-09468c969360"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawer_Open",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e309d16b-1c46-4a9d-bd37-e9c69eb6cc8d"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawer_Close",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4c223bde-b7f3-46d1-8794-db1064709aa6"),
+                Name = "MS_E1_1A_SeanRoom_Lamp_ToggleLight",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("daa685d2-4940-4eb0-b010-0952205b2df0"),
+                Name = "MS_E1_1A_SeanRoom_Ball_play",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("daa71e89-bb0e-460f-8c27-75dd745d137b"),
+                Name = "MS_E1_1A_SeanRoom_DeskDrawing_SketchLyla",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4514eb8b-b7cf-47df-8713-8257ea152e7f"),
+                Name = "MS_E1_1A_SeanRoom_Facebook_Start",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e2540ae0-5570-4ec7-9740-9bba64ba62f9"),
+                Name = "MS_E1_1A_SeanRoom_LetterBox_Reorganize",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e6d56886-d73b-4ff9-824f-0720be1d7ece"),
+                Name = "MS_E1_1A_Street_PreInsertion",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3cf20aab-1cc6-476e-95db-2d5bb9d09f54"),
+                Name = "MS_E1_1A_SeanRoom_Facebook_Nothing",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6e241496-59ce-4736-a631-73e3ed006762"),
+                Name = "MS_E1_1A_SeanRoom_Facebook_Love",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("080c92a8-2c5a-4d01-8ac8-c90f974fc929"),
+                Name = "MS_E1_1A_SeanRoom_Facebook_LOL",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9d62a645-6070-41ff-b4b1-3ddfd419807d"),
+                Name = "MS_E1_1A_SeanRoom_Facebook_ChoiceLoop",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3c81c095-ccce-4789-af61-f8600ad76cf9"),
+                Name = "E1_1A_FRNDRoom_FRNDSitLoop",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3e20a79f-303f-4e87-94e4-e22964ed03e9"),
+                Name = "MS_E1_1A_House_Kitchen_Cupboard01_Loop",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d66dd508-c614-4015-8f44-a6f7d3e2037c"),
+                Name = "IGE_E1_1A_DanielRoom_Knock_DanielCheck",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2e6bd789-ecf2-442e-920a-25b51c431b03"),
+                Name = "E1_1A_House_SeanRoom_SitLoop",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8e4e5fc3-1faf-45fe-8f3b-0f43f41a726d"),
+                Name = "IGE_E1_1A_HouseFront_DanielWindow",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7a2ed41f-57b9-43a7-9115-6068324eef36"),
+                Name = "MS_E1_1A_SeanRoom_Laptop_DanielStormIn",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("666f32da-0ec7-43e6-9602-6d2442bf15ec"),
+                Name = "MS_E1_1A_House_Kitchen_Fridge_Loop",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9d9b7258-b3f9-4b6d-8532-6a360cb21e70"),
+                Name = "IGE_E1_1A_Seattle_Garage_DadRepairCar",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c6cdee01-951f-481d-aad0-3c8ecc4c7abf"),
+                Name = "MS_E1_1A_Street_Insertion",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c627de19-cdd5-44dc-bcee-a49ea2644b45"),
+                Name = "MS_E1_1A_Bathroom_Laundry_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("79e1700e-7787-4f4a-9a46-e654143ff61f"),
+                Name = "MS_E1_1A_LivingRoom_Headset_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("382fcc4d-7c3c-4b6a-9b49-0791d62f25bd"),
+                Name = "MS_E1_1A_SeanRoom_Trophies_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0cefd0ee-5dfc-418b-983e-ae17a495ed77"),
+                Name = "MS_E1_1A_Garage_Tools_Take01Front",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("09d7f8a0-2cc9-4cf0-b6eb-e80014fc5e54"),
+                Name = "MS_E1_1A_Garage_Bikes_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0bcfea65-4f44-40c7-991d-560f4941ddf5"),
+                Name = "MS_E1_1A_LivingRoom_Toy_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f120d917-b49b-4c72-ab80-d9707118e930"),
+                Name = "MS_E1_1A_Kitchen_Cupboard01_LookCandies",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("30798d48-59c2-45cd-9a9b-c3b1aaa71851"),
+                Name = "MS_E1_1A_SeanRoom_ActionFigure_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6f7ba84b-1537-4114-b541-e14197dce858"),
+                Name = "MS_E1_1A_Garage_Car_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b0dfaaf9-cf68-44be-8fa5-cd79ee98f823"),
+                Name = "MS_E1_1A_Garage_Tools_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e17a08d1-a2d7-4e37-bcc0-e5bb51aede9b"),
+                Name = "MS_E1_1A_Kitchen_Fridge_DanFood_Look",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0d6594d0-385f-48c9-9a8b-7735e5740633"),
+                Name = "MS_E1_1A_SeanRoom_SketchZen_CheckRough",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e85798b4-53c3-4e6e-a0f4-1b10e9f8c742"),
+                Name = "MS_E1_1A_SeanRoom_SketchZen_CheckFinish",
+                SubcontextID = "E1_1A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("40de32da-3b6a-4355-a7bf-5d85bf6b6842"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Phone_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10848,7 +11754,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("9ae7eb02-49ae-4d5d-a461-f3afc8d46504"),
+                GUID = new Guid("4d0b845c-a9de-43b4-8405-1340d8749a70"),
+                Name = "MS_E1_2A_ShelterArea_FishingBait_Take",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10856,7 +11763,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("42346da3-5ac1-4d31-97cb-a3c2aaa09c74"),
+                GUID = new Guid("a4d35178-c877-49bb-a7fa-58a9b3aa0b3e"),
+                Name = "MS_E1_2A_ShelterArea_ZenRock_End",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10864,7 +11772,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("e50db607-4ee6-4f94-a349-052a0f05537e"),
+                GUID = new Guid("51be6d35-6af7-41b8-9dc9-c68b24611287"),
+                Name = "MS_E1_2A_ShelterArea_ZenRock_Loop",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10872,31 +11781,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("9a879a73-efab-491b-bb86-db3a0515fa2b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("645faf94-f155-4968-bba5-599d642fd897"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("7b8c7767-5979-4c1b-9302-e4a71eecb4a8"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("03d58333-a14b-40e1-ac01-dcd867a1b4ec"),
+                GUID = new Guid("2924b9bf-506a-4556-81fc-e8b937502e56"),
+                Name = "MS_E1_2A_ShelterArea_ZenRock_EndDial",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10905,6 +11791,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("4dc9e706-06fd-45fd-9a74-2607bc75e564"),
+                Name = "MS_E1_2A_ParkingArea_Toilet_Ask",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10912,7 +11799,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b2e7ea48-ee25-40c0-8e9d-ef3c46e2ca5f"),
+                GUID = new Guid("334b7cd8-793c-4bc1-8209-e3d7daa83ac5"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Firepit_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10920,7 +11808,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("685ca3de-51b3-45bd-94e3-52fbd40b5809"),
+                GUID = new Guid("0bd50e58-fc78-4e49-a933-94239bf5688b"),
+                Name = "MS_E1_2A_PicnicArea_Vista_AloneStartFront",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10928,7 +11817,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c13c0ff9-fc2e-4468-b1db-e4cf0454fe5d"),
+                GUID = new Guid("3f7da316-3949-4d00-acc7-3c296764f36e"),
+                Name = "MS_E1_2A_PicnicArea_Vista_End",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -10936,99 +11826,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("4ed49919-fba2-467d-9d9d-6a4de129f925"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("af30d9d6-90ad-4b1b-85ac-476b86bdaa58"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b9f2d464-1916-4363-96e5-c422eaa23a40"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("564bb845-823b-4a9d-bafc-793a75ccea76"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                    "2f737db5-3320-4eb7-b6b3-9eaaed721146",
-                    "56de76aa-236b-475d-98f9-a35e13e64b3f",
-                    "5bc78f7d-0cba-46b4-828f-ab9ff3bd9a35",
-                    "7188c8bf-4993-4274-9aeb-47e4971f2db6",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ab87abb8-392e-4843-bafe-fe546bb2fd5c"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("030e9ac0-ebe1-44ff-8982-7f10a7ae791a"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("3795229a-a631-4da7-9155-2fb99b7da360"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("91498362-e94e-4227-a5b0-21e4496f2150"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5e2d1a7d-ac6b-476f-a61f-8d8befede848"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2fe3c73b-d4cc-4104-88d4-f3481311000e"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a691f5c4-860d-4416-b27a-a7eda32dc0fa"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("bd3338f4-0cc5-4246-905a-6c889d2ee934"),
+                GUID = new Guid("5a7ece85-d717-460c-a238-192954df911b"),
+                Name = "MS_E1_2A_PicnicArea_Vista_Loop",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11037,6 +11836,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("88b16186-c32f-4c1d-874b-b645ec975c70"),
+                Name = "MS_E1_2A_PicnicArea_Vista_Start",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11048,7 +11848,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("5a7ece85-d717-460c-a238-192954df911b"),
+                GUID = new Guid("0c6e8f1a-ec70-405f-9e67-6134b94a769f"),
+                Name = "MS_E1_2A_PicnicArea_VistaAlone_End",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11056,7 +11857,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3f7da316-3949-4d00-acc7-3c296764f36e"),
+                GUID = new Guid("bd3338f4-0cc5-4246-905a-6c889d2ee934"),
+                Name = "MS_E1_2A_PicnicArea_VistaAlone_Loop",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11064,7 +11866,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("220da6ee-ca53-43bd-be44-93692ca8e0a6"),
+                GUID = new Guid("a691f5c4-860d-4416-b27a-a7eda32dc0fa"),
+                Name = "MS_E1_2A_PicnicArea_VistaAlone_Start",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11072,7 +11875,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("f13baa9d-1423-4648-aa00-8621f8c7551e"),
+                GUID = new Guid("a8dce0c5-da9e-41e7-b283-35fceaa4065e"),
+                Name = "MS_E1_2A_ShelterArea_Fishing_Prank",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11080,7 +11884,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b3789771-0d8e-43d4-9964-e39e99d51784"),
+                GUID = new Guid("6c1c61f3-945f-4fec-84df-8714d57592fe"),
+                Name = "MS_E1_2A_ShelterArea_Fishing_CheerUp",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11088,15 +11893,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("96b1873a-679b-453f-9db1-1f98abcd65fe"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("bb229341-ab6d-4363-82c1-61241e16b186"),
+                GUID = new Guid("cc45bc80-d34b-48b7-8e61-a018e6a21137"),
+                Name = "MS_E1_2A_SecondaryPath_FallenTree_CheerUp",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11105,6 +11903,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("bd886d81-0894-40be-b707-de3fa4d46c0f"),
+                Name = "MS_E1_2A_SecondaryPath_ClimbDown_HelpDaniel",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11112,7 +11911,505 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("00ab1143-4033-4790-afdd-3c51a70597a1"),
+                GUID = new Guid("3bbe965c-d951-4f12-ae93-f4d915cc9585"),
+                Name = "MS_E1_2A_ShelterArea_Fortifications_LookTrunk",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6301d5d9-a3ae-485d-97ac-edaf81eb2f19"),
+                Name = "MS_E1_2A_ShelterArea_Fortifications_PushTrunk",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("030e9ac0-ebe1-44ff-8982-7f10a7ae791a"),
+                Name = "MS_E1_2A_PicnicArea_Berries_TasteCheckBad",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("95c8494c-cd7d-4a0c-b7dc-4c91d7384554"),
+                Name = "MS_E1_2A_PicnicArea_SpiderWeb_Scare",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("40c2ab31-ac11-4f0f-9640-344e55203c55"),
+                Name = "MS_E1_2A_ShelterArea_SpiderWeb_Explain",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bb229341-ab6d-4363-82c1-61241e16b186"),
+                Name = "MS_E1_2A_SecondaryPath_ClimbDown_SeanBigDrop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bf822bf4-4b76-4292-b8e7-c7883f73328b"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Daniel_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ed49919-fba2-467d-9d9d-6a4de129f925"),
+                Name = "MS_E1_2A_PicnicArea_Berries_TasteCheckGood",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("af30d9d6-90ad-4b1b-85ac-476b86bdaa58"),
+                Name = "MS_E1_2A_PicnicArea_Berries_TasteAloneGood",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("220da6ee-ca53-43bd-be44-93692ca8e0a6"),
+                Name = "MS_E1_2A_MainTrail_Racoon_ShowDaniel",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f13baa9d-1423-4648-aa00-8621f8c7551e"),
+                Name = "MS_E1_2A_MainTrail_Racoon_LookGone",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("03d58333-a14b-40e1-ac01-dcd867a1b4ec"),
+                Name = "MS_E1_2A_ParkingArea_TrailBlaze_Show",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7e936b51-9c02-4f35-a9b4-e08f5e36f74e"),
+                Name = "MS_E1_2A_PicnicArea_TrailBlaze_Show2",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1d04270b-f797-44a3-a848-061ca08f97f0"),
+                Name = "MS_E1_2A_PicnicArea_TrailBlaze_Show3",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("13334290-a997-49a2-bded-3a9ea08a6971"),
+                Name = "MS_E1_2A_SecondaryPath_TrailBlaze_Show5",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2449d373-d21e-438d-bc65-b2868c205b82"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_BuildFire_Fortifications",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0342f038-25ff-44a9-99d9-10ea5c7714de"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_BuildFire",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b9f2d464-1916-4363-96e5-c422eaa23a40"),
+                Name = "MS_E1_2A_PicnicArea_HideAndSeek_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("54fb70a2-df49-41c6-8ad0-469ce32a05e3"),
+                Name = "MS_E1_2A_ShelterArea_SkimStone_TeachDaniel",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "f70e9f77-a133-4297-8ffc-6d49728c3d3c",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("79029da7-8793-46c1-8308-f0cd7cbcf14c"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_FirstIgnite",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("185b597b-d09f-4396-a06b-3f867eb50ad2"),
+                Name = "MS_E1_2A_ShelterArea_WoodRace_Win",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("af2ce6c4-3bca-4954-9731-322e90ea24fc"),
+                Name = "MS_E1_2A_ShelterArea_WoodRace_Lose",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7f6f72ab-6f49-4845-8ff4-ab1caadc00eb"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_FirstIgniteRefuse",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fc1acba5-8473-4df0-a5f8-1fc7fdebec52"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_FirstIgniteAccept",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4056edd0-b912-480e-8e4a-cd3bcd5f50d1"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_FirstIgniteChoiceLoop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8a03114e-4975-4771-907d-c2ff566e0827"),
+                Name = "MS_E1_2A_ShelterArea_Cellphone_Play",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("90b93da5-f543-4e96-b63c-166298e1f686"),
+                Name = "MS_E1_2A_ShelterArea_Cellphone_Refuse",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("60c80ce0-b3c8-46a3-aea7-a7931a1f04cc"),
+                Name = "MS_E1_2A_ShelterArea_ZenRock_ChoiceBabysitter",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("89747a41-3399-4b25-9f97-fcc6e2c860bc"),
+                Name = "MS_E1_2A_ShelterArea_ZenRock_ChoiceDragon",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("132906f8-c64b-4339-bae6-c4e0b40c5c5c"),
+                Name = "MS_E1_2A_ShelterArea_ZenRock_ChoiceLoop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("51a2b0cb-bdc2-40b6-afaf-40f902218b67"),
+                Name = "MS_E1_2A_ShelterArea_ZenRock_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df53ba86-8a45-42c3-8545-348ed2388d1d"),
+                Name = "MS_E1_2A_Road_PreInsertion",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2d2f01c1-e2ce-41a3-a9d0-c2654c31adc7"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_ThrowWood",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "74694081-ebe0-442c-9be3-8c545b7432e3",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cb523e13-c090-4182-a84e-d3d49d318622"),
+                Name = "MS_E1_2A_MainTrail_Racoon_LoopFled",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a3ec33df-0f52-4fa9-862f-848d8cc0dbbc"),
+                Name = "MS_E1_2A_MainTrail_Racoon_Loop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7a15e05b-3e75-40a2-a2fa-f60cc66a4916"),
+                Name = "MS_E1_2A_ShelterArea_GatherMat_Wood_Take03",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3193e62d-2813-4618-96a5-c94904386905"),
+                Name = "MS_E1_2A_ShelterArea_GatherMat_Wood_Take02",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("adb057c0-9624-434c-a076-5b841ef71a00"),
+                Name = "MS_E1_2A_ShelterArea_GatherMat_Wood_Take01",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("82ecd29f-3d0b-4594-a9fa-a219d59a3a69"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Howling_DanielHowl",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c4798888-9124-4283-bad2-fb18c48fc9e8"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Howling_DanielScared",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a6b83a60-83b0-475f-b19f-0dd138754e47"),
+                Name = "MS_E1_2A_PicnicArea_CPInsertion",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6a2e1a66-b620-4983-95b8-c9023037c87e"),
+                Name = "E1_2A_FadeFromSave",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3789771-0d8e-43d4-9964-e39e99d51784"),
+                Name = "MS_E1_2A_SecondaryPath_FallenTree_CrossDown",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d24c23de-5099-43a2-a627-a174bf536d42"),
+                Name = "MS_E1_2A_Road_CPInsertion",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("884954f7-b5be-423c-bc30-7f334c13fb46"),
+                Name = "E1_2A_SecondaryPath_HideAndSeek_DanielScareSean_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ecdf3198-31b2-4330-b26d-b91a8ea09230"),
+                Name = "MS_E1_2A_ShelterArea_SkimStone_Stop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9f893a3e-220c-41bd-a8ed-60a66802e92d"),
+                Name = "MS_E1_2A_ShelterArea_SkimStone_Try01",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cc143171-fc0b-4588-b488-5b94f4ff7570"),
+                Name = "MS_E1_2A_ShelterArea_SkimStone_Try02",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df2dc42e-c218-4eee-920e-af01225c2ac1"),
+                Name = "MS_E1_2A_ShelterArea_SkimStone_Try03",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("80a96f05-5214-4a0f-8223-31d34df95c7c"),
+                Name = "MS_E1_2A_ShelterArea_SkimStone_ChoiceLoop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("56d933a7-43dc-4566-9548-86f5e9d49524"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_Ignite_ChoiceLoop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6833d8c6-ea5e-446e-abb1-cccd20bd8302"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_Ignite_SeanBlow",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("84c0378e-7385-4b23-b1c5-02e964997cd0"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_Ignite_DanielBlow",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("608a41b1-5cbf-4e26-ae8c-98f93aa0d43e"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_Ignite_StartUpset",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d0ab1779-cae1-434c-9511-8a8d814940ae"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_Ignite_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("28bc68ed-9863-4407-8697-1a74facaf123"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_Comfort",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11121,6 +12418,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("df46b8b9-676a-4f8a-b137-47ecfaa28854"),
+                Name = "MS_E1_2A_SecondaryPath_DanielHide_DanielScareSean",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11128,7 +12426,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a2775088-85db-4344-b0c2-4419eed794ff"),
+                GUID = new Guid("576eab10-e6bf-41eb-9274-a72b171498a2"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_Good_Start",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11136,7 +12435,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("30e7ce5e-e003-4e6f-97c2-3c710755b070"),
+                GUID = new Guid("a48ad625-dac8-454f-85a7-ab6c6064315b"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_Good_End",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11144,7 +12444,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("ce4fa244-de8f-49cf-966f-806cab0f555c"),
+                GUID = new Guid("ed2d6b65-0bf5-4d13-898b-504e9190d38a"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_Good_NoFortifications",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11152,7 +12453,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("e03f579a-f273-4605-ba0e-43567dc4935c"),
+                GUID = new Guid("49781b7e-584c-478a-8965-23d5c6355053"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_Good_Fortifications",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11160,17 +12462,535 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("212a0fd4-079d-4521-8c02-180fc35d00ca"),
+                GUID = new Guid("daba0749-42b6-4de5-bc3d-dd7316164c59"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_AfraidAnimals",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
-                    "6527d4d4-8b43-4d06-9844-d4aaa9cdee33",
-                    "71e7a872-bab4-4f36-9394-ef743a58bc8e",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("32a2695e-c06a-4834-88d3-5c569b9aa13b"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_Sick",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("098abd3e-c7f3-4ee5-a948-429bbe474bd0"),
+                Name = "MS_E1_2A_ShelterArea_Nightmare_WakeUp",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e285e0e1-e70f-4b98-851d-7e1e85d2c7e7"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_EatCrisps",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "16e99ffb-65fa-4910-8946-0d3983418d86",
+                    "28bb39f9-96f4-40f9-b6f6-17c08d95c786",
+                    "4b13df7b-8b3d-473c-a979-902833a29c0f",
+                    "6d81612d-e4c8-47d4-a633-72dd5510df3b",
+                    "82ac5dbc-74f9-4e5e-877a-21f9b3369248",
+                    "86036ea3-5945-4794-a5f4-6a9af71765c9",
+                    "8a3cc22f-b8f2-4729-88f1-cde3de0c46e1",
+                    "901981e7-7f23-4cef-a6b7-c9c01c70798b",
+                    "c4cd674a-d33c-4323-9ea6-6e6ee4ed24f3",
+                    "ed70b3ef-3fea-4e10-8d82-e8d124361acc",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f086081f-8216-4495-b225-dc2ab2e01902"),
+                Name = "MS_E1_2A_ShelterArea_SleepingBag_GoToSleep_LOTR",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4394c730-23ac-4cf9-8b07-611e8d15a5b3"),
+                Name = "MS_E1_2A_ShelterArea_SleepingBag_GoToSleep_Minecraft",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d755bd92-5873-4a18-a005-a6afb6c10132"),
+                Name = "MS_E1_2A_ShelterArea_SleepingBag_GoToSleep_Lyla",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f93bd3fb-0bdc-48ba-b65e-c6b5309af33a"),
+                Name = "MS_E1_2A_ShelterArea_SleepingBag_GoToSleep_MainBranch",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a56b878f-3cbc-4865-ab99-40d66ff625e9"),
+                Name = "MS_E1_2A_ShelterArea_SleepingBag_GoToSleep_IntroPee",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("46ffe65d-4878-4868-8d6e-6be2a6e099a4"),
+                Name = "MS_E1_2A_ShelterArea_SleepingBag_GoToSleep_IntroAlreadyPeed",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("564bb845-823b-4a9d-bafc-793a75ccea76"),
+                Name = "MS_E1_2A_PicnicArea_HideAndSeek_Find",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "2f737db5-3320-4eb7-b6b3-9eaaed721146",
+                    "56de76aa-236b-475d-98f9-a35e13e64b3f",
+                    "5bc78f7d-0cba-46b4-828f-ab9ff3bd9a35",
+                    "7188c8bf-4993-4274-9aeb-47e4971f2db6",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9d9b2c69-5966-4a36-b13e-c006e6f70289"),
+                Name = "MS_E1_2A_SecondaryPath_FallenTree_HelpDanielNotCrossed",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("96b1873a-679b-453f-9db1-1f98abcd65fe"),
+                Name = "MS_E1_2A_SecondaryPath_FallenTree_HelpDanielCrossed",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e50db607-4ee6-4f94-a349-052a0f05537e"),
+                Name = "MS_E1_2A_ParkingArea_Car_LookInside_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6b2b1ab1-0230-411c-b3a0-ffa30a475953"),
+                Name = "MS_E1_2A_ParkingArea_Car_LookInside_IntroNoDaniel",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("42346da3-5ac1-4d31-97cb-a3c2aaa09c74"),
+                Name = "MS_E1_2A_ParkingArea_Car_LookInside_IntroDaniel",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3795229a-a631-4da7-9155-2fb99b7da360"),
+                Name = "MS_E1_2A_ParkingArea_WildLifeSign_IntroDaniel",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f262a28a-2afb-4be8-8f05-e977bb1116b4"),
+                Name = "MS_E1_2A_ParkingArea_WildLifeSign_IntroNoDaniel",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9ae7eb02-49ae-4d5d-a461-f3afc8d46504"),
+                Name = "MS_E1_2A_Road_Insertion",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f830a7ea-1538-4bd2-8c84-576b6fb1b01c"),
+                Name = "MS_E1_2A_MainTrail_Racoon_FirstMove",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("685ca3de-51b3-45bd-94e3-52fbd40b5809"),
+                Name = "MS_E1_2A_ParkingArea_Toilet_LeaveIt",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("353c2d0c-98bd-472c-a98f-a9324bd0c51e"),
+                Name = "MS_E1_2A_ParkingArea_Toilet_Insist",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b2e7ea48-ee25-40c0-8e9d-ef3c46e2ca5f"),
+                Name = "MS_E1_2A_ParkingArea_Toilet_ChoiceLoop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("645faf94-f155-4968-bba5-599d642fd897"),
+                Name = "MS_E1_2A_ParkingArea_Car_LeaveIt",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("614938cc-4929-4cf9-8c8b-df9b603fb5b1"),
+                Name = "MS_E1_2A_ParkingArea_Car_Steal",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9a879a73-efab-491b-bb86-db3a0515fa2b"),
+                Name = "MS_E1_2A_ParkingArea_Car_LookInside_Loop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("50612983-2805-4e32-a6b6-b5c007c10027"),
+                Name = "MS_E1_2A_ShelterArea_WaspNest_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6d3252a0-ce47-49ea-83af-7bb04497795f"),
+                Name = "MS_E1_2A_ParkingArea_Carving_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9132e33f-2fc2-465b-ab05-0b8ed681bb9f"),
+                Name = "MS_E1_2A_SecondaryPath_Shortcut_SmallDrop_GetUp",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("954dcc2f-0d4e-48c8-b29d-879f5e86433f"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_Ignite_FromGP",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ca53447d-48c8-441b-a35c-5ab5e9ab9740"),
+                Name = "MS_Menu_E1_2A_Dyn_Theme",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b47e0c33-2699-498e-94be-751f72120f5b"),
+                Name = "DS_E1_2A_ShelterArea_BrettTalk_ChoiceLoop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5539f9f8-d6cd-4b25-9933-4ed31c61920b"),
+                Name = "DS_E1_2A_ShelterArea_BrettTalk_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("27138ca1-9f18-407a-a895-d2d04c717731"),
+                Name = "DS_E1_2A_ShelterArea_BrettTalk_HadAFight",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("904b850f-1c84-4628-82ea-de45bfa3da34"),
+                Name = "DS_E1_2A_ShelterArea_BrettTalk_NotYourFault",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7256d5ae-7867-4628-88c9-d864f5e6e7ae"),
+                Name = "DS_E1_2A_ShelterArea_BrettTalk_Nothing",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d3c9832b-351f-4947-9c4e-226880d8681e"),
+                Name = "MS_E1_2A_ShelterArea_CarvedRock_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("04165c03-0f63-45db-aaa0-d904b45690c4"),
+                Name = "MS_E1_2A_ShelterArea_Fortifications_LookSpikes",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b85f29fd-61fe-4fc4-8fce-ac3a623983c3"),
+                Name = "MS_E1_2A_ShelterArea_Fortifications_WeaponRack",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("631bf278-aa91-4bfc-8b31-d4cbfb5dda78"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Fortifications_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e91d8df2-d5f5-4db6-a63f-a8aab9ab843d"),
+                Name = "MS_E1_2A_ShelterArea_Firecamp_BuildFire_ChillGP",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3c00ff0-42de-4aad-b3c2-9a6ba398c19c"),
+                Name = "MS_E1_2A_SecondaryPath_FallenTree_AbortPoI",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("45bc9cfb-9b34-4152-a267-e7bdc774eaaf"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_ChocoWrapper_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fc6ec8e9-e494-47dd-9cbe-fe3cbfe1b114"),
+                Name = "DS_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_ChoiceLoop",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43bd4fa3-e8f2-4e99-9949-ffab4563ed6e"),
+                Name = "DS_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_ThatWasGood",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4587e354-b011-450c-b120-8350a2872220"),
+                Name = "DS_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_JustUs",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("af8ffbc0-395d-4146-a7af-3a9b53e76dad"),
+                Name = "DS_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("609954dc-016d-4bef-b73b-008abfbb056f"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Blanket_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bbf92928-305c-42d4-ac59-429f9daec30d"),
+                Name = "MS_E1_2A_ShelterArea_CaveCarving_Look01",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("00ab1143-4033-4790-afdd-3c51a70597a1"),
+                Name = "MS_E1_2A_SecondaryPath_TreeFungus_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4dba8ce3-3b47-43d0-8f55-553e5c100369"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_EatToGameplay",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ce31d516-4a0f-4789-ad73-b7b435c22beb"),
+                Name = "MS_E1_2A_PicnicArea_TrailBlaze_Show4",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9f58fd8e-92b1-4121-837f-c876447bf2d2"),
+                Name = "MS_E1_2A_ShelterArea_SpiderWeb_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("07be9d35-2e3f-4947-987f-a0f4ef31bffc"),
+                Name = "MS_E1_2A_MainTrail_Landslide_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("682e9c15-6f25-4bb4-9534-185b04b1805a"),
+                Name = "MS_E1_2A_PicnicArea_TableCarving01_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f7b89a5-a2b5-40a8-ad7a-02d9103201ff"),
+                Name = "MS_E1_2A_SecondaryPath_BirdNest_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7b8c7767-5979-4c1b-9302-e4a71eecb4a8"),
+                Name = "MS_E1_2A_ParkingArea_DeadRaccoon_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
                 }
             },
             new CinematicObject
             {
                 GUID = new Guid("3341f0d3-1c97-4057-a32e-2e888547580b"),
+                Name = "DS_E1_2A_Unpack_End",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11193,7 +13013,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("adb057c0-9624-434c-a076-5b841ef71a00"),
+                GUID = new Guid("c13c0ff9-fc2e-4468-b1db-e4cf0454fe5d"),
+                Name = "MS_E1_2A_PicnicArea_PicnicSign_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11201,7 +13022,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3193e62d-2813-4618-96a5-c94904386905"),
+                GUID = new Guid("ab87abb8-392e-4843-bafe-fe546bb2fd5c"),
+                Name = "MS_E1_2A_PicnicArea_TableCarving02_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11209,7 +13031,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("7a15e05b-3e75-40a2-a2fa-f60cc66a4916"),
+                GUID = new Guid("c847bba7-bdd2-43f7-8e34-20c3a8d10645"),
+                Name = "DS_E1_2A_EatChocoBar_ChoiceLoop",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11217,7 +13040,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("50612983-2805-4e32-a6b6-b5c007c10027"),
+                GUID = new Guid("1232548c-2468-43cf-8f34-66f5ec8e6124"),
+                Name = "DS_E1_2A_EatChocoBar_TakeIt_Surprised",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11225,16 +13049,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("2d2f01c1-e2ce-41a3-a9d0-c2654c31adc7"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                    "74694081-ebe0-442c-9be3-8c545b7432e3",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2449d373-d21e-438d-bc65-b2868c205b82"),
+                GUID = new Guid("fd34f986-6e2c-418d-9275-d0a87b7cc9e4"),
+                Name = "DS_E1_2A_EatChocoBar_Share_Refuse",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11242,7 +13058,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("6301d5d9-a3ae-485d-97ac-edaf81eb2f19"),
+                GUID = new Guid("a335e3b1-2966-4cf1-9cca-f65da2375334"),
+                Name = "DS_E1_2A_EatChocoBar_TakeIt_Mean",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11250,16 +13067,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("58950484-161a-4ea7-9cb2-26b02644e607"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                    "576686c7-af2a-478e-bda9-dad1c4ab99c8",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("08b2ba6a-2ceb-4ee3-8aee-101836aaeef5"),
+                GUID = new Guid("ad3af175-954c-4dce-ad5b-3c101005453c"),
+                Name = "DS_E1_2A_EatChocoBar_Share_Accept",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11267,7 +13076,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("1db18472-b9a7-483e-8c47-0fee01ea9753"),
+                GUID = new Guid("35a4d987-d6a8-4318-bfa6-6274574835d1"),
+                Name = "DS_E1_2A_EatChocoBar_Start",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11275,7 +13085,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("9db05815-a46f-4c3c-aab6-d66b73dc52ea"),
+                GUID = new Guid("ce4fa244-de8f-49cf-966f-806cab0f555c"),
+                Name = "DS_E1_2A_MainBranch_DanielActivitiesChoiceLoop",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11283,7 +13094,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3d01736b-ebc8-418f-810f-c060001ac8fd"),
+                GUID = new Guid("426e5a94-af0a-4851-9624-c5d7a20397fb"),
+                Name = "DS_E1_2A_Unpack_Explore",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11291,16 +13103,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("54fb70a2-df49-41c6-8ad0-469ce32a05e3"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                    "f70e9f77-a133-4297-8ffc-6d49728c3d3c",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("80a96f05-5214-4a0f-8223-31d34df95c7c"),
+                GUID = new Guid("3886ccba-8c6c-490b-83a6-6b0eab9b56e7"),
+                Name = "DS_E1_2A_Unpack_Fortifications",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11308,7 +13112,19 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("9f893a3e-220c-41bd-a8ed-60a66802e92d"),
+                GUID = new Guid("212a0fd4-079d-4521-8c02-180fc35d00ca"),
+                Name = "DS_E1_2A_Unpack_HelpFire",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "6527d4d4-8b43-4d06-9844-d4aaa9cdee33",
+                    "71e7a872-bab4-4f36-9394-ef743a58bc8e",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("47c11640-8654-4c64-bce4-40173d2313d6"),
+                Name = "DS_E1_2A_MainBranch_Fortifications_NotAnswered",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11316,7 +13132,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("cc143171-fc0b-4588-b488-5b94f4ff7570"),
+                GUID = new Guid("e03f579a-f273-4605-ba0e-43567dc4935c"),
+                Name = "DS_E1_2A_MainBranch_Fortifications_Mineraft",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11324,7 +13141,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("df2dc42e-c218-4eee-920e-af01225c2ac1"),
+                GUID = new Guid("6fce0dd0-2106-4568-ae6b-8ec5fbd74500"),
+                Name = "DS_E1_2A_MainBranch_Fortifications_LOTR",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11332,7 +13150,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3bbe965c-d951-4f12-ae93-f4d915cc9585"),
+                GUID = new Guid("3e2d7231-4717-4b15-acb7-8f61769efb79"),
+                Name = "DS_E1_2A_MainBranch_HelpFire",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11340,7 +13159,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b85f29fd-61fe-4fc4-8fce-ac3a623983c3"),
+                GUID = new Guid("26f643cf-aaa5-40e2-bca8-3de1ae632337"),
+                Name = "DS_E1_2A_MainBranch_Intro_NotAnswered",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11348,7 +13168,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("d3c9832b-351f-4947-9c4e-226880d8681e"),
+                GUID = new Guid("483458f1-ab02-4a17-bba1-1f2f9181675b"),
+                Name = "DS_E1_2A_MainBranch_Intro_LOTR",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11356,7 +13177,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("79029da7-8793-46c1-8308-f0cd7cbcf14c"),
+                GUID = new Guid("30e7ce5e-e003-4e6f-97c2-3c710755b070"),
+                Name = "DS_E1_2A_MainBranch_Intro_Minecraft",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11364,7 +13186,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("4056edd0-b912-480e-8e4a-cd3bcd5f50d1"),
+                GUID = new Guid("a2775088-85db-4344-b0c2-4419eed794ff"),
+                Name = "DS_E1_2A_Intro_DanielHappy",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11372,7 +13195,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("fc1acba5-8473-4df0-a5f8-1fc7fdebec52"),
+                GUID = new Guid("cc14828e-a45e-417b-bdb5-6b0e5e654e86"),
+                Name = "MS_E1_2A_ZenSoundtrack_Zen01",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11380,7 +13204,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("04165c03-0f63-45db-aaa0-d904b45690c4"),
+                GUID = new Guid("91498362-e94e-4227-a5b0-21e4496f2150"),
+                Name = "DS_E1_2A_IntoTheWoods_ParkingArea_WildLife_Start",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11388,7 +13213,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("51a2b0cb-bdc2-40b6-afaf-40f902218b67"),
+                GUID = new Guid("5e2d1a7d-ac6b-476f-a61f-8d8befede848"),
+                Name = "DS_E1_2A_IntoTheWoods_ParkingArea_WildLife_Loop",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11396,7 +13222,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("132906f8-c64b-4339-bae6-c4e0b40c5c5c"),
+                GUID = new Guid("7c15e795-4af6-4ac3-b9cb-b616812cc05d"),
+                Name = "MS_E1_2A_ParkingArea_Mailbox_OpenLocked",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11404,7 +13231,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("60c80ce0-b3c8-46a3-aea7-a7931a1f04cc"),
+                GUID = new Guid("0ae55555-7af8-4082-8daa-23d65bbe4ca7"),
+                Name = "MS_E1_2A_ShelterArea_SleepingBag_SitLoop",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11412,7 +13240,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("2924b9bf-506a-4556-81fc-e8b937502e56"),
+                GUID = new Guid("2fe3c73b-d4cc-4104-88d4-f3481311000e"),
+                Name = "DS_E1_2A_IntoTheWoods_ParkingArea_WildLife_Reassure",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11420,7 +13249,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("51be6d35-6af7-41b8-9dc9-c68b24611287"),
+                GUID = new Guid("0afe3549-30ef-4313-93cf-5aa03221f07f"),
+                Name = "DS_E1_2A_IntoTheWoods_ParkingArea_WildLife_Mock",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11428,73 +13258,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a4d35178-c877-49bb-a7fa-58a9b3aa0b3e"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d0ab1779-cae1-434c-9511-8a8d814940ae"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("56d933a7-43dc-4566-9548-86f5e9d49524"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("84c0378e-7385-4b23-b1c5-02e964997cd0"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e285e0e1-e70f-4b98-851d-7e1e85d2c7e7"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                    "16e99ffb-65fa-4910-8946-0d3983418d86",
-                    "28bb39f9-96f4-40f9-b6f6-17c08d95c786",
-                    "4b13df7b-8b3d-473c-a979-902833a29c0f",
-                    "6d81612d-e4c8-47d4-a633-72dd5510df3b",
-                    "82ac5dbc-74f9-4e5e-877a-21f9b3369248",
-                    "86036ea3-5945-4794-a5f4-6a9af71765c9",
-                    "8a3cc22f-b8f2-4729-88f1-cde3de0c46e1",
-                    "901981e7-7f23-4cef-a6b7-c9c01c70798b",
-                    "c4cd674a-d33c-4323-9ea6-6e6ee4ed24f3",
-                    "ed70b3ef-3fea-4e10-8d82-e8d124361acc",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("af8ffbc0-395d-4146-a7af-3a9b53e76dad"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("fc6ec8e9-e494-47dd-9cbe-fe3cbfe1b114"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("43bd4fa3-e8f2-4e99-9949-ffab4563ed6e"),
+                GUID = new Guid("f72150e4-c9ab-4209-8caa-d65e65c33974"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Soda_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11503,6 +13268,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("53a60b88-55e6-41f4-aedd-1ffb12a0d184"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Cookies_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11510,7 +13276,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("40de32da-3b6a-4355-a7bf-5d85bf6b6842"),
+                GUID = new Guid("1a34a669-8f0e-45b8-a993-dad26c0d9b2f"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Chips_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11518,7 +13285,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("90b93da5-f543-4e96-b63c-166298e1f686"),
+                GUID = new Guid("feac7cff-fff3-4378-9db8-e1b06a36708b"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Beers_Look",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11526,55 +13294,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("82ecd29f-3d0b-4594-a9fa-a219d59a3a69"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("334b7cd8-793c-4bc1-8209-e3d7daa83ac5"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4f8cbb46-1de8-41d1-9c08-5e3d9e74345e"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("bf822bf4-4b76-4292-b8e7-c7883f73328b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5539f9f8-d6cd-4b25-9933-4ed31c61920b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b47e0c33-2699-498e-94be-751f72120f5b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("904b850f-1c84-4628-82ea-de45bfa3da34"),
+                GUID = new Guid("9b10c6b4-4f54-4f2b-a996-106f45b1f5a8"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Lighter",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11583,6 +13304,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("16a62658-b0a5-4bdb-ab65-0d512ff643fd"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_Wallet",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11590,7 +13312,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a56b878f-3cbc-4865-ab99-40d66ff625e9"),
+                GUID = new Guid("08b2ba6a-2ceb-4ee3-8aee-101836aaeef5"),
+                Name = "MS_E1_2A_ShelterArea_Drawing_CheckRough",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11598,7 +13321,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("f93bd3fb-0bdc-48ba-b65e-c6b5309af33a"),
+                GUID = new Guid("1db18472-b9a7-483e-8c47-0fee01ea9753"),
+                Name = "MS_E1_2A_ShelterArea_Drawing_CheckFinish",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11606,7 +13330,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("4394c730-23ac-4cf9-8b07-611e8d15a5b3"),
+                GUID = new Guid("9db05815-a46f-4c3c-aab6-d66b73dc52ea"),
+                Name = "MS_E1_2A_ShelterArea_Drawing_End",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11614,7 +13339,18 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("098abd3e-c7f3-4ee5-a948-429bbe474bd0"),
+                GUID = new Guid("58950484-161a-4ea7-9cb2-26b02644e607"),
+                Name = "MS_E1_2A_ShelterArea_Drawing_Start",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "576686c7-af2a-478e-bda9-dad1c4ab99c8",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("11281a51-9a5d-406d-a83a-550b298e7626"),
+                Name = "MS_E1_2A_ShelterArea_SwordFight_Play",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11622,7 +13358,19 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("32a2695e-c06a-4834-88d3-5c569b9aa13b"),
+                GUID = new Guid("d8beb5ee-4d6a-48c8-bbb4-738bf1680a7b"),
+                Name = "MS_E1_2A_ShelterArea_SwordFight_Duel",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                    "6a179ff2-9efd-433a-a919-ed1acbef3dc1",
+                    "aee2ff2b-9303-47cc-ae81-e2ec9dcdeadf",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9c348e3d-9d6f-4da0-a3d9-1e04acc8d58d"),
+                Name = "MS_E1_2A_ParkingArea_Mailbox_Unlock",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11630,7 +13378,26 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("28bc68ed-9863-4407-8697-1a74facaf123"),
+                GUID = new Guid("3d01736b-ebc8-418f-810f-c060001ac8fd"),
+                Name = "MS_E1_2A_ShelterArea_SkimStone_SeanStart",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4f8cbb46-1de8-41d1-9c08-5e3d9e74345e"),
+                Name = "MS_E1_2A_ShelterArea_GPSit_SeanBag_Look",
+                SubcontextID = "E1_2A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("09575b86-1953-49f2-85a5-a7bd97d56048"),
+                Name = "MS_E1_2A_SecondaryPath_DanielHide_ScareDaniel",
                 SubcontextID = "E1_2A",
                 Conditions = new string[]
                 {
@@ -11639,6 +13406,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("e5f36a8f-e4a4-4743-87f0-d4f5f7ba7dbb"),
+                Name = "MS_E1_5A_Outside_Insertion",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11654,7 +13422,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("22b390e7-886d-4821-9ea1-31bd8a4f3c85"),
+                GUID = new Guid("e1acb0ec-0f08-4296-822c-cb67a9ec33fa"),
+                Name = "LS_E1_5A_Outside_TruckLeaving",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11662,7 +13431,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("1534ba1f-bb62-407c-896a-c5a082a03550"),
+                GUID = new Guid("b4987296-fb84-4142-9b09-66d5a6fbbbfc"),
+                Name = "LS_E1_5A_Outside_TruckIdleLoop",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11670,7 +13440,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("345c4247-7f59-48f9-a8a7-19984ede14b0"),
+                GUID = new Guid("0361a459-4358-40c0-a334-7e2f7772d437"),
+                Name = "LS_E1_5A_Outside_SquirrelRoad_Loop",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11678,7 +13449,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("b3f18a7d-56ac-4455-9b00-c773bfd6ef38"),
+                GUID = new Guid("fd77d513-bfc4-412b-89ea-9bcf6ede93e7"),
+                Name = "LS_E1_5A_Outside_SquirrelRoad_Leave",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11686,7 +13458,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("181adee4-e04d-4c15-b673-2634753b3034"),
+                GUID = new Guid("68f881a9-19a6-44e8-aaa4-cd1fa45ebcec"),
+                Name = "LS_E1_5A_Outside_BirdRoad_Loop",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11694,7 +13467,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("aba5e03a-c7ed-4ab4-8fcf-e1ef91191eb6"),
+                GUID = new Guid("a093d4f1-9a36-4497-9ea7-5153e6fa9b9a"),
+                Name = "LS_E1_5A_Outside_BirdRoad_Leave",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11702,7 +13476,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("2c0765cb-2d29-40d4-bf29-d1e78a5221a2"),
+                GUID = new Guid("a4861d0d-e405-4656-9220-7df1a5f64238"),
+                Name = "MS_E1_5A_Inside_GrabMachine_SeanWins",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11710,184 +13485,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("8c87283f-a0ed-4b29-987b-d1112804e35f"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("51f2dc2b-1e7f-4456-a9bd-d080f991267d"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("7f7e82f7-0cdc-421b-8c5b-c7a4a2d8854d"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("29232a12-0e7d-40a3-ad74-eadd320bd08c"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("91a7225e-5e1e-4940-b180-fe11b4c1a164"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("42ac6366-2377-4ce5-bf07-e2a27bca7577"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2aebae21-1d41-4144-a60f-4bc9d365d622"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("37f33945-7108-48ae-a371-393f6a9bcb44"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("898fb837-a610-413d-bee0-a3d3b489d698"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8dde7c01-79c1-462d-908f-8eb6cae319ef"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2ba6e8f9-c50a-4354-81b8-d2139cb30c18"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d5fc6d97-f8eb-4c4a-981b-e62fb5aac11d"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("1958f745-07a3-46bf-8501-c4da3ff1ac13"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e9851db6-59f8-4a5a-a31b-20b80865fb29"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ee67f4c2-65b6-4974-9d70-d708ef7b0e49"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "54ed7421-cb72-4a97-bd8e-531eaa99b030",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("19d1720b-0b62-473d-b4ec-5c9f4fd91a41"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4a246ea9-9888-423e-bfec-3eb8495ba2a5"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("977cd66f-9a6a-4124-bd4a-a59596286477"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c71dc571-9853-4150-b985-9575f381306b"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d4d4c49e-44c7-4e21-be74-4d8a00f19f3c"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ab5a1a92-bb99-4841-9a41-2ed536c90c49"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("35485aae-922c-4468-879a-bcbbd0499e20"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ada269ff-5887-490a-8711-f8e028b12d98"),
+                GUID = new Guid("56bcfb04-ede8-40b5-ad88-0384c2ca5b0d"),
+                Name = "LS_E1_5A_Inside_GrabMachine_Loop",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11896,54 +13495,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("67021333-9a7a-4fd9-8820-69144c12bd06"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("adfef314-ba90-4491-bf48-f2b4851aa482"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2b04f49c-4f59-4990-9eaf-ca402b52a7ac"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("972ce84e-3c8e-469c-9420-b6ff6ed89f58"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4296f3fc-3dcc-4cb0-baed-9f7779acbffe"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("77af8c6e-21e4-4c67-ad83-e2822d8618c1"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("92656de8-ee91-423a-8cb8-e55a6acca100"),
+                Name = "MS_E1_5A_Inside_GrabMachine_BroFirstTry",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11952,6 +13504,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("38645270-cc53-4cc7-b088-7342f9d33e1e"),
+                Name = "MS_E1_5A_Inside_GrabMachine_BroSecondTry",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11960,7 +13513,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("f8a7090d-8465-4c7a-9183-88d92e18c350"),
+                GUID = new Guid("805f91a5-6fea-47ef-9dd0-364e973f568a"),
+                Name = "MS_E1_5A_Inside_GrabMachine_BroLastTry",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11968,7 +13522,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("298e6344-15c9-43b6-960a-2c779ea298cc"),
+                GUID = new Guid("f287864a-f205-42d8-bde4-628df8589e2f"),
+                Name = "MS_E1_5A_Inside_GrabMachine_SeanQuickPlay",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11976,7 +13531,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("62d359c2-42d3-470a-84cb-f68ff722c136"),
+                GUID = new Guid("2297e066-075a-49e6-b305-8458cf4df910"),
+                Name = "MS_E1_5A_Inside_GrabMachine_BroQuickPlay",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11984,7 +13540,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("aeaedec6-c2df-4c4a-a25f-603f1771303a"),
+                GUID = new Guid("ed875f95-0f51-4e02-bd0f-68d7fc364999"),
+                Name = "LS_E1_5A_Inside_PayLoop",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -11992,223 +13549,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("43ae550b-5eef-4c81-b47f-9c456c2758de"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c28fe75e-84de-4bd8-9584-197113fee1b8"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("72ab2254-e71c-44c7-86fc-4ae37bc2951d"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0d3d94d0-76c8-4bbb-b856-a9438f7f5db4"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("55f38efd-ab4d-40e0-8c6e-a33c15e4d406"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("45304145-ccbb-40a7-8746-46630861df66"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("3b6840ba-791d-439a-922f-cdc7e3c6f4ff"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("abcbc3a3-980f-46d2-9203-f2009a7340b6"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2fcb0c66-6345-4a2d-ab97-f9085475af95"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d1942a28-3f2d-446c-b15c-80241515be00"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0f5b80fe-b19b-44a9-b6b6-12ecdaccca69"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6bba2c59-208e-4392-bc02-6b691065a76b"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4ba311e6-ad85-498e-82d5-3fc5ea4c3efd"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("48f647be-c4a6-4f1d-9008-595f708eb8fc"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("653768a4-40a9-4943-a001-7e5039d05dc9"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("50e599c4-f7ce-450b-9e4b-e84fd7565ce5"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("28c81220-fc51-4531-aefa-8db2f1586abc"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4d2aa021-2be6-4a62-a43c-049e571ce246"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("dbda4251-d07a-4f35-96ba-4ffa46d63689"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("88b292a3-55a9-4bbd-b620-d28e087aab2b"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("66391e13-cb58-4d47-8d10-be886c76a55c"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5e2245bb-805b-42d9-8a27-8fbefa2385d4"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8c1efc43-e13e-4a3f-a568-de14e5f705aa"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5b6da1c3-1b8a-4ef5-b4e7-9758d4af22ff"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ed880253-8fdc-4572-8f9d-06846910bd1e"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("231bd053-3588-484c-b446-4cba00b8008f"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6f01937f-e198-4992-a9db-02cf8dd15011"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("fe091801-aaa7-46c5-b514-36203c728623"),
+                GUID = new Guid("e81e0f7d-f523-452a-be27-485c2a0047bd"),
+                Name = "LS_E1_5A_Inside_CashRegister",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12217,6 +13559,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("1a4a6aaf-1475-431b-a795-0992976e3bd8"),
+                Name = "DS_E1_5A_Inside_Pay_Choice_Pay",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12224,7 +13567,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("db5e4216-f8eb-4fcc-a72f-d3a1c80a1d9d"),
+                GUID = new Guid("ef0fa2c4-b08d-4942-930b-b77a41b9e5d7"),
+                Name = "MS_E1_5A_Inside_WakeUpInOffice",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12232,7 +13576,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("78a4edcf-5aa6-43f2-ad86-530213c42d88"),
+                GUID = new Guid("04e1df73-2363-4bea-9dc4-f79689b148c4"),
+                Name = "MS_E1_5A_Inside_GST02EntersOffice",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12240,7 +13585,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("099dca56-8a75-4dcd-bf2f-5471e480af86"),
+                GUID = new Guid("3a0bce28-46ce-478c-be80-cec207c81c73"),
+                Name = "MS_E1_5A_Inside_TalkNearAirVent",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12248,7 +13594,34 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("5ab4ba6d-fd0c-4f3d-aeb7-1044daa0efe4"),
+                GUID = new Guid("6ed111cf-d44a-4322-b0e4-073009f5a6df"),
+                Name = "MS_E1_5A_Inside_FreeSean",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "4320f13b-f7e3-4944-9749-038786affaaa",
+                    "668f1e85-aa00-420f-90e0-25c6fafe190e",
+                    "8291ff99-8f3c-43ec-8ea1-43bcd127fbac",
+                    "981dda19-029c-4376-92c5-5371fff7edde",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("890fec6a-70c7-4e94-8147-78db19102a4f"),
+                Name = "MS_E1_5A_Inside_GiveToolToSean",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "4f3ab30a-62a8-4c9e-b4c6-1075679e67d1",
+                    "793ff156-33d6-4a10-afd8-d99433f0cf0f",
+                    "82433d48-0c5a-42f0-9561-e02fcaae0a4e",
+                    "c2d1c175-ac3b-4924-bf87-544699dacb71",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ef80ffc-03f2-49cf-8fa0-51c72f5fa0f0"),
+                Name = "MS_E1_5A_Inside_GiveKeysToDaniel",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12256,7 +13629,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("df97427d-0694-4f73-b545-1ee6be3da5c6"),
+                GUID = new Guid("5b9dba85-2ade-4031-b498-3390ff5e7919"),
+                Name = "MS_E1_5A_Inside_StealChoice",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12264,7 +13638,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("d72ee73a-73cb-4def-bd1c-da71384a26e9"),
+                GUID = new Guid("58fecef3-7eca-4ce0-87c0-c7d79c3e30b6"),
+                Name = "MS_E1_5A_Outside_RunAway",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12272,7 +13647,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("24148bf3-d596-4668-97ba-39f4f13a8e94"),
+                GUID = new Guid("a2af1a17-d98e-453d-9db9-fc36bde83659"),
+                Name = "MS_E1_5A_Inside_TearAnchor",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12280,7 +13656,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("1f5da6a6-da4c-4dd6-8482-9858d76d6b9b"),
+                GUID = new Guid("2ad0f579-ec94-465f-a38d-5d1eeb8028eb"),
+                Name = "LS_E1_5A_Inside_PushCouch",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12288,7 +13665,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("8e2dfbe4-2472-4dac-bb2a-b68c53416af9"),
+                GUID = new Guid("974384d4-c49a-48be-b8fc-340baa5ab4d4"),
+                Name = "MS_E1_5A_Inside_ChoiceLeave",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12296,7 +13674,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a8bc6e5f-f4d4-4d5c-9965-6fc799ac5858"),
+                GUID = new Guid("e7da56a4-3a1d-4a37-a4e8-cfe245599bdf"),
+                Name = "MS_E1_5A_Inside_ChoicePunch",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12304,7 +13683,19 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("484ad69d-7833-4350-a9cd-f1256017e4ee"),
+                GUID = new Guid("5ce8f5da-5de1-4103-a9be-78db9ceb1bd8"),
+                Name = "MS_E1_5A_Inside_BreakAnchor_Intro",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "294ce1b0-f44a-4b85-8fce-099f159668c1",
+                    "48344558-e78d-4d18-ab46-c57f67005ec2",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1d21a1d0-10ef-44ce-a0d1-334e8e06d48f"),
+                Name = "MS_E1_5A_Inside_ChoiceStruggle",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12312,7 +13703,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("258e7013-f2ad-414f-a2e2-472873b08b5b"),
+                GUID = new Guid("be473952-fd2e-4278-8b10-4639042cf1b1"),
+                Name = "MS_E1_5A_Inside_TearAnchorHurt",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12320,7 +13712,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("5ea10a16-a1ee-4d08-93ee-d17025d97d60"),
+                GUID = new Guid("563e889a-25cd-47b0-95dc-743f3ae8e5f5"),
+                Name = "LS_E1_5A_Inside_LookThroughWindow",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12328,7 +13721,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("98e3fb44-8441-4ff9-a45b-b744acd0d074"),
+                GUID = new Guid("78ef680c-bf4e-4d61-9df4-59d8cca04871"),
+                Name = "LS_E1_5A_Inside_OwnersPolice",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12336,7 +13730,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("1147f619-1e3c-4554-99b7-7f3312ec9843"),
+                GUID = new Guid("f322f92a-c4c8-469f-b4a5-935259e70426"),
+                Name = "LS_E1_5A_Inside_OwnersLeaves",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12344,7 +13739,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("cecb73c8-5b55-4c06-8e7e-033eff50e44d"),
+                GUID = new Guid("725cf894-c008-4796-8908-ddebf6dd76b5"),
+                Name = "LS_E1_5A_Inside_LookThroughWindowStart",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12352,7 +13748,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c8140b90-ea33-4e59-9cf2-045a8915f1cb"),
+                GUID = new Guid("bfdf4de6-6c89-431e-9102-771cca9f5b57"),
+                Name = "MS_E1_5A_Inside_TriesBreakTies",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12360,16 +13757,98 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("544aa10e-3fd1-4047-94bf-76387235ea26"),
+                GUID = new Guid("9f46c334-36ad-4791-934d-db8c3347424a"),
+                Name = "MS_E1_5A_Inside_SecondTryTies",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
-                    "e4df7983-80cb-440a-81c1-b28134c31c01",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("835eb0ec-3125-41e9-8971-d2d1692b8092"),
+                Name = "LS_E1_5A_Inside_TryOpenDoor",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5a32503f-9604-45ec-b2b0-2b0cbf2e9c1b"),
+                Name = "MS_E1_5A_Inside_FreeSeanStartFact2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cb3c4ef9-bdc7-4fa6-9f94-d9582a79e101"),
+                Name = "MS_E1_5A_Inside_FreeSeanStartFact1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1d1bf8ea-3331-4f1d-ac18-d7805ca41b26"),
+                Name = "LS_E1_5A_Outside_TrappedBird",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5803a83a-64cd-4f63-af35-30f786900fdc"),
+                Name = "LS_E1_5A_Outside_SquirrelRoof",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("23253681-1b94-46a8-b4a6-252642492394"),
+                Name = "LS_E1_5A_Outside_Squirrel",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6f305937-4899-4f54-a074-5f28b20a7801"),
+                Name = "LS_E1_5A_Outside_BirdHouse",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f14569cc-d482-4be8-844f-0b4bef031bf8"),
+                Name = "LS_E1_5A_Office_KeyLoop",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c241868e-3493-4560-9370-0a74402058fc"),
+                Name = "MS_E1_5A_Inside_Keys_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
                 }
             },
             new CinematicObject
             {
                 GUID = new Guid("b3667143-8122-4659-a965-43b7ccb23f85"),
+                Name = "MS_E1_5A_Outside_StudyMap",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12392,7 +13871,90 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
+                GUID = new Guid("8bb6428e-5b7f-4f5e-bb6f-08771f9ad8a7"),
+                Name = "MS_E1_5A_Inside_CallLeavingWitoutPaying",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("099dca56-8a75-4dcd-bf2f-5471e480af86"),
+                Name = "MS_E1_5A_Inside_LeaveWithMap",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("544aa10e-3fd1-4047-94bf-76387235ea26"),
+                Name = "MS_E1_5A_Inside_GetOutShop",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "e4df7983-80cb-440a-81c1-b28134c31c01",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("09a50d60-82b9-4491-8193-280e6807a964"),
+                Name = "MS_E1_5A_Inside_FailStealWater",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("98a1d707-cb87-4f73-b950-24ff65b307a8"),
+                Name = "MS_E1_5A_Inside_SucceedStealWater",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fd4cfd50-cb7a-4463-a4c3-68d21f55233a"),
+                Name = "MS_E1_5A_Inside_FailStealBread",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c440cde2-cd1b-4521-93cb-0fef24a57136"),
+                Name = "MS_E1_5A_Inside_SucceedStealBread",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5463e390-eb70-45d6-9ef0-b22c1ee19100"),
+                Name = "MS_E1_5A_Inside_SucceedStealCan",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e851b43e-70dc-4e88-81d1-5ec915b64c40"),
+                Name = "MS_E1_5A_Inside_FailStealCan",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
                 GUID = new Guid("c76c71ef-2151-4c9a-b436-35afe48b7d2b"),
+                Name = "MS_E1_5A_Outside_OwnerArrival",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12401,7 +13963,71 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
+                GUID = new Guid("df97427d-0694-4f73-b545-1ee6be3da5c6"),
+                Name = "MS_E1_5A_Outside_SearchInTrashLoopChoice",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d72ee73a-73cb-4def-bd1c-da71384a26e9"),
+                Name = "MS_E1_5A_Outside_SearchInTrashKeep",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d15db83e-b602-4a4f-bcea-53a918f3d7a3"),
+                Name = "MS_E1_5A_Outside_SearchInTrashThrow",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a80826cd-4204-401e-8de9-c4abb46aa647"),
+                Name = "LS_E1_5A_Inside_DistractLady",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8d2481f8-e891-4c2f-8b7a-8f8861393905"),
+                Name = "LS_E1_5A_Inside_PoIJRNL",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("80fca2aa-17a3-458b-9c6f-232cb3e88e1e"),
+                Name = "LS_E1_5A_Inside_JRNLSit_Loop",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("87fb07d2-a4cb-492d-b2ce-a4a4496d9801"),
+                Name = "MS_E1_5A_Outside_ChoiceAttack",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
                 GUID = new Guid("41c4be61-602d-4683-8674-17a4ea03807d"),
+                Name = "MS_E1_5A_Outside_ChoiceFlee",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12409,7 +14035,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("ef0fa2c4-b08d-4942-930b-b77a41b9e5d7"),
+                GUID = new Guid("8c37bb31-1d8e-42a7-ac20-6a2ca3af593b"),
+                Name = "MS_E1_5A_Outside_ChoiceDiscuss",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12417,7 +14044,18 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("04e1df73-2363-4bea-9dc4-f79689b148c4"),
+                GUID = new Guid("25a28f0f-903c-4816-8347-a98b9352781c"),
+                Name = "MS_E1_5A_Outside_ComeBackBeg",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "44f7baaf-0310-4c0d-80c4-9db1f65e3345",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ac7c5316-1040-4718-bc66-2ff7fb9bf186"),
+                Name = "LS_E1_5A_Inside_PoILady_Start",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12425,7 +14063,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("2ad82126-82ce-42e2-9fb7-c07af6207869"),
+                GUID = new Guid("21fce013-94fd-47f1-9dfe-addcdb6dd35d"),
+                Name = "LS_E1_5A_Inside_PoIPuppy",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12433,7 +14072,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("ffa20504-55d6-4337-8ac0-26b4adf58c70"),
+                GUID = new Guid("16e0640c-1d78-4ce4-a5db-9b3ea9847ca9"),
+                Name = "LS_E1_5A_Inside_PuppyLoop1",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12441,7 +14081,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("d5a37f4a-8715-42ca-abe0-a9eb2eba9121"),
+                GUID = new Guid("59bc3d7f-9cd1-4353-ad80-eaf1ff90178e"),
+                Name = "LS_E1_5A_Outside_FamilyPicnic",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12449,7 +14090,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("00f72de5-39ce-46e6-9dcd-dcefbf91ab6a"),
+                GUID = new Guid("e0f04cfa-f7ca-4fb2-bdbf-80593e1524a4"),
+                Name = "MS_E1_5A_Inside_FailStealSoda",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12457,7 +14099,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("bfdf4de6-6c89-431e-9102-771cca9f5b57"),
+                GUID = new Guid("8e668c9c-e877-410d-935e-b368f75efc4e"),
+                Name = "MS_E1_5A_Inside_SucceedStealSoda",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12465,7 +14108,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("9f46c334-36ad-4791-934d-db8c3347424a"),
+                GUID = new Guid("9f1dcace-d94b-4291-b297-c0af1bbed104"),
+                Name = "LS_E1_5A_Inside_LadyStand_LoopMove1",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12473,7 +14117,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("eae7996f-4852-4278-8c8e-cf8ce6711fdf"),
+                GUID = new Guid("fa43e579-4893-4179-b381-3e64a0fab4b9"),
+                Name = "LS_E1_5A_Inside_LadyStand_LoopMove3",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12481,7 +14126,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c4187ece-24d9-44bc-ad37-f0376beacb92"),
+                GUID = new Guid("18c70c8e-b314-4714-b582-08d2a3198cb8"),
+                Name = "LS_E1_5A_Inside_LadyStand_LoopSuspicious",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12489,7 +14135,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("e2cd2506-5c75-49f9-bf70-cfdb78964be3"),
+                GUID = new Guid("24148bf3-d596-4668-97ba-39f4f13a8e94"),
+                Name = "MS_E1_5A_Outside_GetInShop",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12497,7 +14144,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("3a0bce28-46ce-478c-be80-cec207c81c73"),
+                GUID = new Guid("bf3546eb-eb7b-4ab1-a343-48cf87431bf8"),
+                Name = "LS_E1_5A_Inside_PoILady_Zomboy",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12505,7 +14153,481 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("c241868e-3493-4560-9370-0a74402058fc"),
+                GUID = new Guid("a9f42a0f-7e90-43e1-935f-0af1456060a5"),
+                Name = "LS_E1_5A_Inside_PoILady_Loop",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d93b5c15-f20b-43e5-9d38-5973d18367b9"),
+                Name = "LS_E1_5A_Inside_PoILady_End",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b1775a41-08b7-48d7-973e-ed0b5d19a86f"),
+                Name = "MS_E1_5A_Inside_CallLeavingWitoutPaying2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a268c94f-24da-47a0-bfef-87781a37793e"),
+                Name = "MS_E1_5A_Inside_LeavingWitoutPayingHotDog",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cbd4be67-17fd-4619-80d1-563d70ff4587"),
+                Name = "MS_E1_5A_Outside_OwnerArrivalNoBought",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c725411e-e95a-4710-aace-552d21c7e847"),
+                Name = "MS_E1_5A_Inside_Puppy_Pet",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("75a20d92-89d7-404d-bcc1-d626b2731eba"),
+                Name = "LS_E1_5A_Inside_PuppyLoop2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1958f745-07a3-46bf-8501-c4da3ff1ac13"),
+                Name = "MS_E1_5A_Outside_SitBench_BroAskLeave",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ed880253-8fdc-4572-8f9d-06846910bd1e"),
+                Name = "MS_E1_5A_Inside_Candy_FailSteal",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ea491b0-ccfe-42c3-91d9-4808abe8181f"),
+                Name = "LS_E1_5A_Inside_LadyStand_Puppy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ec0fece2-96f0-40c7-ba26-bcea99aad295"),
+                Name = "LS_E1_5A_Inside_BroFirstEntrance",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("eb76df3c-1545-49a4-afa1-5883cef8358c"),
+                Name = "MS_E1_5A_Outside_GetInsideTogether",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "bd89736b-8e5b-42f8-a3f1-7cc5239c8155",
+                    "c39e6adf-b11f-4783-912d-0a19ddcd3a30",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("87d29c55-b99d-48c4-a31f-411527c1489c"),
+                Name = "MS_E1_5A_Inside_GetOutPuppy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("231bd053-3588-484c-b446-4cba00b8008f"),
+                Name = "MS_E1_5A_Inside_Candy_SucceedSteal",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4fb0de22-0b27-4291-a6fc-54c0043412c0"),
+                Name = "LS_E1_5A_Outside_FamilyPicnic_FatherAlone",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9e54d49c-2d1c-4dd1-89f1-4ce450b1ea13"),
+                Name = "MS_E1_5A_Inside_Celebrity_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ba6e8f9-c50a-4354-81b8-d2139cb30c18"),
+                Name = "MS_E1_5A_Outside_SitBench_Start",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d5fc6d97-f8eb-4c4a-981b-e62fb5aac11d"),
+                Name = "MS_E1_5A_Outside_SitBench_Loop",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a9ff3bc4-afac-4d8a-b032-3ffb58185c0e"),
+                Name = "MS_E1_5A_Outside_SitBench_End",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("06879d50-3adc-4b4d-b0d2-1acdd0bd0cd6"),
+                Name = "DS_E1_5A_Inside_Pay_SeanBack",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("63faf2a1-7de3-41b6-960d-318316d1fa35"),
+                Name = "MS_E1_5A_Outside_JunkPile_Discuss",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("813e9e75-ab04-404e-870f-42bac42eb0e4"),
+                Name = "LS_E1_5A_Outside_JunkPile_Discuss_01",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("696cb5b0-fb56-48a0-a78e-4510218b2872"),
+                Name = "LS_E1_5A_Inside_LadyStand_Loop",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ee67f4c2-65b6-4974-9d70-d708ef7b0e49"),
+                Name = "MS_E1_5A_Inside_Map_Take",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "54ed7421-cb72-4a97-bd8e-531eaa99b030",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d7426c8d-a1d7-4c78-b7ba-504ced161ce6"),
+                Name = "LS_E1_5A_Inside_LadyStand_LoopMove2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d9f28560-0cb2-4701-bdb9-80ad7ebc3603"),
+                Name = "LS_E1_5A_Outside_Driving_Car05",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3c179a98-5ebd-4370-96a5-a3f62fcd6c32"),
+                Name = "MS_E1_5A_Inside_Keychain_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f9c4afb6-c318-4633-a157-139f019d3578"),
+                Name = "MS_E1_5A_Inside_Keychain_Show",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("aba5e03a-c7ed-4ab4-8fcf-e1ef91191eb6"),
+                Name = "MS_E1_5A_Outside_FreeBird_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2c0765cb-2d29-40d4-bf29-d1e78a5221a2"),
+                Name = "MS_E1_5A_Outside_FreeBird",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ab4b3dc1-dbe4-4a02-a7c8-2ede56b444dd"),
+                Name = "MS_E1_5A_Outside_Sink_FillBottle",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ce4c35de-c297-4547-bf3d-9ab3622909be"),
+                Name = "MS_E1_5A_Outside_WashTogether",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "bd89736b-8e5b-42f8-a3f1-7cc5239c8155",
+                    "c39e6adf-b11f-4783-912d-0a19ddcd3a30",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c87283f-a0ed-4b29-987b-d1112804e35f"),
+                Name = "MS_E1_5A_Outside_Feather_PickUp",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c1efc43-e13e-4a3f-a568-de14e5f705aa"),
+                Name = "MS_E1_5A_Inside_WoodenBears_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2d2d56da-60f7-4ba4-b5a3-68b7a18332de"),
+                Name = "MS_E1_5A_Inside_TakeSoda",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dcf912d9-fac8-4b51-8073-244f7805ec27"),
+                Name = "MS_E1_5A_Inside_Coffee_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c196a19e-ba67-44a5-bb82-7a161be14c85"),
+                Name = "MS_E1_5A_Inside_Puppy_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dd9684ba-57a5-429b-ab04-9da5373fbe9b"),
+                Name = "MS_E1_5A_Inside_TakeCandy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c28fe75e-84de-4bd8-9584-197113fee1b8"),
+                Name = "MS_E1_5A_Inside_Sticker_Take",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43ae550b-5eef-4c81-b47f-9c456c2758de"),
+                Name = "MS_E1_5A_Inside_TruckStickers_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5ab4ba6d-fd0c-4f3d-aeb7-1044daa0efe4"),
+                Name = "MS_E1_5A_Outside_SearchInTrash",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c88db062-9b82-4b62-b1e0-f09ad8f7c854"),
+                Name = "MS_E1_5A_Inside_RegionMap_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0262d011-bbbf-44da-b1f3-662fc4772657"),
+                Name = "MS_E1_5A_Inside_TakeBread",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5b6da1c3-1b8a-4ef5-b4e7-9758d4af22ff"),
+                Name = "MS_E1_5A_Inside_TakeCan",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("724a921c-0c0d-4cad-ab21-86141cac6ff8"),
+                Name = "MS_E1_5A_Outside_GetOutTogether",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("017d6dac-6e62-4899-bca6-13cfc968dab4"),
+                Name = "MS_E1_5A_Outside_GetOutToilet",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("45474475-26c8-472d-8cca-bedfbcfcda91"),
+                Name = "MS_E1_5A_Outside_GetInToilet",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("420cd214-f99a-46c8-b13b-75169ef5ef86"),
+                Name = "MS_E1_5A_Inside_TakeSleepingBag",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8fc5380b-fed3-4da8-9eec-803d5d6865af"),
+                Name = "MS_E1_5A_Inside_Take_HotDog",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7943707b-17af-4b6f-a21d-0addbf8c369f"),
+                Name = "MS_E1_5A_Inside_TakeTShirt",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1f5da6a6-da4c-4dd6-8482-9858d76d6b9b"),
+                Name = "MS_E1_5A_Inside_TakeWater",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e9851db6-59f8-4a5a-a31b-20b80865fb29"),
+                Name = "MS_E1_5A_Inside_GetInFirstTime",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("181adee4-e04d-4c15-b673-2634753b3034"),
+                Name = "MS_E1_5A_Outside_Tools_Look",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12514,78 +14636,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("36721ef8-933a-42da-bf60-275729860eee"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ddeaf29b-9a2b-4e06-88ac-dff38ea9462a"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("9faebe2c-8008-4cea-88f7-43e40935ea65"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4d954282-31c3-46c0-85e3-7d250ba485c2"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("890fec6a-70c7-4e94-8147-78db19102a4f"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "4f3ab30a-62a8-4c9e-b4c6-1075679e67d1",
-                    "793ff156-33d6-4a10-afd8-d99433f0cf0f",
-                    "82433d48-0c5a-42f0-9561-e02fcaae0a4e",
-                    "c2d1c175-ac3b-4924-bf87-544699dacb71",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5ce8f5da-5de1-4103-a9be-78db9ceb1bd8"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "294ce1b0-f44a-4b85-8fce-099f159668c1",
-                    "48344558-e78d-4d18-ab46-c57f67005ec2",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("f8331d2c-1a2a-4bd1-bb9c-49a8d395c2bd"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "294ce1b0-f44a-4b85-8fce-099f159668c1",
-                    "48344558-e78d-4d18-ab46-c57f67005ec2",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a2af1a17-d98e-453d-9db9-fc36bde83659"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2ad0f579-ec94-465f-a38d-5d1eeb8028eb"),
+                Name = "MS_E1_5A_Inside_TryToTearAnchor",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12594,6 +14645,34 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("de799157-ca89-455a-9584-a6ae1f61a281"),
+                Name = "MS_E1_5A_Inside_TakeBackDoorKey",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c4187ece-24d9-44bc-ad37-f0376beacb92"),
+                Name = "MS_E1_5A_Inside_PushPoster",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("23c884d1-030d-4906-ae64-929b4efc2872"),
+                Name = "MS_E1_5A_Inside_Shelf_Kick",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("eae7996f-4852-4278-8c8e-cf8ce6711fdf"),
+                Name = "MS_E1_5A_Office_Tube_Reach",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12602,6 +14681,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("722a9b2f-b4d9-4166-b5ca-06ad7430460c"),
+                Name = "MS_E1_5A_Inside_TakeBackDoorKey_Take",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12609,7 +14689,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("2ef80ffc-03f2-49cf-8fa0-51c72f5fa0f0"),
+                GUID = new Guid("4a246ea9-9888-423e-bfec-3eb8495ba2a5"),
+                Name = "MS_E1_5A_Inside_GrabM_Look",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12617,7 +14698,19 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("5a32503f-9604-45ec-b2b0-2b0cbf2e9c1b"),
+                GUID = new Guid("f8331d2c-1a2a-4bd1-bb9c-49a8d395c2bd"),
+                Name = "MS_E1_5A_Inside_BreakAnchor_Mash",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                    "294ce1b0-f44a-4b85-8fce-099f159668c1",
+                    "48344558-e78d-4d18-ab46-c57f67005ec2",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e2cd2506-5c75-49f9-bf70-cfdb78964be3"),
+                Name = "MS_E1_5A_Inside_StoreRoomOpen",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12625,19 +14718,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("6ed111cf-d44a-4322-b0e4-073009f5a6df"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "4320f13b-f7e3-4944-9749-038786affaaa",
-                    "668f1e85-aa00-420f-90e0-25c6fafe190e",
-                    "8291ff99-8f3c-43ec-8ea1-43bcd127fbac",
-                    "981dda19-029c-4376-92c5-5371fff7edde",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5b9dba85-2ade-4031-b498-3390ff5e7919"),
+                GUID = new Guid("4ca4b27c-afe9-49b8-a2d0-f40a6a4ff001"),
+                Name = "MS_E1_5A_Outside_Mirror_Look",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12645,7 +14727,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("e7da56a4-3a1d-4a37-a4e8-cfe245599bdf"),
+                GUID = new Guid("08a442bc-83c7-48ec-ac71-c107c8868090"),
+                Name = "MS_E1_5A_Outside_PaperDispenser_Look",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12653,7 +14736,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("58fecef3-7eca-4ce0-87c0-c7d79c3e30b6"),
+                GUID = new Guid("8574f528-e6c1-4090-ac88-d2b35e352ac3"),
+                Name = "DS_E1_5A_Inside_AskDistract_SeanAsk",
                 SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
@@ -12661,103 +14745,1691 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("55700999-d5cd-4596-b751-09390a149043"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("120a2b4a-4d97-4846-b672-b6142613da59"),
+                Name = "DS_E1_5A_Inside_AskDistract_DanielNotBeg",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("963d5e39-3299-4f0b-ae01-0d2adc3bb424"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("b9fda126-8ade-441d-90ce-e2243177449b"),
+                Name = "DS_E1_5A_Inside_AskDistract_DanielAlreadyBeg",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("04dfb6ec-eda3-419b-a4c2-40efce22a11e"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("5d274f7e-961f-4805-b0f8-7131d679897c"),
+                Name = "DS_E1_5A_Inside_AskDistract_ShopAlone",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("b803c60f-8da2-43a4-99cf-f8015d5db9db"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("786e7460-6bc7-461e-a592-f15dd511b425"),
+                Name = "DS_E1_5A_Inside_AskDistract_DanielAccept",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("9cb2318b-08c6-4bf5-94f8-147904cf591a"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("478acbc5-1506-438f-b446-e25f4f740199"),
+                Name = "DS_E1_5A_Inside_AskDistract_DanielSceptical",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("3dd5df89-2959-45b1-8e9e-ed0eeede7901"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("976d2b35-6908-456c-b3ef-b986e148749e"),
+                Name = "DS_E1_5A_Inside_AskDistract_Force",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("eee831e4-d651-4801-9317-8000a733c482"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("dcf08c15-b23a-4b91-b753-bb6b9bb7bf29"),
+                Name = "DS_E1_5A_Inside_AskDistract_Drop",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("b830b0cc-7482-43f1-bbdf-ce9aa3d03f3e"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("4f6b5e94-5a86-4637-b941-357164b24450"),
+                Name = "DS_E1_5A_Inside_AskDistract_Choice",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("d8fbcf63-f770-46ff-a471-6065fb9e9473"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("80f38fd5-cda3-419e-814f-6d5cf68a77fb"),
+                Name = "DS_E1_5A_Inside_InteruptBroLady_Interupt",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("3397ada1-fcbd-4756-a7ab-55761cb20d97"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("a1fb8f56-67df-4e55-ac96-390b1b2f1780"),
+                Name = "DS_E1_5A_Inside_InteruptBroLady_Friendly",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("e96e13c0-a382-4983-87eb-47c0ae1da863"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("fe9832dd-99d2-4e31-9747-0f0443f6d056"),
+                Name = "DS_E1_5A_Inside_InteruptBroLady_Suspicious",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("f21167d1-785c-4849-83d0-9056c5ddba32"),
-                SubcontextID = "E1_6A",
+                GUID = new Guid("f8fee0e5-e205-440e-b0e5-b0e368a2dd66"),
+                Name = "DS_E1_5A_Inside_InteruptBroLady_DanielLeaves",
+                SubcontextID = "E1_5A",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("7539e123-4093-40cd-b505-80fd3e3b6c48"),
+                GUID = new Guid("97327d12-e3ec-4a45-980f-55441940e5a3"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_SeanDiscover",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e5957bcc-0cf0-44ae-b76c-b5679b82a0ec"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_DanielDiscover",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("48f647be-c4a6-4f1d-9008-595f708eb8fc"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_StrayMutt",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1b723bdf-2126-46f4-a852-9f1f329daca5"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_LeftOnRoad",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("653768a4-40a9-4943-a001-7e5039d05dc9"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_AskName",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bad35ee8-39e3-4623-875d-fb01b7bd441e"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_FriendlyShe",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("50e599c4-f7ce-450b-9e4b-e84fd7565ce5"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_SuspiciousShe",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("28c81220-fc51-4531-aefa-8db2f1586abc"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_AskTakePuppy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("088c295a-797d-4d64-9228-bd5c0f77493b"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_ThinkTakePuppy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dbda4251-d07a-4f35-96ba-4ffa46d63689"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_DontTakePuppy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("076cd113-cf4d-457b-b23e-c167d0ed7b20"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_RefuseFriendly",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("88b292a3-55a9-4bbd-b620-d28e087aab2b"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_RefuseSuspicious",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b44f5b9a-4b97-4c60-bac1-11c7c8c663c6"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_EndingThink",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("66391e13-cb58-4d47-8d10-be886c76a55c"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_EndingNo",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6bba2c59-208e-4392-bc02-6b691065a76b"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_SeanJoin",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4d2aa021-2be6-4a62-a43c-049e571ce246"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_ChoiceTakePuppy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ddafc0af-1533-42be-97f6-d5a7f48ff892"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_Start",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("72ab2254-e71c-44c7-86fc-4ae37bc2951d"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_InteruptDaniel",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("55f38efd-ab4d-40e0-8c6e-a33c15e4d406"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_WorthIt",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("67289d18-7cd2-4574-9238-ab743a994dfd"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_Crazy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("45304145-ccbb-40a7-8746-46630861df66"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_PresentHimself",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3b6840ba-791d-439a-922f-cdc7e3c6f4ff"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_SeanDoesntPresent",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("abcbc3a3-980f-46d2-9203-f2009a7340b6"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_FieldReporter",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d1942a28-3f2d-446c-b15c-80241515be00"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_WithBro",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b35f4470-1206-44ad-91f7-f942d2372baa"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_WithDad",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f5b80fe-b19b-44a9-b6b6-12ecdaccca69"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_End",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0d3d94d0-76c8-4bbb-b856-a9438f7f5db4"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_Choice",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2fcb0c66-6345-4a2d-ab97-f9085475af95"),
+                Name = "DS_E1_5A_Inside_JRNLSpeak_ChoiceTravelling",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("db5e4216-f8eb-4fcc-a72f-d3a1c80a1d9d"),
+                Name = "DS_E1_5A_Inside_Pay_GiveMoney1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7fccca55-9842-42a1-8ea7-1bdffe4848bf"),
+                Name = "DS_E1_5A_Inside_Pay_GiveMoney2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ce844f70-67b1-477c-8f18-b39938a8cdad"),
+                Name = "DS_E1_5A_Inside_Pay_Givemoney3",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("78a4edcf-5aa6-43f2-ad86-530213c42d88"),
+                Name = "DS_E1_5A_Inside_Pay_EnoughtMoney",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c6464ad-acca-4eab-98b2-374bf3d93a50"),
+                Name = "DS_E1_5A_Inside_Pay_LittleShort",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d8d732a2-b26a-4b52-9787-f61ae3f74193"),
+                Name = "DS_E1_5A_Inside_Pay_NotEnough",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("91b52258-e2ec-48de-ba0b-25fcf65d131c"),
+                Name = "DS_E1_5A_Inside_Pay_OfferDifference",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d91c4601-0ad9-4b58-9448-e6f0a1f49d5e"),
+                Name = "DS_E1_5A_Inside_Pay_RemoveArticles",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("47537ce5-9355-4d9d-a92e-54e8fff4f22b"),
+                Name = "DS_E1_5A_Inside_Pay_PowerBear",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5976fab4-4bb2-4077-9fa3-df3d1fdc8921"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_SayHi",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8e2dfbe4-2472-4dac-bb2a-b68c53416af9"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_IntroSuspicious",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("49a9f0b1-cdb4-47fe-8b8d-190144373378"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_IntroNeutral",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a8bc6e5f-f4d4-4d5c-9965-6fc799ac5858"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Raodtrip",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("353f382e-ee62-4352-9643-28f0925c618a"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Local",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("32881b88-afa8-493f-9ab9-d3eeac936cfa"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Camping",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2e461ed4-3943-45db-b004-5ade06ad463d"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_CampingSeen",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("14ad0ea7-3191-409a-aeb0-7612ef370214"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_HasBeg",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("484ad69d-7833-4350-a9cd-f1256017e4ee"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_WhereParents",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6f71ba57-1275-4e59-9a1d-000950aee39b"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Dirty",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("258e7013-f2ad-414f-a2e2-472873b08b5b"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Brother",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5ea10a16-a1ee-4d08-93ee-d17025d97d60"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_LongTrip",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c490e125-ad24-4577-a85c-87123b6d2e0f"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_ShortTrip",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cecb73c8-5b55-4c06-8e7e-033eff50e44d"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_GrillYou",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("62da66c9-f8fd-4aab-a91c-fa736d1af38b"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_DoOften",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("06d9863f-d863-43c6-b9e2-c27830ad8615"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_NotTravellers",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1147f619-1e3c-4554-99b7-7f3312ec9843"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_FieldTrip",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f09a997e-dff2-4294-9a24-ae1c81903101"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Friends",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a611c9ed-e6a1-4173-a6ee-39bc326b8507"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Dad",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0bf1b0d1-fdc9-490d-ae71-e2d4884c0f60"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_WaitingDad",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d547e607-8d91-48d3-b56f-349e9dfc5def"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_DadHangOut",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2fcfd943-d3e3-4c74-b46d-2862ec3a7dbd"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_WhatTrail",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0ce32d3a-0745-4169-8d0e-139afe9650e2"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_TrailNoName",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("78f26a70-0bb1-4fae-a333-6c4441a4fe7e"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_BecomeSuspicious",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f2b233cf-4557-4b8a-b894-cb9165a3f095"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_DadLeaveAlone",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("afc27a03-9e6e-4b23-a3c3-55b2e1c271b0"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Choice_WhyHere",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("68661e5b-6e6a-4054-a5d0-38dd0b2c0ca5"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Choice_Parents",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("98e3fb44-8441-4ff9-a45b-b744acd0d074"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Choice_LongTrip",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0e3f7ab4-64ea-42a6-94c0-972bbfa1120c"),
+                Name = "DS_E1_5A_Inside_SpeakShopKeeper_Choice_WhereDad",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("977cd66f-9a6a-4124-bd4a-a59596286477"),
+                Name = "DS_E1_5A_Inside_StartGM_DanielCall",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("740a28a2-a2aa-4cd8-9080-a02d4d34cc6c"),
+                Name = "DS_E1_5A_Inside_StartGM_SeanCall",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c71dc571-9853-4150-b985-9575f381306b"),
+                Name = "DS_E1_5A_Inside_StartGM_CouldPlay",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d4d4c49e-44c7-4e21-be74-4d8a00f19f3c"),
+                Name = "DS_E1_5A_Inside_StartGM_Accept",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ab5a1a92-bb99-4841-9a41-2ed536c90c49"),
+                Name = "DS_E1_5A_Inside_StartGM_WhoFirst",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("47159760-8da6-4731-adab-d3b9228fa158"),
+                Name = "DS_E1_5A_Inside_StartGM_OutMoney",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("375a18b6-8832-48c5-a7e6-08a6918c0d38"),
+                Name = "DS_E1_5A_Inside_StartGM_SeanFirst",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ada269ff-5887-490a-8711-f8e028b12d98"),
+                Name = "DS_E1_5A_Inside_StartGM_DanielFirst",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("35485aae-922c-4468-879a-bcbbd0499e20"),
+                Name = "DS_E1_5A_Inside_StartGM_Choice_WhoFirst",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4296f3fc-3dcc-4cb0-baed-9f7779acbffe"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_DAskPlay1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4c2c9e4d-a76c-4da3-9569-a1491db45f62"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_SeanPlay1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("92656de8-ee91-423a-8cb8-e55a6acca100"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_SeanLetPlay",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0dd6484c-762c-49a3-a180-16144eed8f72"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_DAskPlay2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8b1af0d3-9d94-4fa0-b4bf-4ae9eebfd313"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_SeanPlay2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("adfef314-ba90-4491-bf48-f2b4851aa482"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_SAskPlay1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("933d72b8-36db-452d-8239-a5b8cef43d50"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_DanielPlay1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("972ce84e-3c8e-469c-9420-b6ff6ed89f58"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_DanielLetPlay",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f8a7090d-8465-4c7a-9183-88d92e18c350"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_SAskPlay2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("55b5c8e4-f7bd-451c-9772-d80898790459"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_DanielPlay2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6f533d5d-8d20-4166-8e4d-3bca2345aa4c"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_SkimStone",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("77af8c6e-21e4-4c67-ad83-e2822d8618c1"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_Choice_LetHimPlay1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d641e325-dad4-4fd1-b3fc-44ab7f893375"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_Choice_LetHimPlay2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2b04f49c-4f59-4990-9eaf-ca402b52a7ac"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_Choice_Play1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0b4fd4c3-6428-4fb0-a498-54ad969d1bc0"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_Choice_Play2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ddeaf29b-9a2b-4e06-88ac-dff38ea9462a"),
+                Name = "DS_E1_5A_Office_AskForTool_AskTool",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1e168649-3acf-41c2-83ff-7fbb7d9a5c90"),
+                Name = "DS_E1_5A_Office_AskForTool_Stury",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4d954282-31c3-46c0-85e3-7d250ba485c2"),
+                Name = "DS_E1_5A_Office_AskForTool_WoodFile",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("40122a05-2c28-4da4-9c0e-acd710f8c50b"),
+                Name = "DS_E1_5A_Office_AskForTool_JunkPile",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2f2b01d5-8bdc-4ac0-972e-9b2f37f6e4c5"),
+                Name = "DS_E1_5A_Office_AskForTool_LookAround",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a1fc6ca6-067e-4a48-9fa3-5fc4b2bdcfb9"),
+                Name = "DS_E1_5A_Office_AskForTool_NoIdea",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9faebe2c-8008-4cea-88f7-43e40935ea65"),
+                Name = "DS_E1_5A_Office_AskForTool_Choice_TypeTool",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1e9ebdcb-a7ff-47bf-9ef0-8d18c12152f6"),
+                Name = "DS_E1_5A_Office_AskForTool_Choice_Location",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bc109042-21a9-441f-8a9e-7e4183987b82"),
+                Name = "DS_E1_5A_Office_WakeUpInOffice_Coax",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ffa20504-55d6-4337-8ac0-26b4adf58c70"),
+                Name = "DS_E1_5A_Office_WakeUpInOffice_Threaten",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b733933f-9923-4651-a9e8-5653905d7b83"),
+                Name = "DS_E1_5A_Office_WakeUpInOffice_HasNotStole",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d5a37f4a-8715-42ca-abe0-a9eb2eba9121"),
+                Name = "DS_E1_5A_Office_WakeUpInOffice_HasStole",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("00f72de5-39ce-46e6-9dcd-dcefbf91ab6a"),
+                Name = "DS_E1_5A_Office_WakeUpInOffice_AskBrother",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2ad82126-82ce-42e2-9fb7-c07af6207869"),
+                Name = "DS_E1_5A_Office_WakeUpInOffice_Choice",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2783138a-c8f5-4c8b-881c-ea06cb7f0a15"),
+                Name = "DS_E1_5A_Outside_DanielBegFamily_SpecialQuest",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("16c49c71-e470-47d5-9442-a82a9ece2899"),
+                Name = "DS_E1_5A_Outside_DanielBegFamily_AlreadyTalked",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7b647d10-a6cd-44ce-a60c-9dc7cbd04d5a"),
+                Name = "DS_E1_5A_Outside_DanielBegFamily_Drop",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7f7e82f7-0cdc-421b-8c5b-c7a4a2d8854d"),
+                Name = "DS_E1_5A_Outside_Family_FirstHi",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6d39b451-fcef-49a4-b02c-1aad2f5ecfad"),
+                Name = "DS_E1_5A_Outside_Family_WeatherUpset",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e864d462-3a39-40e1-b543-acaefaf91715"),
+                Name = "DS_E1_5A_Outside_Family_Weather",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("130c8ab6-ec91-40f6-8e47-d1db39cc8285"),
+                Name = "DS_E1_5A_Outside_Family_Camping",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("03d5f780-7c7a-4498-8326-cca554942f8e"),
+                Name = "DS_E1_5A_Outside_Family_CampingNoSeen",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a9dd7cfb-d634-4431-b50a-2bb1f2d4ddf4"),
+                Name = "DS_E1_5A_Outside_Family_CampingSeen",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("637290f6-1ad3-46d8-8b00-7c90c0d51e70"),
+                Name = "DS_E1_5A_Outside_Family_FlatTire",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("96718c01-6a5e-4f41-a46e-fa6e98ee12aa"),
+                Name = "DS_E1_5A_Outside_Family_Visiting",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("813b1b8e-5108-4367-b9d7-8ddb4196f43d"),
+                Name = "DS_E1_5A_Outside_Family_NotBadWeather",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9bca0363-b958-4abd-beb9-d7d492c9ddf4"),
+                Name = "DS_E1_5A_Outside_Family_WhatsWrong",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("91a7225e-5e1e-4940-b180-fe11b4c1a164"),
+                Name = "DS_E1_5A_Outside_Family_Halloween",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("04128489-db4c-49c1-aede-d86cc616b041"),
+                Name = "DS_E1_5A_Outside_Family_HalloweenMoody",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("42ac6366-2377-4ce5-bf07-e2a27bca7577"),
+                Name = "DS_E1_5A_Outside_Family_HalloweenHappy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2aebae21-1d41-4144-a60f-4bc9d365d622"),
+                Name = "DS_E1_5A_Outside_Family_AskFood",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ea4c7f5a-2dd0-4374-aca3-406687568e69"),
+                Name = "DS_E1_5A_Outside_Family_NoFoodBother",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("37f33945-7108-48ae-a371-393f6a9bcb44"),
+                Name = "DS_E1_5A_Outside_Family_NoFoodBusy",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4d9b67ae-20fd-4d93-acf1-535df37b7a1d"),
+                Name = "DS_E1_5A_Outside_Family_GiveFood",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("898fb837-a610-413d-bee0-a3d3b489d698"),
+                Name = "DS_E1_5A_Outside_Family_NoFoodEnding",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a634463-58ca-4772-bdd1-b302e1678905"),
+                Name = "DS_E1_5A_Outside_Family_QuickHi",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("46ab2de2-ac43-496a-b356-8091f45fb5d3"),
+                Name = "DS_E1_5A_Outside_Family_Leave",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bd76b1a1-3feb-4282-b564-47e18b51fe3c"),
+                Name = "DS_E1_5A_Outside_Family_ByeFriendly",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1a44a348-64e4-41f1-894f-620e7efa5c3a"),
+                Name = "DS_E1_5A_Outside_Family_ByeMoody",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("29232a12-0e7d-40a3-ad74-eadd320bd08c"),
+                Name = "DS_E1_5A_Outside_Family_Choice_HUB",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f36f5bb6-ee06-4132-8051-5d8fcb269eb3"),
+                Name = "DS_E1_5A_Outside_Family_Choice_Location",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("634066d9-6db5-4e30-9fc9-1b61ed698138"),
+                Name = "DS_E1_5A_Outside_Family_Choice_SeattleWeather",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1534ba1f-bb62-407c-896a-c5a082a03550"),
+                Name = "MS_E1_5A_Outside_Decoration_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("400a0e61-89bb-4697-ac04-4c8c73af9a3a"),
+                Name = "MS_E1_5A_Outside_Shelve_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("aeaedec6-c2df-4c4a-a25f-603f1771303a"),
+                Name = "MS_E1_5A_Inside_Picture_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe091801-aaa7-46c5-b514-36203c728623"),
+                Name = "DS_E1_5A_Inside_Pay_Total1",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4000b2c3-9c14-46e8-80df-efbcfef52981"),
+                Name = "DS_E1_5A_Inside_Pay_Total2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c8140b90-ea33-4e59-9cf2-045a8915f1cb"),
+                Name = "DS_E1_5A_Inside_Pay_Total3",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6f01937f-e198-4992-a9db-02cf8dd15011"),
+                Name = "DS_E1_5A_Inside_Pay_PutOnDesk",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bfe6e326-3e5d-49f7-96ad-588746b4185b"),
+                Name = "DS_E1_5A_Inside_Pay_SaidLocal",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e3f788c6-cb5b-4669-bcc5-7c09d3fee2cf"),
+                Name = "DS_E1_5A_Inside_Pay_SaidCamping",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8cb8950b-e120-49f9-8155-99abafef5075"),
+                Name = "DS_E1_5A_Inside_Pay_SaidRoadTrip",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("307c47d2-1d7e-49be-aaf1-3229600b3386"),
+                Name = "DS_E1_5A_Inside_Pay_Exit",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("edc8bb53-acab-415e-be7b-557e1445b536"),
+                Name = "DS_E1_5A_Inside_Pay_RemoveSome",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2491ae3e-4c3d-4427-97b9-875840bf3f47"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_LeaveSean",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("298e6344-15c9-43b6-960a-2c779ea298cc"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_LeaveDaniel",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b0fbf602-b006-45cb-889c-1093b5957718"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_OutCoinSean",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("265c3830-2d83-498f-804a-ae24510f7cf6"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_ExitSean",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("62d359c2-42d3-470a-84cb-f68ff722c136"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_ExitDaniel",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("84211191-243b-41c9-b6f9-152142bdb049"),
+                Name = "DS_E1_5A_Inside_SwitchPosGM_CoinDaniel",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c4c4e09-ae5c-4802-a8f6-8b5853720b31"),
+                Name = "LS_E1_5A_Inside_Pen_Idle",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8dde7c01-79c1-462d-908f-8eb6cae319ef"),
+                Name = "MS_E1_5A_Outside_Newspaper_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("50f0b4c6-809c-4030-81fb-4fb07c4dd0f5"),
+                Name = "DS_E1_5A_Inside_Pay_Exit2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("51f2dc2b-1e7f-4456-a9bd-d080f991267d"),
+                Name = "MS_E1_5A_Outside_Car_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3f18a7d-56ac-4455-9b00-c773bfd6ef38"),
+                Name = "MS_E1_5A_Outside_BigBear_Discuss",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ba311e6-ad85-498e-82d5-3fc5ea4c3efd"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_SeanJoin2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("77dca39c-ab9d-491a-8fd2-8c616d416d10"),
+                Name = "DS_E1_5A_Inside_ExaminePuppy_SeanDiscover2",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5c22e6c1-dcf1-47cc-9d41-65429742d73e"),
+                Name = "DS_E1_5A_Outside_DanielBegFamily_Insist",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5aef31cb-1497-43cd-a3d9-208f32a08831"),
+                Name = "DS_E1_5A_Outside_DanielBegFamily_NotAlreadyTalked",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fdca8a42-5396-42a1-a5fa-7ea815d0fe5c"),
+                Name = "DS_E1_5A_Inside_Pay_GiveMoney4",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4a816086-8675-4405-b314-48862c6adc7d"),
+                Name = "DS_E1_5A_Outside_Family_ThanksForChips",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b2a6acaa-486f-4e5f-a13f-ebc75c9ba0dd"),
+                Name = "DS_E1_5A_Outside_Family_BadEndingSendBeg",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("26b0a5c3-020f-4550-aa05-5cd4aead3df5"),
+                Name = "DS_E1_5A_Outside_Family_HalloweenHappySendBeg",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3d96d715-a862-4e2a-9541-3bc4efa089a6"),
+                Name = "DS_E1_5A_Outside_DanielBegFamily_Choice_Convince",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19d1720b-0b62-473d-b4ec-5c9f4fd91a41"),
+                Name = "MS_E1_5A_Inside_Witch_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("18695c64-2414-482e-b471-8857710ac625"),
+                Name = "MS_E1_5A_Inside_Postcard_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5e2245bb-805b-42d9-8a27-8fbefa2385d4"),
+                Name = "MS_E1_5A_Inside_Knife_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("345c4247-7f59-48f9-a8a7-19984ede14b0"),
+                Name = "MS_E1_5A_Outside_InflatablePupkin",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d2fd7019-59b8-44d3-bc2e-6959c402c5a2"),
+                Name = "MS_E1_5A_Outside_BigBear_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a0a2595a-3d18-469e-933d-8862ebd07f03"),
+                Name = "MS_E1_5A_Inside_Shelf_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e07d5470-3286-4c8c-878f-cd69539c4041"),
+                Name = "DS_E1_5A_Outside_Family_LeaveGen",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("22b390e7-886d-4821-9ea1-31bd8a4f3c85"),
+                Name = "MS_E1_5A_Outside_BrodyCar_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cc263144-9659-40ae-872d-2766214d6c57"),
+                Name = "MS_E1_5A_CampingSite_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e2fc9af1-ceb8-4f4e-b168-60e5cf7f8514"),
+                Name = "MS_E1_5A_LetterBox_Look",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1fbdb6c1-94a5-48f5-b3ea-552e455012e9"),
+                Name = "MS_E1_5A_Inside_Keys_LookClassic",
+                SubcontextID = "E1_5A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a949fe32-146b-449b-8dfa-ba43c4851d86"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Money",
                 SubcontextID = "E1_6A",
                 Conditions = new string[]
                 {
@@ -12766,6 +16438,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("dd0e5eeb-d171-45c8-97bf-f136b82fd12a"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ChoiceLoop06",
                 SubcontextID = "E1_6A",
                 Conditions = new string[]
                 {
@@ -12773,15 +16446,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("8cf23822-0fd9-495b-aea4-8b46492a3a9e"),
-                SubcontextID = "E1_6A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("77e87df9-d480-4a5a-8a70-41e66866ff75"),
+                GUID = new Guid("eee831e4-d651-4801-9317-8000a733c482"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ChoiceLoop03",
                 SubcontextID = "E1_6A",
                 Conditions = new string[]
                 {
@@ -12790,6 +16456,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("b12a3e73-d300-409e-8a9f-440999f3fcd6"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ChoiceLoop07",
                 SubcontextID = "E1_6A",
                 Conditions = new string[]
                 {
@@ -12797,7 +16464,107 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a949fe32-146b-449b-8dfa-ba43c4851d86"),
+                GUID = new Guid("354fdf75-dc56-49e3-951c-050625abc0e2"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ChoiceLoop04",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b803c60f-8da2-43a4-99cf-f8015d5db9db"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ChoiceLoop02",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c76f095a-92e9-477b-bca5-462ec4f1c747"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ChoiceLoop01",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43639432-c65a-46ae-b9b4-2f8cebf3376b"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_WhatDoYouDo",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("26d0b6e2-8d27-45d2-97f4-f8e2775178da"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ArgueEnd",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("91625b77-b118-4a80-b317-fa30fa58308d"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DanielAnwserNeedDog",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7cd24ede-6d0c-4b1e-b316-9014ea4e931b"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DanielAnswerTakeCare",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ebcbacf-75ac-4188-9771-1a4a5b46f41e"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_ArgueFollowUp",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("da2770eb-751d-4e83-a967-99861f1bac82"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DanielFactNotTakeDog",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe997642-d70c-4d87-b8ac-00a3f4af8b3c"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DanielFactTakeDog",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("47d0b919-a441-4e10-b50d-88dc4138ddbb"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Argue",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b830b0cc-7482-43f1-bbdf-ce9aa3d03f3e"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Concede",
                 SubcontextID = "E1_6A",
                 Conditions = new string[]
                 {
@@ -12806,6 +16573,223 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("e69e9305-fe07-4a27-b236-0b8cbe8a7c50"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Extraction",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d67453d6-eef4-4d69-bf81-fd86192b81c5"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Lonely",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("be485884-1862-4a4d-964f-e20c6817c1cc"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Famous",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("77e87df9-d480-4a5a-8a70-41e66866ff75"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_LongStory",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8cf23822-0fd9-495b-aea4-8b46492a3a9e"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_OnTheRoad",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f21167d1-785c-4849-83d0-9056c5ddba32"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Lame",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7539e123-4093-40cd-b505-80fd3e3b6c48"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DanielHappy",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2731f283-b868-4a63-8fea-84cb3ba31f53"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Cool",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e96e13c0-a382-4983-87eb-47c0ae1da863"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DanielChoice",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3397ada1-fcbd-4756-a7ab-55761cb20d97"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_YourChoiceDanielAnswer02",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8546787e-fbe7-421a-a679-1693c4cc66e7"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_YourChoiceDanielAnswer01",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3b4d71bb-c659-49e4-a4ae-b1ee39b3a014"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_NotDiverse",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9cb2318b-08c6-4bf5-94f8-147904cf591a"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_OnlyLivedSeattle",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ef1db17-34bf-45ca-88c8-b4ce19675c7e"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DontFaze",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e78d7ec6-9367-4b99-a04b-6cecf92522c4"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DontSteal",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ab7b3871-f4aa-4c73-9fb0-e1abfd1dd5d7"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_FreakOut",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8e9980e2-5cb0-49a4-9e98-1e27abe444f8"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DickheadHit",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d8fbcf63-f770-46ff-a471-6065fb9e9473"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_YourChoice",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3dd5df89-2959-45b1-8e9e-ed0eeede7901"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DogReveal",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d7a1858c-8909-4b87-a048-552f3029499d"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_CreepyBears",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("04dfb6ec-eda3-419b-a4c2-40efce22a11e"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_WelcomeAmerica",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9089eb84-d11e-48fe-8a29-6622d5b66e6b"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DickheadFollowUp",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ef8fcf9a-cc5c-4b5e-9d37-9e3b083028ad"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_DickHeadNotHit",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("963d5e39-3299-4f0b-ae01-0d2adc3bb424"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_HassleYou",
+                SubcontextID = "E1_6A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("55700999-d5cd-4596-b751-09390a149043"),
+                Name = "DS_E1_6A_Inside_InsertionFirstTalk_Insertion",
                 SubcontextID = "E1_6A",
                 Conditions = new string[]
                 {
@@ -12814,6 +16798,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("bdf9a76f-3250-4375-bbcc-9f64665912e8"),
+                Name = "DS_E1_6B_Outside_AB_Insertion",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bdf9a76f-3250-4375-bbcc-9f64665912e8"),
+                Name = "DS_E1_6B_Outside_AB_Insertion",
                 SubcontextID = "E1_6C",
                 Conditions = new string[]
                 {
@@ -12822,6 +16816,34 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("464e77f2-c326-40e3-8099-7ff4625dc188"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop01",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("464e77f2-c326-40e3-8099-7ff4625dc188"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop01",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2f8686af-713b-482d-9a67-5cb578b5566c"),
+                Name = "DS_E1_6B_Outside_AB_MyFault",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2f8686af-713b-482d-9a67-5cb578b5566c"),
+                Name = "DS_E1_6B_Outside_AB_MyFault",
                 SubcontextID = "E1_6C",
                 Conditions = new string[]
                 {
@@ -12830,6 +16852,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("e8c35c9d-3263-41a5-9061-f80694757b7e"),
+                Name = "DS_E1_6B_Outside_AB_PoliceFault",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e8c35c9d-3263-41a5-9061-f80694757b7e"),
+                Name = "DS_E1_6B_Outside_AB_PoliceFault",
                 SubcontextID = "E1_6C",
                 Conditions = new string[]
                 {
@@ -12838,6 +16870,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("a5db4a1a-514f-4739-bd1a-c09d729c4d85"),
+                Name = "DS_E1_6B_Outside_AB_BrodyAnwser",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a5db4a1a-514f-4739-bd1a-c09d729c4d85"),
+                Name = "DS_E1_6B_Outside_AB_BrodyAnwser",
                 SubcontextID = "E1_6C",
                 Conditions = new string[]
                 {
@@ -12846,7 +16888,8 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("5014374a-70db-4aa5-96b4-379d3651ab15"),
-                SubcontextID = "E1_6C",
+                Name = "DS_E1_6B_Outside_AB_FactHugDad",
+                SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
                     "7c7da20f-32f5-4a01-8f9e-bead955d76c5",
@@ -12856,1447 +16899,9 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("a6d3ab2d-6515-45bb-b49b-d75c3760500b"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("3a5a7bb8-e9ab-41b9-9067-29ba033bd3d6"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("73a1916b-1ec1-4c8b-8cfa-c4f63705f2c7"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("33034c77-1d83-420c-ae91-7fca06d0432c"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("290d7cd1-9cc6-4e39-a946-dd9d2c15c336"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("56fa25e0-3ea5-4325-8fea-988ba72be935"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("1a15a4a4-beef-4e9a-b5c7-4245fee39779"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("cc09d1a9-b1dc-46e9-ba11-7e304b3b15b4"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ddafb67c-fe8f-4387-9a23-cb86da90dff8"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a8b984aa-4dab-424f-8fc4-54aca1934df4"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("455aa596-66bb-4d32-9740-32f48f9e1fde"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5f926a1d-98fa-43b4-95ee-c98f66110fe6"),
-                SubcontextID = "E1_6C",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("828f2778-c747-48af-8ff9-759950162182"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c45b8c2e-1c41-4611-b086-5dfa1174e5c1"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("19016e9a-2c61-4e8a-950a-006975ce6915"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("35a83976-fe92-4d3d-942f-b8fc753e2167"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("27dac71c-1651-4d56-8d45-fe0af3d65154"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5b07b040-b609-4656-b4fa-e8a725c11ecf"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("29c1a721-a0c0-4a27-afbe-00de65f1d542"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("19fcf7c1-976a-4f9a-8cbe-0828dcea5970"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("cebe6fee-9c49-4f7e-9591-0896c03e9391"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("9aed2158-b0d2-4ecd-a251-cc3283788a23"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "1f1fdf91-5d76-42f3-aa3d-a0519a9f9e70",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8c6b8358-83ec-4d05-b8da-7d158c9da5ca"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("854bc35b-6798-4ffe-9579-01cf4d770170"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8b1f7530-f4bd-46ef-a459-46ad66094480"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2b14878e-385c-4bef-b1e5-e9bec50cf6fc"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b5e85262-9f02-41ab-a084-16ab6215ba50"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "c36a0736-ca94-4d82-87ae-6df12d497b7a",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6af21e69-c167-4460-b339-f41770cf579c"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d5902662-1fb6-48c2-ae33-1324f754207b"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("3ce3224b-4cfc-4549-9b43-961f127e630c"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("fe0c382e-03e0-447a-82d3-074b13f25190"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("956f2197-1a88-4888-b183-4ca066c68793"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("dbe8ea6b-cf53-42e9-8c39-6e412c41c9b9"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2394656a-fc92-4257-9970-e524e904ad95"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("795e5935-24df-45fa-b0b2-48b8c1efe1a2"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a613aff0-70f7-4a59-8eda-d50d5a7e6d4c"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("14760c75-d081-492d-b27e-e41a72e08732"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("79263ef3-5ce4-4fd2-bcff-114b11b416aa"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0f7ef6a2-2fa6-45f6-abdf-2e74c36bae6f"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0f0584f9-2009-44df-95c5-57b34c4de92b"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("9246b200-1edf-4640-8edc-626a70d4baf3"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ea70b507-874a-4046-8e7b-a13e2cd43d8b"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("20cafb87-1919-4ac1-8ff7-ca8a13694e40"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("f04bbc4c-c406-41df-af92-7e603917cb3c"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "f42cebd5-88e6-45f3-a8ab-886924563421",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c7c685c8-584d-443b-86cb-8063b29d41fb"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "002b73f9-45f9-431f-a735-16d187d6968e",
-                    "71016687-84c8-4121-a507-356b2c496e09",
-                    "27a827cc-79de-48f2-aa78-8c090c409515",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("941a9e9a-4c79-4032-bc43-889dc091c02e"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "09f6615e-9ef1-4b25-bc6c-3191a606a3d9",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ac1b67ec-390f-44de-87c4-35d2246e1707"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("9bc4e40f-edb3-440d-b3ce-12e447570013"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8c37367c-d897-4fee-99e4-9d161c41a6db"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("94c854a4-9f80-4983-ad4a-eea6d3d521b8"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c9352847-ef90-4099-8782-1060c3ac6273"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d6523a95-d567-4432-a145-78a537f213ff"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("1ed5c87c-1052-4699-bf30-570889a2e9ab"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("9b03ef9f-3908-4ca0-bcb0-333d86b8c4fb"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("19ab7969-62d7-4007-bfc5-7398765ff988"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("fabc6575-f1d0-4598-95ad-1a689c57924e"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8d41c0e7-ea7f-4f25-b92c-296c89245df2"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("408902e5-e0cc-4924-8540-b6ab2c1de1dc"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a05ca786-a9b6-4ae8-90c3-0660e44a2b7d"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e25c23a2-bec2-4fce-b241-fd64304398e0"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("68898e3f-92ef-4396-8f41-02e6915dd8d8"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "162abce2-1618-4a4f-b7e0-c6020b75e1d3",
-                    "519c2ae1-a772-4326-9c3e-711d8d5a0194",
-                    "63dc33bc-c9c9-4890-af36-365f54c7752c",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6e246303-38c8-41cd-af81-9071b1156ad8"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0ef8ece2-c813-4070-bb42-901fd30d1883"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4b2283ac-cab0-4ae4-ab5c-9fc31bdc8ab9"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("df0b66ee-4e40-41ee-b140-f284870658f7"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("21c0e252-690b-4327-a526-5e5cd133a174"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("47b69d4a-8d32-478f-b3a1-e735e988c67b"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("7f82a6bd-2863-49a8-9515-1ae15223b9b0"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("809940bf-7eaf-4ac1-a923-ab2787fbebe6"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("fe932191-84ee-4100-bf70-18568028da18"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2f84a95b-6460-413b-bb44-28e721ae730d"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("122dab02-6530-4265-8441-231d156ffc99"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a351898e-2a05-4cd0-be59-28d568f94df3"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e65a89bb-79b0-42ff-bbb0-19081fc2fba3"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b5d79098-fb3d-4011-b78b-4172433475ce"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("25c748f5-2813-4034-a285-d8881688e70a"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("272d4824-bc6a-4969-b7ba-241d6615ed5b"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("44dcc76b-5b0f-4059-87f9-d127e872d5ff"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("22abc182-49b7-41ee-aa14-5164a62614fd"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d8ddbb29-010e-4d7a-871c-2f0c67ee6a45"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b4a4040b-2129-4d0d-a0a8-84fe18224806"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("43726599-c365-487f-b541-e4d9f4258899"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("7fdbb26a-66d5-423e-ba8c-9bba2ec6fb87"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("db7a4524-1ba0-4542-baf5-84b6216f4627"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("3ffcec69-c571-4a87-ae74-0e275b615322"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("decb7f03-6038-4563-980d-cb5ba72ad9e5"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("be31ed69-ed04-44c9-9c4a-746ee7e50972"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e0f94f70-1d9b-4da2-9daf-42e6705b1b90"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "503a1d06-ceab-410b-9f95-0b1b88936fe9",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4b83880d-f80b-4129-b2b0-a1895ca42b48"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "5d1ec815-5e1a-4a5b-92c3-9efb4a93e98b",
-                    "65b56bba-0925-45af-ab3c-3d69d74c1355",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("06698159-6a9e-41aa-a5ad-04516d415f8e"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("150e3f86-bdf8-4531-ab7e-0f93791d10a7"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4d128837-2bee-4f9f-af13-a70c8e4d0ded"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ffeb1392-4ed2-4287-8673-9da6330dcff0"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6af27ee6-0c23-4061-8839-b6be9c719157"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                    "f829a967-b6ac-44b2-90a1-ea6d6555fdc0",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b95cf1e8-c6a5-4ec6-a508-5b57791e7057"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("93bb3b88-461e-4080-bd5a-4141c81cd685"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b04c8dee-da49-40b1-9056-654b65ac50c7"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0fa45515-a56c-4acd-9d59-a3690c87fc0d"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("1ac059e2-8fb2-4283-afdd-891af30a2948"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("45c62f90-dd91-4cc2-a6a2-7a525a85e686"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("365ebc55-7c5b-43f4-98cf-4db72096269d"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("82c15aef-d306-451b-93d2-7296aeaa8ef5"),
-                SubcontextID = "E1_7A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("93d55102-f96c-4e8d-bdea-dee625c1d79c"),
-                SubcontextID = "E1_9A",
-                Conditions = new string[]
-                {
-                    "dc88ab4d-3a00-4ae0-9c2f-5469be077cd8",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2c967e9a-129e-4742-a67e-15a70f8bc89b"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e12f1927-a87c-4ef3-9727-3d82ab231f96"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6839c2a9-5dee-42d3-bc6b-825d986fa1eb"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2261a983-9397-4b05-a81e-a7524fc63704"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6a686abc-4623-479c-820a-abe3c152ad59"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("75c94962-5cae-4322-95da-6055f373b9ec"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0e500bee-0556-4e69-9d17-7e3bf3619d81"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2fde7d9b-037b-491e-a2b1-04946830c54a"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("1f99e8b3-6937-41ab-ae87-67c2e95ab3e5"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0cefd0ee-5dfc-418b-983e-ae17a495ed77"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4fd8aa9d-aa3a-4f90-9ef9-f10b972f5d7d"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("1b5862ac-f259-4c3d-bb27-e5c44cfced4b"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("201b918a-6e4f-4504-8988-9fdcc0377793"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4a3dda3d-6770-400b-ab41-308cf4b8d46e"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c21d40b7-a9dd-4da7-807e-dc71893fc445"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("96c1beda-c27b-4e82-a4c4-8b0caf9925ba"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e08e15dc-0fd3-4518-b4c2-9b236e8cc17c"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                    "e6e7943b-93a4-460f-84f7-6c1ab8eb480a",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0d6594d0-385f-48c9-9a8b-7735e5740633"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("e85798b4-53c3-4e6e-a0f4-1b10e9f8c742"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("f7e28822-74d9-4405-acef-6d8568ea4e7f"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0af3dfd6-4c51-49bc-b5a5-2b120f128da6"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("72096ad0-deaf-40cb-a328-c1fe233c0a7f"),
-                SubcontextID = "E1_1A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("614938cc-4929-4cf9-8c8b-df9b603fb5b1"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("7c15e795-4af6-4ac3-b9cb-b616812cc05d"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("353c2d0c-98bd-472c-a98f-a9324bd0c51e"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0c6e8f1a-ec70-405f-9e67-6134b94a769f"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("f262a28a-2afb-4be8-8f05-e977bb1116b4"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("682e9c15-6f25-4bb4-9534-185b04b1805a"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("07be9d35-2e3f-4947-987f-a0f4ef31bffc"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("9132e33f-2fc2-465b-ab05-0b8ed681bb9f"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("483458f1-ab02-4a17-bba1-1f2f9181675b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6fce0dd0-2106-4568-ae6b-8ec5fbd74500"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6c1c61f3-945f-4fec-84df-8714d57592fe"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d8beb5ee-4d6a-48c8-bbb4-738bf1680a7b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                    "6a179ff2-9efd-433a-a919-ed1acbef3dc1",
-                    "aee2ff2b-9303-47cc-ae81-e2ec9dcdeadf",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("35a4d987-d6a8-4318-bfa6-6274574835d1"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("c847bba7-bdd2-43f7-8e34-20c3a8d10645"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a335e3b1-2966-4cf1-9cca-f65da2375334"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("8a03114e-4975-4771-907d-c2ff566e0827"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("feac7cff-fff3-4378-9db8-e1b06a36708b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("9b10c6b4-4f54-4f2b-a996-106f45b1f5a8"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("631bf278-aa91-4bfc-8b31-d4cbfb5dda78"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("46ffe65d-4878-4868-8d6e-6be2a6e099a4"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("f086081f-8216-4495-b225-dc2ab2e01902"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("576eab10-e6bf-41eb-9274-a72b171498a2"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("49781b7e-584c-478a-8965-23d5c6355053"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a48ad625-dac8-454f-85a7-ab6c6064315b"),
-                SubcontextID = "E1_2A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a9ff3bc4-afac-4d8a-b032-3ffb58185c0e"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("eb76df3c-1545-49a4-afa1-5883cef8358c"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "bd89736b-8e5b-42f8-a3f1-7cc5239c8155",
-                    "c39e6adf-b11f-4783-912d-0a19ddcd3a30",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("08a442bc-83c7-48ec-ac71-c107c8868090"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("4ca4b27c-afe9-49b8-a2d0-f40a6a4ff001"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ce4c35de-c297-4547-bf3d-9ab3622909be"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "bd89736b-8e5b-42f8-a3f1-7cc5239c8155",
-                    "c39e6adf-b11f-4783-912d-0a19ddcd3a30",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("ab4b3dc1-dbe4-4a02-a7c8-2ede56b444dd"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("724a921c-0c0d-4cad-ab21-86141cac6ff8"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2783138a-c8f5-4c8b-881c-ea06cb7f0a15"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5aef31cb-1497-43cd-a3d9-208f32a08831"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("5c22e6c1-dcf1-47cc-9d41-65429742d73e"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("25a28f0f-903c-4816-8347-a98b9352781c"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                    "44f7baaf-0310-4c0d-80c4-9db1f65e3345",
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("18695c64-2414-482e-b471-8857710ac625"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("f9c4afb6-c318-4633-a157-139f019d3578"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("933d72b8-36db-452d-8239-a5b8cef43d50"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("0b4fd4c3-6428-4fb0-a498-54ad969d1bc0"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("6f533d5d-8d20-4166-8e4d-3bca2345aa4c"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("805f91a5-6fea-47ef-9dd0-364e973f568a"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("87d29c55-b99d-48c4-a31f-411527c1489c"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("77dca39c-ab9d-491a-8fd2-8c616d416d10"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("b733933f-9923-4651-a9e8-5653905d7b83"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("23c884d1-030d-4906-ae64-929b4efc2872"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a0a2595a-3d18-469e-933d-8862ebd07f03"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("974384d4-c49a-48be-b8fc-340baa5ab4d4"),
-                SubcontextID = "E1_5A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("d67453d6-eef4-4d69-bf81-fd86192b81c5"),
-                SubcontextID = "E1_6A",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("bdf9a76f-3250-4375-bbcc-9f64665912e8"),
-                SubcontextID = "E1_6B",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("464e77f2-c326-40e3-8099-7ff4625dc188"),
-                SubcontextID = "E1_6B",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("2f8686af-713b-482d-9a67-5cb578b5566c"),
-                SubcontextID = "E1_6B",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
-                GUID = new Guid("a5db4a1a-514f-4739-bd1a-c09d729c4d85"),
-                SubcontextID = "E1_6B",
-                Conditions = new string[]
-                {
-                }
-            },
-            new CinematicObject
-            {
                 GUID = new Guid("5014374a-70db-4aa5-96b4-379d3651ab15"),
-                SubcontextID = "E1_6B",
+                Name = "DS_E1_6B_Outside_AB_FactHugDad",
+                SubcontextID = "E1_6C",
                 Conditions = new string[]
                 {
                     "7c7da20f-32f5-4a01-8f9e-bead955d76c5",
@@ -14307,6 +16912,43 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("112c6f67-9a2b-401a-b45c-64134ceb86c9"),
+                Name = "DS_E1_6B_Outside_AB_FollowUpMyFault",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("112c6f67-9a2b-401a-b45c-64134ceb86c9"),
+                Name = "DS_E1_6B_Outside_AB_FollowUpMyFault",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a6d3ab2d-6515-45bb-b49b-d75c3760500b"),
+                Name = "DS_E1_6B_Outside_AB_FollowUpPoliceFault",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a6d3ab2d-6515-45bb-b49b-d75c3760500b"),
+                Name = "DS_E1_6B_Outside_AB_FollowUpPoliceFault",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3a5a7bb8-e9ab-41b9-9067-29ba033bd3d6"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop02",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14315,6 +16957,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("3a5a7bb8-e9ab-41b9-9067-29ba033bd3d6"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop02",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("73a1916b-1ec1-4c8b-8cfa-c4f63705f2c7"),
+                Name = "DS_E1_6B_Outside_AB_How",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14323,6 +16975,52 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("73a1916b-1ec1-4c8b-8cfa-c4f63705f2c7"),
+                Name = "DS_E1_6B_Outside_AB_How",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9698d58d-8897-42b8-a064-77d75e724927"),
+                Name = "DS_E1_6B_Outside_AB_No",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9698d58d-8897-42b8-a064-77d75e724927"),
+                Name = "DS_E1_6B_Outside_AB_No",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("33034c77-1d83-420c-ae91-7fca06d0432c"),
+                Name = "DS_E1_6B_Outside_AB_ABDestroy",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("33034c77-1d83-420c-ae91-7fca06d0432c"),
+                Name = "DS_E1_6B_Outside_AB_ABDestroy",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ba8d0e46-b4ab-4374-b70f-14cf8044933b"),
+                Name = "DS_E1_6B_Outside_AB_ABAlive",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14331,6 +17029,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("ba8d0e46-b4ab-4374-b70f-14cf8044933b"),
+                Name = "DS_E1_6B_Outside_AB_ABAlive",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("290d7cd1-9cc6-4e39-a946-dd9d2c15c336"),
+                Name = "DS_E1_6B_Outside_AB_NightBreakdown",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14339,6 +17047,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("290d7cd1-9cc6-4e39-a946-dd9d2c15c336"),
+                Name = "DS_E1_6B_Outside_AB_NightBreakdown",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("56fa25e0-3ea5-4325-8fea-988ba72be935"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop03",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14347,6 +17065,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("56fa25e0-3ea5-4325-8fea-988ba72be935"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop03",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1a15a4a4-beef-4e9a-b5c7-4245fee39779"),
+                Name = "DS_E1_6B_Outside_AB_IKnow",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14355,6 +17083,34 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("1a15a4a4-beef-4e9a-b5c7-4245fee39779"),
+                Name = "DS_E1_6B_Outside_AB_IKnow",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("03be2c93-87d0-4b17-90ec-9fcea2a86156"),
+                Name = "DS_E1_6B_Outside_AB_Icant",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("03be2c93-87d0-4b17-90ec-9fcea2a86156"),
+                Name = "DS_E1_6B_Outside_AB_Icant",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cc09d1a9-b1dc-46e9-ba11-7e304b3b15b4"),
+                Name = "DS_E1_6B_Outside_AB_Plan",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14363,6 +17119,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("cc09d1a9-b1dc-46e9-ba11-7e304b3b15b4"),
+                Name = "DS_E1_6B_Outside_AB_Plan",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ddafb67c-fe8f-4387-9a23-cb86da90dff8"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop04",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14371,6 +17137,34 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("ddafb67c-fe8f-4387-9a23-cb86da90dff8"),
+                Name = "DS_E1_6B_Outside_AB_ChoiceLoop04",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("033d1efd-a3f9-4c8c-b02f-600b4d5d334c"),
+                Name = "DS_E1_6B_Outside_AB_Goback",
+                SubcontextID = "E1_6B",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("033d1efd-a3f9-4c8c-b02f-600b4d5d334c"),
+                Name = "DS_E1_6B_Outside_AB_Goback",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a8b984aa-4dab-424f-8fc4-54aca1934df4"),
+                Name = "DS_E1_6B_Outside_AB_KeepGoing",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14379,6 +17173,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("a8b984aa-4dab-424f-8fc4-54aca1934df4"),
+                Name = "DS_E1_6B_Outside_AB_KeepGoing",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("455aa596-66bb-4d32-9740-32f48f9e1fde"),
+                Name = "DS_E1_6B_Outside_AB_HaveFamily",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14387,6 +17191,16 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("455aa596-66bb-4d32-9740-32f48f9e1fde"),
+                Name = "DS_E1_6B_Outside_AB_HaveFamily",
+                SubcontextID = "E1_6C",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5f926a1d-98fa-43b4-95ee-c98f66110fe6"),
+                Name = "DS_E1_6B_Outside_AB_BackToCar",
                 SubcontextID = "E1_6B",
                 Conditions = new string[]
                 {
@@ -14395,14 +17209,460 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("5f926a1d-98fa-43b4-95ee-c98f66110fe6"),
-                SubcontextID = "E1_6B",
+                Name = "DS_E1_6B_Outside_AB_BackToCar",
+                SubcontextID = "E1_6C",
                 Conditions = new string[]
                 {
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("84bbc05a-ae21-40df-89bf-a806399f497e"),
+                GUID = new Guid("1ac059e2-8fb2-4283-afdd-891af30a2948"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_CuddleRough",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("90f2e051-f01b-4a65-a9e8-f1be929d7761"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_ThirdTimeout",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e44958a5-7459-425c-b84a-ac8507d86f4b"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_ChillOut",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0fa45515-a56c-4acd-9d59-a3690c87fc0d"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_DontSayThat",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("93bb3b88-461e-4080-bd5a-4141c81cd685"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_HateYou",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("546dc045-7116-490d-8457-c1752081d455"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_SecondTimeout",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("74f8a387-b483-4f60-bb1c-29eb9846857a"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_DontTouchMe",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("50791fef-7400-48f0-a6b1-50110d49ba85"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_DanielComeOn",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("84edb159-b4e5-4609-b850-90fa7966a2e9"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_KnewIt",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("15ac88a5-e3cd-4385-af8b-4d02bb6b7357"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_CantRemember",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("20431ac6-c3bb-4cab-b395-8d9c3f0c8d5d"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_CalmDown",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4ec93931-9f59-424f-a3d4-69ec3140aa57"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_Protect",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b95cf1e8-c6a5-4ec6-a508-5b57791e7057"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_Scared",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ffeb1392-4ed2-4287-8673-9da6330dcff0"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_WhyLie",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1ba3a73e-4c30-457e-9fd3-8ecfb2105689"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_AccidentEnd",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("dcb52c52-f867-4531-b965-6d7d3efe9d95"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_AccidentSelfFault",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a351898e-2a05-4cd0-be59-28d568f94df3"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_ChoiceLoop01",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("25c748f5-2813-4034-a285-d8881688e70a"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_ChoiceLoop02",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("22abc182-49b7-41ee-aa14-5164a62614fd"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_ChoiceLoop03",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b5d79098-fb3d-4011-b78b-4172433475ce"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_CopsTalking",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("996904e3-f2dd-4008-a72a-68dc0b110669"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_DidntdoAnything",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cf27b905-707e-417d-8259-0510abf1a9e4"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_FactFRNDDirtyMexican",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b4a4040b-2129-4d0d-a0a8-84fe18224806"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_FactFRNDFreakingFighters",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2eac3b24-5cfb-49f9-be2d-7a5e81bc91d2"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_FactSeanDirtyMexican",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("44c85a1f-0e1c-40a2-803a-3efcbba97181"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_FactSeanFreakingFighter",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("122dab02-6530-4265-8441-231d156ffc99"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_FirstTalk",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("30ef5ba4-6ebf-40ba-a17a-990539ca4b69"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_HellNo",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d8ddbb29-010e-4d7a-871c-2f0c67ee6a45"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_HowItIs",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7783a42b-95d3-4965-8b17-bcd5305a40e5"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_ImSorry",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cb3efc14-eee3-4e49-9ce5-fc6d7de3105d"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_ImSorryFollowUp",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("43726599-c365-487f-b541-e4d9f4258899"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_ShitChanges",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("44dcc76b-5b0f-4059-87f9-d127e872d5ff"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_StopActing",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("272d4824-bc6a-4969-b7ba-241d6615ed5b"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_WishICould",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fdf10f88-1739-422d-8cae-d2650b6a4d33"),
+                Name = "E1_7A_Motel_TakeToyOut",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f2b89641-30e8-4866-903c-3e90e2596858"),
+                Name = "MS_E1_7A_Motel_JoinDance",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "65292528-11bc-479a-a680-c5b6bfa6cb95",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3ffcec69-c571-4a87-ae74-0e275b615322"),
+                Name = "MS_E1_7A_Motel_ThrowAwayPhone",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b02e4568-464d-427b-82d1-ee503be6dbdf"),
+                Name = "MS_E1_7A_Motel_WatchVideoLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("db7a4524-1ba0-4542-baf5-84b6216f4627"),
+                Name = "MS_E1_7A_Motel_WatchVideo",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7fdbb26a-66d5-423e-ba8c-9bba2ec6fb87"),
+                Name = "MS_E1_7A_Motel_WatchVideo_Start",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c0f7b067-89da-4e6d-8661-4ae53530888c"),
+                Name = "MS_E1_7A_Motel_WatchTVExitBathReady",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4e475719-f901-44e2-a5fe-56201b201931"),
+                Name = "MS_E1_7A_Motel_EndDance",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4b83880d-f80b-4129-b2b0-a1895ca42b48"),
+                Name = "MS_E1_7A_Motel_GoOutside",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "5d1ec815-5e1a-4a5b-92c3-9efb4a93e98b",
+                    "65b56bba-0925-45af-ab3c-3d69d74c1355",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6e246303-38c8-41cd-af81-9071b1156ad8"),
+                Name = "MS_E1_7A_Motel_WashSink",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d0707f7c-208b-4616-b21b-50ff13b76c54"),
+                Name = "MS_E1_7A_Motel_WatchTVExit",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e902cca8-e3c4-48c4-b6aa-35279948c511"),
+                Name = "MS_E1_7A_Motel_WatchTVIntro",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5422387e-0ef3-4b4b-b9d1-4b23d934b497"),
+                Name = "MS_E1_7A_Motel_WatchTVFirstLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fb29e094-a64e-4017-ad13-aa871c90af52"),
+                Name = "MS_E1_7A_Motel_WatchTVExitFast",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("550d641f-be13-4af0-bab0-5bebecfaea0d"),
+                Name = "MS_E1_7A_Motel_WatchTVLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bbfdb3ff-6218-4ca7-8a9c-d433dfddd376"),
+                Name = "MS_E1_7A_Motel_WatchTVIntroFast",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("956f2197-1a88-4888-b183-4ca066c68793"),
+                Name = "MS_E1_7A_Motel_SeanWinsRockToScissors",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14411,6 +17671,205 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("53529a2d-154d-4a56-9344-d81dbe3fc635"),
+                Name = "MS_E1_7A_Motel_SeanLosesRockToPaper",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("84bbc05a-ae21-40df-89bf-a806399f497e"),
+                Name = "MS_E1_7A_Motel_SeanWinsPaperToRock",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7e3cbb97-fb88-4989-bb8e-c8e3e8513e96"),
+                Name = "MS_E1_7A_Motel_SeanLosesPaperToScissors",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("de544453-dad2-4d7d-afa4-ae1eb3b97ab3"),
+                Name = "MS_E1_7A_Motel_SeanLosesScissorsToRock",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a613aff0-70f7-4a59-8eda-d50d5a7e6d4c"),
+                Name = "MS_E1_7A_Motel_SeanWinsScissorsToPaper",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c0239c8e-38d2-4673-8c0f-412d69f38481"),
+                Name = "MS_E1_7A_Motel_TieScissorsToScissors",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e42f41e2-d563-4d0c-9ad9-dc0bb0dfecf7"),
+                Name = "MS_E1_7A_Motel_TalkBath",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4be74b73-b896-4956-9e2f-38bff10b3a14"),
+                Name = "MS_E1_7A_Motel_TiePaperToPaper",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cf7a35fc-771b-4a29-8914-db20a4f30b15"),
+                Name = "MS_E1_7A_Beach_DanielStealStick",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3c31d088-7dd1-43d1-a46e-c386ff881364"),
+                Name = "MS_E1_7A_Motel_TieRockToRock",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f8cd0d39-8056-4602-a2c6-9c7faae8d5a3"),
+                Name = "E1_7A_Motel_DanielWashes",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bb25f877-03be-4495-a43d-dedbf80ff7bc"),
+                Name = "E1_7A_Motel_PlayDog",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6800a445-21e3-4a53-88de-57ede679206f"),
+                Name = "E1_7A_Beach_WaitThrow",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("809940bf-7eaf-4ac1-a923-ab2787fbebe6"),
+                Name = "MS_E1_7A_Motel_CheckBathReady",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("69d133d1-da43-460a-b020-d661c44c8462"),
+                Name = "MS_E1_7A_Motel_CloseWaterAuto",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("7f82a6bd-2863-49a8-9515-1ae15223b9b0"),
+                Name = "MS_E1_7A_Motel_CloseWaterBath",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3e42c5e3-8f80-4765-96d7-4791e6001949"),
+                Name = "MS_E1_7A_Motel_TickleStart",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("69ab80e3-8040-437f-9c6c-919f922e74dd"),
+                Name = "MS_E1_7A_Motel_BathWithoutBubble",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("79263ef3-5ce4-4fd2-bcff-114b11b416aa"),
+                Name = "MS_E1_7A_Motel_ShifumiLoop03",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("14760c75-d081-492d-b27e-e41a72e08732"),
+                Name = "MS_E1_7A_Motel_2ndBegsPlayAgain",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("30e470f8-4435-4f84-a6fd-c3752dd2acfe"),
+                Name = "MS_E1_7A_Motel_RefuseShifumi",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2394656a-fc92-4257-9970-e524e904ad95"),
+                Name = "MS_E1_7A_Motel_ShifumiLoop02",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("58cec416-518d-49c4-b036-d2da72e71fee"),
+                Name = "MS_E1_7A_Motel_ShifumiLoop01",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14419,6 +17878,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("8bdc5ebb-32d5-4552-8ef6-63c28ad54ee0"),
+                Name = "MS_E1_7A_Motel_PlayerLoseRPS",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14426,7 +17886,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("82c9ed55-faee-4626-892f-cb17f61c8cbf"),
+                GUID = new Guid("795e5935-24df-45fa-b0b2-48b8c1efe1a2"),
+                Name = "MS_E1_7A_Motel_AcceptAnotherGame",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14434,7 +17895,574 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("07b1eb62-6ccf-4364-bade-22c327b1155e"),
+                GUID = new Guid("dbe8ea6b-cf53-42e9-8c39-6e412c41c9b9"),
+                Name = "MS_E1_7A_Motel_1stBegsPlayAgain",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9b94f287-583a-4d53-83ab-56d2dd1fffd4"),
+                Name = "MS_E1_7A_Motel_NoneChosenBis",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("06da30b4-933f-4567-9d32-7c6b55b2d13e"),
+                Name = "MS_E1_7A_Motel_NoneChosen02",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("993517d1-c696-4c57-89f6-6f59dbb93ea3"),
+                Name = "MS_E1_7A_Motel_NoneChosen01",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ea5b97e2-6066-4350-a898-fa53326abe7a"),
+                Name = "MS_E1_7A_Motel_NoneChosen03",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8585cdb6-1665-4bb1-a592-16a3a611ec28"),
+                Name = "MS_E1_7A_Motel_DrawRPS03",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e044cdfb-ea09-4b22-a644-13b1d337b3e6"),
+                Name = "MS_E1_7A_Motel_DrawRPS02",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6d900fbd-f47f-4d6b-ad8c-d991357059ca"),
+                Name = "MS_E1_7A_Motel_DrawRPS01",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("3ce3224b-4cfc-4549-9b43-961f127e630c"),
+                Name = "MS_E1_7A_Motel_AcceptShifumi",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b5e85262-9f02-41ab-a084-16ab6215ba50"),
+                Name = "MS_E1_7A_Beach_BrodyInCar",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "c36a0736-ca94-4d82-87ae-6df12d497b7a",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2b14878e-385c-4bef-b1e5-e9bec50cf6fc"),
+                Name = "MS_E1_7A_Beach_BrodyGift",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("828f2778-c747-48af-8ff9-759950162182"),
+                Name = "MS_E1_7A_Beach_Waiting",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("06698159-6a9e-41aa-a5ad-04516d415f8e"),
+                Name = "MS_E1_7A_PowerReveal",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe932191-84ee-4100-bf70-18568028da18"),
+                Name = "MS_E1_7A_Motel_BathWithBubble",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("be31ed69-ed04-44c9-9c4a-746ee7e50972"),
+                Name = "MS_E1_7A_Motel_JoinDanceChoiceLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("73265a8c-a7d2-4133-92ad-503f5dc84ccd"),
+                Name = "MS_E1_7A_Motel_RefuseAnotherGame",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f7ef6a2-2fa6-45f6-abdf-2e74c36bae6f"),
+                Name = "MS_E1_7A_Motel_GivesBedAnyway",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("df0b66ee-4e40-41ee-b140-f284870658f7"),
+                Name = "MS_E1_7A_Motel_OpenWaterBath",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ee9c677d-5e8a-4eac-bba7-328c38c6a164"),
+                Name = "E1_7A_Motel_DanielWatchTVRight_Loop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9c9af591-2b66-42a9-b03f-9ba9b7931965"),
+                Name = "E1_7A_Motel_DanielWatchTVLeft_Loop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fe0c382e-03e0-447a-82d3-074b13f25190"),
+                Name = "MS_E1_7A_Motel_RPS_CountdownRPS",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d5902662-1fb6-48c2-ae33-1324f754207b"),
+                Name = "MS_E1_7A_Motel_FinallyInside",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e0f94f70-1d9b-4da2-9daf-42e6705b1b90"),
+                Name = "MS_E1_7A_Motel_TalkDirectly",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "503a1d06-ceab-410b-9f95-0b1b88936fe9",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("decb7f03-6038-4563-980d-cb5ba72ad9e5"),
+                Name = "MS_E1_7A_Motel_DanceOnBed",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e0d15a24-80a3-4483-a070-930424bc9733"),
+                Name = "MS_E1_7A_Motel_PhoneStagingChoiceLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6a63b2d0-c555-4642-a71f-5f5d6fb9b64a"),
+                Name = "MS_E1_7A_Motel_IgnoreLyla",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2f84a95b-6460-413b-bb44-28e721ae730d"),
+                Name = "MS_E1_7A_Motel_TakePhone",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6af21e69-c167-4460-b339-f41770cf579c"),
+                Name = "MS_E1_7A_Beach_InsertionCorridor",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ed17432e-afd0-44df-875c-5bf8401f1087"),
+                Name = "DS_NewDNEDialogueBlueprint_Choice0",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a31506c7-6d73-4707-a75c-2dd0e2737da9"),
+                Name = "DS_NewDNEDialogueBlueprint_fghfghfgh",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("85f333a5-0346-4140-93b2-ce4c82f92269"),
+                Name = "DS_NewDNEDialogueBlueprint_hfhfghfgh",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("2158608e-ca37-4564-abf2-c127be80e10a"),
+                Name = "DS_NewDNEDialogueBlueprint_Daniel_001",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("941a9e9a-4c79-4032-bc43-889dc091c02e"),
+                Name = "MS_E1_7A_DrawSequence_CheckFinish",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "09f6615e-9ef1-4b25-bc6c-3191a606a3d9",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c7c685c8-584d-443b-86cb-8063b29d41fb"),
+                Name = "MS_E1_7A_DrawSequence_CheckRough",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "002b73f9-45f9-431f-a735-16d187d6968e",
+                    "27a827cc-79de-48f2-aa78-8c090c409515",
+                    "71016687-84c8-4121-a507-356b2c496e09",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("ac1b67ec-390f-44de-87c4-35d2246e1707"),
+                Name = "MS_E1_7A_DrawSequence_Stop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f04bbc4c-c406-41df-af92-7e603917cb3c"),
+                Name = "MS_E1_7A_DrawSequence_Start",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "f42cebd5-88e6-45f3-a8ab-886924563421",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e65a89bb-79b0-42ff-bbb0-19081fc2fba3"),
+                Name = "DS_E1_7A_MotelRoom_AnswerFRND_YouOkay",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("985b169a-5ca3-4559-b22b-0c4020f8b44e"),
+                Name = "MS_E1_7A_Motel_PersonalizeBagDrawingLeft",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9d6157a8-8a43-4a57-808c-3df62068fa57"),
+                Name = "MS_E1_7A_Motel_PersonalizeBagLeftLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a23d2dc1-1517-4b7a-967d-c941f8e8b50f"),
+                Name = "MS_E1_7A_Motel_PersonalizeBagLeft",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c6b8358-83ec-4d05-b8da-7d158c9da5ca"),
+                Name = "DS_E1_7A_Beach_Insertion_ChoiceLoop02",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8b1f7530-f4bd-46ef-a459-46ad66094480"),
+                Name = "DS_E1_7A_Beach_Insertion_BrodyArrivalEnd",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("854bc35b-6798-4ffe-9579-01cf4d770170"),
+                Name = "DS_E1_7A_Beach_Insertion_Really",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1150fc4f-5b11-4975-83f1-220fb7a94519"),
+                Name = "DS_E1_7A_Beach_Insertion_Okay",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9aed2158-b0d2-4ecd-a251-cc3283788a23"),
+                Name = "DS_E1_7A_Beach_Insertion_BrodyArrival",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "1f1fdf91-5d76-42f3-aa3d-a0519a9f9e70",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("f0004ba3-df4c-494b-b3d2-d876651432ec"),
+                Name = "MS_E1_7A_Motel_KnockDoor",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("62f001aa-6f77-4039-b0ad-98d316dfb99c"),
+                Name = "E1_7A_Motel_LightBathRoomOff",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6e08b4c2-5fa0-4488-b3e4-a099fb45f206"),
+                Name = "E1_7A_Motel_LightBathRoomOn",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19ab7969-62d7-4007-bfc5-7398765ff988"),
+                Name = "MS_E1_7A_Motel_AshTray_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("235aeaa6-5804-4c80-8b1b-52eb54be2c45"),
+                Name = "MS_E1_7A_Motel_PersonalizeBagDrawing",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6659e918-f01a-4031-a7c4-793a89c9acb0"),
+                Name = "MS_E1_7A_Motel_PersonalizeBagLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6a7c4968-db15-4ce6-a9fa-7682ae0b20f7"),
+                Name = "MS_E1_7A_Motel_PersonalizeBag",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("408902e5-e0cc-4924-8540-b6ab2c1de1dc"),
+                Name = "MS_E1_7A_Motel_ZenBalconyExit",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8d41c0e7-ea7f-4f25-b92c-296c89245df2"),
+                Name = "MS_E1_7A_Motel_ZenBalconyLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("fabc6575-f1d0-4598-95ad-1a689c57924e"),
+                Name = "MS_E1_7A_Motel_ZenBalconyStart",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("65797be2-db3b-4926-a861-905e647be66f"),
+                Name = "MS_E1_7A_Motel_LeftBed_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("52c94d0a-19a5-4834-a94d-770f349ca6db"),
+                Name = "MS_E1_7A_Motel_RacoonSweat_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9bc4e40f-edb3-440d-b3ce-12e447570013"),
+                Name = "MS_E1_7A_Motel_DanielBag_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("1ed5c87c-1052-4699-bf30-570889a2e9ab"),
+                Name = "MS_E1_7A_Motel_TowelBed_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4535857b-fcdb-4e72-bc70-6470e3e7cdda"),
+                Name = "MS_E1_7A_Motel_TakeTowel",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("8c37367c-d897-4fee-99e4-9d161c41a6db"),
+                Name = "MS_E1_7A_Motel_DanielShoes_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0ef8ece2-c813-4070-bb42-901fd30d1883"),
+                Name = "MS_E1_7A_Motel_Shampoo_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9246b200-1edf-4640-8edc-626a70d4baf3"),
+                Name = "MS_E1_7A_Motel_Tent_Look",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14443,6 +18471,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("47204697-cc5a-4bc5-b726-b32aba01161f"),
+                Name = "MS_E1_7A_Motel_PowerBear_Look_Right",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14452,7 +18481,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("4535857b-fcdb-4e72-bc70-6470e3e7cdda"),
+                GUID = new Guid("c45b8c2e-1c41-4611-b086-5dfa1174e5c1"),
+                Name = "MS_E1_7A_Beach_JRNLCar_Look",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14460,7 +18490,119 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("65797be2-db3b-4926-a861-905e647be66f"),
+                GUID = new Guid("19016e9a-2c61-4e8a-950a-006975ce6915"),
+                Name = "MS_E1_7A_Beach_Daniel_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e5ff1c98-69f6-4fea-ab0b-66542e80a8e0"),
+                Name = "MS_E1_7A_Motel_TurnVolumeDown",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("82c9ed55-faee-4626-892f-cb17f61c8cbf"),
+                Name = "MS_E1_7A_Motel_TV_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a05ca786-a9b6-4ae8-90c3-0660e44a2b7d"),
+                Name = "MS_E1_7A_Motel_GoBackInside",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9b03ef9f-3908-4ca0-bcb0-333d86b8c4fb"),
+                Name = "MS_E1_7A_Motel_GoToBalcony",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("35a83976-fe92-4d3d-942f-b8fc753e2167"),
+                Name = "MS_E1_7A_Beach_SandCastle_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("0f0584f9-2009-44df-95c5-57b34c4de92b"),
+                Name = "MS_E1_7A_Motel_BrodyBag_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4b2283ac-cab0-4ae4-ab5c-9fc31bdc8ab9"),
+                Name = "MS_E1_7A_Motel_WaterTap_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("21c0e252-690b-4327-a526-5e5cd133a174"),
+                Name = "MS_E1_7A_Motel_Bathtub_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("07b1eb62-6ccf-4364-bade-22c327b1155e"),
+                Name = "MS_E1_7A_MotelCard_Take",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("68898e3f-92ef-4396-8f41-02e6915dd8d8"),
+                Name = "MS_E1_7A_Motel_Mirror_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "162abce2-1618-4a4f-b7e0-c6020b75e1d3",
+                    "519c2ae1-a772-4326-9c3e-711d8d5a0194",
+                    "63dc33bc-c9c9-4890-af36-365f54c7752c",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("27dac71c-1651-4d56-8d45-fe0af3d65154"),
+                Name = "MS_E1_7A_Motel_WoodStick_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("5b07b040-b609-4656-b4fa-e8a725c11ecf"),
+                Name = "MS_E1_7A_Beach_ShowTrick",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14469,6 +18611,7 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("71c95c8e-0bc4-4c2b-b3a0-8e5a572aedb3"),
+                Name = "MS_E1_7A_Motel_PutTowels",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14476,7 +18619,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("e42f41e2-d563-4d0c-9ad9-dc0bb0dfecf7"),
+                GUID = new Guid("ea70b507-874a-4046-8e7b-a13e2cd43d8b"),
+                Name = "MS_E1_7A_Motel_OpenWardrobe",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14484,7 +18628,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("6a63b2d0-c555-4642-a71f-5f5d6fb9b64a"),
+                GUID = new Guid("20cafb87-1919-4ac1-8ff7-ca8a13694e40"),
+                Name = "MS_E1_7A_Motel_CloserWardrobe",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14492,24 +18637,225 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("f2b89641-30e8-4866-903c-3e90e2596858"),
+                GUID = new Guid("34044db8-acdb-42ab-a104-305049a59d5e"),
+                Name = "MS_E1_7A_Motel_BrodyToy_Look",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
-                    "65292528-11bc-479a-a680-c5b6bfa6cb95",
                 }
             },
             new CinematicObject
             {
-                GUID = new Guid("4e475719-f901-44e2-a5fe-56201b201931"),
+                GUID = new Guid("be7e74db-1c05-4921-9efc-be4010f81e87"),
+                Name = "MS_E1_7A_Motel_PutSoapBathTooLate",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("47b69d4a-8d32-478f-b3a1-e735e988c67b"),
+                Name = "MS_E1_7A_Motel__PutSoapBathInTime",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("e25c23a2-bec2-4fce-b241-fd64304398e0"),
+                Name = "MS_E1_7A_Motel_Soap_Look",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c1e3caf6-3dcf-45ea-adda-6cee770aacd8"),
+                Name = "E1_7A_Beach_SeagullIdle",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("af427674-1ba0-41e4-9dd0-a49af0a253cd"),
+                Name = "E1_7A_Beach_SeagullTakeOff",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("cebe6fee-9c49-4f7e-9591-0896c03e9391"),
+                Name = "MS_E1_7A_Beach_LetThrowStick",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("19fcf7c1-976a-4f9a-8cbe-0828dcea5970"),
+                Name = "MS_E1_7A_Beach_Ask_StickLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("9b159193-d5d1-4a3b-b4b6-f38831faac1e"),
+                Name = "MS_E1_7A_Beach_StickNo",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("29c1a721-a0c0-4a27-afbe-00de65f1d542"),
+                Name = "MS_E1_7A_Beach_PickStick",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("acb6acb7-376e-4f88-b0c7-fb54cd3cd504"),
+                Name = "MS_E1_7A_Beach_Collectible",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("feaca90c-98c5-4e70-8cc8-1497d2f1f6d2"),
+                Name = "E1_7A_Beach_FetchFar_DogComeBack",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("4e9644a0-1c74-4d5d-b706-16f70df12eab"),
+                Name = "E1_7A_Beach_FetchFar_Throw",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("69cd73c9-85e8-405b-8861-2048bf918784"),
+                Name = "E1_7A_Beach_FetchFar_WaitForDog",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("a3bb5d52-34b7-4f83-9d2c-0e07e1ce494e"),
+                Name = "MS_E1_7A_Motel_PowerBear_Look_Left",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("27dbaff7-cdb2-4391-823d-ae1caff9c870"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_CuddleSoft",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c9352847-ef90-4099-8782-1060c3ac6273"),
+                Name = "DS_E1_7A_MotelRoom_JRNLObject_ChoiceLoop1",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b3473665-7b0a-4570-94a7-54a6419e9473"),
+                Name = "DS_E1_7A_MotelRoom_JRNLObject_Understand",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("d6523a95-d567-4432-a145-78a537f213ff"),
+                Name = "DS_E1_7A_MotelRoom_JRNLObject_TellOff",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("94c854a4-9f80-4983-ad4a-eea6d3d521b8"),
+                Name = "DS_E1_7A_MotelRoom_JRNLObject_Start",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("34f378d7-e4ce-4c93-a78c-76eaf50da6be"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_LastChoiceLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("b04c8dee-da49-40b1-9056-654b65ac50c7"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_Choice2",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("150e3f86-bdf8-4531-ab7e-0f93791d10a7"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_FirstChoiceLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("6af27ee6-0c23-4061-8839-b6be9c719157"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_SecondChoiceLoop",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                    "f829a967-b6ac-44b2-90a1-ea6d6555fdc0",
                 }
             },
             new CinematicObject
             {
                 GUID = new Guid("4fd7f2c5-d407-4df6-9762-ff6ca33008df"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_AccidentPolice",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14517,7 +18863,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("1ba3a73e-4c30-457e-9fd3-8ecfb2105689"),
+                GUID = new Guid("4d128837-2bee-4f9f-af13-a70c8e4d0ded"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_FirstTimeout",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14525,7 +18872,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("4ec93931-9f59-424f-a3d4-69ec3140aa57"),
+                GUID = new Guid("365ebc55-7c5b-43f4-98cf-4db72096269d"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_TryPromise",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14533,7 +18881,8 @@ namespace lis2_save_editor
             },
             new CinematicObject
             {
-                GUID = new Guid("50791fef-7400-48f0-a6b1-50110d49ba85"),
+                GUID = new Guid("82c15aef-d306-451b-93d2-7296aeaa8ef5"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_Ending",
                 SubcontextID = "E1_7A",
                 Conditions = new string[]
                 {
@@ -14542,7 +18891,45 @@ namespace lis2_save_editor
             new CinematicObject
             {
                 GUID = new Guid("413fe20e-62f1-4959-8c57-34c6d0c61e83"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_Promise",
                 SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("45c62f90-dd91-4cc2-a6a2-7a525a85e686"),
+                Name = "DS_E1_7A_MotelRoom_PowerReveal_OnTheGround",
+                SubcontextID = "E1_7A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("c1f6e057-b5e8-46ff-973c-e934a6c56850"),
+                Name = "LS_E1_9A_FadeOut",
+                SubcontextID = "E1_9A",
+                Conditions = new string[]
+                {
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("93d55102-f96c-4e8d-bdea-dee625c1d79c"),
+                Name = "DS_E1_9A_InsideBus_WolfStory_Insertion",
+                SubcontextID = "E1_9A",
+                Conditions = new string[]
+                {
+                    "dc88ab4d-3a00-4ae0-9c2f-5469be077cd8",
+                }
+            },
+            new CinematicObject
+            {
+                GUID = new Guid("bf45cc92-b34a-4750-b14d-5b59670de1a7"),
+                Name = "E1_9A_NightBus_RecapScreen",
+                SubcontextID = "E1_9A",
                 Conditions = new string[]
                 {
                 }
