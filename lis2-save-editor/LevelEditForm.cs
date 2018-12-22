@@ -297,9 +297,16 @@ namespace lis2_save_editor
             t.Columns.Add("Playback position");
             t.Columns.Add("Is loop", typeof(bool));
 
-            if (saveType == SaveType.CaptainSpirit) return t;
+            List<dynamic> target = new List<dynamic>();
 
-            List<dynamic> target = level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value;
+            if (saveType == SaveType.CaptainSpirit)
+            {
+                target = level["LevelChangesSaveData"].Value["PastLevelSequences"].Value;
+            }
+            else
+            {
+                target = level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value;
+            }
 
             foreach (var seq in level_info.LevelSequences)
             {
@@ -341,8 +348,6 @@ namespace lis2_save_editor
             t.Columns.Add("Active", typeof(bool));
             t.Columns.Add("Playback position");
 
-            if (saveType == SaveType.CaptainSpirit) return t;
-
             List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;
 
             foreach (var seq in level_info.LevelSequences)
@@ -372,8 +377,6 @@ namespace lis2_save_editor
 
         private void UpdateBindingTables()
         {
-            if (saveType == SaveType.CaptainSpirit) return;
-
             DataGridView grid;
             foreach (var type in new string[] {"OnPlay", "OnStop", "OnHasLooped", "OnEvent" })
             {
@@ -784,8 +787,6 @@ namespace lis2_save_editor
             }
         }
 
-
-
         private void EditPOIValue(string name, int colIndex, object value)
         {
             List<dynamic> target = level["PointsOfInterestSaveData"].Value;
@@ -951,7 +952,9 @@ namespace lis2_save_editor
 
         private void EditSeqStoppedValue(string name, int colIndex, object value)
         {
-            List<dynamic> target = level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value;
+            List<dynamic> target = saveType == SaveType.LIS ?
+                level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value :
+                level["LevelChangesSaveData"].Value["PastLevelSequences"].Value;
             int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == name);
 
             if (index == -1)//Add new item
@@ -982,23 +985,35 @@ namespace lis2_save_editor
                                 Value = colIndex == 3 ? Convert.ToBoolean(newCellValue) : false
                         }
                     },
-                    {
-                        "DebugRequesterName", new NameProperty
-                        {
-                                Name = "DebugRequesterName",
-                                Type = "NameProperty",
-                                Value = level_info.LevelSequences.Find(x => x.ActorName == name)?.DebugRequesterName ?? "None"
-                        }
-                    },
                 };
+                if (saveType == SaveType.LIS)
+                {
+                    new_item["DebugRequesterName"] = new NameProperty
+                    {
+                        Name = "DebugRequesterName",
+                        Type = "NameProperty",
+                        Value = level_info.LevelSequences.Find(x => x.ActorName == name)?.DebugRequesterName ?? "None"
+                    };
+                }
                 target.AddUnique(new_item);
                 index = target.Count - 1;
+                if (saveType == SaveType.CaptainSpirit)
+                {
+                    ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypes"].Value).Add("ELIS2LevelChangeSaveDataType::ELCSDT_SequenceStopped");
+                    ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypedIndices"].Value).Add(index-1);
+                }
             }
             else
             {
                 if (colIndex == 1 && Convert.ToBoolean(value) == false) //Remove sequence
                 {
                     target.RemoveAt(index);
+
+                    if (saveType == SaveType.CaptainSpirit)
+                    {
+                        ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypes"].Value).RemoveAt(index-1);
+                        ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypedIndices"].Value).RemoveAt(index-1);
+                    }
                 }
                 else
                 {
@@ -1075,7 +1090,7 @@ namespace lis2_save_editor
         {
             
             int index;
-            string slotPrefix = "NoSlot_";
+            string slotPrefix = saveType == SaveType.LIS ? "NoSlot_" : "None_";
             List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;
             if (initialSlot.StartsWith(slotPrefix))
             {

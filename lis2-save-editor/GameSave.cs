@@ -326,6 +326,7 @@ namespace lis2_save_editor
 
                 //LevelChanges
                 Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
+
                 if (saveType == SaveType.LIS)
                 {
                     foreach (var seq in ((List<dynamic>)lvl_changes["StoppedLevelSequences"].Value).Skip(1))
@@ -336,6 +337,26 @@ namespace lis2_save_editor
                             "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, dbg_name);
                         sb.AppendFormat("UPDATE {0}LevelSequences SET DebugRequesterName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, dbg_name, seq_name, lvl_name);
                     }
+                    //no values so far
+                    foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
+                    {
+                        throw new Exception();
+                    }
+
+                    foreach (var act in lvl_changes["ChangedActors"].Value)
+                    {
+                        throw new Exception();
+                    }
+                }
+                else
+                {
+                    foreach (var seq in ((List<dynamic>)lvl_changes["PastLevelSequences"].Value).Skip(1))
+                    {
+                        string seq_name = seq["LevelSequenceActorName"].Value;
+                        sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName) values" +
+                            "('{1}', '{2}');\n", table, seq_name, lvl_name);
+                    }
+                }
                     foreach (var seq in ((List<dynamic>)lvl_changes["PlayingLevelSequences"].Value).Skip(1))
                     {
                         string seq_name = seq["LevelSequenceActorName"].Value;
@@ -360,18 +381,6 @@ namespace lis2_save_editor
                             sb.AppendFormat("UPDATE {0}LevelSequences SET On{4}FunctionName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, func_name, seq_name, lvl_name, t);
                         }
                     }
-
-                    //no values fo far
-                    foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
-                    {
-                        throw new Exception();
-                    }
-
-                    foreach (var act in lvl_changes["ChangedActors"].Value)
-                    {
-                        throw new Exception();
-                    }
-                } 
             }
 
             if (saveType == SaveType.LIS)

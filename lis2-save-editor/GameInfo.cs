@@ -1095,6 +1095,14 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "IntroFade", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnStop842F78F143800B197EE840ABD97BE897",
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1108,6 +1116,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_AMB",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1125,6 +1139,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1138,6 +1158,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_EHDreams_SD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1156,6 +1182,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1169,6 +1201,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_EHInside_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1186,6 +1224,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1199,6 +1243,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_EHInside_SD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1220,6 +1270,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_EHOutside_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1794,6 +1850,109 @@ namespace lis2_save_editor
                             }
                         },
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "IGE_EHOutside_Garage_LightOff_5", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Ladder_Ascend", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Noctared_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_ZenStart", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_ZenEnd", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Ladder_Descend", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_SideDoor_EnterFirstTime_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHOutside_Garage_LightOn_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_HickingBoots_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_SprayPaint_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_SideDoor_Leave", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Graffiti_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "RaccoonIdle", SlotName = "None", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Shovel_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Shovel_ClearSnow", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_Enter", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop9E0746F74F5B849A38A70FB1A33018AA", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_CrawlingGP", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_GoLeft_4", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_GoRight_6", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_Exit_12", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Mailbox_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_Inspect_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_MainDoor_OpenClose", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_CombinationLock_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Locker_QuitPadlock_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Snowman_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Snowman_Tune", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Snowman_Joke", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_PondMonster_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Swing_Look_0", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Ladder_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Cigarette_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_SecretHatch_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Skypirate_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Skypirate_Check_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_GirlyToy_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Cigarette_Smoke", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop2377C62D4C80B3AC72A9C0AD5E95D70C", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_ZenLoopScream_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_SecretHatch_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop8874481A4D48FA91E0346091B45B4A89", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_Layer_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_SecretHatch_Close", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop657B91964C69FECF396124B4CE9252EA", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_EnterFast_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop33D608B74462B6CF968B0EA0FF1D58BD", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_SideDoor_Enter", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_SprayPaint_Use", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_Powerdrive", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop738BFF464A1385BE552F44AA07988646", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetArrival", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop51B88EAF4B939ACDE6AD9793940F850F", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetCrossroadIntro_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetCrossroadTestMash_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetCrossroadTestMash_Success_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetReturn", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop0750FD9E44AA1A19026654ACAD14710C", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_ZenEndUp_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Locker_OpenFirstTime_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Firecracker_Look_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Firecracker_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Locker_Close", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Snowman_BlowUp", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_RecycleBin_SetupRange_3", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Range_GetInPosition", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Range_Success_3", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Range_CleanUp", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Golem_End2_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStopC2362F6D4024DBB305140AAAD34095DA", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_TreeStump_Look_7", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Locker_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_ReynoldHouse_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_Spiritmobile_PlanetFaint", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_SideDoor_EnterFail_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garden_Raccoon_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_BeerCardboard_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_BeerCardboard_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_IGE_Sit", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnStop0215B32A4DC556BE29D7119F6691DD79",
+                        "OnStop0750FD9E44AA1A19026654ACAD14710C",
+                        "OnStop1C2AEB2048103FD43866A9A6DC60C64C",
+                        "OnStop2377C62D4C80B3AC72A9C0AD5E95D70C",
+                        "OnStop33D608B74462B6CF968B0EA0FF1D58BD",
+                        "OnStop41F03C7041869BD40C045E91E41606D6",
+                        "OnStop51B88EAF4B939ACDE6AD9793940F850F",
+                        "OnStop54D01F4F4440A01B1A601FB34F205CDA",
+                        "OnStop58994B014FA800E5C8B6FEB7BD5827F5",
+                        "OnStop58E158344A58F1144B875297B4F16283",
+                        "OnStop646367334528F01B834F149BAD91A808",
+                        "OnStop657B91964C69FECF396124B4CE9252EA",
+                        "OnStop6927B0CA4B09571D0D82C88C91DAA1B7",
+                        "OnStop6FC217B543CC29B5663DD38810AED77C",
+                        "OnStop738BFF464A1385BE552F44AA07988646",
+                        "OnStop87987EF2480197B382080881EDA7FAB0",
+                        "OnStop8874481A4D48FA91E0346091B45B4A89",
+                        "OnStop8B6CEFED4FFAF93B82D5A0A96441D29B",
+                        "OnStop9E0746F74F5B849A38A70FB1A33018AA",
+                        "OnStopA3185ED643A4F82B0FE3DC8C0CCBB6C4",
+                        "OnStopB99B30004D054FA4196AD6ADF9AE9A3A",
+                        "OnStopC2362F6D4024DBB305140AAAD34095DA",
+                        "OnStopC9F6D7464BB9CB18C4262DB744CA1FB6",
+                        "OnStopD1766B2D4C9196928C3B5E8A11E3EBA1",
+                        "OnStopDB4EFD48483CB10518F1B69A3CCDD6BC",
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1807,6 +1966,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_EHOutside_SD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1825,6 +1990,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1838,6 +2009,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_Global_SD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1855,6 +2032,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1870,6 +2053,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -1883,6 +2072,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_GarageInside_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -3458,6 +3653,341 @@ namespace lis2_save_editor
                             }
                         },
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_PreInsertionNewPropal2_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_InsertionNewPropal2_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Drawing_ChoicePart1_6", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Drawing_ChoicePart2_10", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Drawing_ChoicePart3_14", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Drawing_Finished", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Closet_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Cloak_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Cloak_Wear", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ExitForBreakfast", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop6CE83AEC4F9F0862B124A88E6EED1B06", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_IntroD_15", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_PourringMilkIntro_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_PourringMilk_26", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop1stChoice_30", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_BreakfastServedA_34", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop2ndChoice_42", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_GameDayB_50", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_RebelDad_54", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop3rdChoice_58", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_InjuryA_62", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_Loop4thChoice_70", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_EndA_74", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_ReadyForMatchNoFade_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_BreakfastServedB_38", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_EndB_78", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_FillGlass_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin01_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Door_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Bed_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_Drink02_38", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose01_5", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Door_Close", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_Drink03_41", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_FrontDoor_Leave", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_DrinkLong_47", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin02_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "PhoneRinging", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose03_17", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_FrontDoor_Enter", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesArmchair_Normal_Loop_2", SlotName = "charles", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart1Start", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart1Loop", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart1End", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_StatBook_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_WhiskyBottle_Look_02_3", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin03_5", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_ResetItemPosition_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_WhiskyBottle_Power", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_WhiskyBottle_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_RemoteStatBook_Start", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "OnEvent333043F34F34698EE7199D93E0CFF578" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_NerfGun_ShootDad_5", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_EHInside_LaundryRoom_LightSwitchOn", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_EHInside_LaundryRoom_LightSwitchOff_6", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_GarageKey_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_StatBook_Loop_6", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_LivingRoom_HalfTime_Start_Normal", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_LivingRoom_HalfTime_Loop_Choice01", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_LivingRoom_HalfTime_PineTree", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_LivingRoom_HalfTime_Mom", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_LivingRoom_HalfTime_BasketBallRules", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_LivingRoom_HalfTime_End_Normal", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_FrontDoor_LeaveFast", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_StatBook_End_9", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesArmchair_NormalToDrunkHeavy_29", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_RemoteTVOn_82", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "OnEvent0C10CF2F4FBE7DEEACDC0480FBE4BF67" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_DrinkToast_70", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesArmchair_DrunkHeavy_Loop_14", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink01_56", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink03_63", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink02_59", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesDrunkHeavy_Drink04_67", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_FrontDoor_EnterFast", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesArmchair_Sleep_Loop_2", SlotName = "charles", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ActionFigurines_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_DVDs_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Vivarium_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Trophy_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ComicBooks_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Plush_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Bag_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_WalkieTalkie_ReportToBase", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_AdventCalendar_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_AdventCalendar_Eat", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Slippers_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_MantroidCar_Start_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_MantroidCar_Play", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_IntroA_3", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_InjuryB_66", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Sink_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Microwave_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_RecycleBin_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_BeerCans_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_KitchenDoor_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_WashingMachine_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_DirtyLaundry_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_XmasDecorations_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose02_14", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_DarkRoom_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_DirtyLaundry_PutClothes", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_WashingMachine_Wash", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Laptop_Look_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CellPhoneLook", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CellPhone_Unlock_Start", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CellPhone_PlayDone", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_Answer_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_Start_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop9B9663DA488D131E8E9AB9BCC1397E0A", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_Stop_2", SlotName = "", OnPlayFunctionName = "OnPlayFB63AA9847E56C6E9FE9FE84761755BE", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_CallDadCellphone", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_NerfGunLook", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_trophies_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Couch_Look_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_FireStove_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_FireStove_AddLog", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_FireStove_Power", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_WaterFaucet_Use", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_Razor_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_DialStart_67", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_MantroidBully_77", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_SuperVillainsTeam_83", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_Forgive_69", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_ThatsMyJob_85", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_MyParents_81", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_DialEnd_65", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_ToiletStickers_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_Submarine_Look_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_Mirror_Use", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_FillGlassDrink2_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_WalkieTalkie_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose04_20", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Window_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Chest_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_DrinkToast_50", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ActionFigurines_StartFight", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose07_29", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ActionFigurines_BossChoiceA", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ActionFigurines_LiarChoiceA", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ActionFigurines_CaptainSpiritChoiceB", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesArmchair_NormalToDrunkLite_32", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_BasketBall_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesDrunkLite_ReactWin01_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesArmchair_DrunkLiteToNormal_26", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_BasketBall_ThrowFail", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactLose08_32", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_FirecrackerBox_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesNormal_ReactWin05_11", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_FavoriteToy_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Console_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Remote_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Remote_Power", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_HeightGauge_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Wardrobe_Closed", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Cigarettes_Look_9", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Cigarettes_Steal", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_SecretBox_LookBeforeChair", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Chair_Use", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Chair_UseFinished_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_LightArmor_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_LightArmor_Craft", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Perfume_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_BaseballBat_Look_6", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Lamp_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Lamp_Fix", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_WardrobeKey_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_WardrobeKey_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_PT_EHInside_CharlesRoom_Lamp_SwitchOn", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_PT_EHInside_CharlesRoom_Lamp_SwitchOff_3", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Turntable_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Turntable_PutVinyl_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Bed_LieDownStart", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Bed_LieDownEnd", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_PT_EHInside_CharlesRoom_Vinyl_Loop", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Wardrobe_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Console_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Basketball_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Wardrobe_Close", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_FistMark_Look_12", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Fridge_Open", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Fridge_Milk_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Tupperware_Start", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Tupperware_PowerTrash", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_BeerCans_Trash", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_BeerCans_TrashPowerEnd", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_GroceryList_AddCandy", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_DarkRoom_Enter", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_WaterHeater_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_WaterHeater_TameIntro_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_WaterHeater_TameCameraSequence_5", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_WaterHeater_TameOutro_8", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop747B8CCF4103E61865389FB9F4B39896", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_CallReynolds02", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_CallPizza", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_CarKey_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_CarKey_DadAsleep", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Checkpoint_BeforeDadWakesUp", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Dinosaur_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Dinosaur_Play", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_GlowingStickers_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Closet_Close", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_AluminiumFoil_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_AluminiumFoil_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_RecycleBin_TakeOut", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CellPhone_Unlock_Success", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ActionFigurines_LookRelease", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ArmyToys_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_SecretBox_LookShowPicture_5", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Wardrobe_ReOpen_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CellPhone_Play", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CellPhone_Playing", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Bed_LieDownLoop", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "OnHasLooped_Event_0", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_IntroB_7", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_GameDayA_46", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_BeerCans_TrashNomalEnd", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Fridge_MacNCheeseCook", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Microwave_GiveMacCheese", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Microwave_GiveMacCheese_Perfect", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Tattoo_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Tupperware_NormalTrash", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Fridge_Close", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_ImTheHero_71", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_MakeUp_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_MakeUp_Apply", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Sink_PowerWashIntro_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop9E0123D0470E54AC717162824103626F", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Sink_PowerWash", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Drawing_ChoiceLoop1", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Drawing_ChoiceLoop2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Drawing_ChoiceLoop3", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_Tattoo_Apply", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_CarKey_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart2Start", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart2Loop", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Couch_ZenSeqPart2End", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_Loop", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_CallReynolds01", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Wardrobe_Loop", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Trousers_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Trousers_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_WashingMachine_PutTrousers", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LaundryRoom_Dadpaper_Find", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_LivingRoom_Phone_CallOdessa", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CarKey_Put", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_CarKey_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Sink_PowerWashWithCharles_2", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_EHInside_LivingRoom_CharlesArmchair_DrunkLite_Loop_11", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_BeerCans_TrashLoop", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_DialBreakfast_Checkpoints_BreakfastFinished", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_MantroidCar_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_MantroidCar_Power", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Kitchen_Sink_Wash", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_ChrisRoom_ActionFigurines_LiarChoiceB", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_Bathroom_WaterFaucet_Look", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_PT_EHInside_CharlesRoom_Turntable_Stop_28", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_MantroidGone_79", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_Threaten_87", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnEvent0C10CF2F4FBE7DEEACDC0480FBE4BF67",
+                        "OnEvent333043F34F34698EE7199D93E0CFF578",
+                        "OnEventC20BDBF24F78F244277C528F5C4D7038",
+                        "OnHasLooped9CD3F3594161684A57648FB65215C588",
+                        "OnHasLooped_Event",
+                        "OnHasLooped_Event_0",
+                        "OnPlayFB63AA9847E56C6E9FE9FE84761755BE",
+                        "OnStop063F5D5A4349184EE9AD1AB3326CA234",
+                        "OnStop15B2F061470B468438CFCE94FA32F8E6",
+                        "OnStop171A830F42CD699799AF1AB45BFDB6DE",
+                        "OnStop173802D24DF86471B5691C83F667C29F",
+                        "OnStop178D52FE4919A80D6F5BD68685EB1D94",
+                        "OnStop1BE3D9F149AEC5365BD10EB43504207B",
+                        "OnStop1E7B5B5D4AB811B540A3749A8A5D23E7",
+                        "OnStop1F7B0B734EEB969520942EA49D25A024",
+                        "OnStop264ED97C4A5AE3BF7AA497BA45AFB5BE",
+                        "OnStop289EBC4E40D9B1427407C4BD6B40FFE5",
+                        "OnStop292DBBD5403323CC34DB8E9AFCE75814",
+                        "OnStop2A12AB4A4596A6DAACF7FE864404B4D7",
+                        "OnStop346C964E4E2BC3A24D4ABBB3A97EC546",
+                        "OnStop37D0A954447115754B7A00A79D0C2384",
+                        "OnStop39F6A4F343938C962E5BC79096821AD2",
+                        "OnStop3F6AF85F4D36A70FCC06A9ADD6B2CA5A",
+                        "OnStop4C90130E4AF4B3441E7C79BF505CBAB9",
+                        "OnStop56B240F349145445E5B2D1BCDCB7B674",
+                        "OnStop6957CB6D4200329EDF9C91A23FF554E2",
+                        "OnStop69D0B9814226EB151D28EBBA7C82CAA5",
+                        "OnStop6CE83AEC4F9F0862B124A88E6EED1B06",
+                        "OnStop6F224923448C922B86AD3F8BF2DAA1AD",
+                        "OnStop7074B0074B83714BC4D01F84E6309E93",
+                        "OnStop71A63B624438E5D441DC0A82CE811803",
+                        "OnStop71B6092C437FF170E3DABF9ED1B3F533",
+                        "OnStop736A41684C73BC5989B7838784B47370",
+                        "OnStop747B8CCF4103E61865389FB9F4B39896",
+                        "OnStop75CF8FF54914C54EA28995BF73671000",
+                        "OnStop779738F04464063B017E2DA19CABB0DD",
+                        "OnStop7CB591FD470CFA541ECFCCB8AECDC901",
+                        "OnStop835F8EE3436B3763178DC8AE2AC14409",
+                        "OnStop8ABCA28E41C9A549FBBC65949D734BE8",
+                        "OnStop8C622F5143364F9D3F7B05B30A65ABA6",
+                        "OnStop91FBCD9C41138F1BC503C69EA380B5F1",
+                        "OnStop96277E1540BA4735B65434BFD3051FC1",
+                        "OnStop96A377774C69E0670DF4F5BA0FB142DC",
+                        "OnStop9B9663DA488D131E8E9AB9BCC1397E0A",
+                        "OnStop9CD3F3594161684A57648FB65215C588",
+                        "OnStop9E0123D0470E54AC717162824103626F",
+                        "OnStopA0D3B12F433EB25C9955E49504C5767E",
+                        "OnStopA4C61FA54E0CAC331C476E957BE3883E",
+                        "OnStopAD986BC3469D2328F8B560A42011F815",
+                        "OnStopB14D854F4F6C3A3F588623BE33F66075",
+                        "OnStopB17549324F20248C78B09086F5197C3E",
+                        "OnStopB1A5296B4D1BE5336FA4589D3ED4D23E",
+                        "OnStopB33332774544149EE14121A5272FA904",
+                        "OnStopB761DE9545590FF63F95E89C1E814881",
+                        "OnStopBA2928DB47624C63E6AA2CB14DABE6A0",
+                        "OnStopBB83E96E4CC4823CC695FAB75009D849",
+                        "OnStopBD77557044A747D84ECC33B7811E40A0",
+                        "OnStopC20BDBF24F78F244277C528F5C4D7038",
+                        "OnStopC572035A4118E73ECED5049C4D601770",
+                        "OnStopC75A9415461D849ACA49BCAE1F847A30",
+                        "OnStopC916AF0D447CC0E3912928A4B721318C",
+                        "OnStopCA67B1C94836EA2FF0F65995CE0063A1",
+                        "OnStopCB337B2E44DAB2093457CBAE25017D0A",
+                        "OnStopCF0B99584CE88006564A5CA5F319A8DC",
+                        "OnStopCF3DD6684B4174E2C616EDBB17E3980D",
+                        "OnStopD02B42264BB7B311C4292BB2FFDB61F6",
+                        "OnStopD7C7CE4A49BDA3D0629B078F792BE9A4",
+                        "OnStopDAAC38644432DD0D11D6DF99B58A48DA",
+                        "OnStopE1AA6D94411A00179BED8E8CE0EAC0B5",
+                        "OnStopE534601544B12839CE4B96B664C48769",
+                        "OnStopE5A057DF44D9232F28C51DA390304E62",
+                        "OnStopE8B502E14EBD5DC02C6059988F90FCF3",
+                        "OnStopEF0DA107479391ADA008FAB4E48C1B5F",
+                        "OnStopF09DB3AB464C487F3701A9B7DF5BB4E9",
+                        "OnStopF8EB74F3485D73C699F89CA5CAC78467",
+                        "OnStopFE3484A7483E760B65F07FAD358A33C0",
+                        "OnStop_Event",
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3471,6 +4001,12 @@ namespace lis2_save_editor
                 {
                     Name = "PT_HawtDawgMan",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
