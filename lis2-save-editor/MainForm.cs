@@ -43,7 +43,7 @@ namespace lis2_save_editor
             {
                 _gameSave.ReadSaveFromFile(p);
             }
-            */
+            //*/
             #endregion
 
             if (!_gameSave.SaveIsValid)
@@ -832,7 +832,7 @@ namespace lis2_save_editor
             gbox_p.Controls.Add(lbl_p);
 
             var tb_p = new TextBox();
-            tb_p.Location = new Point(lbl_p.Location.X + 50, lbl_p.Location.Y);
+            tb_p.Location = new Point(lbl_p.Location.X + 50, lbl_p.Location.Y - 3);
             tb_p.Name = "tbPlaythroughGuid";
             tb_p.Size = new Size(220, 20);
             tb_p.Text = root["PlaythroughId"].Value["Guid"].ToString();
@@ -848,7 +848,7 @@ namespace lis2_save_editor
                 gbox_p.Controls.Add(lbl_p);
 
                 tb_p = new TextBox();
-                tb_p.Location = new Point(lbl_p.Location.X + 50, lbl_p.Location.Y);
+                tb_p.Location = new Point(lbl_p.Location.X + 50, lbl_p.Location.Y - 3);
                 tb_p.Name = "tbPlaythroughCounter";
                 tb_p.Size = new Size(60, 20);
                 tb_p.Text = root["PlaythroughCounter"].Value.ToString();
@@ -948,7 +948,7 @@ namespace lis2_save_editor
 
                 foreach (var tb in gbox.Controls.OfType<TextBox>())
                 {
-                    tb.Location = new Point(tb.Location.X + max_lbl_width, tb.Location.Y);
+                    tb.Location = new Point(tb.Location.X + max_lbl_width, tb.Location.Y - 3);
                 }
 
                 lbl_coord = 20;

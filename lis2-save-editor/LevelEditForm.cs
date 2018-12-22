@@ -42,6 +42,9 @@ namespace lis2_save_editor
             GenerateInteractions();
             UpdatePOITable();
             UpdateWUITable();
+            UpdateStoppedSeqTable();
+            UpdatePlayingSeqTable();
+            UpdateBindingTables();
         }
 
         #region Building
@@ -87,7 +90,7 @@ namespace lis2_save_editor
 
                 var cbEnabled = new CheckBox();
                 cbEnabled.Text = "Enabled";
-                cbEnabled.Location = new Point(75, 20);
+                cbEnabled.Location = new Point(70, 20);
                 cbEnabled.AutoSize = true;
                 cbEnabled.Checked = actor_ind == -1 ? false : root[actor_ind]["bIsEnable"].Value;
                 cbEnabled.CheckedChanged += new EventHandler(checkBoxIntObject_CheckedChanged);
@@ -95,7 +98,7 @@ namespace lis2_save_editor
 
                 var cbDestroyed = new CheckBox();
                 cbDestroyed.Text = "Destroyed";
-                cbDestroyed.Location = new Point(175, 20);
+                cbDestroyed.Location = new Point(140, 20);
                 cbDestroyed.AutoSize = true;
                 cbDestroyed.Checked = actor_ind == -1 ? false : root[actor_ind]["bIsConsideredDestroyed"].Value;
                 cbDestroyed.CheckedChanged += new EventHandler(checkBoxIntObject_CheckedChanged);
@@ -123,7 +126,7 @@ namespace lis2_save_editor
                     }
 
                     var tb = new TextBox();
-                    tb.Location = new Point(lbl.Location.X + 3, lbl.Location.Y);
+                    tb.Location = new Point(lbl.Location.X + 3, lbl.Location.Y - 3);
                     tb.Name = "tb" + lbl.Text;
                     tb.Tag = obj.Name + "::" + "Classic" + "::" + inter.Key.ToString();
                     tb.Size = new Size(60, 20);
@@ -162,7 +165,7 @@ namespace lis2_save_editor
                     }
 
                     var tb = new TextBox();
-                    tb.Location = new Point(lbl.Location.X + 3, lbl.Location.Y);
+                    tb.Location = new Point(lbl.Location.X, lbl.Location.Y - 3);
                     tb.Name = "tb" + lbl.Text;
                     tb.Tag = obj.Name + "::" + "Daniel" + "::" + inter.Key.ToString();
                     tb.Size = new Size(60, 20);
@@ -277,6 +280,132 @@ namespace lis2_save_editor
             }
 
             return t;
+        }
+
+        private void UpdateStoppedSeqTable()
+        {
+            dataGridViewSeqStopped.Columns.Clear();
+            dataGridViewSeqStopped.DataSource = BuildStoppedSeqTable();
+        }
+
+        private DataTable BuildStoppedSeqTable()
+        {
+            DataTable t = new DataTable();
+            
+            t.Columns.Add("Name");
+            t.Columns.Add("Active", typeof(bool));
+            t.Columns.Add("Playback position");
+            t.Columns.Add("Is loop", typeof(bool));
+
+            if (saveType == SaveType.CaptainSpirit) return t;
+
+            List<dynamic> target = level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value;
+
+            foreach (var seq in level_info.LevelSequences)
+            {
+                object[] row = new object[t.Columns.Count];
+                row[0] = seq.ActorName;
+
+                int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == seq.ActorName);
+
+                if(index != -1)
+                {
+                    row[1] = true;
+                    row[2] = target[index]["PlaybackPosition"].Value;
+                    row[3] = target[index]["bIsLoop"].Value;
+                }
+                else
+                {
+                    row[1] = false;
+                    row[2] = 0;
+                    row[3] = false;
+                }
+                t.Rows.Add(row);
+            }
+            return t;
+        }
+
+        private void UpdatePlayingSeqTable()
+        {
+            dataGridViewSeqPlaying.Columns.Clear();
+            dataGridViewSeqPlaying.DataSource = BuildPlayingSeqTable();
+            dataGridViewSeqPlaying.Columns[1].ReadOnly = true;
+        }
+
+        private DataTable BuildPlayingSeqTable()
+        {
+            DataTable t = new DataTable();
+
+            t.Columns.Add("Name");
+            t.Columns.Add("Slot"); //todo: test behavior of multiple sequences in same slot
+            t.Columns.Add("Active", typeof(bool));
+            t.Columns.Add("Playback position");
+
+            if (saveType == SaveType.CaptainSpirit) return t;
+
+            List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;
+
+            foreach (var seq in level_info.LevelSequences)
+            {
+                object[] row = new object[t.Columns.Count];
+                row[0] = seq.ActorName;
+                
+
+                int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == seq.ActorName);
+
+                if (index != -1)
+                {
+                    row[1] = target[index]["IGESlotName"].Value;
+                    row[2] = true;
+                    row[3] = target[index]["PlaybackPosition"].Value;
+                }
+                else
+                {
+                    row[1] = String.IsNullOrEmpty(seq.SlotName) ? "(unknown)" : seq.SlotName;
+                    row[2] = false;
+                    row[3] = 0;
+                }
+                t.Rows.Add(row);
+            }
+            return t;
+        }
+
+        private void UpdateBindingTables()
+        {
+            if (saveType == SaveType.CaptainSpirit) return;
+
+            DataGridView grid;
+            foreach (var type in new string[] {"OnPlay", "OnStop", "OnHasLooped", "OnEvent" })
+            {
+                grid = (DataGridView)tabControlSequences.TabPages["tabPageSeq" + type].Controls[0];
+                grid.Columns.Clear();
+
+                grid.Columns.Add(new DataGridViewTextBoxColumn() {Name = "Name", HeaderText = "Name" });
+                var func_list = new List<string>() { "(none)" };
+                func_list.AddRange(level_info.LevelFunctions.Where(x => x.StartsWith(type)));
+                var comboCol = new DataGridViewComboBoxColumn()
+                {
+                    Name = "Current function",
+                    HeaderText = "Current function",
+                    DataSource = func_list
+                };
+
+                grid.Columns.Add(comboCol);
+                grid.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Default function", HeaderText = "Default function", ReadOnly = true });
+
+                List<dynamic> target = level["LevelChangesSaveData"].Value[$"LevelSequence{type}BindingsSaveData"].Value;
+
+                foreach (var seq in level_info.LevelSequences)
+                {
+                    object[] row = new object[grid.Columns.Count];
+                    row[0] = seq.ActorName;
+                    int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == seq.ActorName);
+                    row[1] = index == -1 ? "(none)" : target[index]["LevelScriptFunctionName"].Value;
+                    string defFunc = seq.GetType().GetProperty(type + "FunctionName").GetValue(seq).ToString();
+                    row[2] = String.IsNullOrEmpty(defFunc) ? "(unknown)" : defFunc;
+                    grid.Rows.Add(row);
+                }
+            }
         }
         #endregion
 
@@ -574,6 +703,89 @@ namespace lis2_save_editor
             }
         }
 
+        private void dataGridViewSeqStopped_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int colIndex = e.ColumnIndex;
+            if(colIndex == 2)
+            {
+                float result;
+                if (!float.TryParse(dataGridViewSeqStopped[colIndex, e.RowIndex].Value.ToString(), out result))
+                {
+                    MessageBox.Show(Resources.BadValueMessage, "Error");
+                    newCellValue = origCellValue;
+                    dataGridViewSeqStopped[colIndex, e.RowIndex].Value = origCellValue;
+                }
+                else
+                {
+                    newCellValue = result;
+                }
+            }
+            else
+            {
+                newCellValue = dataGridViewSeqStopped[colIndex, e.RowIndex].Value;
+            }
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = dataGridViewSeqStopped[0, e.RowIndex].Value.ToString();
+                EditSeqStoppedValue(name, colIndex, newCellValue);
+                dataGridViewSeqStopped[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+
+                if (e.ColumnIndex != 1)
+                {
+                    dataGridViewSeqStopped[1, e.RowIndex].Value = true;
+                }
+                else if (Convert.ToBoolean(newCellValue) == true)
+                {
+                    for (int i = 2; i < dataGridViewSeqStopped.ColumnCount; i++)
+                    {
+                        EditSeqStoppedValue(name, i, dataGridViewSeqStopped[i, e.RowIndex].Value);
+                    }
+                }
+            }
+        }
+
+        private void dataGridViewSeqPlaying_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int colIndex = e.ColumnIndex;
+            if (colIndex == 3)
+            {
+                float result;
+                if (!float.TryParse(dataGridViewSeqPlaying[colIndex, e.RowIndex].Value.ToString(), out result))
+                {
+                    MessageBox.Show(Resources.BadValueMessage, "Error");
+                    newCellValue = origCellValue;
+                    dataGridViewSeqPlaying[colIndex, e.RowIndex].Value = origCellValue;
+                }
+                else
+                {
+                    newCellValue = result;
+                }
+            }
+            else
+            {
+                newCellValue = dataGridViewSeqPlaying[colIndex, e.RowIndex].Value;
+            }
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = dataGridViewSeqPlaying[0, e.RowIndex].Value.ToString();
+                EditSeqPlayingValue(name, colIndex, newCellValue);
+                dataGridViewSeqPlaying[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+
+                if (e.ColumnIndex != 2)
+                {
+                    dataGridViewSeqPlaying[2, e.RowIndex].Value = true;
+                }
+                else if (Convert.ToBoolean(newCellValue) == true)
+                {
+                    EditSeqPlayingValue(name, 3, dataGridViewSeqPlaying[3, e.RowIndex].Value);
+                }
+            }
+        }
+
+
+
         private void EditPOIValue(string name, int colIndex, object value)
         {
             List<dynamic> target = level["PointsOfInterestSaveData"].Value;
@@ -737,15 +949,237 @@ namespace lis2_save_editor
             changesMade = true;
         }
 
+        private void EditSeqStoppedValue(string name, int colIndex, object value)
+        {
+            List<dynamic> target = level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value;
+            int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == name);
+
+            if (index == -1)//Add new item
+            {
+                Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
+                {
+                    {
+                        "LevelSequenceActorName", new NameProperty
+                        {
+                                Name = "LevelSequenceActorName",
+                                Type = "NameProperty",
+                                Value = name
+                        }
+                    },
+                    {
+                        "PlaybackPosition", new FloatProperty
+                        {
+                                Name = "PlaybackPosition",
+                                Type = "FloatProperty",
+                                Value = colIndex == 2 ? Convert.ToSingle(newCellValue) : 0
+                        }
+                    },
+                    {
+                        "bIsLoop", new BoolProperty
+                        {
+                                Name = "bIsLoop",
+                                Type = "BoolProperty",
+                                Value = colIndex == 3 ? Convert.ToBoolean(newCellValue) : false
+                        }
+                    },
+                    {
+                        "DebugRequesterName", new NameProperty
+                        {
+                                Name = "DebugRequesterName",
+                                Type = "NameProperty",
+                                Value = level_info.LevelSequences.Find(x => x.ActorName == name)?.DebugRequesterName ?? "None"
+                        }
+                    },
+                };
+                target.AddUnique(new_item);
+                index = target.Count - 1;
+            }
+            else
+            {
+                if (colIndex == 1 && Convert.ToBoolean(value) == false) //Remove sequence
+                {
+                    target.RemoveAt(index);
+                }
+                else
+                {
+                    switch (colIndex)
+                    {
+                        case 2:
+                            {
+                                target[index]["PlaybackPosition"].Value = Convert.ToSingle(value);
+                                break;
+                            }
+                        case 3:
+                            {
+                                target[index]["bIsLoop"].Value = Convert.ToBoolean(value);
+                                break;
+                            }
+                    }
+                }
+            }
+            changesMade = true;
+        }
+
+        private void EditSeqPlayingValue(string name, int colIndex, object value)
+        {
+            List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;
+            int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == name);
+
+            if (index == -1) //Add new item
+            {
+                Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
+                {
+                    {
+                        "IGESlotName", new NameProperty
+                        {
+                                Name = "IGESlotName",
+                                Type = "NameProperty",
+                                Value = GetPlayingSeqSlotName(level_info.LevelSequences.Find(x => x.ActorName == name).SlotName)
+                        }
+                    },
+                    {
+                        "LevelSequenceActorName", new NameProperty
+                        {
+                                Name = "LevelSequenceActorName",
+                                Type = "NameProperty",
+                                Value = name
+                        }
+                    },
+                    {
+                        "PlaybackPosition", new FloatProperty
+                        {
+                                Name = "PlaybackPosition",
+                                Type = "FloatProperty",
+                                Value = colIndex == 3 ? Convert.ToSingle(newCellValue) : 0
+                        }
+                    },
+                };
+                target.AddUnique(new_item);
+                index = target.Count - 1;
+            }
+            else
+            {
+                if (colIndex == 2 && Convert.ToBoolean(value) == false) //Remove sequence
+                {
+                    target.RemoveAt(index);
+                }
+                else
+                {
+                    target[index]["PlaybackPosition"].Value = Convert.ToSingle(value);
+                }
+            }
+            changesMade = true;
+        }
+        
+        private string GetPlayingSeqSlotName(string initialSlot)
+        {
+            
+            int index;
+            string slotPrefix = "NoSlot_";
+            List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;
+            if (initialSlot.StartsWith(slotPrefix))
+            {
+                if (!int.TryParse(initialSlot.Remove(0, slotPrefix.Length), out index))
+                {
+                    index = 0;
+                }
+
+                string newSlot = slotPrefix + index.ToString();
+                while (target.FindIndex(1, x => x["IGESlotName"].Value == newSlot) != -1)
+                {
+                    index++;
+                    newSlot = slotPrefix + index.ToString();
+                }
+                return newSlot;
+            }
+            else if (String.IsNullOrEmpty(initialSlot))
+            {
+                index = 0;
+
+                string newSlot = slotPrefix + index.ToString();
+                while (target.FindIndex(1, x => x["IGESlotName"].Value == newSlot) != -1)
+                {
+                    index++;
+                    newSlot = slotPrefix + index.ToString();
+                }
+                return newSlot;
+            }
+            else return initialSlot;
+        }
+
+        private void EditBinding(string name, string type, string value)
+        {
+            List<dynamic> target = level["LevelChangesSaveData"].Value[$"LevelSequence{type}BindingsSaveData"].Value;
+            int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == name);
+
+            if (index == -1) //add new
+            {
+                Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
+                {
+                     {
+                        "LevelSequenceActorName", new NameProperty
+                        {
+                                Name = "LevelSequenceActorName",
+                                Type = "NameProperty",
+                                Value = name
+                        }
+                    },
+                    {
+                        "LevelScriptFunctionName", new NameProperty
+                        {
+                                Name = "LevelScriptFunctionName",
+                                Type = "NameProperty",
+                                Value = value
+                        }
+                    },
+                };
+                target.AddUnique(new_item);
+                index = target.Count - 1;
+            }
+            else
+            {
+                if (value == "(none)") //remove
+                {
+                    target.RemoveAt(index);
+                }
+                else
+                {
+                    target[index]["LevelScriptFunctionName"].Value = value;
+                }
+            }
+            changesMade = true;
+        }
+        
         #endregion
 
         private void LevelEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             dataGridViewPOIs.EndEdit();
             dataGridViewWUIs.EndEdit();
+            dataGridViewSeqStopped.EndEdit();
+            dataGridViewSeqPlaying.EndEdit();
+            dataGridViewSeqOnStop.EndEdit();
+            dataGridViewSeqOnPlay.EndEdit();
+            dataGridViewSeqOnHasLooped.EndEdit();
+            dataGridViewSeqOnEvent.EndEdit();
         }
 
         SearchForm searchForm;
+
+        private void dataGridViewSeqOnX_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            string type = grid.Tag.ToString();
+
+            newCellValue = grid[e.ColumnIndex, e.RowIndex].Value.ToString();
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = grid[0, e.RowIndex].Value.ToString();
+                EditBinding(name, type, newCellValue.ToString());
+                grid[0, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+            }
+        }
 
         private void LevelEditForm_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -753,7 +1187,7 @@ namespace lis2_save_editor
             {
                 if (searchForm == null)
                 {
-                    searchForm = new SearchForm(tabControl1);
+                    searchForm = new SearchForm(tabControlMain);
                 }
                 if (searchForm.Visible)
                 {

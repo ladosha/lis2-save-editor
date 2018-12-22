@@ -41,6 +41,8 @@ namespace lis2_save_editor
     {
         public string Name { get; set; }
         public List<InteractionActor> Interactions { get; set; } 
+        public List<LevelSequenceObject> LevelSequences { get; set; }
+        public string[] LevelFunctions { get; set; }
         public string[] PointsOfInterest { get; set; }
         public string[] WuiVolumes { get; set; }
 
@@ -52,6 +54,8 @@ namespace lis2_save_editor
                 {
                     Name = "None",
                     Interactions = new List<InteractionActor>(),
+                    LevelSequences = new List<LevelSequenceObject>(),
+                    LevelFunctions = new string[0],
                     PointsOfInterest = new string[0],
                     WuiVolumes = new string[0]
                 };
@@ -64,6 +68,17 @@ namespace lis2_save_editor
         public string Name { get; set; }
         public Dictionary<Guid, string> ClassicInteractions { get; set; }
         public Dictionary<Guid, string> DanielInteractions { get; set; }
+    }
+
+    public class LevelSequenceObject
+    {
+        public string ActorName { get; set; }
+        public string DebugRequesterName { get; set; }
+        public string SlotName { get; set; }
+        public string OnPlayFunctionName { get; set; }
+        public string OnStopFunctionName { get; set; }
+        public string OnHasLoopedFunctionName { get; set; }
+        public string OnEventFunctionName { get; set; }
     }
 
     public class CinematicObject
@@ -3477,6 +3492,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3490,6 +3511,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_9A_AMB",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -3507,6 +3534,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3520,6 +3553,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_9A_FX",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -3537,6 +3576,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3552,6 +3597,18 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "DS_E1_9A_InsideBus_WolfStory_Insertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_9A_FadeIn_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_9A_NightBus_RecapScreen", DebugRequesterName = "None", SlotName = "NoSlot_49", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnStop6CE5521A405CA1070C49549DF93743CB",
+                        "OnStopBFF16D66487A917785D45B90541E0344",
+                        "OnStopE4965889499284DEAAC54FB4D46521A6",
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3565,6 +3622,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_9A_SD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -3582,6 +3645,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3595,6 +3664,12 @@ namespace lis2_save_editor
                 {
                     Name = "CoastCurve_T02_Fix",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -3612,6 +3687,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3627,6 +3708,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -3640,6 +3727,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4988,6 +5081,212 @@ namespace lis2_save_editor
                             }
                         },
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_LightSwitch_TurnOff", DebugRequesterName = "None", SlotName = "NoSlot_3", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Street_PreInsertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Street_Insertion_Intro", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Street_Insertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_SmokeRefuse", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_PartyList", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_MakeFun", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_Planes", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_AlwaysFriends", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Stree_Bike01", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk02", OnPlayFunctionName = "", OnStopFunctionName = "OnStop35ACD6B149DA886362E22FB3751FEB1C", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_1A_Street_Pickup02B_Right", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_1A_Street_Car04_Right", DebugRequesterName = "None", SlotName = "IGE_OutsideCars_Cars04", OnPlayFunctionName = "", OnStopFunctionName = "OnStop047552244BB9B3CC31B02EA96E987CC7", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Kitchen_EnterHouse_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_1A_Street_Pickup02B_Left", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Kitchen_EnterHouse_GiveDad", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Stree_Bike02_3", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk02", OnPlayFunctionName = "", OnStopFunctionName = "OnStopE9001793438270FD78F959BD20FF8885", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Street_Girl01_11", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk01", OnPlayFunctionName = "", OnStopFunctionName = "OnStop54EE83D64EF5FB03668EA291E830193F", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Jar_Look_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Cupboard01_Open", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_LookCookies", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Street_CoupeWalking01", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk01", OnPlayFunctionName = "", OnStopFunctionName = "OnStopE09A93984E9A2BD4DDAC85B884916B83", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Street_Dude02_15", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk02", OnPlayFunctionName = "", OnStopFunctionName = "OnStop8BD87FC44D6464091BA5DEA4AB393C28", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_LookCandies", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_TakeCandies", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_LookChips", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_TakeBrownies", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_1A_Street_Pickup02B_Straight", DebugRequesterName = "None", SlotName = "IGE_OutsideCars_PickUp", OnPlayFunctionName = "", OnStopFunctionName = "OnStop28112C194936B231AAEAD48C81BA8341", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_SwitchToChips", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Street_Dude01_9", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk01", OnPlayFunctionName = "", OnStopFunctionName = "OnStop1B54DEA64D9F04A8E571A9BD56246BA3", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_SwitchToCookies", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Street_Girl02_13", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk02", OnPlayFunctionName = "", OnStopFunctionName = "OnStopFA5BF78C4AA9FA33E354D5A7DD940599", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Cupboard01_Close", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Fridge_Open", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Fridge_Beers_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Fridge_Beers_Take", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Fridge_SwitchToSodas", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Fridge_SwitchToBeers", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Street_CoupeWalking02_3", DebugRequesterName = "None", SlotName = "IGE_OutsideWalk02", OnPlayFunctionName = "", OnStopFunctionName = "OnStopC39841FA43FACCBD03BC9B9B716BB701", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Fridge_Sodas_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Fridge_Close", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Fridge_DanFood_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_Toy_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_Leftovers_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_Headset_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_Playbox_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_Shoes_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_SchoolBag_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Bathroom_Laundry_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_LightSwitch_TurnOn", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_SkiEquipment_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Blanket_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Blanket_Take", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Box_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Bikes_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Drawer_Open", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Tools_Look05", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Tools_Take05", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Dad_GiveWrongTool", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Tools_Look06", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Tools_Look01", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Tools_Take01", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_ToolSuccess_11", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_Trying_20", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_SeanReact_23", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_DontHaveTo_29", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_AskMoney_35", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_TellTheTruth_41", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_Careful_47", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_DontWorry_56", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_AskHug_62", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_Hug_68", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_End_74", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Engine_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Car_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Saw_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Tools_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_SchoolBag_PackEverything", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_DanielRoom_Open", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_DanielRoom_Knock_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_DanielRoom_Knock_DadChocoCrisp", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_DanielRoom_Knock_Ambulance", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_DanielRoom_Knock_Halloween", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_DanielRoom_Knock_Cheating", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_DanielRoom_Knock_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_DanielRoom_Knock_DanielCheck", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_SeanRoom_Door_Enter", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_WorkUniform_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskCupboard_Open", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskCupboard_Close", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskCupboard_WeedPipe_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskCupboard_Take", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Nightstand_Open", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Nightstand_Move", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_SeanRoom_Nightstand_Condoms", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Nightstand_Close", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_SkateBoard_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Trophies_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_SketchZen_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_SketchZen_CheckRough", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_SketchZen_CheckFinish", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_SketchZen_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_ActionFigure_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Laptop_SkypeCall", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_SeanRoom_SkypeJennDial_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_SeanRoom_SkypeJennDial_NoPractice", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_SeanRoom_SkypeJennDial_SoWhat", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_SeanRoom_SkypeJennDial_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Laptop_DanielStormIn", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskDrawer_Open", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskDrawer_Close", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_HouseFront_DanielWindow", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Ball_Catch", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Facebook_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Facebook_Nothing", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Laptop_LookOutside", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_1A_FRNDRoom_FRNDSitLoop_2", DebugRequesterName = "None", SlotName = "IGE_FRNDSitLoop", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Kitchen_EnterHouse_GiveDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Fridge_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Fridge_Sodas_Take", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Cupboard01_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Street_BrettLoop", DebugRequesterName = "None", SlotName = "BrettLoop", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "IGE_E1_1A_Seattle_Garage_DadRepairCar_2", DebugRequesterName = "None", SlotName = "IGE_DadLoopRepair", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_ChoiceLoop01", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_SmokeAccept", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_ChoiceLoopDrawing", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_Joke", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_ChoiceLoopFriends", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_HouseFront_ChillSteps_NotPossible", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Kitchen_EnterHouse_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Kitchen_EnterHouse_TakeIt", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_ChocoWrap_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Pumpkin_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_LivingRoom_Window_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Kitchen_Jar_TakeMoney", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_Kitchen_Cupboard01_TakeChips", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_LivingRoom_Couch_ZenStart", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_LivingRoom_Couch_ZenLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_House_LivingRoom_Couch_ZenEnd", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_WallPainting_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Garage_Tools_Take01Front_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_ChoiceLoopFuture_14", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_ChoiceLoopSeanCar_26", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_ChoiceLoopParty_38", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_ChoiceLoopMoreInfo_50", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Garage_DadDial_ChoiceLoopHug_65", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_Bathroom_PepTalk_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_DanielRoom_Knock_SeanChocoCrisp", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_DanielRoom_Knock_ChoiceLoop01", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_DanielRoom_Knock_ChoiceLoop02", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_DanielRoom_Knock_Marry", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Ipod_Play", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_SeanRoom_SkypeJennDial_Practice", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_1A_SeanRoom_SkypeJennDial_ChoiceLoop01", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_1A_House_SeanRoom_SitLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Lamp_ToggleLight", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskDrawing_SketchLyla", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_DeskDrawing_ShowLater_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_LetterBox_Reorganize", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Facebook_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnStop047552244BB9B3CC31B02EA96E987CC7",
+                        "OnStop146B3B8B4EE34859AD1233BD079F7A4C",
+                        "OnStop1B54DEA64D9F04A8E571A9BD56246BA3",
+                        "OnStop1D3616434D54153AB6EA0686DE6B3E91",
+                        "OnStop1E8141544BC510C1B01BD7865FA05FEC",
+                        "OnStop28112C194936B231AAEAD48C81BA8341",
+                        "OnStop2B36716940525CEE33AF07A15CDAE649",
+                        "OnStop35ACD6B149DA886362E22FB3751FEB1C",
+                        "OnStop3A75814F49B90872480148BEDC445A51",
+                        "OnStop3FB2B9834341539D5D523695958FD94E",
+                        "OnStop403029344FEE141F51FC959C891C29F1",
+                        "OnStop41B2F12243480C94D87341A45382A09E",
+                        "OnStop43B030BD40ACD48616B9299A0445C0F0",
+                        "OnStop54EE83D64EF5FB03668EA291E830193F",
+                        "OnStop5642736C4B67495960E348A4583A42EE",
+                        "OnStop62A08A774240F52999A1DD991FC98605",
+                        "OnStop62A08A774240F52999A1DD9921E048FD",
+                        "OnStop62A08A774240F52999A1DD9922DB9DF7",
+                        "OnStop62A08A774240F52999A1DD99297B3A45",
+                        "OnStop62A08A774240F52999A1DD995A254A35",
+                        "OnStop62A08A774240F52999A1DD99917BC2DB",
+                        "OnStop62A08A774240F52999A1DD999DDE7DD1",
+                        "OnStop62A08A774240F52999A1DD999F3EFF3E",
+                        "OnStop62A08A774240F52999A1DD99DFB5B84E",
+                        "OnStop62A08A774240F52999A1DD99E210B438",
+                        "OnStop663EC80D4B518CD1A663F783E797B70A",
+                        "OnStop692B1E194BC7DDD0B26E6C9453E49806",
+                        "OnStop7697945A49E3498B1BC1BEB4B616DC5A",
+                        "OnStop7E9E1416465D2170124AE5A20457302A",
+                        "OnStop8BD87FC44D6464091BA5DEA4AB393C28",
+                        "OnStopA3B6BAB748BB24B33A6305923DAE9574",
+                        "OnStopA450496D48AF27D503FB93A49992D237",
+                        "OnStopAC2962824831F9567A3C8FB77240773C",
+                        "OnStopC39841FA43FACCBD03BC9B9B716BB701",
+                        "OnStopE09A93984E9A2BD4DDAC85B884916B83",
+                        "OnStopE2C7D33E42ED8A439F32E68180984C2A",
+                        "OnStopE9001793438270FD78F959BD20FF8885",
+                        "OnStopFA5BF78C4AA9FA33E354D5A7DD940599",
+                        "OnStopFE75EBE74AF9A2DEE2CBC39E8E0E6BD6",
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -5001,6 +5300,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A_SD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -5026,6 +5331,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -5039,6 +5350,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A_Ground_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -5056,6 +5373,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -5069,6 +5392,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A_HExterior_Before_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -5086,6 +5415,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -5099,6 +5434,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A_HExterior_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -5116,6 +5457,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -5131,6 +5478,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -5144,6 +5497,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6320,6 +6679,168 @@ namespace lis2_save_editor
                             }
                         },
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_Road_PreInsertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_1A_Road_Insertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Car_LookInside_IntroDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Car_LookInside", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Car_LookInside_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Car_Steal", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_TrailBlaze_Show", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Mailbox_OpenLocked", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_DeadRaccoon_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Toilet_Ask", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Toilet_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_Toilet_Insist", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_MainTrail_Racoon_Loop", DebugRequesterName = "None", SlotName = "NoSlot_11", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_PicnicSign_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_HideAndSeek_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_HideAndSeek_Find", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_Berries_TasteCheckGood", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_Berries_TasteAloneGood", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_VistaAlone_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_VistaAlone_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_VistaAlone_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ParkingArea_WildLifeSign_IntroNoDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ParkingArea_WildLife_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ParkingArea_WildLife_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ParkingArea_WildLife_Reassure", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_TableCarving01_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_PicnicArea_TableCarving02_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_MainTrail_Racoon_ShowDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_MainTrail_Racoon_LookGone", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_MainTrail_Landslide_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_FallenTree_CrossDown", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_MainTrail_Racoon_LoopFled", DebugRequesterName = "None", SlotName = "NoSlot_13", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_FallenTree_HelpDanielCrossed", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_BirdNest_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_ClimbDown_SeanGetDown", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_ClimbDown_HelpDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_TreeFungus_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_Shortcut_SmallDrop_GetUp", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_2A_SecondaryPath_HideAndSeek_DanielScareSean_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_SecondaryPath_DanielHide_DanielScareSean", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_DiscoverShelter_Intro_DanielHappy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_DiscoverShelter_MainBranch_Intro_LOTR", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_DiscoverShelter_MainBranch_DanielActivitiesChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_DiscoverShelter_MainBranch_Fortifications_LOTR", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_DiscoverShelter_Unpack_HelpFire", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_Unpack_End_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GatherMat_Wood_Take01", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GatherMat_Wood_Take02", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GatherMat_Wood_Take03", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_ThrowWood", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_BuildFire_Fortifications_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Fortifications_PushTrunk", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Fishing_CheerUp", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Drawing_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Drawing_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_SkimStone_TeachDaniel_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_SkimStone_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_SkimStone_Try01", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_SkimStone_Try02", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_SkimStone_Try03", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_SwordFight_Duel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_CarvedRock_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_IntoTheWoods_ShelterArea_Fortifications_Spikes", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_FirstIgnite", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_FirstIgniteChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_FirstIgniteAccept", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_ZenRock_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_ZenRock_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_ZenRock_ChoiceBabysitter", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_ZenRock_EndDial", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_ZenRock_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_ZenRock_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_Ignite_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_Ignite_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Firecamp_Ignite_DanielBlow", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GPSit_EatCrisps", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_EatChocoBar_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_EatChocoBar_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_EatChocoBar_TakeIt_Mean", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_IntoTheWoods_ShelterArea_PreviousMeal_ThatWasGood", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GPSit_Phone_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_Cellphone_Play", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GPSit_Howling_DanielHowl", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GPSit_Firepit_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GPSit_Beers_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GPSit_Lighter", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_2A_ShelterArea_GPSit_Fortifications_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_ShelterArea_BrettTalk_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_ShelterArea_BrettTalk_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_2A_ShelterArea_BrettTalk_NotYourFault", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnEvent_Key",
+                        "OnStop0122A240453D5AF91AC641BFBB40007D",
+                        "OnStop035886314DDB28AC3A9C408C035A6053",
+                        "OnStop07EDD84942A0A43971868BA4AE60F760",
+                        "OnStop107CBCA041DCA54AEC9751A3E4F38DD7",
+                        "OnStop178238E046261317D72D7E94486B7C23",
+                        "OnStop1EF0286840DAB5626D68F488D45D5941",
+                        "OnStop2484AD364763710B654625A69827E94A",
+                        "OnStop2C5B30114D86E367ADEF188B6A62D474",
+                        "OnStop3FF775C94CFF802BFDBA4DA81BF567AC",
+                        "OnStop4360F1AF454FEBB38CCFC8B82F64B6F4",
+                        "OnStop451DA5AA40D80F13A2234A8F99BEE3B2",
+                        "OnStop495DEB6B4C2CF6F535147A9B9D4B9B66",
+                        "OnStop4B8635B34B98019CB0D1E3810D60C1F6",
+                        "OnStop4C49EB284428393742A256A630D81651",
+                        "OnStop4DFEACB849470BF2DCD45BA9C6FD928F",
+                        "OnStop52AD7067444DC8A8D118EBAB7010F7E3",
+                        "OnStop560BE2D141409EF516E4CFA929D24CFE",
+                        "OnStop56A0F5F945855C027BDC86B9F29E9107",
+                        "OnStop5DADD16E449A89E3BC3A8DAAAE7C045E",
+                        "OnStop5F90FF7D44864EF97D08538A1069C2D0",
+                        "OnStop60B501B74742848697A8C1A56D62F4E5",
+                        "OnStop6129FB9D4090BFEB543CBD8A3DF6B908",
+                        "OnStop6164FE184DE409F03E4F0A8DEDE9556D",
+                        "OnStop6623B32246A50F91E9B78E8B5C96A9D0",
+                        "OnStop6A83EA00480A8CAF0D65EAB202626F36",
+                        "OnStop6E7D8AF847D585E1548082966509675C",
+                        "OnStop6EF1F9DF48070E273E0A6B87AE917B71",
+                        "OnStop6FBA5A2640E87024C1901382FD2D81B2",
+                        "OnStop70B7CCD94C760B5C15E8F8928F494002",
+                        "OnStop728B991042FFD09BFF0BB8AA4697294E",
+                        "OnStop7652AD5A495BFAEE837AF7B4BA9BAD10",
+                        "OnStop77967FAA42236F457F422FA608145F8E",
+                        "OnStop7799352047045449A2FB89810D7C0E82",
+                        "OnStop7F490D504B91A7F3CC2618AA2B337D74",
+                        "OnStop82415B7E4F701C600A65C9BE3D807217",
+                        "OnStop84112293468241C87016C692106A702A",
+                        "OnStop94F0D5064719E7A05023F292ADAA7B7B",
+                        "OnStop964485B94F966ED7656731B1B784AA59",
+                        "OnStop9D5659394BEE15DEE0C68B8DA4A9B90D",
+                        "OnStopA2D11AC543C2CFE362A85788A41915C2",
+                        "OnStopA4057A68482623459ECB4586C2728ACC",
+                        "OnStopA441BA1C4C35949B158747A8170B0025",
+                        "OnStopA84D5E114A4215D1D477478795E59693",
+                        "OnStopA90FB2DC4ABA52255410FFA4F47AE653",
+                        "OnStopAEA1974043BEE675A492789F3D54DB7B",
+                        "OnStopB6EA29B242BAB343617092AB5425D85E",
+                        "OnStopB8F4E92443BDF1B85D4B1999DE4B071D",
+                        "OnStopBA72B8764271F5E08CB7CA880933E4EF",
+                        "OnStopBC14FEFF43DE26FCC67728AE9C78C891",
+                        "OnStopBEBF54A14B82828DC469D6BF3ABEBA6D",
+                        "OnStopC3B8FE2947491D2C13A2A1B0FEE4F967",
+                        "OnStopCBAD525049960B45285525B6CD31CBF3",
+                        "OnStopD869D469400A06A043A0AEA67B716615",
+                        "OnStopDAAB25B545A4232A8CFEB8AF9E061195",
+                        "OnStopE1DE9BCB4090B02944889C8A9498DEFA",
+                        "OnStopE2BF4867451B5BD2CF8C238FCA91DEBB",
+                        "OnStopE5A08EC34CF4F33E5200AE9F168BAC8D",
+                        "OnStopE6B3E3F9428A28A7AB22408B714137C4",
+                        "OnStopEC639DD4489E2CB31FC8F0A750790329",
+                        "OnStopECDA08DF41F45C725A76C5A82A61F372",
+                        "OnStopF515E7834A7406EC8088DC8539A60948",
+                        "OnStopF9F440894BBE5BF9B113428492467FB1",
+                        "OnStopFE8244884D8F631D684307836BBB5565",
+                    },
                     PointsOfInterest = new string[]
                     {
                         "BP_PointOfInterest_SecondaryPathDiscovered",
@@ -6533,6 +7054,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -6550,6 +7077,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -6563,6 +7096,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_NAV",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6580,6 +7119,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -6593,6 +7138,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_Insertion_FX",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6610,6 +7161,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -6623,6 +7180,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_5A",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6640,6 +7203,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -6655,6 +7224,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -6668,6 +7243,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_5A_SD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6688,6 +7269,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_5A_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7991,6 +8578,210 @@ namespace lis2_save_editor
                             }
                         },
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_TrappedBird_2", DebugRequesterName = "None", SlotName = "NoSlot_16", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_FamilyPicnic", DebugRequesterName = "None", SlotName = "NoSlot_27", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "BrodySit_IGE_0", DebugRequesterName = "None", SlotName = "IGE_Brody_Loop", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_PuppyLoop1_3", DebugRequesterName = "None", SlotName = "IGE_Puppy", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_SquirrelRoof_2", DebugRequesterName = "None", SlotName = "NoSlot_18", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_Squirrel", DebugRequesterName = "None", SlotName = "NoSlot_19", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_BirdHouse_2", DebugRequesterName = "None", SlotName = "NoSlot_20", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_Pen_Idle_2", DebugRequesterName = "None", SlotName = "IGE_Pen", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_LadyStand_LoopMove1_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop42C351F24EF5D91447B0D1A30A3D1149", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Insertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_LadyStand_LoopMove2_5", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStopB2662C7B4671C9A1EB3958A33D371459", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_LadyStand_Puppy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop42C351F24EF5D91447B0D1A30A3D1149", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_LadyStand_LoopMove3_8", DebugRequesterName = "None", SlotName = "IGE_Doris", OnPlayFunctionName = "", OnStopFunctionName = "OnStop42C351F24EF5D91447B0D1A30A3D1149", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Car_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_FreeBird_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_FreeBird", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Feather_PickUp_5", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Tools_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "GAS01_Stand_IGE", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStopB2662C7B4671C9A1EB3958A33D371459", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_BigBear_Discuss", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Newspaper_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Bench_SitStart", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_SitBench_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_SitBench_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_GetInsideTogether", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_Driving_Pickup02_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_PaperDispenser_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_Driving_Car05", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Mirror_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_WashTogether_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Sink_FillBottle", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_GetOutTogether_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Outside_DanielBegFamily_SpecialQuest", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Outside_DanielBegFamily_NotAlreadyTalked_0", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Outside_DanielBegFamily_Choice_Convince_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Outside_DanielBegFamily_Insist", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_ComeBackBeg", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_Decoration_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GetInFirstTime", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Postcard", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_TakeCan", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_Pay_PutOnDesk", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_Pay_Total1", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_Pay_Choice_Pay", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_Pay_GiveMoney1", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_Pay_EnoughtMoney", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Keychain_Show", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Map_Take", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_StartGM_DanielCall", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_StartGM_CouldPlay", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_StartGM_Accept", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_StartGM_WhoFirst", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_StartGM_Choice_WhoFirst", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_PoIPuppy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_StartGM_DanielFirst", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GrabMachine_BroFirstTry", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_SwitchPosGM_SAskPlay1", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_SwitchPosGM_Choice_Play1", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_SwitchPosGM_DanielPlay1", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GrabMachine_BroSecondTry", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_SwitchPosGM_SAskPlay2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_SwitchPosGM_Choice_Play2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_SwitchPosGM_SkimStone", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GrabMachine_BroLastTry", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Picture_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Witch_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_InteruptDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_StartAlt_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_Choice", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_WorthIt", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_PresentHimself", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_SeanDoesntPresent", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_FielReporter", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_ChoiceTravelling", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_WithBro", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_JRNLSpeak_End", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_PoILady_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_PoILady_Loop_5", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GetOutPuppy_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_PuppyLoop2_2", DebugRequesterName = "None", SlotName = "IGE_Puppy", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_SeanJoin", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_SeanDiscover2_5", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_StrayMutt", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_AskName", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_SuspiciousShe", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_AskTakePuppy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_ChoiceTakePuppy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_DontTakePuppy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_RefuseSuspicious", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Inside_ExaminePuppy_EndingNo", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_FamilyPicnic_FatherAlone_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_LeaveWithMap", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_StudyMapPleasedDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_OwnerArrival", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Outside_ChoiceFlee", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_WakeUpInOffice", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GST02EntersOffice", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Office_WakeUpInOffice_Choice", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Office_WakeUpInOffice_Threaten", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Office_WakeUpInOffice_HasNotStole", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Office_WakeUpInOffice_AskBrother", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_OwnersLeaves_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_StoreRoomOpen", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Office_Tube_Reach", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_PushPoster", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_FamilyPicture_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_TalkNearAirVent", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_TryOpenDoor", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_LookThroughWindowStart_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_LookThroughWindow", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Keys_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Shelf_Kick", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_Shelf_Look_4", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_TryToTealAnchor", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Office_AskForTool_AskTool", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Office_AskForTool_Choice_TypeTool", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_5A_Office_AskForTool_WoodFile", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GiveToolToSean_4", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_BreakAnchor_Intro_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_BreakAnchor_Mash", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_TearAnchor", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Inside_PushCouch", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnStop913206614AEEF341BB259DB7267E8EEE", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_TakeBackDoorKey", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Office_KeyLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_TakeBackDoorKey_Take_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_GiveKeysToDaniel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_FreeSeanStartFact2_5", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_FreeSean", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnEvent2C1E566247DDA1B918058F8E950D3FA7",
+                        "OnEvent723FAE6046FA88EA6BB6EEBFC9BC0169",
+                        "OnEventD63811AA42892717D971408DBDBC4031",
+                        "OnStop0787F8FC43B7357823E2899157C6B7D5",
+                        "OnStop08DC3D5B4BC24126AB304087D19181E2",
+                        "OnStop09D12C07410AEF0EC729F48DE089EBB2",
+                        "OnStop0BE52D484917C843C02F50B3DEB6B710",
+                        "OnStop0FA93B28444EEB642E6D1E981F51CF4B",
+                        "OnStop16AF27DB4FC900DC33A2F991315EC920",
+                        "OnStop237404A949EF310D71555D88AED05764",
+                        "OnStop2424DCCD46DC76C6C7AB13BFF5338296",
+                        "OnStop248647DC444EB02636E243BDF69E2FD9",
+                        "OnStop2A0E7B16435C1AADEF073F98938B5F7A",
+                        "OnStop2C1E566247DDA1B918058F8E950D3FA7",
+                        "OnStop2E559A474BB4481E93CDA0ADDCA0A8D7",
+                        "OnStop335304CD45DE3C6CB99F8FAE3DF0956F",
+                        "OnStop33DAB64948433C51CFF1A98FC7FA72D3",
+                        "OnStop344D5C454B649894D9F72DB8E6714649",
+                        "OnStop35818D1A470E1B80A10B7695509AD5C0",
+                        "OnStop42C351F24EF5D91447B0D1A30A3D1149",
+                        "OnStop431176324EC7E89ACB812AA5E9A13D5D",
+                        "OnStop48189C7946330CAE4B20328CB137F828",
+                        "OnStop4B96B84140A0C31B778A2BAD3EC9AF8E",
+                        "OnStop5268F2364F70A9C1F2DA528CCBE18FBB",
+                        "OnStop52D9FD324299D5FA946D02994DC8D5A6",
+                        "OnStop52F6124345FA26DFD00B59B86BB2499D",
+                        "OnStop5B82941943EA081B9C2F18A93512523E",
+                        "OnStop5F62E4E04B1062AD3B9984866F44B7E6",
+                        "OnStop6F5BCE0146E9147ED455388499A2AC5B",
+                        "OnStop723FAE6046FA88EA6BB6EEBFC9BC0169",
+                        "OnStop797D32E2442402634D7A15AA7EA7BDAD",
+                        "OnStop798797C34BC6A5AD9E206F8FE5BC26CA",
+                        "OnStop7E6CD90149E69EC9B5D6EDBA36CFB9DA",
+                        "OnStop837CA37A418D37CCC965EEB562993DEA",
+                        "OnStop8770F8D8411F9B2D4C1673AAD8AC5614",
+                        "OnStop87FE67CC43D74A5425BFAEACAF70F1D3",
+                        "OnStop8898262F464805E2C1ECEAA2CBCC9AF9",
+                        "OnStop8973E654479BC7B4870F1CB58A28CF56",
+                        "OnStop8DAC52DC40C0EDBD1D1D139EE43CD76D",
+                        "OnStop913206614AEEF341BB259DB7267E8EEE",
+                        "OnStop9DBAA7AA46E5AECAC8DF308CFBC0C9C9",
+                        "OnStopA3D052034EDE32492FA200A6D35FDF56",
+                        "OnStopA57695FA473E38DECAC13894307735B7",
+                        "OnStopABC04FDE43406A8BAFAAC9ABB05335A0",
+                        "OnStopB04C115C4A0F3FE474FC9F97F18DC5CF",
+                        "OnStopB2662C7B4671C9A1EB3958A33D371459",
+                        "OnStopB2A62C734EDC4B4EFFDB5785CC7CBDC4",
+                        "OnStopB31AF84640D1B57F7FE052902E562055",
+                        "OnStopB4EF458348CBD0654C09C79DBC3125DB",
+                        "OnStopB9724EC147F9B3ED8FE5C6963E64AD32",
+                        "OnStopBAA70A2248D8112C5AD16D8722B6A6F8",
+                        "OnStopBD2C79154836840443DFDA9DED5B58AD",
+                        "OnStopC2B57126418CAA72B8749095F9583F54",
+                        "OnStopC3EF8709405F1C43EF2476BA7050ED3C",
+                        "OnStopC657BE0E40BDE966FDD9C5BE07AB5BEB",
+                        "OnStopC919914240B0EF0665F73885E630A043",
+                        "OnStopD42981A8476A2C2B1A304AB209CA7CE2",
+                        "OnStopD54727E34FABE708CCFD9C8FD1BFC2B5",
+                        "OnStopD63811AA42892717D971408DBDBC4031",
+                        "OnStopE2EA935348381039E247768E6865F97C",
+                        "OnStopE3B17EEF44268C77B577CBB72C507DA7",
+                        "OnStopE65F14F64783074E84CFC1B553306094",
+                        "OnStopE8ACAB0B47E009791042869E9E886E45",
+                        "OnStopE8EA885C4BBAF5B9C85811933FE0687F",
+                        "OnStopE9D7A3F84727B97C17EA019C9C424473",
+                        "OnStopEA0384484A0DF92C93EC1C9367B4BB45",
+                        "OnStopEDAE15A34963790C6C9AF2AB4D6BEEEB",
+                        "OnStopEE3692BB426F40BF91EE258EA9EA3400",
+                        "OnStopF2E99E81472EE2262BC30D8D37E46AE3",
+                        "OnStopF646C53B4DCFF180853EE0AA3F8414CC",
+                    },
                     PointsOfInterest = new string[]
                     {
                         "BP_PoI_Int_Kitchen",
@@ -8083,6 +8874,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8096,6 +8893,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_5A_AMB_Evening",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8113,6 +8916,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8127,6 +8936,18 @@ namespace lis2_save_editor
                     Name = "E1_5A_Insertion_LD",
                     Interactions = new List<InteractionActor>()
                     {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_SquirrelRoad_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_SquirrelRoad_Leave", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_TruckIdleLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_TruckLeaving", DebugRequesterName = "None", SlotName = "NoSlot_21", OnPlayFunctionName = "", OnStopFunctionName = "OnStopE86A4AAC49DEB4E3302AD0A56D7C59CD", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnStop7F0FD2814C95173100DE75A52D6B86CA",
+                        "OnStopE86A4AAC49DEB4E3302AD0A56D7C59CD",
                     },
                     PointsOfInterest = new string[]
                     {
@@ -8151,6 +8972,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8164,6 +8991,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_6A_AMB",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8181,6 +9014,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8194,6 +9033,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_6A_FX",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8211,6 +9056,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8224,6 +9075,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_6A_LD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8241,6 +9098,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8254,6 +9117,12 @@ namespace lis2_save_editor
                 {
                     Name = "ForestStrai_T01_Fix",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8271,6 +9140,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8284,6 +9159,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_6B",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8301,6 +9182,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8314,6 +9201,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_6BC_LD",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8331,6 +9224,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8344,6 +9243,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_6B_BackgroundGR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8361,6 +9266,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8374,6 +9285,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_6B_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8391,6 +9308,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8404,6 +9327,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_7A_AMB",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8421,6 +9350,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8436,6 +9371,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -8449,6 +9390,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_7A_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9107,6 +10054,148 @@ namespace lis2_save_editor
                             }
                         },
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Waiting_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "OnPlayFA97D17D47DE3F876FDE8CB84D882566", OnStopFunctionName = "OnStopFA97D17D47DE3F876FDE8CB84D882566", OnHasLoopedFunctionName = "", OnEventFunctionName = "OnEventFA97D17D47DE3F876FDE8CB84D882566" },
+                         new LevelSequenceObject { ActorName = "MS_7A_JRNLCar_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_7A_DanielBeach_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_7A_SandCastle_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_7A_WoodStick_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_PlayDog", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_ShowTrick", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_WaitThrow", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_FetchFar_Throw_6", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_FetchFar_WaitForDog_8", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_FetchFar_DogComeBack_4", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_PickStick", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Ask_StickLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_LetThrowStick", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_7A_Beach_Insertion_BrodyArrival", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_7A_Beach_Insertion_ChoiceLoop02", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_7A_Beach_Insertion_Really", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "DS_E1_7A_Beach_Insertion_BrodyArrivalEnd", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_BrodyGift", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_BrodyInCar", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_InsertionCorridor", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_FirstEntrance", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_AcceptShifumi", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_CountdownRPS", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_SeanWinsPaperToRock", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_1stBegsPlayAgain", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_ShifumiLoop02", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_AcceptAnotherGame", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_SeanLosesRockToPaper", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_PlayerLoseRPS", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_DanielWatchTVRight_Loop", DebugRequesterName = "None", SlotName = "NoSlot_42", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_BrodyBag_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_TV_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_OpenWardrobe_4", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_MotelCard_Take", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_CloserWardrobe", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_DanielShoes_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Motel_PowerBear_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Motel_TowelBed_Look_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_TakeTowel", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_LeftBed_Look_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_LightBathRoomOn", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_PutTowels", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Mirror_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_WashSink", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Shampoo_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_WaterTap_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_OpenWaterBath_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "OnEvent_Event_0" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_DanielBag_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_PutSoapBathInTime", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_LightBathRoomOff", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_CloseWaterBath", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "OnEvent4D30EB5F4A7F444ACF4603A977381A97" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_TalkBath", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_BathWithBubble_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "E1_7A_DanielWashes", DebugRequesterName = "None", SlotName = "NoSlot_48", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_DrawSequence_Start", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_DrawSequence_CheckRough", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_DrawSequence_CheckFinish", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_DrawSequence_Stop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_GoToBalcony", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_AshTray_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_ZenBalconyStart", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_ZenBalconyLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_ZenBalconyExit", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_GoBackInside", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_TakePhone", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_IgnoreLyla_5", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Motel_WatchVideo_Start_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_WatchVideo", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_ThrowAwayPhone", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_DanceOnBed", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_JoinDanceChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_JoinDance", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_Motel_EndDance_3", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                         new LevelSequenceObject { ActorName = "MS_E1_7A_GoOutside", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
+                    },
+                    LevelFunctions = new string[]
+                    {
+                        "OnEvent2F0E4B7E4B227ECACFC32A9BE62DD9C7",
+                        "OnEvent3393864B457A2816B7CD979857EC4B4F",
+                        "OnEvent4D30EB5F4A7F444ACF4603A977381A97",
+                        "OnEvent702C27984161D20985BD3FBCC89CF0B6",
+                        "OnEvent997CEB1248579E1E8F4B6CBDB17CF5BB",
+                        "OnEventD3F1B6E044F510C025B686AF5C4AC8B0",
+                        "OnEventFA97D17D47DE3F876FDE8CB84D882566",
+                        "OnEventFE303C4543695D12957C86801107A766",
+                        "OnEvent_Event",
+                        "OnEvent_Event_0",
+                        "OnEvent_Key",
+                        "OnEvent_Key2",
+                        "OnEvent_Key3",
+                        "OnEvent_Key4",
+                        "OnPlay9C78DFFB425EE0A0394929BA672BEBDE",
+                        "OnPlayFA97D17D47DE3F876FDE8CB84D882566",
+                        "OnStop00D52A8A480DE37290DCD4B4057C0AB7",
+                        "OnStop01688C254E77E47BB393D4B0DBC7E3FE",
+                        "OnStop0536113E48B20C645441549FD3B294D1",
+                        "OnStop102EE35D4EB27EF1BE92ABAA244044F9",
+                        "OnStop186414894DDFEEC510417E8BE4DF0FA8",
+                        "OnStop1DE1E80F44187437076DAF9758E59AFA",
+                        "OnStop26EE47A24AE286F02E62A9B2D0B9DFD0",
+                        "OnStop2840974A48F8376249783786FDF341F7",
+                        "OnStop2F0E4B7E4B227ECACFC32A9BE62DD9C7",
+                        "OnStop3393864B457A2816B7CD979857EC4B4F",
+                        "OnStop36AA8C02425C60B0AA77C7BBF593C1D0",
+                        "OnStop38A8D76A43E885AE21A57DA27FAF747D",
+                        "OnStop3F610D5548BB132CA0035E9DEFACB4A3",
+                        "OnStop45E574B34593121131C042B89EE33948",
+                        "OnStop4610BD6D4C9B94AFC6C38F9DACC38C7A",
+                        "OnStop462978C9408DD57E0F1A55B7390AFFBC",
+                        "OnStop46F27FF94DC9EDE20D2E798879394A1E",
+                        "OnStop4E0040BE48D9DFF5CD5875843495420E",
+                        "OnStop4F4E573341F2586A36E263B792C4C4D3",
+                        "OnStop643602324516B39CB5612F9F4C12CA3D",
+                        "OnStop67C1E64547F2694DDB04F6B9DFDF02E2",
+                        "OnStop6E523D64464883845258108F8797F22F",
+                        "OnStop702C27984161D20985BD3FBCC89CF0B6",
+                        "OnStop72A18535433CF95DCC065C8B9A7B736D",
+                        "OnStop8257D84B40537E15EDABBD8500A86279",
+                        "OnStop8992B7334BADDFF09D6D419346D491F4",
+                        "OnStop9961E7B448CACA80155C23B1ABD8302D",
+                        "OnStop997CEB1248579E1E8F4B6CBDB17CF5BB",
+                        "OnStop9A521EFF4FF72BE0D045BF83EA554711",
+                        "OnStop9C78DFFB425EE0A0394929BA672BEBDE",
+                        "OnStopA12773B541301D59EECD219ED16240F8",
+                        "OnStopA56EEF0742023F33D4D8AC85DCC3253F",
+                        "OnStopA949342344A54384D3A111BEA20A8280",
+                        "OnStopB2B78F5F418FE4C99FD667A09CDA6949",
+                        "OnStopB301C5054888198F3B47C2A7EC34A1D3",
+                        "OnStopBD6E0C30406AF933FBA325B3B670451C",
+                        "OnStopC906101C4794FC05B95E09B42566F801",
+                        "OnStopCFA95081413A428A247DBA9F03810130",
+                        "OnStopD3F1B6E044F510C025B686AF5C4AC8B0",
+                        "OnStopD81DFBAD4758C34A2B0D76B3F5F7928D",
+                        "OnStopD8B62EB14E6B3B7A7B8D658C34ACB467",
+                        "OnStopE5A3849A48F97D625958D2BD0450A690",
+                        "OnStopFA9283A1496D62CA850E67BEB43F7161",
+                        "OnStopFA97D17D47DE3F876FDE8CB84D882566",
+                        "OnStopFE303C4543695D12957C86801107A766",
+                    },
                     PointsOfInterest = new string[]
                     {
                         "BP_PointOfInterest_Room8",
@@ -9130,6 +10219,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9151,6 +10246,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9164,6 +10265,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_7A_NAV",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9181,6 +10288,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9194,6 +10307,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_7A_Room_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9211,6 +10330,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9224,6 +10349,12 @@ namespace lis2_save_editor
                 {
                     Name = "ForestStrai_T01_Scr",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9241,6 +10372,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9254,6 +10391,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A_HGarage_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9271,6 +10414,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9284,6 +10433,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A_HDanRoom_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9301,6 +10456,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9314,6 +10475,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_1A_FRNDRoom_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9331,6 +10498,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9344,6 +10517,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_Forest_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9361,6 +10540,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9374,6 +10559,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_Road_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9391,6 +10582,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9404,6 +10601,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_ParkingArea_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9421,6 +10624,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9434,6 +10643,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_AMB_SUNSET",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9451,6 +10666,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9464,6 +10685,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_SecondaryPath_GR",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9481,6 +10708,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9494,6 +10727,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_River_FX",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9511,6 +10750,12 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9524,6 +10769,12 @@ namespace lis2_save_editor
                 {
                     Name = "E1_2A_AMB_DUSK",
                     Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9541,6 +10792,138 @@ namespace lis2_save_editor
                     Interactions = new List<InteractionActor>()
                     {
                     },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "E1_6C",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "E1_6C_SD",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "E1_6C_AMB",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "E1_6C_BackgroundGR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "E1_6C_FX",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
+                    PointsOfInterest = new string[]
+                    {
+                    },
+                    WuiVolumes = new string[]
+                    {
+                    },
+                }
+            },
+            {
+                new LevelObject()
+                {
+                    Name = "E1_6C_GR",
+                    Interactions = new List<InteractionActor>()
+                    {
+                    },
+                    LevelSequences = new List<LevelSequenceObject>()
+                    {
+                    },
+                    LevelFunctions = new string[]
+                    {
+                    },
                     PointsOfInterest = new string[]
                     {
                     },
@@ -9551,7 +10934,7 @@ namespace lis2_save_editor
             },
         };
 
-        //source: D:\exported\LIS_2\root\E1-Cooked\LevelDesign\Outfits
+        //source: ..\E1-Cooked\LevelDesign\Outfits
         public static List<OutfitObject> LIS2_Outfits = new List<OutfitObject>()
         {
             new OutfitObject { GUID = new Guid("00000000-0000-0000-0000-000000000000"), Name = "(none)", Slot = "None", Owner = "None" }, //special case for empty value
@@ -10067,6 +11450,7 @@ namespace lis2_save_editor
             new CinematicObject { GUID = new Guid("c2f6b393-32d5-4aa5-ad96-61776a22230b"), Name = "MS_PT_EHOutside_Garden_Raccoon_Look" },
         };
 
+        //source: ..\E1-Cooked\Maps\PROM\.... *LD.uexp
         public static List<CinematicObject> LIS2_Cinematics = new List<CinematicObject>()
         {
             new CinematicObject

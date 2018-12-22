@@ -73,6 +73,7 @@ namespace lis2_save_editor
             //string cinsql = GenerateCinematicSQL();
 
             //File.AppendAllText("FORDB.txt", facts + outf + inv + levsql);
+            //File.AppendAllText("FORDB.txt", levsql);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
@@ -322,7 +323,55 @@ namespace lis2_save_editor
                     }
                     sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
-                
+
+                //LevelChanges
+                Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
+                if (saveType == SaveType.LIS)
+                {
+                    foreach (var seq in ((List<dynamic>)lvl_changes["StoppedLevelSequences"].Value).Skip(1))
+                    {
+                        string seq_name = seq["LevelSequenceActorName"].Value;
+                        string dbg_name = seq["DebugRequesterName"].Value;
+                        sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, DebugRequesterName) values" +
+                            "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, dbg_name);
+                        sb.AppendFormat("UPDATE {0}LevelSequences SET DebugRequesterName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, dbg_name, seq_name, lvl_name);
+                    }
+                    foreach (var seq in ((List<dynamic>)lvl_changes["PlayingLevelSequences"].Value).Skip(1))
+                    {
+                        string seq_name = seq["LevelSequenceActorName"].Value;
+                        string slot_name = seq["IGESlotName"].Value;
+                        //TEMP
+                        //string stored_slot = GameInfo.LIS2_Levels.Find(x => x.Name == lvl_name).LevelSequences.Find(y => y.ActorName == seq_name).SlotName;
+                        //if (stored_slot != slot_name) System.Windows.Forms.MessageBox.Show(slot_name + " != " + stored_slot);
+                        //END TEMP
+                        sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, SlotName) values" +
+                            "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, slot_name);
+                        sb.AppendFormat("UPDATE {0}LevelSequences SET SlotName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, slot_name, seq_name, lvl_name);
+                    }
+
+                    foreach (var t in new string[] { "Play", "Stop", "HasLooped", "Event" })
+                    {
+                        foreach (var seq in ((List<dynamic>)lvl_changes[$"LevelSequenceOn{t}BindingsSaveData"].Value).Skip(1))
+                        {
+                            string seq_name = seq["LevelSequenceActorName"].Value;
+                            string func_name = seq["LevelScriptFunctionName"].Value;
+                            sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, On{4}FunctionName) values" +
+                                "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, func_name, t);
+                            sb.AppendFormat("UPDATE {0}LevelSequences SET On{4}FunctionName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, func_name, seq_name, lvl_name, t);
+                        }
+                    }
+
+                    //no values fo far
+                    foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
+                    {
+                        throw new Exception();
+                    }
+
+                    foreach (var act in lvl_changes["ChangedActors"].Value)
+                    {
+                        throw new Exception();
+                    }
+                } 
             }
 
             if (saveType == SaveType.LIS)
@@ -375,6 +424,47 @@ namespace lis2_save_editor
                                 sb.AppendFormat("(\"{0}\", \"{1}\"),\n", wui["WuiVolumeGateActorName"].Value, lvl_name);
                             }
                             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                        }
+
+                        //LevelChanges
+                        Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
+                        foreach (var seq in ((List<dynamic>)lvl_changes["StoppedLevelSequences"].Value).Skip(1))
+                        {
+                            string seq_name = seq["LevelSequenceActorName"].Value;
+                            string dbg_name = seq["DebugRequesterName"].Value;
+                            sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, DebugRequesterName) values" +
+                                "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, dbg_name);
+                            sb.AppendFormat("UPDATE {0}LevelSequences SET DebugRequesterName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, dbg_name, seq_name, lvl_name);
+                        }
+                        foreach (var seq in ((List<dynamic>)lvl_changes["PlayingLevelSequences"].Value).Skip(1))
+                        {
+                            string seq_name = seq["LevelSequenceActorName"].Value;
+                            string slot_name = seq["IGESlotName"].Value;
+                            sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, SlotName) values" +
+                                "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, slot_name);
+                            sb.AppendFormat("UPDATE {0}LevelSequences SET SlotName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, slot_name, seq_name, lvl_name);
+                        }
+
+                        foreach (var t in new string[] { "Play", "Stop", "HasLooped", "Event" })
+                        {
+                            foreach (var seq in ((List<dynamic>)lvl_changes[$"LevelSequenceOn{t}BindingsSaveData"].Value).Skip(1))
+                            {
+                                string seq_name = seq["LevelSequenceActorName"].Value;
+                                string func_name = seq["LevelScriptFunctionName"].Value;
+                                sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, On{4}FunctionName) values" +
+                                    "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, func_name, t);
+                                sb.AppendFormat("UPDATE {0}LevelSequences SET On{4}FunctionName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, func_name, seq_name, lvl_name, t);
+                            }
+                        }
+
+                        foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
+                        {
+                            throw new Exception();
+                        }
+
+                        foreach (var act in lvl_changes["ChangedActors"].Value)
+                        {
+                            throw new Exception();
                         }
                     }
                 }

@@ -269,16 +269,20 @@ namespace lis2_save_editor
             {
                 if(cnt is DataGridView)
                 {
-                    for (int i = 0; i < cnt.RowCount; i++)
+                    for (int i = 0; i < cnt.ColumnCount; i++)
                     {
-                        string value = cnt[0, i].Value.ToString();
-                        if (value.StartsWith(find_Starts, !CaseSensitive, CultureInfo.InvariantCulture) &&
-                           (value.IndexOf(find_Contains, strcomp) != -1) &&
-                           value.EndsWith(find_Ends, !CaseSensitive, CultureInfo.InvariantCulture))
+                        for (int j = 0; j < cnt.RowCount; j++)
                         {
-                            results.Add(new Result(cnt[0, i], cnt[0,i].Style.BackColor));
+                            string value = cnt[i, j].Value.ToString();
+                            if (value.StartsWith(find_Starts, !CaseSensitive, CultureInfo.InvariantCulture) &&
+                               (value.IndexOf(find_Contains, strcomp) != -1) &&
+                               value.EndsWith(find_Ends, !CaseSensitive, CultureInfo.InvariantCulture))
+                            {
+                                results.Add(new Result(cnt[i, j], cnt[i, j].Style.BackColor));
+                            }
                         }
                     }
+                    
                 }
                 else
                 {
