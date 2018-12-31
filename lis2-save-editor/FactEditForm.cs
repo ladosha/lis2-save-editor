@@ -175,6 +175,22 @@ namespace lis2_save_editor
 
             dataGridViewEnum.Columns[1].FillWeight = 20;
             dataGridViewEnum.Columns[2].FillWeight = 20;
+
+            tabControl1.SelectedTab = tabPageEnum;
+            for (int i=0; i<dataGridViewEnum.RowCount; i++)
+            {
+                var fact_name = dataGridViewEnum[0, i].Value.ToString();
+                if (asset_info.EnumFactChoices.ContainsKey(fact_name))
+                {
+                    var cbc = new DataGridViewComboBoxCell();
+                    cbc.DataSource = asset_info.EnumFactChoices[fact_name];
+                    cbc.DropDownWidth = 200;
+                    var orig_value = Convert.ToInt32(dataGridViewEnum[2, i].Value);
+                    dataGridViewEnum[2, i] = cbc;
+                    dataGridViewEnum[2, i].Value = asset_info.EnumFactChoices[fact_name][orig_value];
+                }
+            }
+            tabControl1.SelectedTab = tabPageBool;
         }
 
         private DataTable BuildEnumTable()
@@ -220,6 +236,24 @@ namespace lis2_save_editor
                 return;
             }
             origCellValue = grid[e.ColumnIndex, e.RowIndex].Value;
+        }
+
+        private void dataGridViewEnum_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                e.Cancel = true;
+                return;
+            }
+            var cell = dataGridViewEnum[e.ColumnIndex, e.RowIndex];
+            if (cell is DataGridViewComboBoxCell)
+            {
+                origCellValue = GetEnumComboBoxSelectedIndex(e.RowIndex);
+            }
+            else
+            {
+                origCellValue = cell.Value;
+            }
         }
 
         private void dataGridViewBool_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -328,16 +362,23 @@ namespace lis2_save_editor
             }
             else
             {
-                byte result;
-                if (!byte.TryParse(dataGridViewEnum[e.ColumnIndex, e.RowIndex].Value.ToString(), out result))
+                if(dataGridViewEnum[e.ColumnIndex, e.RowIndex] is DataGridViewComboBoxCell)
                 {
-                    MessageBox.Show(Resources.BadValueMessage, "Error");
-                    newCellValue = origCellValue;
-                    dataGridViewEnum[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                    newCellValue = GetEnumComboBoxSelectedIndex(e.RowIndex);
                 }
                 else
                 {
-                    newCellValue = result;
+                    byte result;
+                    if (!byte.TryParse(dataGridViewEnum[e.ColumnIndex, e.RowIndex].Value.ToString(), out result))
+                    {
+                        MessageBox.Show(Resources.BadValueMessage, "Error");
+                        newCellValue = origCellValue;
+                        dataGridViewEnum[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                    }
+                    else
+                    {
+                        newCellValue = result;
+                    }
                 }
             }
             
@@ -345,7 +386,7 @@ namespace lis2_save_editor
             {
                 var name = dataGridViewEnum[0, e.RowIndex].Value.ToString();
                 EditFactValue("EnumFacts", name, e.ColumnIndex, newCellValue);
-                dataGridViewEnum[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+                dataGridViewEnum[0, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
 
                 if (e.ColumnIndex != 1)
                 {
@@ -353,7 +394,15 @@ namespace lis2_save_editor
                 }
                 else if (Convert.ToBoolean(newCellValue) == true)
                 {
-                    EditFactValue("EnumFacts", name, 2, dataGridViewEnum[2, e.RowIndex].Value);
+                    if (dataGridViewEnum[2, e.RowIndex] is DataGridViewComboBoxCell)
+                    {
+                        int index = GetEnumComboBoxSelectedIndex(e.RowIndex);
+                        EditFactValue("EnumFacts", name, 2, index);
+                    }
+                    else
+                    {
+                        EditFactValue("EnumFacts", name, 2, dataGridViewEnum[2, e.RowIndex].Value);
+                    }
                 }
             }
         }
@@ -456,6 +505,13 @@ namespace lis2_save_editor
                 }
             }
             changesMade = true;
+        }
+
+        private int GetEnumComboBoxSelectedIndex(int rowIndex)
+        {
+            string fact_name = dataGridViewEnum[0, rowIndex].Value.ToString();
+            string choice = dataGridViewEnum[2, rowIndex].Value.ToString();
+            return Array.IndexOf(asset_info.EnumFactChoices[fact_name], choice);
         }
         #endregion
 

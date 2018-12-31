@@ -72,6 +72,8 @@ namespace lis2_save_editor
 
             //string cinsql = GenerateCinematicSQL();
 
+            //ReadFacts();
+
             //File.AppendAllText("FORDB.txt", facts + outf + inv + levsql);
             //File.AppendAllText("FORDB.txt", levsql);
 
@@ -524,6 +526,61 @@ namespace lis2_save_editor
             return sb.ToString();
         }
 
+
+
+        public static void ReadFacts()
+        {
+            var file = File.OpenRead(@"D:\exported\LIS_2\root\Cooked\LevelDesign\Fact\PROM\FD_PROM_Generic.uexp");
+            BinaryReader br = new BinaryReader(file);
+            StringBuilder sb = new StringBuilder();
+            List<Guid> guids = new List<Guid>();
+            br.ReadBytes(49); //change
+            Guid assetguid = new Guid(br.ReadBytes(16));
+            br.ReadBytes(431); //change
+            while (file.Position < file.Length - 70) /*change*/
+            {
+                while (true)
+                {
+                    if (br.ReadByte() == 106) break; /*change*/
+                }
+                br.BaseStream.Position -= 17;
+                var testBytes = br.ReadBytes(16);
+                var zeroCnt = 0;
+                foreach (var b in testBytes)
+                {
+                    if (b == 0) zeroCnt++;
+                }
+                if (zeroCnt < 5)
+                {
+                    Guid guid = new Guid(testBytes);
+                    guids.Add(guid);
+                }
+                br.ReadByte();
+            }
+
+            var asset = GameInfo.LIS2_FactAssets[assetguid.ToString()];
+
+            Dictionary<Guid, string> gs = new Dictionary<Guid, string>();
+
+            foreach(var g in guids)
+            {
+                string name = "";
+                if(asset.BoolFacts.TryGetValue(g, out name) ||
+                   asset.IntFacts.TryGetValue(g, out name) ||
+                   asset.FloatFacts.TryGetValue(g, out name) ||
+                   asset.EnumFacts.TryGetValue(g, out name))
+                {
+                    gs.Add(g, name);
+                }
+                else
+                {
+                    gs.Add(g, "UNKNOWN");
+                }
+            }
+
+            string ts = string.Join("\n", gs.Values);
+        }
+
         public void WriteSaveToFile(string savePath)
         {
             var new_file = new MemoryStream();
@@ -679,7 +736,7 @@ namespace lis2_save_editor
 
             if (dr_index == -1) //Add new DrawSequence
             {
-                Guid guid = GameInfo.LIS2_DrawingNames.First(x => x.Value == name).Key;
+                Guid guid = GameInfo.LIS2_DrawingNames[name];
                 Dictionary<string, dynamic> new_seq = new Dictionary<string, dynamic>();
                 new_seq["DrawSequenceID"] = new StructProperty()
                 {
@@ -892,7 +949,7 @@ namespace lis2_save_editor
 
             if (saveType == SaveType.CaptainSpirit)
             {
-                guid = GameInfo.CS_SeenPicturesNames.First(x => x.Value == name).Key;
+                guid = GameInfo.CS_SeenPicturesNames[name];
                 int index = target.FindIndex(1, x => x["Name"].Value == name);
 
                 if (index == -1) //Add new item 
@@ -918,7 +975,7 @@ namespace lis2_save_editor
             }
             else
             {
-                guid = GameInfo.LIS2_SeenPicturesNames.First(x => x.Value == name).Key;
+                guid = GameInfo.LIS2_SeenPicturesNames[name];
                 int index = target.FindIndex(1, x => x["ShowPictureID"].Value["Name"].Value == name);
 
                 if (index == -1) //Add new item 
@@ -990,7 +1047,7 @@ namespace lis2_save_editor
 
         public void EditCollectible(string name, int cpIndex, int colIndex, object value)
         {
-            var guid = GameInfo.LIS2_CollectibleNames.First(x => x.Value == name).Key;
+            var guid = GameInfo.LIS2_CollectibleNames[name];
 
             List<dynamic> root;
 
@@ -1073,7 +1130,7 @@ namespace lis2_save_editor
 
         public void EditObjective(string name, int cpIndex, string value)
         {
-            var guid = GameInfo.LIS2_ObjectiveNames.First(x => x.Value == name).Key;
+            var guid = GameInfo.LIS2_ObjectiveNames[name];
 
             List<dynamic> root;
 
@@ -1126,7 +1183,7 @@ namespace lis2_save_editor
 
         public void EditSeenMessage(string name, int cpIndex, bool value)
         {
-            var guid = GameInfo.LIS2_SMSNames.First(x => x.Value == name).Key;
+            var guid = GameInfo.LIS2_SMSNames[name];
 
             List<dynamic> root;
 

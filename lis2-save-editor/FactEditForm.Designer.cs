@@ -163,7 +163,7 @@
             this.dataGridViewEnum.Name = "dataGridViewEnum";
             this.dataGridViewEnum.Size = new System.Drawing.Size(734, 229);
             this.dataGridViewEnum.TabIndex = 1;
-            this.dataGridViewEnum.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewEnum.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewEnum_CellBeginEdit);
             this.dataGridViewEnum.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEnum_CellEndEdit);
             // 
             // FactEditForm

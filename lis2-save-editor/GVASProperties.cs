@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-
-
 namespace lis2_save_editor
 {
     #region Properties

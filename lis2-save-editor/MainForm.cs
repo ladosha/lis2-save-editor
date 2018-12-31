@@ -602,8 +602,8 @@ namespace lis2_save_editor
             foreach (var item in GameInfo.LIS2_DrawingNames)
             {
                 object[] row = new object[dataGridViewDrawings.Columns.Count];
-                row[0] = item.Value;
-                int index = drawings.FindIndex(1, x => x["DrawSequenceID"].Value["NameGuid"].Value["Guid"] == item.Key);
+                row[0] = item.Key;
+                int index = drawings.FindIndex(1, x => x["DrawSequenceID"].Value["NameGuid"].Value["Guid"] == item.Value);
                 if (index != -1)
                 {
                     row[1] = true;
@@ -993,8 +993,8 @@ namespace lis2_save_editor
                 foreach (var item in GameInfo.CS_SeenPicturesNames)
                 {
                     object[] row = new object[t.Columns.Count];
-                    row[0] = item.Value;
-                    int index = names.FindIndex(1, x => x["NameGuid"].Value["Guid"] == item.Key);
+                    row[0] = item.Key;
+                    int index = names.FindIndex(1, x => x["NameGuid"].Value["Guid"] == item.Value);
                     row[1] = (index != -1);
                     t.Rows.Add(row);
                 }
@@ -1007,8 +1007,8 @@ namespace lis2_save_editor
 
                 foreach (var item in GameInfo.LIS2_SeenPicturesNames)
                 {
-                    row[0] = item.Value;
-                    int index = names.FindIndex(1, x => x["ShowPictureID"].Value["NameGuid"].Value["Guid"] == item.Key);
+                    row[0] = item.Key;
+                    int index = names.FindIndex(1, x => x["ShowPictureID"].Value["NameGuid"].Value["Guid"] == item.Value);
                     if (index != -1)
                     {
                         row[1] = true;
@@ -1070,8 +1070,8 @@ namespace lis2_save_editor
             foreach (var item in GameInfo.LIS2_CollectibleNames)
             {
                 object[] row = new object[t.Columns.Count];
-                row[0] = item.Value;
-                var coll = collectibles.Find(x => x["CollectibleGUID"].Value["Guid"] == item.Key);
+                row[0] = item.Key;
+                var coll = collectibles.Find(x => x["CollectibleGUID"].Value["Guid"] == item.Value);
                 if (coll != null)
                 {
                     row[1] = coll["EquipedSlotIndex"].Value;
@@ -1124,8 +1124,8 @@ namespace lis2_save_editor
             foreach (var item in GameInfo.LIS2_ObjectiveNames)
             {
                 object[] row = new object[dataGridViewObjectives.Columns.Count];
-                row[0] = item.Value;
-                var obj = objectives.Find(x => x["ObjectiveGUID"].Value["Guid"] == item.Key);
+                row[0] = item.Key;
+                var obj = objectives.Find(x => x["ObjectiveGUID"].Value["Guid"] == item.Value);
                 if (obj != null)
                 {
                     row[1] = obj["ObjectiveState"].Value.Replace("ELIS2ObjectiveState::", "");
@@ -1177,8 +1177,8 @@ namespace lis2_save_editor
             foreach (var item in GameInfo.LIS2_SMSNames)
             {
                 object[] row = new object[t.Columns.Count];
-                row[0] = item.Value;
-                var msg = messages.Find(x => x == item.Key);
+                row[0] = item.Key;
+                var msg = messages.Find(x => x == item.Value);
                 if (msg != null)
                 {
                     row[1] = true;
