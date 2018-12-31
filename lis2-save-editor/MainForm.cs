@@ -128,7 +128,15 @@ namespace lis2_save_editor
             _gameSave.SaveChangesSaved = true;
 
             //datagridview scrollbars dirty fix
-            Size = new Size(this.Width+1, this.Height + 1);
+            if (this.Width % 2 == 0)
+            {
+                Size = new Size(this.Width + 1, this.Height + 1);
+            }
+            else
+            {
+                Size = new Size(this.Width - 1, this.Height - 1);
+            }
+            
 
             if (searchForm != null)
             {
