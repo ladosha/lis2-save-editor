@@ -8,7 +8,6 @@ using System.IO;
 
 namespace lis2_save_editor
 {
-
     public enum SaveType
     {
         CaptainSpirit = 8,
@@ -526,22 +525,20 @@ namespace lis2_save_editor
             return sb.ToString();
         }
 
-
-
         public static void ReadFacts()
         {
-            var file = File.OpenRead(@"D:\exported\LIS_2\root\Cooked\LevelDesign\Fact\PROM\FD_PROM_Generic.uexp");
+            var file = File.OpenRead(@"D:\exported\LIS_2\root\E1-Cooked\LevelDesign\Fact\PROM\Episode1\FD_E1_1A.uexp");
             BinaryReader br = new BinaryReader(file);
             StringBuilder sb = new StringBuilder();
             List<Guid> guids = new List<Guid>();
             br.ReadBytes(49); //change
             Guid assetguid = new Guid(br.ReadBytes(16));
-            br.ReadBytes(431); //change
-            while (file.Position < file.Length - 70) /*change*/
+            br.ReadBytes(510); //change
+            while (file.Position < file.Length - 23) /*change*/
             {
                 while (true)
                 {
-                    if (br.ReadByte() == 106) break; /*change*/
+                    if (br.ReadByte() == 111) break; /*change*/
                 }
                 br.BaseStream.Position -= 17;
                 var testBytes = br.ReadBytes(16);
@@ -570,11 +567,32 @@ namespace lis2_save_editor
                    asset.FloatFacts.TryGetValue(g, out name) ||
                    asset.EnumFacts.TryGetValue(g, out name))
                 {
-                    gs.Add(g, name);
+                    try
+                    {
+                        gs.Add(g, name);
+                    }
+                    catch (ArgumentException)
+                    {
+                        if (gs[g] == "UNKNOWN")
+                        {
+                            gs[g] = name;
+                        }
+                        else
+                        {
+                            System.Windows.Forms.MessageBox.Show($"Duplicate key, old name:{gs[g]}, new name:{name}");
+                        }
+                    }
                 }
                 else
                 {
-                    gs.Add(g, "UNKNOWN");
+                    try
+                    {
+                        gs.Add(g, "UNKNOWN");
+                    }
+                    catch (ArgumentException)
+                    {
+                        System.Windows.Forms.MessageBox.Show("Duplicate key");
+                    }
                 }
             }
 
@@ -793,11 +811,13 @@ namespace lis2_save_editor
             switch (colIndex)
             {
                 case 2:
+                case 4:
                     {
+                        string land_id = $"Zone{colIndex / 2}_Reveal";
                         dynamic part = null;
                         for (int i = 1; i < drawing.Count; i++)
                         {
-                            if (drawing[i]["LandscapeID"].Value == "Zone1_Reveal")
+                            if (drawing[i]["LandscapeID"].Value == land_id)
                             {
                                 part = drawing[i];
                             }
@@ -810,7 +830,7 @@ namespace lis2_save_editor
                         {
                             part = new Dictionary<string, dynamic>()
                             {
-                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value ="Zone1_Reveal" } },
+                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value = land_id } },
                                 {"DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Type="FloatProperty", Value = Convert.ToSingle(value)} },
                                 {"DrawingPhase", new EnumProperty() {Name = "DrawingPhase", Type="EnumProperty", ElementType="ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::Rough" } }
                             };
@@ -819,11 +839,13 @@ namespace lis2_save_editor
                         break;
                     }
                 case 3:
+                case 5:
                     {
+                        string land_id = $"Zone{colIndex / 2}_Reveal";
                         dynamic part = null;
                         for (int i = 1; i < drawing.Count; i++)
                         {
-                            if (drawing[i]["LandscapeID"].Value == "Zone1_Reveal")
+                            if (drawing[i]["LandscapeID"].Value == land_id)
                             {
                                 part = drawing[i];
                             }
@@ -846,68 +868,7 @@ namespace lis2_save_editor
 
                             part = new Dictionary<string, dynamic>()
                             {
-                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value ="Zone1_Reveal" } },
-                                {"DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Type="FloatProperty", Value = 0} },
-                                {"DrawingPhase", new EnumProperty() {Name = "DrawingPhase", Type="EnumProperty", ElementType="ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::"+value.ToString() } }
-                            };
-                            drawing.Add(part);
-                        }
-                        break;
-                    }
-                case 4:
-                    {
-                        dynamic part = null;
-                        for (int i = 1; i < drawing.Count; i++)
-                        {
-                            if (drawing[i]["LandscapeID"].Value == "Zone2_Reveal")
-                            {
-                                part = drawing[i];
-                            }
-                        }
-                        if (part != null)
-                        {
-                            part["DrawingPercent"].Value = Convert.ToSingle(value);
-                        }
-                        else
-                        {
-                            part = new Dictionary<string, dynamic>()
-                            {
-                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value ="Zone2_Reveal" } },
-                                {"DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Type="FloatProperty", Value = Convert.ToSingle(value)} },
-                                {"DrawingPhase", new EnumProperty() {Name = "DrawingPhase", Type="EnumProperty", ElementType="ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::Rough" } }
-                            };
-                            drawing.Add(part);
-                        }
-                        break;
-                    }
-                case 5:
-                    {
-                        dynamic part = null;
-                        for (int i = 1; i < drawing.Count; i++)
-                        {
-                            if (drawing[i]["LandscapeID"].Value == "Zone2_Reveal")
-                            {
-                                part = drawing[i];
-                            }
-                        }
-                        if (part != null)
-                        {
-                            if (value.ToString() == "(none)")
-                            {
-                                drawing.Remove(part);
-                                break;
-                            }
-                            part["DrawingPhase"].Value = "ELIS2PencilDrawingPhase::" + value.ToString();
-                        }
-                        else
-                        {
-                            if (value.ToString() == "(none)")
-                            {
-                                break;
-                            }
-                            part = new Dictionary<string, dynamic>()
-                            {
-                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value ="Zone2_Reveal" } },
+                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value = land_id } },
                                 {"DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Type="FloatProperty", Value = 0} },
                                 {"DrawingPhase", new EnumProperty() {Name = "DrawingPhase", Type="EnumProperty", ElementType="ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::"+value.ToString() } }
                             };

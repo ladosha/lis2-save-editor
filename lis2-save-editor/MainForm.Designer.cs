@@ -1431,7 +1431,7 @@
             this.tabPageBackpack.Location = new System.Drawing.Point(4, 22);
             this.tabPageBackpack.Name = "tabPageBackpack";
             this.tabPageBackpack.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBackpack.Size = new System.Drawing.Size(822, 458);
+            this.tabPageBackpack.Size = new System.Drawing.Size(882, 458);
             this.tabPageBackpack.TabIndex = 1;
             this.tabPageBackpack.Text = "Backpack";
             this.tabPageBackpack.UseVisualStyleBackColor = true;
@@ -1446,7 +1446,7 @@
             this.dataGridViewInventory2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory2.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory2.Name = "dataGridViewInventory2";
-            this.dataGridViewInventory2.Size = new System.Drawing.Size(816, 452);
+            this.dataGridViewInventory2.Size = new System.Drawing.Size(876, 452);
             this.dataGridViewInventory2.TabIndex = 1;
             this.dataGridViewInventory2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewInventory2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
@@ -1457,7 +1457,7 @@
             this.tabPagePockets.Location = new System.Drawing.Point(4, 22);
             this.tabPagePockets.Name = "tabPagePockets";
             this.tabPagePockets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePockets.Size = new System.Drawing.Size(822, 458);
+            this.tabPagePockets.Size = new System.Drawing.Size(882, 458);
             this.tabPagePockets.TabIndex = 2;
             this.tabPagePockets.Text = "Pockets";
             this.tabPagePockets.UseVisualStyleBackColor = true;
@@ -1472,7 +1472,7 @@
             this.dataGridViewInventory3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory3.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory3.Name = "dataGridViewInventory3";
-            this.dataGridViewInventory3.Size = new System.Drawing.Size(816, 452);
+            this.dataGridViewInventory3.Size = new System.Drawing.Size(876, 452);
             this.dataGridViewInventory3.TabIndex = 1;
             this.dataGridViewInventory3.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewInventory3.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);

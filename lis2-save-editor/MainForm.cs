@@ -64,7 +64,7 @@ namespace lis2_save_editor
             SaveLoading = true;
             comboBoxSelectCP.Items.Clear();
             comboBoxSelectCP.Items.Add("Current - "+ _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value 
-                                       +"_"+cpName[cpName.Length-1]);
+                                       +"_"+cpName.Last());
             comboBoxHeader_EPName.Items.Clear();
             comboBoxHeader_SubContextName.Items.Clear();
             comboBoxCPName.Items.Clear();

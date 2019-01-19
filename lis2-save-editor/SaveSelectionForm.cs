@@ -30,8 +30,6 @@ namespace lis2_save_editor
 
         private string SelectedGame;
 
-        bool rbResetting = false;
-
         private readonly Dictionary<SaveSlot, bool> _saveSlotAvailability = new Dictionary<SaveSlot, bool>();
 
         private void SaveSelectionForm_Load(object sender, EventArgs e)
