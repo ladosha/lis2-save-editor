@@ -184,8 +184,7 @@ namespace lis2_save_editor
                                     }
                                 case "DateTime":
                                     {
-                                        value.Add("DateTime", DateTime.FromFileTime(reader.ReadInt64()).AddYears(-1600));
-                                        reader.ReadUE4String(); //"None". don't know if all datetime props are delimited by this or it's just the end of the file at play
+                                        value.Add("DateTime", DateTime.FromFileTime(reader.ReadInt64()).AddYears(-1600));                                        
                                         break;
                                     }
                                 default:

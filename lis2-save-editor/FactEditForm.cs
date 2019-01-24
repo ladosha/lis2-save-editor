@@ -20,7 +20,7 @@ namespace lis2_save_editor
 
         public Dictionary<string, dynamic> asset = null;
 
-        public SaveType saveType;
+        public SaveVersion saveVersion;
 
         private FactAsset asset_info
         {
@@ -28,7 +28,7 @@ namespace lis2_save_editor
             {
                 try
                 {
-                    if (saveType == SaveType.CaptainSpirit)
+                    if (saveVersion == SaveVersion.CaptainSpirit)
                     {
                         return GameInfo.CS_FactAssets[asset["FactAssetId"].Value["Guid"].ToString()];
                     }

@@ -99,10 +99,10 @@
             // 
             // labelStatus
             // 
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(4, 100);
+            this.labelStatus.Location = new System.Drawing.Point(4, 95);
+            this.labelStatus.Margin = new System.Windows.Forms.Padding(0);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(47, 13);
+            this.labelStatus.Size = new System.Drawing.Size(150, 60);
             this.labelStatus.TabIndex = 5;
             this.labelStatus.Text = "<status>";
             // 
@@ -216,7 +216,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxSteamIds);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "SaveSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

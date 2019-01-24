@@ -21,13 +21,13 @@ namespace lis2_save_editor
 
         public Dictionary<string, dynamic> level = null;
 
-        public SaveType saveType;
+        public SaveVersion saveVersion;
 
         private LevelObject level_info
         {
             get
             {
-                var obj = saveType == SaveType.CaptainSpirit ? GameInfo.CS_Levels.Find(x => x.Name == level["LevelName"].Value) 
+                var obj = saveVersion == SaveVersion.CaptainSpirit ? GameInfo.CS_Levels.Find(x => x.Name == level["LevelName"].Value) 
                                                              : GameInfo.LIS2_Levels.Find(x => x.Name == level["LevelName"].Value);
                 if (obj != null) return obj;
                 return LevelObject.Empty;
@@ -59,7 +59,7 @@ namespace lis2_save_editor
 
             Regex reg = new Regex(@"(?<=_)C\d+_.*");
 
-            var special_int_icon = saveType == SaveType.CaptainSpirit ? Resources.CS_icon : Resources.DanielIntIcon;
+            var special_int_icon = saveVersion == SaveVersion.CaptainSpirit ? Resources.CS_icon : Resources.DanielIntIcon;
 
             foreach (var obj in level_info.Interactions)
             {
@@ -299,7 +299,7 @@ namespace lis2_save_editor
 
             List<dynamic> target = new List<dynamic>();
 
-            if (saveType == SaveType.CaptainSpirit)
+            if (saveVersion == SaveVersion.CaptainSpirit)
             {
                 target = level["LevelChangesSaveData"].Value["PastLevelSequences"].Value;
             }
@@ -952,7 +952,7 @@ namespace lis2_save_editor
 
         private void EditSeqStoppedValue(string name, int colIndex, object value)
         {
-            List<dynamic> target = saveType == SaveType.LIS ?
+            List<dynamic> target = saveVersion == SaveVersion.LIS_E1 ?
                 level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value :
                 level["LevelChangesSaveData"].Value["PastLevelSequences"].Value;
             int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == name);
@@ -986,7 +986,7 @@ namespace lis2_save_editor
                         }
                     },
                 };
-                if (saveType == SaveType.LIS)
+                if (saveVersion == SaveVersion.LIS_E1)
                 {
                     new_item["DebugRequesterName"] = new NameProperty
                     {
@@ -997,7 +997,7 @@ namespace lis2_save_editor
                 }
                 target.AddUnique(new_item);
                 index = target.Count - 1;
-                if (saveType == SaveType.CaptainSpirit)
+                if (saveVersion == SaveVersion.CaptainSpirit)
                 {
                     ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypes"].Value).Add("ELIS2LevelChangeSaveDataType::ELCSDT_SequenceStopped");
                     ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypedIndices"].Value).Add(index-1);
@@ -1009,7 +1009,7 @@ namespace lis2_save_editor
                 {
                     target.RemoveAt(index);
 
-                    if (saveType == SaveType.CaptainSpirit)
+                    if (saveVersion == SaveVersion.CaptainSpirit)
                     {
                         ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypes"].Value).RemoveAt(index-1);
                         ((List<dynamic>)level["LevelChangesSaveData"].Value["PastLevelChangeTypedIndices"].Value).RemoveAt(index-1);
@@ -1090,7 +1090,7 @@ namespace lis2_save_editor
         {
             
             int index;
-            string slotPrefix = saveType == SaveType.LIS ? "NoSlot_" : "None_";
+            string slotPrefix = saveVersion == SaveVersion.LIS_E1 ? "NoSlot_" : "None_";
             List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;
             if (initialSlot.StartsWith(slotPrefix))
             {

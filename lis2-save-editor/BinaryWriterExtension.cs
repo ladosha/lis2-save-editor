@@ -192,7 +192,6 @@ namespace lis2_save_editor
                                 case "DateTime":
                                     {
                                         writer.Write(property.Value["DateTime"].AddYears(1600).ToFileTime());
-                                        WriteUE4String(writer, "None"); //don't know if all datetime props are delimited by this or it's just the end of the file at play
                                         break;
                                     }
                                 default:

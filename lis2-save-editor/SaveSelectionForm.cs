@@ -247,7 +247,7 @@ namespace lis2_save_editor
 
             var text = new StringBuilder();
 
-            if(_gameSave.saveType == SaveType.LIS)
+            if(_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 var header = _gameSave.Data["HeaderSaveData"].Value;
                 var episode = "Episode "+ (header["EpisodeNumber"].Value)+": "

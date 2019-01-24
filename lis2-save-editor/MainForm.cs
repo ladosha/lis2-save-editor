@@ -1,12 +1,11 @@
-﻿using System;
+﻿using lis2_save_editor.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Reflection;
-using System.Windows.Forms;
-using lis2_save_editor.Properties;
-using System.IO;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace lis2_save_editor
 {
@@ -53,7 +52,7 @@ namespace lis2_save_editor
             }
 
             string[] cpName;
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 cpName = _gameSave.Data["CheckpointName"].Value.Split('_');
             }
@@ -69,7 +68,7 @@ namespace lis2_save_editor
             comboBoxHeader_SubContextName.Items.Clear();
             comboBoxCPName.Items.Clear();
             ClearGroupBox(groupBoxLISHeader);
-            if (_gameSave.saveType == SaveType.LIS)
+            if (_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 for (int i = 1; i <= _gameSave.Data["CheckpointHistory"].ElementCount; i++)
                 {
@@ -219,7 +218,7 @@ namespace lis2_save_editor
         private void UpdateDanielInfo(int cpIndex)
         {
             ClearGroupBox(groupBoxDanielPos);
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -271,7 +270,7 @@ namespace lis2_save_editor
         private void UpdateAICallInfo(int cpIndex)
         {
             ClearGroupBox(groupBoxAICall);
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -301,7 +300,7 @@ namespace lis2_save_editor
         private void UpdateStats(int cpIndex)
         {
             ClearGroupBox(groupBoxEpisodeCompletion);
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -323,7 +322,7 @@ namespace lis2_save_editor
         private void UpdateMetaInvSubContexts(int cpIndex)
         {
             ClearGroupBox(groupBoxMetaInv_SeenSubContexts);
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -348,7 +347,7 @@ namespace lis2_save_editor
         private void UpdateMetaInvTutoStatus(int cpIndex)
         {
             ClearGroupBox(groupBoxMetaInv_TutoStatus);
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -383,7 +382,7 @@ namespace lis2_save_editor
 
             dataGridViewInventory2.Columns.Clear();
             dataGridViewInventory3.Columns.Clear();
-            if (_gameSave.saveType == SaveType.LIS)
+            if (_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 dataGridViewInventory1.Columns[3].FillWeight = 10;
                 dataGridViewInventory2.DataSource = BuildInventoryTable(cpIndex, "BackPackItems").DefaultView;
@@ -416,7 +415,7 @@ namespace lis2_save_editor
 
             object[] row = new object[t.Columns.Count];
 
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 t.Columns.Add("Name");
                 t.Columns.Add("Active", typeof(bool));
@@ -480,7 +479,7 @@ namespace lis2_save_editor
             dataGridViewSeenNotifs.Columns.Clear();
             dataGridViewSeenNotifs.DataSource = BuildSeenNotifsTable(cpIndex).DefaultView;
 
-            if(_gameSave.saveType == SaveType.LIS)
+            if(_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 dataGridViewSeenNotifs.Columns[1].FillWeight = 10;
             }
@@ -489,7 +488,7 @@ namespace lis2_save_editor
         private DataTable BuildSeenNotifsTable(int cpIndex)
         {
             DataTable t = new DataTable();
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return t;
             }
@@ -546,7 +545,7 @@ namespace lis2_save_editor
             t.Columns.Add("Seen", typeof(bool));
             t.Columns.Add("Times");
 
-            string[] namelist = _gameSave.saveType == SaveType.CaptainSpirit 
+            string[] namelist = _gameSave.saveVersion == SaveVersion.CaptainSpirit 
                               ? GameInfo.CS_SeenTutosNames : GameInfo.LIS2_SeenTutosNames;
 
             foreach (var name in namelist)
@@ -575,7 +574,7 @@ namespace lis2_save_editor
 
             List<dynamic> drawings;
 
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -721,7 +720,7 @@ namespace lis2_save_editor
                 packages = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["WorldStreamingSaveData"].Value;
             }
             
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 t.Columns.Add("Package name");
                 t.Columns.Add("Should be loaded");
@@ -847,7 +846,7 @@ namespace lis2_save_editor
             tb_p.TextChanged += new EventHandler(textBoxMetricsPlaythroughGuid_TextChnaged);
             gbox_p.Controls.Add(tb_p);
 
-            if (_gameSave.saveType == SaveType.LIS)
+            if (_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 lbl_p = new Label();
                 lbl_p.AutoSize = true;
@@ -971,7 +970,7 @@ namespace lis2_save_editor
             dataGridViewSeenPics.Columns.Clear();
             dataGridViewSeenPics.DataSource = BuildSeenPicturesTable(cpIndex).DefaultView;
 
-            if (_gameSave.saveType == SaveType.LIS)
+            if (_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 dataGridViewSeenPics.Columns[1].FillWeight = 20;
                 dataGridViewSeenPics.Columns[2].FillWeight = 20;
@@ -996,7 +995,7 @@ namespace lis2_save_editor
                     ["ShowPicturesSaveData"].Value["AllShowPictureIDSeen"].Value;
             }
 
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 foreach (var item in GameInfo.CS_SeenPicturesNames)
                 {
@@ -1041,7 +1040,7 @@ namespace lis2_save_editor
             dataGridViewCollectibles.Columns.Clear();
             dataGridViewCollectibles.DataSource = BuildCollectiblesTable(cpIndex).DefaultView;
 
-            if(_gameSave.saveType == SaveType.LIS)
+            if(_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 dataGridViewCollectibles.Columns[1].FillWeight = 20;
                 dataGridViewCollectibles.Columns[2].FillWeight = 20;
@@ -1052,7 +1051,7 @@ namespace lis2_save_editor
         private DataTable BuildCollectiblesTable(int cpIndex)
         {
             DataTable t = new DataTable();
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return t;
             }
@@ -1101,7 +1100,7 @@ namespace lis2_save_editor
         private void UpdateObjectivesGrid(int cpIndex)
         {
             dataGridViewObjectives.Columns.Clear();
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -1153,7 +1152,7 @@ namespace lis2_save_editor
             dataGridViewSeenMessages.Columns.Clear();
             dataGridViewSeenMessages.DataSource = BuildSeenMessagesTable(cpIndex).DefaultView;
 
-            if(_gameSave.saveType == SaveType.LIS)
+            if(_gameSave.saveVersion == SaveVersion.LIS_E1)
             {
                 dataGridViewSeenMessages.Columns[1].FillWeight = 20;
             }
@@ -1163,7 +1162,7 @@ namespace lis2_save_editor
         private DataTable BuildSeenMessagesTable(int cpIndex)
         {
             DataTable t = new DataTable();
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return t;
             }
@@ -1205,7 +1204,7 @@ namespace lis2_save_editor
         {
             ClearGroupBox(groupBoxOutfitsSean);
             ClearGroupBox(groupBoxOutfitsDaniel);
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
@@ -1259,7 +1258,7 @@ namespace lis2_save_editor
             Dictionary<dynamic, dynamic> root = _gameSave.Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value;
 
             int cb_y = 20, gbox_y = 20;
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 List<dynamic> save_cin_list = ((List<dynamic>)root["PT"]["PlayedCinematics"].Value).Skip(1).ToList();
                 int max_length = 0;
@@ -1373,7 +1372,7 @@ namespace lis2_save_editor
                 {
                     editForm.asset = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["FactsSaveData"].Value[assetId];
                 }
-                editForm.saveType = _gameSave.saveType;
+                editForm.saveVersion = _gameSave.saveVersion;
                 editForm.ShowDialog();
                 if (editForm.changesMade)
                 {
@@ -1399,7 +1398,7 @@ namespace lis2_save_editor
                 {
                     levelForm.level = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["LevelsSaveData"].Value[e.RowIndex + 1];
                 }
-                levelForm.saveType = _gameSave.saveType;
+                levelForm.saveVersion = _gameSave.saveVersion;
                 levelForm.ShowDialog();
                 if (levelForm.changesMade)
                 {
@@ -1416,7 +1415,7 @@ namespace lis2_save_editor
             if (!SaveLoading)
             {
                 int cpIndex = comboBoxSelectCP.SelectedIndex;
-                if (_gameSave.saveType == SaveType.CaptainSpirit)
+                if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
                 {
                     _gameSave.Data["CheckpointName"].Value = comboBoxCPName.SelectedItem.ToString();
                 }
@@ -2034,7 +2033,7 @@ namespace lis2_save_editor
                 {
                     grid[1, e.RowIndex].Value = true;
                     _gameSave.EditInventoryItem(inv_type, item_name, comboBoxSelectCP.SelectedIndex, 2, Convert.ToInt32(grid[2, e.RowIndex].Value));
-                    if (_gameSave.saveType == SaveType.LIS)
+                    if (_gameSave.saveVersion == SaveVersion.LIS_E1)
                     {
                         _gameSave.EditInventoryItem(inv_type, item_name, comboBoxSelectCP.SelectedIndex, 3, Convert.ToInt32(grid[3, e.RowIndex].Value));
                     }
@@ -2198,7 +2197,7 @@ namespace lis2_save_editor
             if (newCellValue.ToString() != origCellValue.ToString())
             {
                 string property = "";
-                if (_gameSave.saveType == SaveType.CaptainSpirit)
+                if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
                 {
                     switch (e.ColumnIndex)
                     {
@@ -2277,7 +2276,7 @@ namespace lis2_save_editor
                 var name = dataGridViewSeenPics[0, e.RowIndex].Value.ToString();
                 _gameSave.EditSeenPicture(name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, Convert.ToBoolean(newCellValue));
 
-                if (_gameSave.saveType == SaveType.LIS)
+                if (_gameSave.saveVersion == SaveVersion.LIS_E1)
                 {
                     if (e.ColumnIndex == 1 ^ Convert.ToBoolean(dataGridViewSeenPics[1, e.RowIndex].Value) == false)
                     {
@@ -2615,7 +2614,7 @@ namespace lis2_save_editor
             }
             cin_list = root[info[0]]["PlayedCinematics"].Value;
 
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 if(cb.Checked) //Add cinematic
                 {
@@ -2790,7 +2789,7 @@ namespace lis2_save_editor
             int index = comboBoxSelectCP.SelectedIndex;
 
             //General tab
-            if (_gameSave.saveType == SaveType.CaptainSpirit)
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 comboBoxCPName.SelectedItem = _gameSave.Data["CheckpointName"].Value;
                 textBoxSubContextID.Text = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;

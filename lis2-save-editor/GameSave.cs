@@ -8,10 +8,11 @@ using System.IO;
 
 namespace lis2_save_editor
 {
-    public enum SaveType
+    public enum SaveVersion
     {
         CaptainSpirit = 8,
-        LIS = 11
+        LIS_E1 = 11,
+        LIS_E2 = 13
     }
 
     public class GameSave
@@ -21,7 +22,7 @@ namespace lis2_save_editor
 
         byte[] saveFileHeader = new byte[70] { 0x47, 0x45, 0x56, 0x41, 0x53, 0x45, 0x4E, 0x44, 0x02, 0x00, 0x00, 0x00, 0x01, 0x02, 0x00, 0x00, 0x04, 0x00, 0x10, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x2B, 0x2B, 0x55, 0x45, 0x34, 0x2B, 0x52, 0x65, 0x6C, 0x65, 0x61, 0x73, 0x65, 0x2D, 0x34, 0x2E, 0x31, 0x36, 0x00, 0x11, 0x00, 0x00, 0x00, 0x4C, 0x49, 0x53, 0x32, 0x47, 0x61, 0x6D, 0x65, 0x53, 0x61, 0x76, 0x65, 0x44, 0x61, 0x74, 0x61, 0x00 };
         byte[] gameSpecificHeader;
-        public SaveType saveType;
+        public SaveVersion saveVersion;
         public bool SaveIsValid { get; set; }
 
         public void ReadSaveFromFile (string savePath)
@@ -44,13 +45,13 @@ namespace lis2_save_editor
 
             gameSpecificHeader = reader.ReadBytes(12);
 
-            saveType = (SaveType)gameSpecificHeader[8];
+            saveVersion = (SaveVersion)gameSpecificHeader[8];
 
             Data = new Dictionary<string, dynamic>();
 
             try
             {
-                while (reader.BaseStream.Position < reader.BaseStream.Length - 4)
+                while (reader.BaseStream.Position < reader.BaseStream.Length - 13) //Final None string and 4 empty bytes shouldn't be part of the data
                 {
                     dynamic prop = reader.ParseProperty();
                     Data.Add(prop.Name, prop);
@@ -83,7 +84,7 @@ namespace lis2_save_editor
         public string GenerateFactsSQL()
         {
             StringBuilder sb = new StringBuilder();
-            if (saveType == SaveType.CaptainSpirit)
+            if (saveVersion == SaveVersion.CaptainSpirit)
             {
                 sb.AppendLine("insert or ignore into CSFacts (FactGUID, AssetGUID, Name, Type) values");
             }
@@ -122,7 +123,7 @@ namespace lis2_save_editor
                 }
             }
 
-            if (saveType == SaveType.LIS)
+            if (saveVersion == SaveVersion.LIS_E1)
             {
                 for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
@@ -165,7 +166,7 @@ namespace lis2_save_editor
         public string GenerateInventorySQL()
         {
             StringBuilder sb = new StringBuilder();
-            if (saveType == SaveType.CaptainSpirit)
+            if (saveVersion == SaveVersion.CaptainSpirit)
             {
                 return "";
             }
@@ -192,7 +193,7 @@ namespace lis2_save_editor
             }
 
 
-            if (saveType == SaveType.LIS)
+            if (saveVersion == SaveVersion.LIS_E1)
             {
                 for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
@@ -271,7 +272,7 @@ namespace lis2_save_editor
         {
             StringBuilder sb = new StringBuilder();
 
-            string table = saveType == SaveType.LIS ? "LIS2" : "CS";
+            string table = saveVersion == SaveVersion.LIS_E1 ? "LIS2" : "CS";
 
             foreach(var level in ((List<dynamic>)Data["CurrentSubContextSaveData"].Value["LevelsSaveData"].Value).Skip(1))
             {
@@ -328,7 +329,7 @@ namespace lis2_save_editor
                 //LevelChanges
                 Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
 
-                if (saveType == SaveType.LIS)
+                if (saveVersion == SaveVersion.LIS_E1)
                 {
                     foreach (var seq in ((List<dynamic>)lvl_changes["StoppedLevelSequences"].Value).Skip(1))
                     {
@@ -384,7 +385,7 @@ namespace lis2_save_editor
                     }
             }
 
-            if (saveType == SaveType.LIS)
+            if (saveVersion == SaveVersion.LIS_E1)
             {
                 for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
@@ -486,9 +487,9 @@ namespace lis2_save_editor
         public string GenerateCinematicSQL()
         {
             StringBuilder sb = new StringBuilder();
-            string table = saveType == SaveType.LIS ? "LIS2" : "CS";
+            string table = saveVersion == SaveVersion.LIS_E1 ? "LIS2" : "CS";
 
-            if (saveType == SaveType.CaptainSpirit)
+            if (saveVersion == SaveVersion.CaptainSpirit)
             {
                 List<dynamic> cin_list = Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value["PT"]["PlayedCinematics"].Value;
                 foreach (var cin in cin_list.Skip(1))
@@ -611,6 +612,7 @@ namespace lis2_save_editor
                 BinaryWriterExtension.WriteProperty(writer, pr);
             }
 
+            writer.WriteUE4String("None");
             writer.Write(new byte[4] { 0, 0, 0, 0 }); //4 bytes at the end
 
             var fileContent = new_file.ToArray();
@@ -646,7 +648,7 @@ namespace lis2_save_editor
                 Dictionary<string, object> new_item = new Dictionary<string, object>();
                 new_item["PickupID"] = new NameProperty() { Name = "PickupID", Type = "NameProperty", Value = name };
                 new_item["Quantity"] = new IntProperty() { Name = "Quantity", Type = "IntProperty", Value = colIndex == 2 ? val: 0 };
-                if(saveType == SaveType.LIS)
+                if(saveVersion == SaveVersion.LIS_E1)
                 {
                     new_item["bIsNew"] = new BoolProperty() { Name = "bIsNew", Type = "BoolProperty", Value = colIndex == 3 ? Convert.ToBoolean(val) : false };
                 }
@@ -908,7 +910,7 @@ namespace lis2_save_editor
                 target = Data["CheckpointHistory"].Value[cpIndex]["ShowPicturesSaveData"].Value["AllShowPictureIDSeen"].Value;
             }
 
-            if (saveType == SaveType.CaptainSpirit)
+            if (saveVersion == SaveVersion.CaptainSpirit)
             {
                 guid = GameInfo.CS_SeenPicturesNames[name];
                 int index = target.FindIndex(1, x => x["Name"].Value == name);
