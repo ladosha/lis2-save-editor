@@ -238,10 +238,11 @@ namespace lis2_save_editor
             _gameSave = new GameSave();
             _gameSave.ReadSaveFromFile(save_path);
 
-            if (!_gameSave.SaveIsValid)
+            if (!_gameSave.SaveIsValid.Status)
             {
-                labelStatus.Text = "Corrupt save!";
+                labelStatus.Text = _gameSave.SaveIsValid.ErrorMessage;
                 labelStatus.ForeColor = Color.Red;
+                labelStatus.Visible = true;
                 return;
             }
 
@@ -269,8 +270,8 @@ namespace lis2_save_editor
             }
 
             labelStatus.Text = text.ToString();
+            labelStatus.ForeColor = SystemColors.ControlText;
             labelStatus.Visible = true;
-
         }
 
         public static string GetSteamIdFromPath(string path)

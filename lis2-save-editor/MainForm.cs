@@ -35,7 +35,7 @@ namespace lis2_save_editor
             /*
             string[] paths = new string[]
             {
-               ...
+                ...
             };
             
             foreach (var p in paths)
@@ -45,9 +45,9 @@ namespace lis2_save_editor
             //*/
             #endregion
 
-            if (!_gameSave.SaveIsValid)
+            if (!_gameSave.SaveIsValid.Status)
             {
-                MessageBox.Show(Resources.CorruptSaveMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(String.Format(Resources.CorruptSaveMessage, _gameSave.SaveIsValid.ErrorMessage), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -1701,7 +1701,10 @@ namespace lis2_save_editor
                     };
                     if (_gameSave.saveVersion >= SaveVersion.LIS_E2)
                     {
-                        _gameSave.Data["HeaderSaveData"].Value["SubContextId"].Value = subname.Remove(19); //E1_Menu_Subcontext_
+                        string subID = subname.Remove(0, 19);
+                        if (subID == "E2_2A") subID = "E2_1A";
+                        else if (subID == "E2_5C_01") subID = "E2_5C";
+                        _gameSave.Data["HeaderSaveData"].Value["SubContextId"].Value = subID;
                     }
                 }
 
@@ -3299,7 +3302,7 @@ namespace lis2_save_editor
 
             if (_gameSave != null && !_gameSave.SaveChangesSaved)
             {
-                DialogResult answer = MessageBox.Show(Resources.UnsavedEditsWarningMessage,
+                DialogResult answer = MessageBox.Show(String.Format(Resources.UnsavedEditsWarningMessage, _editedControls.Count),
                     "Savegame Editor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (answer == DialogResult.Yes)
                 {

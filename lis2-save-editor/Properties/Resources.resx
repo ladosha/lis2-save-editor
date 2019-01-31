@@ -118,7 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CorruptSaveMessage" xml:space="preserve">
-    <value>Save file is empty or corrupt! Please specify a different one.</value>
+    <value>The save file could not be loaded due to an error:
+
+{0}</value>
   </data>
   <data name="BadValueMessage" xml:space="preserve">
     <value>Incorrect value!</value>
@@ -128,7 +130,7 @@
     <value>..\LIS2-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UnsavedEditsWarningMessage" xml:space="preserve">
-    <value>There are unsaved edits left! Exit without saving?</value>
+    <value>There are {0} unsaved edits left! Exit without saving?</value>
   </data>
   <data name="EditsSuccessfullySavedMessage" xml:space="preserve">
     <value>Saved successfully!</value>
@@ -144,5 +146,14 @@ Version: {0}</value>
   </data>
   <data name="CS_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\cs_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenedSettingsFileError" xml:space="preserve">
+    <value>This is a settings file for the game! The editor only supports save files.</value>
+  </data>
+  <data name="SaveHeaderMismatchError" xml:space="preserve">
+    <value>File header mismatch. This means that the file is corrupted or never was a save file in the first place.</value>
+  </data>
+  <data name="SaveVersionUnknownError" xml:space="preserve">
+    <value>The save version is unknown to the program. Maybe a new episode was released recently?</value>
   </data>
 </root>

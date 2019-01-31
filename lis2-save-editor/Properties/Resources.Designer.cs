@@ -82,7 +82,9 @@ namespace lis2_save_editor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save file is empty or corrupt! Please specify a different one..
+        ///   Looks up a localized string similar to The save file could not be loaded due to an error:
+        ///
+        ///{0}.
         /// </summary>
         internal static string CorruptSaveMessage {
             get {
@@ -130,7 +132,34 @@ namespace lis2_save_editor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are unsaved edits left! Exit without saving?.
+        ///   Looks up a localized string similar to This is a settings file for the game! The editor only supports save files..
+        /// </summary>
+        internal static string OpenedSettingsFileError {
+            get {
+                return ResourceManager.GetString("OpenedSettingsFileError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File header mismatch. This means that the file is corrupted or never was a save file in the first place..
+        /// </summary>
+        internal static string SaveHeaderMismatchError {
+            get {
+                return ResourceManager.GetString("SaveHeaderMismatchError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The save version is unknown to the program. Maybe a new episode was released recently?.
+        /// </summary>
+        internal static string SaveVersionUnknownError {
+            get {
+                return ResourceManager.GetString("SaveVersionUnknownError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are {0} unsaved edits left! Exit without saving?.
         /// </summary>
         internal static string UnsavedEditsWarningMessage {
             get {

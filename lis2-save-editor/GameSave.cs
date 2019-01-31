@@ -4,15 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using lis2_save_editor.Properties;
 //using Newtonsoft.Json;
 
 namespace lis2_save_editor
 {
-    public enum SaveVersion
+    public enum SaveVersion : byte
     {
         CaptainSpirit = 8,
         LIS_E1 = 11,
         LIS_E2 = 13
+    }
+
+    public class SaveValidity
+    {
+        public bool Status { get; set; }
+        public string ErrorMessage { get; set; } = "";
     }
 
     public class GameSave
@@ -23,7 +30,7 @@ namespace lis2_save_editor
         byte[] saveFileHeader = new byte[70] { 0x47, 0x45, 0x56, 0x41, 0x53, 0x45, 0x4E, 0x44, 0x02, 0x00, 0x00, 0x00, 0x01, 0x02, 0x00, 0x00, 0x04, 0x00, 0x10, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x2B, 0x2B, 0x55, 0x45, 0x34, 0x2B, 0x52, 0x65, 0x6C, 0x65, 0x61, 0x73, 0x65, 0x2D, 0x34, 0x2E, 0x31, 0x36, 0x00, 0x11, 0x00, 0x00, 0x00, 0x4C, 0x49, 0x53, 0x32, 0x47, 0x61, 0x6D, 0x65, 0x53, 0x61, 0x76, 0x65, 0x44, 0x61, 0x74, 0x61, 0x00 };
         byte[] gameSpecificHeader;
         public SaveVersion saveVersion;
-        public bool SaveIsValid { get; set; }
+        public SaveValidity SaveIsValid { get; set; }
 
         public void ReadSaveFromFile (string savePath)
         {
@@ -31,20 +38,41 @@ namespace lis2_save_editor
             MemoryStream file = new MemoryStream(fileContent);
             BinaryReader reader = new BinaryReader(file);
 
-            SaveIsValid = true;
+            SaveIsValid = new SaveValidity() { Status = true };
 
             //check if file starts with header
             for (int i = 0; i < saveFileHeader.Length; i++)
             {
                 if (reader.ReadByte() != saveFileHeader[i])
                 {
-                    SaveIsValid = false;
+                    SaveIsValid.Status = false;
+                    reader.BaseStream.Position = 49;
+                    try
+                    {
+                        if (reader.ReadUE4String() == "LIS2SettingsSaveData")
+                        {
+                            SaveIsValid.ErrorMessage = Resources.OpenedSettingsFileError;
+                        }
+                        else
+                        {
+                            SaveIsValid.ErrorMessage = Resources.SaveHeaderMismatchError;
+                        }
+                    }
+                    catch
+                    {
+                        SaveIsValid.ErrorMessage = Resources.SaveHeaderMismatchError;
+                    }
                     return;
                 }
             }
 
             gameSpecificHeader = reader.ReadBytes(12);
 
+            if (!Enum.IsDefined(typeof(SaveVersion), gameSpecificHeader[8]))
+            {
+                SaveIsValid.Status = false;
+                SaveIsValid.ErrorMessage = Resources.SaveVersionUnknownError;
+            }
             saveVersion = (SaveVersion)gameSpecificHeader[8];
 
             Data = new Dictionary<string, dynamic>();
@@ -59,7 +87,8 @@ namespace lis2_save_editor
             }
             catch (Exception e)
             {
-                SaveIsValid = false;
+                SaveIsValid.Status = false;
+                SaveIsValid.ErrorMessage = $"Exception - {e.Message}";
             }
 
             //string facts = GenerateFactsSQL();
