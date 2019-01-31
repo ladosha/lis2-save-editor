@@ -72,10 +72,14 @@ namespace lis2_save_editor
 
             //string cinsql = GenerateCinematicSQL();
 
+            //string drawsql = GenerateDrawingSQL();
+
             //ReadFacts();
 
-            //File.AppendAllText("FORDB.txt", facts + outf + inv + levsql);
-            //File.AppendAllText("FORDB.txt", levsql);
+            //var sp = GenerateSeenPicsSQL();
+
+            //File.AppendAllText($"FORDB-{Guid.NewGuid()}.txt", facts + outf + inv + levsql);
+            //File.AppendAllText("FORDB.txt", sp);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
@@ -123,7 +127,7 @@ namespace lis2_save_editor
                 }
             }
 
-            if (saveVersion == SaveVersion.LIS_E1)
+            if (saveVersion >= SaveVersion.LIS_E1)
             {
                 for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
@@ -172,46 +176,43 @@ namespace lis2_save_editor
             }
             else
             {
-                sb.AppendLine("insert or ignore into LIS2Inventory (ID, Type) values");
+                sb.AppendLine("insert or ignore into LIS2Inventory (ID, Type, Owner) values");
             }
 
-            var items = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"].Value["PlayerInventorySaveData"].Value;
-            foreach (var item in ((List<dynamic>)items["InventoryItems"].Value).Skip(1))
+            foreach (var owner in new string[] {"Player", "BrotherAI" })
             {
-                var id = item["PickupID"].Value.ToString();
-                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id,"Inventory");
-            }
-            foreach (var item in ((List<dynamic>)items["BackPackItems"].Value).Skip(1))
-            {
-                var id = item["PickupID"].Value.ToString();
-                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "BackPack");
-            }
-            foreach (var item in ((List<dynamic>)items["PocketsItems"].Value).Skip(1))
-            {
-                var id = item["PickupID"].Value.ToString();
-                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "Pockets");
+                string ownerPrefix = owner == "Player" ? "Player" : "AI";
+
+                var items = Data["CurrentSubContextSaveData"].Value[$"{owner}SaveData"].Value[$"{ownerPrefix}InventorySaveData"].Value;
+
+                foreach(var type in new string[] { "Inventory", "BackPack", "Pockets" })
+                {
+                    foreach (var item in ((List<dynamic>)items[$"{type}Items"].Value).Skip(1))
+                    {
+                        var id = item["PickupID"].Value.ToString();
+                        sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", id, type, owner);
+                    }
+                }
             }
 
-
-            if (saveVersion == SaveVersion.LIS_E1)
+            if (saveVersion >= SaveVersion.LIS_E1)
             {
                 for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
-                    items = Data["CheckpointHistory"].Value[i]["PlayerSaveData"].Value["PlayerInventorySaveData"].Value;
-                    foreach (var item in ((List<dynamic>)items["InventoryItems"].Value).Skip(1))
+                    foreach (var owner in new string[] { "Player", "BrotherAI" })
                     {
-                        var id = item["PickupID"].Value.ToString();
-                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "Inventory");
-                    }
-                    foreach (var item in ((List<dynamic>)items["BackPackItems"].Value).Skip(1))
-                    {
-                        var id = item["PickupID"].Value.ToString();
-                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "BackPack");
-                    }
-                    foreach (var item in ((List<dynamic>)items["PocketsItems"].Value).Skip(1))
-                    {
-                        var id = item["PickupID"].Value.ToString();
-                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, "Pockets");
+                        string ownerPrefix = owner == "Player" ? "Player" : "AI";
+
+                        var items = Data["CheckpointHistory"].Value[i][$"{owner}SaveData"].Value[$"{ownerPrefix}InventorySaveData"].Value;
+
+                        foreach (var type in new string[] { "Inventory", "BackPack", "Pockets" })
+                        {
+                            foreach (var item in ((List<dynamic>)items[$"{type}Items"].Value).Skip(1))
+                            {
+                                var id = item["PickupID"].Value.ToString();
+                                sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", id, type, owner);
+                            }
+                        }
                     }
                 }
             }
@@ -219,9 +220,53 @@ namespace lis2_save_editor
             return sb.ToString();
         }
 
-        public string GenerateOutfitSQL()
+        public string GenerateDrawingSQL()
         {
             StringBuilder sb = new StringBuilder();
+            if (saveVersion == SaveVersion.CaptainSpirit)
+            {
+                return "";
+            }
+            else
+            {
+                sb.AppendLine("insert or ignore into LIS2Drawings (Name, GUID, ZoneCount) values");
+            }
+
+            List<dynamic> items = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"].Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+            foreach (var item in items.Skip(1))
+            {
+                var name = item["DrawSequenceID"].Value["Name"].Value;
+                var guid = item["DrawSequenceID"].Value["NameGuid"].Value["Guid"].ToString();
+                var zone_cnt = item["LandscapeItemSaveDatas"].ElementCount;
+                sb.AppendFormat("('{0}', '{1}', '{2}'),\n", name, guid, zone_cnt);
+            }
+
+            for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+            {
+                items = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"].Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                foreach (var item in items.Skip(1))
+                {
+                    var name = item["DrawSequenceID"].Value["Name"].Value;
+                    var guid = item["DrawSequenceID"].Value["NameGuid"].Value["Guid"].ToString();
+                    var zone_cnt = item["LandscapeItemSaveDatas"].ElementCount;
+                    sb.AppendFormat("('{0}', '{1}', '{2}'),\n", name, guid, zone_cnt);
+                }
+            }
+
+            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+            return sb.ToString();
+        }
+
+        public string GenerateOutfitSQL()
+        {
+            if (saveVersion == SaveVersion.CaptainSpirit)
+            {
+                return "";
+            }
+
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+
             sb.AppendLine("insert or ignore into LIS2Outfits (GUID, Slot, Owner) values");
             foreach (var person in Data["CurrentSubContextSaveData"].Value["Outfits"].Value)
             {
@@ -229,6 +274,7 @@ namespace lis2_save_editor
                 foreach (var of in outf_list.Skip(1))
                 {
                     var guid = of["Guid"].Value["Guid"].ToString();
+                    if (guid == Guid.Empty.ToString()) break;
                     string slot = of["Slot"].Value;
                     if (slot.Contains("Collectible_Badge"))
                     {
@@ -239,6 +285,7 @@ namespace lis2_save_editor
                         throw new Exception("Found flags!");
                     }
                     sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", guid, slot, person.Key);
+                    sb2.AppendFormat("update LIS2Outfits set Slot = '{1}', Owner = '{2}' where GUID = '{0}';\n", guid, slot, person.Key);
                 }
             }
 
@@ -250,6 +297,7 @@ namespace lis2_save_editor
                     foreach (var of in outf_list.Skip(1))
                     {
                         var guid = of["Guid"].Value["Guid"].ToString();
+                        if (guid == Guid.Empty.ToString()) break;
                         string slot = of["Slot"].Value;
                         if (slot.Contains("Collectible_Badge"))
                         {
@@ -260,21 +308,22 @@ namespace lis2_save_editor
                             throw new Exception("Found flags!");
                         }
                         sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", guid, slot, person.Key);
+                        sb2.AppendFormat("update LIS2Outfits set Slot = '{1}', Owner = '{2}' where GUID = '{0}';\n", guid, slot, person.Key);
                     }
                 }
             }
 
             sb = sb.Replace(",\n", ";\n", sb.Length-3, 3);
-            return sb.ToString();
+            return sb2.ToString() + sb.ToString();
         }
 
         public string GenerateLevelSQL()
         {
             StringBuilder sb = new StringBuilder();
 
-            string table = saveVersion == SaveVersion.LIS_E1 ? "LIS2" : "CS";
+            string table = saveVersion >= SaveVersion.LIS_E1 ? "LIS2" : "CS";
 
-            foreach(var level in ((List<dynamic>)Data["CurrentSubContextSaveData"].Value["LevelsSaveData"].Value).Skip(1))
+            foreach (var level in ((List<dynamic>)Data["CurrentSubContextSaveData"].Value["LevelsSaveData"].Value).Skip(1))
             {
                 var lvl_name = level["LevelName"].Value;
                 sb.AppendFormat("insert or ignore into {1}Levels (Name) values (\"{0}\");\n", lvl_name, table);
@@ -304,7 +353,7 @@ namespace lis2_save_editor
 
                 //POIs
                 List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
-                if(poi_list.Count > 1)
+                if (poi_list.Count > 1)
                 {
                     sb.AppendFormat("insert or ignore into {0}POIs (Name, LevelName) values\n", table);
                     foreach (var poi in poi_list.Skip(1))
@@ -329,7 +378,7 @@ namespace lis2_save_editor
                 //LevelChanges
                 Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
 
-                if (saveVersion == SaveVersion.LIS_E1)
+                if (saveVersion >= SaveVersion.LIS_E1)
                 {
                     foreach (var seq in ((List<dynamic>)lvl_changes["StoppedLevelSequences"].Value).Skip(1))
                     {
@@ -340,15 +389,15 @@ namespace lis2_save_editor
                         sb.AppendFormat("UPDATE {0}LevelSequences SET DebugRequesterName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, dbg_name, seq_name, lvl_name);
                     }
                     //no values so far
-                    foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
-                    {
-                        throw new Exception();
-                    }
+                    //foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
+                    //{
+                    //    throw new Exception();
+                    //}
 
-                    foreach (var act in lvl_changes["ChangedActors"].Value)
-                    {
-                        throw new Exception();
-                    }
+                    //foreach (var act in lvl_changes["ChangedActors"].Value)
+                    //{
+                    //    throw new Exception();
+                    //}
                 }
                 else
                 {
@@ -359,33 +408,34 @@ namespace lis2_save_editor
                             "('{1}', '{2}');\n", table, seq_name, lvl_name);
                     }
                 }
-                    foreach (var seq in ((List<dynamic>)lvl_changes["PlayingLevelSequences"].Value).Skip(1))
+                foreach (var seq in ((List<dynamic>)lvl_changes["PlayingLevelSequences"].Value).Skip(1))
+                {
+                    string seq_name = seq["LevelSequenceActorName"].Value;
+                    string slot_name = seq["IGESlotName"].Value;
+                    //TEMP
+                    //string stored_slot = GameInfo.LIS2_Levels.Find(x => x.Name == lvl_name).LevelSequences.Find(y => y.ActorName == seq_name).SlotName;
+                    //if (stored_slot != slot_name) System.Windows.Forms.MessageBox.Show(slot_name + " != " + stored_slot);
+                    //END TEMP
+                    sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, SlotName) values" +
+                        "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, slot_name);
+                    sb.AppendFormat("UPDATE {0}LevelSequences SET SlotName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, slot_name, seq_name, lvl_name);
+                }
+
+                foreach (var t in new string[] { "Play", "Stop", "HasLooped", "Event" })
+                {
+                    foreach (var seq in ((List<dynamic>)lvl_changes[$"LevelSequenceOn{t}BindingsSaveData"].Value).Skip(1))
                     {
                         string seq_name = seq["LevelSequenceActorName"].Value;
-                        string slot_name = seq["IGESlotName"].Value;
-                        //TEMP
-                        //string stored_slot = GameInfo.LIS2_Levels.Find(x => x.Name == lvl_name).LevelSequences.Find(y => y.ActorName == seq_name).SlotName;
-                        //if (stored_slot != slot_name) System.Windows.Forms.MessageBox.Show(slot_name + " != " + stored_slot);
-                        //END TEMP
-                        sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, SlotName) values" +
-                            "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, slot_name);
-                        sb.AppendFormat("UPDATE {0}LevelSequences SET SlotName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, slot_name, seq_name, lvl_name);
+                        string func_name = seq["LevelScriptFunctionName"].Value;
+                        sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, On{4}FunctionName) values" +
+                            "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, func_name, t);
+                        sb.AppendFormat("UPDATE {0}LevelSequences SET On{4}FunctionName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, func_name, seq_name, lvl_name, t);
+                        sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                     }
-
-                    foreach (var t in new string[] { "Play", "Stop", "HasLooped", "Event" })
-                    {
-                        foreach (var seq in ((List<dynamic>)lvl_changes[$"LevelSequenceOn{t}BindingsSaveData"].Value).Skip(1))
-                        {
-                            string seq_name = seq["LevelSequenceActorName"].Value;
-                            string func_name = seq["LevelScriptFunctionName"].Value;
-                            sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, On{4}FunctionName) values" +
-                                "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, func_name, t);
-                            sb.AppendFormat("UPDATE {0}LevelSequences SET On{4}FunctionName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, func_name, seq_name, lvl_name, t);
-                        }
-                    }
+                }
             }
 
-            if (saveVersion == SaveVersion.LIS_E1)
+            if (saveVersion >= SaveVersion.LIS_E1)
             {
                 for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
@@ -465,18 +515,19 @@ namespace lis2_save_editor
                                 sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName, On{4}FunctionName) values" +
                                     "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, func_name, t);
                                 sb.AppendFormat("UPDATE {0}LevelSequences SET On{4}FunctionName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, func_name, seq_name, lvl_name, t);
+                                sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                             }
                         }
 
-                        foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
-                        {
-                            throw new Exception();
-                        }
+                        //foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
+                        //{
+                        //    throw new Exception();
+                        //}
 
-                        foreach (var act in lvl_changes["ChangedActors"].Value)
-                        {
-                            throw new Exception();
-                        }
+                        //foreach (var act in lvl_changes["ChangedActors"].Value)
+                        //{
+                        //    throw new Exception();
+                        //}
                     }
                 }
             }
@@ -487,7 +538,7 @@ namespace lis2_save_editor
         public string GenerateCinematicSQL()
         {
             StringBuilder sb = new StringBuilder();
-            string table = saveVersion == SaveVersion.LIS_E1 ? "LIS2" : "CS";
+            string table = saveVersion >= SaveVersion.LIS_E1 ? "LIS2" : "CS";
 
             if (saveVersion == SaveVersion.CaptainSpirit)
             {
@@ -521,6 +572,55 @@ namespace lis2_save_editor
                         }
                     }
                 }
+            }
+
+            return sb.ToString();
+        }
+
+        public string GenerateSeenPicsSQL()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            List<dynamic> root = Data["CurrentSubContextSaveData"].Value["ShowPicturesSaveData"].Value["AllShowPictureIDSeen"].Value;
+
+            if (saveVersion == SaveVersion.CaptainSpirit)
+            {
+                if (root.Count > 1)
+                {
+                    sb.AppendLine("insert or ignore into CSSeenPictures (Name, GUID) values");
+                }
+
+                foreach (var pic in root.Skip(1))
+                {
+                    sb.AppendFormat("('{0}', '{1}'),\n", pic["Name"].Value, pic["NameGuid"].Value["Guid"].ToString());
+                }
+            }
+            else
+            {
+                if (root.Count > 1)
+                {
+                    sb.AppendLine("insert or ignore into LIS2SeenPictures (Name, GUID) values");
+                }
+
+                foreach (var pic in root.Skip(1))
+                {
+                    sb.AppendFormat("('{0}', '{1}'),\n", pic["ShowPictureID"].Value["Name"].Value, pic["ShowPictureID"].Value["NameGuid"].Value["Guid"].ToString());
+                }
+
+                for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+                {
+                    root = Data["CheckpointHistory"].Value[i]["ShowPicturesSaveData"].Value["AllShowPictureIDSeen"].Value;
+
+                    foreach (var pic in root.Skip(1))
+                    {
+                        sb.AppendFormat("('{0}', '{1}'),\n", pic["ShowPictureID"].Value["Name"].Value, pic["ShowPictureID"].Value["NameGuid"].Value["Guid"].ToString());
+                    }
+                }
+            }
+
+            if (sb.Length > 4)
+            {
+                sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
             }
 
             return sb.ToString();
@@ -627,18 +727,20 @@ namespace lis2_save_editor
             SaveChangesSaved = true;
         }
 
-        public void EditInventoryItem(string invType, string name, int cpIndex, int colIndex, int val)
+        public void EditInventoryItem(string invType, string name, string owner, int cpIndex, int colIndex, int val)
         {
             List<dynamic> target;
+            string ownerPrefix = owner == "Player" ? "Player" : "AI";
+
             if (cpIndex == 0)
             {
-                target = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                               .Value["PlayerInventorySaveData"].Value[invType].Value;
+                target = Data["CurrentSubContextSaveData"].Value[$"{owner}SaveData"]
+                               .Value[$"{ownerPrefix}InventorySaveData"].Value[$"{invType}Items"].Value;
             }
             else
             {
-                target = Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
-                               .Value["PlayerInventorySaveData"].Value[invType].Value;
+                target = Data["CheckpointHistory"].Value[cpIndex][$"{owner}SaveData"]
+                               .Value[$"{ownerPrefix}InventorySaveData"].Value[$"{invType}Items"].Value;
             }
             
             int index = target.FindIndex(1, x => x["PickupID"].Value == name);
@@ -648,7 +750,7 @@ namespace lis2_save_editor
                 Dictionary<string, object> new_item = new Dictionary<string, object>();
                 new_item["PickupID"] = new NameProperty() { Name = "PickupID", Type = "NameProperty", Value = name };
                 new_item["Quantity"] = new IntProperty() { Name = "Quantity", Type = "IntProperty", Value = colIndex == 2 ? val: 0 };
-                if(saveVersion == SaveVersion.LIS_E1)
+                if(saveVersion >= SaveVersion.LIS_E1)
                 {
                     new_item["bIsNew"] = new BoolProperty() { Name = "bIsNew", Type = "BoolProperty", Value = colIndex == 3 ? Convert.ToBoolean(val) : false };
                 }
@@ -729,158 +831,6 @@ namespace lis2_save_editor
             }
         }
 
-        public void EditDrawing(string name, int cpIndex, int colIndex, object value)
-        {
-            List<dynamic> target = null;
-
-            if (cpIndex == 0)
-            {
-                target = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-            else
-            {
-                target = Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-
-            
-            int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == name);
-            List<dynamic> drawing = null;
-
-            if (colIndex == 1 && Convert.ToBoolean(value) == false)
-            {
-                target.RemoveAt(dr_index);
-                return;
-            }
-
-            if (dr_index == -1) //Add new DrawSequence
-            {
-                Guid guid = GameInfo.LIS2_DrawingNames[name];
-                Dictionary<string, dynamic> new_seq = new Dictionary<string, dynamic>();
-                new_seq["DrawSequenceID"] = new StructProperty()
-                {
-                    Name = "DrawSequenceID",
-                    Type = "StructProperty",
-                    ElementType = "DNERefName",
-                    Value = new Dictionary<string, dynamic>()
-                    {
-                        { "Name", new NameProperty()
-                            {
-                                Name = "Name",
-                                Type = "NameProperty",
-                                Value = name
-                            }
-                        },
-                        { "NameGuid", new StructProperty
-                            {
-                                Name = "NameGuid",
-                                Type = "StructProperty",
-                                ElementType = "Guid",
-                                Value = new Dictionary<string, dynamic>()
-                                {
-                                    { "Guid", guid }
-                                }
-                            }
-                        }
-                    }
-                };
-                new_seq["LandscapeItemSaveDatas"] = new ArrayProperty()
-                {
-                    Name = "LandscapeItemSaveDatas",
-                    Type = "ArrayProperty",
-                    ElementType = "StructProperty",
-                    Value = new List<dynamic>
-                    {
-                        new  Dictionary<string, object>()
-                        {
-                            { "struct_name", "LandscapeItemSaveDatas" },
-                            {"struct_type", "StructProperty" },
-                            {"struct_length", 0 },
-                            {"struct_eltype", "LIS2LandscapeItemSaveData" },
-                            {"struct_unkbytes", new byte[17] }
-                        }
-                    }
-                };
-                target.AddUnique(new_seq);
-                drawing = new_seq["LandscapeItemSaveDatas"].Value;
-            }
-            else
-            {
-                drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
-            }
-
-            switch (colIndex)
-            {
-                case 2:
-                case 4:
-                    {
-                        string land_id = $"Zone{colIndex / 2}_Reveal";
-                        dynamic part = null;
-                        for (int i = 1; i < drawing.Count; i++)
-                        {
-                            if (drawing[i]["LandscapeID"].Value == land_id)
-                            {
-                                part = drawing[i];
-                            }
-                        }
-                        if (part != null)
-                        {
-                            part["DrawingPercent"].Value = Convert.ToSingle(value);
-                        }
-                        else
-                        {
-                            part = new Dictionary<string, dynamic>()
-                            {
-                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value = land_id } },
-                                {"DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Type="FloatProperty", Value = Convert.ToSingle(value)} },
-                                {"DrawingPhase", new EnumProperty() {Name = "DrawingPhase", Type="EnumProperty", ElementType="ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::Rough" } }
-                            };
-                            drawing.Add(part);
-                        }
-                        break;
-                    }
-                case 3:
-                case 5:
-                    {
-                        string land_id = $"Zone{colIndex / 2}_Reveal";
-                        dynamic part = null;
-                        for (int i = 1; i < drawing.Count; i++)
-                        {
-                            if (drawing[i]["LandscapeID"].Value == land_id)
-                            {
-                                part = drawing[i];
-                            }
-                        }
-                        if (part != null)
-                        {
-                            if (value.ToString() == "(none)")
-                            {
-                                drawing.Remove(part);
-                                break;
-                            }
-                            part["DrawingPhase"].Value = "ELIS2PencilDrawingPhase::" + value.ToString();
-                        }
-                        else
-                        {
-                            if (value.ToString() == "(none)")
-                            {
-                                break;
-                            }
-
-                            part = new Dictionary<string, dynamic>()
-                            {
-                                { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value = land_id } },
-                                {"DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Type="FloatProperty", Value = 0} },
-                                {"DrawingPhase", new EnumProperty() {Name = "DrawingPhase", Type="EnumProperty", ElementType="ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::"+value.ToString() } }
-                            };
-                            drawing.Add(part);
-                        }
-                        break;
-                    }
-            }
-        }
-
         public void EditPackageProperty(string name, int cpIndex, string property, bool value)
         {
             List<dynamic> target;
@@ -913,7 +863,7 @@ namespace lis2_save_editor
             if (saveVersion == SaveVersion.CaptainSpirit)
             {
                 guid = GameInfo.CS_SeenPicturesNames[name];
-                int index = target.FindIndex(1, x => x["Name"].Value == name);
+                int index = target.FindIndex(1, x => x["NameGuid"].Value["Guid"] == guid);
 
                 if (index == -1) //Add new item 
                 {
@@ -939,7 +889,7 @@ namespace lis2_save_editor
             else
             {
                 guid = GameInfo.LIS2_SeenPicturesNames[name];
-                int index = target.FindIndex(1, x => x["ShowPictureID"].Value["Name"].Value == name);
+                int index = target.FindIndex(1, x => x["ShowPictureID"].Value["NameGuid"].Value["Guid"] == guid);
 
                 if (index == -1) //Add new item 
                 {

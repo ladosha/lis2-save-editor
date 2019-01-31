@@ -410,35 +410,56 @@ namespace lis2_save_editor
         private void EditFactValue(string factType, string name, int colIndex, object value)
         {
             List<dynamic> target = asset[factType].Value;
-            int index = target.FindIndex(1, x => x["FactNameForDebug"].Value == name);
+
+            var guid = new Guid();
+            switch (factType)
+            {
+                case "BoolFacts":
+                    {
+                        guid = asset_info.BoolFacts.First(x => x.Value == name).Key;
+                        break;
+                    }
+                case "IntFacts":
+                    {
+                        guid = asset_info.IntFacts.First(x => x.Value == name).Key;
+                        break;
+                    }
+                case "FloatFacts":
+                    {
+                        guid = asset_info.FloatFacts.First(x => x.Value == name).Key;
+                        break;
+                    }
+                case "EnumFacts":
+                    {
+                        guid = asset_info.EnumFacts.First(x => x.Value == name).Key;
+                        break;
+                    }
+            }
+
+            int index = target.FindIndex(1, x => x["FactGuid"].Value["Guid"] == guid);
 
             if (index == -1) //Add new item
             {
                 Dictionary<string, object> new_item = new Dictionary<string, object>();
-                var guid = new Guid();
                 switch(factType)
                 {
                     case "BoolFacts":
                         {
                             new_item["FactValue"] = new BoolProperty() { Name = "FactValue", Type = "BoolProperty", Value = colIndex == 1 ? false : Convert.ToBoolean(value) };
-                            guid = asset_info.BoolFacts.First(x => x.Value == name).Key;
                             break;
                         }
                     case "IntFacts":
                         {
                             new_item["FactValue"] = new IntProperty() { Name = "FactValue", Type = "IntProperty", Value = colIndex == 1 ? 0 : Convert.ToInt32(value) };
-                            guid = asset_info.IntFacts.First(x => x.Value == name).Key;
                             break;
                         }
                     case "FloatFacts":
                         {
                             new_item["FactValue"] = new FloatProperty() { Name = "FactValue", Type = "FloatProperty", Value = colIndex == 1 ? 0 : Convert.ToSingle(value) };
-                            guid = asset_info.FloatFacts.First(x => x.Value == name).Key;
                             break;
                         }
                     case "EnumFacts":
                         {
-                            guid = asset_info.EnumFacts.First(x => x.Value == name).Key;
                             new_item["FactValue"] = new ByteProperty()
                             {
                                 Name = "FactValue",
@@ -498,7 +519,7 @@ namespace lis2_save_editor
                         case "EnumFacts":
                             {
                                 target[index]["FactValue"].Value = Convert.ToByte(value);
-                                //((List<dynamic>)target[index]["History"].Value).AddUnique(Convert.ToByte(value));
+                                ((List<dynamic>)target[index]["History"].Value).AddUnique(Convert.ToByte(value));
                                 break;
                             }
                     }

@@ -37,6 +37,13 @@
             this.buttonAbout = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.groupBoxCSImport = new System.Windows.Forms.GroupBox();
+            this.panelCSLastPopup = new System.Windows.Forms.Panel();
+            this.dateTimePickerCSLastPopup = new System.Windows.Forms.DateTimePicker();
+            this.label46 = new System.Windows.Forms.Label();
+            this.panelCSSaveTime = new System.Windows.Forms.Panel();
+            this.dateTimePickerCSSaveTime = new System.Windows.Forms.DateTimePicker();
+            this.label45 = new System.Windows.Forms.Label();
             this.groupBoxMetaInv_TutoStatus = new System.Windows.Forms.GroupBox();
             this.checkBoxMetaInvTutoStatusCollectible = new System.Windows.Forms.CheckBox();
             this.checkBoxMetaInvTutoStatusMap = new System.Windows.Forms.CheckBox();
@@ -44,6 +51,9 @@
             this.checkBoxMetaInvTutoStatusPhone = new System.Windows.Forms.CheckBox();
             this.checkBoxMetaInvTutoStatusInventory = new System.Windows.Forms.CheckBox();
             this.groupBoxMetaInv_SeenSubContexts = new System.Windows.Forms.GroupBox();
+            this.checkBoxMetaInvSeenSubcontexts7 = new System.Windows.Forms.CheckBox();
+            this.checkBoxMetaInvSeenSubcontexts6 = new System.Windows.Forms.CheckBox();
+            this.checkBoxMetaInvSeenSubcontexts5 = new System.Windows.Forms.CheckBox();
             this.checkBoxMetaInvSeenSubcontexts4 = new System.Windows.Forms.CheckBox();
             this.checkBoxMetaInvSeenSubcontexts3 = new System.Windows.Forms.CheckBox();
             this.checkBoxMetaInvSeenSubcontexts2 = new System.Windows.Forms.CheckBox();
@@ -55,16 +65,13 @@
             this.checkBoxEpComplete2 = new System.Windows.Forms.CheckBox();
             this.checkBoxEpComplete1 = new System.Windows.Forms.CheckBox();
             this.groupBoxAICall = new System.Windows.Forms.GroupBox();
-            this.checkBoxAICall_Dog = new System.Windows.Forms.CheckBox();
-            this.checkBoxAICall_Cassidy = new System.Windows.Forms.CheckBox();
-            this.checkBoxAICall_Daniel = new System.Windows.Forms.CheckBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxAICallDelay = new System.Windows.Forms.TextBox();
             this.checkBoxAICallFocusFail = new System.Windows.Forms.CheckBox();
             this.checkBoxAICallGlobalEnable = new System.Windows.Forms.CheckBox();
             this.groupBoxDanielPos = new System.Windows.Forms.GroupBox();
+            this.checkBoxDanielTransformValid = new System.Windows.Forms.CheckBox();
             this.panelDanielAIPreset = new System.Windows.Forms.Panel();
             this.comboBoxDanielAIPreset = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -88,6 +95,8 @@
             this.textBoxDanielRotationY = new System.Windows.Forms.TextBox();
             this.textBoxDanielRotationX = new System.Windows.Forms.TextBox();
             this.groupBoxPlayerPos = new System.Windows.Forms.GroupBox();
+            this.checkBoxPlayerDistanceCuesPaused = new System.Windows.Forms.CheckBox();
+            this.checkBoxPlayerTransformValid = new System.Windows.Forms.CheckBox();
             this.panelPlayerDisplacementMode = new System.Windows.Forms.Panel();
             this.comboBoxPlayerDisplacementMode = new System.Windows.Forms.ComboBox();
             this.checkBoxVoicePaused = new System.Windows.Forms.CheckBox();
@@ -114,6 +123,9 @@
             this.textBoxSubContextPath = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxLISHeader = new System.Windows.Forms.GroupBox();
+            this.panelHeaderCheckpointName = new System.Windows.Forms.Panel();
+            this.comboBoxHeader_CheckpointName = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.panelSubContextName = new System.Windows.Forms.Panel();
             this.comboBoxHeader_SubContextName = new System.Windows.Forms.ComboBox();
             this.panelEpName = new System.Windows.Forms.Panel();
@@ -121,9 +133,9 @@
             this.panelEpNumber = new System.Windows.Forms.Panel();
             this.comboBoxHeader_EPNumber = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.checkBoxGameStarted = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBoxGameStarted = new System.Windows.Forms.CheckBox();
             this.textBoxSubContextID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxMapName = new System.Windows.Forms.TextBox();
@@ -131,18 +143,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPageInventory = new System.Windows.Forms.TabPage();
             this.tabControlInventory = new System.Windows.Forms.TabControl();
-            this.tabPageInv = new System.Windows.Forms.TabPage();
+            this.tabPagePlayerInv = new System.Windows.Forms.TabPage();
             this.dataGridViewInventory1 = new System.Windows.Forms.DataGridView();
-            this.tabPageBackpack = new System.Windows.Forms.TabPage();
+            this.tabPagePlayerBackpack = new System.Windows.Forms.TabPage();
             this.dataGridViewInventory2 = new System.Windows.Forms.DataGridView();
-            this.tabPagePockets = new System.Windows.Forms.TabPage();
+            this.tabPagePlayerPockets = new System.Windows.Forms.TabPage();
             this.dataGridViewInventory3 = new System.Windows.Forms.DataGridView();
+            this.tabPageDanielInv = new System.Windows.Forms.TabPage();
+            this.dataGridViewInventoryDaniel1 = new System.Windows.Forms.DataGridView();
+            this.tabPageDanielBackpack = new System.Windows.Forms.TabPage();
+            this.dataGridViewInventoryDaniel2 = new System.Windows.Forms.DataGridView();
+            this.tabPageDanielPockets = new System.Windows.Forms.TabPage();
+            this.dataGridViewInventoryDaniel3 = new System.Windows.Forms.DataGridView();
             this.tabPageSeenNotifs = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenNotifs = new System.Windows.Forms.DataGridView();
             this.tabPageSeenTutos = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenTutos = new System.Windows.Forms.DataGridView();
             this.tabPageDrawings = new System.Windows.Forms.TabPage();
-            this.dataGridViewDrawings = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanelDrawings = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageFacts = new System.Windows.Forms.TabPage();
             this.dataGridViewFacts = new System.Windows.Forms.DataGridView();
             this.tabPageWorld = new System.Windows.Forms.TabPage();
@@ -160,7 +178,29 @@
             this.tabPageMessages = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenMessages = new System.Windows.Forms.DataGridView();
             this.tabPageOutfits = new System.Windows.Forms.TabPage();
+            this.groupBoxOutfitsCharles = new System.Windows.Forms.GroupBox();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitCharles_BlushGeneral = new System.Windows.Forms.ComboBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitCharles_Main = new System.Windows.Forms.ComboBox();
+            this.label56 = new System.Windows.Forms.Label();
             this.groupBoxOutfitsDaniel = new System.Windows.Forms.GroupBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitDaniel_Head = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitDaniel_Tshirt = new System.Windows.Forms.ComboBox();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitDaniel_BlushGeneral = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitDaniel_Pants = new System.Windows.Forms.ComboBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitDaniel_Bag = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.comboBoxOutfitDaniel_HeadDirt = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -171,6 +211,21 @@
             this.comboBoxOutfitDaniel_Main = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.groupBoxOutfitsSean = new System.Windows.Forms.GroupBox();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitSean_Underpants = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitSean_Sweat = new System.Windows.Forms.ComboBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitSean_Pants = new System.Windows.Forms.ComboBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitSean_BlushGeneral = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.comboBoxOutfitSean_Bag = new System.Windows.Forms.ComboBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.comboBoxOutfitSean_Keychain = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -207,8 +262,16 @@
             this.comboBoxSelectCP = new System.Windows.Forms.ComboBox();
             this.buttonSaveSelector = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.groupBoxAICallEnable = new System.Windows.Forms.GroupBox();
+            this.checkBoxAICall_Chris = new System.Windows.Forms.CheckBox();
+            this.checkBoxAICall_Dog = new System.Windows.Forms.CheckBox();
+            this.checkBoxAICall_Cassidy = new System.Windows.Forms.CheckBox();
+            this.checkBoxAICall_Daniel = new System.Windows.Forms.CheckBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
+            this.groupBoxCSImport.SuspendLayout();
+            this.panelCSLastPopup.SuspendLayout();
+            this.panelCSSaveTime.SuspendLayout();
             this.groupBoxMetaInv_TutoStatus.SuspendLayout();
             this.groupBoxMetaInv_SeenSubContexts.SuspendLayout();
             this.groupBoxEpisodeCompletion.SuspendLayout();
@@ -222,23 +285,29 @@
             this.panelSaveTime.SuspendLayout();
             this.panelCPName.SuspendLayout();
             this.groupBoxLISHeader.SuspendLayout();
+            this.panelHeaderCheckpointName.SuspendLayout();
             this.panelSubContextName.SuspendLayout();
             this.panelEpName.SuspendLayout();
             this.panelEpNumber.SuspendLayout();
             this.tabPageInventory.SuspendLayout();
             this.tabControlInventory.SuspendLayout();
-            this.tabPageInv.SuspendLayout();
+            this.tabPagePlayerInv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory1)).BeginInit();
-            this.tabPageBackpack.SuspendLayout();
+            this.tabPagePlayerBackpack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory2)).BeginInit();
-            this.tabPagePockets.SuspendLayout();
+            this.tabPagePlayerPockets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory3)).BeginInit();
+            this.tabPageDanielInv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel1)).BeginInit();
+            this.tabPageDanielBackpack.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel2)).BeginInit();
+            this.tabPageDanielPockets.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel3)).BeginInit();
             this.tabPageSeenNotifs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenNotifs)).BeginInit();
             this.tabPageSeenTutos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenTutos)).BeginInit();
             this.tabPageDrawings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDrawings)).BeginInit();
             this.tabPageFacts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacts)).BeginInit();
             this.tabPageWorld.SuspendLayout();
@@ -255,11 +324,24 @@
             this.tabPageMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).BeginInit();
             this.tabPageOutfits.SuspendLayout();
+            this.groupBoxOutfitsCharles.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel30.SuspendLayout();
             this.groupBoxOutfitsDaniel.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.groupBoxOutfitsSean.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -272,6 +354,7 @@
             this.tabPageCinematics.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.groupBoxAICallEnable.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxSavePath
@@ -363,12 +446,13 @@
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(898, 515);
+            this.tabControlMain.Size = new System.Drawing.Size(898, 566);
             this.tabControlMain.TabIndex = 6;
             // 
             // tabPageGeneral
             // 
             this.tabPageGeneral.AutoScroll = true;
+            this.tabPageGeneral.Controls.Add(this.groupBoxCSImport);
             this.tabPageGeneral.Controls.Add(this.groupBoxMetaInv_TutoStatus);
             this.tabPageGeneral.Controls.Add(this.groupBoxMetaInv_SeenSubContexts);
             this.tabPageGeneral.Controls.Add(this.groupBoxEpisodeCompletion);
@@ -389,10 +473,81 @@
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(890, 487);
+            this.tabPageGeneral.Size = new System.Drawing.Size(890, 538);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxCSImport
+            // 
+            this.groupBoxCSImport.Controls.Add(this.panelCSLastPopup);
+            this.groupBoxCSImport.Controls.Add(this.label46);
+            this.groupBoxCSImport.Controls.Add(this.panelCSSaveTime);
+            this.groupBoxCSImport.Controls.Add(this.label45);
+            this.groupBoxCSImport.Location = new System.Drawing.Point(624, 6);
+            this.groupBoxCSImport.Name = "groupBoxCSImport";
+            this.groupBoxCSImport.Size = new System.Drawing.Size(224, 113);
+            this.groupBoxCSImport.TabIndex = 24;
+            this.groupBoxCSImport.TabStop = false;
+            this.groupBoxCSImport.Text = "Captain Spirit Import";
+            // 
+            // panelCSLastPopup
+            // 
+            this.panelCSLastPopup.Controls.Add(this.dateTimePickerCSLastPopup);
+            this.panelCSLastPopup.Location = new System.Drawing.Point(9, 78);
+            this.panelCSLastPopup.Margin = new System.Windows.Forms.Padding(0);
+            this.panelCSLastPopup.Name = "panelCSLastPopup";
+            this.panelCSLastPopup.Size = new System.Drawing.Size(204, 27);
+            this.panelCSLastPopup.TabIndex = 21;
+            // 
+            // dateTimePickerCSLastPopup
+            // 
+            this.dateTimePickerCSLastPopup.CustomFormat = "dd MMMM yyyy HH:mm";
+            this.dateTimePickerCSLastPopup.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerCSLastPopup.Location = new System.Drawing.Point(3, 3);
+            this.dateTimePickerCSLastPopup.Name = "dateTimePickerCSLastPopup";
+            this.dateTimePickerCSLastPopup.Size = new System.Drawing.Size(198, 20);
+            this.dateTimePickerCSLastPopup.TabIndex = 14;
+            this.dateTimePickerCSLastPopup.Tag = "LastAskedPopup_";
+            this.dateTimePickerCSLastPopup.ValueChanged += new System.EventHandler(this.dateTimePickerCSSaveTime_ValueChanged);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(4, 62);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(129, 13);
+            this.label46.TabIndex = 20;
+            this.label46.Text = "Last asked popup time (?)";
+            // 
+            // panelCSSaveTime
+            // 
+            this.panelCSSaveTime.Controls.Add(this.dateTimePickerCSSaveTime);
+            this.panelCSSaveTime.Location = new System.Drawing.Point(7, 30);
+            this.panelCSSaveTime.Margin = new System.Windows.Forms.Padding(0);
+            this.panelCSSaveTime.Name = "panelCSSaveTime";
+            this.panelCSSaveTime.Size = new System.Drawing.Size(206, 27);
+            this.panelCSSaveTime.TabIndex = 19;
+            // 
+            // dateTimePickerCSSaveTime
+            // 
+            this.dateTimePickerCSSaveTime.CustomFormat = "dd MMMM yyyy HH:mm";
+            this.dateTimePickerCSSaveTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerCSSaveTime.Location = new System.Drawing.Point(3, 3);
+            this.dateTimePickerCSSaveTime.Name = "dateTimePickerCSSaveTime";
+            this.dateTimePickerCSSaveTime.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerCSSaveTime.TabIndex = 14;
+            this.dateTimePickerCSSaveTime.Tag = "Imported";
+            this.dateTimePickerCSSaveTime.ValueChanged += new System.EventHandler(this.dateTimePickerCSSaveTime_ValueChanged);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(6, 16);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(54, 13);
+            this.label45.TabIndex = 18;
+            this.label45.Text = "Save time";
             // 
             // groupBoxMetaInv_TutoStatus
             // 
@@ -465,16 +620,55 @@
             // 
             // groupBoxMetaInv_SeenSubContexts
             // 
+            this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts7);
+            this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts6);
+            this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts5);
             this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts4);
             this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts3);
             this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts2);
             this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts1);
             this.groupBoxMetaInv_SeenSubContexts.Location = new System.Drawing.Point(624, 142);
             this.groupBoxMetaInv_SeenSubContexts.Name = "groupBoxMetaInv_SeenSubContexts";
-            this.groupBoxMetaInv_SeenSubContexts.Size = new System.Drawing.Size(146, 113);
+            this.groupBoxMetaInv_SeenSubContexts.Size = new System.Drawing.Size(224, 113);
             this.groupBoxMetaInv_SeenSubContexts.TabIndex = 22;
             this.groupBoxMetaInv_SeenSubContexts.TabStop = false;
             this.groupBoxMetaInv_SeenSubContexts.Text = "Seen subcontexts on map";
+            // 
+            // checkBoxMetaInvSeenSubcontexts7
+            // 
+            this.checkBoxMetaInvSeenSubcontexts7.AutoSize = true;
+            this.checkBoxMetaInvSeenSubcontexts7.Location = new System.Drawing.Point(107, 66);
+            this.checkBoxMetaInvSeenSubcontexts7.Name = "checkBoxMetaInvSeenSubcontexts7";
+            this.checkBoxMetaInvSeenSubcontexts7.Size = new System.Drawing.Size(104, 17);
+            this.checkBoxMetaInvSeenSubcontexts7.TabIndex = 6;
+            this.checkBoxMetaInvSeenSubcontexts7.Tag = "E2_5A";
+            this.checkBoxMetaInvSeenSubcontexts7.Text = "Reynolds\' house";
+            this.checkBoxMetaInvSeenSubcontexts7.UseVisualStyleBackColor = true;
+            this.checkBoxMetaInvSeenSubcontexts7.CheckedChanged += new System.EventHandler(this.checkBoxMetaInvSeenSubcontexts_CheckedChanged);
+            // 
+            // checkBoxMetaInvSeenSubcontexts6
+            // 
+            this.checkBoxMetaInvSeenSubcontexts6.AutoSize = true;
+            this.checkBoxMetaInvSeenSubcontexts6.Location = new System.Drawing.Point(107, 43);
+            this.checkBoxMetaInvSeenSubcontexts6.Name = "checkBoxMetaInvSeenSubcontexts6";
+            this.checkBoxMetaInvSeenSubcontexts6.Size = new System.Drawing.Size(106, 17);
+            this.checkBoxMetaInvSeenSubcontexts6.TabIndex = 5;
+            this.checkBoxMetaInvSeenSubcontexts6.Tag = "E2_7A";
+            this.checkBoxMetaInvSeenSubcontexts6.Text = "Christmas market";
+            this.checkBoxMetaInvSeenSubcontexts6.UseVisualStyleBackColor = true;
+            this.checkBoxMetaInvSeenSubcontexts6.CheckedChanged += new System.EventHandler(this.checkBoxMetaInvSeenSubcontexts_CheckedChanged);
+            // 
+            // checkBoxMetaInvSeenSubcontexts5
+            // 
+            this.checkBoxMetaInvSeenSubcontexts5.AutoSize = true;
+            this.checkBoxMetaInvSeenSubcontexts5.Location = new System.Drawing.Point(108, 20);
+            this.checkBoxMetaInvSeenSubcontexts5.Name = "checkBoxMetaInvSeenSubcontexts5";
+            this.checkBoxMetaInvSeenSubcontexts5.Size = new System.Drawing.Size(113, 17);
+            this.checkBoxMetaInvSeenSubcontexts5.TabIndex = 4;
+            this.checkBoxMetaInvSeenSubcontexts5.Tag = "E2_1A";
+            this.checkBoxMetaInvSeenSubcontexts5.Text = "Abandoned house";
+            this.checkBoxMetaInvSeenSubcontexts5.UseVisualStyleBackColor = true;
+            this.checkBoxMetaInvSeenSubcontexts5.CheckedChanged += new System.EventHandler(this.checkBoxMetaInvSeenSubcontexts_CheckedChanged);
             // 
             // checkBoxMetaInvSeenSubcontexts4
             // 
@@ -531,7 +725,7 @@
             this.groupBoxEpisodeCompletion.Controls.Add(this.checkBoxEpComplete3);
             this.groupBoxEpisodeCompletion.Controls.Add(this.checkBoxEpComplete2);
             this.groupBoxEpisodeCompletion.Controls.Add(this.checkBoxEpComplete1);
-            this.groupBoxEpisodeCompletion.Location = new System.Drawing.Point(418, 323);
+            this.groupBoxEpisodeCompletion.Location = new System.Drawing.Point(420, 345);
             this.groupBoxEpisodeCompletion.Name = "groupBoxEpisodeCompletion";
             this.groupBoxEpisodeCompletion.Size = new System.Drawing.Size(200, 133);
             this.groupBoxEpisodeCompletion.TabIndex = 21;
@@ -595,63 +789,18 @@
             // 
             // groupBoxAICall
             // 
-            this.groupBoxAICall.Controls.Add(this.checkBoxAICall_Dog);
-            this.groupBoxAICall.Controls.Add(this.checkBoxAICall_Cassidy);
-            this.groupBoxAICall.Controls.Add(this.checkBoxAICall_Daniel);
-            this.groupBoxAICall.Controls.Add(this.label23);
+            this.groupBoxAICall.Controls.Add(this.textBoxAICallDelay);
+            this.groupBoxAICall.Controls.Add(this.groupBoxAICallEnable);
             this.groupBoxAICall.Controls.Add(this.label22);
             this.groupBoxAICall.Controls.Add(this.label21);
-            this.groupBoxAICall.Controls.Add(this.textBoxAICallDelay);
             this.groupBoxAICall.Controls.Add(this.checkBoxAICallFocusFail);
             this.groupBoxAICall.Controls.Add(this.checkBoxAICallGlobalEnable);
             this.groupBoxAICall.Location = new System.Drawing.Point(418, 142);
             this.groupBoxAICall.Name = "groupBoxAICall";
-            this.groupBoxAICall.Size = new System.Drawing.Size(200, 175);
+            this.groupBoxAICall.Size = new System.Drawing.Size(200, 196);
             this.groupBoxAICall.TabIndex = 20;
             this.groupBoxAICall.TabStop = false;
             this.groupBoxAICall.Text = "AI Calling";
-            // 
-            // checkBoxAICall_Dog
-            // 
-            this.checkBoxAICall_Dog.AutoSize = true;
-            this.checkBoxAICall_Dog.Location = new System.Drawing.Point(9, 152);
-            this.checkBoxAICall_Dog.Name = "checkBoxAICall_Dog";
-            this.checkBoxAICall_Dog.Size = new System.Drawing.Size(46, 17);
-            this.checkBoxAICall_Dog.TabIndex = 23;
-            this.checkBoxAICall_Dog.Text = "Dog";
-            this.checkBoxAICall_Dog.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Dog.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
-            // 
-            // checkBoxAICall_Cassidy
-            // 
-            this.checkBoxAICall_Cassidy.AutoSize = true;
-            this.checkBoxAICall_Cassidy.Location = new System.Drawing.Point(9, 129);
-            this.checkBoxAICall_Cassidy.Name = "checkBoxAICall_Cassidy";
-            this.checkBoxAICall_Cassidy.Size = new System.Drawing.Size(62, 17);
-            this.checkBoxAICall_Cassidy.TabIndex = 22;
-            this.checkBoxAICall_Cassidy.Text = "Cassidy";
-            this.checkBoxAICall_Cassidy.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Cassidy.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
-            // 
-            // checkBoxAICall_Daniel
-            // 
-            this.checkBoxAICall_Daniel.AutoSize = true;
-            this.checkBoxAICall_Daniel.Location = new System.Drawing.Point(9, 106);
-            this.checkBoxAICall_Daniel.Name = "checkBoxAICall_Daniel";
-            this.checkBoxAICall_Daniel.Size = new System.Drawing.Size(56, 17);
-            this.checkBoxAICall_Daniel.TabIndex = 21;
-            this.checkBoxAICall_Daniel.Text = "Daniel";
-            this.checkBoxAICall_Daniel.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Daniel.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 90);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(91, 13);
-            this.label23.TabIndex = 20;
-            this.label23.Text = "Enable calling for:";
             // 
             // label22
             // 
@@ -704,6 +853,7 @@
             // 
             // groupBoxDanielPos
             // 
+            this.groupBoxDanielPos.Controls.Add(this.checkBoxDanielTransformValid);
             this.groupBoxDanielPos.Controls.Add(this.panelDanielAIPreset);
             this.groupBoxDanielPos.Controls.Add(this.label20);
             this.groupBoxDanielPos.Controls.Add(this.panelDanielPOI);
@@ -723,12 +873,23 @@
             this.groupBoxDanielPos.Controls.Add(this.textBoxDanielRotationZ);
             this.groupBoxDanielPos.Controls.Add(this.textBoxDanielRotationY);
             this.groupBoxDanielPos.Controls.Add(this.textBoxDanielRotationX);
-            this.groupBoxDanielPos.Location = new System.Drawing.Point(4, 292);
+            this.groupBoxDanielPos.Location = new System.Drawing.Point(6, 303);
             this.groupBoxDanielPos.Name = "groupBoxDanielPos";
             this.groupBoxDanielPos.Size = new System.Drawing.Size(408, 186);
             this.groupBoxDanielPos.TabIndex = 19;
             this.groupBoxDanielPos.TabStop = false;
             this.groupBoxDanielPos.Text = "Daniel";
+            // 
+            // checkBoxDanielTransformValid
+            // 
+            this.checkBoxDanielTransformValid.AutoSize = true;
+            this.checkBoxDanielTransformValid.Location = new System.Drawing.Point(261, 100);
+            this.checkBoxDanielTransformValid.Name = "checkBoxDanielTransformValid";
+            this.checkBoxDanielTransformValid.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxDanielTransformValid.TabIndex = 39;
+            this.checkBoxDanielTransformValid.Text = "Coordinates are valid";
+            this.checkBoxDanielTransformValid.UseVisualStyleBackColor = true;
+            this.checkBoxDanielTransformValid.CheckedChanged += new System.EventHandler(this.checkBoxDanielTransformValid_CheckedChanged);
             // 
             // panelDanielAIPreset
             // 
@@ -951,6 +1112,8 @@
             // 
             // groupBoxPlayerPos
             // 
+            this.groupBoxPlayerPos.Controls.Add(this.checkBoxPlayerDistanceCuesPaused);
+            this.groupBoxPlayerPos.Controls.Add(this.checkBoxPlayerTransformValid);
             this.groupBoxPlayerPos.Controls.Add(this.panelPlayerDisplacementMode);
             this.groupBoxPlayerPos.Controls.Add(this.checkBoxVoicePaused);
             this.groupBoxPlayerPos.Controls.Add(this.checkBoxLockedDiary);
@@ -968,12 +1131,34 @@
             this.groupBoxPlayerPos.Controls.Add(this.textBoxPlayerRotationZ);
             this.groupBoxPlayerPos.Controls.Add(this.textBoxPlayerRotationY);
             this.groupBoxPlayerPos.Controls.Add(this.textBoxPlayerRotationX);
-            this.groupBoxPlayerPos.Location = new System.Drawing.Point(3, 142);
+            this.groupBoxPlayerPos.Location = new System.Drawing.Point(5, 156);
             this.groupBoxPlayerPos.Name = "groupBoxPlayerPos";
             this.groupBoxPlayerPos.Size = new System.Drawing.Size(409, 144);
             this.groupBoxPlayerPos.TabIndex = 18;
             this.groupBoxPlayerPos.TabStop = false;
             this.groupBoxPlayerPos.Text = "Player";
+            // 
+            // checkBoxPlayerDistanceCuesPaused
+            // 
+            this.checkBoxPlayerDistanceCuesPaused.AutoSize = true;
+            this.checkBoxPlayerDistanceCuesPaused.Location = new System.Drawing.Point(239, 124);
+            this.checkBoxPlayerDistanceCuesPaused.Name = "checkBoxPlayerDistanceCuesPaused";
+            this.checkBoxPlayerDistanceCuesPaused.Size = new System.Drawing.Size(132, 17);
+            this.checkBoxPlayerDistanceCuesPaused.TabIndex = 21;
+            this.checkBoxPlayerDistanceCuesPaused.Text = "Distance cues paused";
+            this.checkBoxPlayerDistanceCuesPaused.UseVisualStyleBackColor = true;
+            this.checkBoxPlayerDistanceCuesPaused.CheckedChanged += new System.EventHandler(this.checkBoxPlayerDistanceCuesPaused_CheckedChanged);
+            // 
+            // checkBoxPlayerTransformValid
+            // 
+            this.checkBoxPlayerTransformValid.AutoSize = true;
+            this.checkBoxPlayerTransformValid.Location = new System.Drawing.Point(262, 98);
+            this.checkBoxPlayerTransformValid.Name = "checkBoxPlayerTransformValid";
+            this.checkBoxPlayerTransformValid.Size = new System.Drawing.Size(125, 17);
+            this.checkBoxPlayerTransformValid.TabIndex = 20;
+            this.checkBoxPlayerTransformValid.Text = "Coordinates are valid";
+            this.checkBoxPlayerTransformValid.UseVisualStyleBackColor = true;
+            this.checkBoxPlayerTransformValid.CheckedChanged += new System.EventHandler(this.checkBoxPlayerTransformValid_CheckedChanged);
             // 
             // panelPlayerDisplacementMode
             // 
@@ -1217,24 +1402,54 @@
             // groupBoxLISHeader
             // 
             this.groupBoxLISHeader.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxLISHeader.Controls.Add(this.panelHeaderCheckpointName);
+            this.groupBoxLISHeader.Controls.Add(this.label37);
             this.groupBoxLISHeader.Controls.Add(this.panelSubContextName);
             this.groupBoxLISHeader.Controls.Add(this.panelEpName);
             this.groupBoxLISHeader.Controls.Add(this.panelEpNumber);
             this.groupBoxLISHeader.Controls.Add(this.label10);
+            this.groupBoxLISHeader.Controls.Add(this.checkBoxGameStarted);
             this.groupBoxLISHeader.Controls.Add(this.label6);
             this.groupBoxLISHeader.Controls.Add(this.label2);
-            this.groupBoxLISHeader.Controls.Add(this.checkBoxGameStarted);
             this.groupBoxLISHeader.Location = new System.Drawing.Point(6, 6);
             this.groupBoxLISHeader.Name = "groupBoxLISHeader";
-            this.groupBoxLISHeader.Size = new System.Drawing.Size(260, 122);
+            this.groupBoxLISHeader.Size = new System.Drawing.Size(260, 149);
             this.groupBoxLISHeader.TabIndex = 10;
             this.groupBoxLISHeader.TabStop = false;
             this.groupBoxLISHeader.Text = "Header";
             // 
+            // panelHeaderCheckpointName
+            // 
+            this.panelHeaderCheckpointName.Controls.Add(this.comboBoxHeader_CheckpointName);
+            this.panelHeaderCheckpointName.Location = new System.Drawing.Point(104, 94);
+            this.panelHeaderCheckpointName.Name = "panelHeaderCheckpointName";
+            this.panelHeaderCheckpointName.Size = new System.Drawing.Size(151, 27);
+            this.panelHeaderCheckpointName.TabIndex = 29;
+            // 
+            // comboBoxHeader_CheckpointName
+            // 
+            this.comboBoxHeader_CheckpointName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHeader_CheckpointName.DropDownWidth = 250;
+            this.comboBoxHeader_CheckpointName.FormattingEnabled = true;
+            this.comboBoxHeader_CheckpointName.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxHeader_CheckpointName.Name = "comboBoxHeader_CheckpointName";
+            this.comboBoxHeader_CheckpointName.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxHeader_CheckpointName.TabIndex = 14;
+            this.comboBoxHeader_CheckpointName.SelectedValueChanged += new System.EventHandler(this.comboBoxHeader_CheckpointName_SelectedValueChanged);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(6, 100);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(92, 13);
+            this.label37.TabIndex = 28;
+            this.label37.Text = "Checkpoint Name";
+            // 
             // panelSubContextName
             // 
             this.panelSubContextName.Controls.Add(this.comboBoxHeader_SubContextName);
-            this.panelSubContextName.Location = new System.Drawing.Point(105, 66);
+            this.panelSubContextName.Location = new System.Drawing.Point(104, 66);
             this.panelSubContextName.Name = "panelSubContextName";
             this.panelSubContextName.Size = new System.Drawing.Size(151, 27);
             this.panelSubContextName.TabIndex = 25;
@@ -1295,16 +1510,27 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 44);
+            this.label10.Location = new System.Drawing.Point(13, 44);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 13;
             this.label10.Text = "Epsiode Number";
             // 
+            // checkBoxGameStarted
+            // 
+            this.checkBoxGameStarted.AutoSize = true;
+            this.checkBoxGameStarted.Location = new System.Drawing.Point(104, 127);
+            this.checkBoxGameStarted.Name = "checkBoxGameStarted";
+            this.checkBoxGameStarted.Size = new System.Drawing.Size(89, 17);
+            this.checkBoxGameStarted.TabIndex = 7;
+            this.checkBoxGameStarted.Text = "Game started";
+            this.checkBoxGameStarted.UseVisualStyleBackColor = true;
+            this.checkBoxGameStarted.CheckedChanged += new System.EventHandler(this.checkBoxGameStarted_CheckedChanged);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 72);
+            this.label6.Location = new System.Drawing.Point(5, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 13);
             this.label6.TabIndex = 12;
@@ -1318,17 +1544,6 @@
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 11;
             this.label2.Text = "Episode Name";
-            // 
-            // checkBoxGameStarted
-            // 
-            this.checkBoxGameStarted.AutoSize = true;
-            this.checkBoxGameStarted.Location = new System.Drawing.Point(108, 99);
-            this.checkBoxGameStarted.Name = "checkBoxGameStarted";
-            this.checkBoxGameStarted.Size = new System.Drawing.Size(89, 17);
-            this.checkBoxGameStarted.TabIndex = 7;
-            this.checkBoxGameStarted.Text = "Game started";
-            this.checkBoxGameStarted.UseVisualStyleBackColor = true;
-            this.checkBoxGameStarted.CheckedChanged += new System.EventHandler(this.checkBoxGameStarted_CheckedChanged);
             // 
             // textBoxSubContextID
             // 
@@ -1380,35 +1595,38 @@
             this.tabPageInventory.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageInventory.Name = "tabPageInventory";
             this.tabPageInventory.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.tabPageInventory.Size = new System.Drawing.Size(890, 487);
+            this.tabPageInventory.Size = new System.Drawing.Size(890, 538);
             this.tabPageInventory.TabIndex = 1;
             this.tabPageInventory.Text = "Inventory";
             this.tabPageInventory.UseVisualStyleBackColor = true;
             // 
             // tabControlInventory
             // 
-            this.tabControlInventory.Controls.Add(this.tabPageInv);
-            this.tabControlInventory.Controls.Add(this.tabPageBackpack);
-            this.tabControlInventory.Controls.Add(this.tabPagePockets);
+            this.tabControlInventory.Controls.Add(this.tabPagePlayerInv);
+            this.tabControlInventory.Controls.Add(this.tabPagePlayerBackpack);
+            this.tabControlInventory.Controls.Add(this.tabPagePlayerPockets);
+            this.tabControlInventory.Controls.Add(this.tabPageDanielInv);
+            this.tabControlInventory.Controls.Add(this.tabPageDanielBackpack);
+            this.tabControlInventory.Controls.Add(this.tabPageDanielPockets);
             this.tabControlInventory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlInventory.Location = new System.Drawing.Point(0, 3);
             this.tabControlInventory.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlInventory.Name = "tabControlInventory";
             this.tabControlInventory.SelectedIndex = 0;
-            this.tabControlInventory.Size = new System.Drawing.Size(890, 484);
+            this.tabControlInventory.Size = new System.Drawing.Size(890, 535);
             this.tabControlInventory.TabIndex = 1;
             this.tabControlInventory.Tag = "";
             // 
-            // tabPageInv
+            // tabPagePlayerInv
             // 
-            this.tabPageInv.Controls.Add(this.dataGridViewInventory1);
-            this.tabPageInv.Location = new System.Drawing.Point(4, 22);
-            this.tabPageInv.Name = "tabPageInv";
-            this.tabPageInv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInv.Size = new System.Drawing.Size(882, 458);
-            this.tabPageInv.TabIndex = 0;
-            this.tabPageInv.Text = "Inventory";
-            this.tabPageInv.UseVisualStyleBackColor = true;
+            this.tabPagePlayerInv.Controls.Add(this.dataGridViewInventory1);
+            this.tabPagePlayerInv.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePlayerInv.Name = "tabPagePlayerInv";
+            this.tabPagePlayerInv.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePlayerInv.Size = new System.Drawing.Size(882, 509);
+            this.tabPagePlayerInv.TabIndex = 0;
+            this.tabPagePlayerInv.Text = "Inventory [Player]";
+            this.tabPagePlayerInv.UseVisualStyleBackColor = true;
             // 
             // dataGridViewInventory1
             // 
@@ -1420,21 +1638,22 @@
             this.dataGridViewInventory1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory1.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory1.Name = "dataGridViewInventory1";
-            this.dataGridViewInventory1.Size = new System.Drawing.Size(876, 452);
+            this.dataGridViewInventory1.Size = new System.Drawing.Size(876, 503);
             this.dataGridViewInventory1.TabIndex = 1;
+            this.dataGridViewInventory1.Tag = "Inventory::Player";
             this.dataGridViewInventory1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewInventory1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
             // 
-            // tabPageBackpack
+            // tabPagePlayerBackpack
             // 
-            this.tabPageBackpack.Controls.Add(this.dataGridViewInventory2);
-            this.tabPageBackpack.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBackpack.Name = "tabPageBackpack";
-            this.tabPageBackpack.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBackpack.Size = new System.Drawing.Size(882, 458);
-            this.tabPageBackpack.TabIndex = 1;
-            this.tabPageBackpack.Text = "Backpack";
-            this.tabPageBackpack.UseVisualStyleBackColor = true;
+            this.tabPagePlayerBackpack.Controls.Add(this.dataGridViewInventory2);
+            this.tabPagePlayerBackpack.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePlayerBackpack.Name = "tabPagePlayerBackpack";
+            this.tabPagePlayerBackpack.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePlayerBackpack.Size = new System.Drawing.Size(882, 509);
+            this.tabPagePlayerBackpack.TabIndex = 1;
+            this.tabPagePlayerBackpack.Text = "Backpack [Player]";
+            this.tabPagePlayerBackpack.UseVisualStyleBackColor = true;
             // 
             // dataGridViewInventory2
             // 
@@ -1446,21 +1665,22 @@
             this.dataGridViewInventory2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory2.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory2.Name = "dataGridViewInventory2";
-            this.dataGridViewInventory2.Size = new System.Drawing.Size(876, 452);
+            this.dataGridViewInventory2.Size = new System.Drawing.Size(876, 503);
             this.dataGridViewInventory2.TabIndex = 1;
+            this.dataGridViewInventory2.Tag = "BackPack::Player";
             this.dataGridViewInventory2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewInventory2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
             // 
-            // tabPagePockets
+            // tabPagePlayerPockets
             // 
-            this.tabPagePockets.Controls.Add(this.dataGridViewInventory3);
-            this.tabPagePockets.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePockets.Name = "tabPagePockets";
-            this.tabPagePockets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePockets.Size = new System.Drawing.Size(882, 458);
-            this.tabPagePockets.TabIndex = 2;
-            this.tabPagePockets.Text = "Pockets";
-            this.tabPagePockets.UseVisualStyleBackColor = true;
+            this.tabPagePlayerPockets.Controls.Add(this.dataGridViewInventory3);
+            this.tabPagePlayerPockets.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePlayerPockets.Name = "tabPagePlayerPockets";
+            this.tabPagePlayerPockets.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePlayerPockets.Size = new System.Drawing.Size(882, 509);
+            this.tabPagePlayerPockets.TabIndex = 2;
+            this.tabPagePlayerPockets.Text = "Pockets [Player]";
+            this.tabPagePlayerPockets.UseVisualStyleBackColor = true;
             // 
             // dataGridViewInventory3
             // 
@@ -1472,10 +1692,92 @@
             this.dataGridViewInventory3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory3.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory3.Name = "dataGridViewInventory3";
-            this.dataGridViewInventory3.Size = new System.Drawing.Size(876, 452);
+            this.dataGridViewInventory3.Size = new System.Drawing.Size(876, 503);
             this.dataGridViewInventory3.TabIndex = 1;
+            this.dataGridViewInventory3.Tag = "Pockets::Player";
             this.dataGridViewInventory3.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewInventory3.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
+            // 
+            // tabPageDanielInv
+            // 
+            this.tabPageDanielInv.Controls.Add(this.dataGridViewInventoryDaniel1);
+            this.tabPageDanielInv.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDanielInv.Name = "tabPageDanielInv";
+            this.tabPageDanielInv.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDanielInv.Size = new System.Drawing.Size(882, 509);
+            this.tabPageDanielInv.TabIndex = 3;
+            this.tabPageDanielInv.Text = "Inventory [Daniel]";
+            this.tabPageDanielInv.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewInventoryDaniel1
+            // 
+            this.dataGridViewInventoryDaniel1.AllowUserToAddRows = false;
+            this.dataGridViewInventoryDaniel1.AllowUserToDeleteRows = false;
+            this.dataGridViewInventoryDaniel1.AllowUserToResizeRows = false;
+            this.dataGridViewInventoryDaniel1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewInventoryDaniel1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInventoryDaniel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewInventoryDaniel1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewInventoryDaniel1.Name = "dataGridViewInventoryDaniel1";
+            this.dataGridViewInventoryDaniel1.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventoryDaniel1.TabIndex = 2;
+            this.dataGridViewInventoryDaniel1.Tag = "Inventory::BrotherAI";
+            this.dataGridViewInventoryDaniel1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewInventoryDaniel1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
+            // 
+            // tabPageDanielBackpack
+            // 
+            this.tabPageDanielBackpack.Controls.Add(this.dataGridViewInventoryDaniel2);
+            this.tabPageDanielBackpack.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDanielBackpack.Name = "tabPageDanielBackpack";
+            this.tabPageDanielBackpack.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDanielBackpack.Size = new System.Drawing.Size(882, 509);
+            this.tabPageDanielBackpack.TabIndex = 4;
+            this.tabPageDanielBackpack.Text = "Backpack [Daniel]";
+            this.tabPageDanielBackpack.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewInventoryDaniel2
+            // 
+            this.dataGridViewInventoryDaniel2.AllowUserToAddRows = false;
+            this.dataGridViewInventoryDaniel2.AllowUserToDeleteRows = false;
+            this.dataGridViewInventoryDaniel2.AllowUserToResizeRows = false;
+            this.dataGridViewInventoryDaniel2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewInventoryDaniel2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInventoryDaniel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewInventoryDaniel2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewInventoryDaniel2.Name = "dataGridViewInventoryDaniel2";
+            this.dataGridViewInventoryDaniel2.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventoryDaniel2.TabIndex = 3;
+            this.dataGridViewInventoryDaniel2.Tag = "BackPack::BrotherAI";
+            this.dataGridViewInventoryDaniel2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewInventoryDaniel2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
+            // 
+            // tabPageDanielPockets
+            // 
+            this.tabPageDanielPockets.Controls.Add(this.dataGridViewInventoryDaniel3);
+            this.tabPageDanielPockets.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDanielPockets.Name = "tabPageDanielPockets";
+            this.tabPageDanielPockets.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDanielPockets.Size = new System.Drawing.Size(882, 509);
+            this.tabPageDanielPockets.TabIndex = 5;
+            this.tabPageDanielPockets.Text = "Pockets [Daniel]";
+            this.tabPageDanielPockets.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewInventoryDaniel3
+            // 
+            this.dataGridViewInventoryDaniel3.AllowUserToAddRows = false;
+            this.dataGridViewInventoryDaniel3.AllowUserToDeleteRows = false;
+            this.dataGridViewInventoryDaniel3.AllowUserToResizeRows = false;
+            this.dataGridViewInventoryDaniel3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewInventoryDaniel3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInventoryDaniel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewInventoryDaniel3.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewInventoryDaniel3.Name = "dataGridViewInventoryDaniel3";
+            this.dataGridViewInventoryDaniel3.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventoryDaniel3.TabIndex = 3;
+            this.dataGridViewInventoryDaniel3.Tag = "Pockets::BrotherAI";
+            this.dataGridViewInventoryDaniel3.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewInventoryDaniel3.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
             // 
             // tabPageSeenNotifs
             // 
@@ -1483,7 +1785,7 @@
             this.tabPageSeenNotifs.Location = new System.Drawing.Point(4, 24);
             this.tabPageSeenNotifs.Name = "tabPageSeenNotifs";
             this.tabPageSeenNotifs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenNotifs.Size = new System.Drawing.Size(890, 487);
+            this.tabPageSeenNotifs.Size = new System.Drawing.Size(890, 538);
             this.tabPageSeenNotifs.TabIndex = 2;
             this.tabPageSeenNotifs.Text = "Seen notifications";
             this.tabPageSeenNotifs.UseVisualStyleBackColor = true;
@@ -1497,7 +1799,7 @@
             this.dataGridViewSeenNotifs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenNotifs.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenNotifs.Name = "dataGridViewSeenNotifs";
-            this.dataGridViewSeenNotifs.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewSeenNotifs.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewSeenNotifs.TabIndex = 1;
             this.dataGridViewSeenNotifs.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenNotifs.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenNotifs_CellEndEdit);
@@ -1508,7 +1810,7 @@
             this.tabPageSeenTutos.Location = new System.Drawing.Point(4, 24);
             this.tabPageSeenTutos.Name = "tabPageSeenTutos";
             this.tabPageSeenTutos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenTutos.Size = new System.Drawing.Size(890, 487);
+            this.tabPageSeenTutos.Size = new System.Drawing.Size(890, 538);
             this.tabPageSeenTutos.TabIndex = 5;
             this.tabPageSeenTutos.Text = "Seen tutorials";
             this.tabPageSeenTutos.UseVisualStyleBackColor = true;
@@ -1522,36 +1824,30 @@
             this.dataGridViewSeenTutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenTutos.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenTutos.Name = "dataGridViewSeenTutos";
-            this.dataGridViewSeenTutos.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewSeenTutos.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewSeenTutos.TabIndex = 1;
             this.dataGridViewSeenTutos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenTutos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenTutos_CellEndEdit);
             // 
             // tabPageDrawings
             // 
-            this.tabPageDrawings.Controls.Add(this.dataGridViewDrawings);
+            this.tabPageDrawings.Controls.Add(this.flowLayoutPanelDrawings);
             this.tabPageDrawings.Location = new System.Drawing.Point(4, 24);
             this.tabPageDrawings.Name = "tabPageDrawings";
             this.tabPageDrawings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDrawings.Size = new System.Drawing.Size(890, 487);
+            this.tabPageDrawings.Size = new System.Drawing.Size(890, 538);
             this.tabPageDrawings.TabIndex = 9;
             this.tabPageDrawings.Text = "Drawings";
             this.tabPageDrawings.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewDrawings
+            // flowLayoutPanelDrawings
             // 
-            this.dataGridViewDrawings.AllowUserToAddRows = false;
-            this.dataGridViewDrawings.AllowUserToDeleteRows = false;
-            this.dataGridViewDrawings.AllowUserToResizeRows = false;
-            this.dataGridViewDrawings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewDrawings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDrawings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDrawings.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewDrawings.Name = "dataGridViewDrawings";
-            this.dataGridViewDrawings.Size = new System.Drawing.Size(884, 481);
-            this.dataGridViewDrawings.TabIndex = 1;
-            this.dataGridViewDrawings.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
-            this.dataGridViewDrawings.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDrawings_CellEndEdit);
+            this.flowLayoutPanelDrawings.AutoScroll = true;
+            this.flowLayoutPanelDrawings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelDrawings.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelDrawings.Name = "flowLayoutPanelDrawings";
+            this.flowLayoutPanelDrawings.Size = new System.Drawing.Size(884, 532);
+            this.flowLayoutPanelDrawings.TabIndex = 0;
             // 
             // tabPageFacts
             // 
@@ -1559,7 +1855,7 @@
             this.tabPageFacts.Location = new System.Drawing.Point(4, 24);
             this.tabPageFacts.Name = "tabPageFacts";
             this.tabPageFacts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFacts.Size = new System.Drawing.Size(890, 487);
+            this.tabPageFacts.Size = new System.Drawing.Size(890, 538);
             this.tabPageFacts.TabIndex = 3;
             this.tabPageFacts.Text = "Facts";
             this.tabPageFacts.UseVisualStyleBackColor = true;
@@ -1573,7 +1869,7 @@
             this.dataGridViewFacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFacts.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewFacts.Name = "dataGridViewFacts";
-            this.dataGridViewFacts.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewFacts.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewFacts.TabIndex = 0;
             this.dataGridViewFacts.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewFacts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFacts_CellContentClick);
@@ -1585,7 +1881,7 @@
             this.tabPageWorld.Location = new System.Drawing.Point(4, 24);
             this.tabPageWorld.Name = "tabPageWorld";
             this.tabPageWorld.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWorld.Size = new System.Drawing.Size(890, 487);
+            this.tabPageWorld.Size = new System.Drawing.Size(890, 538);
             this.tabPageWorld.TabIndex = 4;
             this.tabPageWorld.Text = "Packages";
             this.tabPageWorld.UseVisualStyleBackColor = true;
@@ -1600,7 +1896,7 @@
             this.dataGridViewWorld.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewWorld.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewWorld.Name = "dataGridViewWorld";
-            this.dataGridViewWorld.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewWorld.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewWorld.TabIndex = 0;
             this.dataGridViewWorld.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewWorld.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorld_CellEndEdit);
@@ -1611,7 +1907,7 @@
             this.tabPageLevels.Location = new System.Drawing.Point(4, 24);
             this.tabPageLevels.Name = "tabPageLevels";
             this.tabPageLevels.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLevels.Size = new System.Drawing.Size(890, 487);
+            this.tabPageLevels.Size = new System.Drawing.Size(890, 538);
             this.tabPageLevels.TabIndex = 14;
             this.tabPageLevels.Text = "Levels";
             this.tabPageLevels.UseVisualStyleBackColor = true;
@@ -1625,7 +1921,7 @@
             this.dataGridViewLevels.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewLevels.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewLevels.Name = "dataGridViewLevels";
-            this.dataGridViewLevels.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewLevels.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewLevels.TabIndex = 1;
             this.dataGridViewLevels.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewLevels.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLevels_CellContentClick);
@@ -1637,7 +1933,7 @@
             this.tabPageMetrics.Location = new System.Drawing.Point(4, 24);
             this.tabPageMetrics.Name = "tabPageMetrics";
             this.tabPageMetrics.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMetrics.Size = new System.Drawing.Size(890, 487);
+            this.tabPageMetrics.Size = new System.Drawing.Size(890, 538);
             this.tabPageMetrics.TabIndex = 7;
             this.tabPageMetrics.Text = "Metrics";
             this.tabPageMetrics.UseVisualStyleBackColor = true;
@@ -1649,7 +1945,7 @@
             this.flowLayoutPanelMetrics.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelMetrics.Name = "flowLayoutPanelMetrics";
             this.flowLayoutPanelMetrics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(884, 481);
+            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(884, 532);
             this.flowLayoutPanelMetrics.TabIndex = 0;
             // 
             // tabPageSeenPics
@@ -1658,7 +1954,7 @@
             this.tabPageSeenPics.Location = new System.Drawing.Point(4, 24);
             this.tabPageSeenPics.Name = "tabPageSeenPics";
             this.tabPageSeenPics.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenPics.Size = new System.Drawing.Size(890, 487);
+            this.tabPageSeenPics.Size = new System.Drawing.Size(890, 538);
             this.tabPageSeenPics.TabIndex = 8;
             this.tabPageSeenPics.Text = "Seen pictures";
             this.tabPageSeenPics.UseVisualStyleBackColor = true;
@@ -1673,7 +1969,7 @@
             this.dataGridViewSeenPics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenPics.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenPics.Name = "dataGridViewSeenPics";
-            this.dataGridViewSeenPics.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewSeenPics.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewSeenPics.TabIndex = 1;
             this.dataGridViewSeenPics.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenPics.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenPics_CellEndEdit);
@@ -1684,7 +1980,7 @@
             this.tabPageCollectibles.Location = new System.Drawing.Point(4, 24);
             this.tabPageCollectibles.Name = "tabPageCollectibles";
             this.tabPageCollectibles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCollectibles.Size = new System.Drawing.Size(890, 487);
+            this.tabPageCollectibles.Size = new System.Drawing.Size(890, 538);
             this.tabPageCollectibles.TabIndex = 10;
             this.tabPageCollectibles.Text = "Collectibles";
             this.tabPageCollectibles.UseVisualStyleBackColor = true;
@@ -1699,7 +1995,7 @@
             this.dataGridViewCollectibles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCollectibles.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewCollectibles.Name = "dataGridViewCollectibles";
-            this.dataGridViewCollectibles.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewCollectibles.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewCollectibles.TabIndex = 2;
             this.dataGridViewCollectibles.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewCollectibles.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCollectibles_CellEndEdit);
@@ -1710,7 +2006,7 @@
             this.tabPageObjectives.Location = new System.Drawing.Point(4, 24);
             this.tabPageObjectives.Name = "tabPageObjectives";
             this.tabPageObjectives.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjectives.Size = new System.Drawing.Size(890, 487);
+            this.tabPageObjectives.Size = new System.Drawing.Size(890, 538);
             this.tabPageObjectives.TabIndex = 11;
             this.tabPageObjectives.Text = "Objectives";
             this.tabPageObjectives.UseVisualStyleBackColor = true;
@@ -1725,7 +2021,7 @@
             this.dataGridViewObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjectives.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewObjectives.Name = "dataGridViewObjectives";
-            this.dataGridViewObjectives.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewObjectives.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewObjectives.TabIndex = 3;
             this.dataGridViewObjectives.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewObjectives.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjectives_CellEndEdit);
@@ -1736,7 +2032,7 @@
             this.tabPageMessages.Location = new System.Drawing.Point(4, 24);
             this.tabPageMessages.Name = "tabPageMessages";
             this.tabPageMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMessages.Size = new System.Drawing.Size(890, 487);
+            this.tabPageMessages.Size = new System.Drawing.Size(890, 538);
             this.tabPageMessages.TabIndex = 12;
             this.tabPageMessages.Text = "Messages";
             this.tabPageMessages.UseVisualStyleBackColor = true;
@@ -1751,25 +2047,108 @@
             this.dataGridViewSeenMessages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenMessages.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenMessages.Name = "dataGridViewSeenMessages";
-            this.dataGridViewSeenMessages.Size = new System.Drawing.Size(884, 481);
+            this.dataGridViewSeenMessages.Size = new System.Drawing.Size(884, 532);
             this.dataGridViewSeenMessages.TabIndex = 3;
             this.dataGridViewSeenMessages.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenMessages.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenMessages_CellEndEdit);
             // 
             // tabPageOutfits
             // 
+            this.tabPageOutfits.Controls.Add(this.groupBoxOutfitsCharles);
             this.tabPageOutfits.Controls.Add(this.groupBoxOutfitsDaniel);
             this.tabPageOutfits.Controls.Add(this.groupBoxOutfitsSean);
             this.tabPageOutfits.Location = new System.Drawing.Point(4, 24);
             this.tabPageOutfits.Name = "tabPageOutfits";
             this.tabPageOutfits.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOutfits.Size = new System.Drawing.Size(890, 487);
+            this.tabPageOutfits.Size = new System.Drawing.Size(890, 538);
             this.tabPageOutfits.TabIndex = 13;
             this.tabPageOutfits.Text = "Outfits";
             this.tabPageOutfits.UseVisualStyleBackColor = true;
             // 
+            // groupBoxOutfitsCharles
+            // 
+            this.groupBoxOutfitsCharles.Controls.Add(this.panel25);
+            this.groupBoxOutfitsCharles.Controls.Add(this.label51);
+            this.groupBoxOutfitsCharles.Controls.Add(this.panel30);
+            this.groupBoxOutfitsCharles.Controls.Add(this.label56);
+            this.groupBoxOutfitsCharles.Location = new System.Drawing.Point(256, 258);
+            this.groupBoxOutfitsCharles.Name = "groupBoxOutfitsCharles";
+            this.groupBoxOutfitsCharles.Size = new System.Drawing.Size(244, 76);
+            this.groupBoxOutfitsCharles.TabIndex = 2;
+            this.groupBoxOutfitsCharles.TabStop = false;
+            this.groupBoxOutfitsCharles.Tag = "Charles";
+            this.groupBoxOutfitsCharles.Text = "Charles";
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.comboBoxOutfitCharles_BlushGeneral);
+            this.panel25.Location = new System.Drawing.Point(82, 43);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(151, 27);
+            this.panel25.TabIndex = 41;
+            // 
+            // comboBoxOutfitCharles_BlushGeneral
+            // 
+            this.comboBoxOutfitCharles_BlushGeneral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitCharles_BlushGeneral.DropDownWidth = 200;
+            this.comboBoxOutfitCharles_BlushGeneral.FormattingEnabled = true;
+            this.comboBoxOutfitCharles_BlushGeneral.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitCharles_BlushGeneral.Name = "comboBoxOutfitCharles_BlushGeneral";
+            this.comboBoxOutfitCharles_BlushGeneral.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitCharles_BlushGeneral.TabIndex = 16;
+            this.comboBoxOutfitCharles_BlushGeneral.Tag = "Charles::Blush_General";
+            this.comboBoxOutfitCharles_BlushGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(6, 49);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(76, 13);
+            this.label51.TabIndex = 40;
+            this.label51.Text = "Blush_General";
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.comboBoxOutfitCharles_Main);
+            this.panel30.Location = new System.Drawing.Point(82, 14);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(151, 27);
+            this.panel30.TabIndex = 33;
+            // 
+            // comboBoxOutfitCharles_Main
+            // 
+            this.comboBoxOutfitCharles_Main.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitCharles_Main.DropDownWidth = 200;
+            this.comboBoxOutfitCharles_Main.FormattingEnabled = true;
+            this.comboBoxOutfitCharles_Main.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitCharles_Main.Name = "comboBoxOutfitCharles_Main";
+            this.comboBoxOutfitCharles_Main.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitCharles_Main.TabIndex = 16;
+            this.comboBoxOutfitCharles_Main.Tag = "Charles::Main";
+            this.comboBoxOutfitCharles_Main.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(51, 20);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(30, 13);
+            this.label56.TabIndex = 32;
+            this.label56.Text = "Main";
+            // 
             // groupBoxOutfitsDaniel
             // 
+            this.groupBoxOutfitsDaniel.Controls.Add(this.panel17);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.label41);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.panel22);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.panel19);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.label48);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.label43);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.panel23);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.label49);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.panel20);
+            this.groupBoxOutfitsDaniel.Controls.Add(this.label44);
             this.groupBoxOutfitsDaniel.Controls.Add(this.panel9);
             this.groupBoxOutfitsDaniel.Controls.Add(this.label32);
             this.groupBoxOutfitsDaniel.Controls.Add(this.panel10);
@@ -1778,16 +2157,161 @@
             this.groupBoxOutfitsDaniel.Controls.Add(this.label34);
             this.groupBoxOutfitsDaniel.Location = new System.Drawing.Point(256, 6);
             this.groupBoxOutfitsDaniel.Name = "groupBoxOutfitsDaniel";
-            this.groupBoxOutfitsDaniel.Size = new System.Drawing.Size(226, 112);
+            this.groupBoxOutfitsDaniel.Size = new System.Drawing.Size(244, 253);
             this.groupBoxOutfitsDaniel.TabIndex = 1;
             this.groupBoxOutfitsDaniel.TabStop = false;
             this.groupBoxOutfitsDaniel.Tag = "Daniel";
             this.groupBoxOutfitsDaniel.Text = "Daniel";
             // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.comboBoxOutfitDaniel_Head);
+            this.panel17.Location = new System.Drawing.Point(82, 159);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(151, 27);
+            this.panel17.TabIndex = 43;
+            // 
+            // comboBoxOutfitDaniel_Head
+            // 
+            this.comboBoxOutfitDaniel_Head.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitDaniel_Head.DropDownWidth = 200;
+            this.comboBoxOutfitDaniel_Head.FormattingEnabled = true;
+            this.comboBoxOutfitDaniel_Head.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitDaniel_Head.Name = "comboBoxOutfitDaniel_Head";
+            this.comboBoxOutfitDaniel_Head.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitDaniel_Head.TabIndex = 16;
+            this.comboBoxOutfitDaniel_Head.Tag = "Daniel::Head";
+            this.comboBoxOutfitDaniel_Head.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(48, 165);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(33, 13);
+            this.label41.TabIndex = 42;
+            this.label41.Text = "Head";
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.comboBoxOutfitDaniel_Tshirt);
+            this.panel22.Location = new System.Drawing.Point(82, 217);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(151, 27);
+            this.panel22.TabIndex = 41;
+            // 
+            // comboBoxOutfitDaniel_Tshirt
+            // 
+            this.comboBoxOutfitDaniel_Tshirt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitDaniel_Tshirt.DropDownWidth = 200;
+            this.comboBoxOutfitDaniel_Tshirt.FormattingEnabled = true;
+            this.comboBoxOutfitDaniel_Tshirt.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitDaniel_Tshirt.Name = "comboBoxOutfitDaniel_Tshirt";
+            this.comboBoxOutfitDaniel_Tshirt.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitDaniel_Tshirt.TabIndex = 16;
+            this.comboBoxOutfitDaniel_Tshirt.Tag = "Daniel::Tshirt";
+            this.comboBoxOutfitDaniel_Tshirt.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.comboBoxOutfitDaniel_BlushGeneral);
+            this.panel19.Location = new System.Drawing.Point(82, 130);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(151, 27);
+            this.panel19.TabIndex = 41;
+            // 
+            // comboBoxOutfitDaniel_BlushGeneral
+            // 
+            this.comboBoxOutfitDaniel_BlushGeneral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitDaniel_BlushGeneral.DropDownWidth = 200;
+            this.comboBoxOutfitDaniel_BlushGeneral.FormattingEnabled = true;
+            this.comboBoxOutfitDaniel_BlushGeneral.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitDaniel_BlushGeneral.Name = "comboBoxOutfitDaniel_BlushGeneral";
+            this.comboBoxOutfitDaniel_BlushGeneral.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitDaniel_BlushGeneral.TabIndex = 16;
+            this.comboBoxOutfitDaniel_BlushGeneral.Tag = "Daniel::Blush_General";
+            this.comboBoxOutfitDaniel_BlushGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(48, 223);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(33, 13);
+            this.label48.TabIndex = 40;
+            this.label48.Text = "Tshirt";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(5, 136);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(76, 13);
+            this.label43.TabIndex = 40;
+            this.label43.Text = "Blush_General";
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.comboBoxOutfitDaniel_Pants);
+            this.panel23.Location = new System.Drawing.Point(82, 188);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(151, 27);
+            this.panel23.TabIndex = 39;
+            // 
+            // comboBoxOutfitDaniel_Pants
+            // 
+            this.comboBoxOutfitDaniel_Pants.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitDaniel_Pants.DropDownWidth = 200;
+            this.comboBoxOutfitDaniel_Pants.FormattingEnabled = true;
+            this.comboBoxOutfitDaniel_Pants.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitDaniel_Pants.Name = "comboBoxOutfitDaniel_Pants";
+            this.comboBoxOutfitDaniel_Pants.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitDaniel_Pants.TabIndex = 16;
+            this.comboBoxOutfitDaniel_Pants.Tag = "Daniel::Pants";
+            this.comboBoxOutfitDaniel_Pants.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(47, 194);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(34, 13);
+            this.label49.TabIndex = 38;
+            this.label49.Text = "Pants";
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.comboBoxOutfitDaniel_Bag);
+            this.panel20.Location = new System.Drawing.Point(82, 101);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(151, 27);
+            this.panel20.TabIndex = 39;
+            // 
+            // comboBoxOutfitDaniel_Bag
+            // 
+            this.comboBoxOutfitDaniel_Bag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitDaniel_Bag.DropDownWidth = 200;
+            this.comboBoxOutfitDaniel_Bag.FormattingEnabled = true;
+            this.comboBoxOutfitDaniel_Bag.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitDaniel_Bag.Name = "comboBoxOutfitDaniel_Bag";
+            this.comboBoxOutfitDaniel_Bag.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitDaniel_Bag.TabIndex = 16;
+            this.comboBoxOutfitDaniel_Bag.Tag = "Daniel::Bag";
+            this.comboBoxOutfitDaniel_Bag.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(55, 107);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(26, 13);
+            this.label44.TabIndex = 38;
+            this.label44.Text = "Bag";
+            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.comboBoxOutfitDaniel_HeadDirt);
-            this.panel9.Location = new System.Drawing.Point(69, 72);
+            this.panel9.Location = new System.Drawing.Point(82, 72);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(151, 27);
             this.panel9.TabIndex = 37;
@@ -1807,7 +2331,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(7, 79);
+            this.label32.Location = new System.Drawing.Point(26, 78);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(55, 13);
             this.label32.TabIndex = 36;
@@ -1816,7 +2340,7 @@
             // panel10
             // 
             this.panel10.Controls.Add(this.comboBoxOutfitDaniel_Mask);
-            this.panel10.Location = new System.Drawing.Point(69, 43);
+            this.panel10.Location = new System.Drawing.Point(82, 43);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(151, 27);
             this.panel10.TabIndex = 35;
@@ -1836,7 +2360,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(29, 50);
+            this.label33.Location = new System.Drawing.Point(48, 49);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(33, 13);
             this.label33.TabIndex = 34;
@@ -1845,7 +2369,7 @@
             // panel11
             // 
             this.panel11.Controls.Add(this.comboBoxOutfitDaniel_Main);
-            this.panel11.Location = new System.Drawing.Point(69, 14);
+            this.panel11.Location = new System.Drawing.Point(82, 14);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(151, 27);
             this.panel11.TabIndex = 33;
@@ -1865,7 +2389,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(32, 21);
+            this.label34.Location = new System.Drawing.Point(51, 20);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(30, 13);
             this.label34.TabIndex = 32;
@@ -1873,6 +2397,16 @@
             // 
             // groupBoxOutfitsSean
             // 
+            this.groupBoxOutfitsSean.Controls.Add(this.panel18);
+            this.groupBoxOutfitsSean.Controls.Add(this.label42);
+            this.groupBoxOutfitsSean.Controls.Add(this.panel15);
+            this.groupBoxOutfitsSean.Controls.Add(this.label39);
+            this.groupBoxOutfitsSean.Controls.Add(this.panel16);
+            this.groupBoxOutfitsSean.Controls.Add(this.label40);
+            this.groupBoxOutfitsSean.Controls.Add(this.panel13);
+            this.groupBoxOutfitsSean.Controls.Add(this.label36);
+            this.groupBoxOutfitsSean.Controls.Add(this.panel14);
+            this.groupBoxOutfitsSean.Controls.Add(this.label38);
             this.groupBoxOutfitsSean.Controls.Add(this.panel12);
             this.groupBoxOutfitsSean.Controls.Add(this.label35);
             this.groupBoxOutfitsSean.Controls.Add(this.panel5);
@@ -1893,16 +2427,156 @@
             this.groupBoxOutfitsSean.Controls.Add(this.label24);
             this.groupBoxOutfitsSean.Location = new System.Drawing.Point(6, 6);
             this.groupBoxOutfitsSean.Name = "groupBoxOutfitsSean";
-            this.groupBoxOutfitsSean.Size = new System.Drawing.Size(244, 281);
+            this.groupBoxOutfitsSean.Size = new System.Drawing.Size(244, 427);
             this.groupBoxOutfitsSean.TabIndex = 0;
             this.groupBoxOutfitsSean.TabStop = false;
             this.groupBoxOutfitsSean.Tag = "Sean";
             this.groupBoxOutfitsSean.Text = "Sean";
             // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.comboBoxOutfitSean_Underpants);
+            this.panel18.Location = new System.Drawing.Point(85, 217);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(151, 27);
+            this.panel18.TabIndex = 53;
+            // 
+            // comboBoxOutfitSean_Underpants
+            // 
+            this.comboBoxOutfitSean_Underpants.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitSean_Underpants.FormattingEnabled = true;
+            this.comboBoxOutfitSean_Underpants.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitSean_Underpants.Name = "comboBoxOutfitSean_Underpants";
+            this.comboBoxOutfitSean_Underpants.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitSean_Underpants.TabIndex = 16;
+            this.comboBoxOutfitSean_Underpants.Tag = "Sean::Underpants";
+            this.comboBoxOutfitSean_Underpants.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(20, 223);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(62, 13);
+            this.label42.TabIndex = 52;
+            this.label42.Text = "Underpants";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.comboBoxOutfitSean_Sweat);
+            this.panel15.Location = new System.Drawing.Point(85, 188);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(151, 27);
+            this.panel15.TabIndex = 51;
+            // 
+            // comboBoxOutfitSean_Sweat
+            // 
+            this.comboBoxOutfitSean_Sweat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitSean_Sweat.FormattingEnabled = true;
+            this.comboBoxOutfitSean_Sweat.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitSean_Sweat.Name = "comboBoxOutfitSean_Sweat";
+            this.comboBoxOutfitSean_Sweat.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitSean_Sweat.TabIndex = 16;
+            this.comboBoxOutfitSean_Sweat.Tag = "Sean::Sweat";
+            this.comboBoxOutfitSean_Sweat.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(45, 194);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(37, 13);
+            this.label39.TabIndex = 50;
+            this.label39.Text = "Sweat";
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.comboBoxOutfitSean_Pants);
+            this.panel16.Location = new System.Drawing.Point(85, 159);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(151, 27);
+            this.panel16.TabIndex = 49;
+            // 
+            // comboBoxOutfitSean_Pants
+            // 
+            this.comboBoxOutfitSean_Pants.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitSean_Pants.FormattingEnabled = true;
+            this.comboBoxOutfitSean_Pants.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitSean_Pants.Name = "comboBoxOutfitSean_Pants";
+            this.comboBoxOutfitSean_Pants.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitSean_Pants.TabIndex = 16;
+            this.comboBoxOutfitSean_Pants.Tag = "Sean::Pants";
+            this.comboBoxOutfitSean_Pants.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(48, 165);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(34, 13);
+            this.label40.TabIndex = 48;
+            this.label40.Text = "Pants";
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.comboBoxOutfitSean_BlushGeneral);
+            this.panel13.Location = new System.Drawing.Point(85, 130);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(151, 27);
+            this.panel13.TabIndex = 47;
+            // 
+            // comboBoxOutfitSean_BlushGeneral
+            // 
+            this.comboBoxOutfitSean_BlushGeneral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitSean_BlushGeneral.FormattingEnabled = true;
+            this.comboBoxOutfitSean_BlushGeneral.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitSean_BlushGeneral.Name = "comboBoxOutfitSean_BlushGeneral";
+            this.comboBoxOutfitSean_BlushGeneral.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitSean_BlushGeneral.TabIndex = 16;
+            this.comboBoxOutfitSean_BlushGeneral.Tag = "Sean::Blush_General";
+            this.comboBoxOutfitSean_BlushGeneral.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(6, 136);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(76, 13);
+            this.label36.TabIndex = 46;
+            this.label36.Text = "Blush_General";
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.comboBoxOutfitSean_Bag);
+            this.panel14.Location = new System.Drawing.Point(85, 101);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(151, 27);
+            this.panel14.TabIndex = 45;
+            // 
+            // comboBoxOutfitSean_Bag
+            // 
+            this.comboBoxOutfitSean_Bag.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOutfitSean_Bag.FormattingEnabled = true;
+            this.comboBoxOutfitSean_Bag.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxOutfitSean_Bag.Name = "comboBoxOutfitSean_Bag";
+            this.comboBoxOutfitSean_Bag.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxOutfitSean_Bag.TabIndex = 16;
+            this.comboBoxOutfitSean_Bag.Tag = "Sean::Bag";
+            this.comboBoxOutfitSean_Bag.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutfit_SelectedIndexChanged);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(56, 106);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(26, 13);
+            this.label38.TabIndex = 44;
+            this.label38.Text = "Bag";
+            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.comboBoxOutfitSean_Keychain);
-            this.panel12.Location = new System.Drawing.Point(85, 246);
+            this.panel12.Location = new System.Drawing.Point(85, 391);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(151, 27);
             this.panel12.TabIndex = 43;
@@ -1921,7 +2595,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(4, 253);
+            this.label35.Location = new System.Drawing.Point(9, 397);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(73, 13);
             this.label35.TabIndex = 42;
@@ -1930,7 +2604,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.comboBoxOutfitSean_Badge4);
-            this.panel5.Location = new System.Drawing.Point(85, 217);
+            this.panel5.Location = new System.Drawing.Point(85, 362);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(151, 27);
             this.panel5.TabIndex = 41;
@@ -1949,7 +2623,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(4, 224);
+            this.label28.Location = new System.Drawing.Point(9, 368);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(73, 13);
             this.label28.TabIndex = 40;
@@ -1958,7 +2632,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.comboBoxOutfitSean_Badge3);
-            this.panel6.Location = new System.Drawing.Point(85, 188);
+            this.panel6.Location = new System.Drawing.Point(85, 333);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(151, 27);
             this.panel6.TabIndex = 39;
@@ -1977,7 +2651,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(4, 195);
+            this.label29.Location = new System.Drawing.Point(9, 339);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(73, 13);
             this.label29.TabIndex = 38;
@@ -1986,7 +2660,7 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.comboBoxOutfitSean_Badge2);
-            this.panel7.Location = new System.Drawing.Point(85, 159);
+            this.panel7.Location = new System.Drawing.Point(85, 304);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(151, 27);
             this.panel7.TabIndex = 37;
@@ -2005,7 +2679,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(4, 166);
+            this.label30.Location = new System.Drawing.Point(9, 310);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(73, 13);
             this.label30.TabIndex = 36;
@@ -2014,7 +2688,7 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.comboBoxOutfitSean_Badge1);
-            this.panel8.Location = new System.Drawing.Point(85, 130);
+            this.panel8.Location = new System.Drawing.Point(85, 275);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(151, 27);
             this.panel8.TabIndex = 35;
@@ -2033,7 +2707,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(4, 137);
+            this.label31.Location = new System.Drawing.Point(9, 281);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(73, 13);
             this.label31.TabIndex = 34;
@@ -2042,7 +2716,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.comboBoxOutfitSean_DirtGeneral);
-            this.panel3.Location = new System.Drawing.Point(85, 101);
+            this.panel3.Location = new System.Drawing.Point(85, 246);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(151, 27);
             this.panel3.TabIndex = 33;
@@ -2061,7 +2735,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(11, 108);
+            this.label26.Location = new System.Drawing.Point(16, 252);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(66, 13);
             this.label26.TabIndex = 32;
@@ -2089,7 +2763,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(47, 79);
+            this.label27.Location = new System.Drawing.Point(52, 78);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(30, 13);
             this.label27.TabIndex = 30;
@@ -2117,7 +2791,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(44, 50);
+            this.label25.Location = new System.Drawing.Point(49, 49);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(33, 13);
             this.label25.TabIndex = 28;
@@ -2145,7 +2819,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(47, 21);
+            this.label24.Location = new System.Drawing.Point(52, 20);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(30, 13);
             this.label24.TabIndex = 26;
@@ -2156,7 +2830,7 @@
             this.tabPageCinematics.Controls.Add(this.flowLayoutPanelCinematics);
             this.tabPageCinematics.Location = new System.Drawing.Point(4, 24);
             this.tabPageCinematics.Name = "tabPageCinematics";
-            this.tabPageCinematics.Size = new System.Drawing.Size(890, 487);
+            this.tabPageCinematics.Size = new System.Drawing.Size(890, 538);
             this.tabPageCinematics.TabIndex = 15;
             this.tabPageCinematics.Text = "Cinematics";
             this.tabPageCinematics.UseVisualStyleBackColor = true;
@@ -2168,7 +2842,7 @@
             this.flowLayoutPanelCinematics.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelCinematics.Name = "flowLayoutPanelCinematics";
             this.flowLayoutPanelCinematics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelCinematics.Size = new System.Drawing.Size(890, 487);
+            this.flowLayoutPanelCinematics.Size = new System.Drawing.Size(890, 538);
             this.flowLayoutPanelCinematics.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -2194,7 +2868,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(904, 581);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(904, 632);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // label9
@@ -2267,11 +2941,72 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
+            // groupBoxAICallEnable
+            // 
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Chris);
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Dog);
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Cassidy);
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Daniel);
+            this.groupBoxAICallEnable.Location = new System.Drawing.Point(4, 80);
+            this.groupBoxAICallEnable.Name = "groupBoxAICallEnable";
+            this.groupBoxAICallEnable.Size = new System.Drawing.Size(116, 110);
+            this.groupBoxAICallEnable.TabIndex = 17;
+            this.groupBoxAICallEnable.TabStop = false;
+            this.groupBoxAICallEnable.Text = "Enable calling for:";
+            // 
+            // checkBoxAICall_Chris
+            // 
+            this.checkBoxAICall_Chris.AutoSize = true;
+            this.checkBoxAICall_Chris.Location = new System.Drawing.Point(6, 84);
+            this.checkBoxAICall_Chris.Name = "checkBoxAICall_Chris";
+            this.checkBoxAICall_Chris.Size = new System.Drawing.Size(49, 17);
+            this.checkBoxAICall_Chris.TabIndex = 32;
+            this.checkBoxAICall_Chris.Tag = "Chris";
+            this.checkBoxAICall_Chris.Text = "Chris";
+            this.checkBoxAICall_Chris.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Chris.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
+            // checkBoxAICall_Dog
+            // 
+            this.checkBoxAICall_Dog.AutoSize = true;
+            this.checkBoxAICall_Dog.Location = new System.Drawing.Point(6, 62);
+            this.checkBoxAICall_Dog.Name = "checkBoxAICall_Dog";
+            this.checkBoxAICall_Dog.Size = new System.Drawing.Size(46, 17);
+            this.checkBoxAICall_Dog.TabIndex = 31;
+            this.checkBoxAICall_Dog.Tag = "Dog";
+            this.checkBoxAICall_Dog.Text = "Dog";
+            this.checkBoxAICall_Dog.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Dog.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
+            // checkBoxAICall_Cassidy
+            // 
+            this.checkBoxAICall_Cassidy.AutoSize = true;
+            this.checkBoxAICall_Cassidy.Location = new System.Drawing.Point(6, 40);
+            this.checkBoxAICall_Cassidy.Name = "checkBoxAICall_Cassidy";
+            this.checkBoxAICall_Cassidy.Size = new System.Drawing.Size(62, 17);
+            this.checkBoxAICall_Cassidy.TabIndex = 30;
+            this.checkBoxAICall_Cassidy.Tag = "Cassidy";
+            this.checkBoxAICall_Cassidy.Text = "Cassidy";
+            this.checkBoxAICall_Cassidy.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Cassidy.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
+            // checkBoxAICall_Daniel
+            // 
+            this.checkBoxAICall_Daniel.AutoSize = true;
+            this.checkBoxAICall_Daniel.Location = new System.Drawing.Point(6, 18);
+            this.checkBoxAICall_Daniel.Name = "checkBoxAICall_Daniel";
+            this.checkBoxAICall_Daniel.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxAICall_Daniel.TabIndex = 29;
+            this.checkBoxAICall_Daniel.Tag = "Daniel";
+            this.checkBoxAICall_Daniel.Text = "Daniel";
+            this.checkBoxAICall_Daniel.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Daniel.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 581);
+            this.ClientSize = new System.Drawing.Size(904, 632);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2285,6 +3020,10 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
+            this.groupBoxCSImport.ResumeLayout(false);
+            this.groupBoxCSImport.PerformLayout();
+            this.panelCSLastPopup.ResumeLayout(false);
+            this.panelCSSaveTime.ResumeLayout(false);
             this.groupBoxMetaInv_TutoStatus.ResumeLayout(false);
             this.groupBoxMetaInv_TutoStatus.PerformLayout();
             this.groupBoxMetaInv_SeenSubContexts.ResumeLayout(false);
@@ -2305,23 +3044,29 @@
             this.panelCPName.ResumeLayout(false);
             this.groupBoxLISHeader.ResumeLayout(false);
             this.groupBoxLISHeader.PerformLayout();
+            this.panelHeaderCheckpointName.ResumeLayout(false);
             this.panelSubContextName.ResumeLayout(false);
             this.panelEpName.ResumeLayout(false);
             this.panelEpNumber.ResumeLayout(false);
             this.tabPageInventory.ResumeLayout(false);
             this.tabControlInventory.ResumeLayout(false);
-            this.tabPageInv.ResumeLayout(false);
+            this.tabPagePlayerInv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory1)).EndInit();
-            this.tabPageBackpack.ResumeLayout(false);
+            this.tabPagePlayerBackpack.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory2)).EndInit();
-            this.tabPagePockets.ResumeLayout(false);
+            this.tabPagePlayerPockets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory3)).EndInit();
+            this.tabPageDanielInv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel1)).EndInit();
+            this.tabPageDanielBackpack.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel2)).EndInit();
+            this.tabPageDanielPockets.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel3)).EndInit();
             this.tabPageSeenNotifs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenNotifs)).EndInit();
             this.tabPageSeenTutos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenTutos)).EndInit();
             this.tabPageDrawings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDrawings)).EndInit();
             this.tabPageFacts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacts)).EndInit();
             this.tabPageWorld.ResumeLayout(false);
@@ -2338,13 +3083,27 @@
             this.tabPageMessages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).EndInit();
             this.tabPageOutfits.ResumeLayout(false);
+            this.groupBoxOutfitsCharles.ResumeLayout(false);
+            this.groupBoxOutfitsCharles.PerformLayout();
+            this.panel25.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
             this.groupBoxOutfitsDaniel.ResumeLayout(false);
             this.groupBoxOutfitsDaniel.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.groupBoxOutfitsSean.ResumeLayout(false);
             this.groupBoxOutfitsSean.PerformLayout();
+            this.panel18.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -2359,6 +3118,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.groupBoxAICallEnable.ResumeLayout(false);
+            this.groupBoxAICallEnable.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2409,7 +3170,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPageDrawings;
-        private System.Windows.Forms.DataGridView dataGridViewDrawings;
         private System.Windows.Forms.ComboBox comboBoxHeader_EPName;
         private System.Windows.Forms.ComboBox comboBoxHeader_EPNumber;
         private System.Windows.Forms.ComboBox comboBoxHeader_SubContextName;
@@ -2467,10 +3227,6 @@
         private System.Windows.Forms.TextBox textBoxAICallDelay;
         private System.Windows.Forms.CheckBox checkBoxAICallFocusFail;
         private System.Windows.Forms.CheckBox checkBoxAICallGlobalEnable;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.CheckBox checkBoxAICall_Daniel;
-        private System.Windows.Forms.CheckBox checkBoxAICall_Dog;
-        private System.Windows.Forms.CheckBox checkBoxAICall_Cassidy;
         private System.Windows.Forms.GroupBox groupBoxEpisodeCompletion;
         private System.Windows.Forms.CheckBox checkBoxEpComplete5;
         private System.Windows.Forms.CheckBox checkBoxEpComplete4;
@@ -2531,11 +3287,11 @@
         private System.Windows.Forms.CheckBox checkBoxMetaInvSeenSubcontexts2;
         private System.Windows.Forms.CheckBox checkBoxMetaInvSeenSubcontexts1;
         private System.Windows.Forms.TabControl tabControlInventory;
-        private System.Windows.Forms.TabPage tabPageInv;
+        private System.Windows.Forms.TabPage tabPagePlayerInv;
         private System.Windows.Forms.DataGridView dataGridViewInventory1;
-        private System.Windows.Forms.TabPage tabPageBackpack;
+        private System.Windows.Forms.TabPage tabPagePlayerBackpack;
         private System.Windows.Forms.DataGridView dataGridViewInventory2;
-        private System.Windows.Forms.TabPage tabPagePockets;
+        private System.Windows.Forms.TabPage tabPagePlayerPockets;
         private System.Windows.Forms.DataGridView dataGridViewInventory3;
         private System.Windows.Forms.Button buttonSaveSelector;
         private System.Windows.Forms.TabPage tabPageLevels;
@@ -2543,6 +3299,71 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMetrics;
         private System.Windows.Forms.TabPage tabPageCinematics;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCinematics;
+        private System.Windows.Forms.Panel panelHeaderCheckpointName;
+        private System.Windows.Forms.ComboBox comboBoxHeader_CheckpointName;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.CheckBox checkBoxPlayerTransformValid;
+        private System.Windows.Forms.CheckBox checkBoxPlayerDistanceCuesPaused;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDrawings;
+        private System.Windows.Forms.CheckBox checkBoxDanielTransformValid;
+        private System.Windows.Forms.TabPage tabPageDanielInv;
+        private System.Windows.Forms.DataGridView dataGridViewInventoryDaniel1;
+        private System.Windows.Forms.TabPage tabPageDanielBackpack;
+        private System.Windows.Forms.DataGridView dataGridViewInventoryDaniel2;
+        private System.Windows.Forms.TabPage tabPageDanielPockets;
+        private System.Windows.Forms.DataGridView dataGridViewInventoryDaniel3;
+        private System.Windows.Forms.CheckBox checkBoxMetaInvSeenSubcontexts7;
+        private System.Windows.Forms.CheckBox checkBoxMetaInvSeenSubcontexts6;
+        private System.Windows.Forms.CheckBox checkBoxMetaInvSeenSubcontexts5;
+        private System.Windows.Forms.GroupBox groupBoxCSImport;
+        private System.Windows.Forms.Panel panelCSLastPopup;
+        private System.Windows.Forms.DateTimePicker dateTimePickerCSLastPopup;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Panel panelCSSaveTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerCSSaveTime;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.ComboBox comboBoxOutfitSean_Underpants;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.ComboBox comboBoxOutfitSean_Sweat;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.ComboBox comboBoxOutfitSean_Pants;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.ComboBox comboBoxOutfitSean_BlushGeneral;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.ComboBox comboBoxOutfitSean_Bag;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.GroupBox groupBoxOutfitsCharles;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.ComboBox comboBoxOutfitCharles_BlushGeneral;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.ComboBox comboBoxOutfitCharles_Main;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.ComboBox comboBoxOutfitDaniel_Head;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.ComboBox comboBoxOutfitDaniel_Tshirt;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.ComboBox comboBoxOutfitDaniel_BlushGeneral;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.ComboBox comboBoxOutfitDaniel_Pants;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.ComboBox comboBoxOutfitDaniel_Bag;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.GroupBox groupBoxAICallEnable;
+        private System.Windows.Forms.CheckBox checkBoxAICall_Chris;
+        private System.Windows.Forms.CheckBox checkBoxAICall_Dog;
+        private System.Windows.Forms.CheckBox checkBoxAICall_Cassidy;
+        private System.Windows.Forms.CheckBox checkBoxAICall_Daniel;
     }
 }
 

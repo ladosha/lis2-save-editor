@@ -403,7 +403,9 @@ namespace lis2_save_editor
                     object[] row = new object[grid.Columns.Count];
                     row[0] = seq.ActorName;
                     int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == seq.ActorName);
-                    row[1] = index == -1 ? "(none)" : target[index]["LevelScriptFunctionName"].Value;
+                    var cur_func = index == -1 ? "(none)" : target[index]["LevelScriptFunctionName"].Value;
+                    if (!func_list.Contains(cur_func)) func_list.Add(cur_func);
+                    row[1] = cur_func;
                     string defFunc = seq.GetType().GetProperty(type + "FunctionName").GetValue(seq).ToString();
                     row[2] = String.IsNullOrEmpty(defFunc) ? "(unknown)" : defFunc;
                     grid.Rows.Add(row);
@@ -787,6 +789,21 @@ namespace lis2_save_editor
             }
         }
 
+        private void dataGridViewSeqOnX_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView grid = (DataGridView)sender;
+            string type = grid.Tag.ToString();
+
+            newCellValue = grid[e.ColumnIndex, e.RowIndex].Value.ToString();
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = grid[0, e.RowIndex].Value.ToString();
+                EditBinding(name, type, newCellValue.ToString());
+                grid[0, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+            }
+        }
+
         private void EditPOIValue(string name, int colIndex, object value)
         {
             List<dynamic> target = level["PointsOfInterestSaveData"].Value;
@@ -952,9 +969,10 @@ namespace lis2_save_editor
 
         private void EditSeqStoppedValue(string name, int colIndex, object value)
         {
-            List<dynamic> target = saveVersion == SaveVersion.LIS_E1 ?
-                level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value :
-                level["LevelChangesSaveData"].Value["PastLevelSequences"].Value;
+            List<dynamic> target = saveVersion == SaveVersion.CaptainSpirit ?
+                level["LevelChangesSaveData"].Value["PastLevelSequences"].Value :
+            level["LevelChangesSaveData"].Value["StoppedLevelSequences"].Value;
+                
             int index = target.FindIndex(1, x => x["LevelSequenceActorName"].Value == name);
 
             if (index == -1)//Add new item
@@ -986,7 +1004,7 @@ namespace lis2_save_editor
                         }
                     },
                 };
-                if (saveVersion == SaveVersion.LIS_E1)
+                if (saveVersion >= SaveVersion.LIS_E1)
                 {
                     new_item["DebugRequesterName"] = new NameProperty
                     {
@@ -1090,7 +1108,7 @@ namespace lis2_save_editor
         {
             
             int index;
-            string slotPrefix = saveVersion == SaveVersion.LIS_E1 ? "NoSlot_" : "None_";
+            string slotPrefix = saveVersion >= SaveVersion.LIS_E1 ? "NoSlot_" : "None_";
             List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;
             if (initialSlot.StartsWith(slotPrefix))
             {
@@ -1180,21 +1198,6 @@ namespace lis2_save_editor
         }
 
         SearchForm searchForm;
-
-        private void dataGridViewSeqOnX_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridView grid = (DataGridView)sender;
-            string type = grid.Tag.ToString();
-
-            newCellValue = grid[e.ColumnIndex, e.RowIndex].Value.ToString();
-
-            if (newCellValue.ToString() != origCellValue.ToString())
-            {
-                var name = grid[0, e.RowIndex].Value.ToString();
-                EditBinding(name, type, newCellValue.ToString());
-                grid[0, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
-            }
-        }
 
         private void LevelEditForm_KeyPress(object sender, KeyPressEventArgs e)
         {
