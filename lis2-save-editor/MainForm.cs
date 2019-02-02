@@ -2976,150 +2976,160 @@ namespace lis2_save_editor
 
         private void checkBoxDrawingZoneFinishWhenComplete_CheckedChanged(object sender, EventArgs e)
         {
-            var cb = (CheckBox)sender;
-            string[] info = cb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
-
-            bool value = cb.Checked;
-
-            List<dynamic> target = null;
-
-            if (comboBoxSelectCP.SelectedIndex == 0)
+            if(!SaveLoading)
             {
-                target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                var cb = (CheckBox)sender;
+                string[] info = cb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
+
+                bool value = cb.Checked;
+
+                List<dynamic> target = null;
+
+                if (comboBoxSelectCP.SelectedIndex == 0)
+                {
+                    target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+                else
+                {
+                    target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+
+                ((CheckBox)cb.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
+
+                int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
+                List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
+                int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
+
+                drawing[index]["bFinishDrawSequenceWhenComplete"].Value = value;
+
+                _editedControls.AddUnique(cb);
+                cb.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
             }
-            else
-            {
-                target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-
-            ((CheckBox)cb.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
-
-            int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
-            List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
-            int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
-
-            drawing[index]["bFinishDrawSequenceWhenComplete"].Value = value;
-
-            _editedControls.AddUnique(cb);
-            cb.BackColor = Color.LightGoldenrodYellow;
-            ShowChangesWarning();
-
-            ShowChangesWarning();
         }
 
         private void textBoxDrawingPhase_TextChanged(object sender, EventArgs e)
         {
-            var tb = (TextBox)sender;
-            string[] info = tb.Tag.ToString().Split(new string[] { "::" }, 3, StringSplitOptions.RemoveEmptyEntries);
-
-            int value = -1;
-            try
+            if (!SaveLoading)
             {
-                value = Convert.ToInt32(tb.Text);
-                tb.BackColor = Color.LightGoldenrodYellow;
-                _editedControls.AddUnique(tb);
+                var tb = (TextBox)sender;
+                string[] info = tb.Tag.ToString().Split(new string[] { "::" }, 3, StringSplitOptions.RemoveEmptyEntries);
+
+                int value = -1;
+                try
+                {
+                    value = Convert.ToInt32(tb.Text);
+                    tb.BackColor = Color.LightGoldenrodYellow;
+                    _editedControls.AddUnique(tb);
+                }
+                catch
+                {
+                    tb.BackColor = Color.Red;
+                }
+
+                List<dynamic> target = null;
+
+                if (comboBoxSelectCP.SelectedIndex == 0)
+                {
+                    target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+                else
+                {
+                    target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+
+                ((CheckBox)tb.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
+
+                int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
+                List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
+                int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
+
+                drawing[index][$"Drawing{info[2]}Phase"].Value = value;
+
+                ShowChangesWarning();
             }
-            catch
-            {
-                tb.BackColor = Color.Red;
-            }
-
-            List<dynamic> target = null;
-
-            if (comboBoxSelectCP.SelectedIndex == 0)
-            {
-                target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-            else
-            {
-                target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-
-            ((CheckBox)tb.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
-
-            int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
-            List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
-            int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
-
-            drawing[index][$"Drawing{info[2]}Phase"].Value = value;
-
-            ShowChangesWarning();
         }
 
         private void comboBoxDrawingPhase_Old_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var cb = (ComboBox)sender;
-            string[] info = cb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
-
-            List<dynamic> target = null;
-
-            if (comboBoxSelectCP.SelectedIndex == 0)
+            if (!SaveLoading)
             {
-                target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                var cb = (ComboBox)sender;
+                string[] info = cb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
+
+                List<dynamic> target = null;
+
+                if (comboBoxSelectCP.SelectedIndex == 0)
+                {
+                    target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+                else
+                {
+                    target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+
+                ((CheckBox)cb.Parent.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
+
+                int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
+                List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
+                int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
+
+                drawing[index]["DrawingPhase"].Value = "ELIS2PencilDrawingPhase::" + cb.SelectedItem.ToString();
+
+                cb.Parent.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(cb.Parent);
+                ShowChangesWarning();
             }
-            else
-            {
-                target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-
-            ((CheckBox)cb.Parent.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
-
-            int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
-            List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
-            int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
-
-            drawing[index]["DrawingPhase"].Value = "ELIS2PencilDrawingPhase::" + cb.SelectedItem.ToString();
-
-            cb.Parent.BackColor = Color.LightGoldenrodYellow;
-            _editedControls.AddUnique(cb.Parent);
-            ShowChangesWarning();
         }
 
         private void textBoxDrawingPercent_TextChanged(object sender, EventArgs e)
         {
-            var tb = (TextBox)sender;
-            string[] info = tb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
-
-            float value = 0;
-            try
+            if (!SaveLoading)
             {
-                value = Convert.ToSingle(tb.Text);
-                tb.BackColor = Color.LightGoldenrodYellow;
-                _editedControls.AddUnique(tb);
+                var tb = (TextBox)sender;
+                string[] info = tb.Tag.ToString().Split(new string[] { "::" }, 2, StringSplitOptions.RemoveEmptyEntries);
+
+                float value = 0;
+                try
+                {
+                    value = Convert.ToSingle(tb.Text);
+                    tb.BackColor = Color.LightGoldenrodYellow;
+                    _editedControls.AddUnique(tb);
+                }
+                catch
+                {
+                    tb.BackColor = Color.Red;
+                }
+
+                List<dynamic> target = null;
+
+                if (comboBoxSelectCP.SelectedIndex == 0)
+                {
+                    target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+                else
+                {
+                    target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
+                        .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
+                }
+
+                ((CheckBox)tb.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
+
+                int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
+                List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
+                int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
+
+                drawing[index]["DrawingPercent"].Value = value;
+
+                ShowChangesWarning();
             }
-            catch
-            {
-                tb.BackColor = Color.Red;
-            }
-
-            List<dynamic> target = null;
-
-            if (comboBoxSelectCP.SelectedIndex == 0)
-            {
-                target = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-            else
-            {
-                target = _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["PlayerSaveData"]
-                         .Value["DrawSequenceSaveData"].Value["DrawSequenceItemSaveDatas"].Value;
-            }
-
-            ((CheckBox)tb.Parent.Controls.Find("ZoneActive", false)[0]).Checked = true;
-
-            int dr_index = target.FindIndex(1, x => x["DrawSequenceID"].Value["Name"].Value == info[0]);
-            List<dynamic> drawing = target[dr_index]["LandscapeItemSaveDatas"].Value;
-            int index = drawing.FindIndex(1, x => x["LandscapeID"].Value == $"Zone{info[1]}_Reveal");
-
-            drawing[index]["DrawingPercent"].Value = value;
-
-            ShowChangesWarning();
         }
 
         private void checkBoxDrawingZoneActive_CheckedChanged(object sender, EventArgs e)
@@ -3150,29 +3160,49 @@ namespace lis2_save_editor
             if (cb.Checked) //Add new zone 
             {
                 //todo: implement updating of form fields after adding new zone
-                float percent;
+                SaveLoading = true;
+                var tbPercent = (TextBox)cb.Parent.Controls.Find("tbPercent", false)[0];
                 var part = new Dictionary<string, dynamic>()
                 {
-                    { "LandscapeID", new NameProperty() {Name = "LandscapeID", Value = $"Zone{info[1]}_Reveal"} },
-                    { "DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Value = float.TryParse(((TextBox)cb.Parent.Controls.Find("tbPercent", false)[0]).Text, out percent) ? percent : 0} },
+                    { "LandscapeID", new NameProperty() {Name = "LandscapeID", Value = $"Zone{info[1]}_Reveal"} }
                 };
+                if (float.TryParse(tbPercent.Text, out float percent))
+                {
+                    part["DrawingPercent"] = new FloatProperty() {Name = "DrawingPercent", Value = percent};
+                }
+                else
+                {
+                    part["DrawingPercent"] = new FloatProperty() { Name = "DrawingPercent", Value = 0 };
+                    tbPercent.Text = "0";
+                }
 
                 if (_gameSave.saveVersion == SaveVersion.LIS_E1)
                 {
-                    string phase = ((ComboBox)cb.Parent.Controls.Find("comboBoxPhase", true)[0]).SelectedItem?.ToString() ?? "Rough";
+                    var cbPhase = (ComboBox)cb.Parent.Controls.Find("comboBoxPhase", true)[0];
+                    string phase = cbPhase.SelectedItem?.ToString() ?? "Rough";
                     part["DrawingPhase"] = new EnumProperty() { Name = "DrawingPhase", ElementType = "ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::" + phase };
+                    cbPhase.SelectedItem = phase;
                 }
                 else
                 {
                     foreach (var type in new string[] { "Start", "Current", "End" })
                     {
-                        int result;
-                        part[$"Drawing{type}Phase"] = new IntProperty() { Name = $"Drawing{type}Phase", Value = int.TryParse(((TextBox)cb.Parent.Controls.Find($"tb{type}Phase", false)[0]).Text, out result) ? result : -1 };
+                        var tb = (TextBox)cb.Parent.Controls.Find($"tb{type}Phase", false)[0];
+                        if (int.TryParse(tb.Text, out int result))
+                        {
+                            part[$"Drawing{type}Phase"] = new IntProperty() { Name = $"Drawing{type}Phase", Value = result };
+                        }
+                        else
+                        {
+                            part[$"Drawing{type}Phase"] = new IntProperty() { Name = $"Drawing{type}Phase", Value = -1 };
+                            tb.Text = "-1";
+                        }
                     }
                     bool fwc = ((CheckBox)cb.Parent.Controls.Find("cbFinishWhenComplete", false)[0]).Checked;
                     part["bFinishDrawSequenceWhenComplete"] = new BoolProperty() { Name = "bFinishDrawSequenceWhenComplete", Value = fwc };
                 }
                 drawing.AddUnique(part);
+                SaveLoading = false;
             }
             else
             {
