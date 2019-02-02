@@ -1471,19 +1471,21 @@ namespace lis2_save_editor
 
         private void GenerateCinematics()
         {
-            flowLayoutPanelCinematics.Controls.Clear();
+            tabPageCinematics.Controls.Clear();
 
             Dictionary<dynamic, dynamic> root = _gameSave.Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value;
 
-            int cb_y = 20, gbox_y = 20;
             if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
+                int cb_x = 3, cb_y = 3, i = 0;
                 List<dynamic> save_cin_list = ((List<dynamic>)root["PT"]["PlayedCinematics"].Value).Skip(1).ToList();
                 int max_length = 0;
+                
                 foreach (var l in GameInfo.CS_Cinematics.Select(x => x.Name))
                 {
                     if (l.Length > max_length) max_length = l.Length;
                 }
+
                 max_length *= 6;
                 
                 foreach (var cin in GameInfo.CS_Cinematics)
@@ -1491,22 +1493,39 @@ namespace lis2_save_editor
                     var cb_active = new CheckBox();
                     cb_active.AutoSize = false;
                     cb_active.Size = new Size(max_length, 17);
+                    cb_active.Location = new Point(cb_x, cb_y);
                     cb_active.Text = String.IsNullOrEmpty(cin.Name) ? cin.GUID.ToString() : cin.Name;
                     dynamic save_cin = save_cin_list.Find(x => x["Guid"] == cin.GUID);
                     cb_active.Checked = save_cin != null;
                     cb_active.Tag = "PT::" + cin.GUID.ToString();
                     cb_active.CheckedChanged += new EventHandler(checkBoxCinematicActive_CheckedChanged);
-                    flowLayoutPanelCinematics.Controls.Add(cb_active);
+                    tabPageCinematics.Controls.Add(cb_active);
+
+                    i++;
+
+                    if (i % 3 == 0)
+                    {
+                        cb_x = 0;
+                        cb_y += 20;
+                    }
+                    else
+                    {
+                        cb_x += max_length;
+                    }
+                    
                 }
             }
             else
             {
+                int cb_y = 20, gbox_y = 20, subc_gbox_x = 3;
                 List<string> subs = GameInfo.LIS2_Cinematics.Select(c => c.SubcontextID).Distinct().ToList();
                 foreach (var sub_id in subs)
                 {
                     var gbox = new GroupBox();
                     gbox.AutoSize = true;
+                    gbox.AutoSizeMode = AutoSizeMode.GrowOnly;
                     gbox.Text = sub_id;
+                    gbox.Location = new Point(subc_gbox_x, 3);
 
                     //size crutch
                     var text_lbl = new Label();
@@ -1515,7 +1534,7 @@ namespace lis2_save_editor
                     text_lbl.Visible = false;
                     text_lbl.Enabled = false;
                     gbox.Controls.Add(text_lbl);
-                    gbox.MinimumSize = new Size(text_lbl.Width + 20, gbox.Height);
+                    gbox.MinimumSize = new Size(text_lbl.Width + 20, 20);
 
                     List<dynamic> save_cin_list = root.ContainsKey(sub_id) ? ((List<dynamic>)root[sub_id]["PlayedCinematics"].Value).Skip(1).ToList() : new List<dynamic>();
                     foreach (var cin in GameInfo.LIS2_Cinematics.Where(x => x.SubcontextID == sub_id))
@@ -1566,8 +1585,10 @@ namespace lis2_save_editor
                         gbox_y += gbox_cin.Height + 10;
                         cb_y = 20;
                     }
-                    flowLayoutPanelCinematics.Controls.Add(gbox);
+                    tabPageCinematics.Controls.Add(gbox);
                     gbox_y = 20;
+
+                    subc_gbox_x += gbox.Width + 20;
                 }
             }
         }

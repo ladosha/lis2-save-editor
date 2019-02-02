@@ -65,9 +65,14 @@
             this.checkBoxEpComplete2 = new System.Windows.Forms.CheckBox();
             this.checkBoxEpComplete1 = new System.Windows.Forms.CheckBox();
             this.groupBoxAICall = new System.Windows.Forms.GroupBox();
+            this.textBoxAICallDelay = new System.Windows.Forms.TextBox();
+            this.groupBoxAICallEnable = new System.Windows.Forms.GroupBox();
+            this.checkBoxAICall_Chris = new System.Windows.Forms.CheckBox();
+            this.checkBoxAICall_Dog = new System.Windows.Forms.CheckBox();
+            this.checkBoxAICall_Cassidy = new System.Windows.Forms.CheckBox();
+            this.checkBoxAICall_Daniel = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBoxAICallDelay = new System.Windows.Forms.TextBox();
             this.checkBoxAICallFocusFail = new System.Windows.Forms.CheckBox();
             this.checkBoxAICallGlobalEnable = new System.Windows.Forms.CheckBox();
             this.groupBoxDanielPos = new System.Windows.Forms.GroupBox();
@@ -254,7 +259,6 @@
             this.comboBoxOutfitSean_Main = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPageCinematics = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanelCinematics = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -262,11 +266,6 @@
             this.comboBoxSelectCP = new System.Windows.Forms.ComboBox();
             this.buttonSaveSelector = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.groupBoxAICallEnable = new System.Windows.Forms.GroupBox();
-            this.checkBoxAICall_Chris = new System.Windows.Forms.CheckBox();
-            this.checkBoxAICall_Dog = new System.Windows.Forms.CheckBox();
-            this.checkBoxAICall_Cassidy = new System.Windows.Forms.CheckBox();
-            this.checkBoxAICall_Daniel = new System.Windows.Forms.CheckBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxCSImport.SuspendLayout();
@@ -276,6 +275,7 @@
             this.groupBoxMetaInv_SeenSubContexts.SuspendLayout();
             this.groupBoxEpisodeCompletion.SuspendLayout();
             this.groupBoxAICall.SuspendLayout();
+            this.groupBoxAICallEnable.SuspendLayout();
             this.groupBoxDanielPos.SuspendLayout();
             this.panelDanielAIPreset.SuspendLayout();
             this.panelDanielPOI.SuspendLayout();
@@ -351,10 +351,8 @@
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabPageCinematics.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.groupBoxAICallEnable.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxSavePath
@@ -802,6 +800,76 @@
             this.groupBoxAICall.TabStop = false;
             this.groupBoxAICall.Text = "AI Calling";
             // 
+            // textBoxAICallDelay
+            // 
+            this.textBoxAICallDelay.Location = new System.Drawing.Point(108, 62);
+            this.textBoxAICallDelay.Name = "textBoxAICallDelay";
+            this.textBoxAICallDelay.Size = new System.Drawing.Size(59, 20);
+            this.textBoxAICallDelay.TabIndex = 14;
+            this.textBoxAICallDelay.Tag = "";
+            this.textBoxAICallDelay.TextChanged += new System.EventHandler(this.textBoxAICallDelay_TextChanged);
+            // 
+            // groupBoxAICallEnable
+            // 
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Chris);
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Dog);
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Cassidy);
+            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Daniel);
+            this.groupBoxAICallEnable.Location = new System.Drawing.Point(4, 80);
+            this.groupBoxAICallEnable.Name = "groupBoxAICallEnable";
+            this.groupBoxAICallEnable.Size = new System.Drawing.Size(116, 110);
+            this.groupBoxAICallEnable.TabIndex = 17;
+            this.groupBoxAICallEnable.TabStop = false;
+            this.groupBoxAICallEnable.Text = "Enable calling for:";
+            // 
+            // checkBoxAICall_Chris
+            // 
+            this.checkBoxAICall_Chris.AutoSize = true;
+            this.checkBoxAICall_Chris.Location = new System.Drawing.Point(6, 84);
+            this.checkBoxAICall_Chris.Name = "checkBoxAICall_Chris";
+            this.checkBoxAICall_Chris.Size = new System.Drawing.Size(49, 17);
+            this.checkBoxAICall_Chris.TabIndex = 32;
+            this.checkBoxAICall_Chris.Tag = "Chris";
+            this.checkBoxAICall_Chris.Text = "Chris";
+            this.checkBoxAICall_Chris.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Chris.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
+            // checkBoxAICall_Dog
+            // 
+            this.checkBoxAICall_Dog.AutoSize = true;
+            this.checkBoxAICall_Dog.Location = new System.Drawing.Point(6, 62);
+            this.checkBoxAICall_Dog.Name = "checkBoxAICall_Dog";
+            this.checkBoxAICall_Dog.Size = new System.Drawing.Size(46, 17);
+            this.checkBoxAICall_Dog.TabIndex = 31;
+            this.checkBoxAICall_Dog.Tag = "Dog";
+            this.checkBoxAICall_Dog.Text = "Dog";
+            this.checkBoxAICall_Dog.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Dog.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
+            // checkBoxAICall_Cassidy
+            // 
+            this.checkBoxAICall_Cassidy.AutoSize = true;
+            this.checkBoxAICall_Cassidy.Location = new System.Drawing.Point(6, 40);
+            this.checkBoxAICall_Cassidy.Name = "checkBoxAICall_Cassidy";
+            this.checkBoxAICall_Cassidy.Size = new System.Drawing.Size(62, 17);
+            this.checkBoxAICall_Cassidy.TabIndex = 30;
+            this.checkBoxAICall_Cassidy.Tag = "Cassidy";
+            this.checkBoxAICall_Cassidy.Text = "Cassidy";
+            this.checkBoxAICall_Cassidy.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Cassidy.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
+            // checkBoxAICall_Daniel
+            // 
+            this.checkBoxAICall_Daniel.AutoSize = true;
+            this.checkBoxAICall_Daniel.Location = new System.Drawing.Point(6, 18);
+            this.checkBoxAICall_Daniel.Name = "checkBoxAICall_Daniel";
+            this.checkBoxAICall_Daniel.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxAICall_Daniel.TabIndex = 29;
+            this.checkBoxAICall_Daniel.Tag = "Daniel";
+            this.checkBoxAICall_Daniel.Text = "Daniel";
+            this.checkBoxAICall_Daniel.UseVisualStyleBackColor = true;
+            this.checkBoxAICall_Daniel.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -819,15 +887,6 @@
             this.label21.Size = new System.Drawing.Size(102, 13);
             this.label21.TabIndex = 15;
             this.label21.Text = "Delay between calls";
-            // 
-            // textBoxAICallDelay
-            // 
-            this.textBoxAICallDelay.Location = new System.Drawing.Point(108, 62);
-            this.textBoxAICallDelay.Name = "textBoxAICallDelay";
-            this.textBoxAICallDelay.Size = new System.Drawing.Size(59, 20);
-            this.textBoxAICallDelay.TabIndex = 14;
-            this.textBoxAICallDelay.Tag = "";
-            this.textBoxAICallDelay.TextChanged += new System.EventHandler(this.textBoxAICallDelay_TextChanged);
             // 
             // checkBoxAICallFocusFail
             // 
@@ -2827,23 +2886,13 @@
             // 
             // tabPageCinematics
             // 
-            this.tabPageCinematics.Controls.Add(this.flowLayoutPanelCinematics);
+            this.tabPageCinematics.AutoScroll = true;
             this.tabPageCinematics.Location = new System.Drawing.Point(4, 24);
             this.tabPageCinematics.Name = "tabPageCinematics";
             this.tabPageCinematics.Size = new System.Drawing.Size(890, 538);
             this.tabPageCinematics.TabIndex = 15;
             this.tabPageCinematics.Text = "Cinematics";
             this.tabPageCinematics.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanelCinematics
-            // 
-            this.flowLayoutPanelCinematics.AutoScroll = true;
-            this.flowLayoutPanelCinematics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelCinematics.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanelCinematics.Name = "flowLayoutPanelCinematics";
-            this.flowLayoutPanelCinematics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelCinematics.Size = new System.Drawing.Size(890, 538);
-            this.flowLayoutPanelCinematics.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -2941,67 +2990,6 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
-            // groupBoxAICallEnable
-            // 
-            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Chris);
-            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Dog);
-            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Cassidy);
-            this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Daniel);
-            this.groupBoxAICallEnable.Location = new System.Drawing.Point(4, 80);
-            this.groupBoxAICallEnable.Name = "groupBoxAICallEnable";
-            this.groupBoxAICallEnable.Size = new System.Drawing.Size(116, 110);
-            this.groupBoxAICallEnable.TabIndex = 17;
-            this.groupBoxAICallEnable.TabStop = false;
-            this.groupBoxAICallEnable.Text = "Enable calling for:";
-            // 
-            // checkBoxAICall_Chris
-            // 
-            this.checkBoxAICall_Chris.AutoSize = true;
-            this.checkBoxAICall_Chris.Location = new System.Drawing.Point(6, 84);
-            this.checkBoxAICall_Chris.Name = "checkBoxAICall_Chris";
-            this.checkBoxAICall_Chris.Size = new System.Drawing.Size(49, 17);
-            this.checkBoxAICall_Chris.TabIndex = 32;
-            this.checkBoxAICall_Chris.Tag = "Chris";
-            this.checkBoxAICall_Chris.Text = "Chris";
-            this.checkBoxAICall_Chris.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Chris.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
-            // 
-            // checkBoxAICall_Dog
-            // 
-            this.checkBoxAICall_Dog.AutoSize = true;
-            this.checkBoxAICall_Dog.Location = new System.Drawing.Point(6, 62);
-            this.checkBoxAICall_Dog.Name = "checkBoxAICall_Dog";
-            this.checkBoxAICall_Dog.Size = new System.Drawing.Size(46, 17);
-            this.checkBoxAICall_Dog.TabIndex = 31;
-            this.checkBoxAICall_Dog.Tag = "Dog";
-            this.checkBoxAICall_Dog.Text = "Dog";
-            this.checkBoxAICall_Dog.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Dog.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
-            // 
-            // checkBoxAICall_Cassidy
-            // 
-            this.checkBoxAICall_Cassidy.AutoSize = true;
-            this.checkBoxAICall_Cassidy.Location = new System.Drawing.Point(6, 40);
-            this.checkBoxAICall_Cassidy.Name = "checkBoxAICall_Cassidy";
-            this.checkBoxAICall_Cassidy.Size = new System.Drawing.Size(62, 17);
-            this.checkBoxAICall_Cassidy.TabIndex = 30;
-            this.checkBoxAICall_Cassidy.Tag = "Cassidy";
-            this.checkBoxAICall_Cassidy.Text = "Cassidy";
-            this.checkBoxAICall_Cassidy.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Cassidy.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
-            // 
-            // checkBoxAICall_Daniel
-            // 
-            this.checkBoxAICall_Daniel.AutoSize = true;
-            this.checkBoxAICall_Daniel.Location = new System.Drawing.Point(6, 18);
-            this.checkBoxAICall_Daniel.Name = "checkBoxAICall_Daniel";
-            this.checkBoxAICall_Daniel.Size = new System.Drawing.Size(56, 17);
-            this.checkBoxAICall_Daniel.TabIndex = 29;
-            this.checkBoxAICall_Daniel.Tag = "Daniel";
-            this.checkBoxAICall_Daniel.Text = "Daniel";
-            this.checkBoxAICall_Daniel.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Daniel.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3032,6 +3020,8 @@
             this.groupBoxEpisodeCompletion.PerformLayout();
             this.groupBoxAICall.ResumeLayout(false);
             this.groupBoxAICall.PerformLayout();
+            this.groupBoxAICallEnable.ResumeLayout(false);
+            this.groupBoxAICallEnable.PerformLayout();
             this.groupBoxDanielPos.ResumeLayout(false);
             this.groupBoxDanielPos.PerformLayout();
             this.panelDanielAIPreset.ResumeLayout(false);
@@ -3113,13 +3103,10 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.tabPageCinematics.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.groupBoxAICallEnable.ResumeLayout(false);
-            this.groupBoxAICallEnable.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3298,7 +3285,6 @@
         private System.Windows.Forms.DataGridView dataGridViewLevels;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMetrics;
         private System.Windows.Forms.TabPage tabPageCinematics;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCinematics;
         private System.Windows.Forms.Panel panelHeaderCheckpointName;
         private System.Windows.Forms.ComboBox comboBoxHeader_CheckpointName;
         private System.Windows.Forms.Label label37;
