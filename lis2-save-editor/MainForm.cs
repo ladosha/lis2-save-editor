@@ -176,16 +176,20 @@ namespace lis2_save_editor
             }
 
             var root = _gameSave.Data["CaptainSpiritImportSaveData"].Value;
-            dateTimePickerCSSaveTime.Value = root["ImportedCaptainSpiritSaveTime"].Value["DateTime"];
-            var lastPopupDate = root["LastAskedPopup_CaptainSpiritSaveTime"].Value["DateTime"];
-            if (lastPopupDate < dateTimePickerCSLastPopup.MinDate)
+
+            foreach (Panel pan in groupBoxCSImport.Controls.OfType<Panel>())
             {
-                dateTimePickerCSLastPopup.Enabled = false;
-            }
-            else
-            {
-                dateTimePickerCSLastPopup.Enabled = true;
-                dateTimePickerCSLastPopup.Value = lastPopupDate;
+                DateTimePicker dtp = (DateTimePicker)pan.Controls[0];
+                var date = root[$"{dtp.Tag}CaptainSpiritSaveTime"].Value["DateTime"];
+                if (date < dtp.MinDate)
+                {
+                    dtp.Enabled = false;
+                }
+                else
+                {
+                    dtp.Enabled = true;
+                    dtp.Value = date;
+                }
             }
         }
 
