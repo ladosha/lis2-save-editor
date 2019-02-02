@@ -13,7 +13,7 @@ namespace lis2_save_editor
         public static string ReadUE4String(this BinaryReader reader)
         {
             int length = reader.ReadInt32();
-            if (length == 0) return String.Empty;
+            if (length == 0) return string.Empty;
             return new string(reader.ReadChars(length)).Remove(length - 1);
         }
 
@@ -42,7 +42,7 @@ namespace lis2_save_editor
                         if (!inArray)
                         {
                             bool value = Convert.ToBoolean(reader.ReadBytes(10)[8]);
-                            return new BoolProperty { Name = name, Type = type, Value = value };
+                            return new BoolProperty { Name = name, Value = value };
                         }
 
                         return reader.ReadByte(); //bool is represented by 1 byte
@@ -55,7 +55,7 @@ namespace lis2_save_editor
                             int length = reader.ReadInt32();
                             byte[] unkbytes = reader.ReadBytes(5);
                             string value = reader.ReadUE4String();
-                            return new NameProperty { Name = name, Type = type, Length = length, UnkBytes = unkbytes, Value = value };
+                            return new NameProperty { Name = name, Value = value };
                         }
 
                         return reader.ReadUE4String();
@@ -66,7 +66,7 @@ namespace lis2_save_editor
                         int length = reader.ReadInt32();
                         byte[] unkbytes = reader.ReadBytes(5);
                         string value = reader.ReadUE4String();
-                        return new StrProperty { Name = name, Length = length, Type = type, UnkBytes = unkbytes, Value = value };
+                        return new StrProperty { Name = name, Value = value };
                     }
                 case "ByteProperty":
                     {
@@ -75,7 +75,7 @@ namespace lis2_save_editor
                             int length = reader.ReadInt32(); //it is always 1 bytes, but still
                             byte[] unkbytes = reader.ReadBytes(14); //not knowing what to do. this is 4 bytes, followed by None str, followed by 1 byte
                             byte value = reader.ReadByte();
-                            return new ByteProperty { Name = name, Length = length, Type = type, UnkBytes = unkbytes, Value = value };
+                            return new ByteProperty { Name = name, Value = value };
                         }
 
                         return reader.ReadByte();
@@ -87,7 +87,7 @@ namespace lis2_save_editor
                             int length = reader.ReadInt32(); //it is always 4 bytes, but still
                             byte[] unkbytes = reader.ReadBytes(5);
                             int value = reader.ReadInt32();
-                            return new IntProperty { Name = name, Length = length, UnkBytes = unkbytes, Type = type, Value = value };
+                            return new IntProperty { Name = name, Value = value };
                         }
 
                         return reader.ReadInt32();
@@ -99,7 +99,7 @@ namespace lis2_save_editor
                             int length = reader.ReadInt32(); //it is always 4 bytes, but still
                             byte[] unkbytes = reader.ReadBytes(5);
                             uint value = reader.ReadUInt32();
-                            return new UInt32Property { Name = name, Length = length, UnkBytes = unkbytes, Type = type, Value = value };
+                            return new UInt32Property { Name = name, Value = value };
                         }
 
                         return reader.ReadUInt32();
@@ -111,7 +111,7 @@ namespace lis2_save_editor
                             int length = reader.ReadInt32(); //it is always 2 bytes, but still
                             byte[] unkbytes = reader.ReadBytes(5);
                             short value = reader.ReadInt16();
-                            return new Int16Property { Name = name, Length = length, UnkBytes = unkbytes, Type = type, Value = value };
+                            return new Int16Property { Name = name, Value = value };
                         }
 
                         return reader.ReadInt16();
@@ -123,7 +123,7 @@ namespace lis2_save_editor
                             int length = reader.ReadInt32(); //it is always 4 bytes, but still
                             byte [] unkbytes = reader.ReadBytes(5);
                             float value = reader.ReadSingle();
-                            return new FloatProperty { Name = name, Length = length, UnkBytes = unkbytes, Type = type, Value = value };
+                            return new FloatProperty { Name = name, Value = value };
                         }
 
                         return reader.ReadSingle();
@@ -139,11 +139,8 @@ namespace lis2_save_editor
                             string value = reader.ReadUE4String();
                             return new EnumProperty
                             {
-                                Length = length,
-                                Type = type,
                                 ElementType = eltype,
                                 Name = name,
-                                UnkByte = unkbyte,
                                 Value = value
                             };
                         }
@@ -191,7 +188,6 @@ namespace lis2_save_editor
                                     {
                                         while (reader.BaseStream.Position < end)
                                         {
-                                            var test = reader.BaseStream.Position;
                                             dynamic child = reader.ParseProperty();
                                             if (child.Type != "None")
                                             {
@@ -202,7 +198,7 @@ namespace lis2_save_editor
                                     }
                             }
            
-                            return new StructProperty { Name = name, Length = length, UnkBytes = unkbytes, Type = type, ElementType = eltype, Value = value };
+                            return new StructProperty { Name = name,  ElementType = eltype, Value = value };
                         }
 
                         Dictionary<string, dynamic> s_value = new Dictionary<string, dynamic>();
@@ -239,7 +235,6 @@ namespace lis2_save_editor
                                 {
                                     while (true)
                                     {
-                                        var test = reader.BaseStream.Position;
                                         dynamic child = reader.ParseProperty();
                                         if (child.Type == "None") break; //"None" i.e reached end of struct 
 
@@ -286,7 +281,7 @@ namespace lis2_save_editor
                             }
                         }
                         
-                        return new ArrayProperty { Name = name, Length = length, Type = type, ElementType = eltype, ElementCount = count, UnkByte = unkbyte, Value = value};
+                        return new ArrayProperty { Name = name, ElementType = eltype, Value = value};
                     }
                 case "MapProperty":
                     {
@@ -311,7 +306,7 @@ namespace lis2_save_editor
                                 value.Add(reader.ParseProperty(true, keytype), reader.ParseProperty(true, valtype));
                             }
                         }
-                        return new MapProperty { Name = name, Type = type, KeyType = keytype, Length = length, ValType = valtype, UnkBytes = unkbytes, ElementCount = count, Value = value };
+                        return new MapProperty { Name = name,  KeyType = keytype, ValType = valtype, Value = value };
                     } 
                 case "TextProperty":
                     {
@@ -326,7 +321,7 @@ namespace lis2_save_editor
                         {
                             value = new string[2] { reader.ReadUE4String(), reader.ReadUE4String() }; //there are only 2 text properties anyway
                         }
-                        return new TextProperty { Name = name, Length = length, Type = type, UnkBytes = unkbytes, Value = value };
+                        return new TextProperty { Name = name, UnkBytes = unkbytes, Value = value };
                     }
                 //unimplemented yet due to lack of data
                 case "SetProperty": //only GUIDs inside set properties. yay!
@@ -343,7 +338,7 @@ namespace lis2_save_editor
                             value.Add(new Guid(reader.ReadBytes(16)));
                         }
 
-                        return new SetProperty { Name = name, Length = length, Type = type, ElementType = eltype, UnkBytes = unkbytes, Value = value };
+                        return new SetProperty { Name = name, ElementType = eltype, Value = value };
                     }
                 default:
                     {

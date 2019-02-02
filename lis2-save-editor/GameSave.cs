@@ -27,7 +27,7 @@ namespace lis2_save_editor
         public Dictionary<string, dynamic> Data;
         public bool SaveChangesSaved { get; set; } = true;
 
-        byte[] saveFileHeader = new byte[70] { 0x47, 0x45, 0x56, 0x41, 0x53, 0x45, 0x4E, 0x44, 0x02, 0x00, 0x00, 0x00, 0x01, 0x02, 0x00, 0x00, 0x04, 0x00, 0x10, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x2B, 0x2B, 0x55, 0x45, 0x34, 0x2B, 0x52, 0x65, 0x6C, 0x65, 0x61, 0x73, 0x65, 0x2D, 0x34, 0x2E, 0x31, 0x36, 0x00, 0x11, 0x00, 0x00, 0x00, 0x4C, 0x49, 0x53, 0x32, 0x47, 0x61, 0x6D, 0x65, 0x53, 0x61, 0x76, 0x65, 0x44, 0x61, 0x74, 0x61, 0x00 };
+        readonly byte[] saveFileHeader = new byte[70] { 0x47, 0x45, 0x56, 0x41, 0x53, 0x45, 0x4E, 0x44, 0x02, 0x00, 0x00, 0x00, 0x01, 0x02, 0x00, 0x00, 0x04, 0x00, 0x10, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x13, 0x00, 0x00, 0x00, 0x2B, 0x2B, 0x55, 0x45, 0x34, 0x2B, 0x52, 0x65, 0x6C, 0x65, 0x61, 0x73, 0x65, 0x2D, 0x34, 0x2E, 0x31, 0x36, 0x00, 0x11, 0x00, 0x00, 0x00, 0x4C, 0x49, 0x53, 0x32, 0x47, 0x61, 0x6D, 0x65, 0x53, 0x61, 0x76, 0x65, 0x44, 0x61, 0x74, 0x61, 0x00 };
         byte[] gameSpecificHeader;
         public SaveVersion saveVersion;
         public SaveValidity SaveIsValid { get; set; }
@@ -776,12 +776,14 @@ namespace lis2_save_editor
 
             if (index == -1) //Add new item
             {
-                Dictionary<string, object> new_item = new Dictionary<string, object>();
-                new_item["PickupID"] = new NameProperty() { Name = "PickupID", Type = "NameProperty", Value = name };
-                new_item["Quantity"] = new IntProperty() { Name = "Quantity", Type = "IntProperty", Value = colIndex == 2 ? val: 0 };
+                Dictionary<string, object> new_item = new Dictionary<string, object>
+                {
+                    ["PickupID"] = new NameProperty() {Name = "PickupID", Value = name},
+                    ["Quantity"] = new IntProperty() {Name = "Quantity", Value = colIndex == 2 ? val : 0}
+                };
                 if(saveVersion >= SaveVersion.LIS_E1)
                 {
-                    new_item["bIsNew"] = new BoolProperty() { Name = "bIsNew", Type = "BoolProperty", Value = colIndex == 3 ? Convert.ToBoolean(val) : false };
+                    new_item["bIsNew"] = new BoolProperty() { Name = "bIsNew", Value = colIndex == 3 ? Convert.ToBoolean(val) : false };
                 }
                 
                 target.AddUnique(new_item);
@@ -897,16 +899,15 @@ namespace lis2_save_editor
                 if (index == -1) //Add new item 
                 {
                     Dictionary<string, object> new_item = new Dictionary<string, object>();
-                    new_item["Name"] = new NameProperty() { Name = "Name", Type = "NameProperty", Value = name };
+                    new_item["Name"] = new NameProperty() { Name = "Name", Value = name };
                     new_item["NameGuid"] = new StructProperty
                     {
                         Name = "NameGuid",
-                        Type = "StructProperty",
                         ElementType = "Guid",
                         Value = new Dictionary<string, dynamic>()
-                    {
-                        { "Guid", guid }
-                    }
+                        {
+                            { "Guid", guid }
+                        }
                     };
                     target.AddUnique(new_item);
                 }
@@ -926,16 +927,14 @@ namespace lis2_save_editor
                     new_item["ShowPictureID"] = new StructProperty
                     {
                         Name = "ShowPictureID",
-                        Type = "StructProperty",
                         ElementType = "DNERefName",
                         Value = new Dictionary<string, dynamic>()
                         {
-                            {"Name", new NameProperty() { Name = "Name", Type = "NameProperty", Value = name } },
+                            {"Name", new NameProperty() { Name = "Name", Value = name } },
 
                             { "NameGuid", new StructProperty
                                 {
                                     Name = "NameGuid",
-                                    Type = "StructProperty",
                                     ElementType = "Guid",
                                     Value = new Dictionary<string, dynamic>()
                                     {
@@ -948,13 +947,11 @@ namespace lis2_save_editor
                     new_item["bWasCollectedDuringCollectibleMode"] = new BoolProperty()
                     {
                         Name = "bWasCollectedDuringCollectibleMode",
-                        Type = "BoolProperty",
                         Value = colIndex == 2 ? value : false
                     };
                     new_item["bIsNewForSPMenu"] = new BoolProperty()
                     {
                         Name = "bIsNewForSPMenu",
-                        Type = "BoolProperty",
                         Value = colIndex == 3 ? value : false
                     };
 
@@ -1010,7 +1007,6 @@ namespace lis2_save_editor
                     { "CollectibleGUID", new StructProperty()
                         {
                         Name = "CollectibleGUID",
-                        Type = "StructProperty",
                         ElementType = "Guid",
                         Value = new Dictionary<string, dynamic>()
                             {
@@ -1021,28 +1017,25 @@ namespace lis2_save_editor
                     { "EquipedSlotIndex", new Int16Property()
                         {
                             Name = "EquipedSlotIndex",
-                            Type = "Int16Property",
                             Value = colIndex == 1 ? Convert.ToInt16(value) : Convert.ToInt16(-1)
                         }
                     },
                     { "bWasCollectedDuringCollectibleMode", new BoolProperty
                         {
                             Name = "bWasCollectedDuringCollectibleMode",
-                            Type = "BoolProperty",
                             Value = colIndex == 2 ? Convert.ToBoolean(value) : false
                         }
                     },
                     { "bIsNew", new BoolProperty
                         {
                             Name = "bIsNew",
-                            Type = "BoolProperty",
                             Value = colIndex == 3 ? Convert.ToBoolean(value) : false
                         }
                     },
                 };
                 root.AddUnique(new_item);
             }
-            else if (value == String.Empty)
+            else if (value == string.Empty)
             {
                 root.RemoveAt(target_ind);
             }
@@ -1093,7 +1086,6 @@ namespace lis2_save_editor
                     { "ObjectiveGUID", new StructProperty()
                         {
                         Name = "ObjectiveGUID",
-                        Type = "StructProperty",
                         ElementType = "Guid",
                         Value = new Dictionary<string, dynamic>()
                             {
@@ -1105,7 +1097,6 @@ namespace lis2_save_editor
                         "ObjectiveState", new EnumProperty()
                         {
                             Name = "ObjectiveState",
-                            Type = "EnumProperty",
                             ElementType = "ELIS2ObjectiveState",
                             Value = "ELIS2ObjectiveState::" + value
                         }

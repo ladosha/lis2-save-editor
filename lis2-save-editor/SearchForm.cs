@@ -39,9 +39,9 @@ namespace lis2_save_editor
 
         private void textBoxes_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(textBoxStarts.Text) ||
-                !String.IsNullOrWhiteSpace(textBoxContains.Text) ||
-                !String.IsNullOrWhiteSpace(textBoxEnds.Text))
+            if (!string.IsNullOrWhiteSpace(textBoxStarts.Text) ||
+                !string.IsNullOrWhiteSpace(textBoxContains.Text) ||
+                !string.IsNullOrWhiteSpace(textBoxEnds.Text))
             {
                 buttonFind.Enabled = true;
             }
@@ -210,15 +210,15 @@ namespace lis2_save_editor
         private void buttonFind_Click(object sender, EventArgs e)
         {
             ResetSearchState();
-            if (!String.IsNullOrWhiteSpace(textBoxStarts.Text))
+            if (!string.IsNullOrWhiteSpace(textBoxStarts.Text))
             {
                 find_Starts = textBoxStarts.Text;
             }
-            if (!String.IsNullOrWhiteSpace(textBoxContains.Text))
+            if (!string.IsNullOrWhiteSpace(textBoxContains.Text))
             {
                 find_Contains = textBoxContains.Text;
             }
-            if (!String.IsNullOrWhiteSpace(textBoxEnds.Text))
+            if (!string.IsNullOrWhiteSpace(textBoxEnds.Text))
             {
                 find_Ends = textBoxEnds.Text;
             }

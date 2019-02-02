@@ -47,7 +47,7 @@ namespace lis2_save_editor
 
             if (!_gameSave.SaveIsValid.Status)
             {
-                MessageBox.Show(String.Format(Resources.CorruptSaveMessage, _gameSave.SaveIsValid.ErrorMessage), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(Resources.CorruptSaveMessage, _gameSave.SaveIsValid.ErrorMessage), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -73,7 +73,7 @@ namespace lis2_save_editor
             {
                 for (int i = 1; i <= _gameSave.Data["CheckpointHistory"].ElementCount; i++)
                 {
-                    comboBoxSelectCP.Items.Add(String.Format("{0} - {1}",
+                    comboBoxSelectCP.Items.Add(string.Format("{0} - {1}",
                     i, _gameSave.Data["CheckpointHistory"].Value[i]["SubContextId"].Value));
                 }
 
@@ -217,7 +217,7 @@ namespace lis2_save_editor
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(String.Format(Resources.AboutMessage, Program.GetApplicationVersionStr()), 
+            MessageBox.Show(string.Format(Resources.AboutMessage, Program.GetApplicationVersionStr()), 
                             "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -702,15 +702,6 @@ namespace lis2_save_editor
                 gbox.AutoSize = true;
                 gbox.Text = drawing.Name;
 
-                //size crutch
-                var text_lbl = new Label();
-                text_lbl.AutoSize = true;
-                text_lbl.Text = gbox.Text;
-                text_lbl.Visible = false;
-                text_lbl.Enabled = false;
-                gbox.Controls.Add(text_lbl);
-                gbox.MinimumSize = new Size(text_lbl.Width + 20, gbox.Height);
-
                 var cb_dr_active = new CheckBox();
                 cb_dr_active.AutoSize = true;
                 cb_dr_active.Name = "DrawingActive";
@@ -731,15 +722,6 @@ namespace lis2_save_editor
                     gbox_zone.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                     gbox_zone.Location = new Point(gbox_x, 40);
                     gbox_zone.Text = $"Zone {i}";
-
-                    //size crutch
-                    var text_lbl_cin = new Label();
-                    text_lbl_cin.AutoSize = true;
-                    text_lbl_cin.Text = gbox_zone.Text;
-                    text_lbl_cin.Visible = false;
-                    text_lbl_cin.Enabled = false;
-                    gbox_zone.Controls.Add(text_lbl_cin);
-                    gbox_zone.MinimumSize = new Size(text_lbl_cin.Width + 20, 20);
 
                     var cb_zone_active = new CheckBox();
                     cb_zone_active.AutoSize = true;
@@ -1494,7 +1476,7 @@ namespace lis2_save_editor
                     cb_active.AutoSize = false;
                     cb_active.Size = new Size(max_length, 17);
                     cb_active.Location = new Point(cb_x, cb_y);
-                    cb_active.Text = String.IsNullOrEmpty(cin.Name) ? cin.GUID.ToString() : cin.Name;
+                    cb_active.Text = string.IsNullOrEmpty(cin.Name) ? cin.GUID.ToString() : cin.Name;
                     dynamic save_cin = save_cin_list.Find(x => x["Guid"] == cin.GUID);
                     cb_active.Checked = save_cin != null;
                     cb_active.Tag = "PT::" + cin.GUID.ToString();
@@ -1543,7 +1525,7 @@ namespace lis2_save_editor
                         gbox_cin.AutoSize = true;
                         gbox_cin.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                         gbox_cin.Location = new Point(3, gbox_y);
-                        gbox_cin.Text = String.IsNullOrEmpty(cin.Name) ? cin.GUID.ToString() : cin.Name;
+                        gbox_cin.Text = string.IsNullOrEmpty(cin.Name) ? cin.GUID.ToString() : cin.Name;
 
                         //size crutch
                         var text_lbl_cin = new Label();
@@ -1717,7 +1699,7 @@ namespace lis2_save_editor
                     var epnum = subname[1];
                     _gameSave.Data["HeaderSaveData"].Value["SubContextName"].Value = new string[2]
                     {
-                    String.Format("/Game/Localization/LocalizationAssets/E{0}/E{0}_Subcontexts.E{0}_Subcontexts", epnum),
+                    string.Format("/Game/Localization/LocalizationAssets/E{0}/E{0}_Subcontexts.E{0}_Subcontexts", epnum),
                     subname
                     };
                     if (_gameSave.saveVersion >= SaveVersion.LIS_E2)
@@ -2083,7 +2065,7 @@ namespace lis2_save_editor
                 if (comboBoxSelectCP.SelectedIndex == 0)
                 {
                     _gameSave.Data["CurrentSubContextSaveData"].Value["BrotherAISaveData"]
-                             .Value["PointOfInterestInProgress"].Value = value; //todo - check if this is correct
+                             .Value["PointOfInterestInProgress"].Value = value;
                 }
                 else
                 {
@@ -2208,7 +2190,6 @@ namespace lis2_save_editor
                         { "AIToCall", new EnumProperty()
                             {
                                 Name = "AIToCall",
-                                Type = "EnumProperty",
                                 ElementType = "ELIS2AIBuddy",
                                 Value = "ELIS2AIBuddy::" + name
                             }
@@ -2216,7 +2197,6 @@ namespace lis2_save_editor
                         { "bEnable", new BoolProperty()
                             {
                                 Name = "bEnable",
-                                Type = "BoolProperty",
                                 Value = cb.Checked
                             }
                         }
@@ -2555,7 +2535,7 @@ namespace lis2_save_editor
 
             if (e.ColumnIndex == 1)
             {
-                if (String.IsNullOrWhiteSpace(value.ToString()))
+                if (string.IsNullOrWhiteSpace(value.ToString()))
                 {
                     newCellValue = "";
                     dataGridViewCollectibles[e.ColumnIndex, e.RowIndex].Value = "";
@@ -2585,7 +2565,7 @@ namespace lis2_save_editor
                 var name = dataGridViewCollectibles[0, e.RowIndex].Value.ToString();
                 _gameSave.EditCollectible(name, comboBoxSelectCP.SelectedIndex, e.ColumnIndex, newCellValue);
 
-                if (e.ColumnIndex == 1 ^ String.IsNullOrWhiteSpace(dataGridViewCollectibles[1, e.RowIndex].Value.ToString()))
+                if (e.ColumnIndex == 1 ^ string.IsNullOrWhiteSpace(dataGridViewCollectibles[1, e.RowIndex].Value.ToString()))
                 {
                     if (e.ColumnIndex != 1)
                     {
@@ -2792,7 +2772,6 @@ namespace lis2_save_editor
                         { "Guid", new StructProperty
                             {
                                 Name = "Guid",
-                                Type = "StructProperty",
                                 ElementType = "Guid",
                                 Value = new Dictionary<string, dynamic>()
                                 {
@@ -2804,7 +2783,6 @@ namespace lis2_save_editor
                             "Slot", new NameProperty
                             {
                                 Name = "Slot",
-                                Type = "NameProperty",
                                 Value = info[1]
                             }
                         },
@@ -2812,7 +2790,6 @@ namespace lis2_save_editor
                             "Flags", new ArrayProperty
                             {
                                 Name = "Flags",
-                                Type = "ArrayProperty",
                                 ElementType = "NameProperty",
                                 Value = new List<dynamic>()
                             }
@@ -2852,7 +2829,6 @@ namespace lis2_save_editor
                         "PlayedCinematics", new ArrayProperty()
                         {
                             Name = "PlayedCinematics",
-                            Type = "ArrayProperty",
                             ElementType = "StructProperty",
                             Value = new List<dynamic>
                             {
@@ -2899,7 +2875,6 @@ namespace lis2_save_editor
                             "Key", new StructProperty()
                             {
                                 Name = "Key",
-                                Type = "StructProperty",
                                 ElementType = "Guid",
                                 Value = new Dictionary<string, dynamic>()
                                 {
@@ -2911,7 +2886,6 @@ namespace lis2_save_editor
                             "Value", new StructProperty()
                             {
                                 Name = "Value",
-                                Type = "StructProperty",
                                 ElementType = "LIS2PlayConditions",
                                 Value = new Dictionary<string, dynamic>()
                                 {
@@ -2919,7 +2893,6 @@ namespace lis2_save_editor
                                         "Conditions", new ArrayProperty()
                                         {
                                             Name = "Conditions",
-                                            Type = "ArrayProperty",
                                             ElementType = "StructProperty",
                                             Value = new List<dynamic>
                                             {
@@ -2975,7 +2948,6 @@ namespace lis2_save_editor
                             "Key", new StructProperty()
                             {
                                 Name = "Key",
-                                Type = "StructProperty",
                                 ElementType = "Guid",
                                 Value = new Dictionary<string, dynamic>()
                                 {
@@ -2987,7 +2959,6 @@ namespace lis2_save_editor
                             "Value", new BoolProperty()
                             {
                                 Name = "Value",
-                                Type = "BoolProperty",
                                 Value = false
                             }
                         }
@@ -3182,24 +3153,24 @@ namespace lis2_save_editor
                 float percent;
                 var part = new Dictionary<string, dynamic>()
                 {
-                    { "LandscapeID", new NameProperty() {Name = "LandscapeID", Type="NameProperty", Value = $"Zone{info[1]}_Reveal"} },
-                    {"DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Type="FloatProperty", Value = float.TryParse(((TextBox)cb.Parent.Controls.Find("tbPercent", false)[0]).Text, out percent) ? percent : 0} },
+                    { "LandscapeID", new NameProperty() {Name = "LandscapeID", Value = $"Zone{info[1]}_Reveal"} },
+                    { "DrawingPercent", new FloatProperty() {Name = "DrawingPercent", Value = float.TryParse(((TextBox)cb.Parent.Controls.Find("tbPercent", false)[0]).Text, out percent) ? percent : 0} },
                 };
 
                 if (_gameSave.saveVersion == SaveVersion.LIS_E1)
                 {
                     string phase = ((ComboBox)cb.Parent.Controls.Find("comboBoxPhase", true)[0]).SelectedItem?.ToString() ?? "Rough";
-                    part["DrawingPhase"] = new EnumProperty() { Name = "DrawingPhase", Type = "EnumProperty", ElementType = "ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::" + phase };
+                    part["DrawingPhase"] = new EnumProperty() { Name = "DrawingPhase", ElementType = "ELIS2PencilDrawingPhase", Value = "ELIS2PencilDrawingPhase::" + phase };
                 }
                 else
                 {
                     foreach (var type in new string[] { "Start", "Current", "End" })
                     {
                         int result;
-                        part[$"Drawing{type}Phase"] = new IntProperty() { Name = $"Drawing{type}Phase", Type = "IntProperty", Value = int.TryParse(((TextBox)cb.Parent.Controls.Find($"tb{type}Phase", false)[0]).Text, out result) ? result : -1 };
+                        part[$"Drawing{type}Phase"] = new IntProperty() { Name = $"Drawing{type}Phase", Value = int.TryParse(((TextBox)cb.Parent.Controls.Find($"tb{type}Phase", false)[0]).Text, out result) ? result : -1 };
                     }
                     bool fwc = ((CheckBox)cb.Parent.Controls.Find("cbFinishWhenComplete", false)[0]).Checked;
-                    part["bFinishDrawSequenceWhenComplete"] = new BoolProperty() { Name = "bFinishDrawSequenceWhenComplete", Type = "BoolProperty", Value = fwc };
+                    part["bFinishDrawSequenceWhenComplete"] = new BoolProperty() { Name = "bFinishDrawSequenceWhenComplete", Value = fwc };
                 }
                 drawing.AddUnique(part);
             }
@@ -3242,21 +3213,18 @@ namespace lis2_save_editor
                 new_seq["DrawSequenceID"] = new StructProperty()
                 {
                     Name = "DrawSequenceID",
-                    Type = "StructProperty",
                     ElementType = "DNERefName",
                     Value = new Dictionary<string, dynamic>()
                     {
                         { "Name", new NameProperty()
                             {
                                 Name = "Name",
-                                Type = "NameProperty",
                                 Value = name
                             }
                         },
                         { "NameGuid", new StructProperty
                             {
                                 Name = "NameGuid",
-                                Type = "StructProperty",
                                 ElementType = "Guid",
                                 Value = new Dictionary<string, dynamic>()
                                 {
@@ -3269,7 +3237,6 @@ namespace lis2_save_editor
                 new_seq["LandscapeItemSaveDatas"] = new ArrayProperty()
                 {
                     Name = "LandscapeItemSaveDatas",
-                    Type = "ArrayProperty",
                     ElementType = "StructProperty",
                     Value = new List<dynamic>
                     {
@@ -3323,7 +3290,7 @@ namespace lis2_save_editor
 
             if (_gameSave != null && !_gameSave.SaveChangesSaved)
             {
-                DialogResult answer = MessageBox.Show(String.Format(Resources.UnsavedEditsWarningMessage, _editedControls.Count),
+                DialogResult answer = MessageBox.Show(string.Format(Resources.UnsavedEditsWarningMessage, _editedControls.Count),
                     "Savegame Editor", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (answer == DialogResult.Yes)
                 {
@@ -3401,7 +3368,7 @@ namespace lis2_save_editor
 
             }
 
-            if (String.IsNullOrEmpty(_settingManager.Settings.SavePath))
+            if (string.IsNullOrEmpty(_settingManager.Settings.SavePath))
             {
                 if (_steamIdFolders.Length == 1)
                 {

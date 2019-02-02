@@ -10,18 +10,22 @@ namespace lis2_save_editor
 {
     #region Properties
 
-    //Not actually in the file but might be useful
-    public class NoneProperty
-    {
-        public string Name = "None";
-        public string Type = "None";
-        public int Length { get; set; }
-    }
-
-    public class BoolProperty
+    public class GVASProperty
     {
         public string Name { get; set; }
-        public string Type { get; set; }
+        public string Type { get { return GetType().Name; } }
+    }
+
+        //Not actually in the file but might be useful
+        public class NoneProperty : GVASProperty
+        {
+            public new string Name = "None";
+            public new string Type = "None";
+            public int Length { get; set; }
+        }
+
+    public class BoolProperty : GVASProperty
+    {
         public bool Value { get; set; }
 
         public int GetSelfByteLength()
@@ -31,12 +35,10 @@ namespace lis2_save_editor
 
     }
 
-    public class NameProperty
+    public class NameProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Length { get { return Value.GetUE4ByteLength(); } set { } }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } }
+        public int Length { get { return Value.GetUE4ByteLength(); } }
+        public byte[] UnkBytes { get { return new byte[5]; } }
         public string Value { get; set; }
 
         public int GetSelfByteLength()
@@ -45,12 +47,10 @@ namespace lis2_save_editor
         }
     }
 
-    public class StrProperty
+    public class StrProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Length { get { return Value.GetUE4ByteLength(); } set { } }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } }
+        public int Length { get { return Value.GetUE4ByteLength(); } }
+        public byte[] UnkBytes { get { return new byte[5]; } }
         public string Value { get; set; }
 
         public int GetSelfByteLength()
@@ -60,12 +60,10 @@ namespace lis2_save_editor
 
     }
 
-    public class ByteProperty
+    public class ByteProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Length { get { return 1; } set { } }
-        public byte[] UnkBytes { get { return new byte[14] { 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x4E, 0x6F, 0x6E, 0x65, 0x00, 0x00 }; } set { } }
+        public int Length { get { return 1; } }
+        public byte[] UnkBytes { get { return new byte[14] { 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x4E, 0x6F, 0x6E, 0x65, 0x00, 0x00 }; } }
         public byte Value { get; set; }
 
         public int GetSelfByteLength()
@@ -74,12 +72,10 @@ namespace lis2_save_editor
         }
     }
 
-    public class IntProperty
+    public class IntProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Length { get { return 4; } set { } }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } }
+        public int Length { get { return 4; } }
+        public byte[] UnkBytes { get { return new byte[5]; } }
         public int Value { get; set; }
 
         public int GetSelfByteLength()
@@ -89,12 +85,10 @@ namespace lis2_save_editor
 
     }
 
-    public class UInt32Property
+    public class UInt32Property : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Length { get { return 4; } set { } }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } }
+        public int Length { get { return 4; } }
+        public byte[] UnkBytes { get { return new byte[5]; } }
         public uint Value { get; set; }
 
         public int GetSelfByteLength()
@@ -103,12 +97,10 @@ namespace lis2_save_editor
         }
     }
 
-    public class Int16Property
+    public class Int16Property : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Length { get { return 2; } set { } }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } }
+        public int Length { get { return 2; } }
+        public byte[] UnkBytes { get { return new byte[5]; } }
         public short Value { get; set; }
 
         public int GetSelfByteLength()
@@ -117,12 +109,10 @@ namespace lis2_save_editor
         }
     }
 
-    public class FloatProperty
+    public class FloatProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Length { get { return 4; } set { } }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } }
+        public int Length { get { return 4; } }
+        public byte[] UnkBytes { get { return new byte[5]; } }
         public float Value { get; set; }
 
         public int GetSelfByteLength()
@@ -131,13 +121,11 @@ namespace lis2_save_editor
         }
     }
 
-    public class EnumProperty
+    public class EnumProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public long Length { get { return Value.GetUE4ByteLength(); } set { } }
+        public long Length { get { return Value.GetUE4ByteLength(); } }
         public string ElementType { get; set; }
-        public byte UnkByte { get { return 0; } set { } }
+        public byte UnkByte { get { return 0; } }
         public string Value { get; set; } //for now? maybe will implement later
 
         public long GetSelfByteLength()
@@ -146,10 +134,8 @@ namespace lis2_save_editor
         }
     }
 
-    public class StructProperty
+    public class StructProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
         public long Length
         {
             get
@@ -183,15 +169,10 @@ namespace lis2_save_editor
                             return len;
                         }
                 }
-
-            }
-            set
-            {
-
             }
         }
         public string ElementType { get; set; }
-        public byte[] UnkBytes { get { return new byte[17]; } set { } }
+        public byte[] UnkBytes { get { return new byte[17]; } }
         public Dictionary<string, dynamic> Value { get; set; }
 
         public long GetSelfByteLength()
@@ -200,10 +181,8 @@ namespace lis2_save_editor
         }
     }
 
-    public class ArrayProperty
+    public class ArrayProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
         public long Length
         {
             get
@@ -282,11 +261,11 @@ namespace lis2_save_editor
                     return len;
                 }
             }
-            set { }
+           
         }
         public string ElementType { get; set; }
-        public byte UnkByte { get { return 0; } set { } }
-        public int ElementCount { get { return Value.Count - (ElementType == "StructProperty" ? 1 : 0); } set { } }
+        public byte UnkByte { get { return 0; } }
+        public int ElementCount { get { return Value.Count - (ElementType == "StructProperty" ? 1 : 0); } }
         public List<dynamic> Value { get; set; }
 
         public long GetChildStructByteLength()
@@ -338,10 +317,8 @@ namespace lis2_save_editor
         }
     }
 
-    public class MapProperty
+    public class MapProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
         public long Length
         {
             get
@@ -485,12 +462,12 @@ namespace lis2_save_editor
                 }
                 return len;
             }
-            set { }
+           
         }
         public string KeyType { get; set; }
         public string ValType { get; set; }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } }
-        public int ElementCount { get { return Value.Count; } set { } }
+        public byte[] UnkBytes { get { return new byte[5]; } }
+        public int ElementCount { get { return Value.Count; } }
         public Dictionary<dynamic, dynamic> Value { get; set; }
 
         public long GetSelfByteLength()
@@ -499,14 +476,12 @@ namespace lis2_save_editor
         }
     }
 
-    public class SetProperty
+    public class SetProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public long Length { get { return 16 * Value.Count + 8; } set { } } //all guids + element count int + 4 unknown bytes
+        public long Length { get { return 16 * Value.Count + 8; } } //all guids + element count int + 4 unknown bytes
         public string ElementType { get; set; }
-        public int ElementCount { get { return Value.Count; } set { } }
-        public byte[] UnkBytes { get { return new byte[5]; } set { } } //for now
+        public int ElementCount { get { return Value.Count; } }
+        public byte[] UnkBytes { get { return new byte[5]; } } //for now
         public List<dynamic> Value { get; set; }
 
         public long GetSelfByteLength()
@@ -515,10 +490,8 @@ namespace lis2_save_editor
         }
     }
 
-    public class TextProperty
+    public class TextProperty : GVASProperty
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
         public long Length
         {
             get
@@ -530,7 +503,6 @@ namespace lis2_save_editor
                 }
                 return ValueLength + 5; //unknown bytes are part of length
             }
-            set { }
         }
         public byte[] UnkBytes { get; set; }
         public string[] Value { get; set; }
@@ -549,39 +521,6 @@ namespace lis2_save_editor
     }
     #endregion
 
-    //unused for now
-    public enum PropertyType
-    {
-        Int,
-        Float,
-        Object,
-        Delegate,
-        Class,
-        Byte,
-        Bool,
-        Array,
-        Struct,
-        Rotator,
-        Str,
-        Name,
-        Vector,
-        Text,
-        Interface,
-        MulticastDelegate,
-        WeakObject,
-        LazyObject,
-        AssetObject,
-        UInt64,
-        UInt32,
-        UInt16,
-        Int64,
-        Int16,
-        Int8,
-        AssetSubclassOf,
-        Map,
-        Set,
-        Enum
-    }
 }
 
 

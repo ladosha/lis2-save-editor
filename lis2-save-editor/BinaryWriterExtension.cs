@@ -196,7 +196,6 @@ namespace lis2_save_editor
                                     }
                                 default:
                                     {
-                                        var test = writer.BaseStream.Position;
                                         foreach (var child in property.Value.Values)
                                         {
                                             WriteProperty(writer, child);
@@ -235,7 +234,7 @@ namespace lis2_save_editor
                             case "DateTime":
                                 {
                                     writer.Write(property["DateTime"].AddYears(1600).ToFileTime());
-                                    WriteUE4String(writer, "None"); //don't know if all datetime props are delimited by this or it's just the end of the file at play
+                                    WriteUE4String(writer, "None");
                                     break;
                                 }
                             default:
@@ -269,7 +268,6 @@ namespace lis2_save_editor
 
                             for (int i = 1; i <= property.ElementCount; i++)
                             {
-                                var test = property.Value[i];
                                 WriteProperty(writer, property.Value[i], true, property.ElementType, info["struct_eltype"]);
                             }
                         }

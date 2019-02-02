@@ -366,7 +366,7 @@ namespace lis2_save_editor
                 }
                 else
                 {
-                    row[1] = String.IsNullOrEmpty(seq.SlotName) ? "(unknown)" : seq.SlotName;
+                    row[1] = string.IsNullOrEmpty(seq.SlotName) ? "(unknown)" : seq.SlotName;
                     row[2] = false;
                     row[3] = 0;
                 }
@@ -407,7 +407,7 @@ namespace lis2_save_editor
                     if (!func_list.Contains(cur_func)) func_list.Add(cur_func);
                     row[1] = cur_func;
                     string defFunc = seq.GetType().GetProperty(type + "FunctionName").GetValue(seq).ToString();
-                    row[2] = String.IsNullOrEmpty(defFunc) ? "(unknown)" : defFunc;
+                    row[2] = string.IsNullOrEmpty(defFunc) ? "(unknown)" : defFunc;
                     grid.Rows.Add(row);
                 }
             }
@@ -464,7 +464,7 @@ namespace lis2_save_editor
             TextBox tb = (TextBox)sender;
             string[] info = tb.Tag.ToString().Split(new string[] { "::" }, 3, StringSplitOptions.RemoveEmptyEntries);
 
-            if (String.IsNullOrEmpty(tb.Text))
+            if (string.IsNullOrEmpty(tb.Text))
             {
                 List<dynamic> root = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 var ind1 = root.FindIndex(1, x => x["InteractionActorName"].Value == info[0]);
@@ -508,7 +508,6 @@ namespace lis2_save_editor
                             "InteractionNameForDebug", new NameProperty()
                             {
                                 Name = "InteractionNameForDebug",
-                                Type = "NameProperty",
                                 Value = inter_name
                             }
                         },
@@ -516,7 +515,6 @@ namespace lis2_save_editor
                             "InteractionGuid", new StructProperty()
                             {
                                 Name = "InteractionGuid",
-                                Type = "StructProperty",
                                 ElementType = "Guid",
                                 Value = new Dictionary<string, dynamic>()
                                 {
@@ -528,7 +526,6 @@ namespace lis2_save_editor
                             "InteractionExecutionCount", new IntProperty()
                             {
                                 Name = "InteractionExecutionCount",
-                                Type = "IntProperty",
                                 Value = 0
                             }
                         }
@@ -551,7 +548,6 @@ namespace lis2_save_editor
                 { "InteractionActorName", new NameProperty
                     {
                         Name = "InteractionActorName",
-                        Type = "NameProperty",
                         Value = name
                     }
                 },
@@ -559,7 +555,6 @@ namespace lis2_save_editor
                     "bIsEnable", new BoolProperty
                     {
                         Name = "bIsEnable",
-                        Type = "BoolProperty",
                         Value = true
                     }
                 },
@@ -567,7 +562,6 @@ namespace lis2_save_editor
                     "bIsConsideredDestroyed", new BoolProperty
                     {
                         Name = "bIsConsideredDestroyed",
-                        Type = "BoolProperty",
                         Value = false
                     }
                 },
@@ -575,7 +569,6 @@ namespace lis2_save_editor
                     "ClassicInteractions", new ArrayProperty
                     {
                         Name = "ClassicInteractions",
-                        Type = "ArrayProperty",
                         ElementType = "StructProperty",
                         Value = new List<dynamic>
                         {
@@ -594,7 +587,6 @@ namespace lis2_save_editor
                     "DanielInteractions", new ArrayProperty
                     {
                         Name = "DanielInteractions",
-                        Type = "ArrayProperty",
                         ElementType = "StructProperty",
                         Value = new List<dynamic>
                         {
@@ -817,7 +809,6 @@ namespace lis2_save_editor
                         "PointOfInterestActorName", new NameProperty()
                         {
                             Name = "PointOfInterestActorName",
-                            Type = "NameProperty",
                             Value = name
                         }
                     },
@@ -825,7 +816,6 @@ namespace lis2_save_editor
                         "bIsPointOfInterestEnabled", new BoolProperty()
                         {
                             Name = "bIsPointOfInterestEnabled",
-                            Type = "BoolProperty",
                             Value = colIndex == 2 ? Convert.ToBoolean(value) : true 
                         }
                     },
@@ -833,7 +823,6 @@ namespace lis2_save_editor
                         "RemainingCoolDownTime", new FloatProperty()
                         {
                             Name = "RemainingCoolDownTime",
-                            Type = "FloatProperty",
                             Value = colIndex == 3 ? Convert.ToSingle(value) : 0
                         }
                     }
@@ -879,7 +868,6 @@ namespace lis2_save_editor
                         "WuiVolumeGateActorName", new NameProperty()
                         {
                             Name = "WuiVolumeGateActorName",
-                            Type = "NameProperty",
                             Value = name
                         }
                     },
@@ -887,7 +875,6 @@ namespace lis2_save_editor
                         "FirstVolumeRadius", new FloatProperty()
                         {
                             Name = "FirstVolumeRadius",
-                            Type = "FloatProperty",
                             Value = colIndex == 2 ? Convert.ToSingle(value) : 0
                         }
                     },
@@ -895,7 +882,6 @@ namespace lis2_save_editor
                         "SecondVolumeRadius", new FloatProperty()
                         {
                             Name = "SecondVolumeRadius",
-                            Type = "FloatProperty",
                             Value = colIndex == 3 ? Convert.ToSingle(value) : 0
                         }
                     },
@@ -903,7 +889,6 @@ namespace lis2_save_editor
                         "OcclusionSpeed", new FloatProperty()
                         {
                             Name = "OcclusionSpeed",
-                            Type = "FloatProperty",
                             Value = colIndex == 4 ? Convert.ToSingle(value) : 0
                         }
                     },
@@ -911,7 +896,6 @@ namespace lis2_save_editor
                         "MinimumOcclusion", new FloatProperty()
                         {
                             Name = "MinimumOcclusion",
-                            Type = "FloatProperty",
                             Value = colIndex == 5 ? Convert.ToSingle(value) : 0
                         }
                     },
@@ -919,7 +903,6 @@ namespace lis2_save_editor
                         "bDisabled", new BoolProperty()
                         {
                             Name = "bDisabled",
-                            Type = "BoolProperty",
                             Value = colIndex == 6 ? Convert.ToBoolean(value) : false
                         }
                     },
@@ -983,7 +966,6 @@ namespace lis2_save_editor
                         "LevelSequenceActorName", new NameProperty
                         {
                                 Name = "LevelSequenceActorName",
-                                Type = "NameProperty",
                                 Value = name
                         }
                     },
@@ -991,7 +973,6 @@ namespace lis2_save_editor
                         "PlaybackPosition", new FloatProperty
                         {
                                 Name = "PlaybackPosition",
-                                Type = "FloatProperty",
                                 Value = colIndex == 2 ? Convert.ToSingle(newCellValue) : 0
                         }
                     },
@@ -999,7 +980,6 @@ namespace lis2_save_editor
                         "bIsLoop", new BoolProperty
                         {
                                 Name = "bIsLoop",
-                                Type = "BoolProperty",
                                 Value = colIndex == 3 ? Convert.ToBoolean(newCellValue) : false
                         }
                     },
@@ -1009,7 +989,6 @@ namespace lis2_save_editor
                     new_item["DebugRequesterName"] = new NameProperty
                     {
                         Name = "DebugRequesterName",
-                        Type = "NameProperty",
                         Value = level_info.LevelSequences.Find(x => x.ActorName == name)?.DebugRequesterName ?? "None"
                     };
                 }
@@ -1066,7 +1045,6 @@ namespace lis2_save_editor
                         "IGESlotName", new NameProperty
                         {
                                 Name = "IGESlotName",
-                                Type = "NameProperty",
                                 Value = GetPlayingSeqSlotName(level_info.LevelSequences.Find(x => x.ActorName == name).SlotName)
                         }
                     },
@@ -1074,7 +1052,6 @@ namespace lis2_save_editor
                         "LevelSequenceActorName", new NameProperty
                         {
                                 Name = "LevelSequenceActorName",
-                                Type = "NameProperty",
                                 Value = name
                         }
                     },
@@ -1082,7 +1059,6 @@ namespace lis2_save_editor
                         "PlaybackPosition", new FloatProperty
                         {
                                 Name = "PlaybackPosition",
-                                Type = "FloatProperty",
                                 Value = colIndex == 3 ? Convert.ToSingle(newCellValue) : 0
                         }
                     },
@@ -1125,7 +1101,7 @@ namespace lis2_save_editor
                 }
                 return newSlot;
             }
-            else if (String.IsNullOrEmpty(initialSlot))
+            else if (string.IsNullOrEmpty(initialSlot))
             {
                 index = 0;
 
@@ -1153,7 +1129,6 @@ namespace lis2_save_editor
                         "LevelSequenceActorName", new NameProperty
                         {
                                 Name = "LevelSequenceActorName",
-                                Type = "NameProperty",
                                 Value = name
                         }
                     },
@@ -1161,7 +1136,6 @@ namespace lis2_save_editor
                         "LevelScriptFunctionName", new NameProperty
                         {
                                 Name = "LevelScriptFunctionName",
-                                Type = "NameProperty",
                                 Value = value
                         }
                     },

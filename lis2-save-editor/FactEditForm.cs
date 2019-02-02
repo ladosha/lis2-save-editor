@@ -445,17 +445,17 @@ namespace lis2_save_editor
                 {
                     case "BoolFacts":
                         {
-                            new_item["FactValue"] = new BoolProperty() { Name = "FactValue", Type = "BoolProperty", Value = colIndex == 1 ? false : Convert.ToBoolean(value) };
+                            new_item["FactValue"] = new BoolProperty() { Name = "FactValue", Value = colIndex == 1 ? false : Convert.ToBoolean(value) };
                             break;
                         }
                     case "IntFacts":
                         {
-                            new_item["FactValue"] = new IntProperty() { Name = "FactValue", Type = "IntProperty", Value = colIndex == 1 ? 0 : Convert.ToInt32(value) };
+                            new_item["FactValue"] = new IntProperty() { Name = "FactValue", Value = colIndex == 1 ? 0 : Convert.ToInt32(value) };
                             break;
                         }
                     case "FloatFacts":
                         {
-                            new_item["FactValue"] = new FloatProperty() { Name = "FactValue", Type = "FloatProperty", Value = colIndex == 1 ? 0 : Convert.ToSingle(value) };
+                            new_item["FactValue"] = new FloatProperty() { Name = "FactValue", Value = colIndex == 1 ? 0 : Convert.ToSingle(value) };
                             break;
                         }
                     case "EnumFacts":
@@ -463,13 +463,11 @@ namespace lis2_save_editor
                             new_item["FactValue"] = new ByteProperty()
                             {
                                 Name = "FactValue",
-                                Type = "ByteProperty",
                                 Value = colIndex == 1 ? Convert.ToByte(0) : Convert.ToByte(value)
                             };
                             new_item["History"] = new ArrayProperty()
                             {
                                 Name = "History",
-                                Type = "ArrayProperty",
                                 ElementType = "ByteProperty",
                                 Value = new List<dynamic>() { colIndex == 1 ? Convert.ToByte(0) : Convert.ToByte(value) }
                             };
@@ -477,11 +475,10 @@ namespace lis2_save_editor
                         }
                 }
                 
-                new_item["FactNameForDebug"] = new NameProperty() { Name = "FactNameForDebug", Type = "NameProperty", Value = name };
+                new_item["FactNameForDebug"] = new NameProperty() { Name = "FactNameForDebug", Value = name };
                 new_item["FactGuid"] = new StructProperty
                 {
                     Name = "FactGuid",
-                    Type = "StructProperty",
                     ElementType = "Guid",
                     Value = new Dictionary<string, dynamic>()
                     {
