@@ -554,7 +554,7 @@
             this.groupBoxMetaInv_TutoStatus.Controls.Add(this.checkBoxMetaInvTutoStatusJournal);
             this.groupBoxMetaInv_TutoStatus.Controls.Add(this.checkBoxMetaInvTutoStatusPhone);
             this.groupBoxMetaInv_TutoStatus.Controls.Add(this.checkBoxMetaInvTutoStatusInventory);
-            this.groupBoxMetaInv_TutoStatus.Location = new System.Drawing.Point(624, 261);
+            this.groupBoxMetaInv_TutoStatus.Location = new System.Drawing.Point(626, 273);
             this.groupBoxMetaInv_TutoStatus.Name = "groupBoxMetaInv_TutoStatus";
             this.groupBoxMetaInv_TutoStatus.Size = new System.Drawing.Size(94, 136);
             this.groupBoxMetaInv_TutoStatus.TabIndex = 23;
@@ -625,7 +625,7 @@
             this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts3);
             this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts2);
             this.groupBoxMetaInv_SeenSubContexts.Controls.Add(this.checkBoxMetaInvSeenSubcontexts1);
-            this.groupBoxMetaInv_SeenSubContexts.Location = new System.Drawing.Point(624, 142);
+            this.groupBoxMetaInv_SeenSubContexts.Location = new System.Drawing.Point(626, 156);
             this.groupBoxMetaInv_SeenSubContexts.Name = "groupBoxMetaInv_SeenSubContexts";
             this.groupBoxMetaInv_SeenSubContexts.Size = new System.Drawing.Size(224, 113);
             this.groupBoxMetaInv_SeenSubContexts.TabIndex = 22;
@@ -723,9 +723,9 @@
             this.groupBoxEpisodeCompletion.Controls.Add(this.checkBoxEpComplete3);
             this.groupBoxEpisodeCompletion.Controls.Add(this.checkBoxEpComplete2);
             this.groupBoxEpisodeCompletion.Controls.Add(this.checkBoxEpComplete1);
-            this.groupBoxEpisodeCompletion.Location = new System.Drawing.Point(420, 345);
+            this.groupBoxEpisodeCompletion.Location = new System.Drawing.Point(420, 352);
             this.groupBoxEpisodeCompletion.Name = "groupBoxEpisodeCompletion";
-            this.groupBoxEpisodeCompletion.Size = new System.Drawing.Size(200, 133);
+            this.groupBoxEpisodeCompletion.Size = new System.Drawing.Size(200, 137);
             this.groupBoxEpisodeCompletion.TabIndex = 21;
             this.groupBoxEpisodeCompletion.TabStop = false;
             this.groupBoxEpisodeCompletion.Text = "Episode Completion";
@@ -793,7 +793,7 @@
             this.groupBoxAICall.Controls.Add(this.label21);
             this.groupBoxAICall.Controls.Add(this.checkBoxAICallFocusFail);
             this.groupBoxAICall.Controls.Add(this.checkBoxAICallGlobalEnable);
-            this.groupBoxAICall.Location = new System.Drawing.Point(418, 142);
+            this.groupBoxAICall.Location = new System.Drawing.Point(420, 156);
             this.groupBoxAICall.Name = "groupBoxAICall";
             this.groupBoxAICall.Size = new System.Drawing.Size(200, 196);
             this.groupBoxAICall.TabIndex = 20;
