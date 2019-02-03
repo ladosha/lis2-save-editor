@@ -1452,11 +1452,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(322, 92);
+            this.label7.Location = new System.Drawing.Point(285, 92);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 13);
+            this.label7.Size = new System.Drawing.Size(124, 13);
             this.label7.TabIndex = 11;
-            this.label7.Text = "SubContext Path";
+            this.label7.Text = "Current SubContext Path";
             // 
             // groupBoxLISHeader
             // 
@@ -1632,11 +1632,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(350, 40);
+            this.label4.Location = new System.Drawing.Point(313, 37);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Map Name";
+            this.label4.Text = "Current Map Name";
             // 
             // label3
             // 
