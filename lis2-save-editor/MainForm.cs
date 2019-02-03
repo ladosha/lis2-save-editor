@@ -381,7 +381,10 @@ namespace lis2_save_editor
 
             foreach (CheckBox cb in groupBoxAICallEnable.Controls.OfType<CheckBox>())
             {
-                cb.Checked = ai_items.Find(x => x["AIToCall"].Value.EndsWith(cb.Tag.ToString()))?["bEnable"].Value ?? false;
+                var item = ai_items.Find(x => x["AIToCall"].Value.EndsWith(cb.Tag.ToString()));
+                cb.CheckState = item == null
+                    ? CheckState.Unchecked
+                    : (item["bEnable"].Value ? CheckState.Checked : CheckState.Indeterminate);
             }
         }
 
@@ -2170,7 +2173,7 @@ namespace lis2_save_editor
             }
         }
 
-        private void checkBoxAICall_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxAICall_CheckStateChanged(object sender, EventArgs e)
         {
             if (!SaveLoading)
             {
@@ -2187,29 +2190,35 @@ namespace lis2_save_editor
                 }
                 int index = root.FindIndex(1, x => x["AIToCall"].Value == "ELIS2AIBuddy::" + name);
 
-                if (index == -1) //Add new
+                if (cb.CheckState == CheckState.Unchecked) //remove
                 {
-                    Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
-                    {
-                        { "AIToCall", new EnumProperty()
-                            {
-                                Name = "AIToCall",
-                                ElementType = "ELIS2AIBuddy",
-                                Value = "ELIS2AIBuddy::" + name
-                            }
-                        },
-                        { "bEnable", new BoolProperty()
-                            {
-                                Name = "bEnable",
-                                Value = cb.Checked
-                            }
-                        }
-                    };
-                    root.AddUnique(new_item);
+                    root.RemoveAt(index);
                 }
                 else //edit existing
                 {
-                    root[index]["bEnable"].Value = cb.Checked;
+                    if (index == -1) //Add new
+                    {
+                        Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
+                        {
+                            { "AIToCall", new EnumProperty()
+                                {
+                                    Name = "AIToCall",
+                                    ElementType = "ELIS2AIBuddy",
+                                    Value = "ELIS2AIBuddy::" + name
+                                }
+                            },
+                            { "bEnable", new BoolProperty()
+                                {
+                                    Name = "bEnable",
+                                    Value = false
+                                }
+                            }
+                        };
+                        root.AddUnique(new_item);
+                        index = root.Count - 1;
+                    }
+
+                    root[index]["bEnable"].Value = cb.CheckState == CheckState.Checked;
                 }
 
                 cb.BackColor = Color.LightGoldenrodYellow;

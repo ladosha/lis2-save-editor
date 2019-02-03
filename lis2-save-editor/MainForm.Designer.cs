@@ -831,8 +831,9 @@
             this.checkBoxAICall_Chris.TabIndex = 32;
             this.checkBoxAICall_Chris.Tag = "Chris";
             this.checkBoxAICall_Chris.Text = "Chris";
+            this.checkBoxAICall_Chris.ThreeState = true;
             this.checkBoxAICall_Chris.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Chris.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            this.checkBoxAICall_Chris.CheckStateChanged += new System.EventHandler(this.checkBoxAICall_CheckStateChanged);
             // 
             // checkBoxAICall_Dog
             // 
@@ -843,8 +844,9 @@
             this.checkBoxAICall_Dog.TabIndex = 31;
             this.checkBoxAICall_Dog.Tag = "Dog";
             this.checkBoxAICall_Dog.Text = "Dog";
+            this.checkBoxAICall_Dog.ThreeState = true;
             this.checkBoxAICall_Dog.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Dog.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            this.checkBoxAICall_Dog.CheckStateChanged += new System.EventHandler(this.checkBoxAICall_CheckStateChanged);
             // 
             // checkBoxAICall_Cassidy
             // 
@@ -855,8 +857,9 @@
             this.checkBoxAICall_Cassidy.TabIndex = 30;
             this.checkBoxAICall_Cassidy.Tag = "Cassidy";
             this.checkBoxAICall_Cassidy.Text = "Cassidy";
+            this.checkBoxAICall_Cassidy.ThreeState = true;
             this.checkBoxAICall_Cassidy.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Cassidy.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            this.checkBoxAICall_Cassidy.CheckStateChanged += new System.EventHandler(this.checkBoxAICall_CheckStateChanged);
             // 
             // checkBoxAICall_Daniel
             // 
@@ -867,8 +870,9 @@
             this.checkBoxAICall_Daniel.TabIndex = 29;
             this.checkBoxAICall_Daniel.Tag = "Daniel";
             this.checkBoxAICall_Daniel.Text = "Daniel";
+            this.checkBoxAICall_Daniel.ThreeState = true;
             this.checkBoxAICall_Daniel.UseVisualStyleBackColor = true;
-            this.checkBoxAICall_Daniel.CheckedChanged += new System.EventHandler(this.checkBoxAICall_CheckedChanged);
+            this.checkBoxAICall_Daniel.CheckStateChanged += new System.EventHandler(this.checkBoxAICall_CheckStateChanged);
             // 
             // label22
             // 
@@ -1632,7 +1636,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(313, 37);
+            this.label4.Location = new System.Drawing.Point(313, 40);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 2;
