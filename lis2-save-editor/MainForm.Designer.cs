@@ -266,6 +266,7 @@
             this.comboBoxSelectCP = new System.Windows.Forms.ComboBox();
             this.buttonSaveSelector = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.checkBoxUseCameraDetection = new System.Windows.Forms.CheckBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxCSImport.SuspendLayout();
@@ -787,6 +788,7 @@
             // 
             // groupBoxAICall
             // 
+            this.groupBoxAICall.Controls.Add(this.checkBoxUseCameraDetection);
             this.groupBoxAICall.Controls.Add(this.textBoxAICallDelay);
             this.groupBoxAICall.Controls.Add(this.groupBoxAICallEnable);
             this.groupBoxAICall.Controls.Add(this.label22);
@@ -802,7 +804,7 @@
             // 
             // textBoxAICallDelay
             // 
-            this.textBoxAICallDelay.Location = new System.Drawing.Point(108, 62);
+            this.textBoxAICallDelay.Location = new System.Drawing.Point(111, 81);
             this.textBoxAICallDelay.Name = "textBoxAICallDelay";
             this.textBoxAICallDelay.Size = new System.Drawing.Size(59, 20);
             this.textBoxAICallDelay.TabIndex = 14;
@@ -815,9 +817,9 @@
             this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Dog);
             this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Cassidy);
             this.groupBoxAICallEnable.Controls.Add(this.checkBoxAICall_Daniel);
-            this.groupBoxAICallEnable.Location = new System.Drawing.Point(4, 80);
+            this.groupBoxAICallEnable.Location = new System.Drawing.Point(7, 99);
             this.groupBoxAICallEnable.Name = "groupBoxAICallEnable";
-            this.groupBoxAICallEnable.Size = new System.Drawing.Size(116, 110);
+            this.groupBoxAICallEnable.Size = new System.Drawing.Size(128, 64);
             this.groupBoxAICallEnable.TabIndex = 17;
             this.groupBoxAICallEnable.TabStop = false;
             this.groupBoxAICallEnable.Text = "Enable calling for:";
@@ -825,7 +827,7 @@
             // checkBoxAICall_Chris
             // 
             this.checkBoxAICall_Chris.AutoSize = true;
-            this.checkBoxAICall_Chris.Location = new System.Drawing.Point(6, 84);
+            this.checkBoxAICall_Chris.Location = new System.Drawing.Point(68, 40);
             this.checkBoxAICall_Chris.Name = "checkBoxAICall_Chris";
             this.checkBoxAICall_Chris.Size = new System.Drawing.Size(49, 17);
             this.checkBoxAICall_Chris.TabIndex = 32;
@@ -838,7 +840,7 @@
             // checkBoxAICall_Dog
             // 
             this.checkBoxAICall_Dog.AutoSize = true;
-            this.checkBoxAICall_Dog.Location = new System.Drawing.Point(6, 62);
+            this.checkBoxAICall_Dog.Location = new System.Drawing.Point(68, 18);
             this.checkBoxAICall_Dog.Name = "checkBoxAICall_Dog";
             this.checkBoxAICall_Dog.Size = new System.Drawing.Size(46, 17);
             this.checkBoxAICall_Dog.TabIndex = 31;
@@ -877,7 +879,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(170, 65);
+            this.label22.Location = new System.Drawing.Point(173, 84);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(24, 13);
             this.label22.TabIndex = 16;
@@ -886,7 +888,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 65);
+            this.label21.Location = new System.Drawing.Point(6, 84);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(102, 13);
             this.label21.TabIndex = 15;
@@ -1265,9 +1267,9 @@
             this.checkBoxLockedDiary.AutoSize = true;
             this.checkBoxLockedDiary.Location = new System.Drawing.Point(14, 125);
             this.checkBoxLockedDiary.Name = "checkBoxLockedDiary";
-            this.checkBoxLockedDiary.Size = new System.Drawing.Size(91, 17);
+            this.checkBoxLockedDiary.Size = new System.Drawing.Size(85, 17);
             this.checkBoxLockedDiary.TabIndex = 16;
-            this.checkBoxLockedDiary.Text = "Diary locked?";
+            this.checkBoxLockedDiary.Text = "Diary locked";
             this.checkBoxLockedDiary.UseVisualStyleBackColor = true;
             this.checkBoxLockedDiary.CheckedChanged += new System.EventHandler(this.checkBoxLockedDiary_CheckedChanged);
             // 
@@ -2994,6 +2996,17 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
+            // checkBoxUseCameraDetection
+            // 
+            this.checkBoxUseCameraDetection.AutoSize = true;
+            this.checkBoxUseCameraDetection.Location = new System.Drawing.Point(6, 64);
+            this.checkBoxUseCameraDetection.Name = "checkBoxUseCameraDetection";
+            this.checkBoxUseCameraDetection.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxUseCameraDetection.TabIndex = 18;
+            this.checkBoxUseCameraDetection.Text = "Use camera detection";
+            this.checkBoxUseCameraDetection.UseVisualStyleBackColor = true;
+            this.checkBoxUseCameraDetection.CheckedChanged += new System.EventHandler(this.checkBoxUseCameraDetection_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3354,6 +3367,7 @@
         private System.Windows.Forms.CheckBox checkBoxAICall_Dog;
         private System.Windows.Forms.CheckBox checkBoxAICall_Cassidy;
         private System.Windows.Forms.CheckBox checkBoxAICall_Daniel;
+        private System.Windows.Forms.CheckBox checkBoxUseCameraDetection;
     }
 }
 

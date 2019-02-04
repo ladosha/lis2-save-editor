@@ -3374,6 +3374,7 @@ namespace lis2_save_editor
             UpdatePlayerInfo(index);
             UpdateDanielInfo(index);
             UpdateAICallInfo(index);
+            UpdateCamActorInfo(index);
             UpdateStats(index);
             UpdateMetaInvSubContexts(index);
             UpdateMetaInvTutoStatus(index);
@@ -3398,6 +3399,28 @@ namespace lis2_save_editor
             {
                 searchForm.ResetSearchState();
             }
+        }
+
+        private void UpdateCamActorInfo(int cpIndex)
+        {
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
+            {
+                checkBoxUseCameraDetection.Enabled = false;
+                return;
+            }
+
+            dynamic root;
+            if (cpIndex == 0)
+            {
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["CamFocusActorComponentSaveData"].Value;
+            }
+            else
+            {
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["CamFocusActorComponentSaveData"].Value;
+            }
+
+            checkBoxUseCameraDetection.Enabled = true;
+            checkBoxUseCameraDetection.Checked = root["bUseDetection"].Value;
         }
 
         private void DetectSavePath()
@@ -3580,6 +3603,29 @@ namespace lis2_save_editor
                     searchForm.Show(this);
                     searchForm.UpdateSelectedTab();
                 }
+            }
+        }
+
+        private void checkBoxUseCameraDetection_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!SaveLoading)
+            {
+                dynamic root;
+                var cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["CamFocusActorComponentSaveData"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["CamFocusActorComponentSaveData"].Value;
+                }
+
+                root["bUseDetection"].Value = checkBoxUseCameraDetection.Checked;
+
+                _editedControls.AddUnique(checkBoxUseCameraDetection);
+                checkBoxUseCameraDetection.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
             }
         }
 
