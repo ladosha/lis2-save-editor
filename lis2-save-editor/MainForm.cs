@@ -391,22 +391,34 @@ namespace lis2_save_editor
         private void UpdateStats(int cpIndex)
         {
             ClearGroupBox(groupBoxEpisodeCompletion);
+            ClearGroupBox(groupBoxSendChoiceSuccess);
             if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 return;
             }
-            foreach (var cb in groupBoxEpisodeCompletion.Controls.OfType<CheckBox>())
+
+            Dictionary<string, dynamic> root = _gameSave.Data["StatsSaveData"].Value;
+
+            List<dynamic> epCompletion = root["EpisodeCompletion"].Value;
+
+            for (int i = 0; i < epCompletion.Count; i++)
             {
-                cb.Checked = false;
+                ((CheckBox)groupBoxEpisodeCompletion.Controls.Find("checkBoxEpComplete" + (i + 1), false)[0]).Checked = Convert.ToBoolean(epCompletion[i]);
             }
-            List<dynamic> root = _gameSave.Data["StatsSaveData"].Value["EpisodeCompletion"].Value;
-            if (root.Count == 0)
+
+            if (_gameSave.saveVersion >= SaveVersion.LIS_E2)
             {
-                return;
+                groupBoxSendChoiceSuccess.Enabled = true;
+                Dictionary<dynamic, dynamic> sendChoiceSuccess = root["SendChoiceSuccess"].Value;
+                foreach (var item in sendChoiceSuccess)
+                {
+                    ((CheckBox) groupBoxSendChoiceSuccess.Controls.Find($"checkBoxChoiceSent{item.Key}", false)[0])
+                        .CheckState = Convert.ToBoolean(item.Value) ? CheckState.Checked : CheckState.Indeterminate;
+                }
             }
-            for (int i = 0; i < groupBoxEpisodeCompletion.Controls.Count; i++)
+            else
             {
-                ((CheckBox)groupBoxEpisodeCompletion.Controls.Find("checkBoxEpComplete" + (i + 1), false)[0]).Checked = Convert.ToBoolean(root[i]);
+                groupBoxSendChoiceSuccess.Enabled = false;
             }
         }
 
@@ -2231,7 +2243,7 @@ namespace lis2_save_editor
             if (!SaveLoading)
             {
                 CheckBox cb = (CheckBox)sender;
-                int index = Convert.ToInt32(cb.Text.Substring(cb.Text.Length - 1)) - 1;
+                int index = Convert.ToInt32(cb.Tag);
                 _gameSave.Data["StatsSaveData"].Value["EpisodeCompletion"].Value[index] = cb.Checked;
 
                 cb.BackColor = Color.LightGoldenrodYellow;
@@ -3626,6 +3638,27 @@ namespace lis2_save_editor
                 _editedControls.AddUnique(checkBoxUseCameraDetection);
                 checkBoxUseCameraDetection.BackColor = Color.LightGoldenrodYellow;
                 ShowChangesWarning();
+            }
+        }
+
+        private void checkBoxChoiceSent_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (!SaveLoading)
+            {
+                CheckBox cb = (CheckBox)sender;
+                int index = Convert.ToInt32(cb.Tag);
+                Dictionary<dynamic, dynamic> target = _gameSave.Data["StatsSaveData"].Value["SendChoiceSuccess"].Value;
+                if (cb.CheckState == CheckState.Unchecked)
+                {
+                    target.Remove(index);
+                }
+                else
+                {
+                    target[index] = cb.CheckState == CheckState.Checked;
+                }
+                
+                cb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(cb);
             }
         }
 
