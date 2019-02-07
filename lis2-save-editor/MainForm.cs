@@ -109,11 +109,11 @@ namespace lis2_save_editor
                 groupBoxLISHeader.Enabled = true;
                 groupBoxDanielPos.Enabled = true;
                 groupBoxAICall.Enabled = true;
-                groupBoxEpisodeCompletion.Enabled = true;
                 groupBoxMetaInv_SeenSubContexts.Enabled = true;
                 groupBoxMetaInv_TutoStatus.Enabled = true;
                 groupBoxOutfitsSean.Enabled = true;
                 groupBoxOutfitsDaniel.Enabled = true;
+                groupBoxOutfitsCharles.Enabled = true;
             }
             else
             {
@@ -122,17 +122,18 @@ namespace lis2_save_editor
                 groupBoxLISHeader.Enabled = false;
                 groupBoxDanielPos.Enabled = false;
                 groupBoxAICall.Enabled = false;
-                groupBoxEpisodeCompletion.Enabled = false;
                 groupBoxMetaInv_SeenSubContexts.Enabled = false;
                 groupBoxMetaInv_TutoStatus.Enabled = false;
                 groupBoxOutfitsSean.Enabled = false;
                 groupBoxOutfitsDaniel.Enabled = false;
+                groupBoxOutfitsCharles.Enabled = false;
             }
 
             textBoxMapName.Text = _gameSave.Data["MapName"].Value;
             textBoxSubContextPath.Text = _gameSave.Data["CurrentSubContextPathName"].Value;
             dateTimePickerSaveTime.Value = _gameSave.Data["SaveTime"].Value["DateTime"];
 
+            UpdateStats();
             UpdateCSImportData();
             GenerateCinematics();
 
@@ -388,15 +389,17 @@ namespace lis2_save_editor
             }
         }
 
-        private void UpdateStats(int cpIndex)
+        private void UpdateStats()
         {
             ClearGroupBox(groupBoxEpisodeCompletion);
             ClearGroupBox(groupBoxSendChoiceSuccess);
             if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
+                groupBoxEpisodeCompletion.Enabled = false;
+                groupBoxSendChoiceSuccess.Enabled = false;
                 return;
             }
-
+            groupBoxEpisodeCompletion.Enabled = true;
             Dictionary<string, dynamic> root = _gameSave.Data["StatsSaveData"].Value;
 
             List<dynamic> epCompletion = root["EpisodeCompletion"].Value;
@@ -2144,6 +2147,8 @@ namespace lis2_save_editor
                 {
                     _gameSave.Data["CheckpointHistory"].Value[comboBoxSelectCP.SelectedIndex]["CallAISaveData"].Value["DelayBetweenCalls"].Value = value;
                 }
+
+                ShowChangesWarning();
             }
         }
 
@@ -2163,6 +2168,7 @@ namespace lis2_save_editor
 
                 checkBoxAICallGlobalEnable.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(checkBoxAICallGlobalEnable);
+                ShowChangesWarning();
             }
         }
 
@@ -2182,6 +2188,7 @@ namespace lis2_save_editor
 
                 checkBoxAICallFocusFail.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(checkBoxAICallFocusFail);
+                ShowChangesWarning();
             }
         }
 
@@ -2235,6 +2242,7 @@ namespace lis2_save_editor
 
                 cb.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(cb);
+                ShowChangesWarning();
             }
         }
 
@@ -2248,6 +2256,7 @@ namespace lis2_save_editor
 
                 cb.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(cb);
+                ShowChangesWarning();
             }
         }
 
@@ -2280,6 +2289,7 @@ namespace lis2_save_editor
 
                 cb.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(cb);
+                ShowChangesWarning();
             }
         }
 
@@ -2307,6 +2317,7 @@ namespace lis2_save_editor
 
                 cb.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(cb);
+                ShowChangesWarning();
             }
         }
 
@@ -3387,7 +3398,6 @@ namespace lis2_save_editor
             UpdateDanielInfo(index);
             UpdateAICallInfo(index);
             UpdateCamActorInfo(index);
-            UpdateStats(index);
             UpdateMetaInvSubContexts(index);
             UpdateMetaInvTutoStatus(index);
             UpdateInventoryGrids(index);
@@ -3401,6 +3411,7 @@ namespace lis2_save_editor
             UpdateSeenPicturesGrid(index);
             UpdateCollectiblesGrid(index);
             UpdateObjectivesGrid(index);
+            GenerateActiveObjectiveCueGroups(index);
             UpdateSeenMessagesGrid(index);
             UpdateOutfits(index);
 
@@ -3411,6 +3422,253 @@ namespace lis2_save_editor
             {
                 searchForm.ResetSearchState();
             }
+        }
+
+        private void GenerateActiveObjectiveCueGroups(int cpIndex)
+        {
+            flowLayoutPanelActiveObjectiveCueGroups.Controls.Clear();
+
+            List<dynamic> root;
+            string[] source = _gameSave.saveVersion == SaveVersion.CaptainSpirit
+                ? GameInfo.CS_ActiveObjectiveCueGroups
+                : GameInfo.LIS2_ActiveObjectiveCueGroups;
+            if (cpIndex == 0)
+            {
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+            else
+            {
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+
+            root = root.Skip(1).ToList();
+            int lbl_y = 20;
+
+            foreach (var cuegroup in source)
+            {
+                var gbox = new GroupBox();
+                gbox.AutoSize = true;
+                gbox.Text = cuegroup;
+
+                //size crutch
+                var text_lbl = new Label();
+                text_lbl.AutoSize = true;
+                text_lbl.Text = gbox.Text;
+                text_lbl.Visible = false;
+                text_lbl.Enabled = false;
+                gbox.Controls.Add(text_lbl);
+                gbox.MinimumSize = new Size(text_lbl.Width + 20, 20);
+
+                var cb_active = new CheckBox();
+                cb_active.AutoSize = true;
+                cb_active.Name = "Active";
+                cb_active.Text = "Active";
+                cb_active.Location = new Point(10, lbl_y);
+                dynamic save_group = root.Find(x => x["GroupName"].Value == cuegroup);
+                cb_active.Checked = save_group != null;
+                cb_active.Tag = cuegroup;
+                cb_active.CheckedChanged += new EventHandler(checkBoxObjectiveCueGroup_CheckedChanged);
+                gbox.Controls.Add(cb_active);
+
+                var cb_paused = new CheckBox();
+                cb_paused.AutoSize = true;
+                cb_paused.Name = "Paused";
+                cb_paused.Text = "Paused";
+                cb_paused.Location = new Point(70, lbl_y);
+                cb_paused.Checked = save_group?["bPaused"].Value ?? false;
+                cb_paused.Tag = cuegroup;
+                cb_paused.CheckedChanged += new EventHandler(checkBoxObjectiveCueGroup_CheckedChanged);
+                gbox.Controls.Add(cb_paused);
+
+                lbl_y += 20;
+
+                Label lbl_indexes = new Label()
+                {
+                    Location = new Point(8, lbl_y),
+                    Text = "Cue indexes:",
+                    AutoSize = true
+                };
+                gbox.Controls.Add(lbl_indexes);
+
+                lbl_y += 15;
+
+                ListBox lbox = new ListBox();
+                lbox.Name = "CueIndexes";
+                lbox.Location = new Point(10, lbl_y);
+                lbox.Size = new Size(120, 70);
+                lbox.SelectionMode = SelectionMode.MultiExtended;
+                lbox.Tag = cuegroup;
+                gbox.Controls.Add(lbox);
+                lbl_y += 75;
+
+                if (save_group != null)
+                {
+                    foreach (var item in save_group["CurrentCuesIndexes"].Value)
+                    {
+                        lbox.Items.Add(item);
+                    }
+                }
+
+                lbox.KeyUp += new KeyEventHandler(listBoxObjectiveCueGroupIndexes_KeyPress);
+
+                TextBox tb = new TextBox();
+                tb.Name = "tbNewCueIndex";
+                tb.Location = new Point(10, lbl_y);
+                tb.Width = 65;
+                tb.Tag = cuegroup;
+                tb.TextChanged += new EventHandler(textBoxObjectiveCueGroupNewIndex_TextChanged);
+                gbox.Controls.Add(tb);
+
+                Button but = new Button();
+                but.Name = "btnAddNewIndex";
+                but.Location = new Point(85, lbl_y - 1);
+                but.Width = 45;
+                but.Text = "Add";
+                but.Tag = cuegroup;
+                but.Enabled = false;
+                but.Click += new EventHandler(buttonObjectiveCueGroupNewIndex_Click);
+                gbox.Controls.Add(but);
+
+                flowLayoutPanelActiveObjectiveCueGroups.Controls.Add(gbox);
+                lbl_y = 20;
+            }
+        }
+
+        private void listBoxObjectiveCueGroupIndexes_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                ListBox lb = (ListBox) sender;
+                var selectedItems = lb.SelectedItems.OfType<int>().ToArray();
+                var name = lb.Tag.ToString();
+                List<dynamic> root;
+                var cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                int index = root.FindIndex(1, x => x["GroupName"].Value == name);
+                List<dynamic> cues = root[index]["CurrentCuesIndexes"].Value;
+                foreach (var item in selectedItems)
+                {
+                    cues.Remove(item);
+                    lb.Items.Remove(item);
+                    _editedControls.Add(item);
+                }
+
+                if (selectedItems.Length > 0)
+                {
+                    ShowChangesWarning();
+                }
+            }
+        }
+
+        private void buttonObjectiveCueGroupNewIndex_Click(object sender, EventArgs e)
+        {
+            Control par = ((Button)sender).Parent;
+            ListBox lb = (ListBox)par.Controls.Find("CueIndexes", false)[0];
+            int value = Convert.ToInt32(par.Controls.Find("tbNewCueIndex", false)[0].Text);
+            if (!lb.Items.Contains(value))
+            {
+                lb.Items.Add(value);
+                ((CheckBox) par.Controls.Find("Active", false)[0]).Checked = true;
+                var name = lb.Tag.ToString();
+                List<dynamic> root;
+                var cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                int index = root.FindIndex(1, x => x["GroupName"].Value == name);
+                List<dynamic> cues = root[index]["CurrentCuesIndexes"].Value;
+                cues.AddUnique(value);
+                _editedControls.Add(value);
+                ShowChangesWarning();
+            }
+        }
+
+        private void textBoxObjectiveCueGroupNewIndex_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox) sender;
+            Button btn = (Button) tb.Parent.Controls.Find("btnAddNewIndex", false)[0];
+            if (int.TryParse(tb.Text, out int result))
+            {
+                btn.Enabled = true;
+                tb.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                btn.Enabled = false;
+                tb.BackColor = Color.Red;
+            }
+        }
+
+        private void checkBoxObjectiveCueGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            List<dynamic> root;
+            var cb = (CheckBox) sender;
+            string name = cb.Tag.ToString();
+            var cpIndex = comboBoxSelectCP.SelectedIndex;
+            if (cpIndex == 0)
+            {
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+            else
+            {
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+
+            int index = root.FindIndex(1, x => x["GroupName"].Value == name);
+            if (cb.Name == "Active" && !cb.Checked)
+            {
+                root.RemoveAt(index);
+            }
+            else
+            {
+                if (index == -1)
+                {
+                    List<dynamic> values = ((ListBox)cb.Parent.Controls.Find("CueIndexes", false)[0]).Items.OfType<int>().Cast<dynamic>().ToList();
+                    bool isPaused = ((CheckBox)cb.Parent.Controls.Find("Paused", false)[0]).Checked;
+                    Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
+                    {
+                        {"GroupName", new NameProperty() {Name = "GroupName", Value = name}},
+                        {
+                            "CurrentCuesIndexes",
+                            new ArrayProperty() {Name = "CurrentCuesIndexes", ElementType = "IntProperty", Value = values}
+                        },
+                        {
+                            "bPaused", new BoolProperty() {Name = "bPaused", Value = isPaused}
+                        }
+                    };
+                    root.AddUnique(new_item);
+                    index = root.Count - 1;
+                }
+
+                if (cb.Name == "Paused")
+                {
+                    root[index]["bPaused"].Value = cb.Checked;
+                }
+            }
+
+            cb.BackColor = Color.LightGoldenrodYellow;
+            _editedControls.AddUnique(cb);
+            ShowChangesWarning();
         }
 
         private void UpdateCamActorInfo(int cpIndex)
@@ -3575,7 +3833,7 @@ namespace lis2_save_editor
                 {
                     cnt.BackColor = Color.Transparent;
                 }
-                else
+                else if (cnt is Control)
                 {
                     cnt.BackColor = Color.White;
                 }
@@ -3659,6 +3917,7 @@ namespace lis2_save_editor
                 
                 cb.BackColor = Color.LightGoldenrodYellow;
                 _editedControls.AddUnique(cb);
+                ShowChangesWarning();
             }
         }
 

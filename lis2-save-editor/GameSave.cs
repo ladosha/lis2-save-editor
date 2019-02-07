@@ -107,8 +107,10 @@ namespace lis2_save_editor
 
             //var sp = GenerateSeenPicsSQL();
 
+            //string ao = GenerateObjectiveCueGroupsSQL();
+
             //File.AppendAllText($"FORDB-{Guid.NewGuid()}.txt", facts + outf + inv + levsql);
-            //File.AppendAllText("FORDB.txt", sp);
+            //File.AppendAllText("FORDB.txt", ao);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
@@ -575,7 +577,7 @@ namespace lis2_save_editor
                 foreach (var cin in cin_list.Skip(1))
                 {
                     string cin_guid = cin["Guid"].ToString();
-                    sb.AppendFormat("insert or ignore into CSCinematics (GUID) values (\"{1}\");\n", table, cin_guid);
+                    sb.AppendFormat("insert or ignore into {0}Cinematics (GUID) values (\"{1}\");\n", table, cin_guid);
                 }
             }
             else
@@ -727,6 +729,44 @@ namespace lis2_save_editor
             }
 
             string ts = string.Join("\n", gs.Values);
+        }
+
+        public string GenerateObjectiveCueGroupsSQL()
+        {
+            StringBuilder sb = new StringBuilder();
+            string table = saveVersion >= SaveVersion.LIS_E1 ? "LIS2" : "CS";
+
+            List<dynamic> act_obj = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"].Value["ActiveObjectiveCueGroups"].Value;
+
+            if (act_obj.Count > 1)
+            {
+                sb.AppendLine($"insert or ignore into {table}ActiveObjectiveCueGroups (Name) values");
+                foreach (var item in act_obj.Skip(1))
+                {
+                    sb.Append($"(\"{item["GroupName"].Value}\"),\n");
+                }
+                sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+            }
+
+            if (saveVersion >= SaveVersion.LIS_E1)
+            {
+                for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+                {
+                    act_obj = Data["CheckpointHistory"].Value[i]["PlayerSaveData"].Value["ActiveObjectiveCueGroups"].Value;
+
+                    if (act_obj.Count > 1)
+                    {
+                        sb.AppendLine($"insert or ignore into {table}ActiveObjectiveCueGroups (Name) values");
+                        foreach (var item in act_obj.Skip(1))
+                        {
+                            sb.Append($"(\"{item["GroupName"].Value}\"),\n");
+                        }
+                        sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                    }
+                }
+            }
+
+            return sb.ToString();
         }
 
         public void WriteSaveToFile(string savePath)

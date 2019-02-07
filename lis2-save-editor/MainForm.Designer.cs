@@ -37,6 +37,12 @@
             this.buttonAbout = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.groupBoxSendChoiceSuccess = new System.Windows.Forms.GroupBox();
+            this.checkBoxChoiceSent5 = new System.Windows.Forms.CheckBox();
+            this.checkBoxChoiceSent4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxChoiceSent3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxChoiceSent2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxChoiceSent1 = new System.Windows.Forms.CheckBox();
             this.groupBoxCSImport = new System.Windows.Forms.GroupBox();
             this.panelCSLastPopup = new System.Windows.Forms.Panel();
             this.dateTimePickerCSLastPopup = new System.Windows.Forms.DateTimePicker();
@@ -65,6 +71,7 @@
             this.checkBoxEpComplete2 = new System.Windows.Forms.CheckBox();
             this.checkBoxEpComplete1 = new System.Windows.Forms.CheckBox();
             this.groupBoxAICall = new System.Windows.Forms.GroupBox();
+            this.checkBoxUseCameraDetection = new System.Windows.Forms.CheckBox();
             this.textBoxAICallDelay = new System.Windows.Forms.TextBox();
             this.groupBoxAICallEnable = new System.Windows.Forms.GroupBox();
             this.checkBoxAICall_Chris = new System.Windows.Forms.CheckBox();
@@ -179,7 +186,11 @@
             this.tabPageCollectibles = new System.Windows.Forms.TabPage();
             this.dataGridViewCollectibles = new System.Windows.Forms.DataGridView();
             this.tabPageObjectives = new System.Windows.Forms.TabPage();
+            this.tabControlObjectives = new System.Windows.Forms.TabControl();
+            this.tabPageObjectivesMain = new System.Windows.Forms.TabPage();
             this.dataGridViewObjectives = new System.Windows.Forms.DataGridView();
+            this.tabPageObjectivesActiveCueGroups = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelActiveObjectiveCueGroups = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageMessages = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenMessages = new System.Windows.Forms.DataGridView();
             this.tabPageOutfits = new System.Windows.Forms.TabPage();
@@ -266,15 +277,9 @@
             this.comboBoxSelectCP = new System.Windows.Forms.ComboBox();
             this.buttonSaveSelector = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.checkBoxUseCameraDetection = new System.Windows.Forms.CheckBox();
-            this.groupBoxSendChoiceSuccess = new System.Windows.Forms.GroupBox();
-            this.checkBoxChoiceSent5 = new System.Windows.Forms.CheckBox();
-            this.checkBoxChoiceSent4 = new System.Windows.Forms.CheckBox();
-            this.checkBoxChoiceSent3 = new System.Windows.Forms.CheckBox();
-            this.checkBoxChoiceSent2 = new System.Windows.Forms.CheckBox();
-            this.checkBoxChoiceSent1 = new System.Windows.Forms.CheckBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
+            this.groupBoxSendChoiceSuccess.SuspendLayout();
             this.groupBoxCSImport.SuspendLayout();
             this.panelCSLastPopup.SuspendLayout();
             this.panelCSSaveTime.SuspendLayout();
@@ -327,7 +332,10 @@
             this.tabPageCollectibles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCollectibles)).BeginInit();
             this.tabPageObjectives.SuspendLayout();
+            this.tabControlObjectives.SuspendLayout();
+            this.tabPageObjectivesMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjectives)).BeginInit();
+            this.tabPageObjectivesActiveCueGroups.SuspendLayout();
             this.tabPageMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).BeginInit();
             this.tabPageOutfits.SuspendLayout();
@@ -360,7 +368,6 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.groupBoxSendChoiceSuccess.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxSavePath
@@ -484,6 +491,85 @@
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxSendChoiceSuccess
+            // 
+            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent5);
+            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent4);
+            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent3);
+            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent2);
+            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent1);
+            this.groupBoxSendChoiceSuccess.Location = new System.Drawing.Point(523, 352);
+            this.groupBoxSendChoiceSuccess.Name = "groupBoxSendChoiceSuccess";
+            this.groupBoxSendChoiceSuccess.Size = new System.Drawing.Size(97, 137);
+            this.groupBoxSendChoiceSuccess.TabIndex = 25;
+            this.groupBoxSendChoiceSuccess.TabStop = false;
+            this.groupBoxSendChoiceSuccess.Text = "Choices sent";
+            // 
+            // checkBoxChoiceSent5
+            // 
+            this.checkBoxChoiceSent5.AutoSize = true;
+            this.checkBoxChoiceSent5.Location = new System.Drawing.Point(9, 107);
+            this.checkBoxChoiceSent5.Name = "checkBoxChoiceSent5";
+            this.checkBoxChoiceSent5.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxChoiceSent5.TabIndex = 28;
+            this.checkBoxChoiceSent5.Tag = "5";
+            this.checkBoxChoiceSent5.Text = "Episode 5";
+            this.checkBoxChoiceSent5.ThreeState = true;
+            this.checkBoxChoiceSent5.UseVisualStyleBackColor = true;
+            this.checkBoxChoiceSent5.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
+            // 
+            // checkBoxChoiceSent4
+            // 
+            this.checkBoxChoiceSent4.AutoSize = true;
+            this.checkBoxChoiceSent4.Location = new System.Drawing.Point(9, 85);
+            this.checkBoxChoiceSent4.Name = "checkBoxChoiceSent4";
+            this.checkBoxChoiceSent4.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxChoiceSent4.TabIndex = 27;
+            this.checkBoxChoiceSent4.Tag = "4";
+            this.checkBoxChoiceSent4.Text = "Episode 4";
+            this.checkBoxChoiceSent4.ThreeState = true;
+            this.checkBoxChoiceSent4.UseVisualStyleBackColor = true;
+            this.checkBoxChoiceSent4.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
+            // 
+            // checkBoxChoiceSent3
+            // 
+            this.checkBoxChoiceSent3.AutoSize = true;
+            this.checkBoxChoiceSent3.Location = new System.Drawing.Point(9, 63);
+            this.checkBoxChoiceSent3.Name = "checkBoxChoiceSent3";
+            this.checkBoxChoiceSent3.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxChoiceSent3.TabIndex = 26;
+            this.checkBoxChoiceSent3.Tag = "3";
+            this.checkBoxChoiceSent3.Text = "Episode 3";
+            this.checkBoxChoiceSent3.ThreeState = true;
+            this.checkBoxChoiceSent3.UseVisualStyleBackColor = true;
+            this.checkBoxChoiceSent3.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
+            // 
+            // checkBoxChoiceSent2
+            // 
+            this.checkBoxChoiceSent2.AutoSize = true;
+            this.checkBoxChoiceSent2.Location = new System.Drawing.Point(9, 41);
+            this.checkBoxChoiceSent2.Name = "checkBoxChoiceSent2";
+            this.checkBoxChoiceSent2.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxChoiceSent2.TabIndex = 25;
+            this.checkBoxChoiceSent2.Tag = "2";
+            this.checkBoxChoiceSent2.Text = "Episode 2";
+            this.checkBoxChoiceSent2.ThreeState = true;
+            this.checkBoxChoiceSent2.UseVisualStyleBackColor = true;
+            this.checkBoxChoiceSent2.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
+            // 
+            // checkBoxChoiceSent1
+            // 
+            this.checkBoxChoiceSent1.AutoSize = true;
+            this.checkBoxChoiceSent1.Location = new System.Drawing.Point(9, 20);
+            this.checkBoxChoiceSent1.Name = "checkBoxChoiceSent1";
+            this.checkBoxChoiceSent1.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxChoiceSent1.TabIndex = 24;
+            this.checkBoxChoiceSent1.Tag = "1";
+            this.checkBoxChoiceSent1.Text = "Episode 1";
+            this.checkBoxChoiceSent1.ThreeState = true;
+            this.checkBoxChoiceSent1.UseVisualStyleBackColor = true;
+            this.checkBoxChoiceSent1.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
             // 
             // groupBoxCSImport
             // 
@@ -814,6 +900,17 @@
             this.groupBoxAICall.TabIndex = 20;
             this.groupBoxAICall.TabStop = false;
             this.groupBoxAICall.Text = "AI Calling";
+            // 
+            // checkBoxUseCameraDetection
+            // 
+            this.checkBoxUseCameraDetection.AutoSize = true;
+            this.checkBoxUseCameraDetection.Location = new System.Drawing.Point(6, 64);
+            this.checkBoxUseCameraDetection.Name = "checkBoxUseCameraDetection";
+            this.checkBoxUseCameraDetection.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxUseCameraDetection.TabIndex = 18;
+            this.checkBoxUseCameraDetection.Text = "Use camera detection";
+            this.checkBoxUseCameraDetection.UseVisualStyleBackColor = true;
+            this.checkBoxUseCameraDetection.CheckedChanged += new System.EventHandler(this.checkBoxUseCameraDetection_CheckedChanged);
             // 
             // textBoxAICallDelay
             // 
@@ -2080,7 +2177,7 @@
             // 
             // tabPageObjectives
             // 
-            this.tabPageObjectives.Controls.Add(this.dataGridViewObjectives);
+            this.tabPageObjectives.Controls.Add(this.tabControlObjectives);
             this.tabPageObjectives.Location = new System.Drawing.Point(4, 24);
             this.tabPageObjectives.Name = "tabPageObjectives";
             this.tabPageObjectives.Padding = new System.Windows.Forms.Padding(3);
@@ -2088,6 +2185,28 @@
             this.tabPageObjectives.TabIndex = 11;
             this.tabPageObjectives.Text = "Objectives";
             this.tabPageObjectives.UseVisualStyleBackColor = true;
+            // 
+            // tabControlObjectives
+            // 
+            this.tabControlObjectives.Controls.Add(this.tabPageObjectivesMain);
+            this.tabControlObjectives.Controls.Add(this.tabPageObjectivesActiveCueGroups);
+            this.tabControlObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlObjectives.Location = new System.Drawing.Point(3, 3);
+            this.tabControlObjectives.Name = "tabControlObjectives";
+            this.tabControlObjectives.SelectedIndex = 0;
+            this.tabControlObjectives.Size = new System.Drawing.Size(884, 532);
+            this.tabControlObjectives.TabIndex = 0;
+            // 
+            // tabPageObjectivesMain
+            // 
+            this.tabPageObjectivesMain.Controls.Add(this.dataGridViewObjectives);
+            this.tabPageObjectivesMain.Location = new System.Drawing.Point(4, 22);
+            this.tabPageObjectivesMain.Name = "tabPageObjectivesMain";
+            this.tabPageObjectivesMain.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageObjectivesMain.Size = new System.Drawing.Size(876, 506);
+            this.tabPageObjectivesMain.TabIndex = 0;
+            this.tabPageObjectivesMain.Text = "Player\'s objectives";
+            this.tabPageObjectivesMain.UseVisualStyleBackColor = true;
             // 
             // dataGridViewObjectives
             // 
@@ -2099,10 +2218,29 @@
             this.dataGridViewObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjectives.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewObjectives.Name = "dataGridViewObjectives";
-            this.dataGridViewObjectives.Size = new System.Drawing.Size(884, 532);
-            this.dataGridViewObjectives.TabIndex = 3;
-            this.dataGridViewObjectives.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
-            this.dataGridViewObjectives.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjectives_CellEndEdit);
+            this.dataGridViewObjectives.Size = new System.Drawing.Size(870, 500);
+            this.dataGridViewObjectives.TabIndex = 4;
+            // 
+            // tabPageObjectivesActiveCueGroups
+            // 
+            this.tabPageObjectivesActiveCueGroups.Controls.Add(this.flowLayoutPanelActiveObjectiveCueGroups);
+            this.tabPageObjectivesActiveCueGroups.Location = new System.Drawing.Point(4, 22);
+            this.tabPageObjectivesActiveCueGroups.Name = "tabPageObjectivesActiveCueGroups";
+            this.tabPageObjectivesActiveCueGroups.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageObjectivesActiveCueGroups.Size = new System.Drawing.Size(876, 506);
+            this.tabPageObjectivesActiveCueGroups.TabIndex = 1;
+            this.tabPageObjectivesActiveCueGroups.Text = "Active cue groups";
+            this.tabPageObjectivesActiveCueGroups.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanelActiveObjectiveCueGroups
+            // 
+            this.flowLayoutPanelActiveObjectiveCueGroups.AutoScroll = true;
+            this.flowLayoutPanelActiveObjectiveCueGroups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelActiveObjectiveCueGroups.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelActiveObjectiveCueGroups.Name = "flowLayoutPanelActiveObjectiveCueGroups";
+            this.flowLayoutPanelActiveObjectiveCueGroups.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.flowLayoutPanelActiveObjectiveCueGroups.Size = new System.Drawing.Size(870, 500);
+            this.flowLayoutPanelActiveObjectiveCueGroups.TabIndex = 0;
             // 
             // tabPageMessages
             // 
@@ -3009,96 +3147,6 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
-            // checkBoxUseCameraDetection
-            // 
-            this.checkBoxUseCameraDetection.AutoSize = true;
-            this.checkBoxUseCameraDetection.Location = new System.Drawing.Point(6, 64);
-            this.checkBoxUseCameraDetection.Name = "checkBoxUseCameraDetection";
-            this.checkBoxUseCameraDetection.Size = new System.Drawing.Size(130, 17);
-            this.checkBoxUseCameraDetection.TabIndex = 18;
-            this.checkBoxUseCameraDetection.Text = "Use camera detection";
-            this.checkBoxUseCameraDetection.UseVisualStyleBackColor = true;
-            this.checkBoxUseCameraDetection.CheckedChanged += new System.EventHandler(this.checkBoxUseCameraDetection_CheckedChanged);
-            // 
-            // groupBoxSendChoiceSuccess
-            // 
-            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent5);
-            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent4);
-            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent3);
-            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent2);
-            this.groupBoxSendChoiceSuccess.Controls.Add(this.checkBoxChoiceSent1);
-            this.groupBoxSendChoiceSuccess.Location = new System.Drawing.Point(523, 352);
-            this.groupBoxSendChoiceSuccess.Name = "groupBoxSendChoiceSuccess";
-            this.groupBoxSendChoiceSuccess.Size = new System.Drawing.Size(97, 137);
-            this.groupBoxSendChoiceSuccess.TabIndex = 25;
-            this.groupBoxSendChoiceSuccess.TabStop = false;
-            this.groupBoxSendChoiceSuccess.Text = "Choices sent";
-            // 
-            // checkBoxChoiceSent5
-            // 
-            this.checkBoxChoiceSent5.AutoSize = true;
-            this.checkBoxChoiceSent5.Location = new System.Drawing.Point(9, 107);
-            this.checkBoxChoiceSent5.Name = "checkBoxChoiceSent5";
-            this.checkBoxChoiceSent5.Size = new System.Drawing.Size(73, 17);
-            this.checkBoxChoiceSent5.TabIndex = 28;
-            this.checkBoxChoiceSent5.Tag = "5";
-            this.checkBoxChoiceSent5.Text = "Episode 5";
-            this.checkBoxChoiceSent5.ThreeState = true;
-            this.checkBoxChoiceSent5.UseVisualStyleBackColor = true;
-            this.checkBoxChoiceSent5.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
-            // 
-            // checkBoxChoiceSent4
-            // 
-            this.checkBoxChoiceSent4.AutoSize = true;
-            this.checkBoxChoiceSent4.Location = new System.Drawing.Point(9, 85);
-            this.checkBoxChoiceSent4.Name = "checkBoxChoiceSent4";
-            this.checkBoxChoiceSent4.Size = new System.Drawing.Size(73, 17);
-            this.checkBoxChoiceSent4.TabIndex = 27;
-            this.checkBoxChoiceSent4.Tag = "4";
-            this.checkBoxChoiceSent4.Text = "Episode 4";
-            this.checkBoxChoiceSent4.ThreeState = true;
-            this.checkBoxChoiceSent4.UseVisualStyleBackColor = true;
-            this.checkBoxChoiceSent4.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
-            // 
-            // checkBoxChoiceSent3
-            // 
-            this.checkBoxChoiceSent3.AutoSize = true;
-            this.checkBoxChoiceSent3.Location = new System.Drawing.Point(9, 63);
-            this.checkBoxChoiceSent3.Name = "checkBoxChoiceSent3";
-            this.checkBoxChoiceSent3.Size = new System.Drawing.Size(73, 17);
-            this.checkBoxChoiceSent3.TabIndex = 26;
-            this.checkBoxChoiceSent3.Tag = "3";
-            this.checkBoxChoiceSent3.Text = "Episode 3";
-            this.checkBoxChoiceSent3.ThreeState = true;
-            this.checkBoxChoiceSent3.UseVisualStyleBackColor = true;
-            this.checkBoxChoiceSent3.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
-            // 
-            // checkBoxChoiceSent2
-            // 
-            this.checkBoxChoiceSent2.AutoSize = true;
-            this.checkBoxChoiceSent2.Location = new System.Drawing.Point(9, 41);
-            this.checkBoxChoiceSent2.Name = "checkBoxChoiceSent2";
-            this.checkBoxChoiceSent2.Size = new System.Drawing.Size(73, 17);
-            this.checkBoxChoiceSent2.TabIndex = 25;
-            this.checkBoxChoiceSent2.Tag = "2";
-            this.checkBoxChoiceSent2.Text = "Episode 2";
-            this.checkBoxChoiceSent2.ThreeState = true;
-            this.checkBoxChoiceSent2.UseVisualStyleBackColor = true;
-            this.checkBoxChoiceSent2.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
-            // 
-            // checkBoxChoiceSent1
-            // 
-            this.checkBoxChoiceSent1.AutoSize = true;
-            this.checkBoxChoiceSent1.Location = new System.Drawing.Point(9, 20);
-            this.checkBoxChoiceSent1.Name = "checkBoxChoiceSent1";
-            this.checkBoxChoiceSent1.Size = new System.Drawing.Size(73, 17);
-            this.checkBoxChoiceSent1.TabIndex = 24;
-            this.checkBoxChoiceSent1.Tag = "1";
-            this.checkBoxChoiceSent1.Text = "Episode 1";
-            this.checkBoxChoiceSent1.ThreeState = true;
-            this.checkBoxChoiceSent1.UseVisualStyleBackColor = true;
-            this.checkBoxChoiceSent1.CheckStateChanged += new System.EventHandler(this.checkBoxChoiceSent_CheckStateChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3117,6 +3165,8 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPageGeneral.ResumeLayout(false);
             this.tabPageGeneral.PerformLayout();
+            this.groupBoxSendChoiceSuccess.ResumeLayout(false);
+            this.groupBoxSendChoiceSuccess.PerformLayout();
             this.groupBoxCSImport.ResumeLayout(false);
             this.groupBoxCSImport.PerformLayout();
             this.panelCSLastPopup.ResumeLayout(false);
@@ -3178,7 +3228,10 @@
             this.tabPageCollectibles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCollectibles)).EndInit();
             this.tabPageObjectives.ResumeLayout(false);
+            this.tabControlObjectives.ResumeLayout(false);
+            this.tabPageObjectivesMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjectives)).EndInit();
+            this.tabPageObjectivesActiveCueGroups.ResumeLayout(false);
             this.tabPageMessages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).EndInit();
             this.tabPageOutfits.ResumeLayout(false);
@@ -3216,8 +3269,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.groupBoxSendChoiceSuccess.ResumeLayout(false);
-            this.groupBoxSendChoiceSuccess.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3316,7 +3367,6 @@
         private System.Windows.Forms.TabPage tabPageCollectibles;
         private System.Windows.Forms.DataGridView dataGridViewCollectibles;
         private System.Windows.Forms.TabPage tabPageObjectives;
-        private System.Windows.Forms.DataGridView dataGridViewObjectives;
         private System.Windows.Forms.TabPage tabPageMessages;
         private System.Windows.Forms.DataGridView dataGridViewSeenMessages;
         private System.Windows.Forms.GroupBox groupBoxAICall;
@@ -3468,6 +3518,11 @@
         private System.Windows.Forms.CheckBox checkBoxChoiceSent3;
         private System.Windows.Forms.CheckBox checkBoxChoiceSent2;
         private System.Windows.Forms.CheckBox checkBoxChoiceSent1;
+        private System.Windows.Forms.TabControl tabControlObjectives;
+        private System.Windows.Forms.TabPage tabPageObjectivesMain;
+        private System.Windows.Forms.DataGridView dataGridViewObjectives;
+        private System.Windows.Forms.TabPage tabPageObjectivesActiveCueGroups;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelActiveObjectiveCueGroups;
     }
 }
 
