@@ -442,7 +442,7 @@ namespace lis2_save_editor
             foreach (var evt in level_info.DelayedEvents)
             {
                 object[] row = new object[dataGridViewDelayedEvents.Columns.Count];
-                row[0] = evt.ID;
+                row[0] = evt.ActorName + "::" + evt.ID;
                 row[2] = evt.FunctionName;
 
                 int index = target.FindIndex(1, x => x["DelayedEventID"].Value == evt.ID);
@@ -1269,7 +1269,8 @@ namespace lis2_save_editor
         private void EditDelayedEvent(string name, int colIndex, object value)
         {
             List<dynamic> target = level["DelayedEventsSaveData"].Value["DelayedEvents"].Value;
-            int id = Convert.ToInt32(name);
+            string[] info = name.Split(new string[] {"::"}, 2, StringSplitOptions.None);
+            int id = Convert.ToInt32(info[1]); //we should see if id is really unique
             int index = target.FindIndex(1, x => x["DelayedEventID"].Value == id);
             var evt = level_info.DelayedEvents.Find(x => x.ID == id);
 
