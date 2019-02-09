@@ -45,6 +45,7 @@ namespace lis2_save_editor
             UpdateStoppedSeqTable();
             UpdatePlayingSeqTable();
             UpdateBindingTables();
+            UpdateDelayedEventsTable();
         }
 
         #region Building
@@ -385,7 +386,7 @@ namespace lis2_save_editor
 
                 grid.Columns.Add(new DataGridViewTextBoxColumn() {Name = "Name", HeaderText = "Name" });
                 var func_list = new List<string>() { "(none)" };
-                func_list.AddRange(level_info.LevelFunctions.Where(x => x.StartsWith(type)));
+                func_list.AddRange(level_info.LevelFunctions.Where(x => x.Type == type).Select(x => x.Name));
                 var comboCol = new DataGridViewComboBoxColumn()
                 {
                     Name = "Current function",
@@ -410,6 +411,58 @@ namespace lis2_save_editor
                     row[2] = string.IsNullOrEmpty(defFunc) ? "(unknown)" : defFunc;
                     grid.Rows.Add(row);
                 }
+            }
+        }
+
+        private void UpdateDelayedEventsTable()
+        {
+            dataGridViewDelayedEvents.Columns.Clear();
+            dataGridViewDelayedEvents.Columns.AddRange(
+                new DataGridViewTextBoxColumn() { Name = "Name", HeaderText = "Name", ReadOnly = true, FillWeight = 10 },
+                new DataGridViewTextBoxColumn() { Name = "Default function", HeaderText = "Default function", ReadOnly = true, FillWeight = 20 },
+                new DataGridViewTextBoxColumn() { Name = "Link ID", HeaderText = "Output link ID", FillWeight = 5 },
+                new DataGridViewTextBoxColumn() { Name = "Remaining delay duration", HeaderText = "Remaining delay duration", FillWeight = 5 },
+                new DataGridViewCheckBoxColumn() { Name = "Affected by skip", HeaderText = "Affected by skip", FillWeight = 5 }
+                );
+
+            var func_list = new List<string>() { "(none)" };
+            func_list.AddRange(level_info.LevelFunctions.Where(x => x.Type == "DelayedEvent").Select(x => x.Name));
+            var combocol = new DataGridViewComboBoxColumn()
+            {
+                Name = "Current function",
+                HeaderText = "Current function",
+                DataSource = func_list,
+                FillWeight = 20
+            };
+
+            dataGridViewDelayedEvents.Columns.Insert(1, combocol);
+
+            List<dynamic> target = level["DelayedEventsSaveData"].Value["DelayedEvents"].Value;
+
+            foreach (var evt in level_info.DelayedEvents)
+            {
+                object[] row = new object[dataGridViewDelayedEvents.Columns.Count];
+                row[0] = evt.ID;
+                row[2] = evt.FunctionName;
+
+                int index = target.FindIndex(1, x => x["DelayedEventID"].Value == evt.ID);
+                if (index != -1)
+                {
+                    var cur_func = target[index]["ExecutionFunction"].Value;
+                    if (!func_list.Contains(cur_func)) func_list.Add(cur_func);
+                    row[1] = cur_func;
+                    row[3] = target[index]["OutputLinkID"].Value;
+                    row[4] = target[index]["RemainingDelayDuration"].Value;
+                    row[5] = target[index]["bAffectedBySkipTime"].Value;
+                }
+                else
+                {
+                    row[1] = "(none)";
+                    row[3] = 0;
+                    row[4] = 0;
+                    row[5] = false;
+                }
+                dataGridViewDelayedEvents.Rows.Add(row);
             }
         }
         #endregion
@@ -622,8 +675,7 @@ namespace lis2_save_editor
         {
             if (e.ColumnIndex == 3)
             {
-                float result;
-                if (!float.TryParse(dataGridViewPOIs[3, e.RowIndex].Value.ToString(), out result))
+                if (!float.TryParse(dataGridViewPOIs[3, e.RowIndex].Value.ToString(), out float result))
                 {
                     MessageBox.Show(Resources.BadValueMessage, "Error");
                     newCellValue = origCellValue;
@@ -663,8 +715,7 @@ namespace lis2_save_editor
             int colIndex = e.ColumnIndex;
             if (colIndex > 1 && colIndex < 6)
             {
-                float result;
-                if (!float.TryParse(dataGridViewWUIs[colIndex, e.RowIndex].Value.ToString(), out result))
+                if (!float.TryParse(dataGridViewWUIs[colIndex, e.RowIndex].Value.ToString(), out float result))
                 {
                     MessageBox.Show(Resources.BadValueMessage, "Error");
                     newCellValue = origCellValue;
@@ -705,8 +756,7 @@ namespace lis2_save_editor
             int colIndex = e.ColumnIndex;
             if(colIndex == 2)
             {
-                float result;
-                if (!float.TryParse(dataGridViewSeqStopped[colIndex, e.RowIndex].Value.ToString(), out result))
+                if (!int.TryParse(dataGridViewSeqStopped[colIndex, e.RowIndex].Value.ToString(), out int result))
                 {
                     MessageBox.Show(Resources.BadValueMessage, "Error");
                     newCellValue = origCellValue;
@@ -747,8 +797,7 @@ namespace lis2_save_editor
             int colIndex = e.ColumnIndex;
             if (colIndex == 3)
             {
-                float result;
-                if (!float.TryParse(dataGridViewSeqPlaying[colIndex, e.RowIndex].Value.ToString(), out result))
+                if (!float.TryParse(dataGridViewSeqPlaying[colIndex, e.RowIndex].Value.ToString(), out float result))
                 {
                     MessageBox.Show(Resources.BadValueMessage, "Error");
                     newCellValue = origCellValue;
@@ -793,6 +842,66 @@ namespace lis2_save_editor
                 var name = grid[0, e.RowIndex].Value.ToString();
                 EditBinding(name, type, newCellValue.ToString());
                 grid[0, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+            }
+        }
+
+        private void dataGridViewDelayedEvents_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int colIndex = e.ColumnIndex;
+            switch (colIndex)
+            {
+                case 3:
+                {
+                    if (!int.TryParse(dataGridViewDelayedEvents[colIndex, e.RowIndex].Value.ToString(), out int result))
+                    {
+                        MessageBox.Show(Resources.BadValueMessage, "Error");
+                        newCellValue = origCellValue;
+                        dataGridViewDelayedEvents[colIndex, e.RowIndex].Value = origCellValue;
+                    }
+                    else
+                    {
+                        newCellValue = result;
+                    }
+
+                    break;
+                }
+                case 4:
+                {
+                    if (!float.TryParse(dataGridViewDelayedEvents[colIndex, e.RowIndex].Value.ToString(), out float result))
+                    {
+                        MessageBox.Show(Resources.BadValueMessage, "Error");
+                        newCellValue = origCellValue;
+                        dataGridViewDelayedEvents[colIndex, e.RowIndex].Value = origCellValue;
+                    }
+                    else
+                    {
+                        newCellValue = result;
+                    }
+
+                    break;
+                }
+                default:
+                    newCellValue = dataGridViewDelayedEvents[colIndex, e.RowIndex].Value;
+                    break;
+            }
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = dataGridViewDelayedEvents[0, e.RowIndex].Value.ToString();
+                EditDelayedEvent(name, colIndex, newCellValue);
+                dataGridViewDelayedEvents[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+
+                if (e.ColumnIndex != 1)
+                {
+                    dataGridViewDelayedEvents[1, e.RowIndex].Value = dataGridViewDelayedEvents[2, e.RowIndex].Value;
+                }
+                else if (newCellValue.ToString() != "(none)")
+                {
+                    for (int i = 3; i < dataGridViewDelayedEvents.ColumnCount; i++)
+                    {
+                        EditDelayedEvent(name, i, dataGridViewDelayedEvents[i, e.RowIndex].Value);
+                    }
+                }
             }
         }
 
@@ -1156,7 +1265,99 @@ namespace lis2_save_editor
             }
             changesMade = true;
         }
-        
+
+        private void EditDelayedEvent(string name, int colIndex, object value)
+        {
+            List<dynamic> target = level["DelayedEventsSaveData"].Value["DelayedEvents"].Value;
+            int id = Convert.ToInt32(name);
+            int index = target.FindIndex(1, x => x["DelayedEventID"].Value == id);
+            var evt = level_info.DelayedEvents.Find(x => x.ID == id);
+
+            if (index == -1) //add new item
+            {
+                Dictionary<string, object> new_item = new Dictionary<string, object>()
+                {
+                    {
+                        "DelayedEventID", new IntProperty()
+                        {
+                            Name = "DelayedEventID",
+                            Value = id
+                        }
+                    },
+                    {
+                        "LevelScriptActorName", new NameProperty()
+                        {
+                            Name = "LevelScriptActorName",
+                            Value = evt.ActorName
+                        }
+                    },
+                    {
+                        "ExecutionFunction", new NameProperty()
+                        {
+                            Name = "ExecutionFunction",
+                            Value = colIndex == 1 ? value.ToString() : evt.FunctionName
+                        }
+                    },
+                    {
+                        "OutputLinkID", new IntProperty()
+                        {
+                            Name = "OutputLinkID",
+                            Value = colIndex == 3 ? Convert.ToInt32(value) : 0
+                        }
+                    },
+                    {
+                        "RemainingDelayDuration", new FloatProperty()
+                        {
+                            Name = "RemainingDelayDuration",
+                            Value = colIndex == 4 ? Convert.ToSingle(value) : 0
+                        }
+                    },
+                    {
+                        "bAffectedBySkipTime", new BoolProperty()
+                        {
+                            Name = "bAffectedBySkipTime",
+                            Value = colIndex == 5 ? Convert.ToBoolean(value) : false
+                        }
+                    },
+                };
+                target.AddUnique(new_item);
+            }
+            else
+            {
+                if (colIndex == 1 && value.ToString() == "(none)") //Remove POI
+                {
+                    target.RemoveAt(index);
+                }
+                else
+                {
+                    switch (colIndex)
+                    {
+                        case 1:
+                            {
+                                target[index]["ExecutionFunction"].Value = value.ToString();
+                                break;
+                            }
+                        case 3:
+                            {
+                                target[index]["OutputLinkID"].Value = Convert.ToInt32(value);
+                                break;
+                            }
+                        case 4:
+                            {
+                                target[index]["RemainingDelayDuration"].Value = Convert.ToSingle(value);
+                                break;
+                            }
+                        case 5:
+                            {
+                                target[index]["bAffectedBySkipTime"].Value = Convert.ToBoolean(value);
+                                break;
+                            }
+                    }
+                }
+            }
+            changesMade = true;
+        }
+
         #endregion
 
         private void LevelEditForm_FormClosing(object sender, FormClosingEventArgs e)

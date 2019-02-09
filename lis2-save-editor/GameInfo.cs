@@ -50,7 +50,8 @@ namespace lis2_save_editor
         public string Name { get; set; }
         public List<InteractionActor> Interactions { get; set; } 
         public List<LevelSequenceObject> LevelSequences { get; set; }
-        public string[] LevelFunctions { get; set; }
+        public List<LevelFunctionObject> LevelFunctions { get; set; }
+        public List<DelayedEventObject> DelayedEvents { get; set; }
         public string[] PointsOfInterest { get; set; }
         public string[] WuiVolumes { get; set; }
 
@@ -63,7 +64,8 @@ namespace lis2_save_editor
                     Name = "None",
                     Interactions = new List<InteractionActor>(),
                     LevelSequences = new List<LevelSequenceObject>(),
-                    LevelFunctions = new string[0],
+                    LevelFunctions = new List<LevelFunctionObject>(),
+                    DelayedEvents = new List<DelayedEventObject>(),
                     PointsOfInterest = new string[0],
                     WuiVolumes = new string[0]
                 };
@@ -87,6 +89,19 @@ namespace lis2_save_editor
         public string OnStopFunctionName { get; set; }
         public string OnHasLoopedFunctionName { get; set; }
         public string OnEventFunctionName { get; set; }
+    }
+
+    public class LevelFunctionObject
+    {
+        public string Name { get; set; }
+        public string Type { get; set; }
+    }
+
+    public class DelayedEventObject
+    {
+        public int ID { get; set; }
+        public string ActorName { get; set; }
+        public string FunctionName { get; set; }
     }
 
     public class CinematicObject
@@ -1320,9 +1335,12 @@ namespace lis2_save_editor
                     {
                          new LevelSequenceObject { ActorName = "IntroFade", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnStop842F78F143800B197EE840ABD97BE897",
+                         new LevelFunctionObject { Name = "OnStop842F78F143800B197EE840ABD97BE897",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -1342,7 +1360,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1363,7 +1384,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1384,7 +1408,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1406,7 +1433,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1427,7 +1457,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1448,7 +1481,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1469,7 +1505,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -1496,7 +1535,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -2146,33 +2188,36 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_PT_EHOutside_Garage_BeerCardboard_Take", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_PT_EHOutside_TreeHouse_IGE_Sit", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnStop0215B32A4DC556BE29D7119F6691DD79",
-                        "OnStop0750FD9E44AA1A19026654ACAD14710C",
-                        "OnStop1C2AEB2048103FD43866A9A6DC60C64C",
-                        "OnStop2377C62D4C80B3AC72A9C0AD5E95D70C",
-                        "OnStop33D608B74462B6CF968B0EA0FF1D58BD",
-                        "OnStop41F03C7041869BD40C045E91E41606D6",
-                        "OnStop51B88EAF4B939ACDE6AD9793940F850F",
-                        "OnStop54D01F4F4440A01B1A601FB34F205CDA",
-                        "OnStop58994B014FA800E5C8B6FEB7BD5827F5",
-                        "OnStop58E158344A58F1144B875297B4F16283",
-                        "OnStop646367334528F01B834F149BAD91A808",
-                        "OnStop657B91964C69FECF396124B4CE9252EA",
-                        "OnStop6927B0CA4B09571D0D82C88C91DAA1B7",
-                        "OnStop6FC217B543CC29B5663DD38810AED77C",
-                        "OnStop738BFF464A1385BE552F44AA07988646",
-                        "OnStop87987EF2480197B382080881EDA7FAB0",
-                        "OnStop8874481A4D48FA91E0346091B45B4A89",
-                        "OnStop8B6CEFED4FFAF93B82D5A0A96441D29B",
-                        "OnStop9E0746F74F5B849A38A70FB1A33018AA",
-                        "OnStopA3185ED643A4F82B0FE3DC8C0CCBB6C4",
-                        "OnStopB99B30004D054FA4196AD6ADF9AE9A3A",
-                        "OnStopC2362F6D4024DBB305140AAAD34095DA",
-                        "OnStopC9F6D7464BB9CB18C4262DB744CA1FB6",
-                        "OnStopD1766B2D4C9196928C3B5E8A11E3EBA1",
-                        "OnStopDB4EFD48483CB10518F1B69A3CCDD6BC",
+                         new LevelFunctionObject { Name = "OnStop0215B32A4DC556BE29D7119F6691DD79",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop0750FD9E44AA1A19026654ACAD14710C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1C2AEB2048103FD43866A9A6DC60C64C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2377C62D4C80B3AC72A9C0AD5E95D70C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop33D608B74462B6CF968B0EA0FF1D58BD",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop41F03C7041869BD40C045E91E41606D6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop51B88EAF4B939ACDE6AD9793940F850F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop54D01F4F4440A01B1A601FB34F205CDA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop58994B014FA800E5C8B6FEB7BD5827F5",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop58E158344A58F1144B875297B4F16283",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop646367334528F01B834F149BAD91A808",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop657B91964C69FECF396124B4CE9252EA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6927B0CA4B09571D0D82C88C91DAA1B7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6FC217B543CC29B5663DD38810AED77C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop738BFF464A1385BE552F44AA07988646",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop87987EF2480197B382080881EDA7FAB0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8874481A4D48FA91E0346091B45B4A89",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8B6CEFED4FFAF93B82D5A0A96441D29B",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9E0746F74F5B849A38A70FB1A33018AA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA3185ED643A4F82B0FE3DC8C0CCBB6C4",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB99B30004D054FA4196AD6ADF9AE9A3A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC2362F6D4024DBB305140AAAD34095DA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC9F6D7464BB9CB18C4262DB744CA1FB6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD1766B2D4C9196928C3B5E8A11E3EBA1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopDB4EFD48483CB10518F1B69A3CCDD6BC",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -2192,7 +2237,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -2214,7 +2262,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -2235,7 +2286,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -2256,7 +2310,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -2277,7 +2334,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -2298,7 +2358,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4129,85 +4192,92 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_MantroidGone_79", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "DS_PT_EHInside_Bathroom_Mirror_Threaten_87", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnEvent0C10CF2F4FBE7DEEACDC0480FBE4BF67",
-                        "OnEvent333043F34F34698EE7199D93E0CFF578",
-                        "OnEventC20BDBF24F78F244277C528F5C4D7038",
-                        "OnHasLooped9CD3F3594161684A57648FB65215C588",
-                        "OnHasLooped_Event",
-                        "OnHasLooped_Event_0",
-                        "OnPlayFB63AA9847E56C6E9FE9FE84761755BE",
-                        "OnStop063F5D5A4349184EE9AD1AB3326CA234",
-                        "OnStop15B2F061470B468438CFCE94FA32F8E6",
-                        "OnStop171A830F42CD699799AF1AB45BFDB6DE",
-                        "OnStop173802D24DF86471B5691C83F667C29F",
-                        "OnStop178D52FE4919A80D6F5BD68685EB1D94",
-                        "OnStop1BE3D9F149AEC5365BD10EB43504207B",
-                        "OnStop1E7B5B5D4AB811B540A3749A8A5D23E7",
-                        "OnStop1F7B0B734EEB969520942EA49D25A024",
-                        "OnStop264ED97C4A5AE3BF7AA497BA45AFB5BE",
-                        "OnStop289EBC4E40D9B1427407C4BD6B40FFE5",
-                        "OnStop292DBBD5403323CC34DB8E9AFCE75814",
-                        "OnStop2A12AB4A4596A6DAACF7FE864404B4D7",
-                        "OnStop346C964E4E2BC3A24D4ABBB3A97EC546",
-                        "OnStop37D0A954447115754B7A00A79D0C2384",
-                        "OnStop39F6A4F343938C962E5BC79096821AD2",
-                        "OnStop3F6AF85F4D36A70FCC06A9ADD6B2CA5A",
-                        "OnStop4C90130E4AF4B3441E7C79BF505CBAB9",
-                        "OnStop56B240F349145445E5B2D1BCDCB7B674",
-                        "OnStop6957CB6D4200329EDF9C91A23FF554E2",
-                        "OnStop69D0B9814226EB151D28EBBA7C82CAA5",
-                        "OnStop6CE83AEC4F9F0862B124A88E6EED1B06",
-                        "OnStop6F224923448C922B86AD3F8BF2DAA1AD",
-                        "OnStop7074B0074B83714BC4D01F84E6309E93",
-                        "OnStop71A63B624438E5D441DC0A82CE811803",
-                        "OnStop71B6092C437FF170E3DABF9ED1B3F533",
-                        "OnStop736A41684C73BC5989B7838784B47370",
-                        "OnStop747B8CCF4103E61865389FB9F4B39896",
-                        "OnStop75CF8FF54914C54EA28995BF73671000",
-                        "OnStop779738F04464063B017E2DA19CABB0DD",
-                        "OnStop7CB591FD470CFA541ECFCCB8AECDC901",
-                        "OnStop835F8EE3436B3763178DC8AE2AC14409",
-                        "OnStop8ABCA28E41C9A549FBBC65949D734BE8",
-                        "OnStop8C622F5143364F9D3F7B05B30A65ABA6",
-                        "OnStop91FBCD9C41138F1BC503C69EA380B5F1",
-                        "OnStop96277E1540BA4735B65434BFD3051FC1",
-                        "OnStop96A377774C69E0670DF4F5BA0FB142DC",
-                        "OnStop9B9663DA488D131E8E9AB9BCC1397E0A",
-                        "OnStop9CD3F3594161684A57648FB65215C588",
-                        "OnStop9E0123D0470E54AC717162824103626F",
-                        "OnStopA0D3B12F433EB25C9955E49504C5767E",
-                        "OnStopA4C61FA54E0CAC331C476E957BE3883E",
-                        "OnStopAD986BC3469D2328F8B560A42011F815",
-                        "OnStopB14D854F4F6C3A3F588623BE33F66075",
-                        "OnStopB17549324F20248C78B09086F5197C3E",
-                        "OnStopB1A5296B4D1BE5336FA4589D3ED4D23E",
-                        "OnStopB33332774544149EE14121A5272FA904",
-                        "OnStopB761DE9545590FF63F95E89C1E814881",
-                        "OnStopBA2928DB47624C63E6AA2CB14DABE6A0",
-                        "OnStopBB83E96E4CC4823CC695FAB75009D849",
-                        "OnStopBD77557044A747D84ECC33B7811E40A0",
-                        "OnStopC20BDBF24F78F244277C528F5C4D7038",
-                        "OnStopC572035A4118E73ECED5049C4D601770",
-                        "OnStopC75A9415461D849ACA49BCAE1F847A30",
-                        "OnStopC916AF0D447CC0E3912928A4B721318C",
-                        "OnStopCA67B1C94836EA2FF0F65995CE0063A1",
-                        "OnStopCB337B2E44DAB2093457CBAE25017D0A",
-                        "OnStopCF0B99584CE88006564A5CA5F319A8DC",
-                        "OnStopCF3DD6684B4174E2C616EDBB17E3980D",
-                        "OnStopD02B42264BB7B311C4292BB2FFDB61F6",
-                        "OnStopD7C7CE4A49BDA3D0629B078F792BE9A4",
-                        "OnStopDAAC38644432DD0D11D6DF99B58A48DA",
-                        "OnStopE1AA6D94411A00179BED8E8CE0EAC0B5",
-                        "OnStopE534601544B12839CE4B96B664C48769",
-                        "OnStopE5A057DF44D9232F28C51DA390304E62",
-                        "OnStopE8B502E14EBD5DC02C6059988F90FCF3",
-                        "OnStopEF0DA107479391ADA008FAB4E48C1B5F",
-                        "OnStopF09DB3AB464C487F3701A9B7DF5BB4E9",
-                        "OnStopF8EB74F3485D73C699F89CA5CAC78467",
-                        "OnStopFE3484A7483E760B65F07FAD358A33C0",
-                        "OnStop_Event",
+                         new LevelFunctionObject { Name = "OnComplete543E565E4F1FB3A0FC4308A3BD610DCF",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete80812F5D414F4E926FE92D98F531FB29",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnEvent0C10CF2F4FBE7DEEACDC0480FBE4BF67",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent333043F34F34698EE7199D93E0CFF578",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEventC20BDBF24F78F244277C528F5C4D7038",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnHasLooped9CD3F3594161684A57648FB65215C588",  Type = "OnHasLooped" },
+                         new LevelFunctionObject { Name = "OnHasLooped_Event",  Type = "OnHasLooped" },
+                         new LevelFunctionObject { Name = "OnHasLooped_Event_0",  Type = "OnHasLooped" },
+                         new LevelFunctionObject { Name = "OnPlayFB63AA9847E56C6E9FE9FE84761755BE",  Type = "OnPlay" },
+                         new LevelFunctionObject { Name = "OnStop063F5D5A4349184EE9AD1AB3326CA234",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop15B2F061470B468438CFCE94FA32F8E6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop171A830F42CD699799AF1AB45BFDB6DE",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop173802D24DF86471B5691C83F667C29F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop178D52FE4919A80D6F5BD68685EB1D94",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1BE3D9F149AEC5365BD10EB43504207B",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1E7B5B5D4AB811B540A3749A8A5D23E7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1F7B0B734EEB969520942EA49D25A024",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop264ED97C4A5AE3BF7AA497BA45AFB5BE",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop289EBC4E40D9B1427407C4BD6B40FFE5",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop292DBBD5403323CC34DB8E9AFCE75814",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2A12AB4A4596A6DAACF7FE864404B4D7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop346C964E4E2BC3A24D4ABBB3A97EC546",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop37D0A954447115754B7A00A79D0C2384",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop39F6A4F343938C962E5BC79096821AD2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop3F6AF85F4D36A70FCC06A9ADD6B2CA5A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4C90130E4AF4B3441E7C79BF505CBAB9",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop56B240F349145445E5B2D1BCDCB7B674",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6957CB6D4200329EDF9C91A23FF554E2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop69D0B9814226EB151D28EBBA7C82CAA5",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6CE83AEC4F9F0862B124A88E6EED1B06",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6F224923448C922B86AD3F8BF2DAA1AD",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7074B0074B83714BC4D01F84E6309E93",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop71A63B624438E5D441DC0A82CE811803",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop71B6092C437FF170E3DABF9ED1B3F533",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop736A41684C73BC5989B7838784B47370",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop747B8CCF4103E61865389FB9F4B39896",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop75CF8FF54914C54EA28995BF73671000",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop779738F04464063B017E2DA19CABB0DD",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7CB591FD470CFA541ECFCCB8AECDC901",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop835F8EE3436B3763178DC8AE2AC14409",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8ABCA28E41C9A549FBBC65949D734BE8",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8C622F5143364F9D3F7B05B30A65ABA6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop91FBCD9C41138F1BC503C69EA380B5F1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop96277E1540BA4735B65434BFD3051FC1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop96A377774C69E0670DF4F5BA0FB142DC",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9B9663DA488D131E8E9AB9BCC1397E0A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9CD3F3594161684A57648FB65215C588",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9E0123D0470E54AC717162824103626F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA0D3B12F433EB25C9955E49504C5767E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA4C61FA54E0CAC331C476E957BE3883E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopAD986BC3469D2328F8B560A42011F815",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB14D854F4F6C3A3F588623BE33F66075",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB17549324F20248C78B09086F5197C3E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB1A5296B4D1BE5336FA4589D3ED4D23E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB33332774544149EE14121A5272FA904",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB761DE9545590FF63F95E89C1E814881",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBA2928DB47624C63E6AA2CB14DABE6A0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBB83E96E4CC4823CC695FAB75009D849",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBD77557044A747D84ECC33B7811E40A0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC20BDBF24F78F244277C528F5C4D7038",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC572035A4118E73ECED5049C4D601770",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC75A9415461D849ACA49BCAE1F847A30",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC916AF0D447CC0E3912928A4B721318C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopCA67B1C94836EA2FF0F65995CE0063A1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopCB337B2E44DAB2093457CBAE25017D0A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopCF0B99584CE88006564A5CA5F319A8DC",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopCF3DD6684B4174E2C616EDBB17E3980D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD02B42264BB7B311C4292BB2FFDB61F6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD7C7CE4A49BDA3D0629B078F792BE9A4",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopDAAC38644432DD0D11D6DF99B58A48DA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE1AA6D94411A00179BED8E8CE0EAC0B5",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE534601544B12839CE4B96B664C48769",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE5A057DF44D9232F28C51DA390304E62",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE8B502E14EBD5DC02C6059988F90FCF3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopEF0DA107479391ADA008FAB4E48C1B5F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopF09DB3AB464C487F3701A9B7DF5BB4E9",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopF8EB74F3485D73C699F89CA5CAC78467",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopFE3484A7483E760B65F07FAD358A33C0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop_Event",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = -826167076,  ActorName = "PT_House_LD_C_0", FunctionName = "OnComplete80812F5D414F4E926FE92D98F531FB29" },
+                         new DelayedEventObject { ID = -494484957,  ActorName = "PT_House_LD_C_0", FunctionName = "OnComplete543E565E4F1FB3A0FC4308A3BD610DCF" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -4227,7 +4297,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4253,7 +4326,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4274,7 +4350,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4295,7 +4374,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4316,7 +4398,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4337,7 +4422,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4361,11 +4449,14 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "LS_E1_9A_FadeIn_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "E1_9A_NightBus_RecapScreen", DebugRequesterName = "None", SlotName = "NoSlot_61", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnStop6CE5521A405CA1070C49549DF93743CB",
-                        "OnStopBFF16D66487A917785D45B90541E0344",
-                        "OnStopE4965889499284DEAAC54FB4D46521A6",
+                         new LevelFunctionObject { Name = "OnStop6CE5521A405CA1070C49549DF93743CB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBFF16D66487A917785D45B90541E0344",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE4965889499284DEAAC54FB4D46521A6",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -4385,7 +4476,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4406,7 +4500,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4427,7 +4524,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4448,7 +4548,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4469,7 +4572,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -4490,7 +4596,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6003,47 +6112,65 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_LetterBox_Reorganize", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E1_1A_SeanRoom_Facebook_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnStop047552244BB9B3CC31B02EA96E987CC7",
-                        "OnStop146B3B8B4EE34859AD1233BD079F7A4C",
-                        "OnStop1B54DEA64D9F04A8E571A9BD56246BA3",
-                        "OnStop1D3616434D54153AB6EA0686DE6B3E91",
-                        "OnStop1E8141544BC510C1B01BD7865FA05FEC",
-                        "OnStop28112C194936B231AAEAD48C81BA8341",
-                        "OnStop2B36716940525CEE33AF07A15CDAE649",
-                        "OnStop35ACD6B149DA886362E22FB3751FEB1C",
-                        "OnStop3A75814F49B90872480148BEDC445A51",
-                        "OnStop3FB2B9834341539D5D523695958FD94E",
-                        "OnStop403029344FEE141F51FC959C891C29F1",
-                        "OnStop41B2F12243480C94D87341A45382A09E",
-                        "OnStop43B030BD40ACD48616B9299A0445C0F0",
-                        "OnStop54EE83D64EF5FB03668EA291E830193F",
-                        "OnStop5642736C4B67495960E348A4583A42EE",
-                        "OnStop62A08A774240F52999A1DD991FC98605",
-                        "OnStop62A08A774240F52999A1DD9921E048FD",
-                        "OnStop62A08A774240F52999A1DD9922DB9DF7",
-                        "OnStop62A08A774240F52999A1DD99297B3A45",
-                        "OnStop62A08A774240F52999A1DD995A254A35",
-                        "OnStop62A08A774240F52999A1DD99917BC2DB",
-                        "OnStop62A08A774240F52999A1DD999DDE7DD1",
-                        "OnStop62A08A774240F52999A1DD999F3EFF3E",
-                        "OnStop62A08A774240F52999A1DD99DFB5B84E",
-                        "OnStop62A08A774240F52999A1DD99E210B438",
-                        "OnStop663EC80D4B518CD1A663F783E797B70A",
-                        "OnStop692B1E194BC7DDD0B26E6C9453E49806",
-                        "OnStop7697945A49E3498B1BC1BEB4B616DC5A",
-                        "OnStop7E9E1416465D2170124AE5A20457302A",
-                        "OnStop8BD87FC44D6464091BA5DEA4AB393C28",
-                        "OnStopA3B6BAB748BB24B33A6305923DAE9574",
-                        "OnStopA450496D48AF27D503FB93A49992D237",
-                        "OnStopAC2962824831F9567A3C8FB77240773C",
-                        "OnStopC39841FA43FACCBD03BC9B9B716BB701",
-                        "OnStopE09A93984E9A2BD4DDAC85B884916B83",
-                        "OnStopE2C7D33E42ED8A439F32E68180984C2A",
-                        "OnStopE9001793438270FD78F959BD20FF8885",
-                        "OnStopFA5BF78C4AA9FA33E354D5A7DD940599",
-                        "OnStopFE75EBE74AF9A2DEE2CBC39E8E0E6BD6",
+                         new LevelFunctionObject { Name = "OnComplete14DAAB2848320C7875701AB2D6107A9F",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete4646D1E44F70EEEA7B79398DF26334CC",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete54F47CF645A0E221127BC8A1D6C8E0F3",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete6DBAA5FE42266B5EF0D1FEA7FA422CFC",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnCompleteB7081AB345D93373D38BE0A79E23E2D2",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnCompleteE3B5F86A41894628A3810CBBD596755A",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnCompleteE89249C24DCD32D38CF2CA8AD1054E7B",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnStop047552244BB9B3CC31B02EA96E987CC7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop146B3B8B4EE34859AD1233BD079F7A4C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1B54DEA64D9F04A8E571A9BD56246BA3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1D3616434D54153AB6EA0686DE6B3E91",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1E8141544BC510C1B01BD7865FA05FEC",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop28112C194936B231AAEAD48C81BA8341",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2B36716940525CEE33AF07A15CDAE649",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop35ACD6B149DA886362E22FB3751FEB1C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop3A75814F49B90872480148BEDC445A51",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop3FB2B9834341539D5D523695958FD94E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop403029344FEE141F51FC959C891C29F1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop41B2F12243480C94D87341A45382A09E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop43B030BD40ACD48616B9299A0445C0F0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop54EE83D64EF5FB03668EA291E830193F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop5642736C4B67495960E348A4583A42EE",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD991FC98605",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD9921E048FD",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD9922DB9DF7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD99297B3A45",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD995A254A35",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD99917BC2DB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD999DDE7DD1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD999F3EFF3E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD99DFB5B84E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop62A08A774240F52999A1DD99E210B438",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop663EC80D4B518CD1A663F783E797B70A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop692B1E194BC7DDD0B26E6C9453E49806",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7697945A49E3498B1BC1BEB4B616DC5A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7E9E1416465D2170124AE5A20457302A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8BD87FC44D6464091BA5DEA4AB393C28",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA3B6BAB748BB24B33A6305923DAE9574",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA450496D48AF27D503FB93A49992D237",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopAC2962824831F9567A3C8FB77240773C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC39841FA43FACCBD03BC9B9B716BB701",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE09A93984E9A2BD4DDAC85B884916B83",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE2C7D33E42ED8A439F32E68180984C2A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE9001793438270FD78F959BD20FF8885",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopFA5BF78C4AA9FA33E354D5A7DD940599",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopFE75EBE74AF9A2DEE2CBC39E8E0E6BD6",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = -1422720839,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete54F47CF645A0E221127BC8A1D6C8E0F3" },
+                         new DelayedEventObject { ID = -1344387365,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete6DBAA5FE42266B5EF0D1FEA7FA422CFC" },
+                         new DelayedEventObject { ID = -44916382,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnCompleteE3B5F86A41894628A3810CBBD596755A" },
+                         new DelayedEventObject { ID = 1060356339,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnCompleteE89249C24DCD32D38CF2CA8AD1054E7B" },
+                         new DelayedEventObject { ID = 1608034750,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete14DAAB2848320C7875701AB2D6107A9F" },
+                         new DelayedEventObject { ID = 132725648,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete54F47CF645A0E221127BC8A1D6C8E0F3" },
+                         new DelayedEventObject { ID = 518959242,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete4646D1E44F70EEEA7B79398DF26334CC" },
+                         new DelayedEventObject { ID = 1034191684,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnCompleteB7081AB345D93373D38BE0A79E23E2D2" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -6063,7 +6190,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6092,7 +6222,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6113,7 +6246,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6134,7 +6270,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6155,7 +6294,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6176,7 +6318,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6197,7 +6342,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6218,7 +6366,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6239,7 +6390,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -6260,7 +6414,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7532,72 +7689,75 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "DS_E1_2A_ShelterArea_BrettTalk_ChoiceLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "DS_E1_2A_ShelterArea_BrettTalk_NotYourFault", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnEvent_Key",
-                        "OnStop0122A240453D5AF91AC641BFBB40007D",
-                        "OnStop035886314DDB28AC3A9C408C035A6053",
-                        "OnStop07EDD84942A0A43971868BA4AE60F760",
-                        "OnStop107CBCA041DCA54AEC9751A3E4F38DD7",
-                        "OnStop178238E046261317D72D7E94486B7C23",
-                        "OnStop1EF0286840DAB5626D68F488D45D5941",
-                        "OnStop2484AD364763710B654625A69827E94A",
-                        "OnStop2C5B30114D86E367ADEF188B6A62D474",
-                        "OnStop3FF775C94CFF802BFDBA4DA81BF567AC",
-                        "OnStop4360F1AF454FEBB38CCFC8B82F64B6F4",
-                        "OnStop451DA5AA40D80F13A2234A8F99BEE3B2",
-                        "OnStop495DEB6B4C2CF6F535147A9B9D4B9B66",
-                        "OnStop4B8635B34B98019CB0D1E3810D60C1F6",
-                        "OnStop4C49EB284428393742A256A630D81651",
-                        "OnStop4DFEACB849470BF2DCD45BA9C6FD928F",
-                        "OnStop52AD7067444DC8A8D118EBAB7010F7E3",
-                        "OnStop560BE2D141409EF516E4CFA929D24CFE",
-                        "OnStop56A0F5F945855C027BDC86B9F29E9107",
-                        "OnStop5DADD16E449A89E3BC3A8DAAAE7C045E",
-                        "OnStop5F90FF7D44864EF97D08538A1069C2D0",
-                        "OnStop60B501B74742848697A8C1A56D62F4E5",
-                        "OnStop6129FB9D4090BFEB543CBD8A3DF6B908",
-                        "OnStop6164FE184DE409F03E4F0A8DEDE9556D",
-                        "OnStop6623B32246A50F91E9B78E8B5C96A9D0",
-                        "OnStop6A83EA00480A8CAF0D65EAB202626F36",
-                        "OnStop6E7D8AF847D585E1548082966509675C",
-                        "OnStop6EF1F9DF48070E273E0A6B87AE917B71",
-                        "OnStop6FBA5A2640E87024C1901382FD2D81B2",
-                        "OnStop70B7CCD94C760B5C15E8F8928F494002",
-                        "OnStop728B991042FFD09BFF0BB8AA4697294E",
-                        "OnStop7652AD5A495BFAEE837AF7B4BA9BAD10",
-                        "OnStop77967FAA42236F457F422FA608145F8E",
-                        "OnStop7799352047045449A2FB89810D7C0E82",
-                        "OnStop7F490D504B91A7F3CC2618AA2B337D74",
-                        "OnStop82415B7E4F701C600A65C9BE3D807217",
-                        "OnStop84112293468241C87016C692106A702A",
-                        "OnStop94F0D5064719E7A05023F292ADAA7B7B",
-                        "OnStop964485B94F966ED7656731B1B784AA59",
-                        "OnStop9D5659394BEE15DEE0C68B8DA4A9B90D",
-                        "OnStopA2D11AC543C2CFE362A85788A41915C2",
-                        "OnStopA4057A68482623459ECB4586C2728ACC",
-                        "OnStopA441BA1C4C35949B158747A8170B0025",
-                        "OnStopA84D5E114A4215D1D477478795E59693",
-                        "OnStopA90FB2DC4ABA52255410FFA4F47AE653",
-                        "OnStopAEA1974043BEE675A492789F3D54DB7B",
-                        "OnStopB6EA29B242BAB343617092AB5425D85E",
-                        "OnStopB8F4E92443BDF1B85D4B1999DE4B071D",
-                        "OnStopBA72B8764271F5E08CB7CA880933E4EF",
-                        "OnStopBC14FEFF43DE26FCC67728AE9C78C891",
-                        "OnStopBEBF54A14B82828DC469D6BF3ABEBA6D",
-                        "OnStopC3B8FE2947491D2C13A2A1B0FEE4F967",
-                        "OnStopCBAD525049960B45285525B6CD31CBF3",
-                        "OnStopD869D469400A06A043A0AEA67B716615",
-                        "OnStopDAAB25B545A4232A8CFEB8AF9E061195",
-                        "OnStopE1DE9BCB4090B02944889C8A9498DEFA",
-                        "OnStopE2BF4867451B5BD2CF8C238FCA91DEBB",
-                        "OnStopE5A08EC34CF4F33E5200AE9F168BAC8D",
-                        "OnStopE6B3E3F9428A28A7AB22408B714137C4",
-                        "OnStopEC639DD4489E2CB31FC8F0A750790329",
-                        "OnStopECDA08DF41F45C725A76C5A82A61F372",
-                        "OnStopF515E7834A7406EC8088DC8539A60948",
-                        "OnStopF9F440894BBE5BF9B113428492467FB1",
-                        "OnStopFE8244884D8F631D684307836BBB5565",
+                         new LevelFunctionObject { Name = "OnEvent_Key",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnStop0122A240453D5AF91AC641BFBB40007D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop035886314DDB28AC3A9C408C035A6053",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop07EDD84942A0A43971868BA4AE60F760",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop107CBCA041DCA54AEC9751A3E4F38DD7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop178238E046261317D72D7E94486B7C23",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1EF0286840DAB5626D68F488D45D5941",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2484AD364763710B654625A69827E94A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2C5B30114D86E367ADEF188B6A62D474",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop3FF775C94CFF802BFDBA4DA81BF567AC",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4360F1AF454FEBB38CCFC8B82F64B6F4",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop451DA5AA40D80F13A2234A8F99BEE3B2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop495DEB6B4C2CF6F535147A9B9D4B9B66",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4B8635B34B98019CB0D1E3810D60C1F6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4C49EB284428393742A256A630D81651",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4DFEACB849470BF2DCD45BA9C6FD928F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop52AD7067444DC8A8D118EBAB7010F7E3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop560BE2D141409EF516E4CFA929D24CFE",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop56A0F5F945855C027BDC86B9F29E9107",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop5DADD16E449A89E3BC3A8DAAAE7C045E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop5F90FF7D44864EF97D08538A1069C2D0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop60B501B74742848697A8C1A56D62F4E5",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6129FB9D4090BFEB543CBD8A3DF6B908",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6164FE184DE409F03E4F0A8DEDE9556D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6623B32246A50F91E9B78E8B5C96A9D0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6A83EA00480A8CAF0D65EAB202626F36",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6E7D8AF847D585E1548082966509675C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6EF1F9DF48070E273E0A6B87AE917B71",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6FBA5A2640E87024C1901382FD2D81B2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop70B7CCD94C760B5C15E8F8928F494002",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop728B991042FFD09BFF0BB8AA4697294E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7652AD5A495BFAEE837AF7B4BA9BAD10",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop77967FAA42236F457F422FA608145F8E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7799352047045449A2FB89810D7C0E82",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7F490D504B91A7F3CC2618AA2B337D74",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop82415B7E4F701C600A65C9BE3D807217",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop84112293468241C87016C692106A702A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop94F0D5064719E7A05023F292ADAA7B7B",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop964485B94F966ED7656731B1B784AA59",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9D5659394BEE15DEE0C68B8DA4A9B90D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA2D11AC543C2CFE362A85788A41915C2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA4057A68482623459ECB4586C2728ACC",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA441BA1C4C35949B158747A8170B0025",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA84D5E114A4215D1D477478795E59693",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA90FB2DC4ABA52255410FFA4F47AE653",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopAEA1974043BEE675A492789F3D54DB7B",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB6EA29B242BAB343617092AB5425D85E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB8F4E92443BDF1B85D4B1999DE4B071D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBA72B8764271F5E08CB7CA880933E4EF",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBC14FEFF43DE26FCC67728AE9C78C891",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBEBF54A14B82828DC469D6BF3ABEBA6D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC3B8FE2947491D2C13A2A1B0FEE4F967",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopCBAD525049960B45285525B6CD31CBF3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD869D469400A06A043A0AEA67B716615",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopDAAB25B545A4232A8CFEB8AF9E061195",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE1DE9BCB4090B02944889C8A9498DEFA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE2BF4867451B5BD2CF8C238FCA91DEBB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE5A08EC34CF4F33E5200AE9F168BAC8D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE6B3E3F9428A28A7AB22408B714137C4",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopEC639DD4489E2CB31FC8F0A750790329",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopECDA08DF41F45C725A76C5A82A61F372",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopF515E7834A7406EC8088DC8539A60948",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopF9F440894BBE5BF9B113428492467FB1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopFE8244884D8F631D684307836BBB5565",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -7815,8 +7975,13 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
+                         new LevelFunctionObject { Name = "OnComplete58CB1CD24EF3C938651BD28B0952E3D6",  Type = "DelayedEvent" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = 1075529600,  ActorName = "E1_2A_SD_C_0", FunctionName = "OnComplete58CB1CD24EF3C938651BD28B0952E3D6" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -7838,7 +8003,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7859,7 +8027,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7880,7 +8051,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7901,7 +8075,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7922,7 +8099,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7943,7 +8123,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7964,7 +8147,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -7985,7 +8171,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8006,7 +8195,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -8032,7 +8224,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9467,78 +9662,87 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_FreeSeanStartFact2_5", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E1_5A_Inside_FreeSean", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnEvent2C1E566247DDA1B918058F8E950D3FA7",
-                        "OnEvent723FAE6046FA88EA6BB6EEBFC9BC0169",
-                        "OnEventD63811AA42892717D971408DBDBC4031",
-                        "OnStop0787F8FC43B7357823E2899157C6B7D5",
-                        "OnStop08DC3D5B4BC24126AB304087D19181E2",
-                        "OnStop09D12C07410AEF0EC729F48DE089EBB2",
-                        "OnStop0BE52D484917C843C02F50B3DEB6B710",
-                        "OnStop0FA93B28444EEB642E6D1E981F51CF4B",
-                        "OnStop16AF27DB4FC900DC33A2F991315EC920",
-                        "OnStop237404A949EF310D71555D88AED05764",
-                        "OnStop2424DCCD46DC76C6C7AB13BFF5338296",
-                        "OnStop248647DC444EB02636E243BDF69E2FD9",
-                        "OnStop2A0E7B16435C1AADEF073F98938B5F7A",
-                        "OnStop2C1E566247DDA1B918058F8E950D3FA7",
-                        "OnStop2E559A474BB4481E93CDA0ADDCA0A8D7",
-                        "OnStop335304CD45DE3C6CB99F8FAE3DF0956F",
-                        "OnStop33DAB64948433C51CFF1A98FC7FA72D3",
-                        "OnStop344D5C454B649894D9F72DB8E6714649",
-                        "OnStop35818D1A470E1B80A10B7695509AD5C0",
-                        "OnStop42C351F24EF5D91447B0D1A30A3D1149",
-                        "OnStop431176324EC7E89ACB812AA5E9A13D5D",
-                        "OnStop48189C7946330CAE4B20328CB137F828",
-                        "OnStop4B96B84140A0C31B778A2BAD3EC9AF8E",
-                        "OnStop5268F2364F70A9C1F2DA528CCBE18FBB",
-                        "OnStop52D9FD324299D5FA946D02994DC8D5A6",
-                        "OnStop52F6124345FA26DFD00B59B86BB2499D",
-                        "OnStop5B82941943EA081B9C2F18A93512523E",
-                        "OnStop5F62E4E04B1062AD3B9984866F44B7E6",
-                        "OnStop6F5BCE0146E9147ED455388499A2AC5B",
-                        "OnStop723FAE6046FA88EA6BB6EEBFC9BC0169",
-                        "OnStop797D32E2442402634D7A15AA7EA7BDAD",
-                        "OnStop798797C34BC6A5AD9E206F8FE5BC26CA",
-                        "OnStop7E6CD90149E69EC9B5D6EDBA36CFB9DA",
-                        "OnStop837CA37A418D37CCC965EEB562993DEA",
-                        "OnStop8770F8D8411F9B2D4C1673AAD8AC5614",
-                        "OnStop87FE67CC43D74A5425BFAEACAF70F1D3",
-                        "OnStop8898262F464805E2C1ECEAA2CBCC9AF9",
-                        "OnStop8973E654479BC7B4870F1CB58A28CF56",
-                        "OnStop8DAC52DC40C0EDBD1D1D139EE43CD76D",
-                        "OnStop913206614AEEF341BB259DB7267E8EEE",
-                        "OnStop9DBAA7AA46E5AECAC8DF308CFBC0C9C9",
-                        "OnStopA3D052034EDE32492FA200A6D35FDF56",
-                        "OnStopA57695FA473E38DECAC13894307735B7",
-                        "OnStopABC04FDE43406A8BAFAAC9ABB05335A0",
-                        "OnStopB04C115C4A0F3FE474FC9F97F18DC5CF",
-                        "OnStopB2662C7B4671C9A1EB3958A33D371459",
-                        "OnStopB2A62C734EDC4B4EFFDB5785CC7CBDC4",
-                        "OnStopB31AF84640D1B57F7FE052902E562055",
-                        "OnStopB4EF458348CBD0654C09C79DBC3125DB",
-                        "OnStopB9724EC147F9B3ED8FE5C6963E64AD32",
-                        "OnStopBAA70A2248D8112C5AD16D8722B6A6F8",
-                        "OnStopBD2C79154836840443DFDA9DED5B58AD",
-                        "OnStopC2B57126418CAA72B8749095F9583F54",
-                        "OnStopC3EF8709405F1C43EF2476BA7050ED3C",
-                        "OnStopC657BE0E40BDE966FDD9C5BE07AB5BEB",
-                        "OnStopC919914240B0EF0665F73885E630A043",
-                        "OnStopD42981A8476A2C2B1A304AB209CA7CE2",
-                        "OnStopD54727E34FABE708CCFD9C8FD1BFC2B5",
-                        "OnStopD63811AA42892717D971408DBDBC4031",
-                        "OnStopE2EA935348381039E247768E6865F97C",
-                        "OnStopE3B17EEF44268C77B577CBB72C507DA7",
-                        "OnStopE65F14F64783074E84CFC1B553306094",
-                        "OnStopE8ACAB0B47E009791042869E9E886E45",
-                        "OnStopE8EA885C4BBAF5B9C85811933FE0687F",
-                        "OnStopE9D7A3F84727B97C17EA019C9C424473",
-                        "OnStopEA0384484A0DF92C93EC1C9367B4BB45",
-                        "OnStopEDAE15A34963790C6C9AF2AB4D6BEEEB",
-                        "OnStopEE3692BB426F40BF91EE258EA9EA3400",
-                        "OnStopF2E99E81472EE2262BC30D8D37E46AE3",
-                        "OnStopF646C53B4DCFF180853EE0AA3F8414CC",
+                         new LevelFunctionObject { Name = "OnComplete30850EC84B92883A377532A3B3C99C33",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete7B95C4264BE9836BF284F2929282B26D",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnCompleteBDC2B95148199D1DA0F0309DFD6D22D8",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnEvent2C1E566247DDA1B918058F8E950D3FA7",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent723FAE6046FA88EA6BB6EEBFC9BC0169",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEventD63811AA42892717D971408DBDBC4031",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnStop0787F8FC43B7357823E2899157C6B7D5",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop08DC3D5B4BC24126AB304087D19181E2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop09D12C07410AEF0EC729F48DE089EBB2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop0BE52D484917C843C02F50B3DEB6B710",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop0FA93B28444EEB642E6D1E981F51CF4B",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop16AF27DB4FC900DC33A2F991315EC920",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop237404A949EF310D71555D88AED05764",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2424DCCD46DC76C6C7AB13BFF5338296",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop248647DC444EB02636E243BDF69E2FD9",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2A0E7B16435C1AADEF073F98938B5F7A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2C1E566247DDA1B918058F8E950D3FA7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2E559A474BB4481E93CDA0ADDCA0A8D7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop335304CD45DE3C6CB99F8FAE3DF0956F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop33DAB64948433C51CFF1A98FC7FA72D3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop344D5C454B649894D9F72DB8E6714649",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop35818D1A470E1B80A10B7695509AD5C0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop42C351F24EF5D91447B0D1A30A3D1149",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop431176324EC7E89ACB812AA5E9A13D5D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop48189C7946330CAE4B20328CB137F828",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4B96B84140A0C31B778A2BAD3EC9AF8E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop5268F2364F70A9C1F2DA528CCBE18FBB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop52D9FD324299D5FA946D02994DC8D5A6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop52F6124345FA26DFD00B59B86BB2499D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop5B82941943EA081B9C2F18A93512523E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop5F62E4E04B1062AD3B9984866F44B7E6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6F5BCE0146E9147ED455388499A2AC5B",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop723FAE6046FA88EA6BB6EEBFC9BC0169",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop797D32E2442402634D7A15AA7EA7BDAD",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop798797C34BC6A5AD9E206F8FE5BC26CA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop7E6CD90149E69EC9B5D6EDBA36CFB9DA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop837CA37A418D37CCC965EEB562993DEA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8770F8D8411F9B2D4C1673AAD8AC5614",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop87FE67CC43D74A5425BFAEACAF70F1D3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8898262F464805E2C1ECEAA2CBCC9AF9",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8973E654479BC7B4870F1CB58A28CF56",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8DAC52DC40C0EDBD1D1D139EE43CD76D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop913206614AEEF341BB259DB7267E8EEE",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9DBAA7AA46E5AECAC8DF308CFBC0C9C9",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA3D052034EDE32492FA200A6D35FDF56",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA57695FA473E38DECAC13894307735B7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopABC04FDE43406A8BAFAAC9ABB05335A0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB04C115C4A0F3FE474FC9F97F18DC5CF",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB2662C7B4671C9A1EB3958A33D371459",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB2A62C734EDC4B4EFFDB5785CC7CBDC4",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB31AF84640D1B57F7FE052902E562055",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB4EF458348CBD0654C09C79DBC3125DB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB9724EC147F9B3ED8FE5C6963E64AD32",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBAA70A2248D8112C5AD16D8722B6A6F8",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBD2C79154836840443DFDA9DED5B58AD",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC2B57126418CAA72B8749095F9583F54",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC3EF8709405F1C43EF2476BA7050ED3C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC657BE0E40BDE966FDD9C5BE07AB5BEB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC919914240B0EF0665F73885E630A043",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD42981A8476A2C2B1A304AB209CA7CE2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD54727E34FABE708CCFD9C8FD1BFC2B5",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD63811AA42892717D971408DBDBC4031",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE2EA935348381039E247768E6865F97C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE3B17EEF44268C77B577CBB72C507DA7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE65F14F64783074E84CFC1B553306094",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE8ACAB0B47E009791042869E9E886E45",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE8EA885C4BBAF5B9C85811933FE0687F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE9D7A3F84727B97C17EA019C9C424473",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopEA0384484A0DF92C93EC1C9367B4BB45",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopEDAE15A34963790C6C9AF2AB4D6BEEEB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopEE3692BB426F40BF91EE258EA9EA3400",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopF2E99E81472EE2262BC30D8D37E46AE3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopF646C53B4DCFF180853EE0AA3F8414CC",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = -535531415,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnCompleteBDC2B95148199D1DA0F0309DFD6D22D8" },
+                         new DelayedEventObject { ID = -1244904570,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnComplete7B95C4264BE9836BF284F2929282B26D" },
+                         new DelayedEventObject { ID = -1974409731,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnComplete30850EC84B92883A377532A3B3C99C33" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -9635,7 +9839,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9656,7 +9863,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9677,7 +9887,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9702,10 +9915,13 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_TruckIdleLoop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "LS_E1_5A_Outside_TruckLeaving", DebugRequesterName = "None", SlotName = "NoSlot_21", OnPlayFunctionName = "", OnStopFunctionName = "OnStopE86A4AAC49DEB4E3302AD0A56D7C59CD", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnStop7F0FD2814C95173100DE75A52D6B86CA",
-                        "OnStopE86A4AAC49DEB4E3302AD0A56D7C59CD",
+                         new LevelFunctionObject { Name = "OnStop7F0FD2814C95173100DE75A52D6B86CA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE86A4AAC49DEB4E3302AD0A56D7C59CD",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -9733,7 +9949,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9754,7 +9973,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9775,7 +9997,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9796,7 +10021,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9817,7 +10045,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9838,7 +10069,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9859,7 +10093,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9880,7 +10117,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9901,7 +10141,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9922,7 +10165,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9943,7 +10189,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9964,7 +10213,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -9985,7 +10237,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10006,7 +10261,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10027,7 +10285,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10048,7 +10309,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10069,7 +10333,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10090,7 +10357,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10111,7 +10381,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10132,7 +10405,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10153,7 +10429,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -10891,69 +11170,76 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E1_7A_GoOutside", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_7A_BeachCollectible", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnEvent2F0E4B7E4B227ECACFC32A9BE62DD9C7",
-                        "OnEvent3393864B457A2816B7CD979857EC4B4F",
-                        "OnEvent4D30EB5F4A7F444ACF4603A977381A97",
-                        "OnEvent702C27984161D20985BD3FBCC89CF0B6",
-                        "OnEvent997CEB1248579E1E8F4B6CBDB17CF5BB",
-                        "OnEventD3F1B6E044F510C025B686AF5C4AC8B0",
-                        "OnEventFA97D17D47DE3F876FDE8CB84D882566",
-                        "OnEventFE303C4543695D12957C86801107A766",
-                        "OnEvent_Event",
-                        "OnEvent_Event_0",
-                        "OnEvent_Key",
-                        "OnEvent_Key2",
-                        "OnEvent_Key3",
-                        "OnEvent_Key4",
-                        "OnPlay9C78DFFB425EE0A0394929BA672BEBDE",
-                        "OnPlayFA97D17D47DE3F876FDE8CB84D882566",
-                        "OnStop00D52A8A480DE37290DCD4B4057C0AB7",
-                        "OnStop01688C254E77E47BB393D4B0DBC7E3FE",
-                        "OnStop0536113E48B20C645441549FD3B294D1",
-                        "OnStop102EE35D4EB27EF1BE92ABAA244044F9",
-                        "OnStop186414894DDFEEC510417E8BE4DF0FA8",
-                        "OnStop1DE1E80F44187437076DAF9758E59AFA",
-                        "OnStop26EE47A24AE286F02E62A9B2D0B9DFD0",
-                        "OnStop2840974A48F8376249783786FDF341F7",
-                        "OnStop2F0E4B7E4B227ECACFC32A9BE62DD9C7",
-                        "OnStop3393864B457A2816B7CD979857EC4B4F",
-                        "OnStop36AA8C02425C60B0AA77C7BBF593C1D0",
-                        "OnStop38A8D76A43E885AE21A57DA27FAF747D",
-                        "OnStop3F610D5548BB132CA0035E9DEFACB4A3",
-                        "OnStop45E574B34593121131C042B89EE33948",
-                        "OnStop4610BD6D4C9B94AFC6C38F9DACC38C7A",
-                        "OnStop462978C9408DD57E0F1A55B7390AFFBC",
-                        "OnStop46F27FF94DC9EDE20D2E798879394A1E",
-                        "OnStop4E0040BE48D9DFF5CD5875843495420E",
-                        "OnStop4F4E573341F2586A36E263B792C4C4D3",
-                        "OnStop643602324516B39CB5612F9F4C12CA3D",
-                        "OnStop67C1E64547F2694DDB04F6B9DFDF02E2",
-                        "OnStop6E523D64464883845258108F8797F22F",
-                        "OnStop702C27984161D20985BD3FBCC89CF0B6",
-                        "OnStop72A18535433CF95DCC065C8B9A7B736D",
-                        "OnStop8257D84B40537E15EDABBD8500A86279",
-                        "OnStop8992B7334BADDFF09D6D419346D491F4",
-                        "OnStop9961E7B448CACA80155C23B1ABD8302D",
-                        "OnStop997CEB1248579E1E8F4B6CBDB17CF5BB",
-                        "OnStop9A521EFF4FF72BE0D045BF83EA554711",
-                        "OnStop9C78DFFB425EE0A0394929BA672BEBDE",
-                        "OnStopA12773B541301D59EECD219ED16240F8",
-                        "OnStopA56EEF0742023F33D4D8AC85DCC3253F",
-                        "OnStopA949342344A54384D3A111BEA20A8280",
-                        "OnStopB2B78F5F418FE4C99FD667A09CDA6949",
-                        "OnStopB301C5054888198F3B47C2A7EC34A1D3",
-                        "OnStopBD6E0C30406AF933FBA325B3B670451C",
-                        "OnStopC906101C4794FC05B95E09B42566F801",
-                        "OnStopCFA95081413A428A247DBA9F03810130",
-                        "OnStopD3F1B6E044F510C025B686AF5C4AC8B0",
-                        "OnStopD81DFBAD4758C34A2B0D76B3F5F7928D",
-                        "OnStopD8B62EB14E6B3B7A7B8D658C34ACB467",
-                        "OnStopE5A3849A48F97D625958D2BD0450A690",
-                        "OnStopFA9283A1496D62CA850E67BEB43F7161",
-                        "OnStopFA97D17D47DE3F876FDE8CB84D882566",
-                        "OnStopFE303C4543695D12957C86801107A766",
+                         new LevelFunctionObject { Name = "OnComplete56D58C824BA14DB903131D9927BF8E5E",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnEvent2F0E4B7E4B227ECACFC32A9BE62DD9C7",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent3393864B457A2816B7CD979857EC4B4F",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent4D30EB5F4A7F444ACF4603A977381A97",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent702C27984161D20985BD3FBCC89CF0B6",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent997CEB1248579E1E8F4B6CBDB17CF5BB",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEventD3F1B6E044F510C025B686AF5C4AC8B0",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEventFA97D17D47DE3F876FDE8CB84D882566",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEventFE303C4543695D12957C86801107A766",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent_Event",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent_Event_0",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent_Key",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent_Key2",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent_Key3",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnEvent_Key4",  Type = "OnEvent" },
+                         new LevelFunctionObject { Name = "OnPlay9C78DFFB425EE0A0394929BA672BEBDE",  Type = "OnPlay" },
+                         new LevelFunctionObject { Name = "OnPlayFA97D17D47DE3F876FDE8CB84D882566",  Type = "OnPlay" },
+                         new LevelFunctionObject { Name = "OnStop00D52A8A480DE37290DCD4B4057C0AB7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop01688C254E77E47BB393D4B0DBC7E3FE",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop0536113E48B20C645441549FD3B294D1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop102EE35D4EB27EF1BE92ABAA244044F9",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop186414894DDFEEC510417E8BE4DF0FA8",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop1DE1E80F44187437076DAF9758E59AFA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop26EE47A24AE286F02E62A9B2D0B9DFD0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2840974A48F8376249783786FDF341F7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop2F0E4B7E4B227ECACFC32A9BE62DD9C7",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop3393864B457A2816B7CD979857EC4B4F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop36AA8C02425C60B0AA77C7BBF593C1D0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop38A8D76A43E885AE21A57DA27FAF747D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop3F610D5548BB132CA0035E9DEFACB4A3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop45E574B34593121131C042B89EE33948",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4610BD6D4C9B94AFC6C38F9DACC38C7A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop462978C9408DD57E0F1A55B7390AFFBC",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop46F27FF94DC9EDE20D2E798879394A1E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4E0040BE48D9DFF5CD5875843495420E",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop4F4E573341F2586A36E263B792C4C4D3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop643602324516B39CB5612F9F4C12CA3D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop67C1E64547F2694DDB04F6B9DFDF02E2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop6E523D64464883845258108F8797F22F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop702C27984161D20985BD3FBCC89CF0B6",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop72A18535433CF95DCC065C8B9A7B736D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8257D84B40537E15EDABBD8500A86279",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop8992B7334BADDFF09D6D419346D491F4",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9961E7B448CACA80155C23B1ABD8302D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop997CEB1248579E1E8F4B6CBDB17CF5BB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9A521EFF4FF72BE0D045BF83EA554711",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStop9C78DFFB425EE0A0394929BA672BEBDE",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA12773B541301D59EECD219ED16240F8",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA56EEF0742023F33D4D8AC85DCC3253F",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopA949342344A54384D3A111BEA20A8280",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB2B78F5F418FE4C99FD667A09CDA6949",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopB301C5054888198F3B47C2A7EC34A1D3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopBD6E0C30406AF933FBA325B3B670451C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopC906101C4794FC05B95E09B42566F801",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopCFA95081413A428A247DBA9F03810130",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD3F1B6E044F510C025B686AF5C4AC8B0",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD81DFBAD4758C34A2B0D76B3F5F7928D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopD8B62EB14E6B3B7A7B8D658C34ACB467",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopE5A3849A48F97D625958D2BD0450A690",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopFA9283A1496D62CA850E67BEB43F7161",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopFA97D17D47DE3F876FDE8CB84D882566",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnStopFE303C4543695D12957C86801107A766",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = 1788084010,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
+                         new DelayedEventObject { ID = 905000707,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
+                         new DelayedEventObject { ID = -1664427133,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -10981,7 +11267,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11008,7 +11297,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11029,7 +11321,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11050,7 +11345,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11071,7 +11369,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11092,7 +11393,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11113,7 +11417,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11134,7 +11441,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11155,7 +11465,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11176,7 +11489,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11197,7 +11513,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11218,7 +11537,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11239,7 +11561,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11260,7 +11585,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11281,7 +11609,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11302,7 +11633,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11323,7 +11657,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11344,7 +11681,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11365,7 +11705,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11386,7 +11729,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11407,7 +11753,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11428,7 +11777,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11449,7 +11801,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11470,7 +11825,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11491,7 +11849,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11512,7 +11873,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11533,7 +11897,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11554,7 +11921,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11575,7 +11945,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11596,7 +11969,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11617,7 +11993,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11638,7 +12017,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11659,7 +12041,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11680,7 +12065,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11701,7 +12089,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11722,7 +12113,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11743,7 +12137,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11764,7 +12161,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11785,7 +12185,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11806,7 +12209,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11827,7 +12233,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11865,7 +12274,10 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "DS_E2_8A_Outside_Insertion_SavedCarefulPower", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "DS_E2_8A_Outside_Insertion_GiftCoolToy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11902,7 +12314,10 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E2_1A_PreviouslyOn_Loop", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E2_1A_Forest_Insertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11923,7 +12338,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11944,7 +12362,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11965,7 +12386,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -11986,7 +12410,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -12010,7 +12437,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -12031,7 +12461,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -12498,9 +12931,12 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E2_1A_Forest_Sunlounger_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E2_1A_Forest_FishingRod_Look", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnPlay",
+                         new LevelFunctionObject { Name = "OnPlay",  Type = "OnPlay" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -13680,11 +14116,16 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E2_2A_LivingRoom_DiceGame_SeanWin_DrawWolf", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E2_2A_LivingRoom_Door_OpenForDog", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnLIS2SequenceStop548D671C4D3D9C56C754E080E87884E2",
-                        "OnLIS2SequenceStop78F58F144F22E910A4F6BDA2691CEE3A",
-                        "OnLIS2SequenceStop9B79ECF34A975C7C37A73D8C6FF0A3EE",
+                         new LevelFunctionObject { Name = "OnCompleteD96A22B9406284D0F4316A89092E126C",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop548D671C4D3D9C56C754E080E87884E2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop78F58F144F22E910A4F6BDA2691CEE3A",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop9B79ECF34A975C7C37A73D8C6FF0A3EE",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = -420014128,  ActorName = "E2_2A_OldHouse_Inside_LD_C_0", FunctionName = "OnCompleteD96A22B9406284D0F4316A89092E126C" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -13716,7 +14157,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13778,9 +14222,12 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "LS_E2_1B_CougarWaitStart", DebugRequesterName = "None", SlotName = "Daniel_1B", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E2_1B_Forest_Insertion", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "OnLIS2SequenceStop9A02BB6F42DAF4F5A223B998A9E0E525", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnLIS2SequenceStop9A02BB6F42DAF4F5A223B998A9E0E525",
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop9A02BB6F42DAF4F5A223B998A9E0E525",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -13800,7 +14247,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13821,7 +14271,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13842,7 +14295,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13863,7 +14319,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13884,7 +14343,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13905,7 +14367,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13926,7 +14391,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13947,7 +14415,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13968,7 +14439,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -13989,7 +14463,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14010,7 +14487,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14031,7 +14511,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14052,7 +14535,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14073,7 +14559,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14094,7 +14583,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14115,7 +14607,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14136,7 +14631,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14157,7 +14655,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14299,7 +14800,10 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "DS_E2_5A_Dining_EveningTalk_InvitationEnjoy", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "DS_E2_5A_Dining_EveningTalk_Outro", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14320,7 +14824,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14341,7 +14848,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14362,7 +14872,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14386,7 +14899,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14407,7 +14923,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14428,7 +14947,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14449,7 +14971,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14470,7 +14995,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14491,7 +15019,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14512,7 +15043,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14533,7 +15067,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14554,7 +15091,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14575,7 +15115,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14596,7 +15139,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14617,7 +15163,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14638,7 +15187,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14659,7 +15211,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14710,9 +15265,12 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "LS_GEN_BlackEmptyFrame", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "LS_E2_5B_Mezza_TrainBehindDoor", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnLIS2SequenceStopD5DF3F8642B493B73F81FEBEA5CB99AA",
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStopD5DF3F8642B493B73F81FEBEA5CB99AA",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -14732,7 +15290,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14753,7 +15314,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14784,7 +15348,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14832,7 +15399,10 @@ namespace lis2_save_editor
                     {
                          new LevelSequenceObject { ActorName = "MS_E2_5B_BoysRoom_Bandana_Look_3", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14853,7 +15423,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -14874,7 +15447,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16029,11 +16605,14 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E2_5B_KitchLiv_Cellar_Search_6", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E2_5B_KitchLiv_Window_GetOut", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnLIS2SequenceStop082FCF0C4892ED9E3169859E013DB6FA",
-                        "OnLIS2SequenceStop94A516C342B9F4ACA56EBE8AA7426237",
-                        "OnLIS2SequenceStopD07144AB4995EE7422061DA1F6E6A705",
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop082FCF0C4892ED9E3169859E013DB6FA",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop94A516C342B9F4ACA56EBE8AA7426237",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStopD07144AB4995EE7422061DA1F6E6A705",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -16089,7 +16668,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16674,7 +17256,10 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "MS_E2_6A_Hall_HomeAlone", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "MS_E2_6A_Hall_Leave", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16695,7 +17280,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16723,7 +17311,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16744,7 +17335,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16765,7 +17359,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16786,7 +17383,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16807,7 +17407,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16828,7 +17431,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16849,7 +17455,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16870,7 +17479,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -16891,7 +17503,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17430,11 +18045,16 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "DS_E2_7A_StandsArea_PostAltercation_TeachALesson", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "LS_E2_7A_PineTreeArea_WaitingForSean_Loop", DebugRequesterName = "None", SlotName = "IGE_Dad", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnLIS2SequenceStop3A44213646DB5601B0FD91B832B5D066",
-                        "OnLIS2SequenceStop897BC66A44F3E5F16E4DEA983D9907D3",
-                        "OnLIS2SequenceStopACFB05AF40155E9B550C0798CEC45E5E",
+                         new LevelFunctionObject { Name = "OnComplete397B10CC460C04379FAF5980B6C88171",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop3A44213646DB5601B0FD91B832B5D066",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop897BC66A44F3E5F16E4DEA983D9907D3",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStopACFB05AF40155E9B550C0798CEC45E5E",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = 435980289,  ActorName = "E2_7A_LD_C_1", FunctionName = "OnComplete397B10CC460C04379FAF5980B6C88171" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -17479,7 +18099,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17500,7 +18123,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17562,17 +18188,32 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "LS_E2_7A_StandsArea_CIAD12_LookingTrees_Loop", DebugRequesterName = "None", SlotName = "IGE_CIAD12", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "LS_E2_7A_PineTreeArea_CIAD04_GoingToStands", DebugRequesterName = "None", SlotName = "IGE_CIAD04", OnPlayFunctionName = "", OnStopFunctionName = "OnLIS2SequenceStopB86F2A0340A4ADE1132F7D9A9EB101E1", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnLIS2SequenceStop63A5882449F7730390BE89876D2276C2",
-                        "OnLIS2SequenceStop6ED604054B15457C1A45D4816823E56C",
-                        "OnLIS2SequenceStop7BBE03D54384D4B6E0BD328D7994078D",
-                        "OnLIS2SequenceStop8C41C9104F4A219ED2570A93107E712B",
-                        "OnLIS2SequenceStop8FF0CBC543F5EEC71FD73DA4383C9C65",
-                        "OnLIS2SequenceStopAB651AE847AE6C385997ABA328ADB163",
-                        "OnLIS2SequenceStopB86F2A0340A4ADE1132F7D9A9EB101E1",
-                        "OnLIS2SequenceStopDAC3B7D345F3444BF16FE4A1068ECECB",
-                        "OnLIS2SequenceStopEF548C5B43BB6475C679FAA9FE977161",
+                         new LevelFunctionObject { Name = "OnComplete0837452E4B98F5DF8101F0B2EAC147F7",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete10FF947C48C13F2138889791E4C565C4",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete2FC1176E4E02ED57750C4D8BF5480DE1",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnComplete84AC45484AFED73B22181799D4197BCA",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnCompleteD2A066B94218F88E587021B38C574ED9",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnCompleteD9FE39A94278DAD9B1FD12815BC697D2",  Type = "DelayedEvent" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop63A5882449F7730390BE89876D2276C2",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop6ED604054B15457C1A45D4816823E56C",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop7BBE03D54384D4B6E0BD328D7994078D",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop8C41C9104F4A219ED2570A93107E712B",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop8FF0CBC543F5EEC71FD73DA4383C9C65",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStopAB651AE847AE6C385997ABA328ADB163",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStopB86F2A0340A4ADE1132F7D9A9EB101E1",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStopDAC3B7D345F3444BF16FE4A1068ECECB",  Type = "OnStop" },
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStopEF548C5B43BB6475C679FAA9FE977161",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = -557336807,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete84AC45484AFED73B22181799D4197BCA" },
+                         new DelayedEventObject { ID = -857445921,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete2FC1176E4E02ED57750C4D8BF5480DE1" },
+                         new DelayedEventObject { ID = -666600807,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete0837452E4B98F5DF8101F0B2EAC147F7" },
+                         new DelayedEventObject { ID = -1610228732,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnCompleteD9FE39A94278DAD9B1FD12815BC697D2" },
+                         new DelayedEventObject { ID = -1175993074,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete10FF947C48C13F2138889791E4C565C4" },
+                         new DelayedEventObject { ID = -1168961531,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnCompleteD2A066B94218F88E587021B38C574ED9" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -17592,7 +18233,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17613,7 +18257,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17634,7 +18281,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17655,7 +18305,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17676,7 +18329,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17697,7 +18353,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17718,7 +18377,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17762,7 +18424,10 @@ namespace lis2_save_editor
                     {
                          new LevelSequenceObject { ActorName = "LS_GEN_BlackEmptyFrame_2", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17806,9 +18471,12 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "DS_E2_5C_Front_ConfessionTalk_DeservesFamily", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "DS_E2_5C_Front_ConfessionTalk_Choice_PTConsequences", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
-                        "OnLIS2SequenceStop1E9A3CAA47C5E816318D3E86304433BD",
+                         new LevelFunctionObject { Name = "OnLIS2SequenceStop1E9A3CAA47C5E816318D3E86304433BD",  Type = "OnStop" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
                     },
                     PointsOfInterest = new string[]
                     {
@@ -17828,7 +18496,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17849,7 +18520,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17870,7 +18544,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -17891,7 +18568,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -18647,8 +19327,13 @@ namespace lis2_save_editor
                          new LevelSequenceObject { ActorName = "DS_E2_5C_Study_Accident_Choice_Help", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                          new LevelSequenceObject { ActorName = "DS_E2_5C_Study_Accident_LiftTogether", DebugRequesterName = "None", SlotName = "", OnPlayFunctionName = "", OnStopFunctionName = "", OnHasLoopedFunctionName = "", OnEventFunctionName = "" },
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
                     {
+                         new LevelFunctionObject { Name = "OnComplete4139A7FD46013F331A7EE49C0F8EDDD6",  Type = "DelayedEvent" },
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
+                    {
+                         new DelayedEventObject { ID = -2076302140,  ActorName = "E2_5C_Inside_LD_C_0", FunctionName = "OnComplete4139A7FD46013F331A7EE49C0F8EDDD6" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -18686,7 +19371,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -18707,7 +19395,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -18780,7 +19471,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]
@@ -18809,7 +19503,10 @@ namespace lis2_save_editor
                     LevelSequences = new List<LevelSequenceObject>()
                     {
                     },
-                    LevelFunctions = new string[]
+                    LevelFunctions = new List<LevelFunctionObject>()
+                    {
+                    },
+                    DelayedEvents = new List<DelayedEventObject>()
                     {
                     },
                     PointsOfInterest = new string[]

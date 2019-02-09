@@ -50,6 +50,8 @@
             this.dataGridViewSeqOnHasLooped = new System.Windows.Forms.DataGridView();
             this.tabPageSeqOnEvent = new System.Windows.Forms.TabPage();
             this.dataGridViewSeqOnEvent = new System.Windows.Forms.DataGridView();
+            this.tabPageDelayedEvents = new System.Windows.Forms.TabPage();
+            this.dataGridViewDelayedEvents = new System.Windows.Forms.DataGridView();
             this.tabControlMain.SuspendLayout();
             this.tabPageInteractions.SuspendLayout();
             this.tabPagePOI.SuspendLayout();
@@ -70,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeqOnHasLooped)).BeginInit();
             this.tabPageSeqOnEvent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeqOnEvent)).BeginInit();
+            this.tabPageDelayedEvents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelayedEvents)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -78,6 +82,7 @@
             this.tabControlMain.Controls.Add(this.tabPagePOI);
             this.tabControlMain.Controls.Add(this.tabPageWUI);
             this.tabControlMain.Controls.Add(this.tabPageSequences);
+            this.tabControlMain.Controls.Add(this.tabPageDelayedEvents);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.Name = "tabControlMain";
@@ -336,6 +341,31 @@
             this.dataGridViewSeqOnEvent.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeqOnEvent.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeqOnX_CellEndEdit);
             // 
+            // tabPageDelayedEvents
+            // 
+            this.tabPageDelayedEvents.Controls.Add(this.dataGridViewDelayedEvents);
+            this.tabPageDelayedEvents.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDelayedEvents.Name = "tabPageDelayedEvents";
+            this.tabPageDelayedEvents.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDelayedEvents.Size = new System.Drawing.Size(612, 235);
+            this.tabPageDelayedEvents.TabIndex = 4;
+            this.tabPageDelayedEvents.Text = "Delayed events";
+            this.tabPageDelayedEvents.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewDelayedEvents
+            // 
+            this.dataGridViewDelayedEvents.AllowUserToAddRows = false;
+            this.dataGridViewDelayedEvents.AllowUserToDeleteRows = false;
+            this.dataGridViewDelayedEvents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDelayedEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDelayedEvents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewDelayedEvents.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewDelayedEvents.Name = "dataGridViewDelayedEvents";
+            this.dataGridViewDelayedEvents.Size = new System.Drawing.Size(606, 229);
+            this.dataGridViewDelayedEvents.TabIndex = 2;
+            this.dataGridViewDelayedEvents.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewDelayedEvents.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDelayedEvents_CellEndEdit);
+            // 
             // LevelEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +400,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeqOnHasLooped)).EndInit();
             this.tabPageSeqOnEvent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeqOnEvent)).EndInit();
+            this.tabPageDelayedEvents.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelayedEvents)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -397,5 +429,7 @@
         private System.Windows.Forms.DataGridView dataGridViewSeqOnPlay;
         private System.Windows.Forms.DataGridView dataGridViewSeqOnHasLooped;
         private System.Windows.Forms.DataGridView dataGridViewSeqOnEvent;
+        private System.Windows.Forms.TabPage tabPageDelayedEvents;
+        private System.Windows.Forms.DataGridView dataGridViewDelayedEvents;
     }
 }

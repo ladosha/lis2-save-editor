@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 using lis2_save_editor.Properties;
 //using Newtonsoft.Json;
 
@@ -359,6 +360,7 @@ namespace lis2_save_editor
                 var lvl_name = level["LevelName"].Value;
                 sb.AppendFormat("insert or ignore into {1}Levels (Name) values (\"{0}\");\n", lvl_name, table);
 
+                /*
                 //interactions
                 List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 foreach (var actor in actor_list.Skip(1))
@@ -405,7 +407,38 @@ namespace lis2_save_editor
                     }
                     sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
+                */
 
+                //timelines
+                List<dynamic> tl_list = level["TimelinesSaveData"].Value["StartedLevelScriptTimelines"].Value;
+                if (tl_list.Count > 1)
+                {
+                    throw new Exception("Found timelines!");
+                }
+
+                //DelayedEvents
+                List<dynamic> delayed_list = level["DelayedEventsSaveData"].Value["DelayedEvents"].Value;
+                if (delayed_list.Count > 1)
+                {
+                    foreach (var evt in delayed_list.Skip(1))
+                    {
+                        var func_name = evt["ExecutionFunction"].Value;
+                        sb.AppendFormat(
+                            "insert or ignore into {0}DelayedEvents (EventID, ActorName, LevelName, FunctionName) values ({1}, \"{2}\", \"{3}\", \"{4}\");\n",
+                            table, evt["DelayedEventID"].Value, evt["LevelScriptActorName"].Value, lvl_name,
+                            func_name);
+                        sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, "DelayedEvent");
+                    }
+                }
+
+                //CriWareMoviesSaveData
+                List<dynamic> criware_list = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
+                if (criware_list.Count > 1)
+                {
+                    //throw new Exception("Found criware movies!");
+                }
+
+                /*
                 //LevelChanges
                 Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
 
@@ -419,6 +452,8 @@ namespace lis2_save_editor
                             "('{1}', '{2}', '{3}');\n", table, seq_name, lvl_name, dbg_name);
                         sb.AppendFormat("UPDATE {0}LevelSequences SET DebugRequesterName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, dbg_name, seq_name, lvl_name);
                     }
+
+                    var spawnedMeshesPrefix = saveVersion == SaveVersion.LIS_E1 ? "SpawnedStaticMeshes" : "SpawnedActors";
                     //no values so far
                     //foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
                     //{
@@ -464,6 +499,7 @@ namespace lis2_save_editor
                         sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                     }
                 }
+                */
             }
 
             if (saveVersion >= SaveVersion.LIS_E1)
@@ -474,6 +510,9 @@ namespace lis2_save_editor
                     {
                         var lvl_name = level["LevelName"].Value;
                         sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
+
+                        /*
+                        //interactions
                         List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                         foreach (var actor in actor_list.Skip(1))
                         {
@@ -495,6 +534,8 @@ namespace lis2_save_editor
                             }
                             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }
+
+                        //POIs
                         List<dynamic> poi_list = level["PointsOfInterestSaveData"].Value;
                         if (poi_list.Count > 1)
                         {
@@ -505,7 +546,39 @@ namespace lis2_save_editor
                             }
                             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }
+                        
+                        */
 
+                        //timelines
+                        List<dynamic> tl_list = level["TimelinesSaveData"].Value["StartedLevelScriptTimelines"].Value;
+                        if (tl_list.Count > 1)
+                        {
+                            throw new Exception("Found timelines!");
+                        }
+
+                        //DelayedEvents
+                        List<dynamic> delayed_list = level["DelayedEventsSaveData"].Value["DelayedEvents"].Value;
+                        if (delayed_list.Count > 1)
+                        {
+                            foreach (var evt in delayed_list.Skip(1))
+                            {
+                                var func_name = evt["ExecutionFunction"].Value;
+                                sb.AppendFormat(
+                                    "insert or ignore into {0}DelayedEvents (EventID, ActorName, LevelName, FunctionName) values ({1}, \"{2}\", \"{3}\", \"{4}\");\n",
+                                    table, evt["DelayedEventID"].Value, evt["LevelScriptActorName"].Value, lvl_name,
+                                    func_name);
+                                sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, "DelayedEvent");
+                            }
+                        }
+
+                        //CriWareMoviesSaveData
+                        List<dynamic> criware_list = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
+                        if (criware_list.Count > 1)
+                        {
+                            //throw new Exception("Found criware movies!");
+                        }
+
+                        /*
                         //WuiVolumes
                         List<dynamic> wui_list = level["WuiVolumeGatesSaveData"].Value;
                         if (wui_list.Count > 1)
@@ -549,6 +622,7 @@ namespace lis2_save_editor
                                 sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                             }
                         }
+                        */
 
                         //foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
                         //{
@@ -1075,7 +1149,7 @@ namespace lis2_save_editor
                 };
                 root.AddUnique(new_item);
             }
-            else if (value == string.Empty)
+            else if (value.ToString() == string.Empty)
             {
                 root.RemoveAt(target_ind);
             }
