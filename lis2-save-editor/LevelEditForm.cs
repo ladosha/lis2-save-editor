@@ -1191,7 +1191,6 @@ namespace lis2_save_editor
         
         private string GetPlayingSeqSlotName(string initialSlot)
         {
-            
             int index;
             string slotPrefix = saveVersion >= SaveVersion.LIS_E1 ? "NoSlot_" : "None_";
             List<dynamic> target = level["LevelChangesSaveData"].Value["PlayingLevelSequences"].Value;

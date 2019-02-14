@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using lis2_save_editor.Properties;
-//using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace lis2_save_editor
 {
@@ -360,7 +360,6 @@ namespace lis2_save_editor
                 var lvl_name = level["LevelName"].Value;
                 sb.AppendFormat("insert or ignore into {1}Levels (Name) values (\"{0}\");\n", lvl_name, table);
 
-                /*
                 //interactions
                 List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 foreach (var actor in actor_list.Skip(1))
@@ -407,15 +406,7 @@ namespace lis2_save_editor
                     }
                     sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
-                */
-
-                //timelines
-                List<dynamic> tl_list = level["TimelinesSaveData"].Value["StartedLevelScriptTimelines"].Value;
-                if (tl_list.Count > 1)
-                {
-                    throw new Exception("Found timelines!");
-                }
-
+                
                 //DelayedEvents
                 List<dynamic> delayed_list = level["DelayedEventsSaveData"].Value["DelayedEvents"].Value;
                 if (delayed_list.Count > 1)
@@ -431,6 +422,13 @@ namespace lis2_save_editor
                     }
                 }
 
+                //timelines
+                List<dynamic> tl_list = level["TimelinesSaveData"].Value["StartedLevelScriptTimelines"].Value;
+                if (tl_list.Count > 1)
+                {
+                    throw new Exception("Found timelines!");
+                }
+
                 //CriWareMoviesSaveData
                 List<dynamic> criware_list = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
                 if (criware_list.Count > 1)
@@ -438,7 +436,6 @@ namespace lis2_save_editor
                     //throw new Exception("Found criware movies!");
                 }
 
-                /*
                 //LevelChanges
                 Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
 
@@ -453,17 +450,38 @@ namespace lis2_save_editor
                         sb.AppendFormat("UPDATE {0}LevelSequences SET DebugRequesterName = '{1}' WHERE ActorName='{2}' AND LevelName='{3}';\n", table, dbg_name, seq_name, lvl_name);
                     }
 
-                    var spawnedMeshesPrefix = saveVersion == SaveVersion.LIS_E1 ? "SpawnedStaticMeshes" : "SpawnedActors";
-                    //no values so far
-                    //foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
-                    //{
-                    //    throw new Exception();
-                    //}
+                    if (saveVersion == SaveVersion.LIS_E1)
+                    {
+                        //no values so far
+                        List<dynamic> meshes = lvl_changes["SpawnedStaticMeshes"].Value;
+                        foreach (var mesh in meshes.Skip(1))
+                        {
+                            throw new Exception();
+                        }
+                    }
+                    else
+                    {
+                        //no values so far
+                        Dictionary<string, dynamic> sp_actors = lvl_changes["SpawnedActors"].Value;
+                        foreach (var mesh in ((List<dynamic>)sp_actors["SpawnedStaticMeshes"].Value).Skip(1))
+                        {
+                            throw new Exception();
+                        }
 
-                    //foreach (var act in lvl_changes["ChangedActors"].Value)
-                    //{
-                    //    throw new Exception();
-                    //}
+                        foreach (var dbg_req in sp_actors["DebugActorSpawnRequesters"].Value)
+                        {
+                            throw new Exception();
+                        }
+
+                        foreach (var act in lvl_changes["ChangedActors"].Value["ChangedActors"].Value)
+                        {
+                            if (act.Value["DebugActorChangeRequesters"].ElementCount != 0)
+                            {
+                                var json = JsonConvert.SerializeObject(act, Formatting.Indented);
+                                File.AppendAllText("ch_acts.json", json + ",\n");
+                            }
+                        }
+                    }
                 }
                 else
                 {
@@ -473,7 +491,13 @@ namespace lis2_save_editor
                         sb.AppendFormat("insert or ignore into {0}LevelSequences (ActorName, LevelName) values" +
                             "('{1}', '{2}');\n", table, seq_name, lvl_name);
                     }
+
+                    foreach (var evt in ((List<dynamic>)lvl_changes["PastLevelChangeEvents"].Value).Skip(1))
+                    {
+                        throw new Exception();
+                    }
                 }
+
                 foreach (var seq in ((List<dynamic>)lvl_changes["PlayingLevelSequences"].Value).Skip(1))
                 {
                     string seq_name = seq["LevelSequenceActorName"].Value;
@@ -499,7 +523,6 @@ namespace lis2_save_editor
                         sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                     }
                 }
-                */
             }
 
             if (saveVersion >= SaveVersion.LIS_E1)
@@ -511,7 +534,6 @@ namespace lis2_save_editor
                         var lvl_name = level["LevelName"].Value;
                         sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
 
-                        /*
                         //interactions
                         List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                         foreach (var actor in actor_list.Skip(1))
@@ -546,8 +568,18 @@ namespace lis2_save_editor
                             }
                             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }
-                        
-                        */
+
+                        //WuiVolumes
+                        List<dynamic> wui_list = level["WuiVolumeGatesSaveData"].Value;
+                        if (wui_list.Count > 1)
+                        {
+                            sb.AppendFormat("insert or ignore into {0}WUIs (Name, LevelName) values\n", table);
+                            foreach (var wui in wui_list.Skip(1))
+                            {
+                                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", wui["WuiVolumeGateActorName"].Value, lvl_name);
+                            }
+                            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                        }
 
                         //timelines
                         List<dynamic> tl_list = level["TimelinesSaveData"].Value["StartedLevelScriptTimelines"].Value;
@@ -578,21 +610,9 @@ namespace lis2_save_editor
                             //throw new Exception("Found criware movies!");
                         }
 
-                        /*
-                        //WuiVolumes
-                        List<dynamic> wui_list = level["WuiVolumeGatesSaveData"].Value;
-                        if (wui_list.Count > 1)
-                        {
-                            sb.AppendFormat("insert or ignore into {0}WUIs (Name, LevelName) values\n", table);
-                            foreach (var wui in wui_list.Skip(1))
-                            {
-                                sb.AppendFormat("(\"{0}\", \"{1}\"),\n", wui["WuiVolumeGateActorName"].Value, lvl_name);
-                            }
-                            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
-                        }
-
                         //LevelChanges
                         Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
+
                         foreach (var seq in ((List<dynamic>)lvl_changes["StoppedLevelSequences"].Value).Skip(1))
                         {
                             string seq_name = seq["LevelSequenceActorName"].Value;
@@ -622,17 +642,39 @@ namespace lis2_save_editor
                                 sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                             }
                         }
-                        */
 
-                        //foreach (var mesh in ((List<dynamic>)lvl_changes["SpawnedStaticMeshes"].Value).Skip(1))
-                        //{
-                        //    throw new Exception();
-                        //}
+                        if (saveVersion == SaveVersion.LIS_E1)
+                        {
+                            //no values so far
+                            List<dynamic> meshes = lvl_changes["SpawnedStaticMeshes"].Value;
+                            foreach (var mesh in meshes.Skip(1))
+                            {
+                                throw new Exception();
+                            }
+                        }
+                        else
+                        {
+                            //no values so far
+                            Dictionary<string, dynamic> sp_actors = lvl_changes["SpawnedActors"].Value;
+                            foreach (var mesh in ((List<dynamic>)sp_actors["SpawnedStaticMeshes"].Value).Skip(1))
+                            {
+                                throw new Exception();
+                            }
 
-                        //foreach (var act in lvl_changes["ChangedActors"].Value)
-                        //{
-                        //    throw new Exception();
-                        //}
+                            foreach (var dbg_req in sp_actors["DebugActorSpawnRequesters"].Value)
+                            {
+                                throw new Exception();
+                            }
+
+                            foreach (var act in lvl_changes["ChangedActors"].Value["ChangedActors"].Value)
+                            {
+                                if (act.Value["DebugActorChangeRequesters"].ElementCount != 0)
+                                {
+                                    var json = JsonConvert.SerializeObject(act, Formatting.Indented);
+                                    File.AppendAllText("ch_acts.json", json + ",\n");
+                                }
+                            }
+                        }
                     }
                 }
             }

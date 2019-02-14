@@ -51,62 +51,14 @@ namespace lis2_save_editor
                 return;
             }
 
-            string[] cpName;
-            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
-            {
-                cpName = _gameSave.Data["CheckpointName"].Value.Split('_');
-            }
-            else
-            {
-                cpName = _gameSave.Data["CurrentSubContextSaveData"].Value["CheckpointName"].Value.Split('_');
-            }
             SaveLoading = true;
-            comboBoxSelectCP.Items.Clear();
-            comboBoxSelectCP.Items.Add("Current - "+ _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value 
-                                       +"_"+cpName.Last());
-            comboBoxHeader_EPName.Items.Clear();
-            comboBoxHeader_SubContextName.Items.Clear();
-            comboBoxHeader_CheckpointName.Items.Clear();
+
             comboBoxCPName.Items.Clear();
-            ClearGroupBox(groupBoxLISHeader);
+            
             if (_gameSave.saveVersion != SaveVersion.CaptainSpirit)
             {
-                for (int i = 1; i <= _gameSave.Data["CheckpointHistory"].ElementCount; i++)
-                {
-                    comboBoxSelectCP.Items.Add(string.Format("{0} - {1}",
-                    i, _gameSave.Data["CheckpointHistory"].Value[i]["SubContextId"].Value));
-                }
-
                 comboBoxCPName.Items.AddRange(GameInfo.LIS2_CheckpointNames);
 
-                var header = _gameSave.Data["HeaderSaveData"].Value;
-                comboBoxHeader_EPName.Items.AddRange(GameInfo.LIS2_EpisodeNames);
-                comboBoxHeader_SubContextName.Items.AddRange(GameInfo.LIS2_SubContextNames.Values.ToArray());
-                comboBoxHeader_EPName.SelectedIndex = Convert.ToInt32(header["EpisodeName"].Value[1].Substring(22, 1)) - 1;
-                comboBoxHeader_EPNumber.SelectedIndex = header["EpisodeNumber"].Value - 1;
-                if (header["SubContextName"].Value.Length > 0)
-                {
-                    comboBoxHeader_SubContextName.SelectedItem = GameInfo.LIS2_SubContextNames[header["SubContextName"].Value[1]];
-                }
-                else
-                {
-                    comboBoxHeader_SubContextName.SelectedItem = GameInfo.LIS2_SubContextNames["NONE"];
-                }
-
-                if (_gameSave.saveVersion >= SaveVersion.LIS_E2)
-                {
-                    comboBoxHeader_CheckpointName.Enabled = true;
-                    comboBoxHeader_CheckpointName.Items.AddRange(GameInfo.LIS2_CheckpointNames);
-                    comboBoxHeader_CheckpointName.SelectedItem = header["CheckpointName"].Value;
-                }
-                else
-                {
-                    comboBoxHeader_CheckpointName.Enabled = false;
-                }
-
-                checkBoxGameStarted.Checked = header["bGameStarted"].Value;
-
-                groupBoxLISHeader.Enabled = true;
                 groupBoxDanielPos.Enabled = true;
                 groupBoxAICall.Enabled = true;
                 groupBoxMetaInv_SeenSubContexts.Enabled = true;
@@ -117,9 +69,8 @@ namespace lis2_save_editor
             }
             else
             {
-                comboBoxCPName.Items.AddRange(GameInfo.CS_CheckpointNames.ToArray());
+                comboBoxCPName.Items.AddRange(GameInfo.CS_CheckpointNames);
 
-                groupBoxLISHeader.Enabled = false;
                 groupBoxDanielPos.Enabled = false;
                 groupBoxAICall.Enabled = false;
                 groupBoxMetaInv_SeenSubContexts.Enabled = false;
@@ -133,6 +84,8 @@ namespace lis2_save_editor
             textBoxSubContextPath.Text = _gameSave.Data["CurrentSubContextPathName"].Value;
             dateTimePickerSaveTime.Value = _gameSave.Data["SaveTime"].Value["DateTime"];
 
+            UpdateCheckpointList();
+            UpdateHeaderData();
             UpdateStats();
             UpdateCSImportData();
             GenerateCinematics();
@@ -159,6 +112,79 @@ namespace lis2_save_editor
             if (searchForm != null)
             {
                 searchForm.ResetSearchState();
+            }
+        }
+
+        private void UpdateCheckpointList()
+        {
+            comboBoxSelectCP.Items.Clear();
+            string[] cpName;
+            string subID = _gameSave.Data["CurrentSubContextSaveData"].Value["SubContextId"].Value;
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
+            {
+                cpName = _gameSave.Data["CheckpointName"].Value.Split('_');
+                comboBoxSelectCP.Items.Add($"Current - {subID}_{cpName.Last()}");
+            }
+            else
+            {
+                cpName = _gameSave.Data["CurrentSubContextSaveData"].Value["CheckpointName"].Value.Split('_');
+                comboBoxSelectCP.Items.Add($"Current - {subID}_{cpName.Last()}");
+
+                for (int i = 1; i <= _gameSave.Data["CheckpointHistory"].ElementCount; i++)
+                {
+                    comboBoxSelectCP.Items.Add(string.Format("{0} - {1}",
+                        i, _gameSave.Data["CheckpointHistory"].Value[i]["SubContextId"].Value));
+                }
+            }
+
+        }
+
+        private void UpdateHeaderData()
+        {
+            comboBoxHeader_EPName.Items.Clear();
+            comboBoxHeader_SubContextName.Items.Clear();
+            comboBoxHeader_CheckpointName.Items.Clear();
+            ClearGroupBox(groupBoxLISHeader);
+
+            var header = _gameSave.Data["HeaderSaveData"].Value;
+            checkBoxGameStarted.Checked = header["bGameStarted"].Value;
+
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
+            {
+                comboBoxHeader_EPName.Enabled = false;
+                comboBoxHeader_EPNumber.Enabled = false;
+                comboBoxHeader_SubContextName.Enabled = false;
+                comboBoxHeader_CheckpointName.Enabled = false;
+            }
+            else
+            {
+                comboBoxHeader_EPName.Enabled = true;
+                comboBoxHeader_EPNumber.Enabled = true;
+                comboBoxHeader_SubContextName.Enabled = true;
+
+                comboBoxHeader_EPName.Items.AddRange(GameInfo.LIS2_EpisodeNames);
+                comboBoxHeader_SubContextName.Items.AddRange(GameInfo.LIS2_SubContextNames.Values.ToArray());
+                comboBoxHeader_EPName.SelectedIndex = Convert.ToInt32(header["EpisodeName"].Value[1].Substring(22, 1)) - 1;
+                comboBoxHeader_EPNumber.SelectedIndex = header["EpisodeNumber"].Value - 1;
+                if (header["SubContextName"].Value.Length > 0)
+                {
+                    comboBoxHeader_SubContextName.SelectedItem = GameInfo.LIS2_SubContextNames[header["SubContextName"].Value[1]];
+                }
+                else
+                {
+                    comboBoxHeader_SubContextName.SelectedItem = GameInfo.LIS2_SubContextNames["NONE"];
+                }
+
+                if (_gameSave.saveVersion >= SaveVersion.LIS_E2)
+                {
+                    comboBoxHeader_CheckpointName.Enabled = true;
+                    comboBoxHeader_CheckpointName.Items.AddRange(GameInfo.LIS2_CheckpointNames);
+                    comboBoxHeader_CheckpointName.SelectedItem = header["CheckpointName"].Value;
+                }
+                else
+                {
+                    comboBoxHeader_CheckpointName.Enabled = false;
+                }
             }
         }
 
