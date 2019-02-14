@@ -61,7 +61,7 @@ namespace lis2_save_editor
 
             Regex reg = new Regex(@"(?<=_)C\d+_.*");
 
-            var special_int_icon = saveVersion == SaveVersion.CaptainSpirit ? Resources.CS_icon : Resources.DanielIntIcon;
+            var special_int_icon = saveVersion == SaveVersion.CaptainSpirit ? Resources.cs_icon.ToBitmap() : Resources.DanielIntIcon;
 
             foreach (var obj in level_info.Interactions)
             {

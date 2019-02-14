@@ -1431,5 +1431,35 @@ namespace lis2_save_editor
                 root.RemoveAt(target_ind);
             }
         }
+
+        public void EditSeenJournalPage(string name, int cpIndex, bool value)
+        {
+            var guid = GameInfo.LIS2_JournalPageNames[name];
+
+            List<dynamic> root;
+
+            if (cpIndex == 0)
+            {
+                root = Data["CurrentSubContextSaveData"].Value["JournalSaveData"].Value["SeenPages"].Value;
+            }
+            else
+            {
+                root = Data["CheckpointHistory"].Value[cpIndex]["JournalSaveData"].Value["SeenPages"].Value;
+            }
+
+            var target_ind = root.FindIndex(1, x => x["Guid"] == guid);
+
+            if (target_ind == -1)
+            {
+                root.AddUnique(new Dictionary<string, dynamic>()
+                {
+                    { "Guid", guid}
+                });
+            }
+            else
+            {
+                root.RemoveAt(target_ind);
+            }
+        }
     }
 }

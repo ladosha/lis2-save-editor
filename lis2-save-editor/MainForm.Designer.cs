@@ -167,10 +167,19 @@
             this.dataGridViewInventoryDaniel2 = new System.Windows.Forms.DataGridView();
             this.tabPageDanielPockets = new System.Windows.Forms.TabPage();
             this.dataGridViewInventoryDaniel3 = new System.Windows.Forms.DataGridView();
-            this.tabPageSeenNotifs = new System.Windows.Forms.TabPage();
+            this.tabPageSeen = new System.Windows.Forms.TabPage();
+            this.tabControlSeen = new System.Windows.Forms.TabControl();
+            this.tabPageSeenNotifs1 = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenNotifs = new System.Windows.Forms.DataGridView();
-            this.tabPageSeenTutos = new System.Windows.Forms.TabPage();
+            this.tabPageSeenTutos1 = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenTutos = new System.Windows.Forms.DataGridView();
+            this.tabPageSeenPics1 = new System.Windows.Forms.TabPage();
+            this.dataGridViewSeenPics = new System.Windows.Forms.DataGridView();
+            this.tabPageSeenMessages = new System.Windows.Forms.TabPage();
+            this.dataGridViewSeenMessages = new System.Windows.Forms.DataGridView();
+            this.tabPageSeenJournal = new System.Windows.Forms.TabPage();
+            this.dataGridViewSeenJournal = new System.Windows.Forms.DataGridView();
+            this.tabPageSeenMisc = new System.Windows.Forms.TabPage();
             this.tabPageDrawings = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelDrawings = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageFacts = new System.Windows.Forms.TabPage();
@@ -181,8 +190,6 @@
             this.dataGridViewLevels = new System.Windows.Forms.DataGridView();
             this.tabPageMetrics = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelMetrics = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPageSeenPics = new System.Windows.Forms.TabPage();
-            this.dataGridViewSeenPics = new System.Windows.Forms.DataGridView();
             this.tabPageCollectibles = new System.Windows.Forms.TabPage();
             this.dataGridViewCollectibles = new System.Windows.Forms.DataGridView();
             this.tabPageObjectives = new System.Windows.Forms.TabPage();
@@ -191,8 +198,6 @@
             this.dataGridViewObjectives = new System.Windows.Forms.DataGridView();
             this.tabPageObjectivesActiveCueGroups = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelActiveObjectiveCueGroups = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabPageMessages = new System.Windows.Forms.TabPage();
-            this.dataGridViewSeenMessages = new System.Windows.Forms.DataGridView();
             this.tabPageOutfits = new System.Windows.Forms.TabPage();
             this.groupBoxOutfitsCharles = new System.Windows.Forms.GroupBox();
             this.panel25 = new System.Windows.Forms.Panel();
@@ -277,6 +282,10 @@
             this.comboBoxSelectCP = new System.Windows.Forms.ComboBox();
             this.buttonSaveSelector = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBoxLastSeenJournalPage = new System.Windows.Forms.ComboBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.groupBoxRegisteredGroupMessages = new System.Windows.Forms.GroupBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxSendChoiceSuccess.SuspendLayout();
@@ -315,10 +324,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel2)).BeginInit();
             this.tabPageDanielPockets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel3)).BeginInit();
-            this.tabPageSeenNotifs.SuspendLayout();
+            this.tabPageSeen.SuspendLayout();
+            this.tabControlSeen.SuspendLayout();
+            this.tabPageSeenNotifs1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenNotifs)).BeginInit();
-            this.tabPageSeenTutos.SuspendLayout();
+            this.tabPageSeenTutos1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenTutos)).BeginInit();
+            this.tabPageSeenPics1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).BeginInit();
+            this.tabPageSeenMessages.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).BeginInit();
+            this.tabPageSeenJournal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenJournal)).BeginInit();
+            this.tabPageSeenMisc.SuspendLayout();
             this.tabPageDrawings.SuspendLayout();
             this.tabPageFacts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacts)).BeginInit();
@@ -327,8 +345,6 @@
             this.tabPageLevels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLevels)).BeginInit();
             this.tabPageMetrics.SuspendLayout();
-            this.tabPageSeenPics.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).BeginInit();
             this.tabPageCollectibles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCollectibles)).BeginInit();
             this.tabPageObjectives.SuspendLayout();
@@ -336,8 +352,6 @@
             this.tabPageObjectivesMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjectives)).BeginInit();
             this.tabPageObjectivesActiveCueGroups.SuspendLayout();
-            this.tabPageMessages.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).BeginInit();
             this.tabPageOutfits.SuspendLayout();
             this.groupBoxOutfitsCharles.SuspendLayout();
             this.panel25.SuspendLayout();
@@ -368,6 +382,7 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxSavePath
@@ -375,7 +390,7 @@
             this.textBoxSavePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSavePath.Location = new System.Drawing.Point(98, 5);
             this.textBoxSavePath.Name = "textBoxSavePath";
-            this.textBoxSavePath.Size = new System.Drawing.Size(683, 20);
+            this.textBoxSavePath.Size = new System.Drawing.Size(653, 20);
             this.textBoxSavePath.TabIndex = 0;
             this.textBoxSavePath.TextChanged += new System.EventHandler(this.textBoxSavePath_TextChanged);
             // 
@@ -392,7 +407,7 @@
             // buttonBrowse
             // 
             this.buttonBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBrowse.Location = new System.Drawing.Point(787, 3);
+            this.buttonBrowse.Location = new System.Drawing.Point(757, 3);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(54, 24);
             this.buttonBrowse.TabIndex = 2;
@@ -403,7 +418,7 @@
             // buttonLoad
             // 
             this.buttonLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLoad.Location = new System.Drawing.Point(847, 3);
+            this.buttonLoad.Location = new System.Drawing.Point(817, 3);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(54, 24);
             this.buttonLoad.TabIndex = 3;
@@ -415,7 +430,7 @@
             // 
             this.buttonSaveEdits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSaveEdits.Enabled = false;
-            this.buttonSaveEdits.Location = new System.Drawing.Point(847, 33);
+            this.buttonSaveEdits.Location = new System.Drawing.Point(817, 33);
             this.buttonSaveEdits.Name = "buttonSaveEdits";
             this.buttonSaveEdits.Size = new System.Drawing.Size(54, 24);
             this.buttonSaveEdits.TabIndex = 4;
@@ -426,7 +441,7 @@
             // buttonAbout
             // 
             this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAbout.Location = new System.Drawing.Point(787, 33);
+            this.buttonAbout.Location = new System.Drawing.Point(757, 33);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(54, 24);
             this.buttonAbout.TabIndex = 5;
@@ -439,17 +454,14 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tabControlMain, 4);
             this.tabControlMain.Controls.Add(this.tabPageGeneral);
             this.tabControlMain.Controls.Add(this.tabPageInventory);
-            this.tabControlMain.Controls.Add(this.tabPageSeenNotifs);
-            this.tabControlMain.Controls.Add(this.tabPageSeenTutos);
+            this.tabControlMain.Controls.Add(this.tabPageSeen);
             this.tabControlMain.Controls.Add(this.tabPageDrawings);
             this.tabControlMain.Controls.Add(this.tabPageFacts);
             this.tabControlMain.Controls.Add(this.tabPageWorld);
             this.tabControlMain.Controls.Add(this.tabPageLevels);
             this.tabControlMain.Controls.Add(this.tabPageMetrics);
-            this.tabControlMain.Controls.Add(this.tabPageSeenPics);
             this.tabControlMain.Controls.Add(this.tabPageCollectibles);
             this.tabControlMain.Controls.Add(this.tabPageObjectives);
-            this.tabControlMain.Controls.Add(this.tabPageMessages);
             this.tabControlMain.Controls.Add(this.tabPageOutfits);
             this.tabControlMain.Controls.Add(this.tabPageCinematics);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -459,7 +471,7 @@
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(898, 566);
+            this.tabControlMain.Size = new System.Drawing.Size(868, 566);
             this.tabControlMain.TabIndex = 6;
             // 
             // tabPageGeneral
@@ -487,7 +499,7 @@
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(890, 538);
+            this.tabPageGeneral.Size = new System.Drawing.Size(860, 538);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
@@ -1770,7 +1782,7 @@
             this.tabPageInventory.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageInventory.Name = "tabPageInventory";
             this.tabPageInventory.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.tabPageInventory.Size = new System.Drawing.Size(890, 538);
+            this.tabPageInventory.Size = new System.Drawing.Size(860, 538);
             this.tabPageInventory.TabIndex = 1;
             this.tabPageInventory.Text = "Inventory";
             this.tabPageInventory.UseVisualStyleBackColor = true;
@@ -1788,7 +1800,7 @@
             this.tabControlInventory.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlInventory.Name = "tabControlInventory";
             this.tabControlInventory.SelectedIndex = 0;
-            this.tabControlInventory.Size = new System.Drawing.Size(890, 535);
+            this.tabControlInventory.Size = new System.Drawing.Size(860, 535);
             this.tabControlInventory.TabIndex = 1;
             this.tabControlInventory.Tag = "";
             // 
@@ -1798,7 +1810,7 @@
             this.tabPagePlayerInv.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlayerInv.Name = "tabPagePlayerInv";
             this.tabPagePlayerInv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlayerInv.Size = new System.Drawing.Size(882, 509);
+            this.tabPagePlayerInv.Size = new System.Drawing.Size(852, 509);
             this.tabPagePlayerInv.TabIndex = 0;
             this.tabPagePlayerInv.Text = "Inventory [Player]";
             this.tabPagePlayerInv.UseVisualStyleBackColor = true;
@@ -1813,7 +1825,7 @@
             this.dataGridViewInventory1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory1.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory1.Name = "dataGridViewInventory1";
-            this.dataGridViewInventory1.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventory1.Size = new System.Drawing.Size(846, 503);
             this.dataGridViewInventory1.TabIndex = 1;
             this.dataGridViewInventory1.Tag = "Inventory::Player";
             this.dataGridViewInventory1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1825,7 +1837,7 @@
             this.tabPagePlayerBackpack.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlayerBackpack.Name = "tabPagePlayerBackpack";
             this.tabPagePlayerBackpack.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlayerBackpack.Size = new System.Drawing.Size(882, 509);
+            this.tabPagePlayerBackpack.Size = new System.Drawing.Size(852, 509);
             this.tabPagePlayerBackpack.TabIndex = 1;
             this.tabPagePlayerBackpack.Text = "Backpack [Player]";
             this.tabPagePlayerBackpack.UseVisualStyleBackColor = true;
@@ -1840,7 +1852,7 @@
             this.dataGridViewInventory2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory2.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory2.Name = "dataGridViewInventory2";
-            this.dataGridViewInventory2.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventory2.Size = new System.Drawing.Size(846, 503);
             this.dataGridViewInventory2.TabIndex = 1;
             this.dataGridViewInventory2.Tag = "BackPack::Player";
             this.dataGridViewInventory2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1852,7 +1864,7 @@
             this.tabPagePlayerPockets.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlayerPockets.Name = "tabPagePlayerPockets";
             this.tabPagePlayerPockets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlayerPockets.Size = new System.Drawing.Size(882, 509);
+            this.tabPagePlayerPockets.Size = new System.Drawing.Size(852, 509);
             this.tabPagePlayerPockets.TabIndex = 2;
             this.tabPagePlayerPockets.Text = "Pockets [Player]";
             this.tabPagePlayerPockets.UseVisualStyleBackColor = true;
@@ -1867,7 +1879,7 @@
             this.dataGridViewInventory3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory3.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory3.Name = "dataGridViewInventory3";
-            this.dataGridViewInventory3.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventory3.Size = new System.Drawing.Size(846, 503);
             this.dataGridViewInventory3.TabIndex = 1;
             this.dataGridViewInventory3.Tag = "Pockets::Player";
             this.dataGridViewInventory3.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1879,7 +1891,7 @@
             this.tabPageDanielInv.Location = new System.Drawing.Point(4, 22);
             this.tabPageDanielInv.Name = "tabPageDanielInv";
             this.tabPageDanielInv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDanielInv.Size = new System.Drawing.Size(882, 509);
+            this.tabPageDanielInv.Size = new System.Drawing.Size(852, 509);
             this.tabPageDanielInv.TabIndex = 3;
             this.tabPageDanielInv.Text = "Inventory [Daniel]";
             this.tabPageDanielInv.UseVisualStyleBackColor = true;
@@ -1894,7 +1906,7 @@
             this.dataGridViewInventoryDaniel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventoryDaniel1.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventoryDaniel1.Name = "dataGridViewInventoryDaniel1";
-            this.dataGridViewInventoryDaniel1.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventoryDaniel1.Size = new System.Drawing.Size(846, 503);
             this.dataGridViewInventoryDaniel1.TabIndex = 2;
             this.dataGridViewInventoryDaniel1.Tag = "Inventory::BrotherAI";
             this.dataGridViewInventoryDaniel1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1906,7 +1918,7 @@
             this.tabPageDanielBackpack.Location = new System.Drawing.Point(4, 22);
             this.tabPageDanielBackpack.Name = "tabPageDanielBackpack";
             this.tabPageDanielBackpack.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDanielBackpack.Size = new System.Drawing.Size(882, 509);
+            this.tabPageDanielBackpack.Size = new System.Drawing.Size(852, 509);
             this.tabPageDanielBackpack.TabIndex = 4;
             this.tabPageDanielBackpack.Text = "Backpack [Daniel]";
             this.tabPageDanielBackpack.UseVisualStyleBackColor = true;
@@ -1921,7 +1933,7 @@
             this.dataGridViewInventoryDaniel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventoryDaniel2.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventoryDaniel2.Name = "dataGridViewInventoryDaniel2";
-            this.dataGridViewInventoryDaniel2.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventoryDaniel2.Size = new System.Drawing.Size(846, 503);
             this.dataGridViewInventoryDaniel2.TabIndex = 3;
             this.dataGridViewInventoryDaniel2.Tag = "BackPack::BrotherAI";
             this.dataGridViewInventoryDaniel2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1933,7 +1945,7 @@
             this.tabPageDanielPockets.Location = new System.Drawing.Point(4, 22);
             this.tabPageDanielPockets.Name = "tabPageDanielPockets";
             this.tabPageDanielPockets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDanielPockets.Size = new System.Drawing.Size(882, 509);
+            this.tabPageDanielPockets.Size = new System.Drawing.Size(852, 509);
             this.tabPageDanielPockets.TabIndex = 5;
             this.tabPageDanielPockets.Text = "Pockets [Daniel]";
             this.tabPageDanielPockets.UseVisualStyleBackColor = true;
@@ -1948,22 +1960,47 @@
             this.dataGridViewInventoryDaniel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventoryDaniel3.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventoryDaniel3.Name = "dataGridViewInventoryDaniel3";
-            this.dataGridViewInventoryDaniel3.Size = new System.Drawing.Size(876, 503);
+            this.dataGridViewInventoryDaniel3.Size = new System.Drawing.Size(846, 503);
             this.dataGridViewInventoryDaniel3.TabIndex = 3;
             this.dataGridViewInventoryDaniel3.Tag = "Pockets::BrotherAI";
             this.dataGridViewInventoryDaniel3.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewInventoryDaniel3.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellEndEdit);
             // 
-            // tabPageSeenNotifs
+            // tabPageSeen
             // 
-            this.tabPageSeenNotifs.Controls.Add(this.dataGridViewSeenNotifs);
-            this.tabPageSeenNotifs.Location = new System.Drawing.Point(4, 24);
-            this.tabPageSeenNotifs.Name = "tabPageSeenNotifs";
-            this.tabPageSeenNotifs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenNotifs.Size = new System.Drawing.Size(890, 538);
-            this.tabPageSeenNotifs.TabIndex = 2;
-            this.tabPageSeenNotifs.Text = "Seen notifications";
-            this.tabPageSeenNotifs.UseVisualStyleBackColor = true;
+            this.tabPageSeen.Controls.Add(this.tabControlSeen);
+            this.tabPageSeen.Location = new System.Drawing.Point(4, 24);
+            this.tabPageSeen.Name = "tabPageSeen";
+            this.tabPageSeen.Size = new System.Drawing.Size(860, 538);
+            this.tabPageSeen.TabIndex = 16;
+            this.tabPageSeen.Text = "Seen items";
+            this.tabPageSeen.UseVisualStyleBackColor = true;
+            // 
+            // tabControlSeen
+            // 
+            this.tabControlSeen.Controls.Add(this.tabPageSeenNotifs1);
+            this.tabControlSeen.Controls.Add(this.tabPageSeenTutos1);
+            this.tabControlSeen.Controls.Add(this.tabPageSeenPics1);
+            this.tabControlSeen.Controls.Add(this.tabPageSeenMessages);
+            this.tabControlSeen.Controls.Add(this.tabPageSeenJournal);
+            this.tabControlSeen.Controls.Add(this.tabPageSeenMisc);
+            this.tabControlSeen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlSeen.Location = new System.Drawing.Point(0, 0);
+            this.tabControlSeen.Name = "tabControlSeen";
+            this.tabControlSeen.SelectedIndex = 0;
+            this.tabControlSeen.Size = new System.Drawing.Size(860, 538);
+            this.tabControlSeen.TabIndex = 0;
+            // 
+            // tabPageSeenNotifs1
+            // 
+            this.tabPageSeenNotifs1.Controls.Add(this.dataGridViewSeenNotifs);
+            this.tabPageSeenNotifs1.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSeenNotifs1.Name = "tabPageSeenNotifs1";
+            this.tabPageSeenNotifs1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSeenNotifs1.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenNotifs1.TabIndex = 0;
+            this.tabPageSeenNotifs1.Text = "Notifications";
+            this.tabPageSeenNotifs1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewSeenNotifs
             // 
@@ -1974,21 +2011,21 @@
             this.dataGridViewSeenNotifs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenNotifs.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenNotifs.Name = "dataGridViewSeenNotifs";
-            this.dataGridViewSeenNotifs.Size = new System.Drawing.Size(884, 532);
-            this.dataGridViewSeenNotifs.TabIndex = 1;
+            this.dataGridViewSeenNotifs.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenNotifs.TabIndex = 2;
             this.dataGridViewSeenNotifs.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenNotifs.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenNotifs_CellEndEdit);
             // 
-            // tabPageSeenTutos
+            // tabPageSeenTutos1
             // 
-            this.tabPageSeenTutos.Controls.Add(this.dataGridViewSeenTutos);
-            this.tabPageSeenTutos.Location = new System.Drawing.Point(4, 24);
-            this.tabPageSeenTutos.Name = "tabPageSeenTutos";
-            this.tabPageSeenTutos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenTutos.Size = new System.Drawing.Size(890, 538);
-            this.tabPageSeenTutos.TabIndex = 5;
-            this.tabPageSeenTutos.Text = "Seen tutorials";
-            this.tabPageSeenTutos.UseVisualStyleBackColor = true;
+            this.tabPageSeenTutos1.Controls.Add(this.dataGridViewSeenTutos);
+            this.tabPageSeenTutos1.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSeenTutos1.Name = "tabPageSeenTutos1";
+            this.tabPageSeenTutos1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSeenTutos1.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenTutos1.TabIndex = 1;
+            this.tabPageSeenTutos1.Text = "Tutorials";
+            this.tabPageSeenTutos1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewSeenTutos
             // 
@@ -1999,10 +2036,101 @@
             this.dataGridViewSeenTutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenTutos.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenTutos.Name = "dataGridViewSeenTutos";
-            this.dataGridViewSeenTutos.Size = new System.Drawing.Size(884, 532);
-            this.dataGridViewSeenTutos.TabIndex = 1;
+            this.dataGridViewSeenTutos.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenTutos.TabIndex = 2;
             this.dataGridViewSeenTutos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenTutos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenTutos_CellEndEdit);
+            // 
+            // tabPageSeenPics1
+            // 
+            this.tabPageSeenPics1.Controls.Add(this.dataGridViewSeenPics);
+            this.tabPageSeenPics1.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSeenPics1.Name = "tabPageSeenPics1";
+            this.tabPageSeenPics1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSeenPics1.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenPics1.TabIndex = 2;
+            this.tabPageSeenPics1.Text = "Pictures";
+            this.tabPageSeenPics1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewSeenPics
+            // 
+            this.dataGridViewSeenPics.AllowUserToAddRows = false;
+            this.dataGridViewSeenPics.AllowUserToDeleteRows = false;
+            this.dataGridViewSeenPics.AllowUserToResizeRows = false;
+            this.dataGridViewSeenPics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSeenPics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSeenPics.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSeenPics.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewSeenPics.Name = "dataGridViewSeenPics";
+            this.dataGridViewSeenPics.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenPics.TabIndex = 2;
+            this.dataGridViewSeenPics.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewSeenPics.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenPics_CellEndEdit);
+            // 
+            // tabPageSeenMessages
+            // 
+            this.tabPageSeenMessages.Controls.Add(this.dataGridViewSeenMessages);
+            this.tabPageSeenMessages.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSeenMessages.Name = "tabPageSeenMessages";
+            this.tabPageSeenMessages.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSeenMessages.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenMessages.TabIndex = 3;
+            this.tabPageSeenMessages.Text = "Messages";
+            this.tabPageSeenMessages.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewSeenMessages
+            // 
+            this.dataGridViewSeenMessages.AllowUserToAddRows = false;
+            this.dataGridViewSeenMessages.AllowUserToDeleteRows = false;
+            this.dataGridViewSeenMessages.AllowUserToResizeRows = false;
+            this.dataGridViewSeenMessages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSeenMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSeenMessages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSeenMessages.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewSeenMessages.Name = "dataGridViewSeenMessages";
+            this.dataGridViewSeenMessages.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenMessages.TabIndex = 4;
+            this.dataGridViewSeenMessages.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewSeenMessages.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenMessages_CellEndEdit);
+            // 
+            // tabPageSeenJournal
+            // 
+            this.tabPageSeenJournal.Controls.Add(this.dataGridViewSeenJournal);
+            this.tabPageSeenJournal.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSeenJournal.Name = "tabPageSeenJournal";
+            this.tabPageSeenJournal.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSeenJournal.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenJournal.TabIndex = 4;
+            this.tabPageSeenJournal.Text = "Journal pages";
+            this.tabPageSeenJournal.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewSeenJournal
+            // 
+            this.dataGridViewSeenJournal.AllowUserToAddRows = false;
+            this.dataGridViewSeenJournal.AllowUserToDeleteRows = false;
+            this.dataGridViewSeenJournal.AllowUserToResizeRows = false;
+            this.dataGridViewSeenJournal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSeenJournal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSeenJournal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSeenJournal.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewSeenJournal.Name = "dataGridViewSeenJournal";
+            this.dataGridViewSeenJournal.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenJournal.TabIndex = 5;
+            this.dataGridViewSeenJournal.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewSeenJournal.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenJournal_CellEndEdit);
+            // 
+            // tabPageSeenMisc
+            // 
+            this.tabPageSeenMisc.Controls.Add(this.groupBoxRegisteredGroupMessages);
+            this.tabPageSeenMisc.Controls.Add(this.panel21);
+            this.tabPageSeenMisc.Controls.Add(this.label23);
+            this.tabPageSeenMisc.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSeenMisc.Name = "tabPageSeenMisc";
+            this.tabPageSeenMisc.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSeenMisc.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenMisc.TabIndex = 5;
+            this.tabPageSeenMisc.Text = "Miscellaneous";
+            this.tabPageSeenMisc.UseVisualStyleBackColor = true;
             // 
             // tabPageDrawings
             // 
@@ -2010,7 +2138,7 @@
             this.tabPageDrawings.Location = new System.Drawing.Point(4, 24);
             this.tabPageDrawings.Name = "tabPageDrawings";
             this.tabPageDrawings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDrawings.Size = new System.Drawing.Size(890, 538);
+            this.tabPageDrawings.Size = new System.Drawing.Size(860, 538);
             this.tabPageDrawings.TabIndex = 9;
             this.tabPageDrawings.Text = "Drawings";
             this.tabPageDrawings.UseVisualStyleBackColor = true;
@@ -2021,7 +2149,7 @@
             this.flowLayoutPanelDrawings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelDrawings.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelDrawings.Name = "flowLayoutPanelDrawings";
-            this.flowLayoutPanelDrawings.Size = new System.Drawing.Size(884, 532);
+            this.flowLayoutPanelDrawings.Size = new System.Drawing.Size(854, 532);
             this.flowLayoutPanelDrawings.TabIndex = 0;
             // 
             // tabPageFacts
@@ -2030,7 +2158,7 @@
             this.tabPageFacts.Location = new System.Drawing.Point(4, 24);
             this.tabPageFacts.Name = "tabPageFacts";
             this.tabPageFacts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFacts.Size = new System.Drawing.Size(890, 538);
+            this.tabPageFacts.Size = new System.Drawing.Size(860, 538);
             this.tabPageFacts.TabIndex = 3;
             this.tabPageFacts.Text = "Facts";
             this.tabPageFacts.UseVisualStyleBackColor = true;
@@ -2044,7 +2172,7 @@
             this.dataGridViewFacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFacts.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewFacts.Name = "dataGridViewFacts";
-            this.dataGridViewFacts.Size = new System.Drawing.Size(884, 532);
+            this.dataGridViewFacts.Size = new System.Drawing.Size(854, 532);
             this.dataGridViewFacts.TabIndex = 0;
             this.dataGridViewFacts.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewFacts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFacts_CellContentClick);
@@ -2056,7 +2184,7 @@
             this.tabPageWorld.Location = new System.Drawing.Point(4, 24);
             this.tabPageWorld.Name = "tabPageWorld";
             this.tabPageWorld.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWorld.Size = new System.Drawing.Size(890, 538);
+            this.tabPageWorld.Size = new System.Drawing.Size(860, 538);
             this.tabPageWorld.TabIndex = 4;
             this.tabPageWorld.Text = "Packages";
             this.tabPageWorld.UseVisualStyleBackColor = true;
@@ -2071,7 +2199,7 @@
             this.dataGridViewWorld.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewWorld.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewWorld.Name = "dataGridViewWorld";
-            this.dataGridViewWorld.Size = new System.Drawing.Size(884, 532);
+            this.dataGridViewWorld.Size = new System.Drawing.Size(854, 532);
             this.dataGridViewWorld.TabIndex = 0;
             this.dataGridViewWorld.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewWorld.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorld_CellEndEdit);
@@ -2082,7 +2210,7 @@
             this.tabPageLevels.Location = new System.Drawing.Point(4, 24);
             this.tabPageLevels.Name = "tabPageLevels";
             this.tabPageLevels.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLevels.Size = new System.Drawing.Size(890, 538);
+            this.tabPageLevels.Size = new System.Drawing.Size(860, 538);
             this.tabPageLevels.TabIndex = 14;
             this.tabPageLevels.Text = "Levels";
             this.tabPageLevels.UseVisualStyleBackColor = true;
@@ -2096,7 +2224,7 @@
             this.dataGridViewLevels.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewLevels.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewLevels.Name = "dataGridViewLevels";
-            this.dataGridViewLevels.Size = new System.Drawing.Size(884, 532);
+            this.dataGridViewLevels.Size = new System.Drawing.Size(854, 532);
             this.dataGridViewLevels.TabIndex = 1;
             this.dataGridViewLevels.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewLevels.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLevels_CellContentClick);
@@ -2108,7 +2236,7 @@
             this.tabPageMetrics.Location = new System.Drawing.Point(4, 24);
             this.tabPageMetrics.Name = "tabPageMetrics";
             this.tabPageMetrics.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMetrics.Size = new System.Drawing.Size(890, 538);
+            this.tabPageMetrics.Size = new System.Drawing.Size(860, 538);
             this.tabPageMetrics.TabIndex = 7;
             this.tabPageMetrics.Text = "Metrics";
             this.tabPageMetrics.UseVisualStyleBackColor = true;
@@ -2120,34 +2248,8 @@
             this.flowLayoutPanelMetrics.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelMetrics.Name = "flowLayoutPanelMetrics";
             this.flowLayoutPanelMetrics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(884, 532);
+            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(854, 532);
             this.flowLayoutPanelMetrics.TabIndex = 0;
-            // 
-            // tabPageSeenPics
-            // 
-            this.tabPageSeenPics.Controls.Add(this.dataGridViewSeenPics);
-            this.tabPageSeenPics.Location = new System.Drawing.Point(4, 24);
-            this.tabPageSeenPics.Name = "tabPageSeenPics";
-            this.tabPageSeenPics.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenPics.Size = new System.Drawing.Size(890, 538);
-            this.tabPageSeenPics.TabIndex = 8;
-            this.tabPageSeenPics.Text = "Seen pictures";
-            this.tabPageSeenPics.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewSeenPics
-            // 
-            this.dataGridViewSeenPics.AllowUserToAddRows = false;
-            this.dataGridViewSeenPics.AllowUserToDeleteRows = false;
-            this.dataGridViewSeenPics.AllowUserToResizeRows = false;
-            this.dataGridViewSeenPics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSeenPics.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSeenPics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSeenPics.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewSeenPics.Name = "dataGridViewSeenPics";
-            this.dataGridViewSeenPics.Size = new System.Drawing.Size(884, 532);
-            this.dataGridViewSeenPics.TabIndex = 1;
-            this.dataGridViewSeenPics.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
-            this.dataGridViewSeenPics.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenPics_CellEndEdit);
             // 
             // tabPageCollectibles
             // 
@@ -2155,7 +2257,7 @@
             this.tabPageCollectibles.Location = new System.Drawing.Point(4, 24);
             this.tabPageCollectibles.Name = "tabPageCollectibles";
             this.tabPageCollectibles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCollectibles.Size = new System.Drawing.Size(890, 538);
+            this.tabPageCollectibles.Size = new System.Drawing.Size(860, 538);
             this.tabPageCollectibles.TabIndex = 10;
             this.tabPageCollectibles.Text = "Collectibles";
             this.tabPageCollectibles.UseVisualStyleBackColor = true;
@@ -2170,7 +2272,7 @@
             this.dataGridViewCollectibles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCollectibles.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewCollectibles.Name = "dataGridViewCollectibles";
-            this.dataGridViewCollectibles.Size = new System.Drawing.Size(884, 532);
+            this.dataGridViewCollectibles.Size = new System.Drawing.Size(854, 532);
             this.dataGridViewCollectibles.TabIndex = 2;
             this.dataGridViewCollectibles.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewCollectibles.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCollectibles_CellEndEdit);
@@ -2181,7 +2283,7 @@
             this.tabPageObjectives.Location = new System.Drawing.Point(4, 24);
             this.tabPageObjectives.Name = "tabPageObjectives";
             this.tabPageObjectives.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjectives.Size = new System.Drawing.Size(890, 538);
+            this.tabPageObjectives.Size = new System.Drawing.Size(860, 538);
             this.tabPageObjectives.TabIndex = 11;
             this.tabPageObjectives.Text = "Objectives";
             this.tabPageObjectives.UseVisualStyleBackColor = true;
@@ -2194,7 +2296,7 @@
             this.tabControlObjectives.Location = new System.Drawing.Point(3, 3);
             this.tabControlObjectives.Name = "tabControlObjectives";
             this.tabControlObjectives.SelectedIndex = 0;
-            this.tabControlObjectives.Size = new System.Drawing.Size(884, 532);
+            this.tabControlObjectives.Size = new System.Drawing.Size(854, 532);
             this.tabControlObjectives.TabIndex = 0;
             // 
             // tabPageObjectivesMain
@@ -2203,7 +2305,7 @@
             this.tabPageObjectivesMain.Location = new System.Drawing.Point(4, 22);
             this.tabPageObjectivesMain.Name = "tabPageObjectivesMain";
             this.tabPageObjectivesMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjectivesMain.Size = new System.Drawing.Size(876, 506);
+            this.tabPageObjectivesMain.Size = new System.Drawing.Size(846, 506);
             this.tabPageObjectivesMain.TabIndex = 0;
             this.tabPageObjectivesMain.Text = "Player\'s objectives";
             this.tabPageObjectivesMain.UseVisualStyleBackColor = true;
@@ -2218,8 +2320,10 @@
             this.dataGridViewObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjectives.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewObjectives.Name = "dataGridViewObjectives";
-            this.dataGridViewObjectives.Size = new System.Drawing.Size(870, 500);
+            this.dataGridViewObjectives.Size = new System.Drawing.Size(840, 500);
             this.dataGridViewObjectives.TabIndex = 4;
+            this.dataGridViewObjectives.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewObjectives.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjectives_CellEndEdit);
             // 
             // tabPageObjectivesActiveCueGroups
             // 
@@ -2227,7 +2331,7 @@
             this.tabPageObjectivesActiveCueGroups.Location = new System.Drawing.Point(4, 22);
             this.tabPageObjectivesActiveCueGroups.Name = "tabPageObjectivesActiveCueGroups";
             this.tabPageObjectivesActiveCueGroups.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjectivesActiveCueGroups.Size = new System.Drawing.Size(876, 506);
+            this.tabPageObjectivesActiveCueGroups.Size = new System.Drawing.Size(846, 506);
             this.tabPageObjectivesActiveCueGroups.TabIndex = 1;
             this.tabPageObjectivesActiveCueGroups.Text = "Active cue groups";
             this.tabPageObjectivesActiveCueGroups.UseVisualStyleBackColor = true;
@@ -2239,34 +2343,8 @@
             this.flowLayoutPanelActiveObjectiveCueGroups.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelActiveObjectiveCueGroups.Name = "flowLayoutPanelActiveObjectiveCueGroups";
             this.flowLayoutPanelActiveObjectiveCueGroups.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelActiveObjectiveCueGroups.Size = new System.Drawing.Size(870, 500);
+            this.flowLayoutPanelActiveObjectiveCueGroups.Size = new System.Drawing.Size(840, 500);
             this.flowLayoutPanelActiveObjectiveCueGroups.TabIndex = 0;
-            // 
-            // tabPageMessages
-            // 
-            this.tabPageMessages.Controls.Add(this.dataGridViewSeenMessages);
-            this.tabPageMessages.Location = new System.Drawing.Point(4, 24);
-            this.tabPageMessages.Name = "tabPageMessages";
-            this.tabPageMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMessages.Size = new System.Drawing.Size(890, 538);
-            this.tabPageMessages.TabIndex = 12;
-            this.tabPageMessages.Text = "Messages";
-            this.tabPageMessages.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewSeenMessages
-            // 
-            this.dataGridViewSeenMessages.AllowUserToAddRows = false;
-            this.dataGridViewSeenMessages.AllowUserToDeleteRows = false;
-            this.dataGridViewSeenMessages.AllowUserToResizeRows = false;
-            this.dataGridViewSeenMessages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSeenMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSeenMessages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSeenMessages.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewSeenMessages.Name = "dataGridViewSeenMessages";
-            this.dataGridViewSeenMessages.Size = new System.Drawing.Size(884, 532);
-            this.dataGridViewSeenMessages.TabIndex = 3;
-            this.dataGridViewSeenMessages.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
-            this.dataGridViewSeenMessages.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenMessages_CellEndEdit);
             // 
             // tabPageOutfits
             // 
@@ -2276,7 +2354,7 @@
             this.tabPageOutfits.Location = new System.Drawing.Point(4, 24);
             this.tabPageOutfits.Name = "tabPageOutfits";
             this.tabPageOutfits.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOutfits.Size = new System.Drawing.Size(890, 538);
+            this.tabPageOutfits.Size = new System.Drawing.Size(860, 538);
             this.tabPageOutfits.TabIndex = 13;
             this.tabPageOutfits.Text = "Outfits";
             this.tabPageOutfits.UseVisualStyleBackColor = true;
@@ -3046,7 +3124,7 @@
             this.tabPageCinematics.AutoScroll = true;
             this.tabPageCinematics.Location = new System.Drawing.Point(4, 24);
             this.tabPageCinematics.Name = "tabPageCinematics";
-            this.tabPageCinematics.Size = new System.Drawing.Size(890, 538);
+            this.tabPageCinematics.Size = new System.Drawing.Size(860, 538);
             this.tabPageCinematics.TabIndex = 15;
             this.tabPageCinematics.Text = "Cinematics";
             this.tabPageCinematics.UseVisualStyleBackColor = true;
@@ -3074,7 +3152,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(904, 632);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(874, 632);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // label9
@@ -3103,7 +3181,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(689, 30);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(659, 30);
             this.tableLayoutPanel3.TabIndex = 10;
             // 
             // labelChangesWarning
@@ -3113,7 +3191,7 @@
             this.labelChangesWarning.ForeColor = System.Drawing.Color.Red;
             this.labelChangesWarning.Location = new System.Drawing.Point(203, 8);
             this.labelChangesWarning.Name = "labelChangesWarning";
-            this.labelChangesWarning.Size = new System.Drawing.Size(403, 13);
+            this.labelChangesWarning.Size = new System.Drawing.Size(373, 13);
             this.labelChangesWarning.TabIndex = 10;
             this.labelChangesWarning.Text = "Save file changed! Press Load to update.";
             this.labelChangesWarning.Visible = false;
@@ -3135,7 +3213,7 @@
             this.buttonSaveSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSaveSelector.Location = new System.Drawing.Point(612, 3);
+            this.buttonSaveSelector.Location = new System.Drawing.Point(582, 3);
             this.buttonSaveSelector.Name = "buttonSaveSelector";
             this.buttonSaveSelector.Size = new System.Drawing.Size(74, 24);
             this.buttonSaveSelector.TabIndex = 12;
@@ -3147,16 +3225,54 @@
             // 
             this.openFileDialog1.Filter = "Save file|*.sav";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 18);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(114, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Last seen journal page";
+            // 
+            // comboBoxLastSeenJournalPage
+            // 
+            this.comboBoxLastSeenJournalPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLastSeenJournalPage.FormattingEnabled = true;
+            this.comboBoxLastSeenJournalPage.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxLastSeenJournalPage.Name = "comboBoxLastSeenJournalPage";
+            this.comboBoxLastSeenJournalPage.Size = new System.Drawing.Size(229, 21);
+            this.comboBoxLastSeenJournalPage.TabIndex = 1;
+            this.comboBoxLastSeenJournalPage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLastSeenJournalPage_SelectedIndexChanged);
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.comboBoxLastSeenJournalPage);
+            this.panel21.Location = new System.Drawing.Point(122, 14);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(235, 27);
+            this.panel21.TabIndex = 2;
+            // 
+            // groupBoxRegisteredGroupMessages
+            // 
+            this.groupBoxRegisteredGroupMessages.AutoSize = true;
+            this.groupBoxRegisteredGroupMessages.Location = new System.Drawing.Point(9, 44);
+            this.groupBoxRegisteredGroupMessages.MinimumSize = new System.Drawing.Size(153, 44);
+            this.groupBoxRegisteredGroupMessages.Name = "groupBoxRegisteredGroupMessages";
+            this.groupBoxRegisteredGroupMessages.Size = new System.Drawing.Size(153, 44);
+            this.groupBoxRegisteredGroupMessages.TabIndex = 3;
+            this.groupBoxRegisteredGroupMessages.TabStop = false;
+            this.groupBoxRegisteredGroupMessages.Text = "Registered group messages";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 632);
+            this.ClientSize = new System.Drawing.Size(874, 632);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(920, 620);
+            this.MinimumSize = new System.Drawing.Size(890, 620);
             this.Name = "MainForm";
             this.Text = "Life is Strange 2 Save Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -3211,10 +3327,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel2)).EndInit();
             this.tabPageDanielPockets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventoryDaniel3)).EndInit();
-            this.tabPageSeenNotifs.ResumeLayout(false);
+            this.tabPageSeen.ResumeLayout(false);
+            this.tabControlSeen.ResumeLayout(false);
+            this.tabPageSeenNotifs1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenNotifs)).EndInit();
-            this.tabPageSeenTutos.ResumeLayout(false);
+            this.tabPageSeenTutos1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenTutos)).EndInit();
+            this.tabPageSeenPics1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).EndInit();
+            this.tabPageSeenMessages.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).EndInit();
+            this.tabPageSeenJournal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenJournal)).EndInit();
+            this.tabPageSeenMisc.ResumeLayout(false);
+            this.tabPageSeenMisc.PerformLayout();
             this.tabPageDrawings.ResumeLayout(false);
             this.tabPageFacts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacts)).EndInit();
@@ -3223,8 +3349,6 @@
             this.tabPageLevels.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLevels)).EndInit();
             this.tabPageMetrics.ResumeLayout(false);
-            this.tabPageSeenPics.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenPics)).EndInit();
             this.tabPageCollectibles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCollectibles)).EndInit();
             this.tabPageObjectives.ResumeLayout(false);
@@ -3232,8 +3356,6 @@
             this.tabPageObjectivesMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewObjectives)).EndInit();
             this.tabPageObjectivesActiveCueGroups.ResumeLayout(false);
-            this.tabPageMessages.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenMessages)).EndInit();
             this.tabPageOutfits.ResumeLayout(false);
             this.groupBoxOutfitsCharles.ResumeLayout(false);
             this.groupBoxOutfitsCharles.PerformLayout();
@@ -3269,6 +3391,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.panel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3283,18 +3406,12 @@
         private System.Windows.Forms.Button buttonAbout;
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageInventory;
-        private System.Windows.Forms.TabPage tabPageSeenNotifs;
         private System.Windows.Forms.TabPage tabPageFacts;
         private System.Windows.Forms.TabPage tabPageWorld;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridViewSeenNotifs;
-        private System.Windows.Forms.TabPage tabPageSeenTutos;
-        private System.Windows.Forms.DataGridView dataGridViewSeenTutos;
         private System.Windows.Forms.DataGridView dataGridViewFacts;
         private System.Windows.Forms.DataGridView dataGridViewWorld;
         private System.Windows.Forms.TabPage tabPageMetrics;
-        private System.Windows.Forms.TabPage tabPageSeenPics;
-        private System.Windows.Forms.DataGridView dataGridViewSeenPics;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -3367,8 +3484,6 @@
         private System.Windows.Forms.TabPage tabPageCollectibles;
         private System.Windows.Forms.DataGridView dataGridViewCollectibles;
         private System.Windows.Forms.TabPage tabPageObjectives;
-        private System.Windows.Forms.TabPage tabPageMessages;
-        private System.Windows.Forms.DataGridView dataGridViewSeenMessages;
         private System.Windows.Forms.GroupBox groupBoxAICall;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
@@ -3523,6 +3638,23 @@
         private System.Windows.Forms.DataGridView dataGridViewObjectives;
         private System.Windows.Forms.TabPage tabPageObjectivesActiveCueGroups;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelActiveObjectiveCueGroups;
+        private System.Windows.Forms.TabPage tabPageSeen;
+        private System.Windows.Forms.TabControl tabControlSeen;
+        private System.Windows.Forms.TabPage tabPageSeenNotifs1;
+        private System.Windows.Forms.DataGridView dataGridViewSeenNotifs;
+        private System.Windows.Forms.TabPage tabPageSeenTutos1;
+        private System.Windows.Forms.DataGridView dataGridViewSeenTutos;
+        private System.Windows.Forms.TabPage tabPageSeenPics1;
+        private System.Windows.Forms.DataGridView dataGridViewSeenPics;
+        private System.Windows.Forms.TabPage tabPageSeenMessages;
+        private System.Windows.Forms.DataGridView dataGridViewSeenMessages;
+        private System.Windows.Forms.TabPage tabPageSeenJournal;
+        private System.Windows.Forms.TabPage tabPageSeenMisc;
+        private System.Windows.Forms.DataGridView dataGridViewSeenJournal;
+        private System.Windows.Forms.ComboBox comboBoxLastSeenJournalPage;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.GroupBox groupBoxRegisteredGroupMessages;
     }
 }
 

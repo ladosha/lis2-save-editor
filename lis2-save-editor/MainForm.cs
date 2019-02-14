@@ -57,27 +57,29 @@ namespace lis2_save_editor
             
             if (_gameSave.saveVersion != SaveVersion.CaptainSpirit)
             {
+                Text = $"Life is Strange 2 Savegame Editor v{Program.GetApplicationVersionStr()}";
+                Icon = Resources.LIS2_icon;
                 comboBoxCPName.Items.AddRange(GameInfo.LIS2_CheckpointNames);
 
                 groupBoxDanielPos.Enabled = true;
                 groupBoxAICall.Enabled = true;
                 groupBoxMetaInv_SeenSubContexts.Enabled = true;
                 groupBoxMetaInv_TutoStatus.Enabled = true;
-                groupBoxOutfitsSean.Enabled = true;
-                groupBoxOutfitsDaniel.Enabled = true;
-                groupBoxOutfitsCharles.Enabled = true;
+                tabPageOutfits.Enabled = true;
+                tabPageSeenMisc.Enabled = true;
             }
             else
             {
+                Text = $"Captain Spirit Savegame Editor v{Program.GetApplicationVersionStr()}";
+                Icon = Resources.cs_icon;
                 comboBoxCPName.Items.AddRange(GameInfo.CS_CheckpointNames);
 
                 groupBoxDanielPos.Enabled = false;
                 groupBoxAICall.Enabled = false;
                 groupBoxMetaInv_SeenSubContexts.Enabled = false;
                 groupBoxMetaInv_TutoStatus.Enabled = false;
-                groupBoxOutfitsSean.Enabled = false;
-                groupBoxOutfitsDaniel.Enabled = false;
-                groupBoxOutfitsCharles.Enabled = false;
+                tabPageOutfits.Enabled = false;
+                tabPageSeenMisc.Enabled = false;
             }
 
             textBoxMapName.Text = _gameSave.Data["MapName"].Value;
@@ -136,7 +138,6 @@ namespace lis2_save_editor
                         i, _gameSave.Data["CheckpointHistory"].Value[i]["SubContextId"].Value));
                 }
             }
-
         }
 
         private void UpdateHeaderData()
@@ -1394,6 +1395,118 @@ namespace lis2_save_editor
             dataGridViewObjectives.Columns["State"].Width = 120;
         }
 
+        private void GenerateActiveObjectiveCueGroups(int cpIndex)
+        {
+            flowLayoutPanelActiveObjectiveCueGroups.Controls.Clear();
+
+            List<dynamic> root;
+            string[] source = _gameSave.saveVersion == SaveVersion.CaptainSpirit
+                ? GameInfo.CS_ActiveObjectiveCueGroups
+                : GameInfo.LIS2_ActiveObjectiveCueGroups;
+            if (cpIndex == 0)
+            {
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+            else
+            {
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+
+            root = root.Skip(1).ToList();
+            int lbl_y = 20;
+
+            foreach (var cuegroup in source)
+            {
+                var gbox = new GroupBox();
+                gbox.AutoSize = true;
+                gbox.Text = cuegroup;
+
+                //size crutch
+                var text_lbl = new Label();
+                text_lbl.AutoSize = true;
+                text_lbl.Text = gbox.Text;
+                text_lbl.Visible = false;
+                text_lbl.Enabled = false;
+                gbox.Controls.Add(text_lbl);
+                gbox.MinimumSize = new Size(text_lbl.Width + 20, 20);
+
+                var cb_active = new CheckBox();
+                cb_active.AutoSize = true;
+                cb_active.Name = "Active";
+                cb_active.Text = "Active";
+                cb_active.Location = new Point(10, lbl_y);
+                dynamic save_group = root.Find(x => x["GroupName"].Value == cuegroup);
+                cb_active.Checked = save_group != null;
+                cb_active.Tag = cuegroup;
+                cb_active.CheckedChanged += new EventHandler(checkBoxObjectiveCueGroup_CheckedChanged);
+                gbox.Controls.Add(cb_active);
+
+                var cb_paused = new CheckBox();
+                cb_paused.AutoSize = true;
+                cb_paused.Name = "Paused";
+                cb_paused.Text = "Paused";
+                cb_paused.Location = new Point(70, lbl_y);
+                cb_paused.Checked = save_group?["bPaused"].Value ?? false;
+                cb_paused.Tag = cuegroup;
+                cb_paused.CheckedChanged += new EventHandler(checkBoxObjectiveCueGroup_CheckedChanged);
+                gbox.Controls.Add(cb_paused);
+
+                lbl_y += 20;
+
+                Label lbl_indexes = new Label()
+                {
+                    Location = new Point(8, lbl_y),
+                    Text = "Cue indexes:",
+                    AutoSize = true
+                };
+                gbox.Controls.Add(lbl_indexes);
+
+                lbl_y += 15;
+
+                ListBox lbox = new ListBox();
+                lbox.Name = "CueIndexes";
+                lbox.Location = new Point(10, lbl_y);
+                lbox.Size = new Size(120, 70);
+                lbox.SelectionMode = SelectionMode.MultiExtended;
+                lbox.Tag = cuegroup;
+                gbox.Controls.Add(lbox);
+                lbl_y += 75;
+
+                if (save_group != null)
+                {
+                    foreach (var item in save_group["CurrentCuesIndexes"].Value)
+                    {
+                        lbox.Items.Add(item);
+                    }
+                }
+
+                lbox.KeyUp += new KeyEventHandler(listBoxObjectiveCueGroupIndexes_KeyPress);
+
+                TextBox tb = new TextBox();
+                tb.Name = "tbNewCueIndex";
+                tb.Location = new Point(10, lbl_y);
+                tb.Width = 65;
+                tb.Tag = cuegroup;
+                tb.TextChanged += new EventHandler(textBoxObjectiveCueGroupNewIndex_TextChanged);
+                gbox.Controls.Add(tb);
+
+                Button but = new Button();
+                but.Name = "btnAddNewIndex";
+                but.Location = new Point(85, lbl_y - 1);
+                but.Width = 45;
+                but.Text = "Add";
+                but.Tag = cuegroup;
+                but.Enabled = false;
+                but.Click += new EventHandler(buttonObjectiveCueGroupNewIndex_Click);
+                gbox.Controls.Add(but);
+
+                flowLayoutPanelActiveObjectiveCueGroups.Controls.Add(gbox);
+                lbl_y = 20;
+            }
+        }
+
         private void UpdateSeenMessagesGrid(int cpIndex)
         {
             dataGridViewSeenMessages.Columns.Clear();
@@ -1402,8 +1515,7 @@ namespace lis2_save_editor
             if(_gameSave.saveVersion >= SaveVersion.LIS_E1)
             {
                 dataGridViewSeenMessages.Columns[1].FillWeight = 20;
-            }
-            
+            } 
         }
 
         private DataTable BuildSeenMessagesTable(int cpIndex)
@@ -1444,6 +1556,49 @@ namespace lis2_save_editor
                 t.Rows.Add(row);
             }
 
+            return t;
+        }
+
+        private void UpdateSeenJournalGrid(int cpIndex)
+        {
+            dataGridViewSeenJournal.Columns.Clear();
+            dataGridViewSeenJournal.DataSource = BuildSeenJournalTable(cpIndex).DefaultView;
+
+            if (_gameSave.saveVersion >= SaveVersion.LIS_E1)
+            {
+                dataGridViewSeenJournal.Columns[1].FillWeight = 20;
+            }
+        }
+
+        private DataTable BuildSeenJournalTable(int cpIndex)
+        {
+            DataTable t = new DataTable();
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
+            {
+                return t;
+            }
+            t.Columns.Add("Name");
+            t.Columns.Add("Seen", typeof(bool));
+
+            List<dynamic> pages;
+            if (cpIndex == 0)
+            {
+                pages = _gameSave.Data["CurrentSubContextSaveData"]
+                    .Value["JournalSaveData"].Value["SeenPages"].Value;
+            }
+            else
+            {
+                pages = _gameSave.Data["CheckpointHistory"].Value[cpIndex]
+                    ["JournalSaveData"].Value["SeenPages"].Value;
+            }
+
+            foreach (var item in GameInfo.LIS2_JournalPageNames)
+            {
+                object[] row = new object[t.Columns.Count];
+                row[0] = item.Key;
+                row[1] = pages.FindIndex(1, x => x["Guid"] == item.Value) !=- 1;
+                t.Rows.Add(row);
+            }
             return t;
         }
 
@@ -2671,6 +2826,20 @@ namespace lis2_save_editor
             }
         }
 
+        private void dataGridViewSeenJournal_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            newCellValue = dataGridViewSeenJournal[e.ColumnIndex, e.RowIndex].Value;
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = dataGridViewSeenJournal[0, e.RowIndex].Value.ToString();
+                _gameSave.EditSeenJournalPage(name, comboBoxSelectCP.SelectedIndex, Convert.ToBoolean(newCellValue));
+                _editedControls.AddUnique(dataGridViewSeenJournal[e.ColumnIndex, e.RowIndex]);
+                dataGridViewSeenJournal[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
+        }
+
         private void textBoxMetricsPlaythroughGuid_TextChnaged(object sender, EventArgs e)
         {
             var tb = (TextBox)sender;
@@ -3354,6 +3523,239 @@ namespace lis2_save_editor
             cb.BackColor = Color.LightGoldenrodYellow;
             ShowChangesWarning();
         }
+
+        private void checkBoxUseCameraDetection_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!SaveLoading)
+            {
+                dynamic root;
+                var cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["CamFocusActorComponentSaveData"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["CamFocusActorComponentSaveData"].Value;
+                }
+
+                root["bUseDetection"].Value = checkBoxUseCameraDetection.Checked;
+
+                _editedControls.AddUnique(checkBoxUseCameraDetection);
+                checkBoxUseCameraDetection.BackColor = Color.LightGoldenrodYellow;
+                ShowChangesWarning();
+            }
+        }
+
+        private void checkBoxChoiceSent_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (!SaveLoading)
+            {
+                CheckBox cb = (CheckBox)sender;
+                int index = Convert.ToInt32(cb.Tag);
+                Dictionary<dynamic, dynamic> target = _gameSave.Data["StatsSaveData"].Value["SendChoiceSuccess"].Value;
+                if (cb.CheckState == CheckState.Unchecked)
+                {
+                    target.Remove(index);
+                }
+                else
+                {
+                    target[index] = cb.CheckState == CheckState.Checked;
+                }
+
+                cb.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(cb);
+                ShowChangesWarning();
+            }
+        }
+
+        private void listBoxObjectiveCueGroupIndexes_KeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                ListBox lb = (ListBox)sender;
+                var selectedItems = lb.SelectedItems.OfType<int>().ToArray();
+                var name = lb.Tag.ToString();
+                List<dynamic> root;
+                var cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                int index = root.FindIndex(1, x => x["GroupName"].Value == name);
+                List<dynamic> cues = root[index]["CurrentCuesIndexes"].Value;
+                foreach (var item in selectedItems)
+                {
+                    cues.Remove(item);
+                    lb.Items.Remove(item);
+                    _editedControls.Add(item);
+                }
+
+                if (selectedItems.Length > 0)
+                {
+                    ShowChangesWarning();
+                }
+            }
+        }
+
+        private void buttonObjectiveCueGroupNewIndex_Click(object sender, EventArgs e)
+        {
+            Control par = ((Button)sender).Parent;
+            ListBox lb = (ListBox)par.Controls.Find("CueIndexes", false)[0];
+            int value = Convert.ToInt32(par.Controls.Find("tbNewCueIndex", false)[0].Text);
+            if (!lb.Items.Contains(value))
+            {
+                lb.Items.Add(value);
+                ((CheckBox)par.Controls.Find("Active", false)[0]).Checked = true;
+                var name = lb.Tag.ToString();
+                List<dynamic> root;
+                var cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                else
+                {
+                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                        .Value["ActiveObjectiveCueGroups"].Value;
+                }
+                int index = root.FindIndex(1, x => x["GroupName"].Value == name);
+                List<dynamic> cues = root[index]["CurrentCuesIndexes"].Value;
+                cues.AddUnique(value);
+                _editedControls.Add(value);
+                ShowChangesWarning();
+            }
+        }
+
+        private void textBoxObjectiveCueGroupNewIndex_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            Button btn = (Button)tb.Parent.Controls.Find("btnAddNewIndex", false)[0];
+            if (int.TryParse(tb.Text, out int result))
+            {
+                btn.Enabled = true;
+                tb.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                btn.Enabled = false;
+                tb.BackColor = Color.Red;
+            }
+        }
+
+        private void checkBoxObjectiveCueGroup_CheckedChanged(object sender, EventArgs e)
+        {
+            List<dynamic> root;
+            var cb = (CheckBox)sender;
+            string name = cb.Tag.ToString();
+            var cpIndex = comboBoxSelectCP.SelectedIndex;
+            if (cpIndex == 0)
+            {
+                root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+            else
+            {
+                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
+                    .Value["ActiveObjectiveCueGroups"].Value;
+            }
+
+            int index = root.FindIndex(1, x => x["GroupName"].Value == name);
+            if (cb.Name == "Active" && !cb.Checked)
+            {
+                root.RemoveAt(index);
+            }
+            else
+            {
+                if (index == -1)
+                {
+                    List<dynamic> values = ((ListBox)cb.Parent.Controls.Find("CueIndexes", false)[0]).Items.OfType<int>().Cast<dynamic>().ToList();
+                    bool isPaused = ((CheckBox)cb.Parent.Controls.Find("Paused", false)[0]).Checked;
+                    Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
+                    {
+                        {"GroupName", new NameProperty() {Name = "GroupName", Value = name}},
+                        {
+                            "CurrentCuesIndexes",
+                            new ArrayProperty() {Name = "CurrentCuesIndexes", ElementType = "IntProperty", Value = values}
+                        },
+                        {
+                            "bPaused", new BoolProperty() {Name = "bPaused", Value = isPaused}
+                        }
+                    };
+                    root.AddUnique(new_item);
+                    index = root.Count - 1;
+                }
+
+                if (cb.Name == "Paused")
+                {
+                    root[index]["bPaused"].Value = cb.Checked;
+                }
+            }
+
+            cb.BackColor = Color.LightGoldenrodYellow;
+            _editedControls.AddUnique(cb);
+            ShowChangesWarning();
+        }
+
+        private void comboBoxLastSeenJournalPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!SaveLoading)
+            {
+                Guid guid = GameInfo.LIS2_JournalPageNames[comboBoxLastSeenJournalPage.SelectedItem.ToString()];
+                int cpIndex = comboBoxSelectCP.SelectedIndex;
+                if (cpIndex == 0)
+                {
+                    _gameSave.Data["CurrentSubContextSaveData"].Value["JournalSaveData"].Value["LastSeenPage"].Value["Guid"] = guid;
+                }
+                else
+                {
+                    _gameSave.Data["CheckpointHistory"].Value[cpIndex]["JournalSaveData"].Value["LastSeenPage"].Value["Guid"] = guid;
+                }
+
+                comboBoxLastSeenJournalPage.Parent.BackColor = Color.LightGoldenrodYellow;
+                _editedControls.AddUnique(comboBoxLastSeenJournalPage.Parent);
+                ShowChangesWarning();
+            }
+        }
+
+        private void checkBoxRegisteredGroupMessage_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            List<dynamic> messages;
+            var cpIndex = comboBoxSelectCP.SelectedIndex;
+            if (cpIndex == 0)
+            {
+                messages = _gameSave.Data["CurrentSubContextSaveData"]
+                    .Value["PhoneSaveData"].Value["RegisteredGroupMessages"].Value;
+            }
+            else
+            {
+                messages = _gameSave.Data["CheckpointHistory"].Value[cpIndex]
+                    ["PhoneSaveData"].Value["RegisteredGroupMessages"].Value;
+            }
+
+            Guid guid = (Guid)cb.Tag;
+
+            if (cb.Checked) //Add item
+            {
+                messages.AddUnique(guid);
+            }
+            else
+            {
+                messages.Remove(guid);
+            }
+
+            _editedControls.AddUnique(cb);
+            cb.BackColor = Color.LightGoldenrodYellow;
+            ShowChangesWarning();
+        }
         #endregion
 
         private void textBoxSavePath_TextChanged(object sender, EventArgs e)
@@ -3439,6 +3841,8 @@ namespace lis2_save_editor
             UpdateObjectivesGrid(index);
             GenerateActiveObjectiveCueGroups(index);
             UpdateSeenMessagesGrid(index);
+            UpdateSeenJournalGrid(index);
+            UpdateSeenMiscInfo(index);
             UpdateOutfits(index);
 
             SaveLoading = false;
@@ -3450,251 +3854,52 @@ namespace lis2_save_editor
             }
         }
 
-        private void GenerateActiveObjectiveCueGroups(int cpIndex)
+        private void UpdateSeenMiscInfo(int cpIndex)
         {
-            flowLayoutPanelActiveObjectiveCueGroups.Controls.Clear();
+            comboBoxLastSeenJournalPage.Items.Clear();
+            groupBoxRegisteredGroupMessages.Controls.Clear();
 
-            List<dynamic> root;
-            string[] source = _gameSave.saveVersion == SaveVersion.CaptainSpirit
-                ? GameInfo.CS_ActiveObjectiveCueGroups
-                : GameInfo.LIS2_ActiveObjectiveCueGroups;
+            if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
+            {
+                return;
+            }
+
+            List<dynamic> messages;
+            Guid save_lastpage_id;
             if (cpIndex == 0)
             {
-                root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                    .Value["ActiveObjectiveCueGroups"].Value;
+                messages = _gameSave.Data["CurrentSubContextSaveData"]
+                    .Value["PhoneSaveData"].Value["RegisteredGroupMessages"].Value;
+                save_lastpage_id = _gameSave.Data["CurrentSubContextSaveData"]
+                    .Value["JournalSaveData"].Value["LastSeenPage"].Value["Guid"];
             }
             else
             {
-                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
-                    .Value["ActiveObjectiveCueGroups"].Value;
+                messages = _gameSave.Data["CheckpointHistory"].Value[cpIndex]
+                    ["PhoneSaveData"].Value["RegisteredGroupMessages"].Value;
+                save_lastpage_id = _gameSave.Data["CheckpointHistory"].Value[cpIndex]
+                    ["JournalSaveData"].Value["LastSeenPage"].Value["Guid"];
             }
 
-            root = root.Skip(1).ToList();
-            int lbl_y = 20;
+            comboBoxLastSeenJournalPage.Items.AddRange(GameInfo.LIS2_JournalPageNames.Keys.ToArray());
+            comboBoxLastSeenJournalPage.SelectedItem = GameInfo.LIS2_JournalPageNames.FirstOrDefault(x => x.Value == save_lastpage_id).Key;
 
-            foreach (var cuegroup in source)
+            var cb_y = 17;
+            
+            foreach (var group in GameInfo.LIS2_SMSGroupNames)
             {
-                var gbox = new GroupBox();
-                gbox.AutoSize = true;
-                gbox.Text = cuegroup;
-
-                //size crutch
-                var text_lbl = new Label();
-                text_lbl.AutoSize = true;
-                text_lbl.Text = gbox.Text;
-                text_lbl.Visible = false;
-                text_lbl.Enabled = false;
-                gbox.Controls.Add(text_lbl);
-                gbox.MinimumSize = new Size(text_lbl.Width + 20, 20);
-
-                var cb_active = new CheckBox();
-                cb_active.AutoSize = true;
-                cb_active.Name = "Active";
-                cb_active.Text = "Active";
-                cb_active.Location = new Point(10, lbl_y);
-                dynamic save_group = root.Find(x => x["GroupName"].Value == cuegroup);
-                cb_active.Checked = save_group != null;
-                cb_active.Tag = cuegroup;
-                cb_active.CheckedChanged += new EventHandler(checkBoxObjectiveCueGroup_CheckedChanged);
-                gbox.Controls.Add(cb_active);
-
-                var cb_paused = new CheckBox();
-                cb_paused.AutoSize = true;
-                cb_paused.Name = "Paused";
-                cb_paused.Text = "Paused";
-                cb_paused.Location = new Point(70, lbl_y);
-                cb_paused.Checked = save_group?["bPaused"].Value ?? false;
-                cb_paused.Tag = cuegroup;
-                cb_paused.CheckedChanged += new EventHandler(checkBoxObjectiveCueGroup_CheckedChanged);
-                gbox.Controls.Add(cb_paused);
-
-                lbl_y += 20;
-
-                Label lbl_indexes = new Label()
+                CheckBox cb = new CheckBox()
                 {
-                    Location = new Point(8, lbl_y),
-                    Text = "Cue indexes:",
-                    AutoSize = true
+                    AutoSize = true,
+                    Text = group.Key,
+                    Tag = group.Value,
+                    Checked = messages.Contains(group.Value),
+                    Location = new Point(6, cb_y)
                 };
-                gbox.Controls.Add(lbl_indexes);
-
-                lbl_y += 15;
-
-                ListBox lbox = new ListBox();
-                lbox.Name = "CueIndexes";
-                lbox.Location = new Point(10, lbl_y);
-                lbox.Size = new Size(120, 70);
-                lbox.SelectionMode = SelectionMode.MultiExtended;
-                lbox.Tag = cuegroup;
-                gbox.Controls.Add(lbox);
-                lbl_y += 75;
-
-                if (save_group != null)
-                {
-                    foreach (var item in save_group["CurrentCuesIndexes"].Value)
-                    {
-                        lbox.Items.Add(item);
-                    }
-                }
-
-                lbox.KeyUp += new KeyEventHandler(listBoxObjectiveCueGroupIndexes_KeyPress);
-
-                TextBox tb = new TextBox();
-                tb.Name = "tbNewCueIndex";
-                tb.Location = new Point(10, lbl_y);
-                tb.Width = 65;
-                tb.Tag = cuegroup;
-                tb.TextChanged += new EventHandler(textBoxObjectiveCueGroupNewIndex_TextChanged);
-                gbox.Controls.Add(tb);
-
-                Button but = new Button();
-                but.Name = "btnAddNewIndex";
-                but.Location = new Point(85, lbl_y - 1);
-                but.Width = 45;
-                but.Text = "Add";
-                but.Tag = cuegroup;
-                but.Enabled = false;
-                but.Click += new EventHandler(buttonObjectiveCueGroupNewIndex_Click);
-                gbox.Controls.Add(but);
-
-                flowLayoutPanelActiveObjectiveCueGroups.Controls.Add(gbox);
-                lbl_y = 20;
+                cb.CheckedChanged += new EventHandler(checkBoxRegisteredGroupMessage_CheckedChanged);
+                groupBoxRegisteredGroupMessages.Controls.Add(cb);
+                cb_y += 20;
             }
-        }
-
-        private void listBoxObjectiveCueGroupIndexes_KeyPress(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-                ListBox lb = (ListBox) sender;
-                var selectedItems = lb.SelectedItems.OfType<int>().ToArray();
-                var name = lb.Tag.ToString();
-                List<dynamic> root;
-                var cpIndex = comboBoxSelectCP.SelectedIndex;
-                if (cpIndex == 0)
-                {
-                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                        .Value["ActiveObjectiveCueGroups"].Value;
-                }
-                else
-                {
-                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
-                        .Value["ActiveObjectiveCueGroups"].Value;
-                }
-                int index = root.FindIndex(1, x => x["GroupName"].Value == name);
-                List<dynamic> cues = root[index]["CurrentCuesIndexes"].Value;
-                foreach (var item in selectedItems)
-                {
-                    cues.Remove(item);
-                    lb.Items.Remove(item);
-                    _editedControls.Add(item);
-                }
-
-                if (selectedItems.Length > 0)
-                {
-                    ShowChangesWarning();
-                }
-            }
-        }
-
-        private void buttonObjectiveCueGroupNewIndex_Click(object sender, EventArgs e)
-        {
-            Control par = ((Button)sender).Parent;
-            ListBox lb = (ListBox)par.Controls.Find("CueIndexes", false)[0];
-            int value = Convert.ToInt32(par.Controls.Find("tbNewCueIndex", false)[0].Text);
-            if (!lb.Items.Contains(value))
-            {
-                lb.Items.Add(value);
-                ((CheckBox) par.Controls.Find("Active", false)[0]).Checked = true;
-                var name = lb.Tag.ToString();
-                List<dynamic> root;
-                var cpIndex = comboBoxSelectCP.SelectedIndex;
-                if (cpIndex == 0)
-                {
-                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                        .Value["ActiveObjectiveCueGroups"].Value;
-                }
-                else
-                {
-                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
-                        .Value["ActiveObjectiveCueGroups"].Value;
-                }
-                int index = root.FindIndex(1, x => x["GroupName"].Value == name);
-                List<dynamic> cues = root[index]["CurrentCuesIndexes"].Value;
-                cues.AddUnique(value);
-                _editedControls.Add(value);
-                ShowChangesWarning();
-            }
-        }
-
-        private void textBoxObjectiveCueGroupNewIndex_TextChanged(object sender, EventArgs e)
-        {
-            TextBox tb = (TextBox) sender;
-            Button btn = (Button) tb.Parent.Controls.Find("btnAddNewIndex", false)[0];
-            if (int.TryParse(tb.Text, out int result))
-            {
-                btn.Enabled = true;
-                tb.BackColor = SystemColors.Window;
-            }
-            else
-            {
-                btn.Enabled = false;
-                tb.BackColor = Color.Red;
-            }
-        }
-
-        private void checkBoxObjectiveCueGroup_CheckedChanged(object sender, EventArgs e)
-        {
-            List<dynamic> root;
-            var cb = (CheckBox) sender;
-            string name = cb.Tag.ToString();
-            var cpIndex = comboBoxSelectCP.SelectedIndex;
-            if (cpIndex == 0)
-            {
-                root = _gameSave.Data["CurrentSubContextSaveData"].Value["PlayerSaveData"]
-                    .Value["ActiveObjectiveCueGroups"].Value;
-            }
-            else
-            {
-                root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
-                    .Value["ActiveObjectiveCueGroups"].Value;
-            }
-
-            int index = root.FindIndex(1, x => x["GroupName"].Value == name);
-            if (cb.Name == "Active" && !cb.Checked)
-            {
-                root.RemoveAt(index);
-            }
-            else
-            {
-                if (index == -1)
-                {
-                    List<dynamic> values = ((ListBox)cb.Parent.Controls.Find("CueIndexes", false)[0]).Items.OfType<int>().Cast<dynamic>().ToList();
-                    bool isPaused = ((CheckBox)cb.Parent.Controls.Find("Paused", false)[0]).Checked;
-                    Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
-                    {
-                        {"GroupName", new NameProperty() {Name = "GroupName", Value = name}},
-                        {
-                            "CurrentCuesIndexes",
-                            new ArrayProperty() {Name = "CurrentCuesIndexes", ElementType = "IntProperty", Value = values}
-                        },
-                        {
-                            "bPaused", new BoolProperty() {Name = "bPaused", Value = isPaused}
-                        }
-                    };
-                    root.AddUnique(new_item);
-                    index = root.Count - 1;
-                }
-
-                if (cb.Name == "Paused")
-                {
-                    root[index]["bPaused"].Value = cb.Checked;
-                }
-            }
-
-            cb.BackColor = Color.LightGoldenrodYellow;
-            _editedControls.AddUnique(cb);
-            ShowChangesWarning();
         }
 
         private void UpdateCamActorInfo(int cpIndex)
@@ -3899,51 +4104,6 @@ namespace lis2_save_editor
                     searchForm.Show(this);
                     searchForm.UpdateSelectedTab();
                 }
-            }
-        }
-
-        private void checkBoxUseCameraDetection_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!SaveLoading)
-            {
-                dynamic root;
-                var cpIndex = comboBoxSelectCP.SelectedIndex;
-                if (cpIndex == 0)
-                {
-                    root = _gameSave.Data["CurrentSubContextSaveData"].Value["CamFocusActorComponentSaveData"].Value;
-                }
-                else
-                {
-                    root = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["CamFocusActorComponentSaveData"].Value;
-                }
-
-                root["bUseDetection"].Value = checkBoxUseCameraDetection.Checked;
-
-                _editedControls.AddUnique(checkBoxUseCameraDetection);
-                checkBoxUseCameraDetection.BackColor = Color.LightGoldenrodYellow;
-                ShowChangesWarning();
-            }
-        }
-
-        private void checkBoxChoiceSent_CheckStateChanged(object sender, EventArgs e)
-        {
-            if (!SaveLoading)
-            {
-                CheckBox cb = (CheckBox)sender;
-                int index = Convert.ToInt32(cb.Tag);
-                Dictionary<dynamic, dynamic> target = _gameSave.Data["StatsSaveData"].Value["SendChoiceSuccess"].Value;
-                if (cb.CheckState == CheckState.Unchecked)
-                {
-                    target.Remove(index);
-                }
-                else
-                {
-                    target[index] = cb.CheckState == CheckState.Checked;
-                }
-                
-                cb.BackColor = Color.LightGoldenrodYellow;
-                _editedControls.AddUnique(cb);
-                ShowChangesWarning();
             }
         }
 
