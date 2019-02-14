@@ -31,12 +31,6 @@ namespace lis2_save_editor
         }
     }
 
-    public class EnumFact
-    {
-        public string Name { get; set; }
-        public string[] Choices { get; set; }
-    }
-
     public class OutfitObject
     {
         public Guid GUID { get; set; }
@@ -54,6 +48,7 @@ namespace lis2_save_editor
         public List<DelayedEventObject> DelayedEvents { get; set; }
         public string[] PointsOfInterest { get; set; }
         public string[] WuiVolumes { get; set; }
+        public string[] CriWareMovies { get; set; }
 
         public static LevelObject Empty
         {
@@ -67,7 +62,8 @@ namespace lis2_save_editor
                     LevelFunctions = new List<LevelFunctionObject>(),
                     DelayedEvents = new List<DelayedEventObject>(),
                     PointsOfInterest = new string[0],
-                    WuiVolumes = new string[0]
+                    WuiVolumes = new string[0],
+                    CriWareMovies = new string[0]
                 };
             }
         }
@@ -1348,6 +1344,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1372,6 +1371,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1394,6 +1396,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -1421,6 +1426,9 @@ namespace lis2_save_editor
                     {
                         "GAT_EHDreams_ToGolemCem",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1443,6 +1451,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -1469,6 +1480,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1491,6 +1505,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -1523,6 +1540,9 @@ namespace lis2_save_editor
                         "GAT_EHWindow_01",
                         "GAT_EHWindow_02",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -1545,6 +1565,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -2225,6 +2248,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -2250,6 +2276,9 @@ namespace lis2_save_editor
                     {
                         "GAT_EHOutside_GarageDoor",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -2272,6 +2301,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -2298,6 +2330,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -2320,6 +2355,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -2346,6 +2384,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -2368,6 +2409,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -4285,6 +4329,10 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                        "BP_VideoPlayer_BBMatch_33",
+                    },
                 }
             },
             {
@@ -4307,6 +4355,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -4338,6 +4389,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4360,6 +4414,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -4386,6 +4443,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4410,6 +4470,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4432,6 +4495,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -4464,6 +4530,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4486,6 +4555,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -4512,6 +4584,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4534,6 +4609,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -4560,6 +4638,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4584,6 +4665,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -4606,6 +4690,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -6166,16 +6253,19 @@ namespace lis2_save_editor
                          new DelayedEventObject { ID = -1422720839,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete54F47CF645A0E221127BC8A1D6C8E0F3" },
                          new DelayedEventObject { ID = -1344387365,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete6DBAA5FE42266B5EF0D1FEA7FA422CFC" },
                          new DelayedEventObject { ID = -44916382,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnCompleteE3B5F86A41894628A3810CBBD596755A" },
-                         new DelayedEventObject { ID = 1060356339,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnCompleteE89249C24DCD32D38CF2CA8AD1054E7B" },
-                         new DelayedEventObject { ID = 1608034750,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete14DAAB2848320C7875701AB2D6107A9F" },
                          new DelayedEventObject { ID = 132725648,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete54F47CF645A0E221127BC8A1D6C8E0F3" },
                          new DelayedEventObject { ID = 518959242,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete4646D1E44F70EEEA7B79398DF26334CC" },
                          new DelayedEventObject { ID = 1034191684,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnCompleteB7081AB345D93373D38BE0A79E23E2D2" },
+                         new DelayedEventObject { ID = 1060356339,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnCompleteE89249C24DCD32D38CF2CA8AD1054E7B" },
+                         new DelayedEventObject { ID = 1608034750,  ActorName = "E1_1A_LD_C_1", FunctionName = "OnComplete14DAAB2848320C7875701AB2D6107A9F" },
                     },
                     PointsOfInterest = new string[]
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -6210,6 +6300,9 @@ namespace lis2_save_editor
                         "GAT_Stairs",
                         "WuiVolumeGate_1",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6232,6 +6325,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -6258,6 +6354,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6280,6 +6379,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -6306,6 +6408,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6328,6 +6433,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -6354,6 +6462,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6376,6 +6487,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -6402,6 +6516,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -6424,6 +6541,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -7963,6 +8083,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -7991,6 +8114,9 @@ namespace lis2_save_editor
                         "GAT_RoadToPicnic",
                         "GAT_DeepToShelter",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8013,6 +8139,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -8039,6 +8168,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8061,6 +8193,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -8087,6 +8222,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8109,6 +8247,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -8135,6 +8276,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8159,6 +8303,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8181,6 +8328,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -8212,6 +8362,9 @@ namespace lis2_save_editor
                         "GAT_GS_AirVent",
                         "GAT_GS_OfficeDoor",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -8234,6 +8387,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -9740,9 +9896,9 @@ namespace lis2_save_editor
                     },
                     DelayedEvents = new List<DelayedEventObject>()
                     {
-                         new DelayedEventObject { ID = -535531415,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnCompleteBDC2B95148199D1DA0F0309DFD6D22D8" },
-                         new DelayedEventObject { ID = -1244904570,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnComplete7B95C4264BE9836BF284F2929282B26D" },
                          new DelayedEventObject { ID = -1974409731,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnComplete30850EC84B92883A377532A3B3C99C33" },
+                         new DelayedEventObject { ID = -1244904570,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnComplete7B95C4264BE9836BF284F2929282B26D" },
+                         new DelayedEventObject { ID = -535531415,  ActorName = "E1_5A_LD_C_1", FunctionName = "OnCompleteBDC2B95148199D1DA0F0309DFD6D22D8" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -9827,6 +9983,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9849,6 +10008,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -9875,6 +10037,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9897,6 +10062,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -9937,6 +10105,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -9959,6 +10130,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -9985,6 +10159,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10007,6 +10184,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10033,6 +10213,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10055,6 +10238,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10081,6 +10267,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10103,6 +10292,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10129,6 +10321,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10151,6 +10346,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10177,6 +10375,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10199,6 +10400,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10225,6 +10429,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10247,6 +10454,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10273,6 +10483,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10295,6 +10508,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10321,6 +10537,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10343,6 +10562,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10369,6 +10591,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10391,6 +10616,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -10417,6 +10645,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -10439,6 +10670,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11237,9 +11471,9 @@ namespace lis2_save_editor
                     },
                     DelayedEvents = new List<DelayedEventObject>()
                     {
-                         new DelayedEventObject { ID = 1788084010,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
-                         new DelayedEventObject { ID = 905000707,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
                          new DelayedEventObject { ID = -1664427133,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
+                         new DelayedEventObject { ID = 905000707,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
+                         new DelayedEventObject { ID = 1788084010,  ActorName = "E1_7A_LD_C_0", FunctionName = "OnComplete56D58C824BA14DB903131D9927BF8E5E" },
                     },
                     PointsOfInterest = new string[]
                     {
@@ -11253,6 +11487,9 @@ namespace lis2_save_editor
                         "BP_PointOfInterest_Chair1",
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11285,6 +11522,9 @@ namespace lis2_save_editor
                         "GAT_MotelStairs01",
                         "GAT_MotelStairs02",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11307,6 +11547,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11333,6 +11576,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11355,6 +11601,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11381,6 +11630,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11403,6 +11655,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11429,6 +11684,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11451,6 +11709,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11477,6 +11738,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11499,6 +11763,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11525,6 +11792,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11547,6 +11817,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11573,6 +11846,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11595,6 +11871,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11621,6 +11900,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11643,6 +11925,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11669,6 +11954,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11691,6 +11979,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11717,6 +12008,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11739,6 +12033,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11765,6 +12062,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11787,6 +12087,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11813,6 +12116,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11835,6 +12141,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11861,6 +12170,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11883,6 +12195,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11909,6 +12224,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11931,6 +12249,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -11957,6 +12278,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -11979,6 +12303,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12005,6 +12332,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12027,6 +12357,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12053,6 +12386,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12075,6 +12411,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12101,6 +12440,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12123,6 +12465,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12149,6 +12494,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12171,6 +12519,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12197,6 +12548,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12221,6 +12575,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12243,6 +12600,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12286,6 +12646,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12326,6 +12689,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12348,6 +12714,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12374,6 +12743,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12396,6 +12768,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12425,6 +12800,9 @@ namespace lis2_save_editor
                         "GAT_CorridorToBathroom",
                         "GAT_LivingToBedroom",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12449,6 +12827,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -12471,6 +12852,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -12982,6 +13366,9 @@ namespace lis2_save_editor
                         "BP_PointOfInterest_WoodCutting",
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14145,6 +14532,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14167,6 +14557,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14235,6 +14628,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14257,6 +14653,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14283,6 +14682,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14305,6 +14707,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14331,6 +14736,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14353,6 +14761,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14379,6 +14790,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14401,6 +14815,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14427,6 +14844,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14449,6 +14869,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14475,6 +14898,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14497,6 +14923,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14523,6 +14952,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14545,6 +14977,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14571,6 +15006,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14593,6 +15031,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14619,6 +15060,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14643,6 +15087,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14665,6 +15112,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14812,6 +15262,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14836,6 +15289,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14858,6 +15314,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14887,6 +15346,9 @@ namespace lis2_save_editor
                         "GAT_Entrance",
                         "GAT_DiningRoom",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14909,6 +15371,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14935,6 +15400,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -14957,6 +15425,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -14983,6 +15454,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15005,6 +15479,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -15031,6 +15508,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15053,6 +15533,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -15079,6 +15562,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15101,6 +15587,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -15127,6 +15616,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15149,6 +15641,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -15175,6 +15670,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15199,6 +15697,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15221,6 +15722,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -15278,6 +15782,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15300,6 +15807,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -15336,6 +15846,9 @@ namespace lis2_save_editor
                         "GAT_Kitchen",
                         "GAT_HallToExt",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15358,6 +15871,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -15411,6 +15927,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15435,6 +15954,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -15457,6 +15979,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -16656,6 +17181,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -16678,6 +17206,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -17268,6 +17799,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -17299,6 +17833,9 @@ namespace lis2_save_editor
                         "GAT_Mezza",
                         "GAT_Stairs",
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -17321,6 +17858,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -17347,6 +17887,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -17369,6 +17912,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -17395,6 +17941,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -17417,6 +17966,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -17443,6 +17995,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -17465,6 +18020,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -17491,6 +18049,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -17513,6 +18074,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18087,6 +18651,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18111,6 +18678,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18133,6 +18703,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18208,17 +18781,20 @@ namespace lis2_save_editor
                     },
                     DelayedEvents = new List<DelayedEventObject>()
                     {
-                         new DelayedEventObject { ID = -557336807,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete84AC45484AFED73B22181799D4197BCA" },
-                         new DelayedEventObject { ID = -857445921,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete2FC1176E4E02ED57750C4D8BF5480DE1" },
-                         new DelayedEventObject { ID = -666600807,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete0837452E4B98F5DF8101F0B2EAC147F7" },
                          new DelayedEventObject { ID = -1610228732,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnCompleteD9FE39A94278DAD9B1FD12815BC697D2" },
                          new DelayedEventObject { ID = -1175993074,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete10FF947C48C13F2138889791E4C565C4" },
                          new DelayedEventObject { ID = -1168961531,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnCompleteD2A066B94218F88E587021B38C574ED9" },
+                         new DelayedEventObject { ID = -857445921,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete2FC1176E4E02ED57750C4D8BF5480DE1" },
+                         new DelayedEventObject { ID = -666600807,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete0837452E4B98F5DF8101F0B2EAC147F7" },
+                         new DelayedEventObject { ID = -557336807,  ActorName = "E2_7A_Citizen_LD_C_0", FunctionName = "OnComplete84AC45484AFED73B22181799D4197BCA" },
                     },
                     PointsOfInterest = new string[]
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18245,6 +18821,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18267,6 +18846,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18293,6 +18875,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18315,6 +18900,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18341,6 +18929,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18363,6 +18954,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18397,6 +18991,9 @@ namespace lis2_save_editor
                         "GAT_Stairs",
                         "GAT_Mezza",
                         "GAT_Office",
+                    },
+                    CriWareMovies = new string[]
+                    {
                     },
                 }
             },
@@ -18434,6 +19031,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18484,6 +19084,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18506,6 +19109,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -18532,6 +19138,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18556,6 +19165,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -18578,6 +19190,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -19359,6 +19974,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -19383,6 +20001,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -19405,6 +20026,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }
@@ -19491,6 +20115,9 @@ namespace lis2_save_editor
                     WuiVolumes = new string[]
                     {
                     },
+                    CriWareMovies = new string[]
+                    {
+                    },
                 }
             },
             {
@@ -19513,6 +20140,9 @@ namespace lis2_save_editor
                     {
                     },
                     WuiVolumes = new string[]
+                    {
+                    },
+                    CriWareMovies = new string[]
                     {
                     },
                 }

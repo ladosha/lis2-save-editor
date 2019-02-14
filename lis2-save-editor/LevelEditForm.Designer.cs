@@ -52,6 +52,8 @@
             this.dataGridViewSeqOnEvent = new System.Windows.Forms.DataGridView();
             this.tabPageDelayedEvents = new System.Windows.Forms.TabPage();
             this.dataGridViewDelayedEvents = new System.Windows.Forms.DataGridView();
+            this.tabPageCriWareMovies = new System.Windows.Forms.TabPage();
+            this.dataGridViewCriWareMovies = new System.Windows.Forms.DataGridView();
             this.tabControlMain.SuspendLayout();
             this.tabPageInteractions.SuspendLayout();
             this.tabPagePOI.SuspendLayout();
@@ -74,6 +76,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeqOnEvent)).BeginInit();
             this.tabPageDelayedEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelayedEvents)).BeginInit();
+            this.tabPageCriWareMovies.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCriWareMovies)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -83,6 +87,7 @@
             this.tabControlMain.Controls.Add(this.tabPageWUI);
             this.tabControlMain.Controls.Add(this.tabPageSequences);
             this.tabControlMain.Controls.Add(this.tabPageDelayedEvents);
+            this.tabControlMain.Controls.Add(this.tabPageCriWareMovies);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 0);
             this.tabControlMain.Name = "tabControlMain";
@@ -366,6 +371,31 @@
             this.dataGridViewDelayedEvents.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewDelayedEvents.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDelayedEvents_CellEndEdit);
             // 
+            // tabPageCriWareMovies
+            // 
+            this.tabPageCriWareMovies.Controls.Add(this.dataGridViewCriWareMovies);
+            this.tabPageCriWareMovies.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCriWareMovies.Name = "tabPageCriWareMovies";
+            this.tabPageCriWareMovies.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCriWareMovies.Size = new System.Drawing.Size(612, 235);
+            this.tabPageCriWareMovies.TabIndex = 5;
+            this.tabPageCriWareMovies.Text = "Movies";
+            this.tabPageCriWareMovies.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewCriWareMovies
+            // 
+            this.dataGridViewCriWareMovies.AllowUserToAddRows = false;
+            this.dataGridViewCriWareMovies.AllowUserToDeleteRows = false;
+            this.dataGridViewCriWareMovies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCriWareMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCriWareMovies.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCriWareMovies.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewCriWareMovies.Name = "dataGridViewCriWareMovies";
+            this.dataGridViewCriWareMovies.Size = new System.Drawing.Size(606, 229);
+            this.dataGridViewCriWareMovies.TabIndex = 3;
+            this.dataGridViewCriWareMovies.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
+            this.dataGridViewCriWareMovies.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCriWareMovies_CellEndEdit);
+            // 
             // LevelEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +432,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeqOnEvent)).EndInit();
             this.tabPageDelayedEvents.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDelayedEvents)).EndInit();
+            this.tabPageCriWareMovies.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCriWareMovies)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,5 +463,7 @@
         private System.Windows.Forms.DataGridView dataGridViewSeqOnEvent;
         private System.Windows.Forms.TabPage tabPageDelayedEvents;
         private System.Windows.Forms.DataGridView dataGridViewDelayedEvents;
+        private System.Windows.Forms.TabPage tabPageCriWareMovies;
+        private System.Windows.Forms.DataGridView dataGridViewCriWareMovies;
     }
 }

@@ -46,6 +46,7 @@ namespace lis2_save_editor
             UpdatePlayingSeqTable();
             UpdateBindingTables();
             UpdateDelayedEventsTable();
+            UpdateCriWareMoviesTable();
         }
 
         #region Building
@@ -465,6 +466,49 @@ namespace lis2_save_editor
                 dataGridViewDelayedEvents.Rows.Add(row);
             }
         }
+
+        private void UpdateCriWareMoviesTable()
+        {
+            dataGridViewCriWareMovies.Columns.Clear();
+            dataGridViewCriWareMovies.DataSource = BuildCriWareMoviesTable().DefaultView;
+
+            dataGridViewCriWareMovies.Columns[1].FillWeight = 20;
+            dataGridViewCriWareMovies.Columns[2].FillWeight = 20;
+            dataGridViewCriWareMovies.Columns[3].FillWeight = 20;
+        }
+
+        private DataTable BuildCriWareMoviesTable()
+        {
+            DataTable t = new DataTable();
+            t.Columns.Add("Name");
+            t.Columns.Add("Active", typeof(bool));
+            t.Columns.Add("Frame number");
+            t.Columns.Add("Is paused", typeof(bool));
+
+            List<dynamic> target = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
+
+            foreach (var movie in level_info.CriWareMovies)
+            {
+                object[] row = new object[t.Columns.Count];
+                row[0] = movie;
+
+                int index = target.FindIndex(1, x => x["ActorWithManaComponentName"].Value == movie);
+                if (index != -1)
+                {
+                    row[1] = true;
+                    row[2] = target[index]["FrameNumber"].Value;
+                    row[3] = target[index]["bIsPaused"].Value;
+                }
+                else
+                {
+                    row[1] = false;
+                    row[2] = 0;
+                    row[3] = false;
+                }
+                t.Rows.Add(row);
+            }
+            return t;
+        }
         #endregion
 
         #region Editing
@@ -705,7 +749,7 @@ namespace lis2_save_editor
                 else if (Convert.ToBoolean(newCellValue) == true)
                 {
                     EditPOIValue(name, 2, dataGridViewPOIs[2, e.RowIndex].Value);
-                    EditPOIValue(name, 3, dataGridViewPOIs[2, e.RowIndex].Value);
+                    EditPOIValue(name, 3, dataGridViewPOIs[3, e.RowIndex].Value);
                 }
             }
         }
@@ -1358,6 +1402,65 @@ namespace lis2_save_editor
             changesMade = true;
         }
 
+        private void EditCriWareMovieValue(string name, int colIndex, object value)
+        {
+            List<dynamic> target = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
+            int index = target.FindIndex(1, x => x["ActorWithManaComponentName"].Value == name);
+
+            if (index == -1) //add new item
+            {
+                Dictionary<string, object> new_item = new Dictionary<string, object>()
+                {
+                    {
+                        "ActorWithManaComponentName", new NameProperty()
+                        {
+                            Name = "ActorWithManaComponentName",
+                            Value = name
+                        }
+                    },
+                    {
+                        "FrameNumber", new FloatProperty()
+                        {
+                            Name = "FrameNumber",
+                            Value = colIndex == 2 ? Convert.ToInt32(value) : 0
+                        }
+                    },
+                    {
+                        "bIsPaused", new BoolProperty()
+                        {
+                            Name = "bIsPaused",
+                            Value = colIndex == 3 ? Convert.ToBoolean(value) : false
+                        }
+                    }
+                };
+                target.AddUnique(new_item);
+            }
+            else
+            {
+                if (colIndex == 1 && Convert.ToBoolean(value) == false) //Remove movie
+                {
+                    target.RemoveAt(index);
+                }
+                else
+                {
+                    switch (colIndex)
+                    {
+                        case 2:
+                            {
+                                target[index]["FrameNumber"].Value = Convert.ToInt32(value);
+                                break;
+                            }
+                        case 3:
+                            {
+                                target[index]["bIsPaused"].Value = Convert.ToBoolean(value);
+                                break;
+                            }
+                    }
+                }
+            }
+            changesMade = true;
+        }
+
         #endregion
 
         private void LevelEditForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -1370,9 +1473,49 @@ namespace lis2_save_editor
             dataGridViewSeqOnPlay.EndEdit();
             dataGridViewSeqOnHasLooped.EndEdit();
             dataGridViewSeqOnEvent.EndEdit();
+            dataGridViewDelayedEvents.EndEdit();
+            dataGridViewCriWareMovies.EndEdit();
         }
 
         SearchForm searchForm;
+
+        private void dataGridViewCriWareMovies_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                if (!int.TryParse(dataGridViewCriWareMovies[2, e.RowIndex].Value.ToString(), out int result))
+                {
+                    MessageBox.Show(Resources.BadValueMessage, "Error");
+                    newCellValue = origCellValue;
+                    dataGridViewCriWareMovies[e.ColumnIndex, e.RowIndex].Value = origCellValue;
+                }
+                else
+                {
+                    newCellValue = result;
+                }
+            }
+            else
+            {
+                newCellValue = dataGridViewCriWareMovies[e.ColumnIndex, e.RowIndex].Value;
+            }
+
+            if (newCellValue.ToString() != origCellValue.ToString())
+            {
+                var name = dataGridViewCriWareMovies[0, e.RowIndex].Value.ToString();
+                EditCriWareMovieValue(name, e.ColumnIndex, newCellValue);
+                dataGridViewCriWareMovies[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.LightGoldenrodYellow;
+
+                if (e.ColumnIndex != 1)
+                {
+                    dataGridViewCriWareMovies[1, e.RowIndex].Value = true;
+                }
+                else if (Convert.ToBoolean(newCellValue) == true)
+                {
+                    EditCriWareMovieValue(name, 2, dataGridViewCriWareMovies[2, e.RowIndex].Value);
+                    EditCriWareMovieValue(name, 3, dataGridViewCriWareMovies[3, e.RowIndex].Value);
+                }
+            }
+        }
 
         private void LevelEditForm_KeyPress(object sender, KeyPressEventArgs e)
         {

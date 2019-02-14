@@ -360,6 +360,7 @@ namespace lis2_save_editor
                 var lvl_name = level["LevelName"].Value;
                 sb.AppendFormat("insert or ignore into {1}Levels (Name) values (\"{0}\");\n", lvl_name, table);
 
+                /*
                 //interactions
                 List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 foreach (var actor in actor_list.Skip(1))
@@ -428,13 +429,22 @@ namespace lis2_save_editor
                 {
                     throw new Exception("Found timelines!");
                 }
+                */
 
                 //CriWareMoviesSaveData
                 List<dynamic> criware_list = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
                 if (criware_list.Count > 1)
                 {
-                    //throw new Exception("Found criware movies!");
+                    sb.AppendFormat("insert or ignore into {0}CriWareMovies (Name, LevelName) values\n", table);
+                    foreach (var movie in criware_list.Skip(1))
+                    {
+                        var name = movie["ActorWithManaComponentName"].Value;
+                        sb.AppendFormat("('{0}', '{1}'),\n", name, lvl_name);
+                    }
+                    sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
+
+                /*
 
                 //LevelChanges
                 Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
@@ -523,6 +533,7 @@ namespace lis2_save_editor
                         sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                     }
                 }
+                */
             }
 
             if (saveVersion >= SaveVersion.LIS_E1)
@@ -534,6 +545,7 @@ namespace lis2_save_editor
                         var lvl_name = level["LevelName"].Value;
                         sb.AppendFormat("insert or ignore into LIS2Levels (Name) values (\"{0}\");\n", lvl_name);
 
+                        /*
                         //interactions
                         List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                         foreach (var actor in actor_list.Skip(1))
@@ -602,14 +614,22 @@ namespace lis2_save_editor
                                 sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, "DelayedEvent");
                             }
                         }
+                        */
 
                         //CriWareMoviesSaveData
                         List<dynamic> criware_list = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
                         if (criware_list.Count > 1)
                         {
-                            //throw new Exception("Found criware movies!");
+                            sb.AppendFormat("insert or ignore into {0}CriWareMovies (Name, LevelName) values\n", table);
+                            foreach (var movie in criware_list.Skip(1))
+                            {
+                                var name = movie["ActorWithManaComponentName"].Value;
+                                sb.AppendFormat("('{0}', '{1}'),\n", name, lvl_name);
+                            }
+                            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                         }
 
+                        /*
                         //LevelChanges
                         Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
 
@@ -675,6 +695,7 @@ namespace lis2_save_editor
                                 }
                             }
                         }
+                        */
                     }
                 }
             }
