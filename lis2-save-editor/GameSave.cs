@@ -106,12 +106,15 @@ namespace lis2_save_editor
 
             //ReadFacts();
 
+            //string jour = GenerateJournalSQL();
+            //string msgs = GenerateMessageSQL();
+
             //var sp = GenerateSeenPicsSQL();
 
             //string ao = GenerateObjectiveCueGroupsSQL();
 
             //File.AppendAllText($"FORDB-{Guid.NewGuid()}.txt", facts + outf + inv + levsql);
-            //File.AppendAllText("FORDB.txt", ao);
+            //File.AppendAllText("FORDB.txt", jour+msgs);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
@@ -249,6 +252,117 @@ namespace lis2_save_editor
                 }
             }
             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+            return sb.ToString();
+        }
+
+        public string GenerateJournalSQL()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (saveVersion == SaveVersion.CaptainSpirit)
+            {
+                return "";
+            }
+
+            List<dynamic> pages = Data["CurrentSubContextSaveData"].Value["JournalSaveData"].Value["SeenPages"].Value;
+
+            if (pages.Count > 1)
+            {
+                sb.AppendLine("insert or ignore into LIS2JournalPages (GUID) values");
+            }
+
+            foreach (var p in pages.Skip(1))
+            {
+                sb.Append($"('{p["Guid"].ToString()}'),\n");
+            }
+
+            if (saveVersion >= SaveVersion.LIS_E1)
+            {
+                for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+                {
+                    pages = Data["CheckpointHistory"].Value[i]["JournalSaveData"].Value["SeenPages"].Value;
+
+                    foreach (var p in pages.Skip(1))
+                    {
+                        sb.Append($"('{p["Guid"].ToString()}'),\n");
+                    }
+                }    
+            }
+
+            if (pages.Count > 1)
+            {
+                sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+            }
+
+            
+            return sb.ToString();
+        }
+
+        public string GenerateMessageSQL()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (saveVersion == SaveVersion.CaptainSpirit)
+            {
+                return "";
+            }
+
+            var phone = Data["CurrentSubContextSaveData"].Value["PhoneSaveData"].Value;
+
+            if (phone["ReadedMessages"].ElementCount > 0)
+            {
+                sb.AppendLine("insert or ignore into LIS2Messages (GUID) values");
+
+                foreach (var msg in phone["ReadedMessages"].Value)
+                {
+                    sb.Append($"('{msg.ToString()}'),\n");
+                }
+
+                sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+            }
+
+            if (phone["RegisteredGroupMessages"].ElementCount > 0)
+            {
+                sb.AppendLine("insert or ignore into LIS2MessageGroups (GUID) values");
+
+                foreach (var msg in phone["RegisteredGroupMessages"].Value)
+                {
+                    sb.Append($"('{msg.ToString()}'),\n");
+                }
+
+                sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+            }
+
+            if (saveVersion >= SaveVersion.LIS_E1)
+            {
+                for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
+                {
+                    phone = Data["CurrentSubContextSaveData"].Value["PhoneSaveData"].Value;
+
+                    if (phone["ReadedMessages"].ElementCount > 0)
+                    {
+                        sb.AppendLine("insert or ignore into LIS2Messages (GUID) values");
+
+                        foreach (var msg in phone["ReadedMessages"].Value)
+                        {
+                            sb.Append($"('{msg.ToString()}'),\n");
+                        }
+
+                        sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                    }
+
+                    if (phone["RegisteredGroupMessages"].ElementCount > 0)
+                    {
+                        sb.AppendLine("insert or ignore into LIS2MessageGroups (GUID) values");
+
+                        foreach (var msg in phone["RegisteredGroupMessages"].Value)
+                        {
+                            sb.Append($"('{msg.ToString()}'),\n");
+                        }
+
+                        sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+                    }
+                }
+            }
+
             return sb.ToString();
         }
 
