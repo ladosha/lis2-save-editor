@@ -122,6 +122,24 @@ namespace lis2_save_editor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to JSON file already exists! Overwrite?.
+        /// </summary>
+        internal static string ExportOverwriteQuestion {
+            get {
+                return ResourceManager.GetString("ExportOverwriteQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exported successfully!.
+        /// </summary>
+        internal static string ExportSuccessfulMessage {
+            get {
+                return ResourceManager.GetString("ExportSuccessfulMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon LIS2_icon {

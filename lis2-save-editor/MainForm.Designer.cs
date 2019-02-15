@@ -180,6 +180,10 @@
             this.tabPageSeenJournal = new System.Windows.Forms.TabPage();
             this.dataGridViewSeenJournal = new System.Windows.Forms.DataGridView();
             this.tabPageSeenMisc = new System.Windows.Forms.TabPage();
+            this.groupBoxRegisteredGroupMessages = new System.Windows.Forms.GroupBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.comboBoxLastSeenJournalPage = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabPageDrawings = new System.Windows.Forms.TabPage();
             this.flowLayoutPanelDrawings = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPageFacts = new System.Windows.Forms.TabPage();
@@ -281,11 +285,9 @@
             this.labelChangesWarning = new System.Windows.Forms.Label();
             this.comboBoxSelectCP = new System.Windows.Forms.ComboBox();
             this.buttonSaveSelector = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label23 = new System.Windows.Forms.Label();
-            this.comboBoxLastSeenJournalPage = new System.Windows.Forms.ComboBox();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.groupBoxRegisteredGroupMessages = new System.Windows.Forms.GroupBox();
+            this.buttonExportJSON = new System.Windows.Forms.Button();
+            this.openFileDialogBrowse = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialogExport = new System.Windows.Forms.SaveFileDialog();
             this.tabControlMain.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupBoxSendChoiceSuccess.SuspendLayout();
@@ -337,6 +339,7 @@
             this.tabPageSeenJournal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenJournal)).BeginInit();
             this.tabPageSeenMisc.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.tabPageDrawings.SuspendLayout();
             this.tabPageFacts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacts)).BeginInit();
@@ -382,7 +385,6 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxSavePath
@@ -471,7 +473,7 @@
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(868, 566);
+            this.tabControlMain.Size = new System.Drawing.Size(868, 568);
             this.tabControlMain.TabIndex = 6;
             // 
             // tabPageGeneral
@@ -499,7 +501,7 @@
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 24);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGeneral.Size = new System.Drawing.Size(860, 538);
+            this.tabPageGeneral.Size = new System.Drawing.Size(860, 540);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
@@ -1782,7 +1784,7 @@
             this.tabPageInventory.Margin = new System.Windows.Forms.Padding(0);
             this.tabPageInventory.Name = "tabPageInventory";
             this.tabPageInventory.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.tabPageInventory.Size = new System.Drawing.Size(860, 538);
+            this.tabPageInventory.Size = new System.Drawing.Size(860, 540);
             this.tabPageInventory.TabIndex = 1;
             this.tabPageInventory.Text = "Inventory";
             this.tabPageInventory.UseVisualStyleBackColor = true;
@@ -1800,7 +1802,7 @@
             this.tabControlInventory.Margin = new System.Windows.Forms.Padding(0);
             this.tabControlInventory.Name = "tabControlInventory";
             this.tabControlInventory.SelectedIndex = 0;
-            this.tabControlInventory.Size = new System.Drawing.Size(860, 535);
+            this.tabControlInventory.Size = new System.Drawing.Size(860, 537);
             this.tabControlInventory.TabIndex = 1;
             this.tabControlInventory.Tag = "";
             // 
@@ -1810,7 +1812,7 @@
             this.tabPagePlayerInv.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlayerInv.Name = "tabPagePlayerInv";
             this.tabPagePlayerInv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlayerInv.Size = new System.Drawing.Size(852, 509);
+            this.tabPagePlayerInv.Size = new System.Drawing.Size(852, 511);
             this.tabPagePlayerInv.TabIndex = 0;
             this.tabPagePlayerInv.Text = "Inventory [Player]";
             this.tabPagePlayerInv.UseVisualStyleBackColor = true;
@@ -1825,7 +1827,7 @@
             this.dataGridViewInventory1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory1.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory1.Name = "dataGridViewInventory1";
-            this.dataGridViewInventory1.Size = new System.Drawing.Size(846, 503);
+            this.dataGridViewInventory1.Size = new System.Drawing.Size(846, 505);
             this.dataGridViewInventory1.TabIndex = 1;
             this.dataGridViewInventory1.Tag = "Inventory::Player";
             this.dataGridViewInventory1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1971,7 +1973,7 @@
             this.tabPageSeen.Controls.Add(this.tabControlSeen);
             this.tabPageSeen.Location = new System.Drawing.Point(4, 24);
             this.tabPageSeen.Name = "tabPageSeen";
-            this.tabPageSeen.Size = new System.Drawing.Size(860, 538);
+            this.tabPageSeen.Size = new System.Drawing.Size(860, 540);
             this.tabPageSeen.TabIndex = 16;
             this.tabPageSeen.Text = "Seen items";
             this.tabPageSeen.UseVisualStyleBackColor = true;
@@ -1988,7 +1990,7 @@
             this.tabControlSeen.Location = new System.Drawing.Point(0, 0);
             this.tabControlSeen.Name = "tabControlSeen";
             this.tabControlSeen.SelectedIndex = 0;
-            this.tabControlSeen.Size = new System.Drawing.Size(860, 538);
+            this.tabControlSeen.Size = new System.Drawing.Size(860, 540);
             this.tabControlSeen.TabIndex = 0;
             // 
             // tabPageSeenNotifs1
@@ -1997,7 +1999,7 @@
             this.tabPageSeenNotifs1.Location = new System.Drawing.Point(4, 22);
             this.tabPageSeenNotifs1.Name = "tabPageSeenNotifs1";
             this.tabPageSeenNotifs1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenNotifs1.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenNotifs1.Size = new System.Drawing.Size(852, 514);
             this.tabPageSeenNotifs1.TabIndex = 0;
             this.tabPageSeenNotifs1.Text = "Notifications";
             this.tabPageSeenNotifs1.UseVisualStyleBackColor = true;
@@ -2011,7 +2013,7 @@
             this.dataGridViewSeenNotifs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenNotifs.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenNotifs.Name = "dataGridViewSeenNotifs";
-            this.dataGridViewSeenNotifs.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenNotifs.Size = new System.Drawing.Size(846, 508);
             this.dataGridViewSeenNotifs.TabIndex = 2;
             this.dataGridViewSeenNotifs.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenNotifs.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenNotifs_CellEndEdit);
@@ -2132,13 +2134,51 @@
             this.tabPageSeenMisc.Text = "Miscellaneous";
             this.tabPageSeenMisc.UseVisualStyleBackColor = true;
             // 
+            // groupBoxRegisteredGroupMessages
+            // 
+            this.groupBoxRegisteredGroupMessages.AutoSize = true;
+            this.groupBoxRegisteredGroupMessages.Location = new System.Drawing.Point(9, 44);
+            this.groupBoxRegisteredGroupMessages.MinimumSize = new System.Drawing.Size(153, 44);
+            this.groupBoxRegisteredGroupMessages.Name = "groupBoxRegisteredGroupMessages";
+            this.groupBoxRegisteredGroupMessages.Size = new System.Drawing.Size(153, 44);
+            this.groupBoxRegisteredGroupMessages.TabIndex = 3;
+            this.groupBoxRegisteredGroupMessages.TabStop = false;
+            this.groupBoxRegisteredGroupMessages.Text = "Registered group messages";
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.comboBoxLastSeenJournalPage);
+            this.panel21.Location = new System.Drawing.Point(122, 14);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(235, 27);
+            this.panel21.TabIndex = 2;
+            // 
+            // comboBoxLastSeenJournalPage
+            // 
+            this.comboBoxLastSeenJournalPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLastSeenJournalPage.FormattingEnabled = true;
+            this.comboBoxLastSeenJournalPage.Location = new System.Drawing.Point(3, 3);
+            this.comboBoxLastSeenJournalPage.Name = "comboBoxLastSeenJournalPage";
+            this.comboBoxLastSeenJournalPage.Size = new System.Drawing.Size(229, 21);
+            this.comboBoxLastSeenJournalPage.TabIndex = 1;
+            this.comboBoxLastSeenJournalPage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLastSeenJournalPage_SelectedIndexChanged);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 18);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(114, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Last seen journal page";
+            // 
             // tabPageDrawings
             // 
             this.tabPageDrawings.Controls.Add(this.flowLayoutPanelDrawings);
             this.tabPageDrawings.Location = new System.Drawing.Point(4, 24);
             this.tabPageDrawings.Name = "tabPageDrawings";
             this.tabPageDrawings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDrawings.Size = new System.Drawing.Size(860, 538);
+            this.tabPageDrawings.Size = new System.Drawing.Size(860, 540);
             this.tabPageDrawings.TabIndex = 9;
             this.tabPageDrawings.Text = "Drawings";
             this.tabPageDrawings.UseVisualStyleBackColor = true;
@@ -2149,7 +2189,7 @@
             this.flowLayoutPanelDrawings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelDrawings.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelDrawings.Name = "flowLayoutPanelDrawings";
-            this.flowLayoutPanelDrawings.Size = new System.Drawing.Size(854, 532);
+            this.flowLayoutPanelDrawings.Size = new System.Drawing.Size(854, 534);
             this.flowLayoutPanelDrawings.TabIndex = 0;
             // 
             // tabPageFacts
@@ -2158,7 +2198,7 @@
             this.tabPageFacts.Location = new System.Drawing.Point(4, 24);
             this.tabPageFacts.Name = "tabPageFacts";
             this.tabPageFacts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFacts.Size = new System.Drawing.Size(860, 538);
+            this.tabPageFacts.Size = new System.Drawing.Size(860, 540);
             this.tabPageFacts.TabIndex = 3;
             this.tabPageFacts.Text = "Facts";
             this.tabPageFacts.UseVisualStyleBackColor = true;
@@ -2172,7 +2212,7 @@
             this.dataGridViewFacts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFacts.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewFacts.Name = "dataGridViewFacts";
-            this.dataGridViewFacts.Size = new System.Drawing.Size(854, 532);
+            this.dataGridViewFacts.Size = new System.Drawing.Size(854, 534);
             this.dataGridViewFacts.TabIndex = 0;
             this.dataGridViewFacts.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewFacts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFacts_CellContentClick);
@@ -2184,7 +2224,7 @@
             this.tabPageWorld.Location = new System.Drawing.Point(4, 24);
             this.tabPageWorld.Name = "tabPageWorld";
             this.tabPageWorld.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWorld.Size = new System.Drawing.Size(860, 538);
+            this.tabPageWorld.Size = new System.Drawing.Size(860, 540);
             this.tabPageWorld.TabIndex = 4;
             this.tabPageWorld.Text = "Packages";
             this.tabPageWorld.UseVisualStyleBackColor = true;
@@ -2199,7 +2239,7 @@
             this.dataGridViewWorld.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewWorld.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewWorld.Name = "dataGridViewWorld";
-            this.dataGridViewWorld.Size = new System.Drawing.Size(854, 532);
+            this.dataGridViewWorld.Size = new System.Drawing.Size(854, 534);
             this.dataGridViewWorld.TabIndex = 0;
             this.dataGridViewWorld.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewWorld.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWorld_CellEndEdit);
@@ -2210,7 +2250,7 @@
             this.tabPageLevels.Location = new System.Drawing.Point(4, 24);
             this.tabPageLevels.Name = "tabPageLevels";
             this.tabPageLevels.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageLevels.Size = new System.Drawing.Size(860, 538);
+            this.tabPageLevels.Size = new System.Drawing.Size(860, 540);
             this.tabPageLevels.TabIndex = 14;
             this.tabPageLevels.Text = "Levels";
             this.tabPageLevels.UseVisualStyleBackColor = true;
@@ -2224,7 +2264,7 @@
             this.dataGridViewLevels.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewLevels.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewLevels.Name = "dataGridViewLevels";
-            this.dataGridViewLevels.Size = new System.Drawing.Size(854, 532);
+            this.dataGridViewLevels.Size = new System.Drawing.Size(854, 534);
             this.dataGridViewLevels.TabIndex = 1;
             this.dataGridViewLevels.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewLevels.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewLevels_CellContentClick);
@@ -2236,7 +2276,7 @@
             this.tabPageMetrics.Location = new System.Drawing.Point(4, 24);
             this.tabPageMetrics.Name = "tabPageMetrics";
             this.tabPageMetrics.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMetrics.Size = new System.Drawing.Size(860, 538);
+            this.tabPageMetrics.Size = new System.Drawing.Size(860, 540);
             this.tabPageMetrics.TabIndex = 7;
             this.tabPageMetrics.Text = "Metrics";
             this.tabPageMetrics.UseVisualStyleBackColor = true;
@@ -2248,7 +2288,7 @@
             this.flowLayoutPanelMetrics.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelMetrics.Name = "flowLayoutPanelMetrics";
             this.flowLayoutPanelMetrics.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(854, 532);
+            this.flowLayoutPanelMetrics.Size = new System.Drawing.Size(854, 534);
             this.flowLayoutPanelMetrics.TabIndex = 0;
             // 
             // tabPageCollectibles
@@ -2257,7 +2297,7 @@
             this.tabPageCollectibles.Location = new System.Drawing.Point(4, 24);
             this.tabPageCollectibles.Name = "tabPageCollectibles";
             this.tabPageCollectibles.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCollectibles.Size = new System.Drawing.Size(860, 538);
+            this.tabPageCollectibles.Size = new System.Drawing.Size(860, 540);
             this.tabPageCollectibles.TabIndex = 10;
             this.tabPageCollectibles.Text = "Collectibles";
             this.tabPageCollectibles.UseVisualStyleBackColor = true;
@@ -2272,7 +2312,7 @@
             this.dataGridViewCollectibles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCollectibles.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewCollectibles.Name = "dataGridViewCollectibles";
-            this.dataGridViewCollectibles.Size = new System.Drawing.Size(854, 532);
+            this.dataGridViewCollectibles.Size = new System.Drawing.Size(854, 534);
             this.dataGridViewCollectibles.TabIndex = 2;
             this.dataGridViewCollectibles.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewCollectibles.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCollectibles_CellEndEdit);
@@ -2283,7 +2323,7 @@
             this.tabPageObjectives.Location = new System.Drawing.Point(4, 24);
             this.tabPageObjectives.Name = "tabPageObjectives";
             this.tabPageObjectives.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjectives.Size = new System.Drawing.Size(860, 538);
+            this.tabPageObjectives.Size = new System.Drawing.Size(860, 540);
             this.tabPageObjectives.TabIndex = 11;
             this.tabPageObjectives.Text = "Objectives";
             this.tabPageObjectives.UseVisualStyleBackColor = true;
@@ -2296,7 +2336,7 @@
             this.tabControlObjectives.Location = new System.Drawing.Point(3, 3);
             this.tabControlObjectives.Name = "tabControlObjectives";
             this.tabControlObjectives.SelectedIndex = 0;
-            this.tabControlObjectives.Size = new System.Drawing.Size(854, 532);
+            this.tabControlObjectives.Size = new System.Drawing.Size(854, 534);
             this.tabControlObjectives.TabIndex = 0;
             // 
             // tabPageObjectivesMain
@@ -2305,7 +2345,7 @@
             this.tabPageObjectivesMain.Location = new System.Drawing.Point(4, 22);
             this.tabPageObjectivesMain.Name = "tabPageObjectivesMain";
             this.tabPageObjectivesMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjectivesMain.Size = new System.Drawing.Size(846, 506);
+            this.tabPageObjectivesMain.Size = new System.Drawing.Size(846, 508);
             this.tabPageObjectivesMain.TabIndex = 0;
             this.tabPageObjectivesMain.Text = "Player\'s objectives";
             this.tabPageObjectivesMain.UseVisualStyleBackColor = true;
@@ -2320,7 +2360,7 @@
             this.dataGridViewObjectives.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewObjectives.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewObjectives.Name = "dataGridViewObjectives";
-            this.dataGridViewObjectives.Size = new System.Drawing.Size(840, 500);
+            this.dataGridViewObjectives.Size = new System.Drawing.Size(840, 502);
             this.dataGridViewObjectives.TabIndex = 4;
             this.dataGridViewObjectives.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewObjectives.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewObjectives_CellEndEdit);
@@ -2354,7 +2394,7 @@
             this.tabPageOutfits.Location = new System.Drawing.Point(4, 24);
             this.tabPageOutfits.Name = "tabPageOutfits";
             this.tabPageOutfits.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageOutfits.Size = new System.Drawing.Size(860, 538);
+            this.tabPageOutfits.Size = new System.Drawing.Size(860, 540);
             this.tabPageOutfits.TabIndex = 13;
             this.tabPageOutfits.Text = "Outfits";
             this.tabPageOutfits.UseVisualStyleBackColor = true;
@@ -3124,7 +3164,7 @@
             this.tabPageCinematics.AutoScroll = true;
             this.tabPageCinematics.Location = new System.Drawing.Point(4, 24);
             this.tabPageCinematics.Name = "tabPageCinematics";
-            this.tabPageCinematics.Size = new System.Drawing.Size(860, 538);
+            this.tabPageCinematics.Size = new System.Drawing.Size(860, 540);
             this.tabPageCinematics.TabIndex = 15;
             this.tabPageCinematics.Text = "Cinematics";
             this.tabPageCinematics.UseVisualStyleBackColor = true;
@@ -3152,7 +3192,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(874, 632);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(874, 634);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // label9
@@ -3168,13 +3208,15 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.Controls.Add(this.labelChangesWarning, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxSelectCP, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonSaveSelector, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonExportJSON, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(95, 30);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -3191,7 +3233,7 @@
             this.labelChangesWarning.ForeColor = System.Drawing.Color.Red;
             this.labelChangesWarning.Location = new System.Drawing.Point(203, 8);
             this.labelChangesWarning.Name = "labelChangesWarning";
-            this.labelChangesWarning.Size = new System.Drawing.Size(373, 13);
+            this.labelChangesWarning.Size = new System.Drawing.Size(273, 13);
             this.labelChangesWarning.TabIndex = 10;
             this.labelChangesWarning.Text = "Save file changed! Press Load to update.";
             this.labelChangesWarning.Visible = false;
@@ -3213,7 +3255,7 @@
             this.buttonSaveSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSaveSelector.Location = new System.Drawing.Point(582, 3);
+            this.buttonSaveSelector.Location = new System.Drawing.Point(482, 3);
             this.buttonSaveSelector.Name = "buttonSaveSelector";
             this.buttonSaveSelector.Size = new System.Drawing.Size(74, 24);
             this.buttonSaveSelector.TabIndex = 12;
@@ -3221,53 +3263,33 @@
             this.buttonSaveSelector.UseVisualStyleBackColor = true;
             this.buttonSaveSelector.Click += new System.EventHandler(this.buttonSaveSelector_Click);
             // 
-            // openFileDialog1
+            // buttonExportJSON
             // 
-            this.openFileDialog1.Filter = "Save file|*.sav";
+            this.buttonExportJSON.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonExportJSON.Location = new System.Drawing.Point(562, 3);
+            this.buttonExportJSON.Name = "buttonExportJSON";
+            this.buttonExportJSON.Size = new System.Drawing.Size(94, 24);
+            this.buttonExportJSON.TabIndex = 13;
+            this.buttonExportJSON.Text = "Export as JSON";
+            this.buttonExportJSON.UseVisualStyleBackColor = true;
+            this.buttonExportJSON.Click += new System.EventHandler(this.buttonExportJSON_Click);
             // 
-            // label23
+            // openFileDialogBrowse
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 18);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(114, 13);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Last seen journal page";
+            this.openFileDialogBrowse.Filter = "Save file|*.sav";
             // 
-            // comboBoxLastSeenJournalPage
+            // saveFileDialogExport
             // 
-            this.comboBoxLastSeenJournalPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLastSeenJournalPage.FormattingEnabled = true;
-            this.comboBoxLastSeenJournalPage.Location = new System.Drawing.Point(3, 3);
-            this.comboBoxLastSeenJournalPage.Name = "comboBoxLastSeenJournalPage";
-            this.comboBoxLastSeenJournalPage.Size = new System.Drawing.Size(229, 21);
-            this.comboBoxLastSeenJournalPage.TabIndex = 1;
-            this.comboBoxLastSeenJournalPage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLastSeenJournalPage_SelectedIndexChanged);
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.comboBoxLastSeenJournalPage);
-            this.panel21.Location = new System.Drawing.Point(122, 14);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(235, 27);
-            this.panel21.TabIndex = 2;
-            // 
-            // groupBoxRegisteredGroupMessages
-            // 
-            this.groupBoxRegisteredGroupMessages.AutoSize = true;
-            this.groupBoxRegisteredGroupMessages.Location = new System.Drawing.Point(9, 44);
-            this.groupBoxRegisteredGroupMessages.MinimumSize = new System.Drawing.Size(153, 44);
-            this.groupBoxRegisteredGroupMessages.Name = "groupBoxRegisteredGroupMessages";
-            this.groupBoxRegisteredGroupMessages.Size = new System.Drawing.Size(153, 44);
-            this.groupBoxRegisteredGroupMessages.TabIndex = 3;
-            this.groupBoxRegisteredGroupMessages.TabStop = false;
-            this.groupBoxRegisteredGroupMessages.Text = "Registered group messages";
+            this.saveFileDialogExport.DefaultExt = "json";
+            this.saveFileDialogExport.Filter = "JSON file (*.json)|*.json";
+            this.saveFileDialogExport.SupportMultiDottedExtensions = true;
+            this.saveFileDialogExport.Title = "Export save file";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(874, 632);
+            this.ClientSize = new System.Drawing.Size(874, 634);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3341,6 +3363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSeenJournal)).EndInit();
             this.tabPageSeenMisc.ResumeLayout(false);
             this.tabPageSeenMisc.PerformLayout();
+            this.panel21.ResumeLayout(false);
             this.tabPageDrawings.ResumeLayout(false);
             this.tabPageFacts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFacts)).EndInit();
@@ -3391,7 +3414,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.panel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3412,7 +3434,7 @@
         private System.Windows.Forms.DataGridView dataGridViewFacts;
         private System.Windows.Forms.DataGridView dataGridViewWorld;
         private System.Windows.Forms.TabPage tabPageMetrics;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialogBrowse;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label labelChangesWarning;
@@ -3655,6 +3677,8 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.GroupBox groupBoxRegisteredGroupMessages;
+        private System.Windows.Forms.Button buttonExportJSON;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogExport;
     }
 }
 

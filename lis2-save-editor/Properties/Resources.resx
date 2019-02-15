@@ -156,4 +156,10 @@ Version: {0}</value>
   <data name="LIS2_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\LIS2-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ExportSuccessfulMessage" xml:space="preserve">
+    <value>Exported successfully!</value>
+  </data>
+  <data name="ExportOverwriteQuestion" xml:space="preserve">
+    <value>JSON file already exists! Overwrite?</value>
+  </data>
 </root>

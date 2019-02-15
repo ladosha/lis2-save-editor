@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace lis2_save_editor
 {
@@ -97,6 +98,7 @@ namespace lis2_save_editor
             tabControlMain.Enabled = true;
             comboBoxSelectCP.Enabled = true;
             buttonSaveEdits.Enabled = true;
+            buttonExportJSON.Enabled = true;
             labelChangesWarning.Visible = false;
             _gameSave.SaveChangesSaved = true;
 
@@ -229,11 +231,11 @@ namespace lis2_save_editor
             }
             else
             {
-                DialogResult result = openFileDialog1.ShowDialog();
+                DialogResult result = openFileDialogBrowse.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    _settingManager.Settings.SavePath = openFileDialog1.FileName;
-                    textBoxSavePath.Text = openFileDialog1.FileName;
+                    _settingManager.Settings.SavePath = openFileDialogBrowse.FileName;
+                    textBoxSavePath.Text = openFileDialogBrowse.FileName;
                 }
             }
         }
@@ -3775,7 +3777,10 @@ namespace lis2_save_editor
             DetectSavePath();
             textBoxSavePath.Text = _settingManager.Settings.SavePath;
 
-            labelChangesWarning.Visible = false; 
+            labelChangesWarning.Visible = false;
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(buttonBrowse, "Ctrl+click to go to save directory.");
+            tt.SetToolTip(buttonExportJSON, "Ctrl+click to specify destination.");
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -4004,9 +4009,6 @@ namespace lis2_save_editor
                 textBoxSavePath.BackColor = SystemColors.Window;
                 _settingManager.Settings.SavePath = textBoxSavePath.Text;
                 buttonLoad.Enabled = true;
-                buttonSaveEdits.Enabled = false;
-                tabControlMain.Enabled = false;
-                comboBoxSelectCP.Enabled = false;
 
                 try
                 {
@@ -4034,11 +4036,13 @@ namespace lis2_save_editor
             {
                 textBoxSavePath.BackColor = Color.Red;
                 buttonLoad.Enabled = false;
-                buttonSaveEdits.Enabled = false;
-                tabControlMain.Enabled = false;
-                comboBoxSelectCP.Enabled = false;
                 labelChangesWarning.Visible = false;
             }
+
+            buttonSaveEdits.Enabled = false;
+            buttonExportJSON.Enabled = false;
+            tabControlMain.Enabled = false;
+            comboBoxSelectCP.Enabled = false;
         }
 
         private void ShowChangesWarning()
@@ -4083,6 +4087,32 @@ namespace lis2_save_editor
                     _settingManager.Settings.SavePath = textBoxSavePath.Text;
                 }
             }
+        }
+
+        private void buttonExportJSON_Click(object sender, EventArgs e)
+        {
+            string filename;
+            if (ModifierKeys == Keys.Control)
+            {
+                if (saveFileDialogExport.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                filename = saveFileDialogExport.FileName;
+            }
+            else
+            {
+                filename = Path.GetFileNameWithoutExtension(textBoxSavePath.Text) + ".json";
+                if (File.Exists(filename) && 
+                    MessageBox.Show(Resources.ExportOverwriteQuestion, "Savegame Editor", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+            string json = JsonConvert.SerializeObject(_gameSave.Data, Formatting.Indented);
+            File.WriteAllText(filename, json);
+            MessageBox.Show(Resources.ExportSuccessfulMessage, "Savegame Editor", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         SearchForm searchForm;
