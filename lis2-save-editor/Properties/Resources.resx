@@ -162,4 +162,7 @@ Version: {0}</value>
   <data name="ExportOverwriteQuestion" xml:space="preserve">
     <value>JSON file already exists! Overwrite?</value>
   </data>
+  <data name="NoUpdatesFoundMessage" xml:space="preserve">
+    <value>No updates were found!</value>
+  </data>
 </root>

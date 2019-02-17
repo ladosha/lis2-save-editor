@@ -150,6 +150,15 @@ namespace lis2_save_editor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No updates were found!.
+        /// </summary>
+        internal static string NoUpdatesFoundMessage {
+            get {
+                return ResourceManager.GetString("NoUpdatesFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This is a settings file for the game! The editor only supports save files..
         /// </summary>
         internal static string OpenedSettingsFileError {

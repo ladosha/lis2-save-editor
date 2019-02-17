@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -12,7 +13,7 @@ namespace lis2_save_editor
 {
     public partial class MainForm : Form
     {
-        private readonly SettingManager _settingManager = new SettingManager();
+        public readonly SettingManager _settingManager = new SettingManager();
 
         public MainForm()
         {
@@ -251,8 +252,8 @@ namespace lis2_save_editor
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(string.Format(Resources.AboutMessage, Program.GetApplicationVersionStr()), 
-                            "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var aboutForm = new AboutForm(this);
+            aboutForm.Show();
         }
 
         #region Read functions
@@ -3781,6 +3782,33 @@ namespace lis2_save_editor
             ToolTip tt = new ToolTip();
             tt.SetToolTip(buttonBrowse, "Ctrl+click to go to save directory.");
             tt.SetToolTip(buttonExportJSON, "Ctrl+click to specify destination.");
+
+            #region Update checking at startup
+            if (_settingManager.Settings.CheckForUpdatesAtStartup)
+            {
+                Task.Run(async () =>
+                {
+                    var result = await UpdateChecker.CheckForUpdates();
+                    if (result == null || !result.CanBeUpdated)
+                    {
+                        return;
+                    }
+
+                    using (var updateForm = new UpdateForm(result))
+                    {
+                        if (updateForm.ShowDialog() == DialogResult.Yes)
+                        {
+                            UpdateChecker.VisitDownloadPage();
+                        }
+
+                        if (updateForm.DontShowAgainIsChecked)
+                        {
+                            _settingManager.Settings.CheckForUpdatesAtStartup = false;
+                        }
+                    }
+                });
+            }
+            #endregion
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
