@@ -1839,7 +1839,7 @@
             this.tabPagePlayerBackpack.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlayerBackpack.Name = "tabPagePlayerBackpack";
             this.tabPagePlayerBackpack.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlayerBackpack.Size = new System.Drawing.Size(852, 509);
+            this.tabPagePlayerBackpack.Size = new System.Drawing.Size(852, 511);
             this.tabPagePlayerBackpack.TabIndex = 1;
             this.tabPagePlayerBackpack.Text = "Backpack [Player]";
             this.tabPagePlayerBackpack.UseVisualStyleBackColor = true;
@@ -1854,7 +1854,7 @@
             this.dataGridViewInventory2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory2.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory2.Name = "dataGridViewInventory2";
-            this.dataGridViewInventory2.Size = new System.Drawing.Size(846, 503);
+            this.dataGridViewInventory2.Size = new System.Drawing.Size(846, 505);
             this.dataGridViewInventory2.TabIndex = 1;
             this.dataGridViewInventory2.Tag = "BackPack::Player";
             this.dataGridViewInventory2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1866,7 +1866,7 @@
             this.tabPagePlayerPockets.Location = new System.Drawing.Point(4, 22);
             this.tabPagePlayerPockets.Name = "tabPagePlayerPockets";
             this.tabPagePlayerPockets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePlayerPockets.Size = new System.Drawing.Size(852, 509);
+            this.tabPagePlayerPockets.Size = new System.Drawing.Size(852, 511);
             this.tabPagePlayerPockets.TabIndex = 2;
             this.tabPagePlayerPockets.Text = "Pockets [Player]";
             this.tabPagePlayerPockets.UseVisualStyleBackColor = true;
@@ -1881,7 +1881,7 @@
             this.dataGridViewInventory3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventory3.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventory3.Name = "dataGridViewInventory3";
-            this.dataGridViewInventory3.Size = new System.Drawing.Size(846, 503);
+            this.dataGridViewInventory3.Size = new System.Drawing.Size(846, 505);
             this.dataGridViewInventory3.TabIndex = 1;
             this.dataGridViewInventory3.Tag = "Pockets::Player";
             this.dataGridViewInventory3.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1893,7 +1893,7 @@
             this.tabPageDanielInv.Location = new System.Drawing.Point(4, 22);
             this.tabPageDanielInv.Name = "tabPageDanielInv";
             this.tabPageDanielInv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDanielInv.Size = new System.Drawing.Size(852, 509);
+            this.tabPageDanielInv.Size = new System.Drawing.Size(852, 511);
             this.tabPageDanielInv.TabIndex = 3;
             this.tabPageDanielInv.Text = "Inventory [Daniel]";
             this.tabPageDanielInv.UseVisualStyleBackColor = true;
@@ -1908,7 +1908,7 @@
             this.dataGridViewInventoryDaniel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventoryDaniel1.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventoryDaniel1.Name = "dataGridViewInventoryDaniel1";
-            this.dataGridViewInventoryDaniel1.Size = new System.Drawing.Size(846, 503);
+            this.dataGridViewInventoryDaniel1.Size = new System.Drawing.Size(846, 505);
             this.dataGridViewInventoryDaniel1.TabIndex = 2;
             this.dataGridViewInventoryDaniel1.Tag = "Inventory::BrotherAI";
             this.dataGridViewInventoryDaniel1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1920,7 +1920,7 @@
             this.tabPageDanielBackpack.Location = new System.Drawing.Point(4, 22);
             this.tabPageDanielBackpack.Name = "tabPageDanielBackpack";
             this.tabPageDanielBackpack.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDanielBackpack.Size = new System.Drawing.Size(852, 509);
+            this.tabPageDanielBackpack.Size = new System.Drawing.Size(852, 511);
             this.tabPageDanielBackpack.TabIndex = 4;
             this.tabPageDanielBackpack.Text = "Backpack [Daniel]";
             this.tabPageDanielBackpack.UseVisualStyleBackColor = true;
@@ -1935,7 +1935,7 @@
             this.dataGridViewInventoryDaniel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventoryDaniel2.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventoryDaniel2.Name = "dataGridViewInventoryDaniel2";
-            this.dataGridViewInventoryDaniel2.Size = new System.Drawing.Size(846, 503);
+            this.dataGridViewInventoryDaniel2.Size = new System.Drawing.Size(846, 505);
             this.dataGridViewInventoryDaniel2.TabIndex = 3;
             this.dataGridViewInventoryDaniel2.Tag = "BackPack::BrotherAI";
             this.dataGridViewInventoryDaniel2.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -1947,7 +1947,7 @@
             this.tabPageDanielPockets.Location = new System.Drawing.Point(4, 22);
             this.tabPageDanielPockets.Name = "tabPageDanielPockets";
             this.tabPageDanielPockets.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDanielPockets.Size = new System.Drawing.Size(852, 509);
+            this.tabPageDanielPockets.Size = new System.Drawing.Size(852, 511);
             this.tabPageDanielPockets.TabIndex = 5;
             this.tabPageDanielPockets.Text = "Pockets [Daniel]";
             this.tabPageDanielPockets.UseVisualStyleBackColor = true;
@@ -1962,7 +1962,7 @@
             this.dataGridViewInventoryDaniel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventoryDaniel3.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewInventoryDaniel3.Name = "dataGridViewInventoryDaniel3";
-            this.dataGridViewInventoryDaniel3.Size = new System.Drawing.Size(846, 503);
+            this.dataGridViewInventoryDaniel3.Size = new System.Drawing.Size(846, 505);
             this.dataGridViewInventoryDaniel3.TabIndex = 3;
             this.dataGridViewInventoryDaniel3.Tag = "Pockets::BrotherAI";
             this.dataGridViewInventoryDaniel3.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
@@ -2024,7 +2024,7 @@
             this.tabPageSeenTutos1.Location = new System.Drawing.Point(4, 22);
             this.tabPageSeenTutos1.Name = "tabPageSeenTutos1";
             this.tabPageSeenTutos1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenTutos1.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenTutos1.Size = new System.Drawing.Size(852, 514);
             this.tabPageSeenTutos1.TabIndex = 1;
             this.tabPageSeenTutos1.Text = "Tutorials";
             this.tabPageSeenTutos1.UseVisualStyleBackColor = true;
@@ -2038,7 +2038,7 @@
             this.dataGridViewSeenTutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenTutos.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenTutos.Name = "dataGridViewSeenTutos";
-            this.dataGridViewSeenTutos.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenTutos.Size = new System.Drawing.Size(846, 508);
             this.dataGridViewSeenTutos.TabIndex = 2;
             this.dataGridViewSeenTutos.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenTutos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenTutos_CellEndEdit);
@@ -2049,7 +2049,7 @@
             this.tabPageSeenPics1.Location = new System.Drawing.Point(4, 22);
             this.tabPageSeenPics1.Name = "tabPageSeenPics1";
             this.tabPageSeenPics1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenPics1.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenPics1.Size = new System.Drawing.Size(852, 514);
             this.tabPageSeenPics1.TabIndex = 2;
             this.tabPageSeenPics1.Text = "Pictures";
             this.tabPageSeenPics1.UseVisualStyleBackColor = true;
@@ -2064,7 +2064,7 @@
             this.dataGridViewSeenPics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenPics.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenPics.Name = "dataGridViewSeenPics";
-            this.dataGridViewSeenPics.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenPics.Size = new System.Drawing.Size(846, 508);
             this.dataGridViewSeenPics.TabIndex = 2;
             this.dataGridViewSeenPics.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenPics.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenPics_CellEndEdit);
@@ -2075,7 +2075,7 @@
             this.tabPageSeenMessages.Location = new System.Drawing.Point(4, 22);
             this.tabPageSeenMessages.Name = "tabPageSeenMessages";
             this.tabPageSeenMessages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenMessages.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenMessages.Size = new System.Drawing.Size(852, 514);
             this.tabPageSeenMessages.TabIndex = 3;
             this.tabPageSeenMessages.Text = "Messages";
             this.tabPageSeenMessages.UseVisualStyleBackColor = true;
@@ -2090,7 +2090,7 @@
             this.dataGridViewSeenMessages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenMessages.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenMessages.Name = "dataGridViewSeenMessages";
-            this.dataGridViewSeenMessages.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenMessages.Size = new System.Drawing.Size(846, 508);
             this.dataGridViewSeenMessages.TabIndex = 4;
             this.dataGridViewSeenMessages.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenMessages.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenMessages_CellEndEdit);
@@ -2101,7 +2101,7 @@
             this.tabPageSeenJournal.Location = new System.Drawing.Point(4, 22);
             this.tabPageSeenJournal.Name = "tabPageSeenJournal";
             this.tabPageSeenJournal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenJournal.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenJournal.Size = new System.Drawing.Size(852, 514);
             this.tabPageSeenJournal.TabIndex = 4;
             this.tabPageSeenJournal.Text = "Journal pages";
             this.tabPageSeenJournal.UseVisualStyleBackColor = true;
@@ -2116,7 +2116,7 @@
             this.dataGridViewSeenJournal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSeenJournal.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSeenJournal.Name = "dataGridViewSeenJournal";
-            this.dataGridViewSeenJournal.Size = new System.Drawing.Size(846, 506);
+            this.dataGridViewSeenJournal.Size = new System.Drawing.Size(846, 508);
             this.dataGridViewSeenJournal.TabIndex = 5;
             this.dataGridViewSeenJournal.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridViewSeenJournal.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSeenJournal_CellEndEdit);
@@ -2129,7 +2129,7 @@
             this.tabPageSeenMisc.Location = new System.Drawing.Point(4, 22);
             this.tabPageSeenMisc.Name = "tabPageSeenMisc";
             this.tabPageSeenMisc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSeenMisc.Size = new System.Drawing.Size(852, 512);
+            this.tabPageSeenMisc.Size = new System.Drawing.Size(852, 514);
             this.tabPageSeenMisc.TabIndex = 5;
             this.tabPageSeenMisc.Text = "Miscellaneous";
             this.tabPageSeenMisc.UseVisualStyleBackColor = true;
@@ -2371,7 +2371,7 @@
             this.tabPageObjectivesActiveCueGroups.Location = new System.Drawing.Point(4, 22);
             this.tabPageObjectivesActiveCueGroups.Name = "tabPageObjectivesActiveCueGroups";
             this.tabPageObjectivesActiveCueGroups.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageObjectivesActiveCueGroups.Size = new System.Drawing.Size(846, 506);
+            this.tabPageObjectivesActiveCueGroups.Size = new System.Drawing.Size(846, 508);
             this.tabPageObjectivesActiveCueGroups.TabIndex = 1;
             this.tabPageObjectivesActiveCueGroups.Text = "Active cue groups";
             this.tabPageObjectivesActiveCueGroups.UseVisualStyleBackColor = true;
@@ -2383,7 +2383,7 @@
             this.flowLayoutPanelActiveObjectiveCueGroups.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanelActiveObjectiveCueGroups.Name = "flowLayoutPanelActiveObjectiveCueGroups";
             this.flowLayoutPanelActiveObjectiveCueGroups.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.flowLayoutPanelActiveObjectiveCueGroups.Size = new System.Drawing.Size(840, 500);
+            this.flowLayoutPanelActiveObjectiveCueGroups.Size = new System.Drawing.Size(840, 502);
             this.flowLayoutPanelActiveObjectiveCueGroups.TabIndex = 0;
             // 
             // tabPageOutfits
@@ -3294,7 +3294,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(890, 620);
+            this.MinimumSize = new System.Drawing.Size(890, 673);
             this.Name = "MainForm";
             this.Text = "Life is Strange 2 Save Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
