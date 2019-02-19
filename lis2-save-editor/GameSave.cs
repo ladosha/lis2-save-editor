@@ -92,29 +92,22 @@ namespace lis2_save_editor
                 SaveIsValid.ErrorMessage = $"Exception - {e.Message}";
             }
 
-            //string facts = GenerateFactsSQL();
+            string facts = GenerateFactsSQL();
+            string inv = GenerateInventorySQL();
+            string jour = GenerateJournalSQL();
+            string msgs = GenerateMessageSQL();
+            string drawsql = GenerateDrawingSQL();
+            string outf = GenerateOutfitSQL();
+            string levsql = GenerateLevelSQL();
+            string cinsql = GenerateCinematicSQL();
+            var sp = GenerateSeenPicsSQL();
+            string ao = GenerateObjectiveCueGroupsSQL();
 
-            //string outf = GenerateOutfitSQL();
-
-            //string inv = GenerateInventorySQL();
-
-            //string levsql = GenerateLevelSQL();
-
-            //string cinsql = GenerateCinematicSQL();
-
-            //string drawsql = GenerateDrawingSQL();
 
             //ReadFacts();
 
-            //string jour = GenerateJournalSQL();
-            //string msgs = GenerateMessageSQL();
-
-            //var sp = GenerateSeenPicsSQL();
-
-            //string ao = GenerateObjectiveCueGroupsSQL();
-
             //File.AppendAllText($"FORDB-{Guid.NewGuid()}.txt", facts + outf + inv + levsql);
-            //File.AppendAllText("FORDB.txt", jour+msgs);
+            File.AppendAllText("FORDB.txt", inv);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
@@ -207,31 +200,39 @@ namespace lis2_save_editor
             StringBuilder sb = new StringBuilder();
             if (saveVersion == SaveVersion.CaptainSpirit)
             {
-                return "";
-            }
-            else
-            {
-                sb.AppendLine("insert or ignore into LIS2Inventory (ID, Type, Owner) values");
-            }
+                sb.AppendLine("insert or ignore into CSInventory (ID, Type) values");
 
-            foreach (var owner in new string[] {"Player", "BrotherAI" })
-            {
-                string ownerPrefix = owner == "Player" ? "Player" : "AI";
+                var items = Data["CurrentSubContextSaveData"].Value["PlayerSaveData"].Value["PlayerInventorySaveData"].Value;
 
-                var items = Data["CurrentSubContextSaveData"].Value[$"{owner}SaveData"].Value[$"{ownerPrefix}InventorySaveData"].Value;
-
-                foreach(var type in new string[] { "Inventory", "BackPack", "Pockets" })
+                foreach (var type in new string[] { "Inventory", "BackPack", "Pockets" })
                 {
                     foreach (var item in ((List<dynamic>)items[$"{type}Items"].Value).Skip(1))
                     {
                         var id = item["PickupID"].Value.ToString();
-                        sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", id, type, owner);
+                        sb.AppendFormat("(\"{0}\", \"{1}\"),\n", id, type);
                     }
                 }
             }
-
-            if (saveVersion >= SaveVersion.LIS_E1)
+            else
             {
+                sb.AppendLine("insert or ignore into LIS2Inventory (ID, Type, Owner) values");
+
+                foreach (var owner in new string[] { "Player", "BrotherAI" })
+                {
+                    string ownerPrefix = owner == "Player" ? "Player" : "AI";
+
+                    var items = Data["CurrentSubContextSaveData"].Value[$"{owner}SaveData"].Value[$"{ownerPrefix}InventorySaveData"].Value;
+
+                    foreach (var type in new string[] { "Inventory", "BackPack", "Pockets" })
+                    {
+                        foreach (var item in ((List<dynamic>)items[$"{type}Items"].Value).Skip(1))
+                        {
+                            var id = item["PickupID"].Value.ToString();
+                            sb.AppendFormat("(\"{0}\", \"{1}\", \"{2}\"),\n", id, type, owner);
+                        }
+                    }
+                }
+
                 for (int i = 1; i <= Data["CheckpointHistory"].ElementCount; i++)
                 {
                     foreach (var owner in new string[] { "Player", "BrotherAI" })
@@ -251,6 +252,7 @@ namespace lis2_save_editor
                     }
                 }
             }
+
             sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
             return sb.ToString();
         }
@@ -474,7 +476,7 @@ namespace lis2_save_editor
                 var lvl_name = level["LevelName"].Value;
                 sb.AppendFormat("insert or ignore into {1}Levels (Name) values (\"{0}\");\n", lvl_name, table);
 
-                /*
+                
                 //interactions
                 List<dynamic> actor_list = level["InteractionsSaveData"].Value["InteractionActors"].Value;
                 foreach (var actor in actor_list.Skip(1))
@@ -543,7 +545,7 @@ namespace lis2_save_editor
                 {
                     throw new Exception("Found timelines!");
                 }
-                */
+                
 
                 //CriWareMoviesSaveData
                 List<dynamic> criware_list = level["CriWareMoviesSaveData"].Value["PlayingCriWareMovies"].Value;
@@ -558,7 +560,7 @@ namespace lis2_save_editor
                     sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
                 }
 
-                /*
+                
 
                 //LevelChanges
                 Dictionary<string, dynamic> lvl_changes = level["LevelChangesSaveData"].Value;
@@ -647,7 +649,7 @@ namespace lis2_save_editor
                         sb.AppendFormat("insert or ignore into {0}LevelFunctions (Name, LevelName, Type) values ('{1}', '{2}', '{3}');\n", table, func_name, lvl_name, $"On{t}");
                     }
                 }
-                */
+                
             }
 
             if (saveVersion >= SaveVersion.LIS_E1)
@@ -824,12 +826,16 @@ namespace lis2_save_editor
 
             if (saveVersion == SaveVersion.CaptainSpirit)
             {
-                List<dynamic> cin_list = Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value["PT"]["PlayedCinematics"].Value;
-                foreach (var cin in cin_list.Skip(1))
+                Dictionary<dynamic,dynamic> cin_list =
+                    Data["CinematicHistorySaveData"].Value["SubcontextCinematicHistorySaveData"].Value;
+                if (cin_list.Count > 0)
                 {
-                    string cin_guid = cin["Guid"].ToString();
-                    sb.AppendFormat("insert or ignore into {0}Cinematics (GUID) values (\"{1}\");\n", table, cin_guid);
-                }
+                    foreach (var cin in ((List<dynamic>)cin_list["PT"]["PlayedCinematics"].Value).Skip(1))
+                    {
+                        string cin_guid = cin["Guid"].ToString();
+                        sb.AppendFormat("insert or ignore into {0}Cinematics (GUID) values (\"{1}\");\n", table, cin_guid);
+                    }
+                }  
             }
             else
             {

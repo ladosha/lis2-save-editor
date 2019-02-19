@@ -1462,7 +1462,7 @@ namespace lis2_save_editor
                 {
                     Location = new Point(8, lbl_y),
                     Text = "Cue indexes:",
-                    AutoSize = true
+                    AutoSize = true,
                 };
                 gbox.Controls.Add(lbl_indexes);
 
@@ -1666,7 +1666,7 @@ namespace lis2_save_editor
             if (_gameSave.saveVersion == SaveVersion.CaptainSpirit)
             {
                 int cb_x = 3, cb_y = 3, i = 0;
-                List<dynamic> save_cin_list = ((List<dynamic>)root["PT"]["PlayedCinematics"].Value).Skip(1).ToList();
+                List<dynamic> save_cin_list = root.Count == 0 ? new List<dynamic>() : ((List<dynamic>)root["PT"]["PlayedCinematics"].Value).Skip(1).ToList();
                 int max_length = 0;
                 
                 foreach (var l in GameInfo.CS_Cinematics.Select(x => x.Name))
@@ -3057,6 +3057,7 @@ namespace lis2_save_editor
             List<dynamic> cin_list;
             if (!root.ContainsKey(info[0])) //Add new subcontext
             {
+                var eltype = _gameSave.saveVersion == SaveVersion.CaptainSpirit ? "Guid" : "LIS2SequencePlayConditions";
                 Dictionary<string, dynamic> new_cont = new Dictionary<string, dynamic>()
                 {
                     {
@@ -3071,7 +3072,7 @@ namespace lis2_save_editor
                                     { "struct_name", "PlayedCinematics" },
                                     {"struct_type", "StructProperty" },
                                     {"struct_length", 0 },
-                                    {"struct_eltype", "LIS2SequencePlayConditions" },
+                                    {"struct_eltype", eltype },
                                     {"struct_unkbytes", new byte[17] }
                                 }
                             }
