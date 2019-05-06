@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +93,8 @@ namespace lis2_save_editor
                 SaveIsValid.ErrorMessage = $"Exception - {e.Message}";
             }
 
+            /*
+
             string facts = GenerateFactsSQL();
             string inv = GenerateInventorySQL();
             string jour = GenerateJournalSQL();
@@ -100,18 +103,22 @@ namespace lis2_save_editor
             string outf = GenerateOutfitSQL();
             string levsql = GenerateLevelSQL();
             string cinsql = GenerateCinematicSQL();
-            var sp = GenerateSeenPicsSQL();
+            string sp = GenerateSeenPicsSQL();
             string ao = GenerateObjectiveCueGroupsSQL();
 
 
-            //ReadFacts();
+            string file_facts = ReadFacts_enc();
+
+            */
 
             //File.AppendAllText($"FORDB-{Guid.NewGuid()}.txt", facts + outf + inv + levsql);
-            File.AppendAllText("FORDB.txt", inv);
+            //File.AppendAllText("FORDB.txt", inv);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
             //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
         }
+
+        #region SQL helper functions
 
         public string GenerateFactsSQL()
         {
@@ -988,6 +995,66 @@ namespace lis2_save_editor
             string ts = string.Join("\n", gs.Values);
         }
 
+        public static string ReadFacts_enc()
+        {
+            var file = File.OpenRead(@"D:\exported\LIS_2\root\E2_VERSION\E2-Cooked\LevelDesign\Fact\PROM\Episode2\FD_E2_1B.uexp");
+            BinaryReader br = new BinaryReader(file);
+            StringBuilder sb = new StringBuilder();
+            SortedDictionary<byte, Guid> guids = new SortedDictionary<byte, Guid>();
+            br.ReadBytes(49); //change
+            string assetguid = new Guid(br.ReadBytes(16)).ToString();
+            br.ReadBytes(34); //change
+            while (file.Position < file.Length - 30) /*change*/
+            {
+                while (true)
+                {
+                    if (br.ReadByte() == 48) break; /*change*/
+                }
+
+                if (br.ReadByte() != 0) continue;
+                br.BaseStream.Position -= 18;
+                var testBytes = br.ReadBytes(16);
+                var zeroCnt = 0;
+                foreach (var b in testBytes)
+                {
+                    if (b == 0) zeroCnt++;
+                }
+                if (zeroCnt < 7)
+                {
+                    Guid guid = new Guid(testBytes);
+                    br.BaseStream.Position -= 73; //16b guid + 57 bytes
+                    byte key = br.ReadByte();
+                    guids.Add(key, guid);
+                    br.BaseStream.Position += 72; //return back
+                }
+                br.ReadByte();
+            }
+
+            string[] names = new string[]
+            {
+                "F_E2_1B_CallDanielCounter",
+                "F_E2_1B_CougarKilled",
+                "F_E2_1B_DialBury_Religious_Doubt",
+                "F_E2_1B_DialBury_Religious_No",
+                "F_E2_1B_DialBury_Religious_Yes",
+                "F_E2_1B_EndReached",
+                "F_E2_1B_KerchiefCollected",
+                "F_E2_1B_Puma_DontIntervene",
+                "F_E2_1B_Puma_StopDaniel",
+            };
+
+            var res = names.Zip<string, Guid, string>(guids.Values, (s, guid) => $"(\"{guid.ToString()}\", \"{assetguid}\", \"{s}\"),\n");
+
+            sb.AppendLine("insert or ignore into LIS2Facts (FactGUID, AssetGUID, Name) values");
+            foreach (var line in res)
+            {
+                sb.Append(line);
+            }
+
+            sb = sb.Replace(",\n", ";\n", sb.Length - 3, 3);
+            return sb.ToString();
+        }
+
         public string GenerateObjectiveCueGroupsSQL()
         {
             StringBuilder sb = new StringBuilder();
@@ -1026,6 +1093,8 @@ namespace lis2_save_editor
             return sb.ToString();
         }
 
+        #endregion
+
         public void WriteSaveToFile(string savePath)
         {
             var new_file = new MemoryStream();
@@ -1053,6 +1122,8 @@ namespace lis2_save_editor
             SaveChangesSaved = true;
         }
 
+        #region Editing functions
+
         public void EditInventoryItem(string invType, string name, string owner, int cpIndex, int colIndex, int val)
         {
             List<dynamic> target;
@@ -1068,30 +1139,30 @@ namespace lis2_save_editor
                 target = Data["CheckpointHistory"].Value[cpIndex][$"{owner}SaveData"]
                                .Value[$"{ownerPrefix}InventorySaveData"].Value[$"{invType}Items"].Value;
             }
-            
+
             int index = target.FindIndex(1, x => x["PickupID"].Value == name);
 
             if (index == -1) //Add new item
             {
                 Dictionary<string, object> new_item = new Dictionary<string, object>
                 {
-                    ["PickupID"] = new NameProperty() {Name = "PickupID", Value = name},
-                    ["Quantity"] = new IntProperty() {Name = "Quantity", Value = colIndex == 2 ? val : 0}
+                    ["PickupID"] = new NameProperty() { Name = "PickupID", Value = name },
+                    ["Quantity"] = new IntProperty() { Name = "Quantity", Value = colIndex == 2 ? val : 0 }
                 };
-                if(saveVersion >= SaveVersion.LIS_E1)
+                if (saveVersion >= SaveVersion.LIS_E1)
                 {
                     new_item["bIsNew"] = new BoolProperty() { Name = "bIsNew", Value = colIndex == 3 ? Convert.ToBoolean(val) : false };
                 }
-                
+
                 target.AddUnique(new_item);
             }
             else
             {
-                switch(colIndex)
+                switch (colIndex)
                 {
                     case 1:
                         {
-                            if(Convert.ToBoolean(val) == false)
+                            if (Convert.ToBoolean(val) == false)
                             {
                                 target.RemoveAt(index);
                             }
@@ -1124,7 +1195,7 @@ namespace lis2_save_editor
                 target = Data["CheckpointHistory"].Value[cpIndex]["PlayerSaveData"]
                          .Value["AlreadySeenTutorials"].Value;
             }
-                
+
             if (colIndex == 1 && Convert.ToBoolean(value) == false) //remove item
             {
                 target.Remove(name);
@@ -1210,7 +1281,7 @@ namespace lis2_save_editor
                 }
                 else
                 {
-                        target.RemoveAt(index);
+                    target.RemoveAt(index);
                 }
             }
             else
@@ -1262,7 +1333,7 @@ namespace lis2_save_editor
                     }
                     else //Edit existing
                     {
-                        switch(colIndex)
+                        switch (colIndex)
                         {
                             case 2:
                                 {
@@ -1275,7 +1346,7 @@ namespace lis2_save_editor
                                     break;
                                 }
                         }
-                       
+
                     }
                 }
             }
@@ -1297,7 +1368,7 @@ namespace lis2_save_editor
             }
 
             var target_ind = root.FindIndex(1, x => x["CollectibleGUID"].Value["Guid"] == guid);
-            if(target_ind == -1) //Add new item
+            if (target_ind == -1) //Add new item
             {
                 Dictionary<string, dynamic> new_item = new Dictionary<string, dynamic>()
                 {
@@ -1467,5 +1538,8 @@ namespace lis2_save_editor
                 root.RemoveAt(target_ind);
             }
         }
+
+        #endregion
+
     }
 }
