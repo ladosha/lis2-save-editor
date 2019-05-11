@@ -264,7 +264,7 @@ namespace lis2_save_editor
         {
             "Roads",
             "Rules",
-            "Episode 03",
+            "Wastelands",
             "Episode 04",
             "Episode 05",
         };

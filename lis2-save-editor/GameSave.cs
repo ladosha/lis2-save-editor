@@ -48,6 +48,12 @@ namespace lis2_save_editor
                 if (reader.ReadByte() != saveFileHeader[i])
                 {
                     SaveIsValid.Status = false;
+                    reader.BaseStream.Position = 8;
+                    if (reader.ReadByte() != 2)
+                    {
+                        SaveIsValid.ErrorMessage = Resources.SaveFileCompressedError;
+                        return;
+                    }
                     reader.BaseStream.Position = 49;
                     try
                     {
@@ -115,7 +121,7 @@ namespace lis2_save_editor
             //File.AppendAllText("FORDB.txt", inv);
 
             //string json = JsonConvert.SerializeObject(Data, Formatting.Indented);
-            //File.WriteAllText("data_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
+            //File.WriteAllText("data_EP3EA_" + Path.GetFileNameWithoutExtension(savePath)+".json", json);
         }
 
         #region SQL helper functions

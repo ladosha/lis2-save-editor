@@ -168,6 +168,15 @@ namespace lis2_save_editor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Life is Strange 2 save files generated after the release of Episode 3 are not yet supported..
+        /// </summary>
+        internal static string SaveFileCompressedError {
+            get {
+                return ResourceManager.GetString("SaveFileCompressedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File header mismatch. This means that the file is corrupted or never was a save file in the first place..
         /// </summary>
         internal static string SaveHeaderMismatchError {

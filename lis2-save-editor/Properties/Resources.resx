@@ -165,4 +165,7 @@ Version: {0}</value>
   <data name="NoUpdatesFoundMessage" xml:space="preserve">
     <value>No updates were found!</value>
   </data>
+  <data name="SaveFileCompressedError" xml:space="preserve">
+    <value>Life is Strange 2 save files generated after the release of Episode 3 are not yet supported.</value>
+  </data>
 </root>
