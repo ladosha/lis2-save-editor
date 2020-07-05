@@ -181,7 +181,14 @@ namespace lis2_save_editor
                                     }
                                 case "DateTime":
                                     {
-                                        value.Add("DateTime", DateTime.FromFileTime(reader.ReadInt64()).AddYears(-1600));                                        
+                                        try {
+                                            value.Add("DateTime", DateTime.FromFileTime(reader.ReadInt64()).AddYears(-1600));
+                                        } catch
+                                        {
+                                            
+                                            value.Add("DateTime", new DateTime(1990, 1, 1));
+                                        }
+                                        ;
                                         break;
                                     }
                                 default:

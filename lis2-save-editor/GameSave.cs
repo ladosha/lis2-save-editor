@@ -78,13 +78,13 @@ namespace lis2_save_editor
 
             if (!Enum.IsDefined(typeof(SaveVersion), gameSpecificHeader[8]))
             {
-                SaveIsValid.Status = false;
-                SaveIsValid.ErrorMessage = Resources.SaveVersionUnknownError;
+                //SaveIsValid.Status = false;
+                //SaveIsValid.ErrorMessage = Resources.SaveVersionUnknownError;
             }
             saveVersion = (SaveVersion)gameSpecificHeader[8];
 
             Data = new Dictionary<string, dynamic>();
-
+            
             try
             {
                 while (reader.BaseStream.Position < reader.BaseStream.Length - 13) //Final None string and 4 empty bytes shouldn't be part of the data
@@ -99,8 +99,8 @@ namespace lis2_save_editor
                 SaveIsValid.ErrorMessage = $"Exception - {e.Message}";
             }
 
+            
             /*
-
             string facts = GenerateFactsSQL();
             string inv = GenerateInventorySQL();
             string jour = GenerateJournalSQL();
@@ -114,8 +114,8 @@ namespace lis2_save_editor
 
 
             string file_facts = ReadFacts_enc();
-
             */
+            
 
             //File.AppendAllText($"FORDB-{Guid.NewGuid()}.txt", facts + outf + inv + levsql);
             //File.AppendAllText("FORDB.txt", inv);
