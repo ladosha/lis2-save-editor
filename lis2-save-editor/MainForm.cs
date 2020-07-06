@@ -172,7 +172,12 @@ namespace lis2_save_editor
                 comboBoxHeader_EPNumber.SelectedIndex = header["EpisodeNumber"].Value - 1;
                 if (header["SubContextName"].Value.Length > 0)
                 {
-                    comboBoxHeader_SubContextName.SelectedItem = GameInfo.LIS2_SubContextNames[header["SubContextName"].Value[1]];
+                    // necessary for end of episode 5
+                    try {
+                        comboBoxHeader_SubContextName.SelectedItem = GameInfo.LIS2_SubContextNames[header["SubContextName"].Value[1]];
+                    } catch {
+                        comboBoxHeader_SubContextName.SelectedItem = GameInfo.LIS2_SubContextNames["NONE"];
+                    }
                 }
                 else
                 {
@@ -935,7 +940,7 @@ namespace lis2_save_editor
             {
                 asset_list = _gameSave.Data["CheckpointHistory"].Value[cpIndex]["FactsSaveData"].Value;
             }
-            
+
             t.Columns.Add("Asset ID");
             t.Columns.Add("Keep values on save reset?");
             t.Columns[1].DataType = typeof(bool);
